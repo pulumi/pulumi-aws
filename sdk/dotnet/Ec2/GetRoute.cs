@@ -23,31 +23,31 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///         var selected = Output.Create(Aws.Ec2.GetRouteTable.InvokeAsync(new Aws.Ec2.GetRouteTableArgs
-        ///         {
-        ///             SubnetId = subnetId,
-        ///         }));
-        ///         var route = Output.Create(Aws.Ec2.GetRoute.InvokeAsync(new Aws.Ec2.GetRouteArgs
-        ///         {
-        ///             RouteTableId = aws_route_table.Selected.Id,
-        ///             DestinationCidrBlock = "10.0.1.0/24",
-        ///         }));
-        ///         var @interface = route.Apply(route =&gt; Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
-        ///         {
-        ///             Id = route.NetworkInterfaceId,
-        ///         })));
-        ///     }
+        ///         SubnetId = subnetId,
+        ///     });
         /// 
-        /// }
+        ///     var route = Aws.Ec2.GetRoute.Invoke(new()
+        ///     {
+        ///         RouteTableId = aws_route_table.Selected.Id,
+        ///         DestinationCidrBlock = "10.0.1.0/24",
+        ///     });
+        /// 
+        ///     var @interface = Aws.Ec2.GetNetworkInterface.Invoke(new()
+        ///     {
+        ///         Id = route.Apply(getRouteResult =&gt; getRouteResult.NetworkInterfaceId),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,31 +67,31 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///         var selected = Output.Create(Aws.Ec2.GetRouteTable.InvokeAsync(new Aws.Ec2.GetRouteTableArgs
-        ///         {
-        ///             SubnetId = subnetId,
-        ///         }));
-        ///         var route = Output.Create(Aws.Ec2.GetRoute.InvokeAsync(new Aws.Ec2.GetRouteArgs
-        ///         {
-        ///             RouteTableId = aws_route_table.Selected.Id,
-        ///             DestinationCidrBlock = "10.0.1.0/24",
-        ///         }));
-        ///         var @interface = route.Apply(route =&gt; Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
-        ///         {
-        ///             Id = route.NetworkInterfaceId,
-        ///         })));
-        ///     }
+        ///         SubnetId = subnetId,
+        ///     });
         /// 
-        /// }
+        ///     var route = Aws.Ec2.GetRoute.Invoke(new()
+        ///     {
+        ///         RouteTableId = aws_route_table.Selected.Id,
+        ///         DestinationCidrBlock = "10.0.1.0/24",
+        ///     });
+        /// 
+        ///     var @interface = Aws.Ec2.GetNetworkInterface.Invoke(new()
+        ///     {
+        ///         Id = route.Apply(getRouteResult =&gt; getRouteResult.NetworkInterfaceId),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
@@ -190,9 +190,10 @@ namespace Pulumi.Aws.Ec2
         public GetRouteArgs()
         {
         }
+        public static new GetRouteArgs Empty => new GetRouteArgs();
     }
 
-    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
@@ -281,6 +282,7 @@ namespace Pulumi.Aws.Ec2
         public GetRouteInvokeArgs()
         {
         }
+        public static new GetRouteInvokeArgs Empty => new GetRouteInvokeArgs();
     }
 
 

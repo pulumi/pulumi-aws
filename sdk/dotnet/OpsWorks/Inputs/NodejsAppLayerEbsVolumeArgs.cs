@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class NodejsAppLayerEbsVolumeArgs : Pulumi.ResourceArgs
+    public sealed class NodejsAppLayerEbsVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public NodejsAppLayerEbsVolumeArgs()
         {
         }
+        public static new NodejsAppLayerEbsVolumeArgs Empty => new NodejsAppLayerEbsVolumeArgs();
     }
 }

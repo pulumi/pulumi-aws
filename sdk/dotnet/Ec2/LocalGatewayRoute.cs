@@ -15,22 +15,20 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.LocalGatewayRoute("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.LocalGatewayRoute("example", new Aws.Ec2.LocalGatewayRouteArgs
-    ///         {
-    ///             DestinationCidrBlock = "172.16.0.0/16",
-    ///             LocalGatewayRouteTableId = data.Aws_ec2_local_gateway_route_table.Example.Id,
-    ///             LocalGatewayVirtualInterfaceGroupId = data.Aws_ec2_local_gateway_virtual_interface_group.Example.Id,
-    ///         });
-    ///     }
+    ///         DestinationCidrBlock = "172.16.0.0/16",
+    ///         LocalGatewayRouteTableId = data.Aws_ec2_local_gateway_route_table.Example.Id,
+    ///         LocalGatewayVirtualInterfaceGroupId = data.Aws_ec2_local_gateway_virtual_interface_group.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/localGatewayRoute:LocalGatewayRoute")]
-    public partial class LocalGatewayRoute : Pulumi.CustomResource
+    public partial class LocalGatewayRoute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
@@ -106,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class LocalGatewayRouteArgs : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
@@ -129,9 +127,10 @@ namespace Pulumi.Aws.Ec2
         public LocalGatewayRouteArgs()
         {
         }
+        public static new LocalGatewayRouteArgs Empty => new LocalGatewayRouteArgs();
     }
 
-    public sealed class LocalGatewayRouteState : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
@@ -154,5 +153,6 @@ namespace Pulumi.Aws.Ec2
         public LocalGatewayRouteState()
         {
         }
+        public static new LocalGatewayRouteState Empty => new LocalGatewayRouteState();
     }
 }

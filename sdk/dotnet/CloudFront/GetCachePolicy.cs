@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetCachePolicy.InvokeAsync(new Aws.CloudFront.GetCachePolicyArgs
-        ///         {
-        ///             Name = "example-policy",
-        ///         }));
-        ///     }
+        ///         Name = "example-policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetCachePolicy.InvokeAsync(new Aws.CloudFront.GetCachePolicyArgs
-        ///         {
-        ///             Name = "example-policy",
-        ///         }));
-        ///     }
+        ///         Name = "example-policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetCachePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetCachePolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the cache policy.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.CloudFront
         public GetCachePolicyArgs()
         {
         }
+        public static new GetCachePolicyArgs Empty => new GetCachePolicyArgs();
     }
 
-    public sealed class GetCachePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCachePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the cache policy.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.CloudFront
         public GetCachePolicyInvokeArgs()
         {
         }
+        public static new GetCachePolicyInvokeArgs Empty => new GetCachePolicyInvokeArgs();
     }
 
 

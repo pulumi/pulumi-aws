@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetGroup.InvokeAsync(new Aws.Iam.GetGroupArgs
-        ///         {
-        ///             GroupName = "an_example_group_name",
-        ///         }));
-        ///     }
+        ///         GroupName = "an_example_group_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetGroup.InvokeAsync(new Aws.Iam.GetGroupArgs
-        ///         {
-        ///             GroupName = "an_example_group_name",
-        ///         }));
-        ///     }
+        ///         GroupName = "an_example_group_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly IAM group name to match.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Iam
         public GetGroupArgs()
         {
         }
+        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly IAM group name to match.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Iam
         public GetGroupInvokeArgs()
         {
         }
+        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

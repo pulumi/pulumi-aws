@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class OriginRequestPolicyHeadersConfigArgs : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyHeadersConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerBehavior")]
         public Input<string>? HeaderBehavior { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public OriginRequestPolicyHeadersConfigArgs()
         {
         }
+        public static new OriginRequestPolicyHeadersConfigArgs Empty => new OriginRequestPolicyHeadersConfigArgs();
     }
 }

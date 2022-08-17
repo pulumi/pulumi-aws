@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CrawlerCatalogTargetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerCatalogTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Glue database to be synchronized.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CrawlerCatalogTargetArgs()
         {
         }
+        public static new CrawlerCatalogTargetArgs Empty => new CrawlerCatalogTargetArgs();
     }
 }

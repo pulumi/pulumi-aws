@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicequotas"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicequotas"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
-// 			QuotaCode:   pulumi.String("L-F678F1CE"),
-// 			ServiceCode: pulumi.String("vpc"),
-// 			Value:       pulumi.Float64(75),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
+//				QuotaCode:   pulumi.String("L-F678F1CE"),
+//				ServiceCode: pulumi.String("vpc"),
+//				Value:       pulumi.Float64(75),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+//
+//	$ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+//
 // ```
 type ServiceQuota struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *ServiceQuota) ToServiceQuotaOutputWithContext(ctx context.Context) Serv
 // ServiceQuotaArrayInput is an input type that accepts ServiceQuotaArray and ServiceQuotaArrayOutput values.
 // You can construct a concrete instance of `ServiceQuotaArrayInput` via:
 //
-//          ServiceQuotaArray{ ServiceQuotaArgs{...} }
+//	ServiceQuotaArray{ ServiceQuotaArgs{...} }
 type ServiceQuotaArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i ServiceQuotaArray) ToServiceQuotaArrayOutputWithContext(ctx context.Cont
 // ServiceQuotaMapInput is an input type that accepts ServiceQuotaMap and ServiceQuotaMapOutput values.
 // You can construct a concrete instance of `ServiceQuotaMapInput` via:
 //
-//          ServiceQuotaMap{ "key": ServiceQuotaArgs{...} }
+//	ServiceQuotaMap{ "key": ServiceQuotaArgs{...} }
 type ServiceQuotaMapInput interface {
 	pulumi.Input
 

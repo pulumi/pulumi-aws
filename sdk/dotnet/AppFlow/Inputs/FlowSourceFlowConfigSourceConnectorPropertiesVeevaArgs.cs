@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The document type specified in the Veeva document extract flow.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs()
         {
         }
+        public static new FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs Empty => new FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs();
     }
 }

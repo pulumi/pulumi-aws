@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerDefaultActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public ListenerDefaultActionGetArgs()
         {
         }
+        public static new ListenerDefaultActionGetArgs Empty => new ListenerDefaultActionGetArgs();
     }
 }

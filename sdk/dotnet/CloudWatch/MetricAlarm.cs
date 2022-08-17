@@ -15,221 +15,212 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
     ///     {
-    ///         var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new Aws.CloudWatch.MetricAlarmArgs
-    ///         {
-    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             EvaluationPeriods = 2,
-    ///             InsufficientDataActions = {},
-    ///             MetricName = "CPUUtilization",
-    ///             Namespace = "AWS/EC2",
-    ///             Period = 120,
-    ///             Statistic = "Average",
-    ///             Threshold = 80,
-    ///         });
-    ///     }
+    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         InsufficientDataActions = new[] {},
+    ///         MetricName = "CPUUtilization",
+    ///         Namespace = "AWS/EC2",
+    ///         Period = 120,
+    ///         Statistic = "Average",
+    ///         Threshold = 80,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Example in Conjunction with Scaling Policies
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var batPolicy = new Aws.AutoScaling.Policy("batPolicy", new()
     ///     {
-    ///         var batPolicy = new Aws.AutoScaling.Policy("batPolicy", new Aws.AutoScaling.PolicyArgs
-    ///         {
-    ///             ScalingAdjustment = 4,
-    ///             AdjustmentType = "ChangeInCapacity",
-    ///             Cooldown = 300,
-    ///             AutoscalingGroupName = aws_autoscaling_group.Bar.Name,
-    ///         });
-    ///         var batMetricAlarm = new Aws.CloudWatch.MetricAlarm("batMetricAlarm", new Aws.CloudWatch.MetricAlarmArgs
-    ///         {
-    ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             EvaluationPeriods = 2,
-    ///             MetricName = "CPUUtilization",
-    ///             Namespace = "AWS/EC2",
-    ///             Period = 120,
-    ///             Statistic = "Average",
-    ///             Threshold = 80,
-    ///             Dimensions = 
-    ///             {
-    ///                 { "AutoScalingGroupName", aws_autoscaling_group.Bar.Name },
-    ///             },
-    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///             AlarmActions = 
-    ///             {
-    ///                 batPolicy.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///         ScalingAdjustment = 4,
+    ///         AdjustmentType = "ChangeInCapacity",
+    ///         Cooldown = 300,
+    ///         AutoscalingGroupName = aws_autoscaling_group.Bar.Name,
+    ///     });
     /// 
-    /// }
+    ///     var batMetricAlarm = new Aws.CloudWatch.MetricAlarm("batMetricAlarm", new()
+    ///     {
+    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         MetricName = "CPUUtilization",
+    ///         Namespace = "AWS/EC2",
+    ///         Period = 120,
+    ///         Statistic = "Average",
+    ///         Threshold = 80,
+    ///         Dimensions = 
+    ///         {
+    ///             { "AutoScalingGroupName", aws_autoscaling_group.Bar.Name },
+    ///         },
+    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///         AlarmActions = new[]
+    ///         {
+    ///             batPolicy.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Example with an Expression
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
     ///     {
-    ///         var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new Aws.CloudWatch.MetricAlarmArgs
+    ///         AlarmDescription = "Request error rate has exceeded 10%",
+    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         InsufficientDataActions = new[] {},
+    ///         MetricQueries = new[]
     ///         {
-    ///             AlarmDescription = "Request error rate has exceeded 10%",
-    ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             EvaluationPeriods = 2,
-    ///             InsufficientDataActions = {},
-    ///             MetricQueries = 
+    ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {
-    ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
+    ///                 Expression = "m2/m1*100",
+    ///                 Id = "e1",
+    ///                 Label = "Error Rate",
+    ///                 ReturnData = true,
+    ///             },
+    ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
+    ///             {
+    ///                 Id = "m1",
+    ///                 Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
     ///                 {
-    ///                     Expression = "m2/m1*100",
-    ///                     Id = "e1",
-    ///                     Label = "Error Rate",
-    ///                     ReturnData = true,
-    ///                 },
-    ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
-    ///                 {
-    ///                     Id = "m1",
-    ///                     Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
+    ///                     Dimensions = 
     ///                     {
-    ///                         Dimensions = 
-    ///                         {
-    ///                             { "LoadBalancer", "app/web" },
-    ///                         },
-    ///                         MetricName = "RequestCount",
-    ///                         Namespace = "AWS/ApplicationELB",
-    ///                         Period = 120,
-    ///                         Stat = "Sum",
-    ///                         Unit = "Count",
+    ///                         { "LoadBalancer", "app/web" },
     ///                     },
-    ///                 },
-    ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
-    ///                 {
-    ///                     Id = "m2",
-    ///                     Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
-    ///                     {
-    ///                         Dimensions = 
-    ///                         {
-    ///                             { "LoadBalancer", "app/web" },
-    ///                         },
-    ///                         MetricName = "HTTPCode_ELB_5XX_Count",
-    ///                         Namespace = "AWS/ApplicationELB",
-    ///                         Period = 120,
-    ///                         Stat = "Sum",
-    ///                         Unit = "Count",
-    ///                     },
+    ///                     MetricName = "RequestCount",
+    ///                     Namespace = "AWS/ApplicationELB",
+    ///                     Period = 120,
+    ///                     Stat = "Sum",
+    ///                     Unit = "Count",
     ///                 },
     ///             },
-    ///             Threshold = 10,
-    ///         });
-    ///     }
+    ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
+    ///             {
+    ///                 Id = "m2",
+    ///                 Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
+    ///                 {
+    ///                     Dimensions = 
+    ///                     {
+    ///                         { "LoadBalancer", "app/web" },
+    ///                     },
+    ///                     MetricName = "HTTPCode_ELB_5XX_Count",
+    ///                     Namespace = "AWS/ApplicationELB",
+    ///                     Period = 120,
+    ///                     Stat = "Sum",
+    ///                     Unit = "Count",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Threshold = 10,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var xxAnomalyDetection = new Aws.CloudWatch.MetricAlarm("xxAnomalyDetection", new()
     ///     {
-    ///         var xxAnomalyDetection = new Aws.CloudWatch.MetricAlarm("xxAnomalyDetection", new Aws.CloudWatch.MetricAlarmArgs
+    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///         ComparisonOperator = "GreaterThanUpperThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         InsufficientDataActions = new[] {},
+    ///         MetricQueries = new[]
     ///         {
-    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///             ComparisonOperator = "GreaterThanUpperThreshold",
-    ///             EvaluationPeriods = 2,
-    ///             InsufficientDataActions = {},
-    ///             MetricQueries = 
+    ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {
-    ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
-    ///                 {
-    ///                     Expression = "ANOMALY_DETECTION_BAND(m1)",
-    ///                     Id = "e1",
-    ///                     Label = "CPUUtilization (Expected)",
-    ///                     ReturnData = true,
-    ///                 },
-    ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
-    ///                 {
-    ///                     Id = "m1",
-    ///                     Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
-    ///                     {
-    ///                         Dimensions = 
-    ///                         {
-    ///                             { "InstanceId", "i-abc123" },
-    ///                         },
-    ///                         MetricName = "CPUUtilization",
-    ///                         Namespace = "AWS/EC2",
-    ///                         Period = 120,
-    ///                         Stat = "Average",
-    ///                         Unit = "Count",
-    ///                     },
-    ///                     ReturnData = true,
-    ///                 },
+    ///                 Expression = "ANOMALY_DETECTION_BAND(m1)",
+    ///                 Id = "e1",
+    ///                 Label = "CPUUtilization (Expected)",
+    ///                 ReturnData = true,
     ///             },
-    ///             ThresholdMetricId = "e1",
-    ///         });
-    ///     }
+    ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
+    ///             {
+    ///                 Id = "m1",
+    ///                 Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
+    ///                 {
+    ///                     Dimensions = 
+    ///                     {
+    ///                         { "InstanceId", "i-abc123" },
+    ///                     },
+    ///                     MetricName = "CPUUtilization",
+    ///                     Namespace = "AWS/EC2",
+    ///                     Period = 120,
+    ///                     Stat = "Average",
+    ///                     Unit = "Count",
+    ///                 },
+    ///                 ReturnData = true,
+    ///             },
+    ///         },
+    ///         ThresholdMetricId = "e1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var nlbHealthyhosts = new Aws.CloudWatch.MetricAlarm("nlbHealthyhosts", new()
     ///     {
-    ///         var nlbHealthyhosts = new Aws.CloudWatch.MetricAlarm("nlbHealthyhosts", new Aws.CloudWatch.MetricAlarmArgs
+    ///         ComparisonOperator = "LessThanThreshold",
+    ///         EvaluationPeriods = 1,
+    ///         MetricName = "HealthyHostCount",
+    ///         Namespace = "AWS/NetworkELB",
+    ///         Period = 60,
+    ///         Statistic = "Average",
+    ///         Threshold = @var.Logstash_servers_count,
+    ///         AlarmDescription = "Number of healthy nodes in Target Group",
+    ///         ActionsEnabled = true,
+    ///         AlarmActions = new[]
     ///         {
-    ///             ComparisonOperator = "LessThanThreshold",
-    ///             EvaluationPeriods = 1,
-    ///             MetricName = "HealthyHostCount",
-    ///             Namespace = "AWS/NetworkELB",
-    ///             Period = 60,
-    ///             Statistic = "Average",
-    ///             Threshold = @var.Logstash_servers_count,
-    ///             AlarmDescription = "Number of healthy nodes in Target Group",
-    ///             ActionsEnabled = true,
-    ///             AlarmActions = 
-    ///             {
-    ///                 aws_sns_topic.Sns.Arn,
-    ///             },
-    ///             OkActions = 
-    ///             {
-    ///                 aws_sns_topic.Sns.Arn,
-    ///             },
-    ///             Dimensions = 
-    ///             {
-    ///                 { "TargetGroup", aws_lb_target_group.Lb_tg.Arn_suffix },
-    ///                 { "LoadBalancer", aws_lb.Lb.Arn_suffix },
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_sns_topic.Sns.Arn,
+    ///         },
+    ///         OkActions = new[]
+    ///         {
+    ///             aws_sns_topic.Sns.Arn,
+    ///         },
+    ///         Dimensions = 
+    ///         {
+    ///             { "TargetGroup", aws_lb_target_group.Lb_tg.Arn_suffix },
+    ///             { "LoadBalancer", aws_lb.Lb.Arn_suffix },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
@@ -244,7 +235,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/metricAlarm:MetricAlarm")]
-    public partial class MetricAlarm : Pulumi.CustomResource
+    public partial class MetricAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -369,7 +360,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -442,7 +433,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class MetricAlarmArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -623,9 +614,10 @@ namespace Pulumi.Aws.CloudWatch
         public MetricAlarmArgs()
         {
         }
+        public static new MetricAlarmArgs Empty => new MetricAlarmArgs();
     }
 
-    public sealed class MetricAlarmState : Pulumi.ResourceArgs
+    public sealed class MetricAlarmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -789,7 +781,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -824,5 +816,6 @@ namespace Pulumi.Aws.CloudWatch
         public MetricAlarmState()
         {
         }
+        public static new MetricAlarmState Empty => new MetricAlarmState();
     }
 }

@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Emr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Emr.StudioSessionMapping("example", new()
     ///     {
-    ///         var example = new Aws.Emr.StudioSessionMapping("example", new Aws.Emr.StudioSessionMappingArgs
-    ///         {
-    ///             StudioId = aws_emr_studio.Example.Id,
-    ///             IdentityType = "USER",
-    ///             IdentityId = "example",
-    ///             SessionPolicyArn = aws_iam_policy.Example.Arn,
-    ///         });
-    ///     }
+    ///         StudioId = aws_emr_studio.Example.Id,
+    ///         IdentityType = "USER",
+    ///         IdentityId = "example",
+    ///         SessionPolicyArn = aws_iam_policy.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Emr
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/studioSessionMapping:StudioSessionMapping")]
-    public partial class StudioSessionMapping : Pulumi.CustomResource
+    public partial class StudioSessionMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Emr
         }
     }
 
-    public sealed class StudioSessionMappingArgs : Pulumi.ResourceArgs
+    public sealed class StudioSessionMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
@@ -154,9 +152,10 @@ namespace Pulumi.Aws.Emr
         public StudioSessionMappingArgs()
         {
         }
+        public static new StudioSessionMappingArgs Empty => new StudioSessionMappingArgs();
     }
 
-    public sealed class StudioSessionMappingState : Pulumi.ResourceArgs
+    public sealed class StudioSessionMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
@@ -191,5 +190,6 @@ namespace Pulumi.Aws.Emr
         public StudioSessionMappingState()
         {
         }
+        public static new StudioSessionMappingState Empty => new StudioSessionMappingState();
     }
 }

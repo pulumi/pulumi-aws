@@ -15,19 +15,17 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var app = new Aws.Pinpoint.App("app");
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -41,21 +39,24 @@ namespace Pulumi.Aws.Pinpoint
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var email = new Aws.Pinpoint.EmailChannel("email", new Aws.Pinpoint.EmailChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             FromAddress = "user@example.com",
-    ///             RoleArn = role.Arn,
-    ///         });
-    ///         var identity = new Aws.Ses.DomainIdentity("identity", new Aws.Ses.DomainIdentityArgs
-    ///         {
-    ///             Domain = "example.com",
-    ///         });
-    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = role.Id,
-    ///             Policy = @"{
+    ///     });
+    /// 
+    ///     var email = new Aws.Pinpoint.EmailChannel("email", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         FromAddress = "user@example.com",
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    ///     var identity = new Aws.Ses.DomainIdentity("identity", new()
+    ///     {
+    ///         Domain = "example.com",
+    ///     });
+    /// 
+    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     {
+    ///         Role = role.Id,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": {
     ///     ""Action"": [
@@ -69,10 +70,9 @@ namespace Pulumi.Aws.Pinpoint
     ///   }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/emailChannel:EmailChannel")]
-    public partial class EmailChannel : Pulumi.CustomResource
+    public partial class EmailChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class EmailChannelArgs : Pulumi.ResourceArgs
+    public sealed class EmailChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -213,9 +213,10 @@ namespace Pulumi.Aws.Pinpoint
         public EmailChannelArgs()
         {
         }
+        public static new EmailChannelArgs Empty => new EmailChannelArgs();
     }
 
-    public sealed class EmailChannelState : Pulumi.ResourceArgs
+    public sealed class EmailChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -262,5 +263,6 @@ namespace Pulumi.Aws.Pinpoint
         public EmailChannelState()
         {
         }
+        public static new EmailChannelState Empty => new EmailChannelState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail.Inputs
 {
 
-    public sealed class ContainerServiceDeploymentVersionContainerArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceDeploymentVersionContainerArgs : global::Pulumi.ResourceArgs
     {
         [Input("commands")]
         private InputList<string>? _commands;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.LightSail.Inputs
         public ContainerServiceDeploymentVersionContainerArgs()
         {
         }
+        public static new ContainerServiceDeploymentVersionContainerArgs Empty => new ContainerServiceDeploymentVersionContainerArgs();
     }
 }

@@ -16,43 +16,43 @@ namespace Pulumi.Aws.Ec2
     /// ### Accept cross-account request
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
     ///     {
-    ///         var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         AcceptanceRequired = false,
+    ///         NetworkLoadBalancerArns = new[]
     ///         {
-    ///             AcceptanceRequired = false,
-    ///             NetworkLoadBalancerArns = 
-    ///             {
-    ///                 aws_lb.Example.Arn,
-    ///             },
-    ///         });
-    ///         var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new Aws.Ec2.VpcEndpointArgs
-    ///         {
-    ///             VpcId = aws_vpc.Test_alternate.Id,
-    ///             ServiceName = aws_vpc_endpoint_service.Test.Service_name,
-    ///             VpcEndpointType = "Interface",
-    ///             PrivateDnsEnabled = false,
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Test.Id,
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "aws.alternate",
-    ///         });
-    ///         var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new Aws.Ec2.VpcEndpointConnectionAccepterArgs
-    ///         {
-    ///             VpcEndpointServiceId = exampleVpcEndpointService.Id,
-    ///             VpcEndpointId = exampleVpcEndpoint.Id,
-    ///         });
-    ///     }
+    ///             aws_lb.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     {
+    ///         VpcId = aws_vpc.Test_alternate.Id,
+    ///         ServiceName = aws_vpc_endpoint_service.Test.Service_name,
+    ///         VpcEndpointType = "Interface",
+    ///         PrivateDnsEnabled = false,
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             aws_security_group.Test.Id,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "aws.alternate",
+    ///     });
+    /// 
+    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
+    ///     {
+    ///         VpcEndpointServiceId = exampleVpcEndpointService.Id,
+    ///         VpcEndpointId = exampleVpcEndpoint.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")]
-    public partial class VpcEndpointConnectionAccepter : Pulumi.CustomResource
+    public partial class VpcEndpointConnectionAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS VPC Endpoint ID.
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointConnectionAccepterArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointConnectionAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS VPC Endpoint ID.
@@ -145,9 +145,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointConnectionAccepterArgs()
         {
         }
+        public static new VpcEndpointConnectionAccepterArgs Empty => new VpcEndpointConnectionAccepterArgs();
     }
 
-    public sealed class VpcEndpointConnectionAccepterState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointConnectionAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS VPC Endpoint ID.
@@ -170,5 +171,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointConnectionAccepterState()
         {
         }
+        public static new VpcEndpointConnectionAccepterState Empty => new VpcEndpointConnectionAccepterState();
     }
 }

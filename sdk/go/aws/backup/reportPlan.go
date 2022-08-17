@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
-// 			Description: pulumi.String("example description"),
-// 			ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
-// 				Formats: pulumi.StringArray{
-// 					pulumi.String("CSV"),
-// 					pulumi.String("JSON"),
-// 				},
-// 				S3BucketName: pulumi.String("example-bucket-name"),
-// 			},
-// 			ReportSetting: &backup.ReportPlanReportSettingArgs{
-// 				ReportTemplate: pulumi.String("RESTORE_JOB_REPORT"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Report Plan"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
+//				Description: pulumi.String("example description"),
+//				ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
+//					Formats: pulumi.StringArray{
+//						pulumi.String("CSV"),
+//						pulumi.String("JSON"),
+//					},
+//					S3BucketName: pulumi.String("example-bucket-name"),
+//				},
+//				ReportSetting: &backup.ReportPlanReportSettingArgs{
+//					ReportTemplate: pulumi.String("RESTORE_JOB_REPORT"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Report Plan"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
+//
+//	$ pulumi import aws:backup/reportPlan:ReportPlan test <id>
+//
 // ```
 type ReportPlan struct {
 	pulumi.CustomResourceState
@@ -74,8 +79,7 @@ type ReportPlan struct {
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingOutput `pulumi:"reportSetting"`
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -129,8 +133,7 @@ type reportPlanState struct {
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting *ReportPlanReportSetting `pulumi:"reportSetting"`
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -150,8 +153,7 @@ type ReportPlanState struct {
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingPtrInput
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -212,7 +214,7 @@ func (i *ReportPlan) ToReportPlanOutputWithContext(ctx context.Context) ReportPl
 // ReportPlanArrayInput is an input type that accepts ReportPlanArray and ReportPlanArrayOutput values.
 // You can construct a concrete instance of `ReportPlanArrayInput` via:
 //
-//          ReportPlanArray{ ReportPlanArgs{...} }
+//	ReportPlanArray{ ReportPlanArgs{...} }
 type ReportPlanArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +239,7 @@ func (i ReportPlanArray) ToReportPlanArrayOutputWithContext(ctx context.Context)
 // ReportPlanMapInput is an input type that accepts ReportPlanMap and ReportPlanMapOutput values.
 // You can construct a concrete instance of `ReportPlanMapInput` via:
 //
-//          ReportPlanMap{ "key": ReportPlanArgs{...} }
+//	ReportPlanMap{ "key": ReportPlanArgs{...} }
 type ReportPlanMapInput interface {
 	pulumi.Input
 
@@ -313,7 +315,6 @@ func (o ReportPlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ReportPlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

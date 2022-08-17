@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The signing Amazon Web Services Region for IAM authorization.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs()
         {
         }
+        public static new DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs Empty => new DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs();
     }
 }

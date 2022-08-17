@@ -65,14 +65,14 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role to attach to the policy.
+     * The name of the IAM role to attach to the policy.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The IAM role to attach to the policy.
+     * @return The name of the IAM role to attach to the policy.
      * 
      */
     public Optional<Output<String>> role() {
@@ -174,7 +174,7 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The IAM role to attach to the policy.
+         * @param role The name of the IAM role to attach to the policy.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The IAM role to attach to the policy.
+         * @param role The name of the IAM role to attach to the policy.
          * 
          * @return builder
          * 

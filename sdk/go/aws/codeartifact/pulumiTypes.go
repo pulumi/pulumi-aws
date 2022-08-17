@@ -20,7 +20,7 @@ type RepositoryExternalConnections struct {
 // RepositoryExternalConnectionsInput is an input type that accepts RepositoryExternalConnectionsArgs and RepositoryExternalConnectionsOutput values.
 // You can construct a concrete instance of `RepositoryExternalConnectionsInput` via:
 //
-//          RepositoryExternalConnectionsArgs{...}
+//	RepositoryExternalConnectionsArgs{...}
 type RepositoryExternalConnectionsInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsPtrOut
 // RepositoryExternalConnectionsPtrInput is an input type that accepts RepositoryExternalConnectionsArgs, RepositoryExternalConnectionsPtr and RepositoryExternalConnectionsPtrOutput values.
 // You can construct a concrete instance of `RepositoryExternalConnectionsPtrInput` via:
 //
-//          RepositoryExternalConnectionsArgs{...}
+//	        RepositoryExternalConnectionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryExternalConnectionsPtrInput interface {
 	pulumi.Input
 
@@ -185,7 +185,7 @@ type RepositoryUpstream struct {
 // RepositoryUpstreamInput is an input type that accepts RepositoryUpstreamArgs and RepositoryUpstreamOutput values.
 // You can construct a concrete instance of `RepositoryUpstreamInput` via:
 //
-//          RepositoryUpstreamArgs{...}
+//	RepositoryUpstreamArgs{...}
 type RepositoryUpstreamInput interface {
 	pulumi.Input
 
@@ -213,7 +213,7 @@ func (i RepositoryUpstreamArgs) ToRepositoryUpstreamOutputWithContext(ctx contex
 // RepositoryUpstreamArrayInput is an input type that accepts RepositoryUpstreamArray and RepositoryUpstreamArrayOutput values.
 // You can construct a concrete instance of `RepositoryUpstreamArrayInput` via:
 //
-//          RepositoryUpstreamArray{ RepositoryUpstreamArgs{...} }
+//	RepositoryUpstreamArray{ RepositoryUpstreamArgs{...} }
 type RepositoryUpstreamArrayInput interface {
 	pulumi.Input
 

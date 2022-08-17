@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Organizations
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Organizations.OrganizationalUnit("example", new()
     ///     {
-    ///         var example = new Aws.Organizations.OrganizationalUnit("example", new Aws.Organizations.OrganizationalUnitArgs
-    ///         {
-    ///             ParentId = aws_organizations_organization.Example.Roots[0].Id,
-    ///         });
-    ///     }
+    ///         ParentId = aws_organizations_organization.Example.Roots[0].Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Organizations
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/organizationalUnit:OrganizationalUnit")]
-    public partial class OrganizationalUnit : Pulumi.CustomResource
+    public partial class OrganizationalUnit : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
@@ -73,7 +71,7 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
-    public sealed class OrganizationalUnitArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationalUnitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the organizational unit
@@ -151,9 +149,10 @@ namespace Pulumi.Aws.Organizations
         public OrganizationalUnitArgs()
         {
         }
+        public static new OrganizationalUnitArgs Empty => new OrganizationalUnitArgs();
     }
 
-    public sealed class OrganizationalUnitState : Pulumi.ResourceArgs
+    public sealed class OrganizationalUnitState : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<Inputs.OrganizationalUnitAccountGetArgs>? _accounts;
@@ -201,7 +200,7 @@ namespace Pulumi.Aws.Organizations
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -212,5 +211,6 @@ namespace Pulumi.Aws.Organizations
         public OrganizationalUnitState()
         {
         }
+        public static new OrganizationalUnitState Empty => new OrganizationalUnitState();
     }
 }

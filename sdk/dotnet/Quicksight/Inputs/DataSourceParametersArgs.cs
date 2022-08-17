@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameters for connecting to Amazon Elasticsearch.
@@ -135,5 +135,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersArgs()
         {
         }
+        public static new DataSourceParametersArgs Empty => new DataSourceParametersArgs();
     }
 }

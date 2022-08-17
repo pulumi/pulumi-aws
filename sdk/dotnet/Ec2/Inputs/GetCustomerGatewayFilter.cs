@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetCustomerGatewayFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerGatewayFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetCustomerGatewayFilterArgs()
         {
         }
+        public static new GetCustomerGatewayFilterArgs Empty => new GetCustomerGatewayFilterArgs();
     }
 }

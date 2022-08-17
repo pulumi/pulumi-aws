@@ -15,27 +15,26 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleConnect = new Aws.Ec2TransitGateway.Connect("exampleConnect", new()
     ///     {
-    ///         var exampleConnect = new Aws.Ec2TransitGateway.Connect("exampleConnect", new Aws.Ec2TransitGateway.ConnectArgs
-    ///         {
-    ///             TransportAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///         });
-    ///         var exampleConnectPeer = new Aws.Ec2TransitGateway.ConnectPeer("exampleConnectPeer", new Aws.Ec2TransitGateway.ConnectPeerArgs
-    ///         {
-    ///             PeerAddress = "10.1.2.3",
-    ///             InsideCidrBlocks = "169.254.100.0/29",
-    ///             TransitGatewayAttachmentId = exampleConnect.Id,
-    ///         });
-    ///     }
+    ///         TransportAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///     });
     /// 
-    /// }
+    ///     var exampleConnectPeer = new Aws.Ec2TransitGateway.ConnectPeer("exampleConnectPeer", new()
+    ///     {
+    ///         PeerAddress = "10.1.2.3",
+    ///         InsideCidrBlocks = "169.254.100.0/29",
+    ///         TransitGatewayAttachmentId = exampleConnect.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/connectPeer:ConnectPeer")]
-    public partial class ConnectPeer : Pulumi.CustomResource
+    public partial class ConnectPeer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// EC2 Transit Gateway Connect Peer ARN
@@ -135,7 +134,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class ConnectPeerArgs : Pulumi.ResourceArgs
+    public sealed class ConnectPeerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
@@ -184,9 +183,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public ConnectPeerArgs()
         {
         }
+        public static new ConnectPeerArgs Empty => new ConnectPeerArgs();
     }
 
-    public sealed class ConnectPeerState : Pulumi.ResourceArgs
+    public sealed class ConnectPeerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// EC2 Transit Gateway Connect Peer ARN
@@ -249,5 +249,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public ConnectPeerState()
         {
         }
+        public static new ConnectPeerState Empty => new ConnectPeerState();
     }
 }

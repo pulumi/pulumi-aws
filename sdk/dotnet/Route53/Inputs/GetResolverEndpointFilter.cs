@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class GetResolverEndpointFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverEndpointFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public GetResolverEndpointFilterArgs()
         {
         }
+        public static new GetResolverEndpointFilterArgs Empty => new GetResolverEndpointFilterArgs();
     }
 }

@@ -19,26 +19,23 @@ namespace Pulumi.Aws.EmrContainers
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.EmrContainers.GetVirtualCluster.InvokeAsync(new Aws.EmrContainers.GetVirtualClusterArgs
-        ///         {
-        ///             VirtualClusterId = "example id",
-        ///         }));
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///         this.Arn = example.Apply(example =&gt; example.Arn);
-        ///     }
+        ///         VirtualClusterId = "example id",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("arn")]
-        ///     public Output&lt;string&gt; Arn { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
+        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +51,23 @@ namespace Pulumi.Aws.EmrContainers
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.EmrContainers.GetVirtualCluster.InvokeAsync(new Aws.EmrContainers.GetVirtualClusterArgs
-        ///         {
-        ///             VirtualClusterId = "example id",
-        ///         }));
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///         this.Arn = example.Apply(example =&gt; example.Arn);
-        ///     }
+        ///         VirtualClusterId = "example id",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("arn")]
-        ///     public Output&lt;string&gt; Arn { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
+        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +77,7 @@ namespace Pulumi.Aws.EmrContainers
     }
 
 
-    public sealed class GetVirtualClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualClusterArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -106,9 +100,10 @@ namespace Pulumi.Aws.EmrContainers
         public GetVirtualClusterArgs()
         {
         }
+        public static new GetVirtualClusterArgs Empty => new GetVirtualClusterArgs();
     }
 
-    public sealed class GetVirtualClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -131,6 +126,7 @@ namespace Pulumi.Aws.EmrContainers
         public GetVirtualClusterInvokeArgs()
         {
         }
+        public static new GetVirtualClusterInvokeArgs Empty => new GetVirtualClusterInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class SecurityConfigurationEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudwatchEncryption", required: true)]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionGetArgs> CloudwatchEncryption { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public SecurityConfigurationEncryptionConfigurationGetArgs()
         {
         }
+        public static new SecurityConfigurationEncryptionConfigurationGetArgs Empty => new SecurityConfigurationEncryptionConfigurationGetArgs();
     }
 }

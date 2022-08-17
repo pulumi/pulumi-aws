@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLocalGatewayVirtualInterfaceArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayVirtualInterfaceArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewayVirtualInterfaceFilterArgs>? _filters;
@@ -60,9 +60,10 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayVirtualInterfaceArgs()
         {
         }
+        public static new GetLocalGatewayVirtualInterfaceArgs Empty => new GetLocalGatewayVirtualInterfaceArgs();
     }
 
-    public sealed class GetLocalGatewayVirtualInterfaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayVirtualInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewayVirtualInterfaceFilterInputArgs>? _filters;
@@ -97,6 +98,7 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayVirtualInterfaceInvokeArgs()
         {
         }
+        public static new GetLocalGatewayVirtualInterfaceInvokeArgs Empty => new GetLocalGatewayVirtualInterfaceInvokeArgs();
     }
 
 

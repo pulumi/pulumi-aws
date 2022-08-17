@@ -20,7 +20,7 @@ type RoleInlinePolicy struct {
 // RoleInlinePolicyInput is an input type that accepts RoleInlinePolicyArgs and RoleInlinePolicyOutput values.
 // You can construct a concrete instance of `RoleInlinePolicyInput` via:
 //
-//          RoleInlinePolicyArgs{...}
+//	RoleInlinePolicyArgs{...}
 type RoleInlinePolicyInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i RoleInlinePolicyArgs) ToRoleInlinePolicyOutputWithContext(ctx context.Co
 // RoleInlinePolicyArrayInput is an input type that accepts RoleInlinePolicyArray and RoleInlinePolicyArrayOutput values.
 // You can construct a concrete instance of `RoleInlinePolicyArrayInput` via:
 //
-//          RoleInlinePolicyArray{ RoleInlinePolicyArgs{...} }
+//	RoleInlinePolicyArray{ RoleInlinePolicyArgs{...} }
 type RoleInlinePolicyArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type GetGroupUser struct {
 // GetGroupUserInput is an input type that accepts GetGroupUserArgs and GetGroupUserOutput values.
 // You can construct a concrete instance of `GetGroupUserInput` via:
 //
-//          GetGroupUserArgs{...}
+//	GetGroupUserArgs{...}
 type GetGroupUserInput interface {
 	pulumi.Input
 
@@ -164,7 +164,7 @@ func (i GetGroupUserArgs) ToGetGroupUserOutputWithContext(ctx context.Context) G
 // GetGroupUserArrayInput is an input type that accepts GetGroupUserArray and GetGroupUserArrayOutput values.
 // You can construct a concrete instance of `GetGroupUserArrayInput` via:
 //
-//          GetGroupUserArray{ GetGroupUserArgs{...} }
+//	GetGroupUserArray{ GetGroupUserArgs{...} }
 type GetGroupUserArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +264,7 @@ type GetPolicyDocumentStatement struct {
 // GetPolicyDocumentStatementInput is an input type that accepts GetPolicyDocumentStatementArgs and GetPolicyDocumentStatementOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementInput` via:
 //
-//          GetPolicyDocumentStatementArgs{...}
+//	GetPolicyDocumentStatementArgs{...}
 type GetPolicyDocumentStatementInput interface {
 	pulumi.Input
 
@@ -308,7 +308,7 @@ func (i GetPolicyDocumentStatementArgs) ToGetPolicyDocumentStatementOutputWithCo
 // GetPolicyDocumentStatementArrayInput is an input type that accepts GetPolicyDocumentStatementArray and GetPolicyDocumentStatementArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementArrayInput` via:
 //
-//          GetPolicyDocumentStatementArray{ GetPolicyDocumentStatementArgs{...} }
+//	GetPolicyDocumentStatementArray{ GetPolicyDocumentStatementArgs{...} }
 type GetPolicyDocumentStatementArrayInput interface {
 	pulumi.Input
 
@@ -421,7 +421,7 @@ type GetPolicyDocumentStatementCondition struct {
 // GetPolicyDocumentStatementConditionInput is an input type that accepts GetPolicyDocumentStatementConditionArgs and GetPolicyDocumentStatementConditionOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementConditionInput` via:
 //
-//          GetPolicyDocumentStatementConditionArgs{...}
+//	GetPolicyDocumentStatementConditionArgs{...}
 type GetPolicyDocumentStatementConditionInput interface {
 	pulumi.Input
 
@@ -453,7 +453,7 @@ func (i GetPolicyDocumentStatementConditionArgs) ToGetPolicyDocumentStatementCon
 // GetPolicyDocumentStatementConditionArrayInput is an input type that accepts GetPolicyDocumentStatementConditionArray and GetPolicyDocumentStatementConditionArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementConditionArrayInput` via:
 //
-//          GetPolicyDocumentStatementConditionArray{ GetPolicyDocumentStatementConditionArgs{...} }
+//	GetPolicyDocumentStatementConditionArray{ GetPolicyDocumentStatementConditionArgs{...} }
 type GetPolicyDocumentStatementConditionArrayInput interface {
 	pulumi.Input
 
@@ -534,7 +534,7 @@ type GetPolicyDocumentStatementNotPrincipal struct {
 // GetPolicyDocumentStatementNotPrincipalInput is an input type that accepts GetPolicyDocumentStatementNotPrincipalArgs and GetPolicyDocumentStatementNotPrincipalOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementNotPrincipalInput` via:
 //
-//          GetPolicyDocumentStatementNotPrincipalArgs{...}
+//	GetPolicyDocumentStatementNotPrincipalArgs{...}
 type GetPolicyDocumentStatementNotPrincipalInput interface {
 	pulumi.Input
 
@@ -564,7 +564,7 @@ func (i GetPolicyDocumentStatementNotPrincipalArgs) ToGetPolicyDocumentStatement
 // GetPolicyDocumentStatementNotPrincipalArrayInput is an input type that accepts GetPolicyDocumentStatementNotPrincipalArray and GetPolicyDocumentStatementNotPrincipalArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementNotPrincipalArrayInput` via:
 //
-//          GetPolicyDocumentStatementNotPrincipalArray{ GetPolicyDocumentStatementNotPrincipalArgs{...} }
+//	GetPolicyDocumentStatementNotPrincipalArray{ GetPolicyDocumentStatementNotPrincipalArgs{...} }
 type GetPolicyDocumentStatementNotPrincipalArrayInput interface {
 	pulumi.Input
 
@@ -640,7 +640,7 @@ type GetPolicyDocumentStatementPrincipal struct {
 // GetPolicyDocumentStatementPrincipalInput is an input type that accepts GetPolicyDocumentStatementPrincipalArgs and GetPolicyDocumentStatementPrincipalOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementPrincipalInput` via:
 //
-//          GetPolicyDocumentStatementPrincipalArgs{...}
+//	GetPolicyDocumentStatementPrincipalArgs{...}
 type GetPolicyDocumentStatementPrincipalInput interface {
 	pulumi.Input
 
@@ -670,7 +670,7 @@ func (i GetPolicyDocumentStatementPrincipalArgs) ToGetPolicyDocumentStatementPri
 // GetPolicyDocumentStatementPrincipalArrayInput is an input type that accepts GetPolicyDocumentStatementPrincipalArray and GetPolicyDocumentStatementPrincipalArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementPrincipalArrayInput` via:
 //
-//          GetPolicyDocumentStatementPrincipalArray{ GetPolicyDocumentStatementPrincipalArgs{...} }
+//	GetPolicyDocumentStatementPrincipalArray{ GetPolicyDocumentStatementPrincipalArgs{...} }
 type GetPolicyDocumentStatementPrincipalArrayInput interface {
 	pulumi.Input
 

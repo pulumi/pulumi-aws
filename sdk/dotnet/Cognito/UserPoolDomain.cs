@@ -16,66 +16,62 @@ namespace Pulumi.Aws.Cognito
     /// ### Amazon Cognito domain
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var main = new Aws.Cognito.UserPoolDomain("main", new Aws.Cognito.UserPoolDomainArgs
-    ///         {
-    ///             Domain = "example-domain",
-    ///             UserPoolId = example.Id,
-    ///         });
-    ///     }
+    ///     var example = new Aws.Cognito.UserPool("example");
     /// 
-    /// }
+    ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
+    ///     {
+    ///         Domain = "example-domain",
+    ///         UserPoolId = example.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Custom Cognito domain
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var main = new Aws.Cognito.UserPoolDomain("main", new Aws.Cognito.UserPoolDomainArgs
-    ///         {
-    ///             Domain = "example-domain",
-    ///             CertificateArn = aws_acm_certificate.Cert.Arn,
-    ///             UserPoolId = exampleUserPool.Id,
-    ///         });
-    ///         var exampleZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
-    ///         {
-    ///             Name = "example.com",
-    ///         }));
-    ///         var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new Aws.Route53.RecordArgs
-    ///         {
-    ///             Name = main.Domain,
-    ///             Type = "A",
-    ///             ZoneId = exampleZone.Apply(exampleZone =&gt; exampleZone.ZoneId),
-    ///             Aliases = 
-    ///             {
-    ///                 new Aws.Route53.Inputs.RecordAliasArgs
-    ///                 {
-    ///                     EvaluateTargetHealth = false,
-    ///                     Name = main.CloudfrontDistributionArn,
-    ///                     ZoneId = "Z2FDTNDATAQYW2",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
     /// 
-    /// }
+    ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
+    ///     {
+    ///         Domain = "example-domain",
+    ///         CertificateArn = aws_acm_certificate.Cert.Arn,
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleZone = Aws.Route53.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "example.com",
+    ///     });
+    /// 
+    ///     var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new()
+    ///     {
+    ///         Name = main.Domain,
+    ///         Type = "A",
+    ///         ZoneId = exampleZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+    ///         Aliases = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             {
+    ///                 EvaluateTargetHealth = false,
+    ///                 Name = main.CloudfrontDistributionArn,
+    ///                 ZoneId = "Z2FDTNDATAQYW2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -87,7 +83,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]
-    public partial class UserPoolDomain : Pulumi.CustomResource
+    public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID for the user pool owner.
@@ -175,7 +171,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserPoolDomainArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
@@ -198,9 +194,10 @@ namespace Pulumi.Aws.Cognito
         public UserPoolDomainArgs()
         {
         }
+        public static new UserPoolDomainArgs Empty => new UserPoolDomainArgs();
     }
 
-    public sealed class UserPoolDomainState : Pulumi.ResourceArgs
+    public sealed class UserPoolDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the user pool owner.
@@ -247,5 +244,6 @@ namespace Pulumi.Aws.Cognito
         public UserPoolDomainState()
         {
         }
+        public static new UserPoolDomainState Empty => new UserPoolDomainState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateBlockDeviceMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateBlockDeviceMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the device to mount.
@@ -41,5 +41,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateBlockDeviceMappingGetArgs()
         {
         }
+        public static new LaunchTemplateBlockDeviceMappingGetArgs Empty => new LaunchTemplateBlockDeviceMappingGetArgs();
     }
 }

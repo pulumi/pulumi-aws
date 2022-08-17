@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
-// 			Comment:    pulumi.String("test public key"),
-// 			EncodedKey: readFileOrPanic("public_key.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
+//				Comment:    pulumi.String("test public key"),
+//				EncodedKey: readFileOrPanic("public_key.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // CloudFront Public Key can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+//
+//	$ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+//
 // ```
 type PublicKey struct {
 	pulumi.CustomResourceState
@@ -185,7 +190,7 @@ func (i *PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyO
 // PublicKeyArrayInput is an input type that accepts PublicKeyArray and PublicKeyArrayOutput values.
 // You can construct a concrete instance of `PublicKeyArrayInput` via:
 //
-//          PublicKeyArray{ PublicKeyArgs{...} }
+//	PublicKeyArray{ PublicKeyArgs{...} }
 type PublicKeyArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +215,7 @@ func (i PublicKeyArray) ToPublicKeyArrayOutputWithContext(ctx context.Context) P
 // PublicKeyMapInput is an input type that accepts PublicKeyMap and PublicKeyMapOutput values.
 // You can construct a concrete instance of `PublicKeyMapInput` via:
 //
-//          PublicKeyMap{ "key": PublicKeyArgs{...} }
+//	PublicKeyMap{ "key": PublicKeyArgs{...} }
 type PublicKeyMapInput interface {
 	pulumi.Input
 

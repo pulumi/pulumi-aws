@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationV2RuleFilterAndGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2RuleFilterAndGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minimum object size to which the rule applies. Value must be at least `0` if specified.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleConfigurationV2RuleFilterAndGetArgs()
         {
         }
+        public static new BucketLifecycleConfigurationV2RuleFilterAndGetArgs Empty => new BucketLifecycleConfigurationV2RuleFilterAndGetArgs();
     }
 }

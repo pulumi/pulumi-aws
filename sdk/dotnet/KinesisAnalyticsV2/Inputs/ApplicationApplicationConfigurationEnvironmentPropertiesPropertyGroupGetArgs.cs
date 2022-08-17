@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key of the application execution property key-value map.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs Empty => new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs();
     }
 }

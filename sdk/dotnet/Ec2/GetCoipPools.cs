@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetCoipPoolsArgs : Pulumi.InvokeArgs
+    public sealed class GetCoipPoolsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetCoipPoolsFilterArgs>? _filters;
@@ -55,9 +55,10 @@ namespace Pulumi.Aws.Ec2
         public GetCoipPoolsArgs()
         {
         }
+        public static new GetCoipPoolsArgs Empty => new GetCoipPoolsArgs();
     }
 
-    public sealed class GetCoipPoolsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCoipPoolsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetCoipPoolsFilterInputArgs>? _filters;
@@ -87,6 +88,7 @@ namespace Pulumi.Aws.Ec2
         public GetCoipPoolsInvokeArgs()
         {
         }
+        public static new GetCoipPoolsInvokeArgs Empty => new GetCoipPoolsInvokeArgs();
     }
 
 

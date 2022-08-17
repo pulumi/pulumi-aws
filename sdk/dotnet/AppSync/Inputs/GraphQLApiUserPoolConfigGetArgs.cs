@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiUserPoolConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiUserPoolConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public GraphQLApiUserPoolConfigGetArgs()
         {
         }
+        public static new GraphQLApiUserPoolConfigGetArgs Empty => new GraphQLApiUserPoolConfigGetArgs();
     }
 }

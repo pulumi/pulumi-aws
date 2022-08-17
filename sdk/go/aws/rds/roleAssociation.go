@@ -24,23 +24,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
-// 			DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
-// 			FeatureName:          pulumi.String("S3_INTEGRATION"),
-// 			RoleArn:              pulumi.Any(aws_iam_role.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				FeatureName:          pulumi.String("S3_INTEGRATION"),
+//				RoleArn:              pulumi.Any(aws_iam_role.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
+//
+//	$ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
+//
 // ```
 type RoleAssociation struct {
 	pulumi.CustomResourceState
@@ -165,7 +170,7 @@ func (i *RoleAssociation) ToRoleAssociationOutputWithContext(ctx context.Context
 // RoleAssociationArrayInput is an input type that accepts RoleAssociationArray and RoleAssociationArrayOutput values.
 // You can construct a concrete instance of `RoleAssociationArrayInput` via:
 //
-//          RoleAssociationArray{ RoleAssociationArgs{...} }
+//	RoleAssociationArray{ RoleAssociationArgs{...} }
 type RoleAssociationArrayInput interface {
 	pulumi.Input
 
@@ -190,7 +195,7 @@ func (i RoleAssociationArray) ToRoleAssociationArrayOutputWithContext(ctx contex
 // RoleAssociationMapInput is an input type that accepts RoleAssociationMap and RoleAssociationMapOutput values.
 // You can construct a concrete instance of `RoleAssociationMapInput` via:
 //
-//          RoleAssociationMap{ "key": RoleAssociationArgs{...} }
+//	RoleAssociationMap{ "key": RoleAssociationArgs{...} }
 type RoleAssociationMapInput interface {
 	pulumi.Input
 

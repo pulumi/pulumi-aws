@@ -251,6 +251,20 @@ public class Job extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * 
+     */
+    @Export(name="executionClass", type=String.class, parameters={})
+    private Output</* @Nullable */ String> executionClass;
+
+    /**
+     * @return Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * 
+     */
+    public Output<Optional<String>> executionClass() {
+        return Codegen.optional(this.executionClass);
+    }
+    /**
      * Execution property of the job. Defined below.
      * 
      */

@@ -33,18 +33,33 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+     * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
      * 
      */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
      * 
      */
     public Optional<Output<Integer>> iops() {
         return Optional.ofNullable(this.iops);
+    }
+
+    /**
+     * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * 
+     */
+    @Import(name="throughput")
+    private @Nullable Output<Integer> throughput;
+
+    /**
+     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * 
+     */
+    public Optional<Output<Integer>> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
 
     /**
@@ -82,6 +97,7 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
     private DomainEbsOptionsArgs(DomainEbsOptionsArgs $) {
         this.ebsEnabled = $.ebsEnabled;
         this.iops = $.iops;
+        this.throughput = $.throughput;
         this.volumeSize = $.volumeSize;
         this.volumeType = $.volumeType;
     }
@@ -126,7 +142,7 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iops Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+         * @param iops Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
          * 
          * @return builder
          * 
@@ -137,13 +153,34 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iops Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+         * @param iops Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
          * 
          * @return builder
          * 
          */
         public Builder iops(Integer iops) {
             return iops(Output.of(iops));
+        }
+
+        /**
+         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughput(@Nullable Output<Integer> throughput) {
+            $.throughput = throughput;
+            return this;
+        }
+
+        /**
+         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughput(Integer throughput) {
+            return throughput(Output.of(throughput));
         }
 
         /**

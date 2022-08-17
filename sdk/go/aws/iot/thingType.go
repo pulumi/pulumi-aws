@@ -18,19 +18,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iot.NewThingType(ctx, "foo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewThingType(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -38,7 +41,9 @@ import (
 // IOT Thing Types can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iot/thingType:ThingType example example
+//
+//	$ pulumi import aws:iot/thingType:ThingType example example
+//
 // ```
 type ThingType struct {
 	pulumi.CustomResourceState
@@ -51,7 +56,7 @@ type ThingType struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties ThingTypePropertiesPtrOutput `pulumi:"properties"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -94,7 +99,7 @@ type thingTypeState struct {
 	Name *string `pulumi:"name"`
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties *ThingTypeProperties `pulumi:"properties"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -109,7 +114,7 @@ type ThingTypeState struct {
 	Name pulumi.StringPtrInput
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties ThingTypePropertiesPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -126,7 +131,7 @@ type thingTypeArgs struct {
 	Name *string `pulumi:"name"`
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties *ThingTypeProperties `pulumi:"properties"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -138,7 +143,7 @@ type ThingTypeArgs struct {
 	Name pulumi.StringPtrInput
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties ThingTypePropertiesPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
 
@@ -168,7 +173,7 @@ func (i *ThingType) ToThingTypeOutputWithContext(ctx context.Context) ThingTypeO
 // ThingTypeArrayInput is an input type that accepts ThingTypeArray and ThingTypeArrayOutput values.
 // You can construct a concrete instance of `ThingTypeArrayInput` via:
 //
-//          ThingTypeArray{ ThingTypeArgs{...} }
+//	ThingTypeArray{ ThingTypeArgs{...} }
 type ThingTypeArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i ThingTypeArray) ToThingTypeArrayOutputWithContext(ctx context.Context) T
 // ThingTypeMapInput is an input type that accepts ThingTypeMap and ThingTypeMapOutput values.
 // You can construct a concrete instance of `ThingTypeMapInput` via:
 //
-//          ThingTypeMap{ "key": ThingTypeArgs{...} }
+//	ThingTypeMap{ "key": ThingTypeArgs{...} }
 type ThingTypeMapInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (o ThingTypeOutput) Properties() ThingTypePropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingType) ThingTypePropertiesPtrOutput { return v.Properties }).(ThingTypePropertiesPtrOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ThingTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

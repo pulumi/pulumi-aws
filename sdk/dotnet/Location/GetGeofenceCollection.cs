@@ -20,20 +20,18 @@ namespace Pulumi.Aws.Location
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetGeofenceCollection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetGeofenceCollection.InvokeAsync(new Aws.Location.GetGeofenceCollectionArgs
-        ///         {
-        ///             CollectionName = "example",
-        ///         }));
-        ///     }
+        ///         CollectionName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.Location
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetGeofenceCollection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetGeofenceCollection.InvokeAsync(new Aws.Location.GetGeofenceCollectionArgs
-        ///         {
-        ///             CollectionName = "example",
-        ///         }));
-        ///     }
+        ///         CollectionName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Location
     }
 
 
-    public sealed class GetGeofenceCollectionArgs : Pulumi.InvokeArgs
+    public sealed class GetGeofenceCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the geofence collection.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.Location
         public GetGeofenceCollectionArgs()
         {
         }
+        public static new GetGeofenceCollectionArgs Empty => new GetGeofenceCollectionArgs();
     }
 
-    public sealed class GetGeofenceCollectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGeofenceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the geofence collection.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.Location
         public GetGeofenceCollectionInvokeArgs()
         {
         }
+        public static new GetGeofenceCollectionInvokeArgs Empty => new GetGeofenceCollectionInvokeArgs();
     }
 
 

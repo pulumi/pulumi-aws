@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentFulfillmentActivityArgs : Pulumi.ResourceArgs
+    public sealed class IntentFulfillmentActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Lambda function that is run to fulfill the intent.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentFulfillmentActivityArgs()
         {
         }
+        public static new IntentFulfillmentActivityArgs Empty => new IntentFulfillmentActivityArgs();
     }
 }

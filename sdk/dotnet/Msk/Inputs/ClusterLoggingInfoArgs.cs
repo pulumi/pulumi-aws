@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterLoggingInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for Broker Logs settings for logging info. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterLoggingInfoArgs()
         {
         }
+        public static new ClusterLoggingInfoArgs Empty => new ClusterLoggingInfoArgs();
     }
 }

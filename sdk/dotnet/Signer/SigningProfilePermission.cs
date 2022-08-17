@@ -15,52 +15,53 @@ namespace Pulumi.Aws.Signer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
     ///     {
-    ///         var prodSp = new Aws.Signer.SigningProfile("prodSp", new Aws.Signer.SigningProfileArgs
+    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
+    ///         NamePrefix = "prod_sp_",
+    ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
     ///         {
-    ///             PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///             NamePrefix = "prod_sp_",
-    ///             SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
-    ///             {
-    ///                 Value = 5,
-    ///                 Type = "YEARS",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value2" },
-    ///             },
-    ///         });
-    ///         var spPermission1 = new Aws.Signer.SigningProfilePermission("spPermission1", new Aws.Signer.SigningProfilePermissionArgs
+    ///             Value = 5,
+    ///             Type = "YEARS",
+    ///         },
+    ///         Tags = 
     ///         {
-    ///             ProfileName = prodSp.Name,
-    ///             Action = "signer:StartSigningJob",
-    ///             Principal = @var.Aws_account,
-    ///         });
-    ///         var spPermission2 = new Aws.Signer.SigningProfilePermission("spPermission2", new Aws.Signer.SigningProfilePermissionArgs
-    ///         {
-    ///             ProfileName = prodSp.Name,
-    ///             Action = "signer:GetSigningProfile",
-    ///             Principal = @var.Aws_team_role_arn,
-    ///             StatementId = "ProdAccountStartSigningJob_StatementId",
-    ///         });
-    ///         var spPermission3 = new Aws.Signer.SigningProfilePermission("spPermission3", new Aws.Signer.SigningProfilePermissionArgs
-    ///         {
-    ///             ProfileName = prodSp.Name,
-    ///             Action = "signer:RevokeSignature",
-    ///             Principal = "123456789012",
-    ///             ProfileVersion = prodSp.Version,
-    ///             StatementIdPrefix = "version-permission-",
-    ///         });
-    ///     }
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var spPermission1 = new Aws.Signer.SigningProfilePermission("spPermission1", new()
+    ///     {
+    ///         ProfileName = prodSp.Name,
+    ///         Action = "signer:StartSigningJob",
+    ///         Principal = @var.Aws_account,
+    ///     });
+    /// 
+    ///     var spPermission2 = new Aws.Signer.SigningProfilePermission("spPermission2", new()
+    ///     {
+    ///         ProfileName = prodSp.Name,
+    ///         Action = "signer:GetSigningProfile",
+    ///         Principal = @var.Aws_team_role_arn,
+    ///         StatementId = "ProdAccountStartSigningJob_StatementId",
+    ///     });
+    /// 
+    ///     var spPermission3 = new Aws.Signer.SigningProfilePermission("spPermission3", new()
+    ///     {
+    ///         ProfileName = prodSp.Name,
+    ///         Action = "signer:RevokeSignature",
+    ///         Principal = "123456789012",
+    ///         ProfileVersion = prodSp.Version,
+    ///         StatementIdPrefix = "version-permission-",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +73,7 @@ namespace Pulumi.Aws.Signer
     /// ```
     /// </summary>
     [AwsResourceType("aws:signer/signingProfilePermission:SigningProfilePermission")]
-    public partial class SigningProfilePermission : Pulumi.CustomResource
+    public partial class SigningProfilePermission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
@@ -154,7 +155,7 @@ namespace Pulumi.Aws.Signer
         }
     }
 
-    public sealed class SigningProfilePermissionArgs : Pulumi.ResourceArgs
+    public sealed class SigningProfilePermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
@@ -195,9 +196,10 @@ namespace Pulumi.Aws.Signer
         public SigningProfilePermissionArgs()
         {
         }
+        public static new SigningProfilePermissionArgs Empty => new SigningProfilePermissionArgs();
     }
 
-    public sealed class SigningProfilePermissionState : Pulumi.ResourceArgs
+    public sealed class SigningProfilePermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
@@ -238,5 +240,6 @@ namespace Pulumi.Aws.Signer
         public SigningProfilePermissionState()
         {
         }
+        public static new SigningProfilePermissionState Empty => new SigningProfilePermissionState();
     }
 }

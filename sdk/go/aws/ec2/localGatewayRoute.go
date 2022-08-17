@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewLocalGatewayRoute(ctx, "example", &ec2.LocalGatewayRouteArgs{
-// 			DestinationCidrBlock:                pulumi.String("172.16.0.0/16"),
-// 			LocalGatewayRouteTableId:            pulumi.Any(data.Aws_ec2_local_gateway_route_table.Example.Id),
-// 			LocalGatewayVirtualInterfaceGroupId: pulumi.Any(data.Aws_ec2_local_gateway_virtual_interface_group.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewLocalGatewayRoute(ctx, "example", &ec2.LocalGatewayRouteArgs{
+//				DestinationCidrBlock:                pulumi.String("172.16.0.0/16"),
+//				LocalGatewayRouteTableId:            pulumi.Any(data.Aws_ec2_local_gateway_route_table.Example.Id),
+//				LocalGatewayVirtualInterfaceGroupId: pulumi.Any(data.Aws_ec2_local_gateway_virtual_interface_group.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_ec2_local_gateway_route` can be imported by using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+//
+//	$ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+//
 // ```
 type LocalGatewayRoute struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *LocalGatewayRoute) ToLocalGatewayRouteOutputWithContext(ctx context.Con
 // LocalGatewayRouteArrayInput is an input type that accepts LocalGatewayRouteArray and LocalGatewayRouteArrayOutput values.
 // You can construct a concrete instance of `LocalGatewayRouteArrayInput` via:
 //
-//          LocalGatewayRouteArray{ LocalGatewayRouteArgs{...} }
+//	LocalGatewayRouteArray{ LocalGatewayRouteArgs{...} }
 type LocalGatewayRouteArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i LocalGatewayRouteArray) ToLocalGatewayRouteArrayOutputWithContext(ctx co
 // LocalGatewayRouteMapInput is an input type that accepts LocalGatewayRouteMap and LocalGatewayRouteMapOutput values.
 // You can construct a concrete instance of `LocalGatewayRouteMapInput` via:
 //
-//          LocalGatewayRouteMap{ "key": LocalGatewayRouteArgs{...} }
+//	LocalGatewayRouteMap{ "key": LocalGatewayRouteArgs{...} }
 type LocalGatewayRouteMapInput interface {
 	pulumi.Input
 

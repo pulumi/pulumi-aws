@@ -24,35 +24,32 @@ namespace Pulumi.Aws.Neptune
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Neptune.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
-    ///         {
-    ///             ClusterIdentifier = "neptune-cluster-demo",
-    ///             Engine = "neptune",
-    ///             BackupRetentionPeriod = 5,
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///             SkipFinalSnapshot = true,
-    ///             IamDatabaseAuthenticationEnabled = true,
-    ///             ApplyImmediately = true,
-    ///         });
-    ///         var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new Aws.Neptune.ClusterInstanceArgs
-    ///             {
-    ///                 ClusterIdentifier = @default.Id,
-    ///                 Engine = "neptune",
-    ///                 InstanceClass = "db.r4.large",
-    ///                 ApplyImmediately = true,
-    ///             }));
-    ///         }
-    ///     }
+    ///         ClusterIdentifier = "neptune-cluster-demo",
+    ///         Engine = "neptune",
+    ///         BackupRetentionPeriod = 5,
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///         SkipFinalSnapshot = true,
+    ///         IamDatabaseAuthenticationEnabled = true,
+    ///         ApplyImmediately = true,
+    ///     });
     /// 
-    /// }
+    ///     var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new()
+    ///         {
+    ///             ClusterIdentifier = @default.Id,
+    ///             Engine = "neptune",
+    ///             InstanceClass = "db.r4.large",
+    ///             ApplyImmediately = true,
+    ///         }));
+    ///     }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +61,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterInstance:ClusterInstance")]
-    public partial class ClusterInstance : Pulumi.CustomResource
+    public partial class ClusterInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The hostname of the instance. See also `endpoint` and `port`.
@@ -201,13 +198,13 @@ namespace Pulumi.Aws.Neptune
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -262,7 +259,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class ClusterInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any instance modifications
@@ -366,7 +363,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -377,9 +374,10 @@ namespace Pulumi.Aws.Neptune
         public ClusterInstanceArgs()
         {
         }
+        public static new ClusterInstanceArgs Empty => new ClusterInstanceArgs();
     }
 
-    public sealed class ClusterInstanceState : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname of the instance. See also `endpoint` and `port`.
@@ -519,7 +517,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -531,7 +529,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -548,5 +546,6 @@ namespace Pulumi.Aws.Neptune
         public ClusterInstanceState()
         {
         }
+        public static new ClusterInstanceState Empty => new ClusterInstanceState();
     }
 }

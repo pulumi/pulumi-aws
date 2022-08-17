@@ -20,60 +20,65 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := acmpca.NewPolicy(ctx, "example", &acmpca.PolicyArgs{
-// 			ResourceArn: pulumi.Any(aws_acmpca_certificate_authority.Example.Arn),
-// 			Policy: pulumi.String(fmt.Sprintf(`{
-//    "Version":"2012-10-17",
-//    "Statement":[
-//       {
-//          "Sid":"1",
-//          "Effect":"Allow",
-//          "Principal":{
-//             "AWS":"%v"
-//          },
-//          "Action":[
-//             "acm-pca:DescribeCertificateAuthority",
-//             "acm-pca:GetCertificate",
-//             "acm-pca:GetCertificateAuthorityCertificate",
-//             "acm-pca:ListPermissions",
-//             "acm-pca:ListTags"
-//          ],
-//          "Resource":"%v"
-//       },
-//       {
-//          "Sid":"1",
-//          "Effect":"Allow",
-//          "Principal":{
-//             "AWS":"%v"
-//          },
-//          "Action":[
-//             "acm-pca:IssueCertificate"
-//          ],
-//          "Resource":"%v",
-//          "Condition":{
-//             "StringEquals":{
-//                "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
-//             }
-//          }
-//       }
-//    ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acmpca.NewPolicy(ctx, "example", &acmpca.PolicyArgs{
+//				ResourceArn: pulumi.Any(aws_acmpca_certificate_authority.Example.Arn),
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	   "Version":"2012-10-17",
+//	   "Statement":[
+//	      {
+//	         "Sid":"1",
+//	         "Effect":"Allow",
+//	         "Principal":{
+//	            "AWS":"%v"
+//	         },
+//	         "Action":[
+//	            "acm-pca:DescribeCertificateAuthority",
+//	            "acm-pca:GetCertificate",
+//	            "acm-pca:GetCertificateAuthorityCertificate",
+//	            "acm-pca:ListPermissions",
+//	            "acm-pca:ListTags"
+//	         ],
+//	         "Resource":"%v"
+//	      },
+//	      {
+//	         "Sid":"1",
+//	         "Effect":"Allow",
+//	         "Principal":{
+//	            "AWS":"%v"
+//	         },
+//	         "Action":[
+//	            "acm-pca:IssueCertificate"
+//	         ],
+//	         "Resource":"%v",
+//	         "Condition":{
+//	            "StringEquals":{
+//	               "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
+//	            }
+//	         }
+//	      }
+//	   ]
+//	}
+//
 // `, data.Aws_caller_identity.Current.Account_id, aws_acmpca_certificate_authority.Example.Arn, data.Aws_caller_identity.Current.Account_id, aws_acmpca_certificate_authority.Example.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +86,9 @@ import (
 // `aws_acmpca_policy` can be imported using the `resource_arn` value.
 //
 // ```sh
-//  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+//
+//	$ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+//
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -185,7 +192,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyArrayInput` via:
 //
-//          PolicyArray{ PolicyArgs{...} }
+//	PolicyArray{ PolicyArgs{...} }
 type PolicyArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +217,7 @@ func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyA
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
 // You can construct a concrete instance of `PolicyMapInput` via:
 //
-//          PolicyMap{ "key": PolicyArgs{...} }
+//	PolicyMap{ "key": PolicyArgs{...} }
 type PolicyMapInput interface {
 	pulumi.Input
 

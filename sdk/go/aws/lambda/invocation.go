@@ -22,49 +22,52 @@ import (
 // package main
 //
 // import (
-// 	"crypto/sha1"
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func sha1Hash(input string) string {
-// 	hash := sha1.Sum([]byte(input))
-// 	return hex.EncodeToString(hash[:])
-// }
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal([]interface{}{
-// 			aws_lambda_function.Example.Environment,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
-// 			"key1": "value1",
-// 			"key2": "value2",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-// 			FunctionName: pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
-// 			Triggers: pulumi.StringMap{
-// 				"redeployment": sha1Hash(json0),
-// 			},
-// 			Input: pulumi.String(json1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal([]interface{}{
+//				aws_lambda_function.Example.Environment,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"key1": "value1",
+//				"key2": "value2",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
+//				FunctionName: pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": sha1Hash(json0),
+//				},
+//				Input: pulumi.String(json1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Invocation struct {
 	pulumi.CustomResourceState
@@ -189,7 +192,7 @@ func (i *Invocation) ToInvocationOutputWithContext(ctx context.Context) Invocati
 // InvocationArrayInput is an input type that accepts InvocationArray and InvocationArrayOutput values.
 // You can construct a concrete instance of `InvocationArrayInput` via:
 //
-//          InvocationArray{ InvocationArgs{...} }
+//	InvocationArray{ InvocationArgs{...} }
 type InvocationArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +217,7 @@ func (i InvocationArray) ToInvocationArrayOutputWithContext(ctx context.Context)
 // InvocationMapInput is an input type that accepts InvocationMap and InvocationMapOutput values.
 // You can construct a concrete instance of `InvocationMapInput` via:
 //
-//          InvocationMap{ "key": InvocationArgs{...} }
+//	InvocationMap{ "key": InvocationArgs{...} }
 type InvocationMapInput interface {
 	pulumi.Input
 

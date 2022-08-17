@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionProxyConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionProxyConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the container that will serve as the App Mesh proxy.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionProxyConfigurationGetArgs()
         {
         }
+        public static new TaskDefinitionProxyConfigurationGetArgs Empty => new TaskDefinitionProxyConfigurationGetArgs();
     }
 }

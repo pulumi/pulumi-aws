@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class GetAutoscalingGroupsFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetAutoscalingGroupsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Inputs
         public GetAutoscalingGroupsFilterInputArgs()
         {
         }
+        public static new GetAutoscalingGroupsFilterInputArgs Empty => new GetAutoscalingGroupsFilterInputArgs();
     }
 }

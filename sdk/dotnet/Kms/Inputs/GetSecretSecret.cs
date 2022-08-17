@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kms.Inputs
 {
 
-    public sealed class GetSecretSecretArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretSecretArgs : global::Pulumi.InvokeArgs
     {
         [Input("context")]
         private Dictionary<string, string>? _context;
@@ -37,5 +37,6 @@ namespace Pulumi.Aws.Kms.Inputs
         public GetSecretSecretArgs()
         {
         }
+        public static new GetSecretSecretArgs Empty => new GetSecretSecretArgs();
     }
 }

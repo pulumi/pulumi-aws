@@ -22,96 +22,97 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
     ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "openapi", "3.0.1" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "title", "example" },
-    ///                     { "version", "1.0" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "httpMethod", "GET" },
-    ///                                 { "payloadFormatVersion", "1.0" },
-    ///                                 { "type", "HTTP_PROXY" },
-    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
-    ///             },
-    ///         });
-    ///         var development = new Aws.ApiGateway.Stage("development", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "development",
-    ///         });
-    ///         var production = new Aws.ApiGateway.Stage("production", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "production",
-    ///         });
-    ///         var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("exampleUsagePlan", new Aws.ApiGateway.UsagePlanArgs
-    ///         {
-    ///             Description = "my description",
-    ///             ProductCode = "MYCODE",
-    ///             ApiStages = 
-    ///             {
-    ///                 new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
-    ///                 {
-    ///                     ApiId = exampleRestApi.Id,
-    ///                     Stage = development.StageName,
-    ///                 },
-    ///                 new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
-    ///                 {
-    ///                     ApiId = exampleRestApi.Id,
-    ///                     Stage = production.StageName,
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
-    ///             QuotaSettings = new Aws.ApiGateway.Inputs.UsagePlanQuotaSettingsArgs
-    ///             {
-    ///                 Limit = 20,
-    ///                 Offset = 2,
-    ///                 Period = "WEEK",
-    ///             },
-    ///             ThrottleSettings = new Aws.ApiGateway.Inputs.UsagePlanThrottleSettingsArgs
-    ///             {
-    ///                 BurstLimit = 5,
-    ///                 RateLimit = 10,
-    ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var development = new Aws.ApiGateway.Stage("development", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "development",
+    ///     });
+    /// 
+    ///     var production = new Aws.ApiGateway.Stage("production", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "production",
+    ///     });
+    /// 
+    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("exampleUsagePlan", new()
+    ///     {
+    ///         Description = "my description",
+    ///         ProductCode = "MYCODE",
+    ///         ApiStages = new[]
+    ///         {
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = exampleRestApi.Id,
+    ///                 Stage = development.StageName,
+    ///             },
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = exampleRestApi.Id,
+    ///                 Stage = production.StageName,
+    ///             },
+    ///         },
+    ///         QuotaSettings = new Aws.ApiGateway.Inputs.UsagePlanQuotaSettingsArgs
+    ///         {
+    ///             Limit = 20,
+    ///             Offset = 2,
+    ///             Period = "WEEK",
+    ///         },
+    ///         ThrottleSettings = new Aws.ApiGateway.Inputs.UsagePlanThrottleSettingsArgs
+    ///         {
+    ///             BurstLimit = 5,
+    ///             RateLimit = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -123,7 +124,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/usagePlan:UsagePlan")]
-    public partial class UsagePlan : Pulumi.CustomResource
+    public partial class UsagePlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The associated API stages of the usage plan.
@@ -162,13 +163,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.UsagePlanQuotaSettings?> QuotaSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -223,7 +224,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class UsagePlanArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiStages")]
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
@@ -265,7 +266,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -282,9 +283,10 @@ namespace Pulumi.Aws.ApiGateway
         public UsagePlanArgs()
         {
         }
+        public static new UsagePlanArgs Empty => new UsagePlanArgs();
     }
 
-    public sealed class UsagePlanState : Pulumi.ResourceArgs
+    public sealed class UsagePlanState : global::Pulumi.ResourceArgs
     {
         [Input("apiStages")]
         private InputList<Inputs.UsagePlanApiStageGetArgs>? _apiStages;
@@ -332,7 +334,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -344,7 +346,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -361,5 +363,6 @@ namespace Pulumi.Aws.ApiGateway
         public UsagePlanState()
         {
         }
+        public static new UsagePlanState Empty => new UsagePlanState();
     }
 }

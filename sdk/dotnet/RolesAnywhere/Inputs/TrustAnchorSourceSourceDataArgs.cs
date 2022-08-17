@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RolesAnywhere.Inputs
 {
 
-    public sealed class TrustAnchorSourceSourceDataArgs : Pulumi.ResourceArgs
+    public sealed class TrustAnchorSourceSourceDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an ACM Private Certificate Authority.
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.RolesAnywhere.Inputs
         public TrustAnchorSourceSourceDataArgs()
         {
         }
+        public static new TrustAnchorSourceSourceDataArgs Empty => new TrustAnchorSourceSourceDataArgs();
     }
 }

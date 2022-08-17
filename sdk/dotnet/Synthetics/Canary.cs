@@ -17,28 +17,26 @@ namespace Pulumi.Aws.Synthetics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var some = new Aws.Synthetics.Canary("some", new()
     ///     {
-    ///         var some = new Aws.Synthetics.Canary("some", new Aws.Synthetics.CanaryArgs
+    ///         ArtifactS3Location = "s3://some-bucket/",
+    ///         ExecutionRoleArn = "some-role",
+    ///         Handler = "exports.handler",
+    ///         RuntimeVersion = "syn-1.0",
+    ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
     ///         {
-    ///             ArtifactS3Location = "s3://some-bucket/",
-    ///             ExecutionRoleArn = "some-role",
-    ///             Handler = "exports.handler",
-    ///             RuntimeVersion = "syn-1.0",
-    ///             Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
-    ///             {
-    ///                 Expression = "rate(0 minute)",
-    ///             },
-    ///             ZipFile = "test-fixtures/lambdatest.zip",
-    ///         });
-    ///     }
+    ///             Expression = "rate(0 minute)",
+    ///         },
+    ///         ZipFile = "test-fixtures/lambdatest.zip",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Synthetics
     /// ```
     /// </summary>
     [AwsResourceType("aws:synthetics/canary:Canary")]
-    public partial class Canary : Pulumi.CustomResource
+    public partial class Canary : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Canary.
@@ -173,7 +171,7 @@ namespace Pulumi.Aws.Synthetics
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -240,7 +238,7 @@ namespace Pulumi.Aws.Synthetics
         }
     }
 
-    public sealed class CanaryArgs : Pulumi.ResourceArgs
+    public sealed class CanaryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
@@ -359,9 +357,10 @@ namespace Pulumi.Aws.Synthetics
         public CanaryArgs()
         {
         }
+        public static new CanaryArgs Empty => new CanaryArgs();
     }
 
-    public sealed class CanaryState : Pulumi.ResourceArgs
+    public sealed class CanaryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Canary.
@@ -493,7 +492,7 @@ namespace Pulumi.Aws.Synthetics
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -528,5 +527,6 @@ namespace Pulumi.Aws.Synthetics
         public CanaryState()
         {
         }
+        public static new CanaryState Empty => new CanaryState();
     }
 }

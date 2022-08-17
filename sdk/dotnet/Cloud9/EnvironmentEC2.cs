@@ -17,101 +17,100 @@ namespace Pulumi.Aws.Cloud9
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cloud9.EnvironmentEC2("example", new()
     ///     {
-    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
-    ///         {
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///     }
+    ///         InstanceType = "t2.micro",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Get the URL of the Cloud9 environment after creation:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cloud9.EnvironmentEC2("example", new()
     ///     {
-    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
+    ///         InstanceType = "t2.micro",
+    ///     });
+    /// 
+    ///     var cloud9Instance = Aws.Ec2.GetInstance.Invoke(new()
+    ///     {
+    ///         Filters = new[]
     ///         {
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///         var cloud9Instance = Aws.Ec2.GetInstance.Invoke(new Aws.Ec2.GetInstanceInvokeArgs
-    ///         {
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
+    ///                 Name = "tag:aws:cloud9:environment",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "tag:aws:cloud9:environment",
-    ///                     Values = 
-    ///                     {
-    ///                         example.Id,
-    ///                     },
+    ///                     example.Id,
     ///                 },
     ///             },
-    ///         });
-    ///         this.Cloud9Url = example.Id.Apply(id =&gt; $"https://{@var.Region}.console.aws.amazon.com/cloud9/ide/{id}");
-    ///     }
+    ///         },
+    ///     });
     /// 
-    ///     [Output("cloud9Url")]
-    ///     public Output&lt;string&gt; Cloud9Url { get; set; }
-    /// }
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["cloud9Url"] = example.Id.Apply(id =&gt; $"https://{@var.Region}.console.aws.amazon.com/cloud9/ide/{id}"),
+    ///     };
+    /// });
     /// ```
     /// 
     /// Allocate a static IP to the Cloud9 environment:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cloud9.EnvironmentEC2("example", new()
     ///     {
-    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
+    ///         InstanceType = "t2.micro",
+    ///     });
+    /// 
+    ///     var cloud9Instance = Aws.Ec2.GetInstance.Invoke(new()
+    ///     {
+    ///         Filters = new[]
     ///         {
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///         var cloud9Instance = Aws.Ec2.GetInstance.Invoke(new Aws.Ec2.GetInstanceInvokeArgs
-    ///         {
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
+    ///                 Name = "tag:aws:cloud9:environment",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "tag:aws:cloud9:environment",
-    ///                     Values = 
-    ///                     {
-    ///                         example.Id,
-    ///                     },
+    ///                     example.Id,
     ///                 },
     ///             },
-    ///         });
-    ///         var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Instance = cloud9Instance.Apply(cloud9Instance =&gt; cloud9Instance.Id),
-    ///             Vpc = true,
-    ///         });
-    ///         this.Cloud9PublicIp = cloud9Eip.PublicIp;
-    ///     }
+    ///         },
+    ///     });
     /// 
-    ///     [Output("cloud9PublicIp")]
-    ///     public Output&lt;string&gt; Cloud9PublicIp { get; set; }
-    /// }
+    ///     var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new()
+    ///     {
+    ///         Instance = cloud9Instance.Apply(getInstanceResult =&gt; getInstanceResult.Id),
+    ///         Vpc = true,
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["cloud9PublicIp"] = cloud9Eip.PublicIp,
+    ///     };
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
-    public partial class EnvironmentEC2 : Pulumi.CustomResource
+    public partial class EnvironmentEC2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the environment.
@@ -235,7 +234,7 @@ namespace Pulumi.Aws.Cloud9
         }
     }
 
-    public sealed class EnvironmentEC2Args : Pulumi.ResourceArgs
+    public sealed class EnvironmentEC2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of minutes until the running instance is shut down after the environment has last been used.
@@ -306,9 +305,10 @@ namespace Pulumi.Aws.Cloud9
         public EnvironmentEC2Args()
         {
         }
+        public static new EnvironmentEC2Args Empty => new EnvironmentEC2Args();
     }
 
-    public sealed class EnvironmentEC2State : Pulumi.ResourceArgs
+    public sealed class EnvironmentEC2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the environment.
@@ -403,5 +403,6 @@ namespace Pulumi.Aws.Cloud9
         public EnvironmentEC2State()
         {
         }
+        public static new EnvironmentEC2State Empty => new EnvironmentEC2State();
     }
 }

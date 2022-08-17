@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExp
 import com.pulumi.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -36,6 +37,11 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      */
     private final @Nullable Boolean readOnly;
     /**
+     * @return - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * 
+     */
+    private final @Nullable Integer recordSizeKib;
+    /**
      * @return - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
@@ -47,11 +53,13 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         @CustomType.Parameter("dataCompressionType") @Nullable String dataCompressionType,
         @CustomType.Parameter("nfsExports") @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports,
         @CustomType.Parameter("readOnly") @Nullable Boolean readOnly,
+        @CustomType.Parameter("recordSizeKib") @Nullable Integer recordSizeKib,
         @CustomType.Parameter("userAndGroupQuotas") @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas) {
         this.copyTagsToSnapshots = copyTagsToSnapshots;
         this.dataCompressionType = dataCompressionType;
         this.nfsExports = nfsExports;
         this.readOnly = readOnly;
+        this.recordSizeKib = recordSizeKib;
         this.userAndGroupQuotas = userAndGroupQuotas;
     }
 
@@ -84,6 +92,13 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         return Optional.ofNullable(this.readOnly);
     }
     /**
+     * @return - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * 
+     */
+    public Optional<Integer> recordSizeKib() {
+        return Optional.ofNullable(this.recordSizeKib);
+    }
+    /**
      * @return - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
@@ -104,6 +119,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         private @Nullable String dataCompressionType;
         private @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports;
         private @Nullable Boolean readOnly;
+        private @Nullable Integer recordSizeKib;
         private @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas;
 
         public Builder() {
@@ -116,6 +132,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
     	      this.dataCompressionType = defaults.dataCompressionType;
     	      this.nfsExports = defaults.nfsExports;
     	      this.readOnly = defaults.readOnly;
+    	      this.recordSizeKib = defaults.recordSizeKib;
     	      this.userAndGroupQuotas = defaults.userAndGroupQuotas;
         }
 
@@ -135,6 +152,10 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
             this.readOnly = readOnly;
             return this;
         }
+        public Builder recordSizeKib(@Nullable Integer recordSizeKib) {
+            this.recordSizeKib = recordSizeKib;
+            return this;
+        }
         public Builder userAndGroupQuotas(@Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas) {
             this.userAndGroupQuotas = userAndGroupQuotas;
             return this;
@@ -142,7 +163,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         public Builder userAndGroupQuotas(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota... userAndGroupQuotas) {
             return userAndGroupQuotas(List.of(userAndGroupQuotas));
         }        public OpenZfsFileSystemRootVolumeConfiguration build() {
-            return new OpenZfsFileSystemRootVolumeConfiguration(copyTagsToSnapshots, dataCompressionType, nfsExports, readOnly, userAndGroupQuotas);
+            return new OpenZfsFileSystemRootVolumeConfiguration(copyTagsToSnapshots, dataCompressionType, nfsExports, readOnly, recordSizeKib, userAndGroupQuotas);
         }
     }
 }

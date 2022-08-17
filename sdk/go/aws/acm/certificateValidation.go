@@ -29,28 +29,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
-// 			DomainName:       pulumi.String("example.com"),
-// 			ValidationMethod: pulumi.String("EMAIL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acm.NewCertificateValidation(ctx, "exampleCertificateValidation", &acm.CertificateValidationArgs{
-// 			CertificateArn: exampleCertificate.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
+//				DomainName:       pulumi.String("example.com"),
+//				ValidationMethod: pulumi.String("EMAIL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acm.NewCertificateValidation(ctx, "exampleCertificateValidation", &acm.CertificateValidationArgs{
+//				CertificateArn: exampleCertificate.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type CertificateValidation struct {
 	pulumi.CustomResourceState
@@ -151,7 +154,7 @@ func (i *CertificateValidation) ToCertificateValidationOutputWithContext(ctx con
 // CertificateValidationArrayInput is an input type that accepts CertificateValidationArray and CertificateValidationArrayOutput values.
 // You can construct a concrete instance of `CertificateValidationArrayInput` via:
 //
-//          CertificateValidationArray{ CertificateValidationArgs{...} }
+//	CertificateValidationArray{ CertificateValidationArgs{...} }
 type CertificateValidationArrayInput interface {
 	pulumi.Input
 
@@ -176,7 +179,7 @@ func (i CertificateValidationArray) ToCertificateValidationArrayOutputWithContex
 // CertificateValidationMapInput is an input type that accepts CertificateValidationMap and CertificateValidationMapOutput values.
 // You can construct a concrete instance of `CertificateValidationMapInput` via:
 //
-//          CertificateValidationMap{ "key": CertificateValidationArgs{...} }
+//	CertificateValidationMap{ "key": CertificateValidationArgs{...} }
 type CertificateValidationMapInput interface {
 	pulumi.Input
 

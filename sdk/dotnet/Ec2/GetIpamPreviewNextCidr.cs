@@ -19,26 +19,25 @@ namespace Pulumi.Aws.Ec2
         /// Basic usage:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
         ///     {
-        ///         var testIpamPreviewNextCidr = Output.Create(Aws.Ec2.GetIpamPreviewNextCidr.InvokeAsync(new Aws.Ec2.GetIpamPreviewNextCidrArgs
-        ///         {
-        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///             NetmaskLength = 28,
-        ///         }));
-        ///         var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new Aws.Ec2.VpcIpamPoolCidrAllocationArgs
-        ///         {
-        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///             Cidr = testIpamPreviewNextCidr.Apply(testIpamPreviewNextCidr =&gt; testIpamPreviewNextCidr.Cidr),
-        ///         });
-        ///     }
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         NetmaskLength = 28,
+        ///     });
         /// 
-        /// }
+        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
+        ///     {
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Aws.Ec2
         /// Basic usage:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
         ///     {
-        ///         var testIpamPreviewNextCidr = Output.Create(Aws.Ec2.GetIpamPreviewNextCidr.InvokeAsync(new Aws.Ec2.GetIpamPreviewNextCidrArgs
-        ///         {
-        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///             NetmaskLength = 28,
-        ///         }));
-        ///         var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new Aws.Ec2.VpcIpamPoolCidrAllocationArgs
-        ///         {
-        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///             Cidr = testIpamPreviewNextCidr.Apply(testIpamPreviewNextCidr =&gt; testIpamPreviewNextCidr.Cidr),
-        ///         });
-        ///     }
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         NetmaskLength = 28,
+        ///     });
         /// 
-        /// }
+        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
+        ///     {
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetIpamPreviewNextCidrArgs : Pulumi.InvokeArgs
+    public sealed class GetIpamPreviewNextCidrArgs : global::Pulumi.InvokeArgs
     {
         [Input("disallowedCidrs")]
         private List<string>? _disallowedCidrs;
@@ -112,9 +110,10 @@ namespace Pulumi.Aws.Ec2
         public GetIpamPreviewNextCidrArgs()
         {
         }
+        public static new GetIpamPreviewNextCidrArgs Empty => new GetIpamPreviewNextCidrArgs();
     }
 
-    public sealed class GetIpamPreviewNextCidrInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpamPreviewNextCidrInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("disallowedCidrs")]
         private InputList<string>? _disallowedCidrs;
@@ -143,6 +142,7 @@ namespace Pulumi.Aws.Ec2
         public GetIpamPreviewNextCidrInvokeArgs()
         {
         }
+        public static new GetIpamPreviewNextCidrInvokeArgs Empty => new GetIpamPreviewNextCidrInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class ThingTypePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ThingTypePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the thing type.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public ThingTypePropertiesArgs()
         {
         }
+        public static new ThingTypePropertiesArgs Empty => new ThingTypePropertiesArgs();
     }
 }

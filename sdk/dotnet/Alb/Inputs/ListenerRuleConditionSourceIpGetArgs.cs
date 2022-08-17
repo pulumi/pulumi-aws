@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class ListenerRuleConditionSourceIpGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleConditionSourceIpGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("values", required: true)]
         private InputList<string>? _values;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public ListenerRuleConditionSourceIpGetArgs()
         {
         }
+        public static new ListenerRuleConditionSourceIpGetArgs Empty => new ListenerRuleConditionSourceIpGetArgs();
     }
 }

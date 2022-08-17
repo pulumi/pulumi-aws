@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class ScheduledActionTargetActionResumeClusterGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionTargetActionResumeClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the cluster to be resumed.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public ScheduledActionTargetActionResumeClusterGetArgs()
         {
         }
+        public static new ScheduledActionTargetActionResumeClusterGetArgs Empty => new ScheduledActionTargetActionResumeClusterGetArgs();
     }
 }

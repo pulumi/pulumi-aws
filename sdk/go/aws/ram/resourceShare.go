@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
-// 			AllowExternalPrincipals: pulumi.Bool(true),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Resource shares can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+//
+//	$ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+//
 // ```
 type ResourceShare struct {
 	pulumi.CustomResourceState
@@ -58,7 +63,7 @@ type ResourceShare struct {
 	PermissionArns pulumi.StringArrayOutput `pulumi:"permissionArns"`
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,7 +106,7 @@ type resourceShareState struct {
 	PermissionArns []string `pulumi:"permissionArns"`
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -116,7 +121,7 @@ type ResourceShareState struct {
 	PermissionArns pulumi.StringArrayInput
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -173,7 +178,7 @@ func (i *ResourceShare) ToResourceShareOutputWithContext(ctx context.Context) Re
 // ResourceShareArrayInput is an input type that accepts ResourceShareArray and ResourceShareArrayOutput values.
 // You can construct a concrete instance of `ResourceShareArrayInput` via:
 //
-//          ResourceShareArray{ ResourceShareArgs{...} }
+//	ResourceShareArray{ ResourceShareArgs{...} }
 type ResourceShareArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i ResourceShareArray) ToResourceShareArrayOutputWithContext(ctx context.Co
 // ResourceShareMapInput is an input type that accepts ResourceShareMap and ResourceShareMapOutput values.
 // You can construct a concrete instance of `ResourceShareMapInput` via:
 //
-//          ResourceShareMap{ "key": ResourceShareArgs{...} }
+//	ResourceShareMap{ "key": ResourceShareArgs{...} }
 type ResourceShareMapInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (o ResourceShareOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResourceShareOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

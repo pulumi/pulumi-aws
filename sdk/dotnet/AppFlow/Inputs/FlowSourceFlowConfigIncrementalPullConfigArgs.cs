@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowSourceFlowConfigIncrementalPullConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigIncrementalPullConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowSourceFlowConfigIncrementalPullConfigArgs()
         {
         }
+        public static new FlowSourceFlowConfigIncrementalPullConfigArgs Empty => new FlowSourceFlowConfigIncrementalPullConfigArgs();
     }
 }

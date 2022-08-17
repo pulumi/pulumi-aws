@@ -15,27 +15,26 @@ namespace Pulumi.Aws.AppSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
     ///     {
-    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "API_KEY",
-    ///         });
-    ///         var exampleApiCache = new Aws.AppSync.ApiCache("exampleApiCache", new Aws.AppSync.ApiCacheArgs
-    ///         {
-    ///             ApiId = exampleGraphQLApi.Id,
-    ///             ApiCachingBehavior = "FULL_REQUEST_CACHING",
-    ///             Type = "LARGE",
-    ///             Ttl = 900,
-    ///         });
-    ///     }
+    ///         AuthenticationType = "API_KEY",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApiCache = new Aws.AppSync.ApiCache("exampleApiCache", new()
+    ///     {
+    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiCachingBehavior = "FULL_REQUEST_CACHING",
+    ///         Type = "LARGE",
+    ///         Ttl = 900,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/apiCache:ApiCache")]
-    public partial class ApiCache : Pulumi.CustomResource
+    public partial class ApiCache : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
@@ -129,7 +128,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class ApiCacheArgs : Pulumi.ResourceArgs
+    public sealed class ApiCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
@@ -170,9 +169,10 @@ namespace Pulumi.Aws.AppSync
         public ApiCacheArgs()
         {
         }
+        public static new ApiCacheArgs Empty => new ApiCacheArgs();
     }
 
-    public sealed class ApiCacheState : Pulumi.ResourceArgs
+    public sealed class ApiCacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
@@ -213,5 +213,6 @@ namespace Pulumi.Aws.AppSync
         public ApiCacheState()
         {
         }
+        public static new ApiCacheState Empty => new ApiCacheState();
     }
 }

@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var key = new Aws.Kms.Key("key", new()
     ///     {
-    ///         var key = new Aws.Kms.Key("key", new Aws.Kms.KeyArgs
-    ///         {
-    ///             DeletionWindowInDays = 10,
-    ///             Description = "KMS key 1",
-    ///         });
-    ///     }
+    ///         DeletionWindowInDays = 10,
+    ///         Description = "KMS key 1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Kms
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/key:Key")]
-    public partial class Key : Pulumi.CustomResource
+    public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key.
@@ -172,7 +170,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class KeyArgs : Pulumi.ResourceArgs
+    public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -250,9 +248,10 @@ namespace Pulumi.Aws.Kms
         public KeyArgs()
         {
         }
+        public static new KeyArgs Empty => new KeyArgs();
     }
 
-    public sealed class KeyState : Pulumi.ResourceArgs
+    public sealed class KeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key.
@@ -354,5 +353,6 @@ namespace Pulumi.Aws.Kms
         public KeyState()
         {
         }
+        public static new KeyState Empty => new KeyState();
     }
 }

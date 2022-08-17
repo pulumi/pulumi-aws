@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppAutoScaling.Inputs
 {
 
-    public sealed class PolicyStepScalingPolicyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PolicyStepScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public PolicyStepScalingPolicyConfigurationArgs()
         {
         }
+        public static new PolicyStepScalingPolicyConfigurationArgs Empty => new PolicyStepScalingPolicyConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class ResolverRuleTargetIpArgs : Pulumi.ResourceArgs
+    public sealed class ResolverRuleTargetIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public ResolverRuleTargetIpArgs()
         {
         }
+        public static new ResolverRuleTargetIpArgs Empty => new ResolverRuleTargetIpArgs();
     }
 }

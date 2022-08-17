@@ -19,61 +19,57 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.7.22",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredInstanceClasses = new[]
         ///         {
-        ///             Engine = "mysql",
-        ///             EngineVersion = "5.7.22",
-        ///             LicenseModel = "general-public-license",
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.r6.xlarge",
-        ///                 "db.m4.large",
-        ///                 "db.t3.small",
-        ///             },
-        ///             StorageType = "standard",
-        ///         }));
-        ///     }
+        ///             "db.r6.xlarge",
+        ///             "db.m4.large",
+        ///             "db.t3.small",
+        ///         },
+        ///         StorageType = "standard",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         Engine = "mysql",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredEngineVersions = new[]
         ///         {
-        ///             Engine = "mysql",
-        ///             LicenseModel = "general-public-license",
-        ///             PreferredEngineVersions = 
-        ///             {
-        ///                 "5.6.35",
-        ///                 "5.6.41",
-        ///                 "5.6.44",
-        ///             },
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.t2.small",
-        ///                 "db.t3.medium",
-        ///                 "db.t3.large",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "5.6.35",
+        ///             "5.6.41",
+        ///             "5.6.44",
+        ///         },
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.t2.small",
+        ///             "db.t3.medium",
+        ///             "db.t3.large",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,61 +85,57 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.7.22",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredInstanceClasses = new[]
         ///         {
-        ///             Engine = "mysql",
-        ///             EngineVersion = "5.7.22",
-        ///             LicenseModel = "general-public-license",
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.r6.xlarge",
-        ///                 "db.m4.large",
-        ///                 "db.t3.small",
-        ///             },
-        ///             StorageType = "standard",
-        ///         }));
-        ///     }
+        ///             "db.r6.xlarge",
+        ///             "db.m4.large",
+        ///             "db.t3.small",
+        ///         },
+        ///         StorageType = "standard",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         Engine = "mysql",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredEngineVersions = new[]
         ///         {
-        ///             Engine = "mysql",
-        ///             LicenseModel = "general-public-license",
-        ///             PreferredEngineVersions = 
-        ///             {
-        ///                 "5.6.35",
-        ///                 "5.6.41",
-        ///                 "5.6.44",
-        ///             },
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.t2.small",
-        ///                 "db.t3.medium",
-        ///                 "db.t3.large",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "5.6.35",
+        ///             "5.6.41",
+        ///             "5.6.44",
+        ///         },
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.t2.small",
+        ///             "db.t3.medium",
+        ///             "db.t3.large",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -153,7 +145,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetOrderableDbInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableDbInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Availability zone group.
@@ -272,9 +264,10 @@ namespace Pulumi.Aws.Rds
         public GetOrderableDbInstanceArgs()
         {
         }
+        public static new GetOrderableDbInstanceArgs Empty => new GetOrderableDbInstanceArgs();
     }
 
-    public sealed class GetOrderableDbInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableDbInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Availability zone group.
@@ -393,6 +386,7 @@ namespace Pulumi.Aws.Rds
         public GetOrderableDbInstanceInvokeArgs()
         {
         }
+        public static new GetOrderableDbInstanceInvokeArgs Empty => new GetOrderableDbInstanceInvokeArgs();
     }
 
 

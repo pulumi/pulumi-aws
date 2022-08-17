@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myTemplate = new Aws.Ses.Template("myTemplate", new()
     ///     {
-    ///         var myTemplate = new Aws.Ses.Template("myTemplate", new Aws.Ses.TemplateArgs
-    ///         {
-    ///             Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
-    ///             Subject = "Greetings, {{name}}!",
-    ///             Text = @"Hello {{name}},
+    ///         Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
+    ///         Subject = "Greetings, {{name}}!",
+    ///         Text = @"Hello {{name}},
     /// Your favorite animal is {{favoriteanimal}}.
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/template:Template")]
-    public partial class Template : Pulumi.CustomResource
+    public partial class Template : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the SES template
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class TemplateArgs : Pulumi.ResourceArgs
+    public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
@@ -149,9 +147,10 @@ namespace Pulumi.Aws.Ses
         public TemplateArgs()
         {
         }
+        public static new TemplateArgs Empty => new TemplateArgs();
     }
 
-    public sealed class TemplateState : Pulumi.ResourceArgs
+    public sealed class TemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SES template
@@ -186,5 +185,6 @@ namespace Pulumi.Aws.Ses
         public TemplateState()
         {
         }
+        public static new TemplateState Empty => new TemplateState();
     }
 }

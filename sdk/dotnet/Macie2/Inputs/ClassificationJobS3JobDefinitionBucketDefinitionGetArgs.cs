@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionBucketDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionBucketDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier for the AWS account that owns the buckets.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobS3JobDefinitionBucketDefinitionGetArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionBucketDefinitionGetArgs Empty => new ClassificationJobS3JobDefinitionBucketDefinitionGetArgs();
     }
 }

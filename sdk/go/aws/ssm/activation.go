@@ -19,49 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`  {
-//     "Version": "2012-10-17",
-//     "Statement": {
-//       "Effect": "Allow",
-//       "Principal": {"Service": "ssm.amazonaws.com"},
-//       "Action": "sts:AssumeRole"
-//     }
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`  {
+//	    "Version": "2012-10-17",
+//	    "Statement": {
+//	      "Effect": "Allow",
+//	      "Principal": {"Service": "ssm.amazonaws.com"},
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  }
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testAttach, err := iam.NewRolePolicyAttachment(ctx, "testAttach", &iam.RolePolicyAttachmentArgs{
-// 			Role:      testRole.Name,
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ssm.NewActivation(ctx, "foo", &ssm.ActivationArgs{
-// 			Description:       pulumi.String("Test"),
-// 			IamRole:           testRole.ID(),
-// 			RegistrationLimit: pulumi.Int(5),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			testAttach,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAttach, err := iam.NewRolePolicyAttachment(ctx, "testAttach", &iam.RolePolicyAttachmentArgs{
+//				Role:      testRole.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewActivation(ctx, "foo", &ssm.ActivationArgs{
+//				Description:       pulumi.String("Test"),
+//				IamRole:           testRole.ID(),
+//				RegistrationLimit: pulumi.Int(5),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testAttach,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +74,9 @@ import (
 // AWS SSM Activation can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+//
+//	$ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+//
 // ```
 type Activation struct {
 	pulumi.CustomResourceState
@@ -92,7 +99,7 @@ type Activation struct {
 	RegistrationLimit pulumi.IntPtrOutput `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -146,7 +153,7 @@ type activationState struct {
 	RegistrationLimit *int `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -169,7 +176,7 @@ type ActivationState struct {
 	RegistrationLimit pulumi.IntPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -234,7 +241,7 @@ func (i *Activation) ToActivationOutputWithContext(ctx context.Context) Activati
 // ActivationArrayInput is an input type that accepts ActivationArray and ActivationArrayOutput values.
 // You can construct a concrete instance of `ActivationArrayInput` via:
 //
-//          ActivationArray{ ActivationArgs{...} }
+//	ActivationArray{ ActivationArgs{...} }
 type ActivationArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +266,7 @@ func (i ActivationArray) ToActivationArrayOutputWithContext(ctx context.Context)
 // ActivationMapInput is an input type that accepts ActivationMap and ActivationMapOutput values.
 // You can construct a concrete instance of `ActivationMapInput` via:
 //
-//          ActivationMap{ "key": ActivationArgs{...} }
+//	ActivationMap{ "key": ActivationArgs{...} }
 type ActivationMapInput interface {
 	pulumi.Input
 
@@ -340,7 +347,7 @@ func (o ActivationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ActivationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

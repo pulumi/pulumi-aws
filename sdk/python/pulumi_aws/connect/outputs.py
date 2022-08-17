@@ -15,6 +15,13 @@ __all__ = [
     'HoursOfOperationConfig',
     'HoursOfOperationConfigEndTime',
     'HoursOfOperationConfigStartTime',
+    'InstanceStorageConfigStorageConfig',
+    'InstanceStorageConfigStorageConfigKinesisFirehoseConfig',
+    'InstanceStorageConfigStorageConfigKinesisStreamConfig',
+    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfig',
+    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig',
+    'InstanceStorageConfigStorageConfigS3Config',
+    'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig',
     'QueueOutboundCallerConfig',
     'QuickConnectQuickConnectConfig',
     'QuickConnectQuickConnectConfigPhoneConfig',
@@ -224,6 +231,384 @@ class HoursOfOperationConfigStartTime(dict):
         Specifies the minute of opening.
         """
         return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageType":
+            suggest = "storage_type"
+        elif key == "kinesisFirehoseConfig":
+            suggest = "kinesis_firehose_config"
+        elif key == "kinesisStreamConfig":
+            suggest = "kinesis_stream_config"
+        elif key == "kinesisVideoStreamConfig":
+            suggest = "kinesis_video_stream_config"
+        elif key == "s3Config":
+            suggest = "s3_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_type: str,
+                 kinesis_firehose_config: Optional['outputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfig'] = None,
+                 kinesis_stream_config: Optional['outputs.InstanceStorageConfigStorageConfigKinesisStreamConfig'] = None,
+                 kinesis_video_stream_config: Optional['outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfig'] = None,
+                 s3_config: Optional['outputs.InstanceStorageConfigStorageConfigS3Config'] = None):
+        """
+        :param str storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+        :param 'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs' kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        :param 'InstanceStorageConfigStorageConfigKinesisStreamConfigArgs' kinesis_stream_config: A block that specifies the configuration of the Kinesis data stream. Documented below.
+        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs' kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
+        :param 'InstanceStorageConfigStorageConfigS3ConfigArgs' s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
+        """
+        pulumi.set(__self__, "storage_type", storage_type)
+        if kinesis_firehose_config is not None:
+            pulumi.set(__self__, "kinesis_firehose_config", kinesis_firehose_config)
+        if kinesis_stream_config is not None:
+            pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
+        if kinesis_video_stream_config is not None:
+            pulumi.set(__self__, "kinesis_video_stream_config", kinesis_video_stream_config)
+        if s3_config is not None:
+            pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter(name="kinesisFirehoseConfig")
+    def kinesis_firehose_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfig']:
+        """
+        A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        """
+        return pulumi.get(self, "kinesis_firehose_config")
+
+    @property
+    @pulumi.getter(name="kinesisStreamConfig")
+    def kinesis_stream_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigKinesisStreamConfig']:
+        """
+        A block that specifies the configuration of the Kinesis data stream. Documented below.
+        """
+        return pulumi.get(self, "kinesis_stream_config")
+
+    @property
+    @pulumi.getter(name="kinesisVideoStreamConfig")
+    def kinesis_video_stream_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfig']:
+        """
+        A block that specifies the configuration of the Kinesis video stream. Documented below.
+        """
+        return pulumi.get(self, "kinesis_video_stream_config")
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigS3Config']:
+        """
+        A block that specifies the configuration of S3 Bucket. Documented below.
+        """
+        return pulumi.get(self, "s3_config")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfigKinesisFirehoseConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firehoseArn":
+            suggest = "firehose_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfigKinesisFirehoseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfigKinesisFirehoseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfigKinesisFirehoseConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 firehose_arn: str):
+        """
+        :param str firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
+        """
+        pulumi.set(__self__, "firehose_arn", firehose_arn)
+
+    @property
+    @pulumi.getter(name="firehoseArn")
+    def firehose_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the delivery stream.
+        """
+        return pulumi.get(self, "firehose_arn")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfigKinesisStreamConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfigKinesisStreamConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfigKinesisStreamConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfigKinesisStreamConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_arn: str):
+        """
+        :param str stream_arn: The Amazon Resource Name (ARN) of the data stream.
+        """
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the data stream.
+        """
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionConfig":
+            suggest = "encryption_config"
+        elif key == "retentionPeriodHours":
+            suggest = "retention_period_hours"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfigKinesisVideoStreamConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_config: 'outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig',
+                 prefix: str,
+                 retention_period_hours: int):
+        """
+        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs' encryption_config: The encryption configuration. Documented below.
+        :param str prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+        :param int retention_period_hours: The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
+        """
+        pulumi.set(__self__, "encryption_config", encryption_config)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "retention_period_hours", retention_period_hours)
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> 'outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig':
+        """
+        The encryption configuration. Documented below.
+        """
+        return pulumi.get(self, "encryption_config")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="retentionPeriodHours")
+    def retention_period_hours(self) -> int:
+        """
+        The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
+        """
+        return pulumi.get(self, "retention_period_hours")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_type: str,
+                 key_id: str):
+        """
+        :param str encryption_type: The type of encryption. Valid Values: `KMS`.
+        :param str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        The type of encryption. Valid Values: `KMS`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfigS3Config(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "encryptionConfig":
+            suggest = "encryption_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfigS3Config. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfigS3Config.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfigS3Config.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 bucket_prefix: str,
+                 encryption_config: Optional['outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig'] = None):
+        """
+        :param str bucket_name: The S3 bucket name.
+        :param str bucket_prefix: The S3 bucket prefix.
+        :param 'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs' encryption_config: The encryption configuration. Documented below.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if encryption_config is not None:
+            pulumi.set(__self__, "encryption_config", encryption_config)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        The S3 bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketPrefix")
+    def bucket_prefix(self) -> str:
+        """
+        The S3 bucket prefix.
+        """
+        return pulumi.get(self, "bucket_prefix")
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig']:
+        """
+        The encryption configuration. Documented below.
+        """
+        return pulumi.get(self, "encryption_config")
+
+
+@pulumi.output_type
+class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_type: str,
+                 key_id: str):
+        """
+        :param str encryption_type: The type of encryption. Valid Values: `KMS`.
+        :param str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        The type of encryption. Valid Values: `KMS`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        return pulumi.get(self, "key_id")
 
 
 @pulumi.output_type

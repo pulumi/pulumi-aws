@@ -20,69 +20,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mskconnect.NewConnector(ctx, "example", &mskconnect.ConnectorArgs{
-// 			KafkaconnectVersion: pulumi.String("2.7.1"),
-// 			Capacity: &mskconnect.ConnectorCapacityArgs{
-// 				Autoscaling: &mskconnect.ConnectorCapacityAutoscalingArgs{
-// 					McuCount:       pulumi.Int(1),
-// 					MinWorkerCount: pulumi.Int(1),
-// 					MaxWorkerCount: pulumi.Int(2),
-// 					ScaleInPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleInPolicyArgs{
-// 						CpuUtilizationPercentage: pulumi.Int(20),
-// 					},
-// 					ScaleOutPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleOutPolicyArgs{
-// 						CpuUtilizationPercentage: pulumi.Int(80),
-// 					},
-// 				},
-// 			},
-// 			ConnectorConfiguration: pulumi.StringMap{
-// 				"connector.class": pulumi.String("com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
-// 				"tasks.max":       pulumi.String("1"),
-// 				"topics":          pulumi.String("example"),
-// 			},
-// 			KafkaCluster: &mskconnect.ConnectorKafkaClusterArgs{
-// 				ApacheKafkaCluster: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs{
-// 					BootstrapServers: pulumi.Any(aws_msk_cluster.Example.Bootstrap_brokers_tls),
-// 					Vpc: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs{
-// 						SecurityGroups: pulumi.StringArray{
-// 							pulumi.Any(aws_security_group.Example.Id),
-// 						},
-// 						Subnets: pulumi.StringArray{
-// 							pulumi.Any(aws_subnet.Example1.Id),
-// 							pulumi.Any(aws_subnet.Example2.Id),
-// 							pulumi.Any(aws_subnet.Example3.Id),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			KafkaClusterClientAuthentication: &mskconnect.ConnectorKafkaClusterClientAuthenticationArgs{
-// 				AuthenticationType: pulumi.String("NONE"),
-// 			},
-// 			KafkaClusterEncryptionInTransit: &mskconnect.ConnectorKafkaClusterEncryptionInTransitArgs{
-// 				EncryptionType: pulumi.String("TLS"),
-// 			},
-// 			Plugins: mskconnect.ConnectorPluginArray{
-// 				&mskconnect.ConnectorPluginArgs{
-// 					CustomPlugin: &mskconnect.ConnectorPluginCustomPluginArgs{
-// 						Arn:      pulumi.Any(aws_mskconnect_custom_plugin.Example.Arn),
-// 						Revision: pulumi.Any(aws_mskconnect_custom_plugin.Example.Latest_revision),
-// 					},
-// 				},
-// 			},
-// 			ServiceExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mskconnect.NewConnector(ctx, "example", &mskconnect.ConnectorArgs{
+//				KafkaconnectVersion: pulumi.String("2.7.1"),
+//				Capacity: &mskconnect.ConnectorCapacityArgs{
+//					Autoscaling: &mskconnect.ConnectorCapacityAutoscalingArgs{
+//						McuCount:       pulumi.Int(1),
+//						MinWorkerCount: pulumi.Int(1),
+//						MaxWorkerCount: pulumi.Int(2),
+//						ScaleInPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleInPolicyArgs{
+//							CpuUtilizationPercentage: pulumi.Int(20),
+//						},
+//						ScaleOutPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleOutPolicyArgs{
+//							CpuUtilizationPercentage: pulumi.Int(80),
+//						},
+//					},
+//				},
+//				ConnectorConfiguration: pulumi.StringMap{
+//					"connector.class": pulumi.String("com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
+//					"tasks.max":       pulumi.String("1"),
+//					"topics":          pulumi.String("example"),
+//				},
+//				KafkaCluster: &mskconnect.ConnectorKafkaClusterArgs{
+//					ApacheKafkaCluster: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs{
+//						BootstrapServers: pulumi.Any(aws_msk_cluster.Example.Bootstrap_brokers_tls),
+//						Vpc: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs{
+//							SecurityGroups: pulumi.StringArray{
+//								pulumi.Any(aws_security_group.Example.Id),
+//							},
+//							Subnets: pulumi.StringArray{
+//								pulumi.Any(aws_subnet.Example1.Id),
+//								pulumi.Any(aws_subnet.Example2.Id),
+//								pulumi.Any(aws_subnet.Example3.Id),
+//							},
+//						},
+//					},
+//				},
+//				KafkaClusterClientAuthentication: &mskconnect.ConnectorKafkaClusterClientAuthenticationArgs{
+//					AuthenticationType: pulumi.String("NONE"),
+//				},
+//				KafkaClusterEncryptionInTransit: &mskconnect.ConnectorKafkaClusterEncryptionInTransitArgs{
+//					EncryptionType: pulumi.String("TLS"),
+//				},
+//				Plugins: mskconnect.ConnectorPluginArray{
+//					&mskconnect.ConnectorPluginArgs{
+//						CustomPlugin: &mskconnect.ConnectorPluginCustomPluginArgs{
+//							Arn:      pulumi.Any(aws_mskconnect_custom_plugin.Example.Arn),
+//							Revision: pulumi.Any(aws_mskconnect_custom_plugin.Example.Latest_revision),
+//						},
+//					},
+//				},
+//				ServiceExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -90,7 +93,9 @@ import (
 // MSK Connect Connector can be imported using the connector's `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+//
+//	$ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+//
 // ```
 type Connector struct {
 	pulumi.CustomResourceState
@@ -324,7 +329,7 @@ func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorO
 // ConnectorArrayInput is an input type that accepts ConnectorArray and ConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorArrayInput` via:
 //
-//          ConnectorArray{ ConnectorArgs{...} }
+//	ConnectorArray{ ConnectorArgs{...} }
 type ConnectorArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +354,7 @@ func (i ConnectorArray) ToConnectorArrayOutputWithContext(ctx context.Context) C
 // ConnectorMapInput is an input type that accepts ConnectorMap and ConnectorMapOutput values.
 // You can construct a concrete instance of `ConnectorMapInput` via:
 //
-//          ConnectorMap{ "key": ConnectorArgs{...} }
+//	ConnectorMap{ "key": ConnectorArgs{...} }
 type ConnectorMapInput interface {
 	pulumi.Input
 

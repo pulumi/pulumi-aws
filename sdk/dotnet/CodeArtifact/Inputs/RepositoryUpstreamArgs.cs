@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeArtifact.Inputs
 {
 
-    public sealed class RepositoryUpstreamArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryUpstreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an upstream repository.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CodeArtifact.Inputs
         public RepositoryUpstreamArgs()
         {
         }
+        public static new RepositoryUpstreamArgs Empty => new RepositoryUpstreamArgs();
     }
 }

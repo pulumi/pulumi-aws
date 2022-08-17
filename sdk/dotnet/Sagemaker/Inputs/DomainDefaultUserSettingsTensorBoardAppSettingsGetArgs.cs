@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class DomainDefaultUserSettingsTensorBoardAppSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainDefaultUserSettingsTensorBoardAppSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public DomainDefaultUserSettingsTensorBoardAppSettingsGetArgs()
         {
         }
+        public static new DomainDefaultUserSettingsTensorBoardAppSettingsGetArgs Empty => new DomainDefaultUserSettingsTensorBoardAppSettingsGetArgs();
     }
 }

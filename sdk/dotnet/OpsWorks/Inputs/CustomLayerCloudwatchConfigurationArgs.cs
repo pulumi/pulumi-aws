@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class CustomLayerCloudwatchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CustomLayerCloudwatchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public CustomLayerCloudwatchConfigurationArgs()
         {
         }
+        public static new CustomLayerCloudwatchConfigurationArgs Empty => new CustomLayerCloudwatchConfigurationArgs();
     }
 }

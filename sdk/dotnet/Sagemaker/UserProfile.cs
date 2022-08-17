@@ -16,21 +16,19 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.UserProfile("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.UserProfile("example", new Aws.Sagemaker.UserProfileArgs
-    ///         {
-    ///             DomainId = aws_sagemaker_domain.Test.Id,
-    ///             UserProfileName = "example",
-    ///         });
-    ///     }
+    ///         DomainId = aws_sagemaker_domain.Test.Id,
+    ///         UserProfileName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/userProfile:UserProfile")]
-    public partial class UserProfile : Pulumi.CustomResource
+    public partial class UserProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
@@ -81,7 +79,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class UserProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated Domain.
@@ -189,9 +187,10 @@ namespace Pulumi.Aws.Sagemaker
         public UserProfileArgs()
         {
         }
+        public static new UserProfileArgs Empty => new UserProfileArgs();
     }
 
-    public sealed class UserProfileState : Pulumi.ResourceArgs
+    public sealed class UserProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
@@ -239,7 +238,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -262,5 +261,6 @@ namespace Pulumi.Aws.Sagemaker
         public UserProfileState()
         {
         }
+        public static new UserProfileState Empty => new UserProfileState();
     }
 }

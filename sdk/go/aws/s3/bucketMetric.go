@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucketV2(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
-// 			Bucket: example.Bucket,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
+//				Bucket: example.Bucket,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Add metrics configuration with S3 object filter
 //
@@ -46,32 +49,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucketV2(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-// 			Bucket: example.Bucket,
-// 			Filter: &s3.BucketMetricFilterArgs{
-// 				Prefix: pulumi.String("documents/"),
-// 				Tags: pulumi.StringMap{
-// 					"priority": pulumi.String("high"),
-// 					"class":    pulumi.String("blue"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
+//				Bucket: example.Bucket,
+//				Filter: &s3.BucketMetricFilterArgs{
+//					Prefix: pulumi.String("documents/"),
+//					Tags: pulumi.StringMap{
+//						"priority": pulumi.String("high"),
+//						"class":    pulumi.String("blue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +85,9 @@ import (
 // S3 bucket metric configurations can be imported using `bucket:metric`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+//
+//	$ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+//
 // ```
 type BucketMetric struct {
 	pulumi.CustomResourceState
@@ -190,7 +198,7 @@ func (i *BucketMetric) ToBucketMetricOutputWithContext(ctx context.Context) Buck
 // BucketMetricArrayInput is an input type that accepts BucketMetricArray and BucketMetricArrayOutput values.
 // You can construct a concrete instance of `BucketMetricArrayInput` via:
 //
-//          BucketMetricArray{ BucketMetricArgs{...} }
+//	BucketMetricArray{ BucketMetricArgs{...} }
 type BucketMetricArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +223,7 @@ func (i BucketMetricArray) ToBucketMetricArrayOutputWithContext(ctx context.Cont
 // BucketMetricMapInput is an input type that accepts BucketMetricMap and BucketMetricMapOutput values.
 // You can construct a concrete instance of `BucketMetricMapInput` via:
 //
-//          BucketMetricMap{ "key": BucketMetricArgs{...} }
+//	BucketMetricMap{ "key": BucketMetricArgs{...} }
 type BucketMetricMapInput interface {
 	pulumi.Input
 

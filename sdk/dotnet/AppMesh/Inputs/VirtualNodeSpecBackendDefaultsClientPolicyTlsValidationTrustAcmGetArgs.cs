@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateAuthorityArns", required: true)]
         private InputList<string>? _certificateAuthorityArns;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmGetArgs()
         {
         }
+        public static new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmGetArgs Empty => new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmGetArgs();
     }
 }

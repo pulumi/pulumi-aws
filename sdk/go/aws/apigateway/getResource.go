@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
-// 			Name: "my-rest-api",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.LookupResource(ctx, &apigateway.LookupResourceArgs{
-// 			RestApiId: myRestApi.Id,
-// 			Path:      "/endpoint/path",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+//				Name: "my-rest-api",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.LookupResource(ctx, &apigateway.LookupResourceArgs{
+//				RestApiId: myRestApi.Id,
+//				Path:      "/endpoint/path",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult

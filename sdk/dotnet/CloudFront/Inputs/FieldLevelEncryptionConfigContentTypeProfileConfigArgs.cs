@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class FieldLevelEncryptionConfigContentTypeProfileConfigArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionConfigContentTypeProfileConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public FieldLevelEncryptionConfigContentTypeProfileConfigArgs()
         {
         }
+        public static new FieldLevelEncryptionConfigContentTypeProfileConfigArgs Empty => new FieldLevelEncryptionConfigContentTypeProfileConfigArgs();
     }
 }

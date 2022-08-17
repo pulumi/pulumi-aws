@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := pinpoint.NewApp(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
-// 			ApplicationId: app.ApplicationId,
-// 			ApiKey:        pulumi.String("api_key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				ApiKey:        pulumi.String("api_key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+//
+//	$ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+//
 // ```
 type GcmChannel struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *GcmChannel) ToGcmChannelOutputWithContext(ctx context.Context) GcmChann
 // GcmChannelArrayInput is an input type that accepts GcmChannelArray and GcmChannelArrayOutput values.
 // You can construct a concrete instance of `GcmChannelArrayInput` via:
 //
-//          GcmChannelArray{ GcmChannelArgs{...} }
+//	GcmChannelArray{ GcmChannelArgs{...} }
 type GcmChannelArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i GcmChannelArray) ToGcmChannelArrayOutputWithContext(ctx context.Context)
 // GcmChannelMapInput is an input type that accepts GcmChannelMap and GcmChannelMapOutput values.
 // You can construct a concrete instance of `GcmChannelMapInput` via:
 //
-//          GcmChannelMap{ "key": GcmChannelArgs{...} }
+//	GcmChannelMap{ "key": GcmChannelArgs{...} }
 type GcmChannelMapInput interface {
 	pulumi.Input
 

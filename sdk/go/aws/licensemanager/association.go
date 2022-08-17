@@ -21,53 +21,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Owners: []string{
-// 				"amazon",
-// 			},
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"amzn-ami-vpc-nat*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInstance, err := ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
-// 			Ami:          pulumi.String(exampleAmi.Id),
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLicenseConfiguration, err := licensemanager.NewLicenseConfiguration(ctx, "exampleLicenseConfiguration", &licensemanager.LicenseConfigurationArgs{
-// 			LicenseCountingType: pulumi.String("Instance"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = licensemanager.NewAssociation(ctx, "exampleAssociation", &licensemanager.AssociationArgs{
-// 			LicenseConfigurationArn: exampleLicenseConfiguration.Arn,
-// 			ResourceArn:             exampleInstance.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"amzn-ami-vpc-nat*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleInstance, err := ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(exampleAmi.Id),
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLicenseConfiguration, err := licensemanager.NewLicenseConfiguration(ctx, "exampleLicenseConfiguration", &licensemanager.LicenseConfigurationArgs{
+//				LicenseCountingType: pulumi.String("Instance"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = licensemanager.NewAssociation(ctx, "exampleAssociation", &licensemanager.AssociationArgs{
+//				LicenseConfigurationArn: exampleLicenseConfiguration.Arn,
+//				ResourceArn:             exampleInstance.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+//
+//	$ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+//
 // ```
 type Association struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 // AssociationArrayInput is an input type that accepts AssociationArray and AssociationArrayOutput values.
 // You can construct a concrete instance of `AssociationArrayInput` via:
 //
-//          AssociationArray{ AssociationArgs{...} }
+//	AssociationArray{ AssociationArgs{...} }
 type AssociationArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i AssociationArray) ToAssociationArrayOutputWithContext(ctx context.Contex
 // AssociationMapInput is an input type that accepts AssociationMap and AssociationMapOutput values.
 // You can construct a concrete instance of `AssociationMapInput` via:
 //
-//          AssociationMap{ "key": AssociationArgs{...} }
+//	AssociationMap{ "key": AssociationArgs{...} }
 type AssociationMapInput interface {
 	pulumi.Input
 

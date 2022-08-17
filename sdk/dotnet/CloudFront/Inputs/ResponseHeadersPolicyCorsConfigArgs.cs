@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyCorsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyCorsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicyCorsConfigArgs()
         {
         }
+        public static new ResponseHeadersPolicyCorsConfigArgs Empty => new ResponseHeadersPolicyCorsConfigArgs();
     }
 }

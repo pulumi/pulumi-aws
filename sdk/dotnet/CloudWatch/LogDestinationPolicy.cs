@@ -15,55 +15,55 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
     ///     {
-    ///         var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new Aws.CloudWatch.LogDestinationArgs
+    ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
+    ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
+    ///     });
+    /// 
+    ///     var testDestinationPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
     ///         {
-    ///             RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
-    ///             TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
-    ///         });
-    ///         var testDestinationPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
     ///                 {
-    ///                     Effect = "Allow",
-    ///                     Principals = 
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "123456789012",
-    ///                             },
+    ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                     Actions = 
-    ///                     {
-    ///                         "logs:PutSubscriptionFilter",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         testDestination.Arn,
-    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:PutSubscriptionFilter",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     testDestination.Arn,
     ///                 },
     ///             },
-    ///         });
-    ///         var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", new Aws.CloudWatch.LogDestinationPolicyArgs
-    ///         {
-    ///             DestinationName = testDestination.Name,
-    ///             AccessPolicy = testDestinationPolicyPolicyDocument.Apply(testDestinationPolicyPolicyDocument =&gt; testDestinationPolicyPolicyDocument.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", new()
+    ///     {
+    ///         DestinationName = testDestination.Name,
+    ///         AccessPolicy = testDestinationPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
-    public partial class LogDestinationPolicy : Pulumi.CustomResource
+    public partial class LogDestinationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogDestinationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LogDestinationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -162,9 +162,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogDestinationPolicyArgs()
         {
         }
+        public static new LogDestinationPolicyArgs Empty => new LogDestinationPolicyArgs();
     }
 
-    public sealed class LogDestinationPolicyState : Pulumi.ResourceArgs
+    public sealed class LogDestinationPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -187,5 +188,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogDestinationPolicyState()
         {
         }
+        public static new LogDestinationPolicyState Empty => new LogDestinationPolicyState();
     }
 }

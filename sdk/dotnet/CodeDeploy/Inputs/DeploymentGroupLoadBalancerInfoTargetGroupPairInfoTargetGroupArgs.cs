@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the target group.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs()
         {
         }
+        public static new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs Empty => new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs();
     }
 }

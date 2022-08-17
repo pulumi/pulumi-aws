@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapFileSystemEndpointArgs : Pulumi.ResourceArgs
+    public sealed class OntapFileSystemEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("interclusters")]
         private InputList<Inputs.OntapFileSystemEndpointInterclusterArgs>? _interclusters;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OntapFileSystemEndpointArgs()
         {
         }
+        public static new OntapFileSystemEndpointArgs Empty => new OntapFileSystemEndpointArgs();
     }
 }

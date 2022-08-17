@@ -28,6 +28,92 @@ import javax.annotation.Nullable;
  * &gt; **Tip:** For an organization trail, this resource must be in the master account of the organization.
  * 
  * ## Example Usage
+ * ### Basic
+ * 
+ * Enable CloudTrail to capture all compatible management events in region.
+ * For capturing events from services like IAM, `include_global_service_events` must be enabled.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
+ * 
+ *         var fooBucketV2 = new BucketV2(&#34;fooBucketV2&#34;, BucketV2Args.builder()        
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var fooBucketPolicy = new BucketPolicy(&#34;fooBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *             .bucket(fooBucketV2.id())
+ *             .policy(Output.tuple(fooBucketV2.arn(), fooBucketV2.arn()).applyValue(values -&gt; {
+ *                 var fooBucketV2Arn = values.t1;
+ *                 var fooBucketV2Arn1 = values.t2;
+ *                 return &#34;&#34;&#34;
+ * {
+ *     &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *     &#34;Statement&#34;: [
+ *         {
+ *             &#34;Sid&#34;: &#34;AWSCloudTrailAclCheck&#34;,
+ *             &#34;Effect&#34;: &#34;Allow&#34;,
+ *             &#34;Principal&#34;: {
+ *               &#34;Service&#34;: &#34;cloudtrail.amazonaws.com&#34;
+ *             },
+ *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+ *             &#34;Resource&#34;: &#34;%s&#34;
+ *         },
+ *         {
+ *             &#34;Sid&#34;: &#34;AWSCloudTrailWrite&#34;,
+ *             &#34;Effect&#34;: &#34;Allow&#34;,
+ *             &#34;Principal&#34;: {
+ *               &#34;Service&#34;: &#34;cloudtrail.amazonaws.com&#34;
+ *             },
+ *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+ *             &#34;Resource&#34;: &#34;%s/prefix/AWSLogs/%s/*&#34;,
+ *             &#34;Condition&#34;: {
+ *                 &#34;StringEquals&#34;: {
+ *                     &#34;s3:x-amz-acl&#34;: &#34;bucket-owner-full-control&#34;
+ *                 }
+ *             }
+ *         }
+ *     ]
+ * }
+ * }
+ * &#34;, fooBucketV2Arn,fooBucketV2Arn1,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+ *             }))
+ *             .build());
+ * 
+ *         var foobar = new Trail(&#34;foobar&#34;, TrailArgs.builder()        
+ *             .s3BucketName(bucketV2.id())
+ *             .s3KeyPrefix(&#34;prefix&#34;)
+ *             .includeGlobalServiceEvents(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Data Event Logging
  * 
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
@@ -324,6 +410,89 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Sending Events to CloudWatch Logs
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getPartition();
+ * 
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;cloudtrail.%s&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
+ *     }
+ *   ]
+ * }
+ * &#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
+ *             .build());
+ * 
+ *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(testRole.id())
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;AWSCloudTrailCreateLogStream&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Action&#34;: [
+ *         &#34;logs:CreateLogStream&#34;,
+ *         &#34;logs:PutLogEvents&#34;
+ *       ],
+ *       &#34;Resource&#34;: &#34;%s:*&#34;
+ *     }
+ *   ]
+ * }
+ * &#34;, aws_cloudwatch_log_group.test().arn()))
+ *             .build());
+ * 
+ *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
+ * 
+ *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
+ *             .s3BucketName(data.aws_s3_bucket().important-bucket().id())
+ *             .s3KeyPrefix(&#34;prefix&#34;)
+ *             .cloudWatchLogsRoleArn(testRole.arn())
+ *             .cloudWatchLogsGroupArn(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -589,14 +758,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

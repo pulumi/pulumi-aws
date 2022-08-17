@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersTwitterArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersTwitterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of rows to query.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersTwitterArgs()
         {
         }
+        public static new DataSourceParametersTwitterArgs Empty => new DataSourceParametersTwitterArgs();
     }
 }

@@ -18,36 +18,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = macie.NewCustomDataIdentifier(ctx, "exampleCustomDataIdentifier", &macie.CustomDataIdentifierArgs{
-// 			Regex:                pulumi.String("[0-9]{3}-[0-9]{2}-[0-9]{4}"),
-// 			Description:          pulumi.String("DESCRIPTION"),
-// 			MaximumMatchDistance: pulumi.Int(10),
-// 			Keywords: pulumi.StringArray{
-// 				pulumi.String("keyword"),
-// 			},
-// 			IgnoreWords: pulumi.StringArray{
-// 				pulumi.String("ignore"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_macie2_account.Test,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie.NewCustomDataIdentifier(ctx, "exampleCustomDataIdentifier", &macie.CustomDataIdentifierArgs{
+//				Regex:                pulumi.String("[0-9]{3}-[0-9]{2}-[0-9]{4}"),
+//				Description:          pulumi.String("DESCRIPTION"),
+//				MaximumMatchDistance: pulumi.Int(10),
+//				Keywords: pulumi.StringArray{
+//					pulumi.String("keyword"),
+//				},
+//				IgnoreWords: pulumi.StringArray{
+//					pulumi.String("ignore"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_macie2_account.Test,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+//
+//	$ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+//
 // ```
 type CustomDataIdentifier struct {
 	pulumi.CustomResourceState
@@ -223,7 +228,7 @@ func (i *CustomDataIdentifier) ToCustomDataIdentifierOutputWithContext(ctx conte
 // CustomDataIdentifierArrayInput is an input type that accepts CustomDataIdentifierArray and CustomDataIdentifierArrayOutput values.
 // You can construct a concrete instance of `CustomDataIdentifierArrayInput` via:
 //
-//          CustomDataIdentifierArray{ CustomDataIdentifierArgs{...} }
+//	CustomDataIdentifierArray{ CustomDataIdentifierArgs{...} }
 type CustomDataIdentifierArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +253,7 @@ func (i CustomDataIdentifierArray) ToCustomDataIdentifierArrayOutputWithContext(
 // CustomDataIdentifierMapInput is an input type that accepts CustomDataIdentifierMap and CustomDataIdentifierMapOutput values.
 // You can construct a concrete instance of `CustomDataIdentifierMapInput` via:
 //
-//          CustomDataIdentifierMap{ "key": CustomDataIdentifierArgs{...} }
+//	CustomDataIdentifierMap{ "key": CustomDataIdentifierArgs{...} }
 type CustomDataIdentifierMapInput interface {
 	pulumi.Input
 

@@ -44,7 +44,7 @@ type RegisteredDomainAdminContact struct {
 // RegisteredDomainAdminContactInput is an input type that accepts RegisteredDomainAdminContactArgs and RegisteredDomainAdminContactOutput values.
 // You can construct a concrete instance of `RegisteredDomainAdminContactInput` via:
 //
-//          RegisteredDomainAdminContactArgs{...}
+//	RegisteredDomainAdminContactArgs{...}
 type RegisteredDomainAdminContactInput interface {
 	pulumi.Input
 
@@ -106,11 +106,11 @@ func (i RegisteredDomainAdminContactArgs) ToRegisteredDomainAdminContactPtrOutpu
 // RegisteredDomainAdminContactPtrInput is an input type that accepts RegisteredDomainAdminContactArgs, RegisteredDomainAdminContactPtr and RegisteredDomainAdminContactPtrOutput values.
 // You can construct a concrete instance of `RegisteredDomainAdminContactPtrInput` via:
 //
-//          RegisteredDomainAdminContactArgs{...}
+//	        RegisteredDomainAdminContactArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegisteredDomainAdminContactPtrInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ type RegisteredDomainNameServer struct {
 // RegisteredDomainNameServerInput is an input type that accepts RegisteredDomainNameServerArgs and RegisteredDomainNameServerOutput values.
 // You can construct a concrete instance of `RegisteredDomainNameServerInput` via:
 //
-//          RegisteredDomainNameServerArgs{...}
+//	RegisteredDomainNameServerArgs{...}
 type RegisteredDomainNameServerInput interface {
 	pulumi.Input
 
@@ -434,7 +434,7 @@ func (i RegisteredDomainNameServerArgs) ToRegisteredDomainNameServerOutputWithCo
 // RegisteredDomainNameServerArrayInput is an input type that accepts RegisteredDomainNameServerArray and RegisteredDomainNameServerArrayOutput values.
 // You can construct a concrete instance of `RegisteredDomainNameServerArrayInput` via:
 //
-//          RegisteredDomainNameServerArray{ RegisteredDomainNameServerArgs{...} }
+//	RegisteredDomainNameServerArray{ RegisteredDomainNameServerArgs{...} }
 type RegisteredDomainNameServerArrayInput interface {
 	pulumi.Input
 
@@ -534,7 +534,7 @@ type RegisteredDomainRegistrantContact struct {
 // RegisteredDomainRegistrantContactInput is an input type that accepts RegisteredDomainRegistrantContactArgs and RegisteredDomainRegistrantContactOutput values.
 // You can construct a concrete instance of `RegisteredDomainRegistrantContactInput` via:
 //
-//          RegisteredDomainRegistrantContactArgs{...}
+//	RegisteredDomainRegistrantContactArgs{...}
 type RegisteredDomainRegistrantContactInput interface {
 	pulumi.Input
 
@@ -596,11 +596,11 @@ func (i RegisteredDomainRegistrantContactArgs) ToRegisteredDomainRegistrantConta
 // RegisteredDomainRegistrantContactPtrInput is an input type that accepts RegisteredDomainRegistrantContactArgs, RegisteredDomainRegistrantContactPtr and RegisteredDomainRegistrantContactPtrOutput values.
 // You can construct a concrete instance of `RegisteredDomainRegistrantContactPtrInput` via:
 //
-//          RegisteredDomainRegistrantContactArgs{...}
+//	        RegisteredDomainRegistrantContactArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegisteredDomainRegistrantContactPtrInput interface {
 	pulumi.Input
 
@@ -918,7 +918,7 @@ type RegisteredDomainTechContact struct {
 // RegisteredDomainTechContactInput is an input type that accepts RegisteredDomainTechContactArgs and RegisteredDomainTechContactOutput values.
 // You can construct a concrete instance of `RegisteredDomainTechContactInput` via:
 //
-//          RegisteredDomainTechContactArgs{...}
+//	RegisteredDomainTechContactArgs{...}
 type RegisteredDomainTechContactInput interface {
 	pulumi.Input
 
@@ -980,11 +980,11 @@ func (i RegisteredDomainTechContactArgs) ToRegisteredDomainTechContactPtrOutputW
 // RegisteredDomainTechContactPtrInput is an input type that accepts RegisteredDomainTechContactArgs, RegisteredDomainTechContactPtr and RegisteredDomainTechContactPtrOutput values.
 // You can construct a concrete instance of `RegisteredDomainTechContactPtrInput` via:
 //
-//          RegisteredDomainTechContactArgs{...}
+//	        RegisteredDomainTechContactArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegisteredDomainTechContactPtrInput interface {
 	pulumi.Input
 

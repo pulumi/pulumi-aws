@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class RegexMatchSetRegexMatchTupleFieldToMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class RegexMatchSetRegexMatchTupleFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public RegexMatchSetRegexMatchTupleFieldToMatchGetArgs()
         {
         }
+        public static new RegexMatchSetRegexMatchTupleFieldToMatchGetArgs Empty => new RegexMatchSetRegexMatchTupleFieldToMatchGetArgs();
     }
 }

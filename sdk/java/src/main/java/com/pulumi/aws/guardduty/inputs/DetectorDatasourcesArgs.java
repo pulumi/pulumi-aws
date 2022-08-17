@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesArgs;
+import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionArgs;
 import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -34,6 +35,23 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+     * 
+     */
+    @Import(name="malwareProtection")
+    private @Nullable Output<DetectorDatasourcesMalwareProtectionArgs> malwareProtection;
+
+    /**
+     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+     * 
+     */
+    public Optional<Output<DetectorDatasourcesMalwareProtectionArgs>> malwareProtection() {
+        return Optional.ofNullable(this.malwareProtection);
+    }
+
+    /**
      * Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
      * See S3 Logs below for more details.
      * 
@@ -54,6 +72,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
 
     private DetectorDatasourcesArgs(DetectorDatasourcesArgs $) {
         this.kubernetes = $.kubernetes;
+        this.malwareProtection = $.malwareProtection;
         this.s3Logs = $.s3Logs;
     }
 
@@ -96,6 +115,29 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
          */
         public Builder kubernetes(DetectorDatasourcesKubernetesArgs kubernetes) {
             return kubernetes(Output.of(kubernetes));
+        }
+
+        /**
+         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+         * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder malwareProtection(@Nullable Output<DetectorDatasourcesMalwareProtectionArgs> malwareProtection) {
+            $.malwareProtection = malwareProtection;
+            return this;
+        }
+
+        /**
+         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+         * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder malwareProtection(DetectorDatasourcesMalwareProtectionArgs malwareProtection) {
+            return malwareProtection(Output.of(malwareProtection));
         }
 
         /**

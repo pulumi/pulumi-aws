@@ -20,22 +20,24 @@ import (
 // FSx File Systems can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+//
+//	$ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+//
 // ```
 //
-//  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_fsx_lustre_file_system" "example" {
+//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_fsx_lustre_file_system" "example" {
 //
 // # ... other configuration ...
 //
-//  security_group_ids = [aws_security_group.example.id]
+//	security_group_ids = [aws_security_group.example.id]
 //
 // # There is no FSx API for reading security_group_ids
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [security_group_ids]
+//	ignore_changes = [security_group_ids]
 //
-//  } }
+//	} }
 type LustreFileSystem struct {
 	pulumi.CustomResourceState
 
@@ -89,7 +91,7 @@ type LustreFileSystem struct {
 	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -179,7 +181,7 @@ type lustreFileSystemState struct {
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId *string `pulumi:"vpcId"`
@@ -238,7 +240,7 @@ type LustreFileSystemState struct {
 	SubnetIds pulumi.StringPtrInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringPtrInput
@@ -367,7 +369,7 @@ func (i *LustreFileSystem) ToLustreFileSystemOutputWithContext(ctx context.Conte
 // LustreFileSystemArrayInput is an input type that accepts LustreFileSystemArray and LustreFileSystemArrayOutput values.
 // You can construct a concrete instance of `LustreFileSystemArrayInput` via:
 //
-//          LustreFileSystemArray{ LustreFileSystemArgs{...} }
+//	LustreFileSystemArray{ LustreFileSystemArgs{...} }
 type LustreFileSystemArrayInput interface {
 	pulumi.Input
 
@@ -392,7 +394,7 @@ func (i LustreFileSystemArray) ToLustreFileSystemArrayOutputWithContext(ctx cont
 // LustreFileSystemMapInput is an input type that accepts LustreFileSystemMap and LustreFileSystemMapOutput values.
 // You can construct a concrete instance of `LustreFileSystemMapInput` via:
 //
-//          LustreFileSystemMap{ "key": LustreFileSystemArgs{...} }
+//	LustreFileSystemMap{ "key": LustreFileSystemArgs{...} }
 type LustreFileSystemMapInput interface {
 	pulumi.Input
 
@@ -553,7 +555,7 @@ func (o LustreFileSystemOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LustreFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

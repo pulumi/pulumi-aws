@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// string value
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs()
         {
         }
+        public static new GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs Empty => new GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationAsyncInferenceConfigClientConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationAsyncInferenceConfigClientConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationAsyncInferenceConfigClientConfigArgs()
         {
         }
+        public static new EndpointConfigurationAsyncInferenceConfigClientConfigArgs Empty => new EndpointConfigurationAsyncInferenceConfigClientConfigArgs();
     }
 }

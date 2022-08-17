@@ -17,25 +17,23 @@ namespace Pulumi.Aws.AppRunner
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppRunner.Connection("example", new()
     ///     {
-    ///         var example = new Aws.AppRunner.Connection("example", new Aws.AppRunner.ConnectionArgs
+    ///         ConnectionName = "example",
+    ///         ProviderType = "GITHUB",
+    ///         Tags = 
     ///         {
-    ///             ConnectionName = "example",
-    ///             ProviderType = "GITHUB",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-apprunner-connection" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example-apprunner-connection" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.AppRunner
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/connection:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the connection.
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.AppRunner
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the connection.
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.AppRunner
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 
-    public sealed class ConnectionState : Pulumi.ResourceArgs
+    public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the connection.
@@ -213,5 +212,6 @@ namespace Pulumi.Aws.AppRunner
         public ConnectionState()
         {
         }
+        public static new ConnectionState Empty => new ConnectionState();
     }
 }

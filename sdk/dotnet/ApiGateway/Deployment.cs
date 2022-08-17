@@ -30,61 +30,60 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
     ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "openapi", "3.0.1" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "title", "example" },
-    ///                     { "version", "1.0" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "get", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "httpMethod", "GET" },
-    ///                                 { "payloadFormatVersion", "1.0" },
-    ///                                 { "type", "HTTP_PROXY" },
-    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
     ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///     }
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Resources
     /// 
@@ -96,72 +95,71 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             ParentId = exampleRestApi.RootResourceId,
-    ///             PathPart = "example",
-    ///             RestApi = exampleRestApi.Id,
-    ///         });
-    ///         var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             Authorization = "NONE",
-    ///             HttpMethod = "GET",
-    ///             ResourceId = exampleResource.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///         });
-    ///         var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             HttpMethod = exampleMethod.HttpMethod,
-    ///             ResourceId = exampleResource.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             Type = "MOCK",
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
-    ///                 {
-    ///                     var exampleResourceId = values.Item1;
-    ///                     var exampleMethodId = values.Item2;
-    ///                     var exampleIntegrationId = values.Item3;
-    ///                     return JsonSerializer.Serialize(new[]
-    ///                         {
-    ///                             exampleResourceId,
-    ///                             exampleMethodId,
-    ///                             exampleIntegrationId,
-    ///                         }
-    ///                     );
-    ///                 }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
-    ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///     }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
     /// 
-    /// }
+    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     {
+    ///         ParentId = exampleRestApi.RootResourceId,
+    ///         PathPart = "example",
+    ///         RestApi = exampleRestApi.Id,
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     {
+    ///         Authorization = "NONE",
+    ///         HttpMethod = "GET",
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///     });
+    /// 
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     {
+    ///         HttpMethod = exampleMethod.HttpMethod,
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         Type = "MOCK",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             {
+    ///                 var exampleResourceId = values.Item1;
+    ///                 var exampleMethodId = values.Item2;
+    ///                 var exampleIntegrationId = values.Item3;
+    ///                 return JsonSerializer.Serialize(new[]
+    ///                 {
+    ///                     exampleResourceId,
+    ///                     exampleMethodId,
+    ///                     exampleIntegrationId,
+    ///                 });
+    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/deployment:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the deployment
@@ -264,7 +262,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the deployment
@@ -317,9 +315,10 @@ namespace Pulumi.Aws.ApiGateway
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 
-    public sealed class DeploymentState : Pulumi.ResourceArgs
+    public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The creation date of the deployment
@@ -393,5 +392,6 @@ namespace Pulumi.Aws.ApiGateway
         public DeploymentState()
         {
         }
+        public static new DeploymentState Empty => new DeploymentState();
     }
 }

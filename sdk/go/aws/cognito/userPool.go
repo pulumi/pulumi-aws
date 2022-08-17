@@ -19,19 +19,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cognito.NewUserPool(ctx, "pool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Enabling SMS and Software Token Multi-Factor Authentication
 //
@@ -39,29 +42,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-// 			MfaConfiguration:         pulumi.String("ON"),
-// 			SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
-// 			SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
-// 				ExternalId:   pulumi.String("example"),
-// 				SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 			SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
-// 				Enabled: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				MfaConfiguration:         pulumi.String("ON"),
+//				SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
+//				SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
+//					ExternalId:   pulumi.String("example"),
+//					SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//				SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using Account Recovery Setting
 //
@@ -69,32 +75,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cognito.NewUserPool(ctx, "test", &cognito.UserPoolArgs{
-// 			AccountRecoverySetting: &cognito.UserPoolAccountRecoverySettingArgs{
-// 				RecoveryMechanisms: cognito.UserPoolAccountRecoverySettingRecoveryMechanismArray{
-// 					&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
-// 						Name:     pulumi.String("verified_email"),
-// 						Priority: pulumi.Int(1),
-// 					},
-// 					&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
-// 						Name:     pulumi.String("verified_phone_number"),
-// 						Priority: pulumi.Int(2),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cognito.NewUserPool(ctx, "test", &cognito.UserPoolArgs{
+//				AccountRecoverySetting: &cognito.UserPoolAccountRecoverySettingArgs{
+//					RecoveryMechanisms: cognito.UserPoolAccountRecoverySettingRecoveryMechanismArray{
+//						&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
+//							Name:     pulumi.String("verified_email"),
+//							Priority: pulumi.Int(1),
+//						},
+//						&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
+//							Name:     pulumi.String("verified_phone_number"),
+//							Priority: pulumi.Int(2),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +111,9 @@ import (
 // Cognito User Pools can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+//
+//	$ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+//
 // ```
 type UserPool struct {
 	pulumi.CustomResourceState
@@ -155,9 +166,9 @@ type UserPool struct {
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
@@ -246,9 +257,9 @@ type userPoolState struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
@@ -309,9 +320,9 @@ type UserPoolState struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
@@ -362,7 +373,7 @@ type userPoolArgs struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
@@ -410,7 +421,7 @@ type UserPoolArgs struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
@@ -448,7 +459,7 @@ func (i *UserPool) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutp
 // UserPoolArrayInput is an input type that accepts UserPoolArray and UserPoolArrayOutput values.
 // You can construct a concrete instance of `UserPoolArrayInput` via:
 //
-//          UserPoolArray{ UserPoolArgs{...} }
+//	UserPoolArray{ UserPoolArgs{...} }
 type UserPoolArrayInput interface {
 	pulumi.Input
 
@@ -473,7 +484,7 @@ func (i UserPoolArray) ToUserPoolArrayOutputWithContext(ctx context.Context) Use
 // UserPoolMapInput is an input type that accepts UserPoolMap and UserPoolMapOutput values.
 // You can construct a concrete instance of `UserPoolMapInput` via:
 //
-//          UserPoolMap{ "key": UserPoolArgs{...} }
+//	UserPoolMap{ "key": UserPoolArgs{...} }
 type UserPoolMapInput interface {
 	pulumi.Input
 
@@ -631,12 +642,12 @@ func (o UserPoolOutput) SoftwareTokenMfaConfiguration() UserPoolSoftwareTokenMfa
 	}).(UserPoolSoftwareTokenMfaConfigurationPtrOutput)
 }
 
-// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserPoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

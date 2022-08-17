@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainLogPublishingOptionArgs : Pulumi.ResourceArgs
+    public sealed class DomainLogPublishingOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Cloudwatch log group to which log needs to be published.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainLogPublishingOptionArgs()
         {
         }
+        public static new DomainLogPublishingOptionArgs Empty => new DomainLogPublishingOptionArgs();
     }
 }

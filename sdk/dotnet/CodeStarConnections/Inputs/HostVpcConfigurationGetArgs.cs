@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeStarConnections.Inputs
 {
 
-    public sealed class HostVpcConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class HostVpcConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CodeStarConnections.Inputs
         public HostVpcConfigurationGetArgs()
         {
         }
+        public static new HostVpcConfigurationGetArgs Empty => new HostVpcConfigurationGetArgs();
     }
 }

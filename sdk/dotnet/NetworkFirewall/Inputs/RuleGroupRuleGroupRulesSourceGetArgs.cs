@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRulesSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRulesSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRulesSourceGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupRulesSourceGetArgs Empty => new RuleGroupRuleGroupRulesSourceGetArgs();
     }
 }

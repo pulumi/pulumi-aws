@@ -18,35 +18,32 @@ namespace Pulumi.Aws.CostExplorer
     /// ### Dimensional Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new()
     ///     {
-    ///         var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new Aws.CostExplorer.AnomalyMonitorArgs
-    ///         {
-    ///             MonitorDimension = "SERVICE",
-    ///             MonitorType = "DIMENSIONAL",
-    ///         });
-    ///     }
+    ///         MonitorDimension = "SERVICE",
+    ///         MonitorType = "DIMENSIONAL",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Custom Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
     ///     {
-    ///         var test = new Aws.CostExplorer.AnomalyMonitor("test", new Aws.CostExplorer.AnomalyMonitorArgs
-    ///         {
-    ///             MonitorSpecification = @"{
+    ///         MonitorSpecification = @"{
     /// 	""And"": null,
     /// 	""CostCategories"": null,
     /// 	""Dimensions"": null,
@@ -62,11 +59,10 @@ namespace Pulumi.Aws.CostExplorer
     /// }
     /// 
     /// ",
-    ///             MonitorType = "CUSTOM",
-    ///         });
-    ///     }
+    ///         MonitorType = "CUSTOM",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +74,7 @@ namespace Pulumi.Aws.CostExplorer
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/anomalyMonitor:AnomalyMonitor")]
-    public partial class AnomalyMonitor : Pulumi.CustomResource
+    public partial class AnomalyMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the anomaly monitor.
@@ -116,9 +112,6 @@ namespace Pulumi.Aws.CostExplorer
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -166,7 +159,7 @@ namespace Pulumi.Aws.CostExplorer
         }
     }
 
-    public sealed class AnomalyMonitorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dimensions to evaluate. Valid values: `SERVICE`.
@@ -207,9 +200,10 @@ namespace Pulumi.Aws.CostExplorer
         public AnomalyMonitorArgs()
         {
         }
+        public static new AnomalyMonitorArgs Empty => new AnomalyMonitorArgs();
     }
 
-    public sealed class AnomalyMonitorState : Pulumi.ResourceArgs
+    public sealed class AnomalyMonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the anomaly monitor.
@@ -255,10 +249,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -268,5 +258,6 @@ namespace Pulumi.Aws.CostExplorer
         public AnomalyMonitorState()
         {
         }
+        public static new AnomalyMonitorState Empty => new AnomalyMonitorState();
     }
 }

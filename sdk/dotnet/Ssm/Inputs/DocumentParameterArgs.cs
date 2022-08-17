@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class DocumentParameterArgs : Pulumi.ResourceArgs
+    public sealed class DocumentParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public DocumentParameterArgs()
         {
         }
+        public static new DocumentParameterArgs Empty => new DocumentParameterArgs();
     }
 }

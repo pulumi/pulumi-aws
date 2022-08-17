@@ -33,7 +33,7 @@ namespace Pulumi.Aws.S3
     }
 
 
-    public sealed class GetBucketObjectsArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketObjectsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -80,9 +80,10 @@ namespace Pulumi.Aws.S3
         public GetBucketObjectsArgs()
         {
         }
+        public static new GetBucketObjectsArgs Empty => new GetBucketObjectsArgs();
     }
 
-    public sealed class GetBucketObjectsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketObjectsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -129,6 +130,7 @@ namespace Pulumi.Aws.S3
         public GetBucketObjectsInvokeArgs()
         {
         }
+        public static new GetBucketObjectsInvokeArgs Empty => new GetBucketObjectsInvokeArgs();
     }
 
 

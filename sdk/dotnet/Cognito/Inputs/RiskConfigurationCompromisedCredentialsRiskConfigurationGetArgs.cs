@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compromised credentials risk configuration actions. See details below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs()
         {
         }
+        public static new RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs Empty => new RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs();
     }
 }

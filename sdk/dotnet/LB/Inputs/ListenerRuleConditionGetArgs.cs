@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LB.Inputs
 {
 
-    public sealed class ListenerRuleConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.LB.Inputs
         public ListenerRuleConditionGetArgs()
         {
         }
+        public static new ListenerRuleConditionGetArgs Empty => new ListenerRuleConditionGetArgs();
     }
 }

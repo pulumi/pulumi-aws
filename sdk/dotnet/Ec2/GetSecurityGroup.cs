@@ -26,27 +26,26 @@ namespace Pulumi.Aws.Ec2
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
+        ///     var selected = Aws.Ec2.GetSecurityGroup.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
-        ///         var selected = Output.Create(Aws.Ec2.GetSecurityGroup.InvokeAsync(new Aws.Ec2.GetSecurityGroupArgs
-        ///         {
-        ///             Id = securityGroupId,
-        ///         }));
-        ///         var subnet = new Aws.Ec2.Subnet("subnet", new Aws.Ec2.SubnetArgs
-        ///         {
-        ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
-        ///             CidrBlock = "10.0.1.0/24",
-        ///         });
-        ///     }
+        ///         Id = securityGroupId,
+        ///     });
         /// 
-        /// }
+        ///     var subnet = new Aws.Ec2.Subnet("subnet", new()
+        ///     {
+        ///         VpcId = selected.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.VpcId),
+        ///         CidrBlock = "10.0.1.0/24",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,27 +68,26 @@ namespace Pulumi.Aws.Ec2
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
+        ///     var selected = Aws.Ec2.GetSecurityGroup.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
-        ///         var selected = Output.Create(Aws.Ec2.GetSecurityGroup.InvokeAsync(new Aws.Ec2.GetSecurityGroupArgs
-        ///         {
-        ///             Id = securityGroupId,
-        ///         }));
-        ///         var subnet = new Aws.Ec2.Subnet("subnet", new Aws.Ec2.SubnetArgs
-        ///         {
-        ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
-        ///             CidrBlock = "10.0.1.0/24",
-        ///         });
-        ///     }
+        ///         Id = securityGroupId,
+        ///     });
         /// 
-        /// }
+        ///     var subnet = new Aws.Ec2.Subnet("subnet", new()
+        ///     {
+        ///         VpcId = selected.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.VpcId),
+        ///         CidrBlock = "10.0.1.0/24",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetSecurityGroupFilterArgs>? _filters;
@@ -148,9 +146,10 @@ namespace Pulumi.Aws.Ec2
         public GetSecurityGroupArgs()
         {
         }
+        public static new GetSecurityGroupArgs Empty => new GetSecurityGroupArgs();
     }
 
-    public sealed class GetSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetSecurityGroupFilterInputArgs>? _filters;
@@ -199,6 +198,7 @@ namespace Pulumi.Aws.Ec2
         public GetSecurityGroupInvokeArgs()
         {
         }
+        public static new GetSecurityGroupInvokeArgs Empty => new GetSecurityGroupInvokeArgs();
     }
 
 

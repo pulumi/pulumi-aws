@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
-// 			TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-// 			TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
+//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_ec2_transit_gateway_route_table_association` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+//
+//	$ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+//
 // ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *RouteTableAssociation) ToRouteTableAssociationOutputWithContext(ctx con
 // RouteTableAssociationArrayInput is an input type that accepts RouteTableAssociationArray and RouteTableAssociationArrayOutput values.
 // You can construct a concrete instance of `RouteTableAssociationArrayInput` via:
 //
-//          RouteTableAssociationArray{ RouteTableAssociationArgs{...} }
+//	RouteTableAssociationArray{ RouteTableAssociationArgs{...} }
 type RouteTableAssociationArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i RouteTableAssociationArray) ToRouteTableAssociationArrayOutputWithContex
 // RouteTableAssociationMapInput is an input type that accepts RouteTableAssociationMap and RouteTableAssociationMapOutput values.
 // You can construct a concrete instance of `RouteTableAssociationMapInput` via:
 //
-//          RouteTableAssociationMap{ "key": RouteTableAssociationArgs{...} }
+//	RouteTableAssociationMap{ "key": RouteTableAssociationArgs{...} }
 type RouteTableAssociationMapInput interface {
 	pulumi.Input
 

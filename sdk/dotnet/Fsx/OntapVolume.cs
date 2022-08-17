@@ -17,51 +17,47 @@ namespace Pulumi.Aws.Fsx
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Fsx.OntapVolume("test", new()
     ///     {
-    ///         var test = new Aws.Fsx.OntapVolume("test", new Aws.Fsx.OntapVolumeArgs
-    ///         {
-    ///             JunctionPath = "/test",
-    ///             SizeInMegabytes = 1024,
-    ///             StorageEfficiencyEnabled = true,
-    ///             StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///         });
-    ///     }
+    ///         JunctionPath = "/test",
+    ///         SizeInMegabytes = 1024,
+    ///         StorageEfficiencyEnabled = true,
+    ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using Tiering Policy
     /// 
     /// Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Fsx.OntapVolume("test", new()
     ///     {
-    ///         var test = new Aws.Fsx.OntapVolume("test", new Aws.Fsx.OntapVolumeArgs
+    ///         JunctionPath = "/test",
+    ///         SizeInMegabytes = 1024,
+    ///         StorageEfficiencyEnabled = true,
+    ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
+    ///         TieringPolicy = new Aws.Fsx.Inputs.OntapVolumeTieringPolicyArgs
     ///         {
-    ///             JunctionPath = "/test",
-    ///             SizeInMegabytes = 1024,
-    ///             StorageEfficiencyEnabled = true,
-    ///             StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///             TieringPolicy = new Aws.Fsx.Inputs.OntapVolumeTieringPolicyArgs
-    ///             {
-    ///                 Name = "AUTO",
-    ///                 CoolingPeriod = 31,
-    ///             },
-    ///         });
-    ///     }
+    ///             Name = "AUTO",
+    ///             CoolingPeriod = 31,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Fsx
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/ontapVolume:OntapVolume")]
-    public partial class OntapVolume : Pulumi.CustomResource
+    public partial class OntapVolume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the volune.
@@ -206,7 +202,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class OntapVolumeArgs : Pulumi.ResourceArgs
+    public sealed class OntapVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
@@ -268,9 +264,10 @@ namespace Pulumi.Aws.Fsx
         public OntapVolumeArgs()
         {
         }
+        public static new OntapVolumeArgs Empty => new OntapVolumeArgs();
     }
 
-    public sealed class OntapVolumeState : Pulumi.ResourceArgs
+    public sealed class OntapVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the volune.
@@ -374,5 +371,6 @@ namespace Pulumi.Aws.Fsx
         public OntapVolumeState()
         {
         }
+        public static new OntapVolumeState Empty => new OntapVolumeState();
     }
 }

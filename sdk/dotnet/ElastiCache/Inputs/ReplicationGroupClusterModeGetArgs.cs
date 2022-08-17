@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache.Inputs
 {
 
-    public sealed class ReplicationGroupClusterModeGetArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationGroupClusterModeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public ReplicationGroupClusterModeGetArgs()
         {
         }
+        public static new ReplicationGroupClusterModeGetArgs Empty => new ReplicationGroupClusterModeGetArgs();
     }
 }

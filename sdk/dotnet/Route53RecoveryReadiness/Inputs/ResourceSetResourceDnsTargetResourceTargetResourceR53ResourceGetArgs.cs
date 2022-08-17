@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain name that is targeted.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         public ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceGetArgs()
         {
         }
+        public static new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceGetArgs Empty => new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceGetArgs();
     }
 }

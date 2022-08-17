@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2.GetEips(ctx, &ec2.GetEipsArgs{
-// 			Tags: map[string]interface{}{
-// 				"Env": "dev",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("allocationIds", example.AllocationIds)
-// 		ctx.Export("publicIps", example.PublicIps)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ec2.GetEips(ctx, &ec2.GetEipsArgs{
+//				Tags: map[string]interface{}{
+//					"Env": "dev",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("allocationIds", example.AllocationIds)
+//			ctx.Export("publicIps", example.PublicIps)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption) (*GetEipsResult, error) {
 	var rv GetEipsResult

@@ -19,24 +19,22 @@ namespace Pulumi.Aws.Macie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Macie.MemberAccountAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Macie.MemberAccountAssociation("example", new Aws.Macie.MemberAccountAssociationArgs
-    ///         {
-    ///             MemberAccountId = "123456789012",
-    ///         });
-    ///     }
+    ///         MemberAccountId = "123456789012",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie/memberAccountAssociation:MemberAccountAssociation")]
-    public partial class MemberAccountAssociation : Pulumi.CustomResource
+    public partial class MemberAccountAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.Macie
         }
     }
 
-    public sealed class MemberAccountAssociationArgs : Pulumi.ResourceArgs
+    public sealed class MemberAccountAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
@@ -99,9 +97,10 @@ namespace Pulumi.Aws.Macie
         public MemberAccountAssociationArgs()
         {
         }
+        public static new MemberAccountAssociationArgs Empty => new MemberAccountAssociationArgs();
     }
 
-    public sealed class MemberAccountAssociationState : Pulumi.ResourceArgs
+    public sealed class MemberAccountAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
@@ -112,5 +111,6 @@ namespace Pulumi.Aws.Macie
         public MemberAccountAssociationState()
         {
         }
+        public static new MemberAccountAssociationState Empty => new MemberAccountAssociationState();
     }
 }

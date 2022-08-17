@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := amplify.NewApp(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		masterBranch, err := amplify.NewBranch(ctx, "masterBranch", &amplify.BranchArgs{
-// 			AppId:      example.ID(),
-// 			BranchName: pulumi.String("master"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = amplify.NewWebhook(ctx, "masterWebhook", &amplify.WebhookArgs{
-// 			AppId:       example.ID(),
-// 			BranchName:  masterBranch.BranchName,
-// 			Description: pulumi.String("triggermaster"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amplify.NewApp(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			masterBranch, err := amplify.NewBranch(ctx, "masterBranch", &amplify.BranchArgs{
+//				AppId:      example.ID(),
+//				BranchName: pulumi.String("master"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amplify.NewWebhook(ctx, "masterWebhook", &amplify.WebhookArgs{
+//				AppId:       example.ID(),
+//				BranchName:  masterBranch.BranchName,
+//				Description: pulumi.String("triggermaster"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Amplify webhook can be imported using a webhook ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+//
+//	$ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+//
 // ```
 type Webhook struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 // WebhookArrayInput is an input type that accepts WebhookArray and WebhookArrayOutput values.
 // You can construct a concrete instance of `WebhookArrayInput` via:
 //
-//          WebhookArray{ WebhookArgs{...} }
+//	WebhookArray{ WebhookArgs{...} }
 type WebhookArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i WebhookArray) ToWebhookArrayOutputWithContext(ctx context.Context) Webho
 // WebhookMapInput is an input type that accepts WebhookMap and WebhookMapOutput values.
 // You can construct a concrete instance of `WebhookMapInput` via:
 //
-//          WebhookMap{ "key": WebhookArgs{...} }
+//	WebhookMap{ "key": WebhookArgs{...} }
 type WebhookMapInput interface {
 	pulumi.Input
 

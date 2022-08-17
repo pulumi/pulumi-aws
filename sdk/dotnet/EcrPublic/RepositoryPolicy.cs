@@ -19,21 +19,21 @@ namespace Pulumi.Aws.EcrPublic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRepository = new Aws.EcrPublic.Repository("exampleRepository", new()
     ///     {
-    ///         var exampleRepository = new Aws.EcrPublic.Repository("exampleRepository", new Aws.EcrPublic.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "example",
-    ///         });
-    ///         var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("exampleRepositoryPolicy", new Aws.EcrPublic.RepositoryPolicyArgs
-    ///         {
-    ///             RepositoryName = exampleRepository.RepositoryName,
-    ///             Policy = @"{
+    ///         RepositoryName = "example",
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("exampleRepositoryPolicy", new()
+    ///     {
+    ///         RepositoryName = exampleRepository.RepositoryName,
+    ///         Policy = @"{
     ///     ""Version"": ""2008-10-17"",
     ///     ""Statement"": [
     ///         {
@@ -60,10 +60,9 @@ namespace Pulumi.Aws.EcrPublic
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +74,7 @@ namespace Pulumi.Aws.EcrPublic
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecrpublic/repositoryPolicy:RepositoryPolicy")]
-    public partial class RepositoryPolicy : Pulumi.CustomResource
+    public partial class RepositoryPolicy : global::Pulumi.CustomResource
     {
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -136,7 +135,7 @@ namespace Pulumi.Aws.EcrPublic
         }
     }
 
-    public sealed class RepositoryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -150,9 +149,10 @@ namespace Pulumi.Aws.EcrPublic
         public RepositoryPolicyArgs()
         {
         }
+        public static new RepositoryPolicyArgs Empty => new RepositoryPolicyArgs();
     }
 
-    public sealed class RepositoryPolicyState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -172,5 +172,6 @@ namespace Pulumi.Aws.EcrPublic
         public RepositoryPolicyState()
         {
         }
+        public static new RepositoryPolicyState Empty => new RepositoryPolicyState();
     }
 }

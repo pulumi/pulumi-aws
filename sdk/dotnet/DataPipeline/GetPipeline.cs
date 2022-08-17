@@ -19,20 +19,18 @@ namespace Pulumi.Aws.DataPipeline
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DataPipeline.GetPipeline.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DataPipeline.GetPipeline.InvokeAsync(new Aws.DataPipeline.GetPipelineArgs
-        ///         {
-        ///             PipelineId = "pipelineID",
-        ///         }));
-        ///     }
+        ///         PipelineId = "pipelineID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.DataPipeline
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DataPipeline.GetPipeline.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DataPipeline.GetPipeline.InvokeAsync(new Aws.DataPipeline.GetPipelineArgs
-        ///         {
-        ///             PipelineId = "pipelineID",
-        ///         }));
-        ///     }
+        ///         PipelineId = "pipelineID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.DataPipeline
     }
 
 
-    public sealed class GetPipelineArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the pipeline.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.DataPipeline
         public GetPipelineArgs()
         {
         }
+        public static new GetPipelineArgs Empty => new GetPipelineArgs();
     }
 
-    public sealed class GetPipelineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the pipeline.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.DataPipeline
         public GetPipelineInvokeArgs()
         {
         }
+        public static new GetPipelineInvokeArgs Empty => new GetPipelineInvokeArgs();
     }
 
 

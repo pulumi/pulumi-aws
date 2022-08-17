@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The method used to add instances to a replacement environment.
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs()
         {
         }
+        public static new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs Empty => new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs();
     }
 }

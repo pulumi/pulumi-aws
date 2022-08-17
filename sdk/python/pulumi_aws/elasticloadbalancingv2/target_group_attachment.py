@@ -199,7 +199,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         # ... other configuration ...
         with_lb = aws.lambda_.Permission("withLb",
             action="lambda:InvokeFunction",
-            function=test_function.arn,
+            function=test_function.name,
             principal="elasticloadbalancing.amazonaws.com",
             source_arn=test_target_group.arn)
         test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
@@ -256,7 +256,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         # ... other configuration ...
         with_lb = aws.lambda_.Permission("withLb",
             action="lambda:InvokeFunction",
-            function=test_function.arn,
+            function=test_function.name,
             principal="elasticloadbalancing.amazonaws.com",
             source_arn=test_target_group.arn)
         test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",

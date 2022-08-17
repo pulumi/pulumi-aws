@@ -20,41 +20,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "primary", &providers.awsArgs{
-// 			Region: "us-east-1",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.NewExternalKey(ctx, "primaryExternalKey", &kms.ExternalKeyArgs{
-// 			Description:          pulumi.String("Multi-Region primary key"),
-// 			DeletionWindowInDays: pulumi.Int(30),
-// 			MultiRegion:          pulumi.Bool(true),
-// 			Enabled:              pulumi.Bool(true),
-// 			KeyMaterialBase64:    pulumi.String("..."),
-// 		}, pulumi.Provider(aws.Primary))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.NewReplicaExternalKey(ctx, "replica", &kms.ReplicaExternalKeyArgs{
-// 			Description:          pulumi.String("Multi-Region replica key"),
-// 			DeletionWindowInDays: pulumi.Int(7),
-// 			PrimaryKeyArn:        pulumi.Any(aws_kms_external.Primary.Arn),
-// 			KeyMaterialBase64:    pulumi.String("..."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
+//				Region: pulumi.String("us-east-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.NewExternalKey(ctx, "primaryExternalKey", &kms.ExternalKeyArgs{
+//				Description:          pulumi.String("Multi-Region primary key"),
+//				DeletionWindowInDays: pulumi.Int(30),
+//				MultiRegion:          pulumi.Bool(true),
+//				Enabled:              pulumi.Bool(true),
+//				KeyMaterialBase64:    pulumi.String("..."),
+//			}, pulumi.Provider(aws.Primary))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.NewReplicaExternalKey(ctx, "replica", &kms.ReplicaExternalKeyArgs{
+//				Description:          pulumi.String("Multi-Region replica key"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//				PrimaryKeyArn:        pulumi.Any(aws_kms_external.Primary.Arn),
+//				KeyMaterialBase64:    pulumi.String("..."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // KMS multi-Region replica keys can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+//
+//	$ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+//
 // ```
 type ReplicaExternalKey struct {
 	pulumi.CustomResourceState
@@ -284,7 +289,7 @@ func (i *ReplicaExternalKey) ToReplicaExternalKeyOutputWithContext(ctx context.C
 // ReplicaExternalKeyArrayInput is an input type that accepts ReplicaExternalKeyArray and ReplicaExternalKeyArrayOutput values.
 // You can construct a concrete instance of `ReplicaExternalKeyArrayInput` via:
 //
-//          ReplicaExternalKeyArray{ ReplicaExternalKeyArgs{...} }
+//	ReplicaExternalKeyArray{ ReplicaExternalKeyArgs{...} }
 type ReplicaExternalKeyArrayInput interface {
 	pulumi.Input
 
@@ -309,7 +314,7 @@ func (i ReplicaExternalKeyArray) ToReplicaExternalKeyArrayOutputWithContext(ctx 
 // ReplicaExternalKeyMapInput is an input type that accepts ReplicaExternalKeyMap and ReplicaExternalKeyMapOutput values.
 // You can construct a concrete instance of `ReplicaExternalKeyMapInput` via:
 //
-//          ReplicaExternalKeyMap{ "key": ReplicaExternalKeyArgs{...} }
+//	ReplicaExternalKeyMap{ "key": ReplicaExternalKeyArgs{...} }
 type ReplicaExternalKeyMapInput interface {
 	pulumi.Input
 

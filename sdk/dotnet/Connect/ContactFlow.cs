@@ -23,16 +23,15 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.ContactFlow("test", new()
     ///     {
-    ///         var test = new Aws.Connect.ContactFlow("test", new Aws.Connect.ContactFlowArgs
-    ///         {
-    ///             Content = @"	{
+    ///         Content = @"	{
     /// 		""Version"": ""2019-10-30"",
     /// 		""StartAction"": ""12345678-1234-1234-1234-123456789012"",
     /// 		""Actions"": [
@@ -58,19 +57,18 @@ namespace Pulumi.Aws.Connect
     /// 	}
     /// 	
     /// ",
-    ///             Description = "Test Contact Flow Description",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Tags = 
-    ///             {
-    ///                 { "Application", "Terraform" },
-    ///                 { "Method", "Create" },
-    ///                 { "Name", "Test Contact Flow" },
-    ///             },
-    ///             Type = "CONTACT_FLOW",
-    ///         });
-    ///     }
+    ///         Description = "Test Contact Flow Description",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Tags = 
+    ///         {
+    ///             { "Application", "Terraform" },
+    ///             { "Method", "Create" },
+    ///             { "Name", "Test Contact Flow" },
+    ///         },
+    ///         Type = "CONTACT_FLOW",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +80,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/contactFlow:ContactFlow")]
-    public partial class ContactFlow : Pulumi.CustomResource
+    public partial class ContactFlow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Contact Flow.
@@ -191,7 +189,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class ContactFlowArgs : Pulumi.ResourceArgs
+    public sealed class ContactFlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
@@ -247,9 +245,10 @@ namespace Pulumi.Aws.Connect
         public ContactFlowArgs()
         {
         }
+        public static new ContactFlowArgs Empty => new ContactFlowArgs();
     }
 
-    public sealed class ContactFlowState : Pulumi.ResourceArgs
+    public sealed class ContactFlowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Contact Flow.
@@ -329,5 +328,6 @@ namespace Pulumi.Aws.Connect
         public ContactFlowState()
         {
         }
+        public static new ContactFlowState Empty => new ContactFlowState();
     }
 }

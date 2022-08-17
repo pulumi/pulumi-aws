@@ -19,117 +19,109 @@ namespace Pulumi.Aws.Ecs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mongo = new Aws.Ecs.Service("mongo", new()
     ///     {
-    ///         var mongo = new Aws.Ecs.Service("mongo", new Aws.Ecs.ServiceArgs
+    ///         Cluster = aws_ecs_cluster.Foo.Id,
+    ///         TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
+    ///         DesiredCount = 3,
+    ///         IamRole = aws_iam_role.Foo.Arn,
+    ///         OrderedPlacementStrategies = new[]
     ///         {
-    ///             Cluster = aws_ecs_cluster.Foo.Id,
-    ///             TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
-    ///             DesiredCount = 3,
-    ///             IamRole = aws_iam_role.Foo.Arn,
-    ///             OrderedPlacementStrategies = 
+    ///             new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
-    ///                 {
-    ///                     Type = "binpack",
-    ///                     Field = "cpu",
-    ///                 },
+    ///                 Type = "binpack",
+    ///                 Field = "cpu",
     ///             },
-    ///             LoadBalancers = 
-    ///             {
-    ///                 new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
-    ///                 {
-    ///                     TargetGroupArn = aws_lb_target_group.Foo.Arn,
-    ///                     ContainerName = "mongo",
-    ///                     ContainerPort = 8080,
-    ///                 },
-    ///             },
-    ///             PlacementConstraints = 
-    ///             {
-    ///                 new Aws.Ecs.Inputs.ServicePlacementConstraintArgs
-    ///                 {
-    ///                     Type = "memberOf",
-    ///                     Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///         LoadBalancers = new[]
     ///         {
-    ///             DependsOn = 
+    ///             new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
     ///             {
-    ///                 aws_iam_role_policy.Foo,
+    ///                 TargetGroupArn = aws_lb_target_group.Foo.Arn,
+    ///                 ContainerName = "mongo",
+    ///                 ContainerPort = 8080,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         PlacementConstraints = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.ServicePlacementConstraintArgs
+    ///             {
+    ///                 Type = "memberOf",
+    ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_role_policy.Foo,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Ignoring Changes to Desired Count
     /// 
     /// You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ... other configurations ...
+    ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         // ... other configurations ...
-    ///         var example = new Aws.Ecs.Service("example", new Aws.Ecs.ServiceArgs
-    ///         {
-    ///             DesiredCount = 2,
-    ///         });
-    ///     }
+    ///         DesiredCount = 2,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Daemon Scheduling Strategy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.Ecs.Service("bar", new()
     ///     {
-    ///         var bar = new Aws.Ecs.Service("bar", new Aws.Ecs.ServiceArgs
-    ///         {
-    ///             Cluster = aws_ecs_cluster.Foo.Id,
-    ///             TaskDefinition = aws_ecs_task_definition.Bar.Arn,
-    ///             SchedulingStrategy = "DAEMON",
-    ///         });
-    ///     }
+    ///         Cluster = aws_ecs_cluster.Foo.Id,
+    ///         TaskDefinition = aws_ecs_task_definition.Bar.Arn,
+    ///         SchedulingStrategy = "DAEMON",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### External Deployment Controller
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         var example = new Aws.Ecs.Service("example", new Aws.Ecs.ServiceArgs
+    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
     ///         {
-    ///             Cluster = aws_ecs_cluster.Example.Id,
-    ///             DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
-    ///             {
-    ///                 Type = "EXTERNAL",
-    ///             },
-    ///         });
-    ///     }
+    ///             Type = "EXTERNAL",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -141,7 +133,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
@@ -343,7 +335,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
@@ -528,9 +520,10 @@ namespace Pulumi.Aws.Ecs
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
@@ -727,5 +720,6 @@ namespace Pulumi.Aws.Ecs
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

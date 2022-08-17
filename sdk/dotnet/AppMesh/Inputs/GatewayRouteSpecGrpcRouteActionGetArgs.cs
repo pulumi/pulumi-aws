@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecGrpcRouteActionGetArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecGrpcRouteActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target that traffic is routed to when a request matches the gateway route.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecGrpcRouteActionGetArgs()
         {
         }
+        public static new GatewayRouteSpecGrpcRouteActionGetArgs Empty => new GatewayRouteSpecGrpcRouteActionGetArgs();
     }
 }

@@ -15,20 +15,18 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.RedShift.HsmClientCertificate("example", new()
     ///     {
-    ///         var example = new Aws.RedShift.HsmClientCertificate("example", new Aws.RedShift.HsmClientCertificateArgs
-    ///         {
-    ///             HsmClientCertificateIdentifier = "example",
-    ///         });
-    ///     }
+    ///         HsmClientCertificateIdentifier = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/hsmClientCertificate:HsmClientCertificate")]
-    public partial class HsmClientCertificate : Pulumi.CustomResource
+    public partial class HsmClientCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
@@ -66,9 +64,6 @@ namespace Pulumi.Aws.RedShift
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -116,7 +111,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class HsmClientCertificateArgs : Pulumi.ResourceArgs
+    public sealed class HsmClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the HSM client certificate.
@@ -139,9 +134,10 @@ namespace Pulumi.Aws.RedShift
         public HsmClientCertificateArgs()
         {
         }
+        public static new HsmClientCertificateArgs Empty => new HsmClientCertificateArgs();
     }
 
-    public sealed class HsmClientCertificateState : Pulumi.ResourceArgs
+    public sealed class HsmClientCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
@@ -175,10 +171,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -188,5 +180,6 @@ namespace Pulumi.Aws.RedShift
         public HsmClientCertificateState()
         {
         }
+        public static new HsmClientCertificateState Empty => new HsmClientCertificateState();
     }
 }

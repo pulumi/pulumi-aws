@@ -16,68 +16,71 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new()
     ///     {
-    ///         var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new Aws.NetworkManager.GlobalNetworkArgs
-    ///         {
-    ///             Description = "example",
-    ///         });
-    ///         var exampleSite = new Aws.NetworkManager.Site("exampleSite", new Aws.NetworkManager.SiteArgs
-    ///         {
-    ///             GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///         });
-    ///         var exampleDevice = new Aws.NetworkManager.Device("exampleDevice", new Aws.NetworkManager.DeviceArgs
-    ///         {
-    ///             GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///             SiteId = exampleSite.Id,
-    ///         });
-    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
-    ///         {
-    ///             BgpAsn = "65000",
-    ///             IpAddress = "172.83.124.10",
-    ///             Type = "ipsec.1",
-    ///         });
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///         });
-    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
-    ///         {
-    ///             CustomerGatewayId = exampleCustomerGateway.Id,
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             Type = exampleCustomerGateway.Type,
-    ///             StaticRoutesOnly = true,
-    ///         });
-    ///         var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new Aws.NetworkManager.TransitGatewayRegistrationArgs
-    ///         {
-    ///             GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///             TransitGatewayArn = exampleTransitGateway.Arn,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleVpnConnection,
-    ///             },
-    ///         });
-    ///         var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", new Aws.NetworkManager.CustomerGatewayAssociationArgs
-    ///         {
-    ///             GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///             CustomerGatewayArn = exampleCustomerGateway.Arn,
-    ///             DeviceId = exampleDevice.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleTransitGatewayRegistration,
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///     });
+    /// 
+    ///     var exampleDevice = new Aws.NetworkManager.Device("exampleDevice", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         SiteId = exampleSite.Id,
+    ///     });
+    /// 
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.83.124.10",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    /// 
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     {
+    ///         CustomerGatewayId = exampleCustomerGateway.Id,
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         Type = exampleCustomerGateway.Type,
+    ///         StaticRoutesOnly = true,
+    ///     });
+    /// 
+    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         TransitGatewayArn = exampleTransitGateway.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleVpnConnection,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         CustomerGatewayArn = exampleCustomerGateway.Arn,
+    ///         DeviceId = exampleDevice.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleTransitGatewayRegistration,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +92,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")]
-    public partial class CustomerGatewayAssociation : Pulumi.CustomResource
+    public partial class CustomerGatewayAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
@@ -159,7 +162,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class CustomerGatewayAssociationArgs : Pulumi.ResourceArgs
+    public sealed class CustomerGatewayAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
@@ -188,9 +191,10 @@ namespace Pulumi.Aws.NetworkManager
         public CustomerGatewayAssociationArgs()
         {
         }
+        public static new CustomerGatewayAssociationArgs Empty => new CustomerGatewayAssociationArgs();
     }
 
-    public sealed class CustomerGatewayAssociationState : Pulumi.ResourceArgs
+    public sealed class CustomerGatewayAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
@@ -219,5 +223,6 @@ namespace Pulumi.Aws.NetworkManager
         public CustomerGatewayAssociationState()
         {
         }
+        public static new CustomerGatewayAssociationState Empty => new CustomerGatewayAssociationState();
     }
 }

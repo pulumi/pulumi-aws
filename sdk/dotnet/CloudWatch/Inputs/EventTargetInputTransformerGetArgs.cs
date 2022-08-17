@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetInputTransformerGetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetInputTransformerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputPaths")]
         private InputMap<string>? _inputPaths;
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetInputTransformerGetArgs()
         {
         }
+        public static new EventTargetInputTransformerGetArgs Empty => new EventTargetInputTransformerGetArgs();
     }
 }

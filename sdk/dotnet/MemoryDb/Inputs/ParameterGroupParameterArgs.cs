@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb.Inputs
 {
 
-    public sealed class ParameterGroupParameterArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the parameter.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public ParameterGroupParameterArgs()
         {
         }
+        public static new ParameterGroupParameterArgs Empty => new ParameterGroupParameterArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class InfrastructureConfigurationLoggingS3LogsGetArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationLoggingS3LogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the S3 Bucket.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public InfrastructureConfigurationLoggingS3LogsGetArgs()
         {
         }
+        public static new InfrastructureConfigurationLoggingS3LogsGetArgs Empty => new InfrastructureConfigurationLoggingS3LogsGetArgs();
     }
 }

@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-east-1a"),
-// 			},
-// 			Listeners: elb.LoadBalancerListenerArray{
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(25),
-// 					InstanceProtocol: pulumi.String("tcp"),
-// 					LbPort:           pulumi.Int(25),
-// 					LbProtocol:       pulumi.String("tcp"),
-// 				},
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(587),
-// 					InstanceProtocol: pulumi.String("tcp"),
-// 					LbPort:           pulumi.Int(587),
-// 					LbProtocol:       pulumi.String("tcp"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewProxyProtocolPolicy(ctx, "smtp", &ec2.ProxyProtocolPolicyArgs{
-// 			LoadBalancer: lb.Name,
-// 			InstancePorts: pulumi.StringArray{
-// 				pulumi.String("25"),
-// 				pulumi.String("587"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(25),
+//						InstanceProtocol: pulumi.String("tcp"),
+//						LbPort:           pulumi.Int(25),
+//						LbProtocol:       pulumi.String("tcp"),
+//					},
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(587),
+//						InstanceProtocol: pulumi.String("tcp"),
+//						LbPort:           pulumi.Int(587),
+//						LbProtocol:       pulumi.String("tcp"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewProxyProtocolPolicy(ctx, "smtp", &ec2.ProxyProtocolPolicyArgs{
+//				LoadBalancer: lb.Name,
+//				InstancePorts: pulumi.StringArray{
+//					pulumi.String("25"),
+//					pulumi.String("587"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ProxyProtocolPolicy struct {
 	pulumi.CustomResourceState
@@ -174,7 +177,7 @@ func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutputWithContext(ctx context
 // ProxyProtocolPolicyArrayInput is an input type that accepts ProxyProtocolPolicyArray and ProxyProtocolPolicyArrayOutput values.
 // You can construct a concrete instance of `ProxyProtocolPolicyArrayInput` via:
 //
-//          ProxyProtocolPolicyArray{ ProxyProtocolPolicyArgs{...} }
+//	ProxyProtocolPolicyArray{ ProxyProtocolPolicyArgs{...} }
 type ProxyProtocolPolicyArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +202,7 @@ func (i ProxyProtocolPolicyArray) ToProxyProtocolPolicyArrayOutputWithContext(ct
 // ProxyProtocolPolicyMapInput is an input type that accepts ProxyProtocolPolicyMap and ProxyProtocolPolicyMapOutput values.
 // You can construct a concrete instance of `ProxyProtocolPolicyMapInput` via:
 //
-//          ProxyProtocolPolicyMap{ "key": ProxyProtocolPolicyArgs{...} }
+//	ProxyProtocolPolicyMap{ "key": ProxyProtocolPolicyArgs{...} }
 type ProxyProtocolPolicyMapInput interface {
 	pulumi.Input
 

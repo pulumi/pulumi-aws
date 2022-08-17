@@ -22,7 +22,7 @@ type RecordAlias struct {
 // RecordAliasInput is an input type that accepts RecordAliasArgs and RecordAliasOutput values.
 // You can construct a concrete instance of `RecordAliasInput` via:
 //
-//          RecordAliasArgs{...}
+//	RecordAliasArgs{...}
 type RecordAliasInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i RecordAliasArgs) ToRecordAliasOutputWithContext(ctx context.Context) Rec
 // RecordAliasArrayInput is an input type that accepts RecordAliasArray and RecordAliasArrayOutput values.
 // You can construct a concrete instance of `RecordAliasArrayInput` via:
 //
-//          RecordAliasArray{ RecordAliasArgs{...} }
+//	RecordAliasArray{ RecordAliasArgs{...} }
 type RecordAliasArrayInput interface {
 	pulumi.Input
 
@@ -133,7 +133,7 @@ type RecordFailoverRoutingPolicy struct {
 // RecordFailoverRoutingPolicyInput is an input type that accepts RecordFailoverRoutingPolicyArgs and RecordFailoverRoutingPolicyOutput values.
 // You can construct a concrete instance of `RecordFailoverRoutingPolicyInput` via:
 //
-//          RecordFailoverRoutingPolicyArgs{...}
+//	RecordFailoverRoutingPolicyArgs{...}
 type RecordFailoverRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyOutputWith
 // RecordFailoverRoutingPolicyArrayInput is an input type that accepts RecordFailoverRoutingPolicyArray and RecordFailoverRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordFailoverRoutingPolicyArrayInput` via:
 //
-//          RecordFailoverRoutingPolicyArray{ RecordFailoverRoutingPolicyArgs{...} }
+//	RecordFailoverRoutingPolicyArray{ RecordFailoverRoutingPolicyArgs{...} }
 type RecordFailoverRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ type RecordGeolocationRoutingPolicy struct {
 // RecordGeolocationRoutingPolicyInput is an input type that accepts RecordGeolocationRoutingPolicyArgs and RecordGeolocationRoutingPolicyOutput values.
 // You can construct a concrete instance of `RecordGeolocationRoutingPolicyInput` via:
 //
-//          RecordGeolocationRoutingPolicyArgs{...}
+//	RecordGeolocationRoutingPolicyArgs{...}
 type RecordGeolocationRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -266,7 +266,7 @@ func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyOutp
 // RecordGeolocationRoutingPolicyArrayInput is an input type that accepts RecordGeolocationRoutingPolicyArray and RecordGeolocationRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordGeolocationRoutingPolicyArrayInput` via:
 //
-//          RecordGeolocationRoutingPolicyArray{ RecordGeolocationRoutingPolicyArgs{...} }
+//	RecordGeolocationRoutingPolicyArray{ RecordGeolocationRoutingPolicyArgs{...} }
 type RecordGeolocationRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -345,7 +345,7 @@ type RecordLatencyRoutingPolicy struct {
 // RecordLatencyRoutingPolicyInput is an input type that accepts RecordLatencyRoutingPolicyArgs and RecordLatencyRoutingPolicyOutput values.
 // You can construct a concrete instance of `RecordLatencyRoutingPolicyInput` via:
 //
-//          RecordLatencyRoutingPolicyArgs{...}
+//	RecordLatencyRoutingPolicyArgs{...}
 type RecordLatencyRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -373,7 +373,7 @@ func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyOutputWithCo
 // RecordLatencyRoutingPolicyArrayInput is an input type that accepts RecordLatencyRoutingPolicyArray and RecordLatencyRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordLatencyRoutingPolicyArrayInput` via:
 //
-//          RecordLatencyRoutingPolicyArray{ RecordLatencyRoutingPolicyArgs{...} }
+//	RecordLatencyRoutingPolicyArray{ RecordLatencyRoutingPolicyArgs{...} }
 type RecordLatencyRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -442,7 +442,7 @@ type RecordWeightedRoutingPolicy struct {
 // RecordWeightedRoutingPolicyInput is an input type that accepts RecordWeightedRoutingPolicyArgs and RecordWeightedRoutingPolicyOutput values.
 // You can construct a concrete instance of `RecordWeightedRoutingPolicyInput` via:
 //
-//          RecordWeightedRoutingPolicyArgs{...}
+//	RecordWeightedRoutingPolicyArgs{...}
 type RecordWeightedRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyOutputWith
 // RecordWeightedRoutingPolicyArrayInput is an input type that accepts RecordWeightedRoutingPolicyArray and RecordWeightedRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordWeightedRoutingPolicyArrayInput` via:
 //
-//          RecordWeightedRoutingPolicyArray{ RecordWeightedRoutingPolicyArgs{...} }
+//	RecordWeightedRoutingPolicyArray{ RecordWeightedRoutingPolicyArgs{...} }
 type RecordWeightedRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -542,7 +542,7 @@ type ResolverEndpointIpAddress struct {
 // ResolverEndpointIpAddressInput is an input type that accepts ResolverEndpointIpAddressArgs and ResolverEndpointIpAddressOutput values.
 // You can construct a concrete instance of `ResolverEndpointIpAddressInput` via:
 //
-//          ResolverEndpointIpAddressArgs{...}
+//	ResolverEndpointIpAddressArgs{...}
 type ResolverEndpointIpAddressInput interface {
 	pulumi.Input
 
@@ -573,7 +573,7 @@ func (i ResolverEndpointIpAddressArgs) ToResolverEndpointIpAddressOutputWithCont
 // ResolverEndpointIpAddressArrayInput is an input type that accepts ResolverEndpointIpAddressArray and ResolverEndpointIpAddressArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointIpAddressArrayInput` via:
 //
-//          ResolverEndpointIpAddressArray{ ResolverEndpointIpAddressArgs{...} }
+//	ResolverEndpointIpAddressArray{ ResolverEndpointIpAddressArgs{...} }
 type ResolverEndpointIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -653,7 +653,7 @@ type ResolverRuleTargetIp struct {
 // ResolverRuleTargetIpInput is an input type that accepts ResolverRuleTargetIpArgs and ResolverRuleTargetIpOutput values.
 // You can construct a concrete instance of `ResolverRuleTargetIpInput` via:
 //
-//          ResolverRuleTargetIpArgs{...}
+//	ResolverRuleTargetIpArgs{...}
 type ResolverRuleTargetIpInput interface {
 	pulumi.Input
 
@@ -683,7 +683,7 @@ func (i ResolverRuleTargetIpArgs) ToResolverRuleTargetIpOutputWithContext(ctx co
 // ResolverRuleTargetIpArrayInput is an input type that accepts ResolverRuleTargetIpArray and ResolverRuleTargetIpArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleTargetIpArrayInput` via:
 //
-//          ResolverRuleTargetIpArray{ ResolverRuleTargetIpArgs{...} }
+//	ResolverRuleTargetIpArray{ ResolverRuleTargetIpArgs{...} }
 type ResolverRuleTargetIpArrayInput interface {
 	pulumi.Input
 
@@ -759,7 +759,7 @@ type ZoneVpc struct {
 // ZoneVpcInput is an input type that accepts ZoneVpcArgs and ZoneVpcOutput values.
 // You can construct a concrete instance of `ZoneVpcInput` via:
 //
-//          ZoneVpcArgs{...}
+//	ZoneVpcArgs{...}
 type ZoneVpcInput interface {
 	pulumi.Input
 
@@ -789,7 +789,7 @@ func (i ZoneVpcArgs) ToZoneVpcOutputWithContext(ctx context.Context) ZoneVpcOutp
 // ZoneVpcArrayInput is an input type that accepts ZoneVpcArray and ZoneVpcArrayOutput values.
 // You can construct a concrete instance of `ZoneVpcArrayInput` via:
 //
-//          ZoneVpcArray{ ZoneVpcArgs{...} }
+//	ZoneVpcArray{ ZoneVpcArgs{...} }
 type ZoneVpcArrayInput interface {
 	pulumi.Input
 
@@ -863,7 +863,7 @@ type GetResolverEndpointFilter struct {
 // GetResolverEndpointFilterInput is an input type that accepts GetResolverEndpointFilterArgs and GetResolverEndpointFilterOutput values.
 // You can construct a concrete instance of `GetResolverEndpointFilterInput` via:
 //
-//          GetResolverEndpointFilterArgs{...}
+//	GetResolverEndpointFilterArgs{...}
 type GetResolverEndpointFilterInput interface {
 	pulumi.Input
 
@@ -891,7 +891,7 @@ func (i GetResolverEndpointFilterArgs) ToGetResolverEndpointFilterOutputWithCont
 // GetResolverEndpointFilterArrayInput is an input type that accepts GetResolverEndpointFilterArray and GetResolverEndpointFilterArrayOutput values.
 // You can construct a concrete instance of `GetResolverEndpointFilterArrayInput` via:
 //
-//          GetResolverEndpointFilterArray{ GetResolverEndpointFilterArgs{...} }
+//	GetResolverEndpointFilterArray{ GetResolverEndpointFilterArgs{...} }
 type GetResolverEndpointFilterArrayInput interface {
 	pulumi.Input
 
@@ -969,7 +969,7 @@ type GetTrafficPolicyDocumentEndpoint struct {
 // GetTrafficPolicyDocumentEndpointInput is an input type that accepts GetTrafficPolicyDocumentEndpointArgs and GetTrafficPolicyDocumentEndpointOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentEndpointInput` via:
 //
-//          GetTrafficPolicyDocumentEndpointArgs{...}
+//	GetTrafficPolicyDocumentEndpointArgs{...}
 type GetTrafficPolicyDocumentEndpointInput interface {
 	pulumi.Input
 
@@ -1003,7 +1003,7 @@ func (i GetTrafficPolicyDocumentEndpointArgs) ToGetTrafficPolicyDocumentEndpoint
 // GetTrafficPolicyDocumentEndpointArrayInput is an input type that accepts GetTrafficPolicyDocumentEndpointArray and GetTrafficPolicyDocumentEndpointArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentEndpointArrayInput` via:
 //
-//          GetTrafficPolicyDocumentEndpointArray{ GetTrafficPolicyDocumentEndpointArgs{...} }
+//	GetTrafficPolicyDocumentEndpointArray{ GetTrafficPolicyDocumentEndpointArgs{...} }
 type GetTrafficPolicyDocumentEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1101,7 +1101,7 @@ type GetTrafficPolicyDocumentRule struct {
 // GetTrafficPolicyDocumentRuleInput is an input type that accepts GetTrafficPolicyDocumentRuleArgs and GetTrafficPolicyDocumentRuleOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleInput` via:
 //
-//          GetTrafficPolicyDocumentRuleArgs{...}
+//	GetTrafficPolicyDocumentRuleArgs{...}
 type GetTrafficPolicyDocumentRuleInput interface {
 	pulumi.Input
 
@@ -1143,7 +1143,7 @@ func (i GetTrafficPolicyDocumentRuleArgs) ToGetTrafficPolicyDocumentRuleOutputWi
 // GetTrafficPolicyDocumentRuleArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleArray and GetTrafficPolicyDocumentRuleArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleArrayInput` via:
 //
-//          GetTrafficPolicyDocumentRuleArray{ GetTrafficPolicyDocumentRuleArgs{...} }
+//	GetTrafficPolicyDocumentRuleArray{ GetTrafficPolicyDocumentRuleArgs{...} }
 type GetTrafficPolicyDocumentRuleArrayInput interface {
 	pulumi.Input
 
@@ -1263,7 +1263,7 @@ type GetTrafficPolicyDocumentRuleGeoProximityLocation struct {
 // GetTrafficPolicyDocumentRuleGeoProximityLocationInput is an input type that accepts GetTrafficPolicyDocumentRuleGeoProximityLocationArgs and GetTrafficPolicyDocumentRuleGeoProximityLocationOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleGeoProximityLocationInput` via:
 //
-//          GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{...}
+//	GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{...}
 type GetTrafficPolicyDocumentRuleGeoProximityLocationInput interface {
 	pulumi.Input
 
@@ -1305,7 +1305,7 @@ func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ToGetTrafficPolicy
 // GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleGeoProximityLocationArray and GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput` via:
 //
-//          GetTrafficPolicyDocumentRuleGeoProximityLocationArray{ GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{...} }
+//	GetTrafficPolicyDocumentRuleGeoProximityLocationArray{ GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{...} }
 type GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput interface {
 	pulumi.Input
 
@@ -1411,7 +1411,7 @@ type GetTrafficPolicyDocumentRuleItem struct {
 // GetTrafficPolicyDocumentRuleItemInput is an input type that accepts GetTrafficPolicyDocumentRuleItemArgs and GetTrafficPolicyDocumentRuleItemOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleItemInput` via:
 //
-//          GetTrafficPolicyDocumentRuleItemArgs{...}
+//	GetTrafficPolicyDocumentRuleItemArgs{...}
 type GetTrafficPolicyDocumentRuleItemInput interface {
 	pulumi.Input
 
@@ -1441,7 +1441,7 @@ func (i GetTrafficPolicyDocumentRuleItemArgs) ToGetTrafficPolicyDocumentRuleItem
 // GetTrafficPolicyDocumentRuleItemArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleItemArray and GetTrafficPolicyDocumentRuleItemArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleItemArrayInput` via:
 //
-//          GetTrafficPolicyDocumentRuleItemArray{ GetTrafficPolicyDocumentRuleItemArgs{...} }
+//	GetTrafficPolicyDocumentRuleItemArray{ GetTrafficPolicyDocumentRuleItemArgs{...} }
 type GetTrafficPolicyDocumentRuleItemArrayInput interface {
 	pulumi.Input
 
@@ -1529,7 +1529,7 @@ type GetTrafficPolicyDocumentRuleLocation struct {
 // GetTrafficPolicyDocumentRuleLocationInput is an input type that accepts GetTrafficPolicyDocumentRuleLocationArgs and GetTrafficPolicyDocumentRuleLocationOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleLocationInput` via:
 //
-//          GetTrafficPolicyDocumentRuleLocationArgs{...}
+//	GetTrafficPolicyDocumentRuleLocationArgs{...}
 type GetTrafficPolicyDocumentRuleLocationInput interface {
 	pulumi.Input
 
@@ -1571,7 +1571,7 @@ func (i GetTrafficPolicyDocumentRuleLocationArgs) ToGetTrafficPolicyDocumentRule
 // GetTrafficPolicyDocumentRuleLocationArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleLocationArray and GetTrafficPolicyDocumentRuleLocationArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleLocationArrayInput` via:
 //
-//          GetTrafficPolicyDocumentRuleLocationArray{ GetTrafficPolicyDocumentRuleLocationArgs{...} }
+//	GetTrafficPolicyDocumentRuleLocationArray{ GetTrafficPolicyDocumentRuleLocationArgs{...} }
 type GetTrafficPolicyDocumentRuleLocationArrayInput interface {
 	pulumi.Input
 
@@ -1681,7 +1681,7 @@ type GetTrafficPolicyDocumentRulePrimary struct {
 // GetTrafficPolicyDocumentRulePrimaryInput is an input type that accepts GetTrafficPolicyDocumentRulePrimaryArgs and GetTrafficPolicyDocumentRulePrimaryOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRulePrimaryInput` via:
 //
-//          GetTrafficPolicyDocumentRulePrimaryArgs{...}
+//	GetTrafficPolicyDocumentRulePrimaryArgs{...}
 type GetTrafficPolicyDocumentRulePrimaryInput interface {
 	pulumi.Input
 
@@ -1723,11 +1723,11 @@ func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRuleP
 // GetTrafficPolicyDocumentRulePrimaryPtrInput is an input type that accepts GetTrafficPolicyDocumentRulePrimaryArgs, GetTrafficPolicyDocumentRulePrimaryPtr and GetTrafficPolicyDocumentRulePrimaryPtrOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRulePrimaryPtrInput` via:
 //
-//          GetTrafficPolicyDocumentRulePrimaryArgs{...}
+//	        GetTrafficPolicyDocumentRulePrimaryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTrafficPolicyDocumentRulePrimaryPtrInput interface {
 	pulumi.Input
 
@@ -1877,7 +1877,7 @@ type GetTrafficPolicyDocumentRuleRegion struct {
 // GetTrafficPolicyDocumentRuleRegionInput is an input type that accepts GetTrafficPolicyDocumentRuleRegionArgs and GetTrafficPolicyDocumentRuleRegionOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleRegionInput` via:
 //
-//          GetTrafficPolicyDocumentRuleRegionArgs{...}
+//	GetTrafficPolicyDocumentRuleRegionArgs{...}
 type GetTrafficPolicyDocumentRuleRegionInput interface {
 	pulumi.Input
 
@@ -1913,7 +1913,7 @@ func (i GetTrafficPolicyDocumentRuleRegionArgs) ToGetTrafficPolicyDocumentRuleRe
 // GetTrafficPolicyDocumentRuleRegionArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleRegionArray and GetTrafficPolicyDocumentRuleRegionArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleRegionArrayInput` via:
 //
-//          GetTrafficPolicyDocumentRuleRegionArray{ GetTrafficPolicyDocumentRuleRegionArgs{...} }
+//	GetTrafficPolicyDocumentRuleRegionArray{ GetTrafficPolicyDocumentRuleRegionArgs{...} }
 type GetTrafficPolicyDocumentRuleRegionArrayInput interface {
 	pulumi.Input
 
@@ -2008,7 +2008,7 @@ type GetTrafficPolicyDocumentRuleSecondary struct {
 // GetTrafficPolicyDocumentRuleSecondaryInput is an input type that accepts GetTrafficPolicyDocumentRuleSecondaryArgs and GetTrafficPolicyDocumentRuleSecondaryOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleSecondaryInput` via:
 //
-//          GetTrafficPolicyDocumentRuleSecondaryArgs{...}
+//	GetTrafficPolicyDocumentRuleSecondaryArgs{...}
 type GetTrafficPolicyDocumentRuleSecondaryInput interface {
 	pulumi.Input
 
@@ -2050,11 +2050,11 @@ func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRul
 // GetTrafficPolicyDocumentRuleSecondaryPtrInput is an input type that accepts GetTrafficPolicyDocumentRuleSecondaryArgs, GetTrafficPolicyDocumentRuleSecondaryPtr and GetTrafficPolicyDocumentRuleSecondaryPtrOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleSecondaryPtrInput` via:
 //
-//          GetTrafficPolicyDocumentRuleSecondaryArgs{...}
+//	        GetTrafficPolicyDocumentRuleSecondaryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTrafficPolicyDocumentRuleSecondaryPtrInput interface {
 	pulumi.Input
 

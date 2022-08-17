@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
-// 			UserPoolId: pool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
+//				UserPoolId: pool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create a user pool client with no SRP authentication
 //
@@ -46,29 +49,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
-// 			UserPoolId:     pool.ID(),
-// 			GenerateSecret: pulumi.Bool(true),
-// 			ExplicitAuthFlows: pulumi.StringArray{
-// 				pulumi.String("ADMIN_NO_SRP_AUTH"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
+//				UserPoolId:     pool.ID(),
+//				GenerateSecret: pulumi.Bool(true),
+//				ExplicitAuthFlows: pulumi.StringArray{
+//					pulumi.String("ADMIN_NO_SRP_AUTH"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create a user pool client with pinpoint analytics
 //
@@ -76,85 +82,92 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testUserPool, err := cognito.NewUserPool(ctx, "testUserPool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testApp, err := pinpoint.NewApp(ctx, "testApp", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "cognito-idp.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testUserPool, err := cognito.NewUserPool(ctx, "testUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testApp, err := pinpoint.NewApp(ctx, "testApp", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "cognito-idp.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "testRolePolicy", &iam.RolePolicyArgs{
-// 			Role: testRole.ID(),
-// 			Policy: testApp.ApplicationId.ApplyT(func(applicationId string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "mobiletargeting:UpdateEndpoint",
-//         "mobiletargeting:PutItems"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "arn:aws:mobiletargeting:*:%v:apps/%v*"
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "testRolePolicy", &iam.RolePolicyArgs{
+//				Role: testRole.ID(),
+//				Policy: testApp.ApplicationId.ApplyT(func(applicationId string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "mobiletargeting:UpdateEndpoint",
+//	        "mobiletargeting:PutItems"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "arn:aws:mobiletargeting:*:%v:apps/%v*"
+//	    }
+//	  ]
+//	}
+//
 // `, current.AccountId, applicationId), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserPoolClient(ctx, "testUserPoolClient", &cognito.UserPoolClientArgs{
-// 			UserPoolId: testUserPool.ID(),
-// 			AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
-// 				ApplicationId:  testApp.ApplicationId,
-// 				ExternalId:     pulumi.String("some_id"),
-// 				RoleArn:        testRole.Arn,
-// 				UserDataShared: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolClient(ctx, "testUserPoolClient", &cognito.UserPoolClientArgs{
+//				UserPoolId: testUserPool.ID(),
+//				AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
+//					ApplicationId:  testApp.ApplicationId,
+//					ExternalId:     pulumi.String("some_id"),
+//					RoleArn:        testRole.Arn,
+//					UserDataShared: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create a user pool client with Cognito as the identity provider
 //
@@ -162,40 +175,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserPoolClient(ctx, "userpoolClient", &cognito.UserPoolClientArgs{
-// 			UserPoolId: pool.ID(),
-// 			CallbackUrls: pulumi.StringArray{
-// 				pulumi.String("https://example.com"),
-// 			},
-// 			AllowedOauthFlowsUserPoolClient: pulumi.Bool(true),
-// 			AllowedOauthFlows: pulumi.StringArray{
-// 				pulumi.String("code"),
-// 				pulumi.String("implicit"),
-// 			},
-// 			AllowedOauthScopes: pulumi.StringArray{
-// 				pulumi.String("email"),
-// 				pulumi.String("openid"),
-// 			},
-// 			SupportedIdentityProviders: pulumi.StringArray{
-// 				pulumi.String("COGNITO"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolClient(ctx, "userpoolClient", &cognito.UserPoolClientArgs{
+//				UserPoolId: pool.ID(),
+//				CallbackUrls: pulumi.StringArray{
+//					pulumi.String("https://example.com"),
+//				},
+//				AllowedOauthFlowsUserPoolClient: pulumi.Bool(true),
+//				AllowedOauthFlows: pulumi.StringArray{
+//					pulumi.String("code"),
+//					pulumi.String("implicit"),
+//				},
+//				AllowedOauthScopes: pulumi.StringArray{
+//					pulumi.String("email"),
+//					pulumi.String("openid"),
+//				},
+//				SupportedIdentityProviders: pulumi.StringArray{
+//					pulumi.String("COGNITO"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -203,7 +219,9 @@ import (
 // Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+//
+//	$ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+//
 // ```
 type UserPoolClient struct {
 	pulumi.CustomResourceState
@@ -500,7 +518,7 @@ func (i *UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) 
 // UserPoolClientArrayInput is an input type that accepts UserPoolClientArray and UserPoolClientArrayOutput values.
 // You can construct a concrete instance of `UserPoolClientArrayInput` via:
 //
-//          UserPoolClientArray{ UserPoolClientArgs{...} }
+//	UserPoolClientArray{ UserPoolClientArgs{...} }
 type UserPoolClientArrayInput interface {
 	pulumi.Input
 
@@ -525,7 +543,7 @@ func (i UserPoolClientArray) ToUserPoolClientArrayOutputWithContext(ctx context.
 // UserPoolClientMapInput is an input type that accepts UserPoolClientMap and UserPoolClientMapOutput values.
 // You can construct a concrete instance of `UserPoolClientMapInput` via:
 //
-//          UserPoolClientMap{ "key": UserPoolClientArgs{...} }
+//	UserPoolClientMap{ "key": UserPoolClientArgs{...} }
 type UserPoolClientMapInput interface {
 	pulumi.Input
 

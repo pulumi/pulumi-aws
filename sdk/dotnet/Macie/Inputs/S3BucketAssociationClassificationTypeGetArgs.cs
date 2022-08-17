@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie.Inputs
 {
 
-    public sealed class S3BucketAssociationClassificationTypeGetArgs : Pulumi.ResourceArgs
+    public sealed class S3BucketAssociationClassificationTypeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Macie.Inputs
         public S3BucketAssociationClassificationTypeGetArgs()
         {
         }
+        public static new S3BucketAssociationClassificationTypeGetArgs Empty => new S3BucketAssociationClassificationTypeGetArgs();
     }
 }

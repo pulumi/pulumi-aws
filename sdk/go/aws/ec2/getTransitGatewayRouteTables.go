@@ -20,20 +20,23 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("example", data.Aws_ec2_transit_gateway_route_table.Example.Ids)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", data.Aws_ec2_transit_gateway_route_table.Example.Ids)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetTransitGatewayRouteTables(ctx *pulumi.Context, args *GetTransitGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetTransitGatewayRouteTablesResult, error) {
 	var rv GetTransitGatewayRouteTablesResult

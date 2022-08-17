@@ -15,39 +15,37 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mykey = new Aws.Kms.Key("mykey", new()
     ///     {
-    ///         var mykey = new Aws.Kms.Key("mykey", new Aws.Kms.KeyArgs
+    ///         Description = "This key is used to encrypt bucket objects",
+    ///         DeletionWindowInDays = 10,
+    ///     });
+    /// 
+    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
+    /// 
+    ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new()
+    ///     {
+    ///         Bucket = mybucket.Bucket,
+    ///         Rules = new[]
     ///         {
-    ///             Description = "This key is used to encrypt bucket objects",
-    ///             DeletionWindowInDays = 10,
-    ///         });
-    ///         var mybucket = new Aws.S3.BucketV2("mybucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new Aws.S3.BucketServerSideEncryptionConfigurationV2Args
-    ///         {
-    ///             Bucket = mybucket.Bucket,
-    ///             Rules = 
+    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs
     ///             {
-    ///                 new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs
+    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
     ///                 {
-    ///                     ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
-    ///                     {
-    ///                         KmsMasterKeyId = mykey.Arn,
-    ///                         SseAlgorithm = "aws:kms",
-    ///                     },
+    ///                     KmsMasterKeyId = mykey.Arn,
+    ///                     SseAlgorithm = "aws:kms",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +63,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")]
-    public partial class BucketServerSideEncryptionConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketServerSideEncryptionConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketServerSideEncryptionConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketServerSideEncryptionConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.S3
         public BucketServerSideEncryptionConfigurationV2Args()
         {
         }
+        public static new BucketServerSideEncryptionConfigurationV2Args Empty => new BucketServerSideEncryptionConfigurationV2Args();
     }
 
-    public sealed class BucketServerSideEncryptionConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketServerSideEncryptionConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -189,5 +188,6 @@ namespace Pulumi.Aws.S3
         public BucketServerSideEncryptionConfigurationV2State()
         {
         }
+        public static new BucketServerSideEncryptionConfigurationV2State Empty => new BucketServerSideEncryptionConfigurationV2State();
     }
 }

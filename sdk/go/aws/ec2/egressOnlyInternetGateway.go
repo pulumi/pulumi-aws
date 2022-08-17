@@ -22,31 +22,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock:                    pulumi.String("10.1.0.0/16"),
-// 			AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
-// 			VpcId: exampleVpc.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("main"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:                    pulumi.String("10.1.0.0/16"),
+//				AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
+//				VpcId: exampleVpc.ID(),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("main"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Egress-only Internet gateways can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+//
+//	$ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+//
 // ```
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
@@ -161,7 +166,7 @@ func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext
 // EgressOnlyInternetGatewayArrayInput is an input type that accepts EgressOnlyInternetGatewayArray and EgressOnlyInternetGatewayArrayOutput values.
 // You can construct a concrete instance of `EgressOnlyInternetGatewayArrayInput` via:
 //
-//          EgressOnlyInternetGatewayArray{ EgressOnlyInternetGatewayArgs{...} }
+//	EgressOnlyInternetGatewayArray{ EgressOnlyInternetGatewayArgs{...} }
 type EgressOnlyInternetGatewayArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +191,7 @@ func (i EgressOnlyInternetGatewayArray) ToEgressOnlyInternetGatewayArrayOutputWi
 // EgressOnlyInternetGatewayMapInput is an input type that accepts EgressOnlyInternetGatewayMap and EgressOnlyInternetGatewayMapOutput values.
 // You can construct a concrete instance of `EgressOnlyInternetGatewayMapInput` via:
 //
-//          EgressOnlyInternetGatewayMap{ "key": EgressOnlyInternetGatewayArgs{...} }
+//	EgressOnlyInternetGatewayMap{ "key": EgressOnlyInternetGatewayArgs{...} }
 type EgressOnlyInternetGatewayMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorKafkaClusterApacheKafkaClusterGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorKafkaClusterApacheKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bootstrap servers of the cluster.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorKafkaClusterApacheKafkaClusterGetArgs()
         {
         }
+        public static new ConnectorKafkaClusterApacheKafkaClusterGetArgs Empty => new ConnectorKafkaClusterApacheKafkaClusterGetArgs();
     }
 }

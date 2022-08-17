@@ -22,33 +22,31 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create an AMI that will start a machine whose root device is backed by
+    ///     // an EBS volume populated from a snapshot. We assume that such a snapshot
+    ///     // already exists with the id "snap-xxxxxxxx".
+    ///     var example = new Aws.Ec2.Ami("example", new()
     ///     {
-    ///         // Create an AMI that will start a machine whose root device is backed by
-    ///         // an EBS volume populated from a snapshot. We assume that such a snapshot
-    ///         // already exists with the id "snap-xxxxxxxx".
-    ///         var example = new Aws.Ec2.Ami("example", new Aws.Ec2.AmiArgs
+    ///         EbsBlockDevices = new[]
     ///         {
-    ///             EbsBlockDevices = 
+    ///             new Aws.Ec2.Inputs.AmiEbsBlockDeviceArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.AmiEbsBlockDeviceArgs
-    ///                 {
-    ///                     DeviceName = "/dev/xvda",
-    ///                     SnapshotId = "snap-xxxxxxxx",
-    ///                     VolumeSize = 8,
-    ///                 },
+    ///                 DeviceName = "/dev/xvda",
+    ///                 SnapshotId = "snap-xxxxxxxx",
+    ///                 VolumeSize = 8,
     ///             },
-    ///             RootDeviceName = "/dev/xvda",
-    ///             VirtualizationType = "hvm",
-    ///         });
-    ///     }
+    ///         },
+    ///         RootDeviceName = "/dev/xvda",
+    ///         VirtualizationType = "hvm",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +58,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/ami:Ami")]
-    public partial class Ami : Pulumi.CustomResource
+    public partial class Ami : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -210,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -279,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class AmiArgs : Pulumi.ResourceArgs
+    public sealed class AmiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -406,9 +404,10 @@ namespace Pulumi.Aws.Ec2
         public AmiArgs()
         {
         }
+        public static new AmiArgs Empty => new AmiArgs();
     }
 
-    public sealed class AmiState : Pulumi.ResourceArgs
+    public sealed class AmiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -579,7 +578,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -610,5 +609,6 @@ namespace Pulumi.Aws.Ec2
         public AmiState()
         {
         }
+        public static new AmiState Empty => new AmiState();
     }
 }

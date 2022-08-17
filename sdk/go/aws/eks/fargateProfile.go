@@ -20,46 +20,49 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": "sts:AssumeRole",
-// 					"Effect": "Allow",
-// 					"Principal": map[string]interface{}{
-// 						"Service": "eks-fargate-pods.amazonaws.com",
-// 					},
-// 				},
-// 			},
-// 			"Version": "2012-10-17",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSFargatePodExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"),
-// 			Role:      example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "eks-fargate-pods.amazonaws.com",
+//						},
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSFargatePodExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"),
+//				Role:      example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+//
+//	$ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+//
 // ```
 type FargateProfile struct {
 	pulumi.CustomResourceState
@@ -232,7 +237,7 @@ func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) 
 // FargateProfileArrayInput is an input type that accepts FargateProfileArray and FargateProfileArrayOutput values.
 // You can construct a concrete instance of `FargateProfileArrayInput` via:
 //
-//          FargateProfileArray{ FargateProfileArgs{...} }
+//	FargateProfileArray{ FargateProfileArgs{...} }
 type FargateProfileArrayInput interface {
 	pulumi.Input
 
@@ -257,7 +262,7 @@ func (i FargateProfileArray) ToFargateProfileArrayOutputWithContext(ctx context.
 // FargateProfileMapInput is an input type that accepts FargateProfileMap and FargateProfileMapOutput values.
 // You can construct a concrete instance of `FargateProfileMapInput` via:
 //
-//          FargateProfileMap{ "key": FargateProfileArgs{...} }
+//	FargateProfileMap{ "key": FargateProfileArgs{...} }
 type FargateProfileMapInput interface {
 	pulumi.Input
 

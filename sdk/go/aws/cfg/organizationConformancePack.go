@@ -21,53 +21,60 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-// 			AwsServiceAccessPrincipals: pulumi.StringArray{
-// 				pulumi.String("config-multiaccountsetup.amazonaws.com"),
-// 			},
-// 			FeatureSet: pulumi.String("ALL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
-// 			InputParameters: cfg.OrganizationConformancePackInputParameterArray{
-// 				&cfg.OrganizationConformancePackInputParameterArgs{
-// 					ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
-// 					ParameterValue: pulumi.String("90"),
-// 				},
-// 			},
-// 			TemplateBody: pulumi.String(fmt.Sprintf(`Parameters:
-//   AccessKeysRotatedParameterMaxAccessKeyAge:
-//     Type: String
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
+//				InputParameters: cfg.OrganizationConformancePackInputParameterArray{
+//					&cfg.OrganizationConformancePackInputParameterArgs{
+//						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
+//						ParameterValue: pulumi.String("90"),
+//					},
+//				},
+//				TemplateBody: pulumi.String(fmt.Sprintf(`Parameters:
+//	  AccessKeysRotatedParameterMaxAccessKeyAge:
+//	    Type: String
+//
 // Resources:
-//   IAMPasswordPolicy:
-//     Properties:
-//       ConfigRuleName: IAMPasswordPolicy
-//       Source:
-//         Owner: AWS
-//         SourceIdentifier: IAM_PASSWORD_POLICY
-//     Type: AWS::Config::ConfigRule
+//
+//	IAMPasswordPolicy:
+//	  Properties:
+//	    ConfigRuleName: IAMPasswordPolicy
+//	    Source:
+//	      Owner: AWS
+//	      SourceIdentifier: IAM_PASSWORD_POLICY
+//	  Type: AWS::Config::ConfigRule
+//
 // `)),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_config_configuration_recorder.Example,
-// 			exampleOrganization,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_config_configuration_recorder.Example,
+//				exampleOrganization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using Template S3 URI
 //
@@ -75,61 +82,66 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-// 			AwsServiceAccessPrincipals: pulumi.StringArray{
-// 				pulumi.String("config-multiaccountsetup.amazonaws.com"),
-// 			},
-// 			FeatureSet: pulumi.String("ALL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Key:    pulumi.String("example-key"),
-// 			Content: pulumi.String(fmt.Sprintf(`Resources:
-//   IAMPasswordPolicy:
-//     Properties:
-//       ConfigRuleName: IAMPasswordPolicy
-//       Source:
-//         Owner: AWS
-//         SourceIdentifier: IAM_PASSWORD_POLICY
-//     Type: AWS::Config::ConfigRule
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("example-key"),
+//				Content: pulumi.String(fmt.Sprintf(`Resources:
+//	  IAMPasswordPolicy:
+//	    Properties:
+//	      ConfigRuleName: IAMPasswordPolicy
+//	      Source:
+//	        Owner: AWS
+//	        SourceIdentifier: IAM_PASSWORD_POLICY
+//	    Type: AWS::Config::ConfigRule
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
-// 			TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
-// 				bucket := _args[0].(string)
-// 				key := _args[1].(string)
-// 				return fmt.Sprintf("s3://%v/%v", bucket, key), nil
-// 			}).(pulumi.StringOutput),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_config_configuration_recorder.Example,
-// 			exampleOrganization,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
+//				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					bucket := _args[0].(string)
+//					key := _args[1].(string)
+//					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
+//				}).(pulumi.StringOutput),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_config_configuration_recorder.Example,
+//				exampleOrganization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -137,7 +149,9 @@ import (
 // Config Organization Conformance Packs can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+//
+//	$ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+//
 // ```
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState
@@ -291,7 +305,7 @@ func (i *OrganizationConformancePack) ToOrganizationConformancePackOutputWithCon
 // OrganizationConformancePackArrayInput is an input type that accepts OrganizationConformancePackArray and OrganizationConformancePackArrayOutput values.
 // You can construct a concrete instance of `OrganizationConformancePackArrayInput` via:
 //
-//          OrganizationConformancePackArray{ OrganizationConformancePackArgs{...} }
+//	OrganizationConformancePackArray{ OrganizationConformancePackArgs{...} }
 type OrganizationConformancePackArrayInput interface {
 	pulumi.Input
 
@@ -316,7 +330,7 @@ func (i OrganizationConformancePackArray) ToOrganizationConformancePackArrayOutp
 // OrganizationConformancePackMapInput is an input type that accepts OrganizationConformancePackMap and OrganizationConformancePackMapOutput values.
 // You can construct a concrete instance of `OrganizationConformancePackMapInput` via:
 //
-//          OrganizationConformancePackMap{ "key": OrganizationConformancePackArgs{...} }
+//	OrganizationConformancePackMap{ "key": OrganizationConformancePackArgs{...} }
 type OrganizationConformancePackMapInput interface {
 	pulumi.Input
 

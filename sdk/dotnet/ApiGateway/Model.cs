@@ -15,30 +15,29 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
     ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///         var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new Aws.ApiGateway.ModelArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             Description = "a JSON schema",
-    ///             ContentType = "application/json",
-    ///             Schema = @"{
+    ///         Description = "This is my API for demonstration purposes",
+    ///     });
+    /// 
+    ///     var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         Description = "a JSON schema",
+    ///         ContentType = "application/json",
+    ///         Schema = @"{
     ///   ""type"": ""object""
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/model:Model")]
-    public partial class Model : Pulumi.CustomResource
+    public partial class Model : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content type of the model
@@ -126,7 +125,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class ModelArgs : Pulumi.ResourceArgs
+    public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type of the model
@@ -161,9 +160,10 @@ namespace Pulumi.Aws.ApiGateway
         public ModelArgs()
         {
         }
+        public static new ModelArgs Empty => new ModelArgs();
     }
 
-    public sealed class ModelState : Pulumi.ResourceArgs
+    public sealed class ModelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type of the model
@@ -198,5 +198,6 @@ namespace Pulumi.Aws.ApiGateway
         public ModelState()
         {
         }
+        public static new ModelState Empty => new ModelState();
     }
 }

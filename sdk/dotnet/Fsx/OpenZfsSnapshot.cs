@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Fsx
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/openZfsSnapshot:OpenZfsSnapshot")]
-    public partial class OpenZfsSnapshot : Pulumi.CustomResource
+    public partial class OpenZfsSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the snapshot.
@@ -47,9 +47,6 @@ namespace Pulumi.Aws.Fsx
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -103,7 +100,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class OpenZfsSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
@@ -132,9 +129,10 @@ namespace Pulumi.Aws.Fsx
         public OpenZfsSnapshotArgs()
         {
         }
+        public static new OpenZfsSnapshotArgs Empty => new OpenZfsSnapshotArgs();
     }
 
-    public sealed class OpenZfsSnapshotState : Pulumi.ResourceArgs
+    public sealed class OpenZfsSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the snapshot.
@@ -165,10 +163,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -184,5 +178,6 @@ namespace Pulumi.Aws.Fsx
         public OpenZfsSnapshotState()
         {
         }
+        public static new OpenZfsSnapshotState Empty => new OpenZfsSnapshotState();
     }
 }

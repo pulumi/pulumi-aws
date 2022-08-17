@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskSetServiceRegistriesArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetServiceRegistriesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container name value, already specified in the task definition, to be used for your service discovery service.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskSetServiceRegistriesArgs()
         {
         }
+        public static new TaskSetServiceRegistriesArgs Empty => new TaskSetServiceRegistriesArgs();
     }
 }

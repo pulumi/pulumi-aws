@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateMetadataOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateMetadataOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateMetadataOptionsGetArgs()
         {
         }
+        public static new LaunchTemplateMetadataOptionsGetArgs Empty => new LaunchTemplateMetadataOptionsGetArgs();
     }
 }

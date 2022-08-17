@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectLogsConfigCloudwatchLogsGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectLogsConfigCloudwatchLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Group name of the logs in CloudWatch Logs.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectLogsConfigCloudwatchLogsGetArgs()
         {
         }
+        public static new ProjectLogsConfigCloudwatchLogsGetArgs Empty => new ProjectLogsConfigCloudwatchLogsGetArgs();
     }
 }

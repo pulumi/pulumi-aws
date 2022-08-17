@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class ParameterGroupParameterArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// "immediate" (default), or "pending-reboot". Some
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public ParameterGroupParameterArgs()
         {
         }
+        public static new ParameterGroupParameterArgs Empty => new ParameterGroupParameterArgs();
     }
 }

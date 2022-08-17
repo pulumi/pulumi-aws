@@ -15,28 +15,26 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myStackPermission = new Aws.OpsWorks.Permission("myStackPermission", new()
     ///     {
-    ///         var myStackPermission = new Aws.OpsWorks.Permission("myStackPermission", new Aws.OpsWorks.PermissionArgs
-    ///         {
-    ///             AllowSsh = true,
-    ///             AllowSudo = true,
-    ///             Level = "iam_only",
-    ///             UserArn = aws_iam_user.User.Arn,
-    ///             StackId = aws_opsworks_stack.Stack.Id,
-    ///         });
-    ///     }
+    ///         AllowSsh = true,
+    ///         AllowSudo = true,
+    ///         Level = "iam_only",
+    ///         UserArn = aws_iam_user.User.Arn,
+    ///         StackId = aws_opsworks_stack.Stack.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/permission:Permission")]
-    public partial class Permission : Pulumi.CustomResource
+    public partial class Permission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the user is allowed to use SSH to communicate with the instance
@@ -112,7 +110,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class PermissionArgs : Pulumi.ResourceArgs
+    public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the user is allowed to use SSH to communicate with the instance
@@ -147,9 +145,10 @@ namespace Pulumi.Aws.OpsWorks
         public PermissionArgs()
         {
         }
+        public static new PermissionArgs Empty => new PermissionArgs();
     }
 
-    public sealed class PermissionState : Pulumi.ResourceArgs
+    public sealed class PermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the user is allowed to use SSH to communicate with the instance
@@ -184,5 +183,6 @@ namespace Pulumi.Aws.OpsWorks
         public PermissionState()
         {
         }
+        public static new PermissionState Empty => new PermissionState();
     }
 }

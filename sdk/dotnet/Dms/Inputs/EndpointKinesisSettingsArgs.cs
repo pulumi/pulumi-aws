@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dms.Inputs
 {
 
-    public sealed class EndpointKinesisSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointKinesisSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public EndpointKinesisSettingsArgs()
         {
         }
+        public static new EndpointKinesisSettingsArgs Empty => new EndpointKinesisSettingsArgs();
     }
 }

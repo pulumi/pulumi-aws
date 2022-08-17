@@ -25,30 +25,28 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.AmiCopy("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.AmiCopy("example", new Aws.Ec2.AmiCopyArgs
+    ///         Description = "A copy of ami-xxxxxxxx",
+    ///         SourceAmiId = "ami-xxxxxxxx",
+    ///         SourceAmiRegion = "us-west-1",
+    ///         Tags = 
     ///         {
-    ///             Description = "A copy of ami-xxxxxxxx",
-    ///             SourceAmiId = "ami-xxxxxxxx",
-    ///             SourceAmiRegion = "us-west-1",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/amiCopy:AmiCopy")]
-    public partial class AmiCopy : Pulumi.CustomResource
+    public partial class AmiCopy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -272,7 +270,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class AmiCopyArgs : Pulumi.ResourceArgs
+    public sealed class AmiCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -368,9 +366,10 @@ namespace Pulumi.Aws.Ec2
         public AmiCopyArgs()
         {
         }
+        public static new AmiCopyArgs Empty => new AmiCopyArgs();
     }
 
-    public sealed class AmiCopyState : Pulumi.ResourceArgs
+    public sealed class AmiCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -576,5 +575,6 @@ namespace Pulumi.Aws.Ec2
         public AmiCopyState()
         {
         }
+        public static new AmiCopyState Empty => new AmiCopyState();
     }
 }

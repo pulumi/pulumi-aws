@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty.Inputs
 {
 
-    public sealed class FilterFindingCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class FilterFindingCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("criterions", required: true)]
         private InputList<Inputs.FilterFindingCriteriaCriterionArgs>? _criterions;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public FilterFindingCriteriaArgs()
         {
         }
+        public static new FilterFindingCriteriaArgs Empty => new FilterFindingCriteriaArgs();
     }
 }

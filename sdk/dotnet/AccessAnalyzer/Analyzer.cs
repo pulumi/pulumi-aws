@@ -16,52 +16,49 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// ### Account Analyzer
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
     ///     {
-    ///         var example = new Aws.AccessAnalyzer.Analyzer("example", new Aws.AccessAnalyzer.AnalyzerArgs
-    ///         {
-    ///             AnalyzerName = "example",
-    ///         });
-    ///     }
+    ///         AnalyzerName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Organization Analyzer
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "access-analyzer.amazonaws.com",
-    ///             },
-    ///         });
-    ///         var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("exampleAnalyzer", new Aws.AccessAnalyzer.AnalyzerArgs
-    ///         {
-    ///             AnalyzerName = "example",
-    ///             Type = "ORGANIZATION",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///     }
+    ///             "access-analyzer.amazonaws.com",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     {
+    ///         AnalyzerName = "example",
+    ///         Type = "ORGANIZATION",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +70,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// ```
     /// </summary>
     [AwsResourceType("aws:accessanalyzer/analyzer:Analyzer")]
-    public partial class Analyzer : Pulumi.CustomResource
+    public partial class Analyzer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Analyzer.
@@ -94,7 +91,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -149,7 +146,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         }
     }
 
-    public sealed class AnalyzerArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Analyzer.
@@ -178,9 +175,10 @@ namespace Pulumi.Aws.AccessAnalyzer
         public AnalyzerArgs()
         {
         }
+        public static new AnalyzerArgs Empty => new AnalyzerArgs();
     }
 
-    public sealed class AnalyzerState : Pulumi.ResourceArgs
+    public sealed class AnalyzerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Analyzer.
@@ -210,7 +208,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -227,5 +225,6 @@ namespace Pulumi.Aws.AccessAnalyzer
         public AnalyzerState()
         {
         }
+        public static new AnalyzerState Empty => new AnalyzerState();
     }
 }

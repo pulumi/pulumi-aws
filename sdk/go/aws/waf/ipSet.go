@@ -18,30 +18,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
-// 			IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
-// 				&waf.IpSetIpSetDescriptorArgs{
-// 					Type:  pulumi.String("IPV4"),
-// 					Value: pulumi.String("192.0.7.0/24"),
-// 				},
-// 				&waf.IpSetIpSetDescriptorArgs{
-// 					Type:  pulumi.String("IPV4"),
-// 					Value: pulumi.String("10.16.16.0/16"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+//					&waf.IpSetIpSetDescriptorArgs{
+//						Type:  pulumi.String("IPV4"),
+//						Value: pulumi.String("192.0.7.0/24"),
+//					},
+//					&waf.IpSetIpSetDescriptorArgs{
+//						Type:  pulumi.String("IPV4"),
+//						Value: pulumi.String("10.16.16.0/16"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // WAF IPSets can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type IpSet struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ func (i *IpSet) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 // IpSetArrayInput is an input type that accepts IpSetArray and IpSetArrayOutput values.
 // You can construct a concrete instance of `IpSetArrayInput` via:
 //
-//          IpSetArray{ IpSetArgs{...} }
+//	IpSetArray{ IpSetArgs{...} }
 type IpSetArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +183,7 @@ func (i IpSetArray) ToIpSetArrayOutputWithContext(ctx context.Context) IpSetArra
 // IpSetMapInput is an input type that accepts IpSetMap and IpSetMapOutput values.
 // You can construct a concrete instance of `IpSetMapInput` via:
 //
-//          IpSetMap{ "key": IpSetArgs{...} }
+//	IpSetMap{ "key": IpSetArgs{...} }
 type IpSetMapInput interface {
 	pulumi.Input
 

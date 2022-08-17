@@ -9,6 +9,8 @@ export * from "./conditionalForwader";
 export * from "./directory";
 export * from "./getDirectory";
 export * from "./logService";
+export * from "./radiusSettings";
+export * from "./serviceRegion";
 export * from "./sharedDirectory";
 export * from "./sharedDirectoryAccepter";
 
@@ -16,6 +18,8 @@ export * from "./sharedDirectoryAccepter";
 import { ConditionalForwader } from "./conditionalForwader";
 import { Directory } from "./directory";
 import { LogService } from "./logService";
+import { RadiusSettings } from "./radiusSettings";
+import { ServiceRegion } from "./serviceRegion";
 import { SharedDirectory } from "./sharedDirectory";
 import { SharedDirectoryAccepter } from "./sharedDirectoryAccepter";
 
@@ -29,6 +33,10 @@ const _module = {
                 return new Directory(name, <any>undefined, { urn })
             case "aws:directoryservice/logService:LogService":
                 return new LogService(name, <any>undefined, { urn })
+            case "aws:directoryservice/radiusSettings:RadiusSettings":
+                return new RadiusSettings(name, <any>undefined, { urn })
+            case "aws:directoryservice/serviceRegion:ServiceRegion":
+                return new ServiceRegion(name, <any>undefined, { urn })
             case "aws:directoryservice/sharedDirectory:SharedDirectory":
                 return new SharedDirectory(name, <any>undefined, { urn })
             case "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter":
@@ -41,5 +49,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "directoryservice/conditionalForwader", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/directory", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/logService", _module)
+pulumi.runtime.registerResourceModule("aws", "directoryservice/radiusSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "directoryservice/serviceRegion", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/sharedDirectory", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/sharedDirectoryAccepter", _module)

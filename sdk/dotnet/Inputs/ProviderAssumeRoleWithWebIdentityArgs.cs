@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class ProviderAssumeRoleWithWebIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ProviderAssumeRoleWithWebIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("duration")]
         public Input<string>? Duration { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.Aws.Inputs
         public ProviderAssumeRoleWithWebIdentityArgs()
         {
         }
+        public static new ProviderAssumeRoleWithWebIdentityArgs Empty => new ProviderAssumeRoleWithWebIdentityArgs();
     }
 }

@@ -16,21 +16,19 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.KinesisAnalyticsV2.ApplicationSnapshot("example", new()
     ///     {
-    ///         var example = new Aws.KinesisAnalyticsV2.ApplicationSnapshot("example", new Aws.KinesisAnalyticsV2.ApplicationSnapshotArgs
-    ///         {
-    ///             ApplicationName = aws_kinesisanalyticsv2_application.Example.Name,
-    ///             SnapshotName = "example-snapshot",
-    ///         });
-    ///     }
+    ///         ApplicationName = aws_kinesisanalyticsv2_application.Example.Name,
+    ///         SnapshotName = "example-snapshot",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")]
-    public partial class ApplicationSnapshot : Pulumi.CustomResource
+    public partial class ApplicationSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
@@ -112,7 +110,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         }
     }
 
-    public sealed class ApplicationSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
@@ -129,9 +127,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public ApplicationSnapshotArgs()
         {
         }
+        public static new ApplicationSnapshotArgs Empty => new ApplicationSnapshotArgs();
     }
 
-    public sealed class ApplicationSnapshotState : Pulumi.ResourceArgs
+    public sealed class ApplicationSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
@@ -160,5 +159,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public ApplicationSnapshotState()
         {
         }
+        public static new ApplicationSnapshotState Empty => new ApplicationSnapshotState();
     }
 }

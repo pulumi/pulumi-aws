@@ -15,34 +15,32 @@ namespace Pulumi.Aws.Xray
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Xray.SamplingRule("example", new()
     ///     {
-    ///         var example = new Aws.Xray.SamplingRule("example", new Aws.Xray.SamplingRuleArgs
+    ///         Attributes = 
     ///         {
-    ///             Attributes = 
-    ///             {
-    ///                 { "Hello", "Tris" },
-    ///             },
-    ///             FixedRate = 0.05,
-    ///             Host = "*",
-    ///             HttpMethod = "*",
-    ///             Priority = 10000,
-    ///             ReservoirSize = 1,
-    ///             ResourceArn = "*",
-    ///             RuleName = "example",
-    ///             ServiceName = "*",
-    ///             ServiceType = "*",
-    ///             UrlPath = "*",
-    ///             Version = 1,
-    ///         });
-    ///     }
+    ///             { "Hello", "Tris" },
+    ///         },
+    ///         FixedRate = 0.05,
+    ///         Host = "*",
+    ///         HttpMethod = "*",
+    ///         Priority = 10000,
+    ///         ReservoirSize = 1,
+    ///         ResourceArn = "*",
+    ///         RuleName = "example",
+    ///         ServiceName = "*",
+    ///         ServiceType = "*",
+    ///         UrlPath = "*",
+    ///         Version = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Xray
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/samplingRule:SamplingRule")]
-    public partial class SamplingRule : Pulumi.CustomResource
+    public partial class SamplingRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the sampling rule.
@@ -123,7 +121,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> ServiceType { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -190,7 +188,7 @@ namespace Pulumi.Aws.Xray
         }
     }
 
-    public sealed class SamplingRuleArgs : Pulumi.ResourceArgs
+    public sealed class SamplingRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
@@ -262,7 +260,7 @@ namespace Pulumi.Aws.Xray
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -285,9 +283,10 @@ namespace Pulumi.Aws.Xray
         public SamplingRuleArgs()
         {
         }
+        public static new SamplingRuleArgs Empty => new SamplingRuleArgs();
     }
 
-    public sealed class SamplingRuleState : Pulumi.ResourceArgs
+    public sealed class SamplingRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the sampling rule.
@@ -365,7 +364,7 @@ namespace Pulumi.Aws.Xray
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -400,5 +399,6 @@ namespace Pulumi.Aws.Xray
         public SamplingRuleState()
         {
         }
+        public static new SamplingRuleState Empty => new SamplingRuleState();
     }
 }

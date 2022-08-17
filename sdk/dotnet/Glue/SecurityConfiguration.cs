@@ -15,35 +15,33 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.Glue.SecurityConfiguration("example", new Aws.Glue.SecurityConfigurationArgs
+    ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
     ///         {
-    ///             EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
+    ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
     ///             {
-    ///                 CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
-    ///                 {
-    ///                     CloudwatchEncryptionMode = "DISABLED",
-    ///                 },
-    ///                 JobBookmarksEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
-    ///                 {
-    ///                     JobBookmarksEncryptionMode = "DISABLED",
-    ///                 },
-    ///                 S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
-    ///                 {
-    ///                     KmsKeyArn = data.Aws_kms_key.Example.Arn,
-    ///                     S3EncryptionMode = "SSE-KMS",
-    ///                 },
+    ///                 CloudwatchEncryptionMode = "DISABLED",
     ///             },
-    ///         });
-    ///     }
+    ///             JobBookmarksEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
+    ///             {
+    ///                 JobBookmarksEncryptionMode = "DISABLED",
+    ///             },
+    ///             S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
+    ///             {
+    ///                 KmsKeyArn = data.Aws_kms_key.Example.Arn,
+    ///                 S3EncryptionMode = "SSE-KMS",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]
-    public partial class SecurityConfiguration : Pulumi.CustomResource
+    public partial class SecurityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration block containing encryption configuration. Detailed below.
@@ -113,7 +111,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class SecurityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block containing encryption configuration. Detailed below.
@@ -130,9 +128,10 @@ namespace Pulumi.Aws.Glue
         public SecurityConfigurationArgs()
         {
         }
+        public static new SecurityConfigurationArgs Empty => new SecurityConfigurationArgs();
     }
 
-    public sealed class SecurityConfigurationState : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block containing encryption configuration. Detailed below.
@@ -149,5 +148,6 @@ namespace Pulumi.Aws.Glue
         public SecurityConfigurationState()
         {
         }
+        public static new SecurityConfigurationState Empty => new SecurityConfigurationState();
     }
 }

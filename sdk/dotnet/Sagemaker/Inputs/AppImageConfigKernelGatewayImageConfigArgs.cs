@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class AppImageConfigKernelGatewayImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigKernelGatewayImageConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL where the Git repository is located. See File System Config details below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public AppImageConfigKernelGatewayImageConfigArgs()
         {
         }
+        public static new AppImageConfigKernelGatewayImageConfigArgs Empty => new AppImageConfigKernelGatewayImageConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs Empty => new FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs();
     }
 }

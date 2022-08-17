@@ -17,44 +17,43 @@ namespace Pulumi.Aws.Ecs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ... other configuration, including potentially other tags ...
+    ///     var testGroup = new Aws.AutoScaling.Group("testGroup", new()
     ///     {
-    ///         // ... other configuration, including potentially other tags ...
-    ///         var testGroup = new Aws.AutoScaling.Group("testGroup", new Aws.AutoScaling.GroupArgs
+    ///         Tags = new[]
     ///         {
-    ///             Tags = 
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
     ///             {
-    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///                 {
-    ///                     Key = "AmazonECSManaged",
-    ///                     Value = "true",
-    ///                     PropagateAtLaunch = true,
-    ///                 },
+    ///                 Key = "AmazonECSManaged",
+    ///                 Value = "true",
+    ///                 PropagateAtLaunch = true,
     ///             },
-    ///         });
-    ///         var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new Aws.Ecs.CapacityProviderArgs
-    ///         {
-    ///             AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
-    ///             {
-    ///                 AutoScalingGroupArn = testGroup.Arn,
-    ///                 ManagedTerminationProtection = "ENABLED",
-    ///                 ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
-    ///                 {
-    ///                     MaximumScalingStepSize = 1000,
-    ///                     MinimumScalingStepSize = 1,
-    ///                     Status = "ENABLED",
-    ///                     TargetCapacity = 10,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new()
+    ///     {
+    ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
+    ///         {
+    ///             AutoScalingGroupArn = testGroup.Arn,
+    ///             ManagedTerminationProtection = "ENABLED",
+    ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
+    ///             {
+    ///                 MaximumScalingStepSize = 1000,
+    ///                 MinimumScalingStepSize = 1,
+    ///                 Status = "ENABLED",
+    ///                 TargetCapacity = 10,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +65,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/capacityProvider:CapacityProvider")]
-    public partial class CapacityProvider : Pulumi.CustomResource
+    public partial class CapacityProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN that identifies the capacity provider.
@@ -139,7 +138,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class CapacityProviderArgs : Pulumi.ResourceArgs
+    public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
@@ -168,9 +167,10 @@ namespace Pulumi.Aws.Ecs
         public CapacityProviderArgs()
         {
         }
+        public static new CapacityProviderArgs Empty => new CapacityProviderArgs();
     }
 
-    public sealed class CapacityProviderState : Pulumi.ResourceArgs
+    public sealed class CapacityProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN that identifies the capacity provider.
@@ -213,5 +213,6 @@ namespace Pulumi.Aws.Ecs
         public CapacityProviderState()
         {
         }
+        public static new CapacityProviderState Empty => new CapacityProviderState();
     }
 }

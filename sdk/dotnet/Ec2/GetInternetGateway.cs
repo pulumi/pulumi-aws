@@ -19,32 +19,30 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
+        ///     var @default = Aws.Ec2.GetInternetGateway.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///         var @default = Output.Create(Aws.Ec2.GetInternetGateway.InvokeAsync(new Aws.Ec2.GetInternetGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInternetGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInternetGatewayFilterArgs
+        ///                 Name = "attachment.vpc-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "attachment.vpc-id",
-        ///                     Values = 
-        ///                     {
-        ///                         vpcId,
-        ///                     },
+        ///                     vpcId,
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,32 +58,30 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
+        ///     var @default = Aws.Ec2.GetInternetGateway.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///         var @default = Output.Create(Aws.Ec2.GetInternetGateway.InvokeAsync(new Aws.Ec2.GetInternetGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInternetGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInternetGatewayFilterArgs
+        ///                 Name = "attachment.vpc-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "attachment.vpc-id",
-        ///                     Values = 
-        ///                     {
-        ///                         vpcId,
-        ///                     },
+        ///                     vpcId,
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -95,7 +91,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetInternetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetInternetGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetInternetGatewayFilterArgs>? _filters;
@@ -131,9 +127,10 @@ namespace Pulumi.Aws.Ec2
         public GetInternetGatewayArgs()
         {
         }
+        public static new GetInternetGatewayArgs Empty => new GetInternetGatewayArgs();
     }
 
-    public sealed class GetInternetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInternetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetInternetGatewayFilterInputArgs>? _filters;
@@ -169,6 +166,7 @@ namespace Pulumi.Aws.Ec2
         public GetInternetGatewayInvokeArgs()
         {
         }
+        public static new GetInternetGatewayInvokeArgs Empty => new GetInternetGatewayInvokeArgs();
     }
 
 

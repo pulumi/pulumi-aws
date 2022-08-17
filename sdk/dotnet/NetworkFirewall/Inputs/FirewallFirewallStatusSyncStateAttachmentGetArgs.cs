@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallFirewallStatusSyncStateAttachmentGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallFirewallStatusSyncStateAttachmentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallFirewallStatusSyncStateAttachmentGetArgs()
         {
         }
+        public static new FirewallFirewallStatusSyncStateAttachmentGetArgs Empty => new FirewallFirewallStatusSyncStateAttachmentGetArgs();
     }
 }

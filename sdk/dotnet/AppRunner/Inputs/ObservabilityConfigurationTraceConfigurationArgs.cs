@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ObservabilityConfigurationTraceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ObservabilityConfigurationTraceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ObservabilityConfigurationTraceConfigurationArgs()
         {
         }
+        public static new ObservabilityConfigurationTraceConfigurationArgs Empty => new ObservabilityConfigurationTraceConfigurationArgs();
     }
 }

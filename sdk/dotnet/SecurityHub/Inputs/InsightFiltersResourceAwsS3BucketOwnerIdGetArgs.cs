@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersResourceAwsS3BucketOwnerIdGetArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersResourceAwsS3BucketOwnerIdGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersResourceAwsS3BucketOwnerIdGetArgs()
         {
         }
+        public static new InsightFiltersResourceAwsS3BucketOwnerIdGetArgs Empty => new InsightFiltersResourceAwsS3BucketOwnerIdGetArgs();
     }
 }

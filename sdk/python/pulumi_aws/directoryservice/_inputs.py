@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'DirectoryConnectSettingsArgs',
     'DirectoryVpcSettingsArgs',
+    'ServiceRegionVpcSettingsArgs',
     'SharedDirectoryTargetArgs',
 ]
 
@@ -157,6 +158,43 @@ class DirectoryVpcSettingsArgs:
     @availability_zones.setter
     def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+
+@pulumi.input_type
+class ServiceRegionVpcSettingsArgs:
+    def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets for the directory servers.
+        :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the directory.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The identifiers of the subnets for the directory servers.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the VPC in which to create the directory.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
 
 
 @pulumi.input_type

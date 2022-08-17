@@ -26,44 +26,41 @@ namespace Pulumi.Aws.Ram
     /// ### AWS Account ID
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceShare = new Aws.Ram.ResourceShare("exampleResourceShare", new()
     ///     {
-    ///         var exampleResourceShare = new Aws.Ram.ResourceShare("exampleResourceShare", new Aws.Ram.ResourceShareArgs
-    ///         {
-    ///             AllowExternalPrincipals = true,
-    ///         });
-    ///         var examplePrincipalAssociation = new Aws.Ram.PrincipalAssociation("examplePrincipalAssociation", new Aws.Ram.PrincipalAssociationArgs
-    ///         {
-    ///             Principal = "111111111111",
-    ///             ResourceShareArn = exampleResourceShare.Arn,
-    ///         });
-    ///     }
+    ///         AllowExternalPrincipals = true,
+    ///     });
     /// 
-    /// }
+    ///     var examplePrincipalAssociation = new Aws.Ram.PrincipalAssociation("examplePrincipalAssociation", new()
+    ///     {
+    ///         Principal = "111111111111",
+    ///         ResourceShareArn = exampleResourceShare.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### AWS Organization
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ram.PrincipalAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Ram.PrincipalAssociation("example", new Aws.Ram.PrincipalAssociationArgs
-    ///         {
-    ///             Principal = aws_organizations_organization.Example.Arn,
-    ///             ResourceShareArn = aws_ram_resource_share.Example.Arn,
-    ///         });
-    ///     }
+    ///         Principal = aws_organizations_organization.Example.Arn,
+    ///         ResourceShareArn = aws_ram_resource_share.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +72,7 @@ namespace Pulumi.Aws.Ram
     /// ```
     /// </summary>
     [AwsResourceType("aws:ram/principalAssociation:PrincipalAssociation")]
-    public partial class PrincipalAssociation : Pulumi.CustomResource
+    public partial class PrincipalAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
@@ -133,7 +130,7 @@ namespace Pulumi.Aws.Ram
         }
     }
 
-    public sealed class PrincipalAssociationArgs : Pulumi.ResourceArgs
+    public sealed class PrincipalAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
@@ -150,9 +147,10 @@ namespace Pulumi.Aws.Ram
         public PrincipalAssociationArgs()
         {
         }
+        public static new PrincipalAssociationArgs Empty => new PrincipalAssociationArgs();
     }
 
-    public sealed class PrincipalAssociationState : Pulumi.ResourceArgs
+    public sealed class PrincipalAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
@@ -169,5 +167,6 @@ namespace Pulumi.Aws.Ram
         public PrincipalAssociationState()
         {
         }
+        public static new PrincipalAssociationState Empty => new PrincipalAssociationState();
     }
 }

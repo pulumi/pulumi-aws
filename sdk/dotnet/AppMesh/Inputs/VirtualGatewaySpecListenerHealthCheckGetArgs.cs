@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerHealthCheckGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerHealthCheckGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of consecutive successful health checks that must occur before declaring listener healthy.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerHealthCheckGetArgs()
         {
         }
+        public static new VirtualGatewaySpecListenerHealthCheckGetArgs Empty => new VirtualGatewaySpecListenerHealthCheckGetArgs();
     }
 }

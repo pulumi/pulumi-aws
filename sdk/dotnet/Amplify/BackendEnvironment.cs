@@ -15,26 +15,23 @@ namespace Pulumi.Aws.Amplify
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleApp = new Aws.Amplify.App("exampleApp", new Aws.Amplify.AppArgs
-    ///         {
-    ///         });
-    ///         var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment("exampleBackendEnvironment", new Aws.Amplify.BackendEnvironmentArgs
-    ///         {
-    ///             AppId = exampleApp.Id,
-    ///             EnvironmentName = "example",
-    ///             DeploymentArtifacts = "app-example-deployment",
-    ///             StackName = "amplify-app-example",
-    ///         });
-    ///     }
+    ///     var exampleApp = new Aws.Amplify.App("exampleApp");
     /// 
-    /// }
+    ///     var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment("exampleBackendEnvironment", new()
+    ///     {
+    ///         AppId = exampleApp.Id,
+    ///         EnvironmentName = "example",
+    ///         DeploymentArtifacts = "app-example-deployment",
+    ///         StackName = "amplify-app-example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Amplify
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/backendEnvironment:BackendEnvironment")]
-    public partial class BackendEnvironment : Pulumi.CustomResource
+    public partial class BackendEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -122,7 +119,7 @@ namespace Pulumi.Aws.Amplify
         }
     }
 
-    public sealed class BackendEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class BackendEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -151,9 +148,10 @@ namespace Pulumi.Aws.Amplify
         public BackendEnvironmentArgs()
         {
         }
+        public static new BackendEnvironmentArgs Empty => new BackendEnvironmentArgs();
     }
 
-    public sealed class BackendEnvironmentState : Pulumi.ResourceArgs
+    public sealed class BackendEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -188,5 +186,6 @@ namespace Pulumi.Aws.Amplify
         public BackendEnvironmentState()
         {
         }
+        public static new BackendEnvironmentState Empty => new BackendEnvironmentState();
     }
 }

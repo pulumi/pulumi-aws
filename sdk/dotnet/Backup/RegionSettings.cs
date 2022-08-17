@@ -15,38 +15,36 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Backup.RegionSettings("test", new()
     ///     {
-    ///         var test = new Aws.Backup.RegionSettings("test", new Aws.Backup.RegionSettingsArgs
+    ///         ResourceTypeManagementPreference = 
     ///         {
-    ///             ResourceTypeManagementPreference = 
-    ///             {
-    ///                 { "DynamoDB", true },
-    ///                 { "EFS", true },
-    ///             },
-    ///             ResourceTypeOptInPreference = 
-    ///             {
-    ///                 { "Aurora", true },
-    ///                 { "DocumentDB", true },
-    ///                 { "DynamoDB", true },
-    ///                 { "EBS", true },
-    ///                 { "EC2", true },
-    ///                 { "EFS", true },
-    ///                 { "FSx", true },
-    ///                 { "Neptune", true },
-    ///                 { "RDS", true },
-    ///                 { "Storage Gateway", true },
-    ///                 { "VirtualMachine", true },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "DynamoDB", true },
+    ///             { "EFS", true },
+    ///         },
+    ///         ResourceTypeOptInPreference = 
+    ///         {
+    ///             { "Aurora", true },
+    ///             { "DocumentDB", true },
+    ///             { "DynamoDB", true },
+    ///             { "EBS", true },
+    ///             { "EC2", true },
+    ///             { "EFS", true },
+    ///             { "FSx", true },
+    ///             { "Neptune", true },
+    ///             { "RDS", true },
+    ///             { "Storage Gateway", true },
+    ///             { "VirtualMachine", true },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/regionSettings:RegionSettings")]
-    public partial class RegionSettings : Pulumi.CustomResource
+    public partial class RegionSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of services along with the management preferences for the Region.
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class RegionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class RegionSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
@@ -145,9 +143,10 @@ namespace Pulumi.Aws.Backup
         public RegionSettingsArgs()
         {
         }
+        public static new RegionSettingsArgs Empty => new RegionSettingsArgs();
     }
 
-    public sealed class RegionSettingsState : Pulumi.ResourceArgs
+    public sealed class RegionSettingsState : global::Pulumi.ResourceArgs
     {
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
@@ -176,5 +175,6 @@ namespace Pulumi.Aws.Backup
         public RegionSettingsState()
         {
         }
+        public static new RegionSettingsState Empty => new RegionSettingsState();
     }
 }

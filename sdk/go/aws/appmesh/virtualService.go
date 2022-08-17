@@ -20,28 +20,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-// 			MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
-// 			Spec: &appmesh.VirtualServiceSpecArgs{
-// 				Provider: &appmesh.VirtualServiceSpecProviderArgs{
-// 					VirtualNode: &appmesh.VirtualServiceSpecProviderVirtualNodeArgs{
-// 						VirtualNodeName: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
+//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Spec: &appmesh.VirtualServiceSpecArgs{
+//					Provider: &appmesh.VirtualServiceSpecProviderArgs{
+//						VirtualNode: &appmesh.VirtualServiceSpecProviderVirtualNodeArgs{
+//							VirtualNodeName: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Virtual Router Provider
 //
@@ -49,28 +52,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-// 			MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
-// 			Spec: &appmesh.VirtualServiceSpecArgs{
-// 				Provider: &appmesh.VirtualServiceSpecProviderArgs{
-// 					VirtualRouter: &appmesh.VirtualServiceSpecProviderVirtualRouterArgs{
-// 						VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
+//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Spec: &appmesh.VirtualServiceSpecArgs{
+//					Provider: &appmesh.VirtualServiceSpecProviderArgs{
+//						VirtualRouter: &appmesh.VirtualServiceSpecProviderVirtualRouterArgs{
+//							VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,10 +84,12 @@ import (
 // App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+//
+//	$ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+//
 // ```
 //
-//  [1]/docs/providers/aws/index.html
+//	[1]/docs/providers/aws/index.html
 type VirtualService struct {
 	pulumi.CustomResourceState
 
@@ -103,7 +111,7 @@ type VirtualService struct {
 	Spec VirtualServiceSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -160,7 +168,7 @@ type virtualServiceState struct {
 	Spec *VirtualServiceSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -183,7 +191,7 @@ type VirtualServiceState struct {
 	Spec VirtualServiceSpecPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -244,7 +252,7 @@ func (i *VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) 
 // VirtualServiceArrayInput is an input type that accepts VirtualServiceArray and VirtualServiceArrayOutput values.
 // You can construct a concrete instance of `VirtualServiceArrayInput` via:
 //
-//          VirtualServiceArray{ VirtualServiceArgs{...} }
+//	VirtualServiceArray{ VirtualServiceArgs{...} }
 type VirtualServiceArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +277,7 @@ func (i VirtualServiceArray) ToVirtualServiceArrayOutputWithContext(ctx context.
 // VirtualServiceMapInput is an input type that accepts VirtualServiceMap and VirtualServiceMapOutput values.
 // You can construct a concrete instance of `VirtualServiceMapInput` via:
 //
-//          VirtualServiceMap{ "key": VirtualServiceArgs{...} }
+//	VirtualServiceMap{ "key": VirtualServiceArgs{...} }
 type VirtualServiceMapInput interface {
 	pulumi.Input
 
@@ -350,7 +358,7 @@ func (o VirtualServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

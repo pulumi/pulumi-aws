@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2ReplicationConfigurationRuleDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2ReplicationConfigurationRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlTranslations")]
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>? _accessControlTranslations;
@@ -76,5 +76,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2ReplicationConfigurationRuleDestinationArgs()
         {
         }
+        public static new BucketV2ReplicationConfigurationRuleDestinationArgs Empty => new BucketV2ReplicationConfigurationRuleDestinationArgs();
     }
 }

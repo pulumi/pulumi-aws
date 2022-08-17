@@ -13,48 +13,46 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.NetworkAcl("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.NetworkAcl("main", new Aws.Ec2.NetworkAclArgs
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         Egress = new[]
     ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             Egress = 
+    ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.NetworkAclEgressArgs
-    ///                 {
-    ///                     Protocol = "tcp",
-    ///                     RuleNo = 200,
-    ///                     Action = "allow",
-    ///                     CidrBlock = "10.3.0.0/18",
-    ///                     FromPort = 443,
-    ///                     ToPort = 443,
-    ///                 },
+    ///                 Protocol = "tcp",
+    ///                 RuleNo = 200,
+    ///                 Action = "allow",
+    ///                 CidrBlock = "10.3.0.0/18",
+    ///                 FromPort = 443,
+    ///                 ToPort = 443,
     ///             },
-    ///             Ingress = 
+    ///         },
+    ///         Ingress = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.NetworkAclIngressArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.NetworkAclIngressArgs
-    ///                 {
-    ///                     Protocol = "tcp",
-    ///                     RuleNo = 100,
-    ///                     Action = "allow",
-    ///                     CidrBlock = "10.3.0.0/18",
-    ///                     FromPort = 80,
-    ///                     ToPort = 80,
-    ///                 },
+    ///                 Protocol = "tcp",
+    ///                 RuleNo = 100,
+    ///                 Action = "allow",
+    ///                 CidrBlock = "10.3.0.0/18",
+    ///                 FromPort = 80,
+    ///                 ToPort = 80,
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "main" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "main" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +64,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAcl:NetworkAcl")]
-    public partial class NetworkAcl : Pulumi.CustomResource
+    public partial class NetworkAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the network ACL
@@ -99,13 +97,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,7 +158,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkAclArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclArgs : global::Pulumi.ResourceArgs
     {
         [Input("egress")]
         private InputList<Inputs.NetworkAclEgressArgs>? _egress;
@@ -202,7 +200,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -219,9 +217,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclArgs()
         {
         }
+        public static new NetworkAclArgs Empty => new NetworkAclArgs();
     }
 
-    public sealed class NetworkAclState : Pulumi.ResourceArgs
+    public sealed class NetworkAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the network ACL
@@ -275,7 +274,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -287,7 +286,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -304,5 +303,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclState()
         {
         }
+        public static new NetworkAclState Empty => new NetworkAclState();
     }
 }

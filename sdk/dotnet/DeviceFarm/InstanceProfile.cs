@@ -17,19 +17,15 @@ namespace Pulumi.Aws.DeviceFarm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.DeviceFarm.InstanceProfile("example", new Aws.DeviceFarm.InstanceProfileArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.DeviceFarm.InstanceProfile("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/instanceProfile:InstanceProfile")]
-    public partial class InstanceProfile : Pulumi.CustomResource
+    public partial class InstanceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this instance profile.
@@ -85,9 +81,6 @@ namespace Pulumi.Aws.DeviceFarm
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -135,7 +128,7 @@ namespace Pulumi.Aws.DeviceFarm
         }
     }
 
-    public sealed class InstanceProfileArgs : Pulumi.ResourceArgs
+    public sealed class InstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the instance profile.
@@ -188,9 +181,10 @@ namespace Pulumi.Aws.DeviceFarm
         public InstanceProfileArgs()
         {
         }
+        public static new InstanceProfileArgs Empty => new InstanceProfileArgs();
     }
 
-    public sealed class InstanceProfileState : Pulumi.ResourceArgs
+    public sealed class InstanceProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this instance profile.
@@ -248,10 +242,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -261,5 +251,6 @@ namespace Pulumi.Aws.DeviceFarm
         public InstanceProfileState()
         {
         }
+        public static new InstanceProfileState Empty => new InstanceProfileState();
     }
 }

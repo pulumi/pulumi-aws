@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class ClusterClusterNodeArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClusterNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the node is a leader node or a compute node
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public ClusterClusterNodeArgs()
         {
         }
+        public static new ClusterClusterNodeArgs Empty => new ClusterClusterNodeArgs();
     }
 }

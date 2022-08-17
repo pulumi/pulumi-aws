@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class AccessHomeDirectoryMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class AccessHomeDirectoryMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents an entry and a target.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public AccessHomeDirectoryMappingGetArgs()
         {
         }
+        public static new AccessHomeDirectoryMappingGetArgs Empty => new AccessHomeDirectoryMappingGetArgs();
     }
 }

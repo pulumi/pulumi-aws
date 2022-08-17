@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class IntegrationTlsConfigArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTlsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public IntegrationTlsConfigArgs()
         {
         }
+        public static new IntegrationTlsConfigArgs Empty => new IntegrationTlsConfigArgs();
     }
 }

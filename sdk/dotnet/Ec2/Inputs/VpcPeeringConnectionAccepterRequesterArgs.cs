@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpcPeeringConnectionAccepterRequesterArgs : Pulumi.ResourceArgs
+    public sealed class VpcPeeringConnectionAccepterRequesterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether a local ClassicLink connection can communicate
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpcPeeringConnectionAccepterRequesterArgs()
         {
         }
+        public static new VpcPeeringConnectionAccepterRequesterArgs Empty => new VpcPeeringConnectionAccepterRequesterArgs();
     }
 }

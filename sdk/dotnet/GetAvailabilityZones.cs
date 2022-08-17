@@ -27,30 +27,30 @@ namespace Pulumi.Aws
         /// ### By State
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
-        ///         {
-        ///             State = "available",
-        ///         }));
-        ///         var primary = new Aws.Ec2.Subnet("primary", new Aws.Ec2.SubnetArgs
-        ///         {
-        ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
-        ///         });
-        ///         // ...
-        ///         var secondary = new Aws.Ec2.Subnet("secondary", new Aws.Ec2.SubnetArgs
-        ///         {
-        ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[1]),
-        ///         });
-        ///         // ...
-        ///     }
+        ///         State = "available",
+        ///     });
         /// 
-        /// }
+        ///     var primary = new Aws.Ec2.Subnet("primary", new()
+        ///     {
+        ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+        ///     });
+        /// 
+        ///     // ...
+        ///     var secondary = new Aws.Ec2.Subnet("secondary", new()
+        ///     {
+        ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
+        ///     });
+        /// 
+        ///     // ...
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -59,61 +59,57 @@ namespace Pulumi.Aws
         /// All Local Zones (regardless of opt-in status):
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         AllAvailabilityZones = true,
+        ///         Filters = new[]
         ///         {
-        ///             AllAvailabilityZones = true,
-        ///             Filters = 
+        ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
         ///             {
-        ///                 new Aws.Inputs.GetAvailabilityZonesFilterArgs
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "opt-in-status",
-        ///                     Values = 
-        ///                     {
-        ///                         "not-opted-in",
-        ///                         "opted-in",
-        ///                     },
+        ///                     "not-opted-in",
+        ///                     "opted-in",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Only Availability Zones (no Local Zones):
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
         ///             {
-        ///                 new Aws.Inputs.GetAvailabilityZonesFilterArgs
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "opt-in-status",
-        ///                     Values = 
-        ///                     {
-        ///                         "opt-in-not-required",
-        ///                     },
+        ///                     "opt-in-not-required",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -137,30 +133,30 @@ namespace Pulumi.Aws
         /// ### By State
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
-        ///         {
-        ///             State = "available",
-        ///         }));
-        ///         var primary = new Aws.Ec2.Subnet("primary", new Aws.Ec2.SubnetArgs
-        ///         {
-        ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
-        ///         });
-        ///         // ...
-        ///         var secondary = new Aws.Ec2.Subnet("secondary", new Aws.Ec2.SubnetArgs
-        ///         {
-        ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[1]),
-        ///         });
-        ///         // ...
-        ///     }
+        ///         State = "available",
+        ///     });
         /// 
-        /// }
+        ///     var primary = new Aws.Ec2.Subnet("primary", new()
+        ///     {
+        ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+        ///     });
+        /// 
+        ///     // ...
+        ///     var secondary = new Aws.Ec2.Subnet("secondary", new()
+        ///     {
+        ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
+        ///     });
+        /// 
+        ///     // ...
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -169,61 +165,57 @@ namespace Pulumi.Aws
         /// All Local Zones (regardless of opt-in status):
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         AllAvailabilityZones = true,
+        ///         Filters = new[]
         ///         {
-        ///             AllAvailabilityZones = true,
-        ///             Filters = 
+        ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
         ///             {
-        ///                 new Aws.Inputs.GetAvailabilityZonesFilterArgs
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "opt-in-status",
-        ///                     Values = 
-        ///                     {
-        ///                         "not-opted-in",
-        ///                         "opted-in",
-        ///                     },
+        ///                     "not-opted-in",
+        ///                     "opted-in",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Only Availability Zones (no Local Zones):
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
         ///             {
-        ///                 new Aws.Inputs.GetAvailabilityZonesFilterArgs
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "opt-in-status",
-        ///                     Values = 
-        ///                     {
-        ///                         "opt-in-not-required",
-        ///                     },
+        ///                     "opt-in-not-required",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -233,7 +225,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetAvailabilityZonesArgs : Pulumi.InvokeArgs
+    public sealed class GetAvailabilityZonesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -289,9 +281,10 @@ namespace Pulumi.Aws
         public GetAvailabilityZonesArgs()
         {
         }
+        public static new GetAvailabilityZonesArgs Empty => new GetAvailabilityZonesArgs();
     }
 
-    public sealed class GetAvailabilityZonesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAvailabilityZonesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -347,6 +340,7 @@ namespace Pulumi.Aws
         public GetAvailabilityZonesInvokeArgs()
         {
         }
+        public static new GetAvailabilityZonesInvokeArgs Empty => new GetAvailabilityZonesInvokeArgs();
     }
 
 

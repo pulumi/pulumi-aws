@@ -18,20 +18,23 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleEventCategories, err := rds.GetEventCategories(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("example", exampleEventCategories.EventCategories)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEventCategories, err := rds.GetEventCategories(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", exampleEventCategories.EventCategories)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // List the event categories specific to the RDS resource `db-snapshot`.
@@ -40,22 +43,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleEventCategories, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{
-// 			SourceType: pulumi.StringRef("db-snapshot"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("example", exampleEventCategories.EventCategories)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEventCategories, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{
+//				SourceType: pulumi.StringRef("db-snapshot"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", exampleEventCategories.EventCategories)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
 	var rv GetEventCategoriesResult

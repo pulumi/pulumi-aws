@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fis.Inputs
 {
 
-    public sealed class ExperimentTemplateStopConditionArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateStopConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fis.Inputs
         public ExperimentTemplateStopConditionArgs()
         {
         }
+        public static new ExperimentTemplateStopConditionArgs Empty => new ExperimentTemplateStopConditionArgs();
     }
 }

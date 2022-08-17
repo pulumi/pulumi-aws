@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerUserArgs : Pulumi.ResourceArgs
+    public sealed class BrokerUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerUserArgs()
         {
         }
+        public static new BrokerUserArgs Empty => new BrokerUserArgs();
     }
 }

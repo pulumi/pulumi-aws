@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupTaintGetArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupTaintGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupTaintGetArgs()
         {
         }
+        public static new NodeGroupTaintGetArgs Empty => new NodeGroupTaintGetArgs();
     }
 }

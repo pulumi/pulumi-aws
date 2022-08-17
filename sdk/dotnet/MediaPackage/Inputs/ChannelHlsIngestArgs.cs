@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MediaPackage.Inputs
 {
 
-    public sealed class ChannelHlsIngestArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsIngestArgs : global::Pulumi.ResourceArgs
     {
         [Input("ingestEndpoints")]
         private InputList<Inputs.ChannelHlsIngestIngestEndpointArgs>? _ingestEndpoints;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MediaPackage.Inputs
         public ChannelHlsIngestArgs()
         {
         }
+        public static new ChannelHlsIngestArgs Empty => new ChannelHlsIngestArgs();
     }
 }

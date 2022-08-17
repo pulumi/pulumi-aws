@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class EcsClusterLayerEbsVolumeArgs : Pulumi.ResourceArgs
+    public sealed class EcsClusterLayerEbsVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public EcsClusterLayerEbsVolumeArgs()
         {
         }
+        public static new EcsClusterLayerEbsVolumeArgs Empty => new EcsClusterLayerEbsVolumeArgs();
     }
 }

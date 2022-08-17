@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Neptune.Inputs
 {
 
-    public sealed class ParameterGroupParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Neptune.Inputs
         public ParameterGroupParameterGetArgs()
         {
         }
+        public static new ParameterGroupParameterGetArgs Empty => new ParameterGroupParameterGetArgs();
     }
 }

@@ -19,10 +19,15 @@ public final class DomainEbsOptions {
      */
     private final Boolean ebsEnabled;
     /**
-     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
      * 
      */
     private final @Nullable Integer iops;
+    /**
+     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * 
+     */
+    private final @Nullable Integer throughput;
     /**
      * @return Size of EBS volumes attached to data nodes (in GiB).
      * 
@@ -38,10 +43,12 @@ public final class DomainEbsOptions {
     private DomainEbsOptions(
         @CustomType.Parameter("ebsEnabled") Boolean ebsEnabled,
         @CustomType.Parameter("iops") @Nullable Integer iops,
+        @CustomType.Parameter("throughput") @Nullable Integer throughput,
         @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
         @CustomType.Parameter("volumeType") @Nullable String volumeType) {
         this.ebsEnabled = ebsEnabled;
         this.iops = iops;
+        this.throughput = throughput;
         this.volumeSize = volumeSize;
         this.volumeType = volumeType;
     }
@@ -54,11 +61,18 @@ public final class DomainEbsOptions {
         return this.ebsEnabled;
     }
     /**
-     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
      * 
      */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
+    }
+    /**
+     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * 
+     */
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
     /**
      * @return Size of EBS volumes attached to data nodes (in GiB).
@@ -86,6 +100,7 @@ public final class DomainEbsOptions {
     public static final class Builder {
         private Boolean ebsEnabled;
         private @Nullable Integer iops;
+        private @Nullable Integer throughput;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
 
@@ -97,6 +112,7 @@ public final class DomainEbsOptions {
     	      Objects.requireNonNull(defaults);
     	      this.ebsEnabled = defaults.ebsEnabled;
     	      this.iops = defaults.iops;
+    	      this.throughput = defaults.throughput;
     	      this.volumeSize = defaults.volumeSize;
     	      this.volumeType = defaults.volumeType;
         }
@@ -109,6 +125,10 @@ public final class DomainEbsOptions {
             this.iops = iops;
             return this;
         }
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
+            return this;
+        }
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
@@ -117,7 +137,7 @@ public final class DomainEbsOptions {
             this.volumeType = volumeType;
             return this;
         }        public DomainEbsOptions build() {
-            return new DomainEbsOptions(ebsEnabled, iops, volumeSize, volumeType);
+            return new DomainEbsOptions(ebsEnabled, iops, throughput, volumeSize, volumeType);
         }
     }
 }

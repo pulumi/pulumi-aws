@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Kinesis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var stream = Aws.Kinesis.GetFirehoseDeliveryStream.Invoke(new()
         ///     {
-        ///         var stream = Output.Create(Aws.Kinesis.GetFirehoseDeliveryStream.InvokeAsync(new Aws.Kinesis.GetFirehoseDeliveryStreamArgs
-        ///         {
-        ///             Name = "stream-name",
-        ///         }));
-        ///     }
+        ///         Name = "stream-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Kinesis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var stream = Aws.Kinesis.GetFirehoseDeliveryStream.Invoke(new()
         ///     {
-        ///         var stream = Output.Create(Aws.Kinesis.GetFirehoseDeliveryStream.InvokeAsync(new Aws.Kinesis.GetFirehoseDeliveryStreamArgs
-        ///         {
-        ///             Name = "stream-name",
-        ///         }));
-        ///     }
+        ///         Name = "stream-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Kinesis
     }
 
 
-    public sealed class GetFirehoseDeliveryStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetFirehoseDeliveryStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis Stream.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Kinesis
         public GetFirehoseDeliveryStreamArgs()
         {
         }
+        public static new GetFirehoseDeliveryStreamArgs Empty => new GetFirehoseDeliveryStreamArgs();
     }
 
-    public sealed class GetFirehoseDeliveryStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirehoseDeliveryStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis Stream.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Kinesis
         public GetFirehoseDeliveryStreamInvokeArgs()
         {
         }
+        public static new GetFirehoseDeliveryStreamInvokeArgs Empty => new GetFirehoseDeliveryStreamInvokeArgs();
     }
 
 

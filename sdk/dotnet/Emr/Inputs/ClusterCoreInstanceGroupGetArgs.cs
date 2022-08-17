@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterCoreInstanceGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCoreInstanceGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterCoreInstanceGroupGetArgs()
         {
         }
+        public static new ClusterCoreInstanceGroupGetArgs Empty => new ClusterCoreInstanceGroupGetArgs();
     }
 }

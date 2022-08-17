@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-// 			RoleArn:      pulumi.Any(aws_iam_role.Role.Arn),
-// 			InstanceType: pulumi.String("ml.t2.medium"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("foo"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
+//				RoleArn:      pulumi.Any(aws_iam_role.Role.Arn),
+//				InstanceType: pulumi.String("ml.t2.medium"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Code repository usage
 //
@@ -46,35 +49,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-// 			CodeRepositoryName: pulumi.String("my-notebook-instance-code-repo"),
-// 			GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-// 				RepositoryUrl: pulumi.String("https://github.com/hashicorp/terraform-provider-aws.git"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-// 			RoleArn:               pulumi.Any(aws_iam_role.Role.Arn),
-// 			InstanceType:          pulumi.String("ml.t2.medium"),
-// 			DefaultCodeRepository: example.CodeRepositoryName,
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("foo"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
+//				CodeRepositoryName: pulumi.String("my-notebook-instance-code-repo"),
+//				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
+//					RepositoryUrl: pulumi.String("https://github.com/hashicorp/terraform-provider-aws.git"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
+//				RoleArn:               pulumi.Any(aws_iam_role.Role.Arn),
+//				InstanceType:          pulumi.String("ml.t2.medium"),
+//				DefaultCodeRepository: example.CodeRepositoryName,
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +88,9 @@ import (
 // SageMaker Notebook Instances can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+//
+//	$ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+//
 // ```
 type NotebookInstance struct {
 	pulumi.CustomResourceState
@@ -122,7 +130,7 @@ type NotebookInstance struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -200,7 +208,7 @@ type notebookInstanceState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url *string `pulumi:"url"`
@@ -244,7 +252,7 @@ type NotebookInstanceState struct {
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringPtrInput
@@ -355,7 +363,7 @@ func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Conte
 // NotebookInstanceArrayInput is an input type that accepts NotebookInstanceArray and NotebookInstanceArrayOutput values.
 // You can construct a concrete instance of `NotebookInstanceArrayInput` via:
 //
-//          NotebookInstanceArray{ NotebookInstanceArgs{...} }
+//	NotebookInstanceArray{ NotebookInstanceArgs{...} }
 type NotebookInstanceArrayInput interface {
 	pulumi.Input
 
@@ -380,7 +388,7 @@ func (i NotebookInstanceArray) ToNotebookInstanceArrayOutputWithContext(ctx cont
 // NotebookInstanceMapInput is an input type that accepts NotebookInstanceMap and NotebookInstanceMapOutput values.
 // You can construct a concrete instance of `NotebookInstanceMapInput` via:
 //
-//          NotebookInstanceMap{ "key": NotebookInstanceArgs{...} }
+//	NotebookInstanceMap{ "key": NotebookInstanceArgs{...} }
 type NotebookInstanceMapInput interface {
 	pulumi.Input
 
@@ -504,7 +512,7 @@ func (o NotebookInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NotebookInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

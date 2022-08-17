@@ -19,30 +19,28 @@ namespace Pulumi.Aws.Ssm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ssm.GetMaintenanceWindows.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ssm.GetMaintenanceWindows.InvokeAsync(new Aws.Ssm.GetMaintenanceWindowsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterInputArgs
         ///             {
-        ///                 new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterArgs
+        ///                 Name = "Enabled",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "Enabled",
-        ///                     Values = 
-        ///                     {
-        ///                         "true",
-        ///                     },
+        ///                     "true",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +56,28 @@ namespace Pulumi.Aws.Ssm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ssm.GetMaintenanceWindows.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ssm.GetMaintenanceWindows.InvokeAsync(new Aws.Ssm.GetMaintenanceWindowsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterInputArgs
         ///             {
-        ///                 new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterArgs
+        ///                 Name = "Enabled",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "Enabled",
-        ///                     Values = 
-        ///                     {
-        ///                         "true",
-        ///                     },
+        ///                     "true",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.Ssm
     }
 
 
-    public sealed class GetMaintenanceWindowsArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceWindowsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetMaintenanceWindowsFilterArgs>? _filters;
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.Ssm
         public GetMaintenanceWindowsArgs()
         {
         }
+        public static new GetMaintenanceWindowsArgs Empty => new GetMaintenanceWindowsArgs();
     }
 
-    public sealed class GetMaintenanceWindowsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceWindowsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetMaintenanceWindowsFilterInputArgs>? _filters;
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.Ssm
         public GetMaintenanceWindowsInvokeArgs()
         {
         }
+        public static new GetMaintenanceWindowsInvokeArgs Empty => new GetMaintenanceWindowsInvokeArgs();
     }
 
 

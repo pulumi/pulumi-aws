@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class ScheduledActionTargetActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionTargetActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An action that runs a `PauseCluster` API operation. Documented below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public ScheduledActionTargetActionGetArgs()
         {
         }
+        public static new ScheduledActionTargetActionGetArgs Empty => new ScheduledActionTargetActionGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTlsValidationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTlsValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SANs for a TLS validation context.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTlsValidationArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTlsValidationArgs Empty => new VirtualNodeSpecListenerTlsValidationArgs();
     }
 }

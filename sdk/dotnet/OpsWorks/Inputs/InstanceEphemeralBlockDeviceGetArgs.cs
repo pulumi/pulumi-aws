@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class InstanceEphemeralBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceEphemeralBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public InstanceEphemeralBlockDeviceGetArgs()
         {
         }
+        public static new InstanceEphemeralBlockDeviceGetArgs Empty => new InstanceEphemeralBlockDeviceGetArgs();
     }
 }

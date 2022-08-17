@@ -16,23 +16,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigateway.GetExport(ctx, &apigateway.GetExportArgs{
-// 			RestApiId:  aws_api_gateway_stage.Example.Rest_api_id,
-// 			StageName:  aws_api_gateway_stage.Example.Stage_name,
-// 			ExportType: "oas30",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.GetExport(ctx, &apigateway.GetExportArgs{
+//				RestApiId:  aws_api_gateway_stage.Example.Rest_api_id,
+//				StageName:  aws_api_gateway_stage.Example.Stage_name,
+//				ExportType: "oas30",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
 	var rv GetExportResult

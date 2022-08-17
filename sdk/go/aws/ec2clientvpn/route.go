@@ -20,47 +20,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn.EndpointArgs{
-// 			Description:          pulumi.String("Example Client VPN endpoint"),
-// 			ServerCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-// 			ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
-// 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
-// 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
-// 					Type:                    pulumi.String("certificate-authentication"),
-// 					RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-// 				},
-// 			},
-// 			ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
-// 				Enabled: pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn.NetworkAssociationArgs{
-// 			ClientVpnEndpointId: exampleEndpoint.ID(),
-// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2clientvpn.NewRoute(ctx, "exampleRoute", &ec2clientvpn.RouteArgs{
-// 			ClientVpnEndpointId:  exampleEndpoint.ID(),
-// 			DestinationCidrBlock: pulumi.String("0.0.0.0/0"),
-// 			TargetVpcSubnetId:    exampleNetworkAssociation.SubnetId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn.EndpointArgs{
+//				Description:          pulumi.String("Example Client VPN endpoint"),
+//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
+//				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
+//					&ec2clientvpn.EndpointAuthenticationOptionArgs{
+//						Type:                    pulumi.String("certificate-authentication"),
+//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					},
+//				},
+//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
+//					Enabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn.NetworkAssociationArgs{
+//				ClientVpnEndpointId: exampleEndpoint.ID(),
+//				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2clientvpn.NewRoute(ctx, "exampleRoute", &ec2clientvpn.RouteArgs{
+//				ClientVpnEndpointId:  exampleEndpoint.ID(),
+//				DestinationCidrBlock: pulumi.String("0.0.0.0/0"),
+//				TargetVpcSubnetId:    exampleNetworkAssociation.SubnetId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // AWS Client VPN routes can be imported using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`.
 //
 // ```sh
-//  $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+//
+//	$ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+//
 // ```
 type Route struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
 // You can construct a concrete instance of `RouteArrayInput` via:
 //
-//          RouteArray{ RouteArgs{...} }
+//	RouteArray{ RouteArgs{...} }
 type RouteArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArra
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
 // You can construct a concrete instance of `RouteMapInput` via:
 //
-//          RouteMap{ "key": RouteArgs{...} }
+//	RouteMap{ "key": RouteArgs{...} }
 type RouteMapInput interface {
 	pulumi.Input
 

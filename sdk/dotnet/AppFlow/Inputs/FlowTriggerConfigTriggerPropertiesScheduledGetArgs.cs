@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowTriggerConfigTriggerPropertiesScheduledGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowTriggerConfigTriggerPropertiesScheduledGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowTriggerConfigTriggerPropertiesScheduledGetArgs()
         {
         }
+        public static new FlowTriggerConfigTriggerPropertiesScheduledGetArgs Empty => new FlowTriggerConfigTriggerPropertiesScheduledGetArgs();
     }
 }

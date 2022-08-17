@@ -34,7 +34,7 @@ type AppMonitorAppMonitorConfiguration struct {
 // AppMonitorAppMonitorConfigurationInput is an input type that accepts AppMonitorAppMonitorConfigurationArgs and AppMonitorAppMonitorConfigurationOutput values.
 // You can construct a concrete instance of `AppMonitorAppMonitorConfigurationInput` via:
 //
-//          AppMonitorAppMonitorConfigurationArgs{...}
+//	AppMonitorAppMonitorConfigurationArgs{...}
 type AppMonitorAppMonitorConfigurationInput interface {
 	pulumi.Input
 
@@ -86,11 +86,11 @@ func (i AppMonitorAppMonitorConfigurationArgs) ToAppMonitorAppMonitorConfigurati
 // AppMonitorAppMonitorConfigurationPtrInput is an input type that accepts AppMonitorAppMonitorConfigurationArgs, AppMonitorAppMonitorConfigurationPtr and AppMonitorAppMonitorConfigurationPtrOutput values.
 // You can construct a concrete instance of `AppMonitorAppMonitorConfigurationPtrInput` via:
 //
-//          AppMonitorAppMonitorConfigurationArgs{...}
+//	        AppMonitorAppMonitorConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppMonitorAppMonitorConfigurationPtrInput interface {
 	pulumi.Input
 

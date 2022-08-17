@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
-// 			Domain: pulumi.String("example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// 			Statements: iam.GetPolicyDocumentStatementArray{
-// 				&iam.GetPolicyDocumentStatementArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("SES:SendEmail"),
-// 						pulumi.String("SES:SendRawEmail"),
-// 					},
-// 					Resources: pulumi.StringArray{
-// 						exampleDomainIdentity.Arn,
-// 					},
-// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
-// 							Identifiers: pulumi.StringArray{
-// 								pulumi.String("*"),
-// 							},
-// 							Type: pulumi.String("AWS"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		_, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
-// 			Identity: exampleDomainIdentity.Arn,
-// 			Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-// 				return examplePolicyDocument.Json, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SES:SendEmail"),
+//							pulumi.String("SES:SendRawEmail"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleDomainIdentity.Arn,
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//								Type: pulumi.String("AWS"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
+//				Identity: exampleDomainIdentity.Arn,
+//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+//					return examplePolicyDocument.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+//
+//	$ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+//
 // ```
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
@@ -186,7 +191,7 @@ func (i *IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) 
 // IdentityPolicyArrayInput is an input type that accepts IdentityPolicyArray and IdentityPolicyArrayOutput values.
 // You can construct a concrete instance of `IdentityPolicyArrayInput` via:
 //
-//          IdentityPolicyArray{ IdentityPolicyArgs{...} }
+//	IdentityPolicyArray{ IdentityPolicyArgs{...} }
 type IdentityPolicyArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i IdentityPolicyArray) ToIdentityPolicyArrayOutputWithContext(ctx context.
 // IdentityPolicyMapInput is an input type that accepts IdentityPolicyMap and IdentityPolicyMapOutput values.
 // You can construct a concrete instance of `IdentityPolicyMapInput` via:
 //
-//          IdentityPolicyMap{ "key": IdentityPolicyArgs{...} }
+//	IdentityPolicyMap{ "key": IdentityPolicyArgs{...} }
 type IdentityPolicyMapInput interface {
 	pulumi.Input
 

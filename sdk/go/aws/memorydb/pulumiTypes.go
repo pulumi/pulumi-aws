@@ -20,7 +20,7 @@ type ClusterClusterEndpoint struct {
 // ClusterClusterEndpointInput is an input type that accepts ClusterClusterEndpointArgs and ClusterClusterEndpointOutput values.
 // You can construct a concrete instance of `ClusterClusterEndpointInput` via:
 //
-//          ClusterClusterEndpointArgs{...}
+//	ClusterClusterEndpointArgs{...}
 type ClusterClusterEndpointInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ClusterClusterEndpointArgs) ToClusterClusterEndpointOutputWithContext(ct
 // ClusterClusterEndpointArrayInput is an input type that accepts ClusterClusterEndpointArray and ClusterClusterEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterEndpointArrayInput` via:
 //
-//          ClusterClusterEndpointArray{ ClusterClusterEndpointArgs{...} }
+//	ClusterClusterEndpointArray{ ClusterClusterEndpointArgs{...} }
 type ClusterClusterEndpointArrayInput interface {
 	pulumi.Input
 
@@ -131,7 +131,7 @@ type ClusterShard struct {
 // ClusterShardInput is an input type that accepts ClusterShardArgs and ClusterShardOutput values.
 // You can construct a concrete instance of `ClusterShardInput` via:
 //
-//          ClusterShardArgs{...}
+//	ClusterShardArgs{...}
 type ClusterShardInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ func (i ClusterShardArgs) ToClusterShardOutputWithContext(ctx context.Context) C
 // ClusterShardArrayInput is an input type that accepts ClusterShardArray and ClusterShardArrayOutput values.
 // You can construct a concrete instance of `ClusterShardArrayInput` via:
 //
-//          ClusterShardArray{ ClusterShardArgs{...} }
+//	ClusterShardArray{ ClusterShardArgs{...} }
 type ClusterShardArrayInput interface {
 	pulumi.Input
 
@@ -257,7 +257,7 @@ type ClusterShardNode struct {
 // ClusterShardNodeInput is an input type that accepts ClusterShardNodeArgs and ClusterShardNodeOutput values.
 // You can construct a concrete instance of `ClusterShardNodeInput` via:
 //
-//          ClusterShardNodeArgs{...}
+//	ClusterShardNodeArgs{...}
 type ClusterShardNodeInput interface {
 	pulumi.Input
 
@@ -291,7 +291,7 @@ func (i ClusterShardNodeArgs) ToClusterShardNodeOutputWithContext(ctx context.Co
 // ClusterShardNodeArrayInput is an input type that accepts ClusterShardNodeArray and ClusterShardNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterShardNodeArrayInput` via:
 //
-//          ClusterShardNodeArray{ ClusterShardNodeArgs{...} }
+//	ClusterShardNodeArray{ ClusterShardNodeArgs{...} }
 type ClusterShardNodeArrayInput interface {
 	pulumi.Input
 
@@ -377,7 +377,7 @@ type ClusterShardNodeEndpoint struct {
 // ClusterShardNodeEndpointInput is an input type that accepts ClusterShardNodeEndpointArgs and ClusterShardNodeEndpointOutput values.
 // You can construct a concrete instance of `ClusterShardNodeEndpointInput` via:
 //
-//          ClusterShardNodeEndpointArgs{...}
+//	ClusterShardNodeEndpointArgs{...}
 type ClusterShardNodeEndpointInput interface {
 	pulumi.Input
 
@@ -407,7 +407,7 @@ func (i ClusterShardNodeEndpointArgs) ToClusterShardNodeEndpointOutputWithContex
 // ClusterShardNodeEndpointArrayInput is an input type that accepts ClusterShardNodeEndpointArray and ClusterShardNodeEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterShardNodeEndpointArrayInput` via:
 //
-//          ClusterShardNodeEndpointArray{ ClusterShardNodeEndpointArgs{...} }
+//	ClusterShardNodeEndpointArray{ ClusterShardNodeEndpointArgs{...} }
 type ClusterShardNodeEndpointArrayInput interface {
 	pulumi.Input
 
@@ -483,7 +483,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-//          ParameterGroupParameterArgs{...}
+//	ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -513,7 +513,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+//	ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +611,7 @@ type SnapshotClusterConfiguration struct {
 // SnapshotClusterConfigurationInput is an input type that accepts SnapshotClusterConfigurationArgs and SnapshotClusterConfigurationOutput values.
 // You can construct a concrete instance of `SnapshotClusterConfigurationInput` via:
 //
-//          SnapshotClusterConfigurationArgs{...}
+//	SnapshotClusterConfigurationArgs{...}
 type SnapshotClusterConfigurationInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ func (i SnapshotClusterConfigurationArgs) ToSnapshotClusterConfigurationOutputWi
 // SnapshotClusterConfigurationArrayInput is an input type that accepts SnapshotClusterConfigurationArray and SnapshotClusterConfigurationArrayOutput values.
 // You can construct a concrete instance of `SnapshotClusterConfigurationArrayInput` via:
 //
-//          SnapshotClusterConfigurationArray{ SnapshotClusterConfigurationArgs{...} }
+//	SnapshotClusterConfigurationArray{ SnapshotClusterConfigurationArgs{...} }
 type SnapshotClusterConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -796,7 +796,7 @@ type UserAuthenticationMode struct {
 // UserAuthenticationModeInput is an input type that accepts UserAuthenticationModeArgs and UserAuthenticationModeOutput values.
 // You can construct a concrete instance of `UserAuthenticationModeInput` via:
 //
-//          UserAuthenticationModeArgs{...}
+//	UserAuthenticationModeArgs{...}
 type UserAuthenticationModeInput interface {
 	pulumi.Input
 
@@ -836,11 +836,11 @@ func (i UserAuthenticationModeArgs) ToUserAuthenticationModePtrOutputWithContext
 // UserAuthenticationModePtrInput is an input type that accepts UserAuthenticationModeArgs, UserAuthenticationModePtr and UserAuthenticationModePtrOutput values.
 // You can construct a concrete instance of `UserAuthenticationModePtrInput` via:
 //
-//          UserAuthenticationModeArgs{...}
+//	        UserAuthenticationModeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserAuthenticationModePtrInput interface {
 	pulumi.Input
 
@@ -969,7 +969,7 @@ type GetClusterClusterEndpoint struct {
 // GetClusterClusterEndpointInput is an input type that accepts GetClusterClusterEndpointArgs and GetClusterClusterEndpointOutput values.
 // You can construct a concrete instance of `GetClusterClusterEndpointInput` via:
 //
-//          GetClusterClusterEndpointArgs{...}
+//	GetClusterClusterEndpointArgs{...}
 type GetClusterClusterEndpointInput interface {
 	pulumi.Input
 
@@ -999,7 +999,7 @@ func (i GetClusterClusterEndpointArgs) ToGetClusterClusterEndpointOutputWithCont
 // GetClusterClusterEndpointArrayInput is an input type that accepts GetClusterClusterEndpointArray and GetClusterClusterEndpointArrayOutput values.
 // You can construct a concrete instance of `GetClusterClusterEndpointArrayInput` via:
 //
-//          GetClusterClusterEndpointArray{ GetClusterClusterEndpointArgs{...} }
+//	GetClusterClusterEndpointArray{ GetClusterClusterEndpointArgs{...} }
 type GetClusterClusterEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1079,7 +1079,7 @@ type GetClusterShard struct {
 // GetClusterShardInput is an input type that accepts GetClusterShardArgs and GetClusterShardOutput values.
 // You can construct a concrete instance of `GetClusterShardInput` via:
 //
-//          GetClusterShardArgs{...}
+//	GetClusterShardArgs{...}
 type GetClusterShardInput interface {
 	pulumi.Input
 
@@ -1113,7 +1113,7 @@ func (i GetClusterShardArgs) ToGetClusterShardOutputWithContext(ctx context.Cont
 // GetClusterShardArrayInput is an input type that accepts GetClusterShardArray and GetClusterShardArrayOutput values.
 // You can construct a concrete instance of `GetClusterShardArrayInput` via:
 //
-//          GetClusterShardArray{ GetClusterShardArgs{...} }
+//	GetClusterShardArray{ GetClusterShardArgs{...} }
 type GetClusterShardArrayInput interface {
 	pulumi.Input
 
@@ -1202,7 +1202,7 @@ type GetClusterShardNode struct {
 // GetClusterShardNodeInput is an input type that accepts GetClusterShardNodeArgs and GetClusterShardNodeOutput values.
 // You can construct a concrete instance of `GetClusterShardNodeInput` via:
 //
-//          GetClusterShardNodeArgs{...}
+//	GetClusterShardNodeArgs{...}
 type GetClusterShardNodeInput interface {
 	pulumi.Input
 
@@ -1235,7 +1235,7 @@ func (i GetClusterShardNodeArgs) ToGetClusterShardNodeOutputWithContext(ctx cont
 // GetClusterShardNodeArrayInput is an input type that accepts GetClusterShardNodeArray and GetClusterShardNodeArrayOutput values.
 // You can construct a concrete instance of `GetClusterShardNodeArrayInput` via:
 //
-//          GetClusterShardNodeArray{ GetClusterShardNodeArgs{...} }
+//	GetClusterShardNodeArray{ GetClusterShardNodeArgs{...} }
 type GetClusterShardNodeArrayInput interface {
 	pulumi.Input
 
@@ -1320,7 +1320,7 @@ type GetClusterShardNodeEndpoint struct {
 // GetClusterShardNodeEndpointInput is an input type that accepts GetClusterShardNodeEndpointArgs and GetClusterShardNodeEndpointOutput values.
 // You can construct a concrete instance of `GetClusterShardNodeEndpointInput` via:
 //
-//          GetClusterShardNodeEndpointArgs{...}
+//	GetClusterShardNodeEndpointArgs{...}
 type GetClusterShardNodeEndpointInput interface {
 	pulumi.Input
 
@@ -1350,7 +1350,7 @@ func (i GetClusterShardNodeEndpointArgs) ToGetClusterShardNodeEndpointOutputWith
 // GetClusterShardNodeEndpointArrayInput is an input type that accepts GetClusterShardNodeEndpointArray and GetClusterShardNodeEndpointArrayOutput values.
 // You can construct a concrete instance of `GetClusterShardNodeEndpointArrayInput` via:
 //
-//          GetClusterShardNodeEndpointArray{ GetClusterShardNodeEndpointArgs{...} }
+//	GetClusterShardNodeEndpointArray{ GetClusterShardNodeEndpointArgs{...} }
 type GetClusterShardNodeEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1426,7 +1426,7 @@ type GetParameterGroupParameter struct {
 // GetParameterGroupParameterInput is an input type that accepts GetParameterGroupParameterArgs and GetParameterGroupParameterOutput values.
 // You can construct a concrete instance of `GetParameterGroupParameterInput` via:
 //
-//          GetParameterGroupParameterArgs{...}
+//	GetParameterGroupParameterArgs{...}
 type GetParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -1456,7 +1456,7 @@ func (i GetParameterGroupParameterArgs) ToGetParameterGroupParameterOutputWithCo
 // GetParameterGroupParameterArrayInput is an input type that accepts GetParameterGroupParameterArray and GetParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `GetParameterGroupParameterArrayInput` via:
 //
-//          GetParameterGroupParameterArray{ GetParameterGroupParameterArgs{...} }
+//	GetParameterGroupParameterArray{ GetParameterGroupParameterArgs{...} }
 type GetParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -1554,7 +1554,7 @@ type GetSnapshotClusterConfiguration struct {
 // GetSnapshotClusterConfigurationInput is an input type that accepts GetSnapshotClusterConfigurationArgs and GetSnapshotClusterConfigurationOutput values.
 // You can construct a concrete instance of `GetSnapshotClusterConfigurationInput` via:
 //
-//          GetSnapshotClusterConfigurationArgs{...}
+//	GetSnapshotClusterConfigurationArgs{...}
 type GetSnapshotClusterConfigurationInput interface {
 	pulumi.Input
 
@@ -1606,7 +1606,7 @@ func (i GetSnapshotClusterConfigurationArgs) ToGetSnapshotClusterConfigurationOu
 // GetSnapshotClusterConfigurationArrayInput is an input type that accepts GetSnapshotClusterConfigurationArray and GetSnapshotClusterConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotClusterConfigurationArrayInput` via:
 //
-//          GetSnapshotClusterConfigurationArray{ GetSnapshotClusterConfigurationArgs{...} }
+//	GetSnapshotClusterConfigurationArray{ GetSnapshotClusterConfigurationArgs{...} }
 type GetSnapshotClusterConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1737,7 +1737,7 @@ type GetUserAuthenticationMode struct {
 // GetUserAuthenticationModeInput is an input type that accepts GetUserAuthenticationModeArgs and GetUserAuthenticationModeOutput values.
 // You can construct a concrete instance of `GetUserAuthenticationModeInput` via:
 //
-//          GetUserAuthenticationModeArgs{...}
+//	GetUserAuthenticationModeArgs{...}
 type GetUserAuthenticationModeInput interface {
 	pulumi.Input
 
@@ -1767,7 +1767,7 @@ func (i GetUserAuthenticationModeArgs) ToGetUserAuthenticationModeOutputWithCont
 // GetUserAuthenticationModeArrayInput is an input type that accepts GetUserAuthenticationModeArray and GetUserAuthenticationModeArrayOutput values.
 // You can construct a concrete instance of `GetUserAuthenticationModeArrayInput` via:
 //
-//          GetUserAuthenticationModeArray{ GetUserAuthenticationModeArgs{...} }
+//	GetUserAuthenticationModeArray{ GetUserAuthenticationModeArgs{...} }
 type GetUserAuthenticationModeArrayInput interface {
 	pulumi.Input
 

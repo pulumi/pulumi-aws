@@ -16,20 +16,18 @@ namespace Pulumi.Aws.Fsx
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Fsx.OpenZfsVolume("test", new()
     ///     {
-    ///         var test = new Aws.Fsx.OpenZfsVolume("test", new Aws.Fsx.OpenZfsVolumeArgs
-    ///         {
-    ///             ParentVolumeId = aws_fsx_openzfs_file_system.Test.Root_volume_id,
-    ///         });
-    ///     }
+    ///         ParentVolumeId = aws_fsx_openzfs_file_system.Test.Root_volume_id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Fsx
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/openZfsVolume:OpenZfsVolume")]
-    public partial class OpenZfsVolume : Pulumi.CustomResource
+    public partial class OpenZfsVolume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -92,6 +90,12 @@ namespace Pulumi.Aws.Fsx
         public Output<bool> ReadOnly { get; private set; } = null!;
 
         /// <summary>
+        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// </summary>
+        [Output("recordSizeKib")]
+        public Output<int?> RecordSizeKib { get; private set; } = null!;
+
+        /// <summary>
         /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         /// </summary>
         [Output("storageCapacityQuotaGib")]
@@ -104,14 +108,11 @@ namespace Pulumi.Aws.Fsx
         public Output<int> StorageCapacityReservationGib { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -168,7 +169,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class OpenZfsVolumeArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
@@ -213,6 +214,12 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
+        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// </summary>
+        [Input("recordSizeKib")]
+        public Input<int>? RecordSizeKib { get; set; }
+
+        /// <summary>
         /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         /// </summary>
         [Input("storageCapacityQuotaGib")]
@@ -228,7 +235,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -254,9 +261,10 @@ namespace Pulumi.Aws.Fsx
         public OpenZfsVolumeArgs()
         {
         }
+        public static new OpenZfsVolumeArgs Empty => new OpenZfsVolumeArgs();
     }
 
-    public sealed class OpenZfsVolumeState : Pulumi.ResourceArgs
+    public sealed class OpenZfsVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -307,6 +315,12 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
+        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// </summary>
+        [Input("recordSizeKib")]
+        public Input<int>? RecordSizeKib { get; set; }
+
+        /// <summary>
         /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         /// </summary>
         [Input("storageCapacityQuotaGib")]
@@ -322,7 +336,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -332,10 +346,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -360,5 +370,6 @@ namespace Pulumi.Aws.Fsx
         public OpenZfsVolumeState()
         {
         }
+        public static new OpenZfsVolumeState Empty => new OpenZfsVolumeState();
     }
 }

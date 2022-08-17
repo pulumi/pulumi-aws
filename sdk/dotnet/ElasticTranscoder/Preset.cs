@@ -15,80 +15,78 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.ElasticTranscoder.Preset("bar", new()
     ///     {
-    ///         var bar = new Aws.ElasticTranscoder.Preset("bar", new Aws.ElasticTranscoder.PresetArgs
+    ///         Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
     ///         {
-    ///             Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
+    ///             AudioPackingMode = "SingleTrack",
+    ///             BitRate = "96",
+    ///             Channels = "2",
+    ///             Codec = "AAC",
+    ///             SampleRate = "44100",
+    ///         },
+    ///         AudioCodecOptions = new Aws.ElasticTranscoder.Inputs.PresetAudioCodecOptionsArgs
+    ///         {
+    ///             Profile = "AAC-LC",
+    ///         },
+    ///         Container = "mp4",
+    ///         Description = "Sample Preset",
+    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
+    ///         {
+    ///             Format = "png",
+    ///             Interval = "120",
+    ///             MaxHeight = "auto",
+    ///             MaxWidth = "auto",
+    ///             PaddingPolicy = "Pad",
+    ///             SizingPolicy = "Fit",
+    ///         },
+    ///         Video = new Aws.ElasticTranscoder.Inputs.PresetVideoArgs
+    ///         {
+    ///             BitRate = "1600",
+    ///             Codec = "H.264",
+    ///             DisplayAspectRatio = "16:9",
+    ///             FixedGop = "false",
+    ///             FrameRate = "auto",
+    ///             KeyframesMaxDist = "240",
+    ///             MaxFrameRate = "60",
+    ///             MaxHeight = "auto",
+    ///             MaxWidth = "auto",
+    ///             PaddingPolicy = "Pad",
+    ///             SizingPolicy = "Fit",
+    ///         },
+    ///         VideoCodecOptions = 
+    ///         {
+    ///             { "ColorSpaceConversionMode", "None" },
+    ///             { "InterlacedMode", "Progressive" },
+    ///             { "Level", "2.2" },
+    ///             { "MaxReferenceFrames", "3" },
+    ///             { "Profile", "main" },
+    ///         },
+    ///         VideoWatermarks = new[]
+    ///         {
+    ///             new Aws.ElasticTranscoder.Inputs.PresetVideoWatermarkArgs
     ///             {
-    ///                 AudioPackingMode = "SingleTrack",
-    ///                 BitRate = "96",
-    ///                 Channels = "2",
-    ///                 Codec = "AAC",
-    ///                 SampleRate = "44100",
+    ///                 HorizontalAlign = "Right",
+    ///                 HorizontalOffset = "10px",
+    ///                 Id = "Test",
+    ///                 MaxHeight = "20%",
+    ///                 MaxWidth = "20%",
+    ///                 Opacity = "55.5",
+    ///                 SizingPolicy = "ShrinkToFit",
+    ///                 Target = "Content",
+    ///                 VerticalAlign = "Bottom",
+    ///                 VerticalOffset = "10px",
     ///             },
-    ///             AudioCodecOptions = new Aws.ElasticTranscoder.Inputs.PresetAudioCodecOptionsArgs
-    ///             {
-    ///                 Profile = "AAC-LC",
-    ///             },
-    ///             Container = "mp4",
-    ///             Description = "Sample Preset",
-    ///             Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
-    ///             {
-    ///                 Format = "png",
-    ///                 Interval = "120",
-    ///                 MaxHeight = "auto",
-    ///                 MaxWidth = "auto",
-    ///                 PaddingPolicy = "Pad",
-    ///                 SizingPolicy = "Fit",
-    ///             },
-    ///             Video = new Aws.ElasticTranscoder.Inputs.PresetVideoArgs
-    ///             {
-    ///                 BitRate = "1600",
-    ///                 Codec = "H.264",
-    ///                 DisplayAspectRatio = "16:9",
-    ///                 FixedGop = "false",
-    ///                 FrameRate = "auto",
-    ///                 KeyframesMaxDist = "240",
-    ///                 MaxFrameRate = "60",
-    ///                 MaxHeight = "auto",
-    ///                 MaxWidth = "auto",
-    ///                 PaddingPolicy = "Pad",
-    ///                 SizingPolicy = "Fit",
-    ///             },
-    ///             VideoCodecOptions = 
-    ///             {
-    ///                 { "ColorSpaceConversionMode", "None" },
-    ///                 { "InterlacedMode", "Progressive" },
-    ///                 { "Level", "2.2" },
-    ///                 { "MaxReferenceFrames", "3" },
-    ///                 { "Profile", "main" },
-    ///             },
-    ///             VideoWatermarks = 
-    ///             {
-    ///                 new Aws.ElasticTranscoder.Inputs.PresetVideoWatermarkArgs
-    ///                 {
-    ///                     HorizontalAlign = "Right",
-    ///                     HorizontalOffset = "10px",
-    ///                     Id = "Test",
-    ///                     MaxHeight = "20%",
-    ///                     MaxWidth = "20%",
-    ///                     Opacity = "55.5",
-    ///                     SizingPolicy = "ShrinkToFit",
-    ///                     Target = "Content",
-    ///                     VerticalAlign = "Bottom",
-    ///                     VerticalOffset = "10px",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +98,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// ```
     /// </summary>
     [AwsResourceType("aws:elastictranscoder/preset:Preset")]
-    public partial class Preset : Pulumi.CustomResource
+    public partial class Preset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
@@ -209,7 +207,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         }
     }
 
-    public sealed class PresetArgs : Pulumi.ResourceArgs
+    public sealed class PresetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Audio parameters object (documented below).
@@ -283,9 +281,10 @@ namespace Pulumi.Aws.ElasticTranscoder
         public PresetArgs()
         {
         }
+        public static new PresetArgs Empty => new PresetArgs();
     }
 
-    public sealed class PresetState : Pulumi.ResourceArgs
+    public sealed class PresetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
@@ -365,5 +364,6 @@ namespace Pulumi.Aws.ElasticTranscoder
         public PresetState()
         {
         }
+        public static new PresetState Empty => new PresetState();
     }
 }

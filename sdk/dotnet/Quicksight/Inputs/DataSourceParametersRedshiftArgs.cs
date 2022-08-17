@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersRedshiftArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersRedshiftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the cluster to which to connect.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersRedshiftArgs()
         {
         }
+        public static new DataSourceParametersRedshiftArgs Empty => new DataSourceParametersRedshiftArgs();
     }
 }

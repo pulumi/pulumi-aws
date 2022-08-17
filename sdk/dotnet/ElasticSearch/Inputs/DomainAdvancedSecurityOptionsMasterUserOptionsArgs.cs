@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainAdvancedSecurityOptionsMasterUserOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainAdvancedSecurityOptionsMasterUserOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainAdvancedSecurityOptionsMasterUserOptionsArgs()
         {
         }
+        public static new DomainAdvancedSecurityOptionsMasterUserOptionsArgs Empty => new DomainAdvancedSecurityOptionsMasterUserOptionsArgs();
     }
 }

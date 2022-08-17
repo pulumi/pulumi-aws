@@ -15,21 +15,21 @@ namespace Pulumi.Aws.ElasticSearch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
-    ///         var example = new Aws.ElasticSearch.Domain("example", new Aws.ElasticSearch.DomainArgs
-    ///         {
-    ///             ElasticsearchVersion = "2.3",
-    ///         });
-    ///         var main = new Aws.ElasticSearch.DomainPolicy("main", new Aws.ElasticSearch.DomainPolicyArgs
-    ///         {
-    ///             DomainName = example.DomainName,
-    ///             AccessPolicies = example.Arn.Apply(arn =&gt; @$"{{
+    ///         ElasticsearchVersion = "2.3",
+    ///     });
+    /// 
+    ///     var main = new Aws.ElasticSearch.DomainPolicy("main", new()
+    ///     {
+    ///         DomainName = example.DomainName,
+    ///         AccessPolicies = example.Arn.Apply(arn =&gt; @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {{
@@ -44,14 +44,13 @@ namespace Pulumi.Aws.ElasticSearch
     ///     ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domainPolicy:DomainPolicy")]
-    public partial class DomainPolicy : Pulumi.CustomResource
+    public partial class DomainPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain
@@ -109,7 +108,7 @@ namespace Pulumi.Aws.ElasticSearch
         }
     }
 
-    public sealed class DomainPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DomainPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain
@@ -126,9 +125,10 @@ namespace Pulumi.Aws.ElasticSearch
         public DomainPolicyArgs()
         {
         }
+        public static new DomainPolicyArgs Empty => new DomainPolicyArgs();
     }
 
-    public sealed class DomainPolicyState : Pulumi.ResourceArgs
+    public sealed class DomainPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain
@@ -145,5 +145,6 @@ namespace Pulumi.Aws.ElasticSearch
         public DomainPolicyState()
         {
         }
+        public static new DomainPolicyState Empty => new DomainPolicyState();
     }
 }

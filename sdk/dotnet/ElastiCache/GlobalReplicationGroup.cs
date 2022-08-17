@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")]
-    public partial class GlobalReplicationGroup : Pulumi.CustomResource
+    public partial class GlobalReplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the ElastiCache Global Replication Group.
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class GlobalReplicationGroupArgs : Pulumi.ResourceArgs
+    public sealed class GlobalReplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Redis version to use for the Global Replication Group.
@@ -202,9 +202,10 @@ namespace Pulumi.Aws.ElastiCache
         public GlobalReplicationGroupArgs()
         {
         }
+        public static new GlobalReplicationGroupArgs Empty => new GlobalReplicationGroupArgs();
     }
 
-    public sealed class GlobalReplicationGroupState : Pulumi.ResourceArgs
+    public sealed class GlobalReplicationGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the ElastiCache Global Replication Group.
@@ -302,5 +303,6 @@ namespace Pulumi.Aws.ElastiCache
         public GlobalReplicationGroupState()
         {
         }
+        public static new GlobalReplicationGroupState Empty => new GlobalReplicationGroupState();
     }
 }

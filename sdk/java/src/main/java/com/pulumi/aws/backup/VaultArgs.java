@@ -5,6 +5,7 @@ package com.pulumi.aws.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VaultArgs Empty = new VaultArgs();
+
+    /**
+     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * 
+     */
+    @Import(name="forceDestroy")
+    private @Nullable Output<Boolean> forceDestroy;
+
+    /**
+     * @return A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDestroy() {
+        return Optional.ofNullable(this.forceDestroy);
+    }
 
     /**
      * The server-side encryption key that is used to protect your backups.
@@ -64,6 +80,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     private VaultArgs() {}
 
     private VaultArgs(VaultArgs $) {
+        this.forceDestroy = $.forceDestroy;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.tags = $.tags;
@@ -85,6 +102,27 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(VaultArgs defaults) {
             $ = new VaultArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param forceDestroy A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
+            $.forceDestroy = forceDestroy;
+            return this;
+        }
+
+        /**
+         * @param forceDestroy A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(Boolean forceDestroy) {
+            return forceDestroy(Output.of(forceDestroy));
         }
 
         /**

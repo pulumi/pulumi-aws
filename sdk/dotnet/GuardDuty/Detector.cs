@@ -17,34 +17,42 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDetector = new Aws.GuardDuty.Detector("myDetector", new()
     ///     {
-    ///         var myDetector = new Aws.GuardDuty.Detector("myDetector", new Aws.GuardDuty.DetectorArgs
+    ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
     ///         {
-    ///             Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
+    ///             Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
     ///             {
-    ///                 Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
+    ///                 AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
     ///                 {
-    ///                     AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
-    ///                     {
-    ///                         Enable = false,
-    ///                     },
-    ///                 },
-    ///                 S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
-    ///                 {
-    ///                     Enable = true,
+    ///                     Enable = false,
     ///                 },
     ///             },
-    ///             Enable = true,
-    ///         });
-    ///     }
+    ///             MalwareProtection = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionArgs
+    ///             {
+    ///                 ScanEc2InstanceWithFindings = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
+    ///                 {
+    ///                     EbsVolumes = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
+    ///                     {
+    ///                         Enable = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
+    ///             {
+    ///                 Enable = true,
+    ///             },
+    ///         },
+    ///         Enable = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +64,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/detector:Detector")]
-    public partial class Detector : Pulumi.CustomResource
+    public partial class Detector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID of the GuardDuty detector
@@ -96,7 +104,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -145,7 +153,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class DetectorArgs : Pulumi.ResourceArgs
+    public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
@@ -181,9 +189,10 @@ namespace Pulumi.Aws.GuardDuty
         public DetectorArgs()
         {
         }
+        public static new DetectorArgs Empty => new DetectorArgs();
     }
 
-    public sealed class DetectorState : Pulumi.ResourceArgs
+    public sealed class DetectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID of the GuardDuty detector
@@ -232,7 +241,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -243,5 +252,6 @@ namespace Pulumi.Aws.GuardDuty
         public DetectorState()
         {
         }
+        public static new DetectorState Empty => new DetectorState();
     }
 }

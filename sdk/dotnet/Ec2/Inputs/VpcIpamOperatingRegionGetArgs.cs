@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpcIpamOperatingRegionGetArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamOperatingRegionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Region you want to add to the IPAM.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpcIpamOperatingRegionGetArgs()
         {
         }
+        public static new VpcIpamOperatingRegionGetArgs Empty => new VpcIpamOperatingRegionGetArgs();
     }
 }

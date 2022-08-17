@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainNodeToNodeEncryptionGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainNodeToNodeEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainNodeToNodeEncryptionGetArgs()
         {
         }
+        public static new DomainNodeToNodeEncryptionGetArgs Empty => new DomainNodeToNodeEncryptionGetArgs();
     }
 }

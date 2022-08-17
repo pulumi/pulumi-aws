@@ -16,80 +16,83 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             ClusterIdentifier = "aurora-cluster-demo",
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             DatabaseName = "mydb",
-    ///             MasterUsername = "foo",
-    ///             MasterPassword = "bar",
-    ///             BackupRetentionPeriod = 5,
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///         });
-    ///         var test1 = new Aws.Rds.ClusterInstance("test1", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             ApplyImmediately = true,
-    ///             ClusterIdentifier = @default.Id,
-    ///             Identifier = "test1",
-    ///             InstanceClass = "db.t2.small",
-    ///             Engine = @default.Engine,
-    ///             EngineVersion = @default.EngineVersion,
-    ///         });
-    ///         var test2 = new Aws.Rds.ClusterInstance("test2", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             ApplyImmediately = true,
-    ///             ClusterIdentifier = @default.Id,
-    ///             Identifier = "test2",
-    ///             InstanceClass = "db.t2.small",
-    ///             Engine = @default.Engine,
-    ///             EngineVersion = @default.EngineVersion,
-    ///         });
-    ///         var test3 = new Aws.Rds.ClusterInstance("test3", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             ApplyImmediately = true,
-    ///             ClusterIdentifier = @default.Id,
-    ///             Identifier = "test3",
-    ///             InstanceClass = "db.t2.small",
-    ///             Engine = @default.Engine,
-    ///             EngineVersion = @default.EngineVersion,
-    ///         });
-    ///         var eligible = new Aws.Rds.ClusterEndpoint("eligible", new Aws.Rds.ClusterEndpointArgs
-    ///         {
-    ///             ClusterIdentifier = @default.Id,
-    ///             ClusterEndpointIdentifier = "reader",
-    ///             CustomEndpointType = "READER",
-    ///             ExcludedMembers = 
-    ///             {
-    ///                 test1.Id,
-    ///                 test2.Id,
-    ///             },
-    ///         });
-    ///         var @static = new Aws.Rds.ClusterEndpoint("static", new Aws.Rds.ClusterEndpointArgs
-    ///         {
-    ///             ClusterIdentifier = @default.Id,
-    ///             ClusterEndpointIdentifier = "static",
-    ///             CustomEndpointType = "READER",
-    ///             StaticMembers = 
-    ///             {
-    ///                 test1.Id,
-    ///                 test3.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         DatabaseName = "mydb",
+    ///         MasterUsername = "foo",
+    ///         MasterPassword = "bar",
+    ///         BackupRetentionPeriod = 5,
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///     });
     /// 
-    /// }
+    ///     var test1 = new Aws.Rds.ClusterInstance("test1", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = @default.Id,
+    ///         Identifier = "test1",
+    ///         InstanceClass = "db.t2.small",
+    ///         Engine = @default.Engine,
+    ///         EngineVersion = @default.EngineVersion,
+    ///     });
+    /// 
+    ///     var test2 = new Aws.Rds.ClusterInstance("test2", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = @default.Id,
+    ///         Identifier = "test2",
+    ///         InstanceClass = "db.t2.small",
+    ///         Engine = @default.Engine,
+    ///         EngineVersion = @default.EngineVersion,
+    ///     });
+    /// 
+    ///     var test3 = new Aws.Rds.ClusterInstance("test3", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = @default.Id,
+    ///         Identifier = "test3",
+    ///         InstanceClass = "db.t2.small",
+    ///         Engine = @default.Engine,
+    ///         EngineVersion = @default.EngineVersion,
+    ///     });
+    /// 
+    ///     var eligible = new Aws.Rds.ClusterEndpoint("eligible", new()
+    ///     {
+    ///         ClusterIdentifier = @default.Id,
+    ///         ClusterEndpointIdentifier = "reader",
+    ///         CustomEndpointType = "READER",
+    ///         ExcludedMembers = new[]
+    ///         {
+    ///             test1.Id,
+    ///             test2.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var @static = new Aws.Rds.ClusterEndpoint("static", new()
+    ///     {
+    ///         ClusterIdentifier = @default.Id,
+    ///         ClusterEndpointIdentifier = "static",
+    ///         CustomEndpointType = "READER",
+    ///         StaticMembers = new[]
+    ///         {
+    ///             test1.Id,
+    ///             test3.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -103,7 +106,7 @@ namespace Pulumi.Aws.Rds
     ///  [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
     /// </summary>
     [AwsResourceType("aws:rds/clusterEndpoint:ClusterEndpoint")]
-    public partial class ClusterEndpoint : Pulumi.CustomResource
+    public partial class ClusterEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
@@ -154,7 +157,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -203,7 +206,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
@@ -262,9 +265,10 @@ namespace Pulumi.Aws.Rds
         public ClusterEndpointArgs()
         {
         }
+        public static new ClusterEndpointArgs Empty => new ClusterEndpointArgs();
     }
 
-    public sealed class ClusterEndpointState : Pulumi.ResourceArgs
+    public sealed class ClusterEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
@@ -336,7 +340,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -347,5 +351,6 @@ namespace Pulumi.Aws.Rds
         public ClusterEndpointState()
         {
         }
+        public static new ClusterEndpointState Empty => new ClusterEndpointState();
     }
 }

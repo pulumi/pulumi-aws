@@ -19,28 +19,26 @@ namespace Pulumi.Aws.DocDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.DocDB.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.DocDB.GetOrderableDbInstance.InvokeAsync(new Aws.DocDB.GetOrderableDbInstanceArgs
+        ///         Engine = "docdb",
+        ///         EngineVersion = "3.6.0",
+        ///         LicenseModel = "na",
+        ///         PreferredInstanceClasses = new[]
         ///         {
-        ///             Engine = "docdb",
-        ///             EngineVersion = "3.6.0",
-        ///             LicenseModel = "na",
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.r5.large",
-        ///                 "db.r4.large",
-        ///                 "db.t3.medium",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "db.r5.large",
+        ///             "db.r4.large",
+        ///             "db.t3.medium",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -56,28 +54,26 @@ namespace Pulumi.Aws.DocDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.DocDB.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.DocDB.GetOrderableDbInstance.InvokeAsync(new Aws.DocDB.GetOrderableDbInstanceArgs
+        ///         Engine = "docdb",
+        ///         EngineVersion = "3.6.0",
+        ///         LicenseModel = "na",
+        ///         PreferredInstanceClasses = new[]
         ///         {
-        ///             Engine = "docdb",
-        ///             EngineVersion = "3.6.0",
-        ///             LicenseModel = "na",
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.r5.large",
-        ///                 "db.r4.large",
-        ///                 "db.t3.medium",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "db.r5.large",
+        ///             "db.r4.large",
+        ///             "db.t3.medium",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,7 +83,7 @@ namespace Pulumi.Aws.DocDB
     }
 
 
-    public sealed class GetOrderableDbInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableDbInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. Default: `docdb`
@@ -134,9 +130,10 @@ namespace Pulumi.Aws.DocDB
         public GetOrderableDbInstanceArgs()
         {
         }
+        public static new GetOrderableDbInstanceArgs Empty => new GetOrderableDbInstanceArgs();
     }
 
-    public sealed class GetOrderableDbInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableDbInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. Default: `docdb`
@@ -183,6 +180,7 @@ namespace Pulumi.Aws.DocDB
         public GetOrderableDbInstanceInvokeArgs()
         {
         }
+        public static new GetOrderableDbInstanceInvokeArgs Empty => new GetOrderableDbInstanceInvokeArgs();
     }
 
 

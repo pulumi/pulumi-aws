@@ -15,24 +15,24 @@ namespace Pulumi.Aws.Transfer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleServer = new Aws.Transfer.Server("exampleServer", new()
     ///     {
-    ///         var exampleServer = new Aws.Transfer.Server("exampleServer", new Aws.Transfer.ServerArgs
+    ///         IdentityProviderType = "SERVICE_MANAGED",
+    ///         Tags = 
     ///         {
-    ///             IdentityProviderType = "SERVICE_MANAGED",
-    ///             Tags = 
-    ///             {
-    ///                 { "NAME", "tf-acc-test-transfer-server" },
-    ///             },
-    ///         });
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///             { "NAME", "tf-acc-test-transfer-server" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
     /// 		{
@@ -45,27 +45,30 @@ namespace Pulumi.Aws.Transfer
     /// 	]
     /// }
     /// ",
-    ///         });
-    ///         var exampleUser = new Aws.Transfer.User("exampleUser", new Aws.Transfer.UserArgs
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.Transfer.User("exampleUser", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         UserName = "tftestuser",
+    ///         Role = exampleRole.Arn,
+    ///         Tags = 
     ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             UserName = "tftestuser",
-    ///             Role = exampleRole.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "NAME", "tftestuser" },
-    ///             },
-    ///         });
-    ///         var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new Aws.Transfer.SshKeyArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             UserName = exampleUser.UserName,
-    ///             Body = "... SSH key ...",
-    ///         });
-    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = exampleRole.Id,
-    ///             Policy = @"{
+    ///             { "NAME", "tftestuser" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         UserName = exampleUser.UserName,
+    ///         Body = "... SSH key ...",
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
     /// 		{
@@ -79,10 +82,9 @@ namespace Pulumi.Aws.Transfer
     /// 	]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +96,7 @@ namespace Pulumi.Aws.Transfer
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/sshKey:SshKey")]
-    public partial class SshKey : Pulumi.CustomResource
+    public partial class SshKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The public key portion of an SSH key pair.
@@ -158,7 +160,7 @@ namespace Pulumi.Aws.Transfer
         }
     }
 
-    public sealed class SshKeyArgs : Pulumi.ResourceArgs
+    public sealed class SshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The public key portion of an SSH key pair.
@@ -181,9 +183,10 @@ namespace Pulumi.Aws.Transfer
         public SshKeyArgs()
         {
         }
+        public static new SshKeyArgs Empty => new SshKeyArgs();
     }
 
-    public sealed class SshKeyState : Pulumi.ResourceArgs
+    public sealed class SshKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The public key portion of an SSH key pair.
@@ -206,5 +209,6 @@ namespace Pulumi.Aws.Transfer
         public SshKeyState()
         {
         }
+        public static new SshKeyState Empty => new SshKeyState();
     }
 }

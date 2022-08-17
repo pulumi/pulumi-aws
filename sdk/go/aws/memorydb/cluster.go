@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
-// 			AclName:   pulumi.String("open-access"),
-// 			NodeType:  pulumi.String("db.t4g.small"),
-// 			NumShards: pulumi.Int(2),
-// 			SecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Id),
-// 			},
-// 			SnapshotRetentionLimit: pulumi.Int(7),
-// 			SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
+//				AclName:   pulumi.String("open-access"),
+//				NodeType:  pulumi.String("db.t4g.small"),
+//				NumShards: pulumi.Int(2),
+//				SecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Id),
+//				},
+//				SnapshotRetentionLimit: pulumi.Int(7),
+//				SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Use the `name` to import a cluster. For example
 //
 // ```sh
-//  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+//
+//	$ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -106,8 +111,7 @@ type Cluster struct {
 	// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
 	TlsEnabled pulumi.BoolPtrOutput `pulumi:"tlsEnabled"`
@@ -199,8 +203,7 @@ type clusterState struct {
 	// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
 	TlsEnabled *bool `pulumi:"tlsEnabled"`
@@ -258,8 +261,7 @@ type ClusterState struct {
 	// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
 	SubnetGroupName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
 	TlsEnabled pulumi.BoolPtrInput
@@ -394,7 +396,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -419,7 +421,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 
@@ -585,7 +587,6 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

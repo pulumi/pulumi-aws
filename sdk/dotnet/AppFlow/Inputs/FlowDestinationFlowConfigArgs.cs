@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API version that the destination connector uses.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigArgs()
         {
         }
+        public static new FlowDestinationFlowConfigArgs Empty => new FlowDestinationFlowConfigArgs();
     }
 }

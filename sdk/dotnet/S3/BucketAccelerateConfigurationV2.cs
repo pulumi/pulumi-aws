@@ -15,24 +15,21 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mybucket = new Aws.S3.BucketV2("mybucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new Aws.S3.BucketAccelerateConfigurationV2Args
-    ///         {
-    ///             Bucket = mybucket.Bucket,
-    ///             Status = "Enabled",
-    ///         });
-    ///     }
+    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
     /// 
-    /// }
+    ///     var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new()
+    ///     {
+    ///         Bucket = mybucket.Bucket,
+    ///         Status = "Enabled",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +47,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")]
-    public partial class BucketAccelerateConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketAccelerateConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -114,7 +111,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketAccelerateConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketAccelerateConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -137,9 +134,10 @@ namespace Pulumi.Aws.S3
         public BucketAccelerateConfigurationV2Args()
         {
         }
+        public static new BucketAccelerateConfigurationV2Args Empty => new BucketAccelerateConfigurationV2Args();
     }
 
-    public sealed class BucketAccelerateConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketAccelerateConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -162,5 +160,6 @@ namespace Pulumi.Aws.S3
         public BucketAccelerateConfigurationV2State()
         {
         }
+        public static new BucketAccelerateConfigurationV2State Empty => new BucketAccelerateConfigurationV2State();
     }
 }

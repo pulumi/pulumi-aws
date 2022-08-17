@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GlobalAccelerator.Inputs
 {
 
-    public sealed class AcceleratorAttributesGetArgs : Pulumi.ResourceArgs
+    public sealed class AcceleratorAttributesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public AcceleratorAttributesGetArgs()
         {
         }
+        public static new AcceleratorAttributesGetArgs Empty => new AcceleratorAttributesGetArgs();
     }
 }

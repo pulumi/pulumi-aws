@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleSnsActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleSnsActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleSnsActionArgs()
         {
         }
+        public static new ReceiptRuleSnsActionArgs Empty => new ReceiptRuleSnsActionArgs();
     }
 }

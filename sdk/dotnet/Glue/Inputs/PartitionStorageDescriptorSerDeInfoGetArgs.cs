@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class PartitionStorageDescriptorSerDeInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class PartitionStorageDescriptorSerDeInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SerDe.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public PartitionStorageDescriptorSerDeInfoGetArgs()
         {
         }
+        public static new PartitionStorageDescriptorSerDeInfoGetArgs Empty => new PartitionStorageDescriptorSerDeInfoGetArgs();
     }
 }

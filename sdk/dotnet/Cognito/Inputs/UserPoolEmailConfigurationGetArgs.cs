@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolEmailConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolEmailConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email configuration set name from SES.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolEmailConfigurationGetArgs()
         {
         }
+        public static new UserPoolEmailConfigurationGetArgs Empty => new UserPoolEmailConfigurationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.StorageGateway.Inputs
 {
 
-    public sealed class GatewayGatewayNetworkInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class GatewayGatewayNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Internet Protocol version 4 (IPv4) address of the interface.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         public GatewayGatewayNetworkInterfaceGetArgs()
         {
         }
+        public static new GatewayGatewayNetworkInterfaceGetArgs Empty => new GatewayGatewayNetworkInterfaceGetArgs();
     }
 }

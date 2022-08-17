@@ -19,20 +19,18 @@ namespace Pulumi.Aws.DirectoryService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectoryService.GetDirectory.InvokeAsync(new Aws.DirectoryService.GetDirectoryArgs
-        ///         {
-        ///             DirectoryId = aws_directory_service_directory.Main.Id,
-        ///         }));
-        ///     }
+        ///         DirectoryId = aws_directory_service_directory.Main.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.DirectoryService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectoryService.GetDirectory.InvokeAsync(new Aws.DirectoryService.GetDirectoryArgs
-        ///         {
-        ///             DirectoryId = aws_directory_service_directory.Main.Id,
-        ///         }));
-        ///     }
+        ///         DirectoryId = aws_directory_service_directory.Main.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.DirectoryService
     }
 
 
-    public sealed class GetDirectoryArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the directory.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.DirectoryService
         public GetDirectoryArgs()
         {
         }
+        public static new GetDirectoryArgs Empty => new GetDirectoryArgs();
     }
 
-    public sealed class GetDirectoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the directory.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.DirectoryService
         public GetDirectoryInvokeArgs()
         {
         }
+        public static new GetDirectoryInvokeArgs Empty => new GetDirectoryInvokeArgs();
     }
 
 
@@ -159,6 +157,7 @@ namespace Pulumi.Aws.DirectoryService
         /// The fully qualified name for the directory/connector.
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> RadiusSettings;
         /// <summary>
         /// The ID of the security group created by the directory/connector.
         /// </summary>
@@ -174,7 +173,7 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// A map of tags assigned to the directory/connector.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
         /// </summary>
@@ -203,13 +202,15 @@ namespace Pulumi.Aws.DirectoryService
 
             string name,
 
+            ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> radiusSettings,
+
             string securityGroupId,
 
             string shortName,
 
             string size,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string type,
 
@@ -225,6 +226,7 @@ namespace Pulumi.Aws.DirectoryService
             EnableSso = enableSso;
             Id = id;
             Name = name;
+            RadiusSettings = radiusSettings;
             SecurityGroupId = securityGroupId;
             ShortName = shortName;
             Size = size;

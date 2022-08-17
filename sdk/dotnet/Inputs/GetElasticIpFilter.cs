@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class GetElasticIpFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticIpFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.Inputs
         public GetElasticIpFilterArgs()
         {
         }
+        public static new GetElasticIpFilterArgs Empty => new GetElasticIpFilterArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Elb.Inputs
 {
 
-    public sealed class LoadBalancerListenerGetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerListenerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port on the instance to route to
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.Elb.Inputs
         public LoadBalancerListenerGetArgs()
         {
         }
+        public static new LoadBalancerListenerGetArgs Empty => new LoadBalancerListenerGetArgs();
     }
 }

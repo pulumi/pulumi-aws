@@ -20,7 +20,7 @@ type EfsLocationEc2Config struct {
 // EfsLocationEc2ConfigInput is an input type that accepts EfsLocationEc2ConfigArgs and EfsLocationEc2ConfigOutput values.
 // You can construct a concrete instance of `EfsLocationEc2ConfigInput` via:
 //
-//          EfsLocationEc2ConfigArgs{...}
+//	EfsLocationEc2ConfigArgs{...}
 type EfsLocationEc2ConfigInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i EfsLocationEc2ConfigArgs) ToEfsLocationEc2ConfigPtrOutputWithContext(ctx
 // EfsLocationEc2ConfigPtrInput is an input type that accepts EfsLocationEc2ConfigArgs, EfsLocationEc2ConfigPtr and EfsLocationEc2ConfigPtrOutput values.
 // You can construct a concrete instance of `EfsLocationEc2ConfigPtrInput` via:
 //
-//          EfsLocationEc2ConfigArgs{...}
+//	        EfsLocationEc2ConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EfsLocationEc2ConfigPtrInput interface {
 	pulumi.Input
 
@@ -174,7 +174,7 @@ type FsxOpenZfsFileSystemProtocol struct {
 // FsxOpenZfsFileSystemProtocolInput is an input type that accepts FsxOpenZfsFileSystemProtocolArgs and FsxOpenZfsFileSystemProtocolOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolInput` via:
 //
-//          FsxOpenZfsFileSystemProtocolArgs{...}
+//	FsxOpenZfsFileSystemProtocolArgs{...}
 type FsxOpenZfsFileSystemProtocolInput interface {
 	pulumi.Input
 
@@ -210,11 +210,11 @@ func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolPtrOutpu
 // FsxOpenZfsFileSystemProtocolPtrInput is an input type that accepts FsxOpenZfsFileSystemProtocolArgs, FsxOpenZfsFileSystemProtocolPtr and FsxOpenZfsFileSystemProtocolPtrOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolPtrInput` via:
 //
-//          FsxOpenZfsFileSystemProtocolArgs{...}
+//	        FsxOpenZfsFileSystemProtocolArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FsxOpenZfsFileSystemProtocolPtrInput interface {
 	pulumi.Input
 
@@ -311,7 +311,7 @@ type FsxOpenZfsFileSystemProtocolNfs struct {
 // FsxOpenZfsFileSystemProtocolNfsInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsArgs and FsxOpenZfsFileSystemProtocolNfsOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsInput` via:
 //
-//          FsxOpenZfsFileSystemProtocolNfsArgs{...}
+//	FsxOpenZfsFileSystemProtocolNfsArgs{...}
 type FsxOpenZfsFileSystemProtocolNfsInput interface {
 	pulumi.Input
 
@@ -347,11 +347,11 @@ func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsPt
 // FsxOpenZfsFileSystemProtocolNfsPtrInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsArgs, FsxOpenZfsFileSystemProtocolNfsPtr and FsxOpenZfsFileSystemProtocolNfsPtrOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsPtrInput` via:
 //
-//          FsxOpenZfsFileSystemProtocolNfsArgs{...}
+//	        FsxOpenZfsFileSystemProtocolNfsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FsxOpenZfsFileSystemProtocolNfsPtrInput interface {
 	pulumi.Input
 
@@ -450,7 +450,7 @@ type FsxOpenZfsFileSystemProtocolNfsMountOptions struct {
 // FsxOpenZfsFileSystemProtocolNfsMountOptionsInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs and FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsMountOptionsInput` via:
 //
-//          FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{...}
+//	FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{...}
 type FsxOpenZfsFileSystemProtocolNfsMountOptionsInput interface {
 	pulumi.Input
 
@@ -486,11 +486,11 @@ func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemP
 // FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs, FsxOpenZfsFileSystemProtocolNfsMountOptionsPtr and FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput` via:
 //
-//          FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{...}
+//	        FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ type LocationHdfsNameNode struct {
 // LocationHdfsNameNodeInput is an input type that accepts LocationHdfsNameNodeArgs and LocationHdfsNameNodeOutput values.
 // You can construct a concrete instance of `LocationHdfsNameNodeInput` via:
 //
-//          LocationHdfsNameNodeArgs{...}
+//	LocationHdfsNameNodeArgs{...}
 type LocationHdfsNameNodeInput interface {
 	pulumi.Input
 
@@ -619,7 +619,7 @@ func (i LocationHdfsNameNodeArgs) ToLocationHdfsNameNodeOutputWithContext(ctx co
 // LocationHdfsNameNodeArrayInput is an input type that accepts LocationHdfsNameNodeArray and LocationHdfsNameNodeArrayOutput values.
 // You can construct a concrete instance of `LocationHdfsNameNodeArrayInput` via:
 //
-//          LocationHdfsNameNodeArray{ LocationHdfsNameNodeArgs{...} }
+//	LocationHdfsNameNodeArray{ LocationHdfsNameNodeArgs{...} }
 type LocationHdfsNameNodeArrayInput interface {
 	pulumi.Input
 
@@ -695,7 +695,7 @@ type LocationHdfsQopConfiguration struct {
 // LocationHdfsQopConfigurationInput is an input type that accepts LocationHdfsQopConfigurationArgs and LocationHdfsQopConfigurationOutput values.
 // You can construct a concrete instance of `LocationHdfsQopConfigurationInput` via:
 //
-//          LocationHdfsQopConfigurationArgs{...}
+//	LocationHdfsQopConfigurationArgs{...}
 type LocationHdfsQopConfigurationInput interface {
 	pulumi.Input
 
@@ -733,11 +733,11 @@ func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationPtrOutpu
 // LocationHdfsQopConfigurationPtrInput is an input type that accepts LocationHdfsQopConfigurationArgs, LocationHdfsQopConfigurationPtr and LocationHdfsQopConfigurationPtrOutput values.
 // You can construct a concrete instance of `LocationHdfsQopConfigurationPtrInput` via:
 //
-//          LocationHdfsQopConfigurationArgs{...}
+//	        LocationHdfsQopConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationHdfsQopConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -849,7 +849,7 @@ type LocationSmbMountOptions struct {
 // LocationSmbMountOptionsInput is an input type that accepts LocationSmbMountOptionsArgs and LocationSmbMountOptionsOutput values.
 // You can construct a concrete instance of `LocationSmbMountOptionsInput` via:
 //
-//          LocationSmbMountOptionsArgs{...}
+//	LocationSmbMountOptionsArgs{...}
 type LocationSmbMountOptionsInput interface {
 	pulumi.Input
 
@@ -885,11 +885,11 @@ func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutputWithConte
 // LocationSmbMountOptionsPtrInput is an input type that accepts LocationSmbMountOptionsArgs, LocationSmbMountOptionsPtr and LocationSmbMountOptionsPtrOutput values.
 // You can construct a concrete instance of `LocationSmbMountOptionsPtrInput` via:
 //
-//          LocationSmbMountOptionsArgs{...}
+//	        LocationSmbMountOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationSmbMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -986,7 +986,7 @@ type NfsLocationMountOptions struct {
 // NfsLocationMountOptionsInput is an input type that accepts NfsLocationMountOptionsArgs and NfsLocationMountOptionsOutput values.
 // You can construct a concrete instance of `NfsLocationMountOptionsInput` via:
 //
-//          NfsLocationMountOptionsArgs{...}
+//	NfsLocationMountOptionsArgs{...}
 type NfsLocationMountOptionsInput interface {
 	pulumi.Input
 
@@ -1022,11 +1022,11 @@ func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsPtrOutputWithConte
 // NfsLocationMountOptionsPtrInput is an input type that accepts NfsLocationMountOptionsArgs, NfsLocationMountOptionsPtr and NfsLocationMountOptionsPtrOutput values.
 // You can construct a concrete instance of `NfsLocationMountOptionsPtrInput` via:
 //
-//          NfsLocationMountOptionsArgs{...}
+//	        NfsLocationMountOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NfsLocationMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1123,7 +1123,7 @@ type NfsLocationOnPremConfig struct {
 // NfsLocationOnPremConfigInput is an input type that accepts NfsLocationOnPremConfigArgs and NfsLocationOnPremConfigOutput values.
 // You can construct a concrete instance of `NfsLocationOnPremConfigInput` via:
 //
-//          NfsLocationOnPremConfigArgs{...}
+//	NfsLocationOnPremConfigArgs{...}
 type NfsLocationOnPremConfigInput interface {
 	pulumi.Input
 
@@ -1159,11 +1159,11 @@ func (i NfsLocationOnPremConfigArgs) ToNfsLocationOnPremConfigPtrOutputWithConte
 // NfsLocationOnPremConfigPtrInput is an input type that accepts NfsLocationOnPremConfigArgs, NfsLocationOnPremConfigPtr and NfsLocationOnPremConfigPtrOutput values.
 // You can construct a concrete instance of `NfsLocationOnPremConfigPtrInput` via:
 //
-//          NfsLocationOnPremConfigArgs{...}
+//	        NfsLocationOnPremConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NfsLocationOnPremConfigPtrInput interface {
 	pulumi.Input
 
@@ -1260,7 +1260,7 @@ type S3LocationS3Config struct {
 // S3LocationS3ConfigInput is an input type that accepts S3LocationS3ConfigArgs and S3LocationS3ConfigOutput values.
 // You can construct a concrete instance of `S3LocationS3ConfigInput` via:
 //
-//          S3LocationS3ConfigArgs{...}
+//	S3LocationS3ConfigArgs{...}
 type S3LocationS3ConfigInput interface {
 	pulumi.Input
 
@@ -1296,11 +1296,11 @@ func (i S3LocationS3ConfigArgs) ToS3LocationS3ConfigPtrOutputWithContext(ctx con
 // S3LocationS3ConfigPtrInput is an input type that accepts S3LocationS3ConfigArgs, S3LocationS3ConfigPtr and S3LocationS3ConfigPtrOutput values.
 // You can construct a concrete instance of `S3LocationS3ConfigPtrInput` via:
 //
-//          S3LocationS3ConfigArgs{...}
+//	        S3LocationS3ConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type S3LocationS3ConfigPtrInput interface {
 	pulumi.Input
 
@@ -1392,14 +1392,14 @@ func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutpu
 type TaskExcludes struct {
 	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 	FilterType *string `pulumi:"filterType"`
-	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+	// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 	Value *string `pulumi:"value"`
 }
 
 // TaskExcludesInput is an input type that accepts TaskExcludesArgs and TaskExcludesOutput values.
 // You can construct a concrete instance of `TaskExcludesInput` via:
 //
-//          TaskExcludesArgs{...}
+//	TaskExcludesArgs{...}
 type TaskExcludesInput interface {
 	pulumi.Input
 
@@ -1410,7 +1410,7 @@ type TaskExcludesInput interface {
 type TaskExcludesArgs struct {
 	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+	// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1437,11 +1437,11 @@ func (i TaskExcludesArgs) ToTaskExcludesPtrOutputWithContext(ctx context.Context
 // TaskExcludesPtrInput is an input type that accepts TaskExcludesArgs, TaskExcludesPtr and TaskExcludesPtrOutput values.
 // You can construct a concrete instance of `TaskExcludesPtrInput` via:
 //
-//          TaskExcludesArgs{...}
+//	        TaskExcludesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskExcludesPtrInput interface {
 	pulumi.Input
 
@@ -1496,7 +1496,7 @@ func (o TaskExcludesOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskExcludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 func (o TaskExcludesOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskExcludes) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1535,9 +1535,165 @@ func (o TaskExcludesPtrOutput) FilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 func (o TaskExcludesPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskExcludes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskIncludes struct {
+	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+	FilterType *string `pulumi:"filterType"`
+	// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+	Value *string `pulumi:"value"`
+}
+
+// TaskIncludesInput is an input type that accepts TaskIncludesArgs and TaskIncludesOutput values.
+// You can construct a concrete instance of `TaskIncludesInput` via:
+//
+//	TaskIncludesArgs{...}
+type TaskIncludesInput interface {
+	pulumi.Input
+
+	ToTaskIncludesOutput() TaskIncludesOutput
+	ToTaskIncludesOutputWithContext(context.Context) TaskIncludesOutput
+}
+
+type TaskIncludesArgs struct {
+	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskIncludesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskIncludes)(nil)).Elem()
+}
+
+func (i TaskIncludesArgs) ToTaskIncludesOutput() TaskIncludesOutput {
+	return i.ToTaskIncludesOutputWithContext(context.Background())
+}
+
+func (i TaskIncludesArgs) ToTaskIncludesOutputWithContext(ctx context.Context) TaskIncludesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskIncludesOutput)
+}
+
+func (i TaskIncludesArgs) ToTaskIncludesPtrOutput() TaskIncludesPtrOutput {
+	return i.ToTaskIncludesPtrOutputWithContext(context.Background())
+}
+
+func (i TaskIncludesArgs) ToTaskIncludesPtrOutputWithContext(ctx context.Context) TaskIncludesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskIncludesOutput).ToTaskIncludesPtrOutputWithContext(ctx)
+}
+
+// TaskIncludesPtrInput is an input type that accepts TaskIncludesArgs, TaskIncludesPtr and TaskIncludesPtrOutput values.
+// You can construct a concrete instance of `TaskIncludesPtrInput` via:
+//
+//	        TaskIncludesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskIncludesPtrInput interface {
+	pulumi.Input
+
+	ToTaskIncludesPtrOutput() TaskIncludesPtrOutput
+	ToTaskIncludesPtrOutputWithContext(context.Context) TaskIncludesPtrOutput
+}
+
+type taskIncludesPtrType TaskIncludesArgs
+
+func TaskIncludesPtr(v *TaskIncludesArgs) TaskIncludesPtrInput {
+	return (*taskIncludesPtrType)(v)
+}
+
+func (*taskIncludesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskIncludes)(nil)).Elem()
+}
+
+func (i *taskIncludesPtrType) ToTaskIncludesPtrOutput() TaskIncludesPtrOutput {
+	return i.ToTaskIncludesPtrOutputWithContext(context.Background())
+}
+
+func (i *taskIncludesPtrType) ToTaskIncludesPtrOutputWithContext(ctx context.Context) TaskIncludesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskIncludesPtrOutput)
+}
+
+type TaskIncludesOutput struct{ *pulumi.OutputState }
+
+func (TaskIncludesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskIncludes)(nil)).Elem()
+}
+
+func (o TaskIncludesOutput) ToTaskIncludesOutput() TaskIncludesOutput {
+	return o
+}
+
+func (o TaskIncludesOutput) ToTaskIncludesOutputWithContext(ctx context.Context) TaskIncludesOutput {
+	return o
+}
+
+func (o TaskIncludesOutput) ToTaskIncludesPtrOutput() TaskIncludesPtrOutput {
+	return o.ToTaskIncludesPtrOutputWithContext(context.Background())
+}
+
+func (o TaskIncludesOutput) ToTaskIncludesPtrOutputWithContext(ctx context.Context) TaskIncludesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskIncludes) *TaskIncludes {
+		return &v
+	}).(TaskIncludesPtrOutput)
+}
+
+// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+func (o TaskIncludesOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskIncludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+func (o TaskIncludesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskIncludes) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskIncludesPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskIncludesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskIncludes)(nil)).Elem()
+}
+
+func (o TaskIncludesPtrOutput) ToTaskIncludesPtrOutput() TaskIncludesPtrOutput {
+	return o
+}
+
+func (o TaskIncludesPtrOutput) ToTaskIncludesPtrOutputWithContext(ctx context.Context) TaskIncludesPtrOutput {
+	return o
+}
+
+func (o TaskIncludesPtrOutput) Elem() TaskIncludesOutput {
+	return o.ApplyT(func(v *TaskIncludes) TaskIncludes {
+		if v != nil {
+			return *v
+		}
+		var ret TaskIncludes
+		return ret
+	}).(TaskIncludesOutput)
+}
+
+// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+func (o TaskIncludesPtrOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskIncludes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+func (o TaskIncludesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskIncludes) *string {
 		if v == nil {
 			return nil
 		}
@@ -1577,7 +1733,7 @@ type TaskOptions struct {
 // TaskOptionsInput is an input type that accepts TaskOptionsArgs and TaskOptionsOutput values.
 // You can construct a concrete instance of `TaskOptionsInput` via:
 //
-//          TaskOptionsArgs{...}
+//	TaskOptionsArgs{...}
 type TaskOptionsInput interface {
 	pulumi.Input
 
@@ -1637,11 +1793,11 @@ func (i TaskOptionsArgs) ToTaskOptionsPtrOutputWithContext(ctx context.Context) 
 // TaskOptionsPtrInput is an input type that accepts TaskOptionsArgs, TaskOptionsPtr and TaskOptionsPtrOutput values.
 // You can construct a concrete instance of `TaskOptionsPtrInput` via:
 //
-//          TaskOptionsArgs{...}
+//	        TaskOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1918,7 +2074,7 @@ type TaskSchedule struct {
 // TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
 // You can construct a concrete instance of `TaskScheduleInput` via:
 //
-//          TaskScheduleArgs{...}
+//	TaskScheduleArgs{...}
 type TaskScheduleInput interface {
 	pulumi.Input
 
@@ -1954,11 +2110,11 @@ func (i TaskScheduleArgs) ToTaskSchedulePtrOutputWithContext(ctx context.Context
 // TaskSchedulePtrInput is an input type that accepts TaskScheduleArgs, TaskSchedulePtr and TaskSchedulePtrOutput values.
 // You can construct a concrete instance of `TaskSchedulePtrInput` via:
 //
-//          TaskScheduleArgs{...}
+//	        TaskScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskSchedulePtrInput interface {
 	pulumi.Input
 
@@ -2070,6 +2226,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationS3ConfigPtrInput)(nil)).Elem(), S3LocationS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskExcludesInput)(nil)).Elem(), TaskExcludesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskExcludesPtrInput)(nil)).Elem(), TaskExcludesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskIncludesInput)(nil)).Elem(), TaskIncludesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskIncludesPtrInput)(nil)).Elem(), TaskIncludesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsInput)(nil)).Elem(), TaskOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsPtrInput)(nil)).Elem(), TaskOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
@@ -2096,6 +2254,8 @@ func init() {
 	pulumi.RegisterOutputType(S3LocationS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(TaskExcludesOutput{})
 	pulumi.RegisterOutputType(TaskExcludesPtrOutput{})
+	pulumi.RegisterOutputType(TaskIncludesOutput{})
+	pulumi.RegisterOutputType(TaskIncludesPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TaskScheduleOutput{})

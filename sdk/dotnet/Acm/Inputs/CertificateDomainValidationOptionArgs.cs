@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acm.Inputs
 {
 
-    public sealed class CertificateDomainValidationOptionArgs : Pulumi.ResourceArgs
+    public sealed class CertificateDomainValidationOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A fully qualified domain name (FQDN) in the certificate.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Acm.Inputs
         public CertificateDomainValidationOptionArgs()
         {
         }
+        public static new CertificateDomainValidationOptionArgs Empty => new CertificateDomainValidationOptionArgs();
     }
 }

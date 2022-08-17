@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionViewerCertificateArgs : Pulumi.ResourceArgs
+    public sealed class DistributionViewerCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
@@ -60,5 +60,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionViewerCertificateArgs()
         {
         }
+        public static new DistributionViewerCertificateArgs Empty => new DistributionViewerCertificateArgs();
     }
 }

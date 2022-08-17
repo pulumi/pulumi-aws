@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Athena.Inputs
 {
 
-    public sealed class WorkgroupConfigurationEngineVersionArgs : Pulumi.ResourceArgs
+    public sealed class WorkgroupConfigurationEngineVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Athena.Inputs
         public WorkgroupConfigurationEngineVersionArgs()
         {
         }
+        public static new WorkgroupConfigurationEngineVersionArgs Empty => new WorkgroupConfigurationEngineVersionArgs();
     }
 }

@@ -15,26 +15,23 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var channel = new Aws.Pinpoint.AdmChannel("channel", new Aws.Pinpoint.AdmChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             ClientId = "",
-    ///             ClientSecret = "",
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var channel = new Aws.Pinpoint.AdmChannel("channel", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         ClientId = "",
+    ///         ClientSecret = "",
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/admChannel:AdmChannel")]
-    public partial class AdmChannel : Pulumi.CustomResource
+    public partial class AdmChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -116,7 +113,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class AdmChannelArgs : Pulumi.ResourceArgs
+    public sealed class AdmChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -145,9 +142,10 @@ namespace Pulumi.Aws.Pinpoint
         public AdmChannelArgs()
         {
         }
+        public static new AdmChannelArgs Empty => new AdmChannelArgs();
     }
 
-    public sealed class AdmChannelState : Pulumi.ResourceArgs
+    public sealed class AdmChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -176,5 +174,6 @@ namespace Pulumi.Aws.Pinpoint
         public AdmChannelState()
         {
         }
+        public static new AdmChannelState Empty => new AdmChannelState();
     }
 }

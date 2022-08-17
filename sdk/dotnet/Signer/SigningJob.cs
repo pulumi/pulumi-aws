@@ -15,42 +15,41 @@ namespace Pulumi.Aws.Signer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
     ///     {
-    ///         var testSp = new Aws.Signer.SigningProfile("testSp", new Aws.Signer.SigningProfileArgs
-    ///         {
-    ///             PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         });
-    ///         var buildSigningJob = new Aws.Signer.SigningJob("buildSigningJob", new Aws.Signer.SigningJobArgs
-    ///         {
-    ///             ProfileName = testSp.Name,
-    ///             Source = new Aws.Signer.Inputs.SigningJobSourceArgs
-    ///             {
-    ///                 S3 = new Aws.Signer.Inputs.SigningJobSourceS3Args
-    ///                 {
-    ///                     Bucket = "s3-bucket-name",
-    ///                     Key = "object-to-be-signed.zip",
-    ///                     Version = "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-    ///                 },
-    ///             },
-    ///             Destination = new Aws.Signer.Inputs.SigningJobDestinationArgs
-    ///             {
-    ///                 S3 = new Aws.Signer.Inputs.SigningJobDestinationS3Args
-    ///                 {
-    ///                     Bucket = "s3-bucket-name",
-    ///                     Prefix = "signed/",
-    ///                 },
-    ///             },
-    ///             IgnoreSigningJobFailure = true,
-    ///         });
-    ///     }
+    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
+    ///     });
     /// 
-    /// }
+    ///     var buildSigningJob = new Aws.Signer.SigningJob("buildSigningJob", new()
+    ///     {
+    ///         ProfileName = testSp.Name,
+    ///         Source = new Aws.Signer.Inputs.SigningJobSourceArgs
+    ///         {
+    ///             S3 = new Aws.Signer.Inputs.SigningJobSourceS3Args
+    ///             {
+    ///                 Bucket = "s3-bucket-name",
+    ///                 Key = "object-to-be-signed.zip",
+    ///                 Version = "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
+    ///             },
+    ///         },
+    ///         Destination = new Aws.Signer.Inputs.SigningJobDestinationArgs
+    ///         {
+    ///             S3 = new Aws.Signer.Inputs.SigningJobDestinationS3Args
+    ///             {
+    ///                 Bucket = "s3-bucket-name",
+    ///                 Prefix = "signed/",
+    ///             },
+    ///         },
+    ///         IgnoreSigningJobFailure = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.Signer
     /// ```
     /// </summary>
     [AwsResourceType("aws:signer/signingJob:SigningJob")]
-    public partial class SigningJob : Pulumi.CustomResource
+    public partial class SigningJob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
@@ -216,7 +215,7 @@ namespace Pulumi.Aws.Signer
         }
     }
 
-    public sealed class SigningJobArgs : Pulumi.ResourceArgs
+    public sealed class SigningJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 bucket in which to save your signed object. See Destination below for details.
@@ -245,9 +244,10 @@ namespace Pulumi.Aws.Signer
         public SigningJobArgs()
         {
         }
+        public static new SigningJobArgs Empty => new SigningJobArgs();
     }
 
-    public sealed class SigningJobState : Pulumi.ResourceArgs
+    public sealed class SigningJobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
@@ -372,5 +372,6 @@ namespace Pulumi.Aws.Signer
         public SigningJobState()
         {
         }
+        public static new SigningJobState Empty => new SigningJobState();
     }
 }

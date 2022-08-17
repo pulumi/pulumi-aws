@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupEcsServiceGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupEcsServiceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ECS cluster.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupEcsServiceGetArgs()
         {
         }
+        public static new DeploymentGroupEcsServiceGetArgs Empty => new DeploymentGroupEcsServiceGetArgs();
     }
 }

@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Example.Id),
-// 			},
-// 			TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-// 			VpcId:            pulumi.Any(aws_vpc.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewConnect(ctx, "attachment", &ec2transitgateway.ConnectArgs{
-// 			TransportAttachmentId: example.ID(),
-// 			TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Example.Id),
+//				},
+//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewConnect(ctx, "attachment", &ec2transitgateway.ConnectArgs{
+//				TransportAttachmentId: example.ID(),
+//				TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+//
+//	$ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+//
 // ```
 type Connect struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *Connect) ToConnectOutputWithContext(ctx context.Context) ConnectOutput 
 // ConnectArrayInput is an input type that accepts ConnectArray and ConnectArrayOutput values.
 // You can construct a concrete instance of `ConnectArrayInput` via:
 //
-//          ConnectArray{ ConnectArgs{...} }
+//	ConnectArray{ ConnectArgs{...} }
 type ConnectArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i ConnectArray) ToConnectArrayOutputWithContext(ctx context.Context) Conne
 // ConnectMapInput is an input type that accepts ConnectMap and ConnectMapOutput values.
 // You can construct a concrete instance of `ConnectMapInput` via:
 //
-//          ConnectMap{ "key": ConnectArgs{...} }
+//	ConnectMap{ "key": ConnectArgs{...} }
 type ConnectMapInput interface {
 	pulumi.Input
 

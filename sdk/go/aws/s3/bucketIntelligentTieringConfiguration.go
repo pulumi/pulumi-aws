@@ -20,35 +20,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucketV2(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
-// 			Bucket: example.Bucket,
-// 			Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
-// 				&s3.BucketIntelligentTieringConfigurationTieringArgs{
-// 					AccessTier: pulumi.String("DEEP_ARCHIVE_ACCESS"),
-// 					Days:       pulumi.Int(180),
-// 				},
-// 				&s3.BucketIntelligentTieringConfigurationTieringArgs{
-// 					AccessTier: pulumi.String("ARCHIVE_ACCESS"),
-// 					Days:       pulumi.Int(125),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
+//				Bucket: example.Bucket,
+//				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
+//					&s3.BucketIntelligentTieringConfigurationTieringArgs{
+//						AccessTier: pulumi.String("DEEP_ARCHIVE_ACCESS"),
+//						Days:       pulumi.Int(180),
+//					},
+//					&s3.BucketIntelligentTieringConfigurationTieringArgs{
+//						AccessTier: pulumi.String("ARCHIVE_ACCESS"),
+//						Days:       pulumi.Int(125),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Add intelligent tiering configuration with S3 object filter
 //
@@ -56,39 +59,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucketV2(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
-// 			Bucket: example.Bucket,
-// 			Status: pulumi.String("Disabled"),
-// 			Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
-// 				Prefix: pulumi.String("documents/"),
-// 				Tags: pulumi.StringMap{
-// 					"priority": pulumi.String("high"),
-// 					"class":    pulumi.String("blue"),
-// 				},
-// 			},
-// 			Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
-// 				&s3.BucketIntelligentTieringConfigurationTieringArgs{
-// 					AccessTier: pulumi.String("ARCHIVE_ACCESS"),
-// 					Days:       pulumi.Int(125),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
+//				Bucket: example.Bucket,
+//				Status: pulumi.String("Disabled"),
+//				Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
+//					Prefix: pulumi.String("documents/"),
+//					Tags: pulumi.StringMap{
+//						"priority": pulumi.String("high"),
+//						"class":    pulumi.String("blue"),
+//					},
+//				},
+//				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
+//					&s3.BucketIntelligentTieringConfigurationTieringArgs{
+//						AccessTier: pulumi.String("ARCHIVE_ACCESS"),
+//						Days:       pulumi.Int(125),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -96,7 +102,9 @@ import (
 // S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+//
+//	$ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+//
 // ```
 type BucketIntelligentTieringConfiguration struct {
 	pulumi.CustomResourceState
@@ -230,7 +238,7 @@ func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfig
 // BucketIntelligentTieringConfigurationArrayInput is an input type that accepts BucketIntelligentTieringConfigurationArray and BucketIntelligentTieringConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationArrayInput` via:
 //
-//          BucketIntelligentTieringConfigurationArray{ BucketIntelligentTieringConfigurationArgs{...} }
+//	BucketIntelligentTieringConfigurationArray{ BucketIntelligentTieringConfigurationArgs{...} }
 type BucketIntelligentTieringConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +263,7 @@ func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringCo
 // BucketIntelligentTieringConfigurationMapInput is an input type that accepts BucketIntelligentTieringConfigurationMap and BucketIntelligentTieringConfigurationMapOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationMapInput` via:
 //
-//          BucketIntelligentTieringConfigurationMap{ "key": BucketIntelligentTieringConfigurationArgs{...} }
+//	BucketIntelligentTieringConfigurationMap{ "key": BucketIntelligentTieringConfigurationArgs{...} }
 type BucketIntelligentTieringConfigurationMapInput interface {
 	pulumi.Input
 

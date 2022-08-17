@@ -18,21 +18,19 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.BudgetResourceAssociation("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.BudgetResourceAssociation("example", new Aws.ServiceCatalog.BudgetResourceAssociationArgs
-    ///         {
-    ///             BudgetName = "budget-pjtvyakdlyo3m",
-    ///             ResourceId = "prod-dnigbtea24ste",
-    ///         });
-    ///     }
+    ///         BudgetName = "budget-pjtvyakdlyo3m",
+    ///         ResourceId = "prod-dnigbtea24ste",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
-    public partial class BudgetResourceAssociation : Pulumi.CustomResource
+    public partial class BudgetResourceAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Budget name.
@@ -102,7 +100,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class BudgetResourceAssociationArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Budget name.
@@ -119,9 +117,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public BudgetResourceAssociationArgs()
         {
         }
+        public static new BudgetResourceAssociationArgs Empty => new BudgetResourceAssociationArgs();
     }
 
-    public sealed class BudgetResourceAssociationState : Pulumi.ResourceArgs
+    public sealed class BudgetResourceAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Budget name.
@@ -138,5 +137,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public BudgetResourceAssociationState()
         {
         }
+        public static new BudgetResourceAssociationState Empty => new BudgetResourceAssociationState();
     }
 }

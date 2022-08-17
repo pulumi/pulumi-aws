@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class FunctionEnvironmentGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionEnvironmentGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("variables")]
         private InputMap<string>? _variables;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public FunctionEnvironmentGetArgs()
         {
         }
+        public static new FunctionEnvironmentGetArgs Empty => new FunctionEnvironmentGetArgs();
     }
 }

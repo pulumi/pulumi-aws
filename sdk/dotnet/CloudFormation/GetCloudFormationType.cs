@@ -19,21 +19,19 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFormation.GetCloudFormationType.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFormation.GetCloudFormationType.InvokeAsync(new Aws.CloudFormation.GetCloudFormationTypeArgs
-        ///         {
-        ///             Type = "RESOURCE",
-        ///             TypeName = "AWS::Athena::WorkGroup",
-        ///         }));
-        ///     }
+        ///         Type = "RESOURCE",
+        ///         TypeName = "AWS::Athena::WorkGroup",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFormation.GetCloudFormationType.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFormation.GetCloudFormationType.InvokeAsync(new Aws.CloudFormation.GetCloudFormationTypeArgs
-        ///         {
-        ///             Type = "RESOURCE",
-        ///             TypeName = "AWS::Athena::WorkGroup",
-        ///         }));
-        ///     }
+        ///         Type = "RESOURCE",
+        ///         TypeName = "AWS::Athena::WorkGroup",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.CloudFormation
     }
 
 
-    public sealed class GetCloudFormationTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudFormationTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.CloudFormation
         public GetCloudFormationTypeArgs()
         {
         }
+        public static new GetCloudFormationTypeArgs Empty => new GetCloudFormationTypeArgs();
     }
 
-    public sealed class GetCloudFormationTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudFormationTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.CloudFormation
         public GetCloudFormationTypeInvokeArgs()
         {
         }
+        public static new GetCloudFormationTypeInvokeArgs Empty => new GetCloudFormationTypeInvokeArgs();
     }
 
 

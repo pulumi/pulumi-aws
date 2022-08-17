@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceGetArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecGrpcRouteActionTargetVirtualServiceGetArgs()
         {
         }
+        public static new GatewayRouteSpecGrpcRouteActionTargetVirtualServiceGetArgs Empty => new GatewayRouteSpecGrpcRouteActionTargetVirtualServiceGetArgs();
     }
 }

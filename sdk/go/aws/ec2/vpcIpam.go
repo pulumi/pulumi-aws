@@ -18,7 +18,9 @@ import (
 // IPAMs can be imported using the `ipam id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+//
+//	$ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+//
 // ```
 type VpcIpam struct {
 	pulumi.CustomResourceState
@@ -172,7 +174,7 @@ func (i *VpcIpam) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOutput 
 // VpcIpamArrayInput is an input type that accepts VpcIpamArray and VpcIpamArrayOutput values.
 // You can construct a concrete instance of `VpcIpamArrayInput` via:
 //
-//          VpcIpamArray{ VpcIpamArgs{...} }
+//	VpcIpamArray{ VpcIpamArgs{...} }
 type VpcIpamArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +199,7 @@ func (i VpcIpamArray) ToVpcIpamArrayOutputWithContext(ctx context.Context) VpcIp
 // VpcIpamMapInput is an input type that accepts VpcIpamMap and VpcIpamMapOutput values.
 // You can construct a concrete instance of `VpcIpamMapInput` via:
 //
-//          VpcIpamMap{ "key": VpcIpamArgs{...} }
+//	VpcIpamMap{ "key": VpcIpamArgs{...} }
 type VpcIpamMapInput interface {
 	pulumi.Input
 

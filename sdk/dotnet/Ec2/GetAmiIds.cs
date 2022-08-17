@@ -19,34 +19,32 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
         ///     {
-        ///         var ubuntu = Output.Create(Aws.Ec2.GetAmiIds.InvokeAsync(new Aws.Ec2.GetAmiIdsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetAmiIdsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                     },
+        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
         ///                 },
         ///             },
-        ///             Owners = 
-        ///             {
-        ///                 "099720109477",
-        ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owners = new[]
+        ///         {
+        ///             "099720109477",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -62,34 +60,32 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
         ///     {
-        ///         var ubuntu = Output.Create(Aws.Ec2.GetAmiIds.InvokeAsync(new Aws.Ec2.GetAmiIdsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetAmiIdsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                     },
+        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
         ///                 },
         ///             },
-        ///             Owners = 
-        ///             {
-        ///                 "099720109477",
-        ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owners = new[]
+        ///         {
+        ///             "099720109477",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -99,7 +95,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetAmiIdsArgs : Pulumi.InvokeArgs
+    public sealed class GetAmiIdsArgs : global::Pulumi.InvokeArgs
     {
         [Input("executableUsers")]
         private List<string>? _executableUsers;
@@ -159,9 +155,10 @@ namespace Pulumi.Aws.Ec2
         public GetAmiIdsArgs()
         {
         }
+        public static new GetAmiIdsArgs Empty => new GetAmiIdsArgs();
     }
 
-    public sealed class GetAmiIdsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAmiIdsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("executableUsers")]
         private InputList<string>? _executableUsers;
@@ -221,6 +218,7 @@ namespace Pulumi.Aws.Ec2
         public GetAmiIdsInvokeArgs()
         {
         }
+        public static new GetAmiIdsInvokeArgs Empty => new GetAmiIdsInvokeArgs();
     }
 
 

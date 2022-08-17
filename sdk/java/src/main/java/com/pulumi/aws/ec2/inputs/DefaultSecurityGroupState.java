@@ -95,6 +95,13 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="namePrefix")
+    private @Nullable Output<String> namePrefix;
+
+    public Optional<Output<String>> namePrefix() {
+        return Optional.ofNullable(this.namePrefix);
+    }
+
     /**
      * Owner ID.
      * 
@@ -118,14 +125,14 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -133,14 +140,14 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -170,6 +177,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         this.egress = $.egress;
         this.ingress = $.ingress;
         this.name = $.name;
+        this.namePrefix = $.namePrefix;
         this.ownerId = $.ownerId;
         this.revokeRulesOnDelete = $.revokeRulesOnDelete;
         this.tags = $.tags;
@@ -320,6 +328,15 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
             return name(Output.of(name));
         }
 
+        public Builder namePrefix(@Nullable Output<String> namePrefix) {
+            $.namePrefix = namePrefix;
+            return this;
+        }
+
+        public Builder namePrefix(String namePrefix) {
+            return namePrefix(Output.of(namePrefix));
+        }
+
         /**
          * @param ownerId Owner ID.
          * 
@@ -351,7 +368,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -362,7 +379,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -372,7 +389,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -383,7 +400,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

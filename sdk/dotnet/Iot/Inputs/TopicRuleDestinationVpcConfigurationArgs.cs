@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleDestinationVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDestinationVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleDestinationVpcConfigurationArgs()
         {
         }
+        public static new TopicRuleDestinationVpcConfigurationArgs Empty => new TopicRuleDestinationVpcConfigurationArgs();
     }
 }

@@ -15,25 +15,24 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new Aws.S3.BucketPublicAccessBlockArgs
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             BlockPublicAcls = true,
-    ///             BlockPublicPolicy = true,
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         BlockPublicAcls = true,
+    ///         BlockPublicPolicy = true,
+    ///         IgnorePublicAcls = true,
+    ///         RestrictPublicBuckets = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock")]
-    public partial class BucketPublicAccessBlock : Pulumi.CustomResource
+    public partial class BucketPublicAccessBlock : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -126,7 +125,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketPublicAccessBlockArgs : Pulumi.ResourceArgs
+    public sealed class BucketPublicAccessBlockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -166,9 +165,10 @@ namespace Pulumi.Aws.S3
         public BucketPublicAccessBlockArgs()
         {
         }
+        public static new BucketPublicAccessBlockArgs Empty => new BucketPublicAccessBlockArgs();
     }
 
-    public sealed class BucketPublicAccessBlockState : Pulumi.ResourceArgs
+    public sealed class BucketPublicAccessBlockState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -208,5 +208,6 @@ namespace Pulumi.Aws.S3
         public BucketPublicAccessBlockState()
         {
         }
+        public static new BucketPublicAccessBlockState Empty => new BucketPublicAccessBlockState();
     }
 }

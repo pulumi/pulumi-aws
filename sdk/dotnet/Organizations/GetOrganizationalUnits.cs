@@ -19,21 +19,20 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var org = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
-        ///         var ou = org.Apply(org =&gt; Output.Create(Aws.Organizations.GetOrganizationalUnits.InvokeAsync(new Aws.Organizations.GetOrganizationalUnitsArgs
-        ///         {
-        ///             ParentId = org.Roots?[0]?.Id,
-        ///         })));
-        ///     }
+        ///     var org = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        /// }
+        ///     var ou = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
+        ///     {
+        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +48,20 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var org = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
-        ///         var ou = org.Apply(org =&gt; Output.Create(Aws.Organizations.GetOrganizationalUnits.InvokeAsync(new Aws.Organizations.GetOrganizationalUnitsArgs
-        ///         {
-        ///             ParentId = org.Roots?[0]?.Id,
-        ///         })));
-        ///     }
+        ///     var org = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        /// }
+        ///     var ou = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
+        ///     {
+        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +71,7 @@ namespace Pulumi.Aws.Organizations
     }
 
 
-    public sealed class GetOrganizationalUnitsArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationalUnitsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The parent ID of the organizational unit.
@@ -84,9 +82,10 @@ namespace Pulumi.Aws.Organizations
         public GetOrganizationalUnitsArgs()
         {
         }
+        public static new GetOrganizationalUnitsArgs Empty => new GetOrganizationalUnitsArgs();
     }
 
-    public sealed class GetOrganizationalUnitsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationalUnitsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The parent ID of the organizational unit.
@@ -97,6 +96,7 @@ namespace Pulumi.Aws.Organizations
         public GetOrganizationalUnitsInvokeArgs()
         {
         }
+        public static new GetOrganizationalUnitsInvokeArgs Empty => new GetOrganizationalUnitsInvokeArgs();
     }
 
 

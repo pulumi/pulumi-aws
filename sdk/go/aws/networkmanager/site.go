@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-// 			GlobalNetworkId: exampleGlobalNetwork.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
+//				GlobalNetworkId: exampleGlobalNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_networkmanager_site` can be imported using the site ARN, e.g.
 //
 // ```sh
-//  $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+//
+//	$ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+//
 // ```
 type Site struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 // SiteArrayInput is an input type that accepts SiteArray and SiteArrayOutput values.
 // You can construct a concrete instance of `SiteArrayInput` via:
 //
-//          SiteArray{ SiteArgs{...} }
+//	SiteArray{ SiteArgs{...} }
 type SiteArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i SiteArray) ToSiteArrayOutputWithContext(ctx context.Context) SiteArrayOu
 // SiteMapInput is an input type that accepts SiteMap and SiteMapOutput values.
 // You can construct a concrete instance of `SiteMapInput` via:
 //
-//          SiteMap{ "key": SiteArgs{...} }
+//	SiteMap{ "key": SiteArgs{...} }
 type SiteMapInput interface {
 	pulumi.Input
 

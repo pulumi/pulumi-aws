@@ -15,16 +15,15 @@ namespace Pulumi.Aws.Ssm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"  {
+    ///         AssumeRolePolicy = @"  {
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": {
     ///       ""Effect"": ""Allow"",
@@ -33,27 +32,28 @@ namespace Pulumi.Aws.Ssm
     ///     }
     ///   }
     /// ",
-    ///         });
-    ///         var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = testRole.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-    ///         });
-    ///         var foo = new Aws.Ssm.Activation("foo", new Aws.Ssm.ActivationArgs
-    ///         {
-    ///             Description = "Test",
-    ///             IamRole = testRole.Id,
-    ///             RegistrationLimit = 5,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 testAttach,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new()
+    ///     {
+    ///         Role = testRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+    ///     });
+    /// 
+    ///     var foo = new Aws.Ssm.Activation("foo", new()
+    ///     {
+    ///         Description = "Test",
+    ///         IamRole = testRole.Id,
+    ///         RegistrationLimit = 5,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             testAttach,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/activation:Activation")]
-    public partial class Activation : Pulumi.CustomResource
+    public partial class Activation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The code the system generates when it processes the activation.
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class ActivationArgs : Pulumi.ResourceArgs
+    public sealed class ActivationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the resource that you want to register.
@@ -218,9 +218,10 @@ namespace Pulumi.Aws.Ssm
         public ActivationArgs()
         {
         }
+        public static new ActivationArgs Empty => new ActivationArgs();
     }
 
-    public sealed class ActivationState : Pulumi.ResourceArgs
+    public sealed class ActivationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The code the system generates when it processes the activation.
@@ -286,7 +287,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -297,5 +298,6 @@ namespace Pulumi.Aws.Ssm
         public ActivationState()
         {
         }
+        public static new ActivationState Empty => new ActivationState();
     }
 }

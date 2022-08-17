@@ -18,39 +18,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRegexPatternSet, err := waf.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &waf.RegexPatternSetArgs{
-// 			RegexPatternStrings: pulumi.StringArray{
-// 				pulumi.String("one"),
-// 				pulumi.String("two"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = waf.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &waf.RegexMatchSetArgs{
-// 			RegexMatchTuples: waf.RegexMatchSetRegexMatchTupleArray{
-// 				&waf.RegexMatchSetRegexMatchTupleArgs{
-// 					FieldToMatch: &waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
-// 						Data: pulumi.String("User-Agent"),
-// 						Type: pulumi.String("HEADER"),
-// 					},
-// 					RegexPatternSetId:  exampleRegexPatternSet.ID(),
-// 					TextTransformation: pulumi.String("NONE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRegexPatternSet, err := waf.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &waf.RegexPatternSetArgs{
+//				RegexPatternStrings: pulumi.StringArray{
+//					pulumi.String("one"),
+//					pulumi.String("two"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = waf.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &waf.RegexMatchSetArgs{
+//				RegexMatchTuples: waf.RegexMatchSetRegexMatchTupleArray{
+//					&waf.RegexMatchSetRegexMatchTupleArgs{
+//						FieldToMatch: &waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
+//							Data: pulumi.String("User-Agent"),
+//							Type: pulumi.String("HEADER"),
+//						},
+//						RegexPatternSetId:  exampleRegexPatternSet.ID(),
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // WAF Regex Match Set can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type RegexMatchSet struct {
 	pulumi.CustomResourceState
@@ -162,7 +167,7 @@ func (i *RegexMatchSet) ToRegexMatchSetOutputWithContext(ctx context.Context) Re
 // RegexMatchSetArrayInput is an input type that accepts RegexMatchSetArray and RegexMatchSetArrayOutput values.
 // You can construct a concrete instance of `RegexMatchSetArrayInput` via:
 //
-//          RegexMatchSetArray{ RegexMatchSetArgs{...} }
+//	RegexMatchSetArray{ RegexMatchSetArgs{...} }
 type RegexMatchSetArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +192,7 @@ func (i RegexMatchSetArray) ToRegexMatchSetArrayOutputWithContext(ctx context.Co
 // RegexMatchSetMapInput is an input type that accepts RegexMatchSetMap and RegexMatchSetMapOutput values.
 // You can construct a concrete instance of `RegexMatchSetMapInput` via:
 //
-//          RegexMatchSetMap{ "key": RegexMatchSetArgs{...} }
+//	RegexMatchSetMap{ "key": RegexMatchSetArgs{...} }
 type RegexMatchSetMapInput interface {
 	pulumi.Input
 

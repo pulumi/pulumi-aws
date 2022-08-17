@@ -15,27 +15,25 @@ namespace Pulumi.Aws.Cognito
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cognito.RiskConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.Cognito.RiskConfiguration("example", new Aws.Cognito.RiskConfigurationArgs
+    ///         UserPoolId = aws_cognito_user_pool.Example.Id,
+    ///         RiskExceptionConfiguration = new Aws.Cognito.Inputs.RiskConfigurationRiskExceptionConfigurationArgs
     ///         {
-    ///             UserPoolId = aws_cognito_user_pool.Example.Id,
-    ///             RiskExceptionConfiguration = new Aws.Cognito.Inputs.RiskConfigurationRiskExceptionConfigurationArgs
+    ///             BlockedIpRangeLists = new[]
     ///             {
-    ///                 BlockedIpRangeLists = 
-    ///                 {
-    ///                     "10.10.10.10/32",
-    ///                 },
+    ///                 "10.10.10.10/32",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/riskConfiguration:RiskConfiguration")]
-    public partial class RiskConfiguration : Pulumi.CustomResource
+    public partial class RiskConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account takeover risk configuration. See details below.
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class RiskConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account takeover risk configuration. See details below.
@@ -162,9 +160,10 @@ namespace Pulumi.Aws.Cognito
         public RiskConfigurationArgs()
         {
         }
+        public static new RiskConfigurationArgs Empty => new RiskConfigurationArgs();
     }
 
-    public sealed class RiskConfigurationState : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account takeover risk configuration. See details below.
@@ -199,5 +198,6 @@ namespace Pulumi.Aws.Cognito
         public RiskConfigurationState()
         {
         }
+        public static new RiskConfigurationState Empty => new RiskConfigurationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the destination Lambda function to write to.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs();
     }
 }

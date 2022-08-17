@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class EndpointAccessVpcEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAccessVpcEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs>? _networkInterfaces;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public EndpointAccessVpcEndpointGetArgs()
         {
         }
+        public static new EndpointAccessVpcEndpointGetArgs Empty => new EndpointAccessVpcEndpointGetArgs();
     }
 }

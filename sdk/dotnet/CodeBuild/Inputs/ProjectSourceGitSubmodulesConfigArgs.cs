@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSourceGitSubmodulesConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSourceGitSubmodulesConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to fetch Git submodules for the AWS CodeBuild build project.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectSourceGitSubmodulesConfigArgs()
         {
         }
+        public static new ProjectSourceGitSubmodulesConfigArgs Empty => new ProjectSourceGitSubmodulesConfigArgs();
     }
 }

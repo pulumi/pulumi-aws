@@ -15,45 +15,43 @@ namespace Pulumi.Aws.AppMesh
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppMesh.GatewayRoute("example", new()
     ///     {
-    ///         var example = new Aws.AppMesh.GatewayRoute("example", new Aws.AppMesh.GatewayRouteArgs
+    ///         MeshName = "example-service-mesh",
+    ///         VirtualGatewayName = aws_appmesh_virtual_gateway.Example.Name,
+    ///         Spec = new Aws.AppMesh.Inputs.GatewayRouteSpecArgs
     ///         {
-    ///             MeshName = "example-service-mesh",
-    ///             VirtualGatewayName = aws_appmesh_virtual_gateway.Example.Name,
-    ///             Spec = new Aws.AppMesh.Inputs.GatewayRouteSpecArgs
+    ///             HttpRoute = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteArgs
     ///             {
-    ///                 HttpRoute = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteArgs
+    ///                 Action = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionArgs
     ///                 {
-    ///                     Action = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionArgs
+    ///                     Target = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetArgs
     ///                     {
-    ///                         Target = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetArgs
+    ///                         VirtualService = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs
     ///                         {
-    ///                             VirtualService = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs
-    ///                             {
-    ///                                 VirtualServiceName = aws_appmesh_virtual_service.Example.Name,
-    ///                             },
+    ///                             VirtualServiceName = aws_appmesh_virtual_service.Example.Name,
     ///                         },
     ///                     },
-    ///                     Match = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteMatchArgs
-    ///                     {
-    ///                         Prefix = "/",
-    ///                     },
+    ///                 },
+    ///                 Match = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteMatchArgs
+    ///                 {
+    ///                     Prefix = "/",
     ///                 },
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +65,7 @@ namespace Pulumi.Aws.AppMesh
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/gatewayRoute:GatewayRoute")]
-    public partial class GatewayRoute : Pulumi.CustomResource
+    public partial class GatewayRoute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the gateway route.
@@ -124,7 +122,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -179,7 +177,7 @@ namespace Pulumi.Aws.AppMesh
         }
     }
 
-    public sealed class GatewayRouteArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
@@ -226,9 +224,10 @@ namespace Pulumi.Aws.AppMesh
         public GatewayRouteArgs()
         {
         }
+        public static new GatewayRouteArgs Empty => new GatewayRouteArgs();
     }
 
-    public sealed class GatewayRouteState : Pulumi.ResourceArgs
+    public sealed class GatewayRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the gateway route.
@@ -294,7 +293,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -311,5 +310,6 @@ namespace Pulumi.Aws.AppMesh
         public GatewayRouteState()
         {
         }
+        public static new GatewayRouteState Empty => new GatewayRouteState();
     }
 }

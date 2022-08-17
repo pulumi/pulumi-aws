@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class PlanAdvancedBackupSettingArgs : Pulumi.ResourceArgs
+    public sealed class PlanAdvancedBackupSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupOptions", required: true)]
         private InputMap<string>? _backupOptions;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public PlanAdvancedBackupSettingArgs()
         {
         }
+        public static new PlanAdvancedBackupSettingArgs Empty => new PlanAdvancedBackupSettingArgs();
     }
 }

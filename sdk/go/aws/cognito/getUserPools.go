@@ -18,36 +18,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		selectedRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
-// 			Name: _var.Api_gateway_name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		selectedUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
-// 			Name: _var.Cognito_user_pool_name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
-// 			Type:         pulumi.String("COGNITO_USER_POOLS"),
-// 			RestApi:      pulumi.String(selectedRestApi.Id),
-// 			ProviderArns: interface{}(selectedUserPools.Arns),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			selectedRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+//				Name: _var.Api_gateway_name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			selectedUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
+//				Name: _var.Cognito_user_pool_name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
+//				Type:         pulumi.String("COGNITO_USER_POOLS"),
+//				RestApi:      pulumi.String(selectedRestApi.Id),
+//				ProviderArns: interface{}(selectedUserPools.Arns),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
 	var rv GetUserPoolsResult

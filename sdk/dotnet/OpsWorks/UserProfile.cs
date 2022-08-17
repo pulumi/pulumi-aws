@@ -15,25 +15,23 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new()
     ///     {
-    ///         var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new Aws.OpsWorks.UserProfileArgs
-    ///         {
-    ///             UserArn = aws_iam_user.User.Arn,
-    ///             SshUsername = "my_user",
-    ///         });
-    ///     }
+    ///         UserArn = aws_iam_user.User.Arn,
+    ///         SshUsername = "my_user",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/userProfile:UserProfile")]
-    public partial class UserProfile : Pulumi.CustomResource
+    public partial class UserProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether users can specify their own SSH public key through the My Settings page
@@ -103,7 +101,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class UserProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether users can specify their own SSH public key through the My Settings page
@@ -132,9 +130,10 @@ namespace Pulumi.Aws.OpsWorks
         public UserProfileArgs()
         {
         }
+        public static new UserProfileArgs Empty => new UserProfileArgs();
     }
 
-    public sealed class UserProfileState : Pulumi.ResourceArgs
+    public sealed class UserProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether users can specify their own SSH public key through the My Settings page
@@ -163,5 +162,6 @@ namespace Pulumi.Aws.OpsWorks
         public UserProfileState()
         {
         }
+        public static new UserProfileState Empty => new UserProfileState();
     }
 }

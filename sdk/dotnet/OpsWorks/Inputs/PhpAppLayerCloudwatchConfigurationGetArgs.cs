@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class PhpAppLayerCloudwatchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class PhpAppLayerCloudwatchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public PhpAppLayerCloudwatchConfigurationGetArgs()
         {
         }
+        public static new PhpAppLayerCloudwatchConfigurationGetArgs Empty => new PhpAppLayerCloudwatchConfigurationGetArgs();
     }
 }

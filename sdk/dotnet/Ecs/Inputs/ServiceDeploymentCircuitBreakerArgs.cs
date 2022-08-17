@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ServiceDeploymentCircuitBreakerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDeploymentCircuitBreakerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable the deployment circuit breaker logic for the service.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ServiceDeploymentCircuitBreakerArgs()
         {
         }
+        public static new ServiceDeploymentCircuitBreakerArgs Empty => new ServiceDeploymentCircuitBreakerArgs();
     }
 }

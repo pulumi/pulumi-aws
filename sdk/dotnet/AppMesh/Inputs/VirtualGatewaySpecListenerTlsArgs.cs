@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerTlsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The listener's TLS certificate.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerTlsArgs()
         {
         }
+        public static new VirtualGatewaySpecListenerTlsArgs Empty => new VirtualGatewaySpecListenerTlsArgs();
     }
 }

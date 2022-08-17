@@ -18,21 +18,19 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.TagOptionResourceAssociation("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.TagOptionResourceAssociation("example", new Aws.ServiceCatalog.TagOptionResourceAssociationArgs
-    ///         {
-    ///             ResourceId = "prod-dnigbtea24ste",
-    ///             TagOptionId = "tag-pjtvyakdlyo3m",
-    ///         });
-    ///     }
+    ///         ResourceId = "prod-dnigbtea24ste",
+    ///         TagOptionId = "tag-pjtvyakdlyo3m",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")]
-    public partial class TagOptionResourceAssociation : Pulumi.CustomResource
+    public partial class TagOptionResourceAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the resource.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class TagOptionResourceAssociationArgs : Pulumi.ResourceArgs
+    public sealed class TagOptionResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource identifier.
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public TagOptionResourceAssociationArgs()
         {
         }
+        public static new TagOptionResourceAssociationArgs Empty => new TagOptionResourceAssociationArgs();
     }
 
-    public sealed class TagOptionResourceAssociationState : Pulumi.ResourceArgs
+    public sealed class TagOptionResourceAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the resource.
@@ -186,5 +185,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public TagOptionResourceAssociationState()
         {
         }
+        public static new TagOptionResourceAssociationState Empty => new TagOptionResourceAssociationState();
     }
 }

@@ -20,33 +20,32 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.Ec2.GetVpnGateway.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.Ec2.GetVpnGateway.InvokeAsync(new Aws.Ec2.GetVpnGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpnGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpnGatewayFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "vpn-gw",
-        ///                     },
+        ///                     "vpn-gw",
         ///                 },
         ///             },
-        ///         }));
-        ///         this.VpnGatewayId = selected.Apply(selected =&gt; selected.Id);
-        ///     }
+        ///         },
+        ///     });
         /// 
-        ///     [Output("vpnGatewayId")]
-        ///     public Output&lt;string&gt; VpnGatewayId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["vpnGatewayId"] = selected.Apply(getVpnGatewayResult =&gt; getVpnGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,33 +62,32 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.Ec2.GetVpnGateway.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.Ec2.GetVpnGateway.InvokeAsync(new Aws.Ec2.GetVpnGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpnGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpnGatewayFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "vpn-gw",
-        ///                     },
+        ///                     "vpn-gw",
         ///                 },
         ///             },
-        ///         }));
-        ///         this.VpnGatewayId = selected.Apply(selected =&gt; selected.Id);
-        ///     }
+        ///         },
+        ///     });
         /// 
-        ///     [Output("vpnGatewayId")]
-        ///     public Output&lt;string&gt; VpnGatewayId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["vpnGatewayId"] = selected.Apply(getVpnGatewayResult =&gt; getVpnGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpnGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
@@ -159,9 +157,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpnGatewayArgs()
         {
         }
+        public static new GetVpnGatewayArgs Empty => new GetVpnGatewayArgs();
     }
 
-    public sealed class GetVpnGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
@@ -221,6 +220,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpnGatewayInvokeArgs()
         {
         }
+        public static new GetVpnGatewayInvokeArgs Empty => new GetVpnGatewayInvokeArgs();
     }
 
 

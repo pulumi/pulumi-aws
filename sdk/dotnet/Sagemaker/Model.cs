@@ -17,56 +17,57 @@ namespace Pulumi.Aws.Sagemaker
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var assumeRole = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "sagemaker.amazonaws.com",
-    ///                             },
+    ///                             "sagemaker.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = assumeRole.Apply(assumeRole =&gt; assumeRole.Json),
-    ///         });
-    ///         var test = Output.Create(Aws.Sagemaker.GetPrebuiltEcrImage.InvokeAsync(new Aws.Sagemaker.GetPrebuiltEcrImageArgs
-    ///         {
-    ///             RepositoryName = "kmeans",
-    ///         }));
-    ///         var exampleModel = new Aws.Sagemaker.Model("exampleModel", new Aws.Sagemaker.ModelArgs
-    ///         {
-    ///             ExecutionRoleArn = exampleRole.Arn,
-    ///             PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
-    ///             {
-    ///                 Image = test.Apply(test =&gt; test.RegistryPath),
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
+    ///     {
+    ///         RepositoryName = "kmeans",
+    ///     });
+    /// 
+    ///     var exampleModel = new Aws.Sagemaker.Model("exampleModel", new()
+    ///     {
+    ///         ExecutionRoleArn = exampleRole.Arn,
+    ///         PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
+    ///         {
+    ///             Image = test.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Inference Execution Config
     /// 
@@ -81,7 +82,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/model:Model")]
-    public partial class Model : Pulumi.CustomResource
+    public partial class Model : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this model.
@@ -132,7 +133,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -187,7 +188,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class ModelArgs : Pulumi.ResourceArgs
+    public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<Inputs.ModelContainerArgs>? _containers;
@@ -252,9 +253,10 @@ namespace Pulumi.Aws.Sagemaker
         public ModelArgs()
         {
         }
+        public static new ModelArgs Empty => new ModelArgs();
     }
 
-    public sealed class ModelState : Pulumi.ResourceArgs
+    public sealed class ModelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this model.
@@ -320,7 +322,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -337,5 +339,6 @@ namespace Pulumi.Aws.Sagemaker
         public ModelState()
         {
         }
+        public static new ModelState Empty => new ModelState();
     }
 }

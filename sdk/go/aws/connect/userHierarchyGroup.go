@@ -23,24 +23,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewUserHierarchyGroup(ctx, "example", &connect.UserHierarchyGroupArgs{
-// 			InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example User Hierarchy Group"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewUserHierarchyGroup(ctx, "example", &connect.UserHierarchyGroupArgs{
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example User Hierarchy Group"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With a parent group
 //
@@ -48,34 +51,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		parent, err := connect.NewUserHierarchyGroup(ctx, "parent", &connect.UserHierarchyGroupArgs{
-// 			InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example User Hierarchy Group Parent"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = connect.NewUserHierarchyGroup(ctx, "child", &connect.UserHierarchyGroupArgs{
-// 			InstanceId:    pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			ParentGroupId: parent.HierarchyGroupId,
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example User Hierarchy Group Child"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			parent, err := connect.NewUserHierarchyGroup(ctx, "parent", &connect.UserHierarchyGroupArgs{
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example User Hierarchy Group Parent"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = connect.NewUserHierarchyGroup(ctx, "child", &connect.UserHierarchyGroupArgs{
+//				InstanceId:    pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				ParentGroupId: parent.HierarchyGroupId,
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example User Hierarchy Group Child"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +89,9 @@ import (
 // Amazon Connect User Hierarchy Groups can be imported using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type UserHierarchyGroup struct {
 	pulumi.CustomResourceState
@@ -102,11 +110,8 @@ type UserHierarchyGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrOutput `pulumi:"parentGroupId"`
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewUserHierarchyGroup registers a new resource with the given unique name, arguments, and options.
@@ -154,12 +159,9 @@ type userHierarchyGroupState struct {
 	// The name of the user hierarchy group. Must not be more than 100 characters.
 	Name *string `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-	ParentGroupId *string `pulumi:"parentGroupId"`
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ParentGroupId *string           `pulumi:"parentGroupId"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
 }
 
 type UserHierarchyGroupState struct {
@@ -177,11 +179,8 @@ type UserHierarchyGroupState struct {
 	Name pulumi.StringPtrInput
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
 }
 
 func (UserHierarchyGroupState) ElementType() reflect.Type {
@@ -194,10 +193,8 @@ type userHierarchyGroupArgs struct {
 	// The name of the user hierarchy group. Must not be more than 100 characters.
 	Name *string `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-	ParentGroupId *string `pulumi:"parentGroupId"`
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ParentGroupId *string           `pulumi:"parentGroupId"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a UserHierarchyGroup resource.
@@ -208,9 +205,7 @@ type UserHierarchyGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags          pulumi.StringMapInput
 }
 
 func (UserHierarchyGroupArgs) ElementType() reflect.Type {
@@ -239,7 +234,7 @@ func (i *UserHierarchyGroup) ToUserHierarchyGroupOutputWithContext(ctx context.C
 // UserHierarchyGroupArrayInput is an input type that accepts UserHierarchyGroupArray and UserHierarchyGroupArrayOutput values.
 // You can construct a concrete instance of `UserHierarchyGroupArrayInput` via:
 //
-//          UserHierarchyGroupArray{ UserHierarchyGroupArgs{...} }
+//	UserHierarchyGroupArray{ UserHierarchyGroupArgs{...} }
 type UserHierarchyGroupArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +259,7 @@ func (i UserHierarchyGroupArray) ToUserHierarchyGroupArrayOutputWithContext(ctx 
 // UserHierarchyGroupMapInput is an input type that accepts UserHierarchyGroupMap and UserHierarchyGroupMapOutput values.
 // You can construct a concrete instance of `UserHierarchyGroupMapInput` via:
 //
-//          UserHierarchyGroupMap{ "key": UserHierarchyGroupArgs{...} }
+//	UserHierarchyGroupMap{ "key": UserHierarchyGroupArgs{...} }
 type UserHierarchyGroupMapInput interface {
 	pulumi.Input
 
@@ -335,13 +330,10 @@ func (o UserHierarchyGroupOutput) ParentGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.ParentGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Tags to apply to the hierarchy group. If configured with a provider
-// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserHierarchyGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o UserHierarchyGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class RulePredicateArgs : Pulumi.ResourceArgs
+    public sealed class RulePredicateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public RulePredicateArgs()
         {
         }
+        public static new RulePredicateArgs Empty => new RulePredicateArgs();
     }
 }

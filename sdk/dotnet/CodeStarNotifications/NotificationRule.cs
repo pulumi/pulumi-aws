@@ -15,72 +15,72 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var code = new Aws.CodeCommit.Repository("code", new()
     ///     {
-    ///         var code = new Aws.CodeCommit.Repository("code", new Aws.CodeCommit.RepositoryArgs
+    ///         RepositoryName = "example-code-repo",
+    ///     });
+    /// 
+    ///     var notif = new Aws.Sns.Topic("notif");
+    /// 
+    ///     var notifAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
     ///         {
-    ///             RepositoryName = "example-code-repo",
-    ///         });
-    ///         var notif = new Aws.Sns.Topic("notif", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var notifAccess = notif.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sns:Publish",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sns:Publish",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "codestar-notifications.amazonaws.com",
-    ///                             },
+    ///                             "codestar-notifications.amazonaws.com",
     ///                         },
     ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         arn,
-    ///                     },
     ///                 },
-    ///             },
-    ///         }));
-    ///         var @default = new Aws.Sns.TopicPolicy("default", new Aws.Sns.TopicPolicyArgs
-    ///         {
-    ///             Arn = notif.Arn,
-    ///             Policy = notifAccess.Apply(notifAccess =&gt; notifAccess.Json),
-    ///         });
-    ///         var commits = new Aws.CodeStarNotifications.NotificationRule("commits", new Aws.CodeStarNotifications.NotificationRuleArgs
-    ///         {
-    ///             DetailType = "BASIC",
-    ///             EventTypeIds = 
-    ///             {
-    ///                 "codecommit-repository-comments-on-commits",
-    ///             },
-    ///             Resource = code.Arn,
-    ///             Targets = 
-    ///             {
-    ///                 new Aws.CodeStarNotifications.Inputs.NotificationRuleTargetArgs
+    ///                 Resources = new[]
     ///                 {
-    ///                     Address = notif.Arn,
+    ///                     notif.Arn,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var @default = new Aws.Sns.TopicPolicy("default", new()
+    ///     {
+    ///         Arn = notif.Arn,
+    ///         Policy = notifAccess.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var commits = new Aws.CodeStarNotifications.NotificationRule("commits", new()
+    ///     {
+    ///         DetailType = "BASIC",
+    ///         EventTypeIds = new[]
+    ///         {
+    ///             "codecommit-repository-comments-on-commits",
+    ///         },
+    ///         Resource = code.Arn,
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.CodeStarNotifications.Inputs.NotificationRuleTargetArgs
+    ///             {
+    ///                 Address = notif.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// ```
     /// </summary>
     [AwsResourceType("aws:codestarnotifications/notificationRule:NotificationRule")]
-    public partial class NotificationRule : Pulumi.CustomResource
+    public partial class NotificationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The codestar notification rule ARN.
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         }
     }
 
-    public sealed class NotificationRuleArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
@@ -259,9 +259,10 @@ namespace Pulumi.Aws.CodeStarNotifications
         public NotificationRuleArgs()
         {
         }
+        public static new NotificationRuleArgs Empty => new NotificationRuleArgs();
     }
 
-    public sealed class NotificationRuleState : Pulumi.ResourceArgs
+    public sealed class NotificationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The codestar notification rule ARN.
@@ -322,7 +323,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -345,5 +346,6 @@ namespace Pulumi.Aws.CodeStarNotifications
         public NotificationRuleState()
         {
         }
+        public static new NotificationRuleState Empty => new NotificationRuleState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetNetworkInterfaceFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetNetworkInterfaceFilterArgs()
         {
         }
+        public static new GetNetworkInterfaceFilterArgs Empty => new GetNetworkInterfaceFilterArgs();
     }
 }

@@ -28,7 +28,7 @@ type ExperimentTemplateAction struct {
 // ExperimentTemplateActionInput is an input type that accepts ExperimentTemplateActionArgs and ExperimentTemplateActionOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionInput` via:
 //
-//          ExperimentTemplateActionArgs{...}
+//	ExperimentTemplateActionArgs{...}
 type ExperimentTemplateActionInput interface {
 	pulumi.Input
 
@@ -66,7 +66,7 @@ func (i ExperimentTemplateActionArgs) ToExperimentTemplateActionOutputWithContex
 // ExperimentTemplateActionArrayInput is an input type that accepts ExperimentTemplateActionArray and ExperimentTemplateActionArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionArrayInput` via:
 //
-//          ExperimentTemplateActionArray{ ExperimentTemplateActionArgs{...} }
+//	ExperimentTemplateActionArray{ ExperimentTemplateActionArgs{...} }
 type ExperimentTemplateActionArrayInput interface {
 	pulumi.Input
 
@@ -162,7 +162,7 @@ type ExperimentTemplateActionParameter struct {
 // ExperimentTemplateActionParameterInput is an input type that accepts ExperimentTemplateActionParameterArgs and ExperimentTemplateActionParameterOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionParameterInput` via:
 //
-//          ExperimentTemplateActionParameterArgs{...}
+//	ExperimentTemplateActionParameterArgs{...}
 type ExperimentTemplateActionParameterInput interface {
 	pulumi.Input
 
@@ -192,7 +192,7 @@ func (i ExperimentTemplateActionParameterArgs) ToExperimentTemplateActionParamet
 // ExperimentTemplateActionParameterArrayInput is an input type that accepts ExperimentTemplateActionParameterArray and ExperimentTemplateActionParameterArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionParameterArrayInput` via:
 //
-//          ExperimentTemplateActionParameterArray{ ExperimentTemplateActionParameterArgs{...} }
+//	ExperimentTemplateActionParameterArray{ ExperimentTemplateActionParameterArgs{...} }
 type ExperimentTemplateActionParameterArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +268,7 @@ type ExperimentTemplateActionTarget struct {
 // ExperimentTemplateActionTargetInput is an input type that accepts ExperimentTemplateActionTargetArgs and ExperimentTemplateActionTargetOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionTargetInput` via:
 //
-//          ExperimentTemplateActionTargetArgs{...}
+//	ExperimentTemplateActionTargetArgs{...}
 type ExperimentTemplateActionTargetInput interface {
 	pulumi.Input
 
@@ -306,11 +306,11 @@ func (i ExperimentTemplateActionTargetArgs) ToExperimentTemplateActionTargetPtrO
 // ExperimentTemplateActionTargetPtrInput is an input type that accepts ExperimentTemplateActionTargetArgs, ExperimentTemplateActionTargetPtr and ExperimentTemplateActionTargetPtrOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionTargetPtrInput` via:
 //
-//          ExperimentTemplateActionTargetArgs{...}
+//	        ExperimentTemplateActionTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentTemplateActionTargetPtrInput interface {
 	pulumi.Input
 
@@ -424,7 +424,7 @@ type ExperimentTemplateStopCondition struct {
 // ExperimentTemplateStopConditionInput is an input type that accepts ExperimentTemplateStopConditionArgs and ExperimentTemplateStopConditionOutput values.
 // You can construct a concrete instance of `ExperimentTemplateStopConditionInput` via:
 //
-//          ExperimentTemplateStopConditionArgs{...}
+//	ExperimentTemplateStopConditionArgs{...}
 type ExperimentTemplateStopConditionInput interface {
 	pulumi.Input
 
@@ -454,7 +454,7 @@ func (i ExperimentTemplateStopConditionArgs) ToExperimentTemplateStopConditionOu
 // ExperimentTemplateStopConditionArrayInput is an input type that accepts ExperimentTemplateStopConditionArray and ExperimentTemplateStopConditionArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateStopConditionArrayInput` via:
 //
-//          ExperimentTemplateStopConditionArray{ ExperimentTemplateStopConditionArgs{...} }
+//	ExperimentTemplateStopConditionArray{ ExperimentTemplateStopConditionArgs{...} }
 type ExperimentTemplateStopConditionArrayInput interface {
 	pulumi.Input
 
@@ -538,7 +538,7 @@ type ExperimentTemplateTarget struct {
 // ExperimentTemplateTargetInput is an input type that accepts ExperimentTemplateTargetArgs and ExperimentTemplateTargetOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetInput` via:
 //
-//          ExperimentTemplateTargetArgs{...}
+//	ExperimentTemplateTargetArgs{...}
 type ExperimentTemplateTargetInput interface {
 	pulumi.Input
 
@@ -576,7 +576,7 @@ func (i ExperimentTemplateTargetArgs) ToExperimentTemplateTargetOutputWithContex
 // ExperimentTemplateTargetArrayInput is an input type that accepts ExperimentTemplateTargetArray and ExperimentTemplateTargetArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetArrayInput` via:
 //
-//          ExperimentTemplateTargetArray{ ExperimentTemplateTargetArgs{...} }
+//	ExperimentTemplateTargetArray{ ExperimentTemplateTargetArgs{...} }
 type ExperimentTemplateTargetArrayInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ type ExperimentTemplateTargetFilter struct {
 // ExperimentTemplateTargetFilterInput is an input type that accepts ExperimentTemplateTargetFilterArgs and ExperimentTemplateTargetFilterOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetFilterInput` via:
 //
-//          ExperimentTemplateTargetFilterArgs{...}
+//	ExperimentTemplateTargetFilterArgs{...}
 type ExperimentTemplateTargetFilterInput interface {
 	pulumi.Input
 
@@ -702,7 +702,7 @@ func (i ExperimentTemplateTargetFilterArgs) ToExperimentTemplateTargetFilterOutp
 // ExperimentTemplateTargetFilterArrayInput is an input type that accepts ExperimentTemplateTargetFilterArray and ExperimentTemplateTargetFilterArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetFilterArrayInput` via:
 //
-//          ExperimentTemplateTargetFilterArray{ ExperimentTemplateTargetFilterArgs{...} }
+//	ExperimentTemplateTargetFilterArray{ ExperimentTemplateTargetFilterArgs{...} }
 type ExperimentTemplateTargetFilterArrayInput interface {
 	pulumi.Input
 
@@ -778,7 +778,7 @@ type ExperimentTemplateTargetResourceTag struct {
 // ExperimentTemplateTargetResourceTagInput is an input type that accepts ExperimentTemplateTargetResourceTagArgs and ExperimentTemplateTargetResourceTagOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetResourceTagInput` via:
 //
-//          ExperimentTemplateTargetResourceTagArgs{...}
+//	ExperimentTemplateTargetResourceTagArgs{...}
 type ExperimentTemplateTargetResourceTagInput interface {
 	pulumi.Input
 
@@ -808,7 +808,7 @@ func (i ExperimentTemplateTargetResourceTagArgs) ToExperimentTemplateTargetResou
 // ExperimentTemplateTargetResourceTagArrayInput is an input type that accepts ExperimentTemplateTargetResourceTagArray and ExperimentTemplateTargetResourceTagArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetResourceTagArrayInput` via:
 //
-//          ExperimentTemplateTargetResourceTagArray{ ExperimentTemplateTargetResourceTagArgs{...} }
+//	ExperimentTemplateTargetResourceTagArray{ ExperimentTemplateTargetResourceTagArgs{...} }
 type ExperimentTemplateTargetResourceTagArrayInput interface {
 	pulumi.Input
 

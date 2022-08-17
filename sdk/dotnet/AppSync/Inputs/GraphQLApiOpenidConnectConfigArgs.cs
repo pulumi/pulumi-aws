@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiOpenidConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiOpenidConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of milliseconds a token is valid after being authenticated.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public GraphQLApiOpenidConnectConfigArgs()
         {
         }
+        public static new GraphQLApiOpenidConnectConfigArgs Empty => new GraphQLApiOpenidConnectConfigArgs();
     }
 }

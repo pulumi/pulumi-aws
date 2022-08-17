@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApp, err := amplify.NewApp(ctx, "exampleApp", &amplify.AppArgs{
-// 			CustomRules: amplify.AppCustomRuleArray{
-// 				&amplify.AppCustomRuleArgs{
-// 					Source: pulumi.String("https://example.com"),
-// 					Status: pulumi.String("302"),
-// 					Target: pulumi.String("https://www.example.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-// 			AppId:      exampleApp.ID(),
-// 			BranchName: pulumi.String("master"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = amplify.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify.DomainAssociationArgs{
-// 			AppId:      exampleApp.ID(),
-// 			DomainName: pulumi.String("example.com"),
-// 			SubDomains: amplify.DomainAssociationSubDomainArray{
-// 				&amplify.DomainAssociationSubDomainArgs{
-// 					BranchName: master.BranchName,
-// 					Prefix:     pulumi.String(""),
-// 				},
-// 				&amplify.DomainAssociationSubDomainArgs{
-// 					BranchName: master.BranchName,
-// 					Prefix:     pulumi.String("www"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", &amplify.AppArgs{
+//				CustomRules: amplify.AppCustomRuleArray{
+//					&amplify.AppCustomRuleArgs{
+//						Source: pulumi.String("https://example.com"),
+//						Status: pulumi.String("302"),
+//						Target: pulumi.String("https://www.example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+//				AppId:      exampleApp.ID(),
+//				BranchName: pulumi.String("master"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amplify.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify.DomainAssociationArgs{
+//				AppId:      exampleApp.ID(),
+//				DomainName: pulumi.String("example.com"),
+//				SubDomains: amplify.DomainAssociationSubDomainArray{
+//					&amplify.DomainAssociationSubDomainArgs{
+//						BranchName: master.BranchName,
+//						Prefix:     pulumi.String(""),
+//					},
+//					&amplify.DomainAssociationSubDomainArgs{
+//						BranchName: master.BranchName,
+//						Prefix:     pulumi.String("www"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+//
+//	$ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+//
 // ```
 type DomainAssociation struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *DomainAssociation) ToDomainAssociationOutputWithContext(ctx context.Con
 // DomainAssociationArrayInput is an input type that accepts DomainAssociationArray and DomainAssociationArrayOutput values.
 // You can construct a concrete instance of `DomainAssociationArrayInput` via:
 //
-//          DomainAssociationArray{ DomainAssociationArgs{...} }
+//	DomainAssociationArray{ DomainAssociationArgs{...} }
 type DomainAssociationArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i DomainAssociationArray) ToDomainAssociationArrayOutputWithContext(ctx co
 // DomainAssociationMapInput is an input type that accepts DomainAssociationMap and DomainAssociationMapOutput values.
 // You can construct a concrete instance of `DomainAssociationMapInput` via:
 //
-//          DomainAssociationMap{ "key": DomainAssociationArgs{...} }
+//	DomainAssociationMap{ "key": DomainAssociationArgs{...} }
 type DomainAssociationMapInput interface {
 	pulumi.Input
 

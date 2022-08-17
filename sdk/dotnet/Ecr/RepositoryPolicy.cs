@@ -17,20 +17,18 @@ namespace Pulumi.Aws.Ecr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ecr.Repository("foo");
+    /// 
+    ///     var foopolicy = new Aws.Ecr.RepositoryPolicy("foopolicy", new()
     ///     {
-    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var foopolicy = new Aws.Ecr.RepositoryPolicy("foopolicy", new Aws.Ecr.RepositoryPolicyArgs
-    ///         {
-    ///             Repository = foo.Name,
-    ///             Policy = @"{
+    ///         Repository = foo.Name,
+    ///         Policy = @"{
     ///     ""Version"": ""2008-10-17"",
     ///     ""Statement"": [
     ///         {
@@ -57,10 +55,9 @@ namespace Pulumi.Aws.Ecr
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +69,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/repositoryPolicy:RepositoryPolicy")]
-    public partial class RepositoryPolicy : Pulumi.CustomResource
+    public partial class RepositoryPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -136,7 +133,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class RepositoryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -153,9 +150,10 @@ namespace Pulumi.Aws.Ecr
         public RepositoryPolicyArgs()
         {
         }
+        public static new RepositoryPolicyArgs Empty => new RepositoryPolicyArgs();
     }
 
-    public sealed class RepositoryPolicyState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -178,5 +176,6 @@ namespace Pulumi.Aws.Ecr
         public RepositoryPolicyState()
         {
         }
+        public static new RepositoryPolicyState Empty => new RepositoryPolicyState();
     }
 }

@@ -31,14 +31,14 @@ public final class TaskExcludesArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A single filter string that consists of the patterns to include or exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
+     * A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return A single filter string that consists of the patterns to include or exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
+     * @return A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
      * 
      */
     public Optional<Output<String>> value() {
@@ -92,7 +92,7 @@ public final class TaskExcludesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value A single filter string that consists of the patterns to include or exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
+         * @param value A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TaskExcludesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value A single filter string that consists of the patterns to include or exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
+         * @param value A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
          * 
          * @return builder
          * 

@@ -15,30 +15,28 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("exampleProductSubscription", new Aws.SecurityHub.ProductSubscriptionArgs
-    ///         {
-    ///             ProductArn = current.Apply(current =&gt; $"arn:aws:securityhub:{current.Name}:733251395267:product/alertlogic/althreatmanagement"),
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("exampleProductSubscription", new()
+    ///     {
+    ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:733251395267:product/alertlogic/althreatmanagement",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/productSubscription:ProductSubscription")]
-    public partial class ProductSubscription : Pulumi.CustomResource
+    public partial class ProductSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class ProductSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class ProductSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -119,9 +117,10 @@ namespace Pulumi.Aws.SecurityHub
         public ProductSubscriptionArgs()
         {
         }
+        public static new ProductSubscriptionArgs Empty => new ProductSubscriptionArgs();
     }
 
-    public sealed class ProductSubscriptionState : Pulumi.ResourceArgs
+    public sealed class ProductSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
@@ -138,5 +137,6 @@ namespace Pulumi.Aws.SecurityHub
         public ProductSubscriptionState()
         {
         }
+        public static new ProductSubscriptionState Empty => new ProductSubscriptionState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetSqsTargetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetSqsTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FIFO message group ID to use as the target.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetSqsTargetArgs()
         {
         }
+        public static new EventTargetSqsTargetArgs Empty => new EventTargetSqsTargetArgs();
     }
 }

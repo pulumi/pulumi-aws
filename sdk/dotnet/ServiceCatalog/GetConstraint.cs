@@ -20,21 +20,19 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetConstraint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetConstraint.InvokeAsync(new Aws.ServiceCatalog.GetConstraintArgs
-        ///         {
-        ///             AcceptLanguage = "en",
-        ///             Id = "cons-hrvy0335",
-        ///         }));
-        ///     }
+        ///         AcceptLanguage = "en",
+        ///         Id = "cons-hrvy0335",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetConstraint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetConstraint.InvokeAsync(new Aws.ServiceCatalog.GetConstraintArgs
-        ///         {
-        ///             AcceptLanguage = "en",
-        ///             Id = "cons-hrvy0335",
-        ///         }));
-        ///     }
+        ///         AcceptLanguage = "en",
+        ///         Id = "cons-hrvy0335",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.ServiceCatalog
     }
 
 
-    public sealed class GetConstraintArgs : Pulumi.InvokeArgs
+    public sealed class GetConstraintArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -98,9 +94,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetConstraintArgs()
         {
         }
+        public static new GetConstraintArgs Empty => new GetConstraintArgs();
     }
 
-    public sealed class GetConstraintInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConstraintInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -123,6 +120,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetConstraintInvokeArgs()
         {
         }
+        public static new GetConstraintInvokeArgs Empty => new GetConstraintInvokeArgs();
     }
 
 

@@ -19,22 +19,20 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ApiGatewayV2.GetExport.InvokeAsync(new Aws.ApiGatewayV2.GetExportArgs
-        ///         {
-        ///             ApiId = aws_apigatewayv2_route.Test.Api_id,
-        ///             Specification = "OAS30",
-        ///             OutputType = "JSON",
-        ///         }));
-        ///     }
+        ///         ApiId = aws_apigatewayv2_route.Test.Api_id,
+        ///         Specification = "OAS30",
+        ///         OutputType = "JSON",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ApiGatewayV2.GetExport.InvokeAsync(new Aws.ApiGatewayV2.GetExportArgs
-        ///         {
-        ///             ApiId = aws_apigatewayv2_route.Test.Api_id,
-        ///             Specification = "OAS30",
-        ///             OutputType = "JSON",
-        ///         }));
-        ///     }
+        ///         ApiId = aws_apigatewayv2_route.Test.Api_id,
+        ///         Specification = "OAS30",
+        ///         OutputType = "JSON",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     }
 
 
-    public sealed class GetExportArgs : Pulumi.InvokeArgs
+    public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The API identifier.
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public GetExportArgs()
         {
         }
+        public static new GetExportArgs Empty => new GetExportArgs();
     }
 
-    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The API identifier.
@@ -159,6 +156,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public GetExportInvokeArgs()
         {
         }
+        public static new GetExportInvokeArgs Empty => new GetExportInvokeArgs();
     }
 
 

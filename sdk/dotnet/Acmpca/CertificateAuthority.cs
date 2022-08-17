@@ -18,111 +18,108 @@ namespace Pulumi.Aws.Acmpca
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
-    ///         var example = new Aws.Acmpca.CertificateAuthority("example", new Aws.Acmpca.CertificateAuthorityArgs
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
-    ///                 KeyAlgorithm = "RSA_4096",
-    ///                 SigningAlgorithm = "SHA512WITHRSA",
-    ///                 Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///                 {
-    ///                     CommonName = "example.com",
-    ///                 },
+    ///                 CommonName = "example.com",
     ///             },
-    ///             PermanentDeletionTimeInDays = 7,
-    ///         });
-    ///     }
+    ///         },
+    ///         PermanentDeletionTimeInDays = 7,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Enable Certificate Revocation List
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var acmpcaBucketAccess = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
-    ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "s3:GetBucketAcl",
-    ///                         "s3:GetBucketLocation",
-    ///                         "s3:PutObject",
-    ///                         "s3:PutObjectAcl",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         exampleBucketV2.Arn,
-    ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "acm-pca.amazonaws.com",
-    ///                             },
-    ///                             Type = "Service",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new Aws.S3.BucketPolicyArgs
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Policy = acmpcaBucketAccess.Apply(acmpcaBucketAccess =&gt; acmpcaBucketAccess.Json),
-    ///         });
-    ///         var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new Aws.Acmpca.CertificateAuthorityArgs
-    ///         {
-    ///             CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///             {
-    ///                 KeyAlgorithm = "RSA_4096",
-    ///                 SigningAlgorithm = "SHA512WITHRSA",
-    ///                 Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///                 {
-    ///                     CommonName = "example.com",
-    ///                 },
-    ///             },
-    ///             RevocationConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationArgs
-    ///             {
-    ///                 CrlConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs
-    ///                 {
-    ///                     CustomCname = "crl.example.com",
-    ///                     Enabled = true,
-    ///                     ExpirationInDays = 7,
-    ///                     S3BucketName = exampleBucketV2.Id,
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleBucketPolicy,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var acmpcaBucketAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetBucketAcl",
+    ///                     "s3:GetBucketLocation",
+    ///                     "s3:PutObject",
+    ///                     "s3:PutObjectAcl",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleBucketV2.Arn,
+    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "acm-pca.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Policy = acmpcaBucketAccess.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     {
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             {
+    ///                 CommonName = "example.com",
+    ///             },
+    ///         },
+    ///         RevocationConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationArgs
+    ///         {
+    ///             CrlConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs
+    ///             {
+    ///                 CustomCname = "crl.example.com",
+    ///                 Enabled = true,
+    ///                 ExpirationInDays = 7,
+    ///                 S3BucketName = exampleBucketV2.Id,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleBucketPolicy,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -134,7 +131,7 @@ namespace Pulumi.Aws.Acmpca
     /// ```
     /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
-    public partial class CertificateAuthority : Pulumi.CustomResource
+    public partial class CertificateAuthority : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate authority.
@@ -270,7 +267,7 @@ namespace Pulumi.Aws.Acmpca
         }
     }
 
-    public sealed class CertificateAuthorityArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested argument containing algorithms and certificate subject information. Defined below.
@@ -317,9 +314,10 @@ namespace Pulumi.Aws.Acmpca
         public CertificateAuthorityArgs()
         {
         }
+        public static new CertificateAuthorityArgs Empty => new CertificateAuthorityArgs();
     }
 
-    public sealed class CertificateAuthorityState : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate authority.
@@ -426,5 +424,6 @@ namespace Pulumi.Aws.Acmpca
         public CertificateAuthorityState()
         {
         }
+        public static new CertificateAuthorityState Empty => new CertificateAuthorityState();
     }
 }

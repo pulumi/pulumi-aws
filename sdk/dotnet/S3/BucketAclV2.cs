@@ -14,74 +14,69 @@ namespace Pulumi.Aws.S3
     /// ### With ACL
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAcl = new Aws.S3.BucketAclV2("exampleBucketAcl", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = example.Id,
-    ///             Acl = "private",
-    ///         });
-    ///     }
+    ///     var example = new Aws.S3.BucketV2("example");
     /// 
-    /// }
+    ///     var exampleBucketAcl = new Aws.S3.BucketAclV2("exampleBucketAcl", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Grants
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
+    /// 
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
     ///     {
-    ///         var current = Output.Create(Aws.S3.GetCanonicalUserId.InvokeAsync());
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+    ///         Bucket = exampleBucketV2.Id,
+    ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
     ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
+    ///             Grants = new[]
     ///             {
-    ///                 Grants = 
+    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
     ///                 {
-    ///                     new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
+    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
     ///                     {
-    ///                         Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-    ///                         {
-    ///                             Id = current.Apply(current =&gt; current.Id),
-    ///                             Type = "CanonicalUser",
-    ///                         },
-    ///                         Permission = "READ",
+    ///                         Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+    ///                         Type = "CanonicalUser",
     ///                     },
-    ///                     new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
-    ///                     {
-    ///                         Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-    ///                         {
-    ///                             Type = "Group",
-    ///                             Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
-    ///                         },
-    ///                         Permission = "READ_ACP",
-    ///                     },
+    ///                     Permission = "READ",
     ///                 },
-    ///                 Owner = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyOwnerArgs
+    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
     ///                 {
-    ///                     Id = current.Apply(current =&gt; current.Id),
+    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
+    ///                     {
+    ///                         Type = "Group",
+    ///                         Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
+    ///                     },
+    ///                     Permission = "READ_ACP",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             Owner = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyOwnerArgs
+    ///             {
+    ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -113,7 +108,7 @@ namespace Pulumi.Aws.S3
     ///  [1]https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
     /// </summary>
     [AwsResourceType("aws:s3/bucketAclV2:BucketAclV2")]
-    public partial class BucketAclV2 : Pulumi.CustomResource
+    public partial class BucketAclV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A configuration block that sets the ACL permissions for an object per grantee documented below.
@@ -183,7 +178,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketAclV2Args : Pulumi.ResourceArgs
+    public sealed class BucketAclV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that sets the ACL permissions for an object per grantee documented below.
@@ -212,9 +207,10 @@ namespace Pulumi.Aws.S3
         public BucketAclV2Args()
         {
         }
+        public static new BucketAclV2Args Empty => new BucketAclV2Args();
     }
 
-    public sealed class BucketAclV2State : Pulumi.ResourceArgs
+    public sealed class BucketAclV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that sets the ACL permissions for an object per grantee documented below.
@@ -243,5 +239,6 @@ namespace Pulumi.Aws.S3
         public BucketAclV2State()
         {
         }
+        public static new BucketAclV2State Empty => new BucketAclV2State();
     }
 }

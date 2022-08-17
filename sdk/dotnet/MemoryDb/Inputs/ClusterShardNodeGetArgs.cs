@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb.Inputs
 {
 
-    public sealed class ClusterShardNodeGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterShardNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone in which the node resides.
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public ClusterShardNodeGetArgs()
         {
         }
+        public static new ClusterShardNodeGetArgs Empty => new ClusterShardNodeGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceInstanceConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceInstanceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceInstanceConfigurationGetArgs()
         {
         }
+        public static new ServiceInstanceConfigurationGetArgs Empty => new ServiceInstanceConfigurationGetArgs();
     }
 }

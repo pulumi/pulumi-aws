@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceDiscovery.Inputs
 {
 
-    public sealed class ServiceHealthCheckConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHealthCheckConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
         public ServiceHealthCheckConfigGetArgs()
         {
         }
+        public static new ServiceHealthCheckConfigGetArgs Empty => new ServiceHealthCheckConfigGetArgs();
     }
 }

@@ -16,44 +16,42 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.RoutingProfile("example", new()
     ///     {
-    ///         var example = new Aws.Connect.RoutingProfile("example", new Aws.Connect.RoutingProfileArgs
+    ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
+    ///         Description = "example description",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         MediaConcurrencies = new[]
     ///         {
-    ///             DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
-    ///             Description = "example description",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             MediaConcurrencies = 
+    ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
     ///             {
-    ///                 new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
-    ///                 {
-    ///                     Channel = "VOICE",
-    ///                     Concurrency = 1,
-    ///                 },
+    ///                 Channel = "VOICE",
+    ///                 Concurrency = 1,
     ///             },
-    ///             QueueConfigs = 
+    ///         },
+    ///         QueueConfigs = new[]
+    ///         {
+    ///             new Aws.Connect.Inputs.RoutingProfileQueueConfigArgs
     ///             {
-    ///                 new Aws.Connect.Inputs.RoutingProfileQueueConfigArgs
-    ///                 {
-    ///                     Channel = "VOICE",
-    ///                     Delay = 2,
-    ///                     Priority = 1,
-    ///                     QueueId = "12345678-1234-1234-1234-123456789012",
-    ///                 },
+    ///                 Channel = "VOICE",
+    ///                 Delay = 2,
+    ///                 Priority = 1,
+    ///                 QueueId = "12345678-1234-1234-1234-123456789012",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Routing Profile" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Routing Profile" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +63,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/routingProfile:RoutingProfile")]
-    public partial class RoutingProfile : Pulumi.CustomResource
+    public partial class RoutingProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Routing Profile.
@@ -118,16 +116,9 @@ namespace Pulumi.Aws.Connect
         [Output("routingProfileId")]
         public Output<string> RoutingProfileId { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the Routing Profile. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -175,7 +166,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class RoutingProfileArgs : Pulumi.ResourceArgs
+    public sealed class RoutingProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the default outbound queue for the Routing Profile.
@@ -227,11 +218,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Routing Profile. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -241,9 +227,10 @@ namespace Pulumi.Aws.Connect
         public RoutingProfileArgs()
         {
         }
+        public static new RoutingProfileArgs Empty => new RoutingProfileArgs();
     }
 
-    public sealed class RoutingProfileState : Pulumi.ResourceArgs
+    public sealed class RoutingProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Routing Profile.
@@ -315,11 +302,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Routing Profile. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -328,10 +310,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -341,5 +319,6 @@ namespace Pulumi.Aws.Connect
         public RoutingProfileState()
         {
         }
+        public static new RoutingProfileState Empty => new RoutingProfileState();
     }
 }

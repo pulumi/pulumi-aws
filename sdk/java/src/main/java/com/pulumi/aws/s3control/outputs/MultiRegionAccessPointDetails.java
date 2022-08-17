@@ -14,20 +14,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiRegionAccessPointDetails {
-    /**
-     * @return The name of the Multi-Region Access Point.
-     * 
-     */
     private final String name;
-    /**
-     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-     * 
-     */
     private final @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock;
-    /**
-     * @return The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     */
     private final List<MultiRegionAccessPointDetailsRegion> regions;
 
     @CustomType.Constructor
@@ -40,24 +28,12 @@ public final class MultiRegionAccessPointDetails {
         this.regions = regions;
     }
 
-    /**
-     * @return The name of the Multi-Region Access Point.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-     * 
-     */
     public Optional<MultiRegionAccessPointDetailsPublicAccessBlock> publicAccessBlock() {
         return Optional.ofNullable(this.publicAccessBlock);
     }
-    /**
-     * @return The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     */
     public List<MultiRegionAccessPointDetailsRegion> regions() {
         return this.regions;
     }

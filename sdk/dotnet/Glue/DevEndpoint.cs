@@ -17,53 +17,54 @@ namespace Pulumi.Aws.Glue
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var examplePolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "glue.amazonaws.com",
-    ///                             },
+    ///                             "glue.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
-    ///         });
-    ///         var exampleDevEndpoint = new Aws.Glue.DevEndpoint("exampleDevEndpoint", new Aws.Glue.DevEndpointArgs
-    ///         {
-    ///             RoleArn = exampleRole.Arn,
-    ///         });
-    ///         var example_AWSGlueServiceRole = new Aws.Iam.RolePolicyAttachment("example-AWSGlueServiceRole", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
-    ///             Role = exampleRole.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleDevEndpoint = new Aws.Glue.DevEndpoint("exampleDevEndpoint", new()
+    ///     {
+    ///         RoleArn = exampleRole.Arn,
+    ///     });
+    /// 
+    ///     var example_AWSGlueServiceRole = new Aws.Iam.RolePolicyAttachment("example-AWSGlueServiceRole", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +76,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/devEndpoint:DevEndpoint")]
-    public partial class DevEndpoint : Pulumi.CustomResource
+    public partial class DevEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of arguments used to configure the endpoint.
@@ -271,7 +272,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class DevEndpointArgs : Pulumi.ResourceArgs
+    public sealed class DevEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputMap<object>? _arguments;
@@ -390,9 +391,10 @@ namespace Pulumi.Aws.Glue
         public DevEndpointArgs()
         {
         }
+        public static new DevEndpointArgs Empty => new DevEndpointArgs();
     }
 
-    public sealed class DevEndpointState : Pulumi.ResourceArgs
+    public sealed class DevEndpointState : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputMap<object>? _arguments;
@@ -577,5 +579,6 @@ namespace Pulumi.Aws.Glue
         public DevEndpointState()
         {
         }
+        public static new DevEndpointState Empty => new DevEndpointState();
     }
 }

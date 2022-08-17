@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Kendra.GetFaq.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Kendra.GetFaq.InvokeAsync(new Aws.Kendra.GetFaqArgs
-        ///         {
-        ///             FaqId = "87654321-1234-4321-4321-321987654321",
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         }));
-        ///     }
+        ///         FaqId = "87654321-1234-4321-4321-321987654321",
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Kendra.GetFaq.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Kendra.GetFaq.InvokeAsync(new Aws.Kendra.GetFaqArgs
-        ///         {
-        ///             FaqId = "87654321-1234-4321-4321-321987654321",
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         }));
-        ///     }
+        ///         FaqId = "87654321-1234-4321-4321-321987654321",
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Kendra
     }
 
 
-    public sealed class GetFaqArgs : Pulumi.InvokeArgs
+    public sealed class GetFaqArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the FAQ.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.Kendra
         public GetFaqArgs()
         {
         }
+        public static new GetFaqArgs Empty => new GetFaqArgs();
     }
 
-    public sealed class GetFaqInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFaqInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the FAQ.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.Kendra
         public GetFaqInvokeArgs()
         {
         }
+        public static new GetFaqInvokeArgs Empty => new GetFaqInvokeArgs();
     }
 
 

@@ -15,62 +15,60 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppStream.Stack("example", new()
     ///     {
-    ///         var example = new Aws.AppStream.Stack("example", new Aws.AppStream.StackArgs
+    ///         ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
     ///         {
-    ///             ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
+    ///             Enabled = true,
+    ///             SettingsGroup = "SettingsGroup",
+    ///         },
+    ///         Description = "stack description",
+    ///         DisplayName = "stack display name",
+    ///         FeedbackUrl = "http://your-domain/feedback",
+    ///         RedirectUrl = "http://your-domain/redirect",
+    ///         StorageConnectors = new[]
+    ///         {
+    ///             new Aws.AppStream.Inputs.StackStorageConnectorArgs
     ///             {
-    ///                 Enabled = true,
-    ///                 SettingsGroup = "SettingsGroup",
+    ///                 ConnectorType = "HOMEFOLDERS",
     ///             },
-    ///             Description = "stack description",
-    ///             DisplayName = "stack display name",
-    ///             FeedbackUrl = "http://your-domain/feedback",
-    ///             RedirectUrl = "http://your-domain/redirect",
-    ///             StorageConnectors = 
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "TagName", "TagValue" },
+    ///         },
+    ///         UserSettings = new[]
+    ///         {
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
     ///             {
-    ///                 new Aws.AppStream.Inputs.StackStorageConnectorArgs
-    ///                 {
-    ///                     ConnectorType = "HOMEFOLDERS",
-    ///                 },
+    ///                 Action = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+    ///                 Permission = "ENABLED",
     ///             },
-    ///             Tags = 
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
     ///             {
-    ///                 { "TagName", "TagValue" },
+    ///                 Action = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+    ///                 Permission = "ENABLED",
     ///             },
-    ///             UserSettings = 
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
     ///             {
-    ///                 new Aws.AppStream.Inputs.StackUserSettingArgs
-    ///                 {
-    ///                     Action = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-    ///                     Permission = "ENABLED",
-    ///                 },
-    ///                 new Aws.AppStream.Inputs.StackUserSettingArgs
-    ///                 {
-    ///                     Action = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-    ///                     Permission = "ENABLED",
-    ///                 },
-    ///                 new Aws.AppStream.Inputs.StackUserSettingArgs
-    ///                 {
-    ///                     Action = "FILE_UPLOAD",
-    ///                     Permission = "ENABLED",
-    ///                 },
-    ///                 new Aws.AppStream.Inputs.StackUserSettingArgs
-    ///                 {
-    ///                     Action = "FILE_DOWNLOAD",
-    ///                     Permission = "ENABLED",
-    ///                 },
+    ///                 Action = "FILE_UPLOAD",
+    ///                 Permission = "ENABLED",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             {
+    ///                 Action = "FILE_DOWNLOAD",
+    ///                 Permission = "ENABLED",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,8 +80,11 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/stack:Stack")]
-    public partial class Stack : Pulumi.CustomResource
+    public partial class Stack : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        /// </summary>
         [Output("accessEndpoints")]
         public Output<ImmutableArray<Outputs.StackAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
@@ -203,10 +204,14 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class StackArgs : Pulumi.ResourceArgs
+    public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessEndpoints")]
         private InputList<Inputs.StackAccessEndpointArgs>? _accessEndpoints;
+
+        /// <summary>
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        /// </summary>
         public InputList<Inputs.StackAccessEndpointArgs> AccessEndpoints
         {
             get => _accessEndpoints ?? (_accessEndpoints = new InputList<Inputs.StackAccessEndpointArgs>());
@@ -296,12 +301,17 @@ namespace Pulumi.Aws.AppStream
         public StackArgs()
         {
         }
+        public static new StackArgs Empty => new StackArgs();
     }
 
-    public sealed class StackState : Pulumi.ResourceArgs
+    public sealed class StackState : global::Pulumi.ResourceArgs
     {
         [Input("accessEndpoints")]
         private InputList<Inputs.StackAccessEndpointGetArgs>? _accessEndpoints;
+
+        /// <summary>
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        /// </summary>
         public InputList<Inputs.StackAccessEndpointGetArgs> AccessEndpoints
         {
             get => _accessEndpoints ?? (_accessEndpoints = new InputList<Inputs.StackAccessEndpointGetArgs>());
@@ -411,5 +421,6 @@ namespace Pulumi.Aws.AppStream
         public StackState()
         {
         }
+        public static new StackState Empty => new StackState();
     }
 }

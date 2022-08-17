@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupWarmPoolInstanceReusePolicyArgs : Pulumi.ResourceArgs
+    public sealed class GroupWarmPoolInstanceReusePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupWarmPoolInstanceReusePolicyArgs()
         {
         }
+        public static new GroupWarmPoolInstanceReusePolicyArgs Empty => new GroupWarmPoolInstanceReusePolicyArgs();
     }
 }

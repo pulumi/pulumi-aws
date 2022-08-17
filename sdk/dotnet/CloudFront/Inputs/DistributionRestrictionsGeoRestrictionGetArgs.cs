@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionRestrictionsGeoRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionRestrictionsGeoRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<string>? _locations;
@@ -37,5 +37,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionRestrictionsGeoRestrictionGetArgs()
         {
         }
+        public static new DistributionRestrictionsGeoRestrictionGetArgs Empty => new DistributionRestrictionsGeoRestrictionGetArgs();
     }
 }

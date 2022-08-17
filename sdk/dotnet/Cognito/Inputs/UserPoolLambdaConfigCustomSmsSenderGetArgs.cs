@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolLambdaConfigCustomSmsSenderGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolLambdaConfigCustomSmsSenderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolLambdaConfigCustomSmsSenderGetArgs()
         {
         }
+        public static new UserPoolLambdaConfigCustomSmsSenderGetArgs Empty => new UserPoolLambdaConfigCustomSmsSenderGetArgs();
     }
 }

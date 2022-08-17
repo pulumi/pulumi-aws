@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketNotificationTopicArgs : Pulumi.ResourceArgs
+    public sealed class BucketNotificationTopicArgs : global::Pulumi.ResourceArgs
     {
         [Input("events", required: true)]
         private InputList<string>? _events;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketNotificationTopicArgs()
         {
         }
+        public static new BucketNotificationTopicArgs Empty => new BucketNotificationTopicArgs();
     }
 }

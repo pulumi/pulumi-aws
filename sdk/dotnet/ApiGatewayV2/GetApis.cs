@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGatewayV2.GetApis.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGatewayV2.GetApis.InvokeAsync(new Aws.ApiGatewayV2.GetApisArgs
-        ///         {
-        ///             ProtocolType = "HTTP",
-        ///         }));
-        ///     }
+        ///         ProtocolType = "HTTP",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGatewayV2.GetApis.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGatewayV2.GetApis.InvokeAsync(new Aws.ApiGatewayV2.GetApisArgs
-        ///         {
-        ///             ProtocolType = "HTTP",
-        ///         }));
-        ///     }
+        ///         ProtocolType = "HTTP",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     }
 
 
-    public sealed class GetApisArgs : Pulumi.InvokeArgs
+    public sealed class GetApisArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The API name.
@@ -101,9 +97,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public GetApisArgs()
         {
         }
+        public static new GetApisArgs Empty => new GetApisArgs();
     }
 
-    public sealed class GetApisInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApisInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The API name.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public GetApisInvokeArgs()
         {
         }
+        public static new GetApisInvokeArgs Empty => new GetApisInvokeArgs();
     }
 
 

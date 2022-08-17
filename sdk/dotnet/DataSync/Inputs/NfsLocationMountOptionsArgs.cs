@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class NfsLocationMountOptionsArgs : Pulumi.ResourceArgs
+    public sealed class NfsLocationMountOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public NfsLocationMountOptionsArgs()
         {
         }
+        public static new NfsLocationMountOptionsArgs Empty => new NfsLocationMountOptionsArgs();
     }
 }

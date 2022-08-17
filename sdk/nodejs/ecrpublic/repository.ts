@@ -28,6 +28,9 @@ import * as utilities from "../utilities";
  *         operatingSystems: ["Linux"],
  *         usageText: "Usage Text",
  *     },
+ *     tags: {
+ *         env: "production",
+ *     },
  * }, {
  *     provider: aws.us_east_1,
  * });
@@ -90,6 +93,8 @@ export class Repository extends pulumi.CustomResource {
      * The URI of the repository.
      */
     public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -110,6 +115,8 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
             resourceInputs["repositoryUri"] = state ? state.repositoryUri : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
@@ -118,9 +125,11 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["catalogData"] = args ? args.catalogData : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
             resourceInputs["repositoryUri"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Repository.__pulumiType, name, resourceInputs, opts);
@@ -152,6 +161,8 @@ export interface RepositoryState {
      * The URI of the repository.
      */
     repositoryUri?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -167,4 +178,5 @@ export interface RepositoryArgs {
      * Name of the repository.
      */
     repositoryName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

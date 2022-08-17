@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupOnPremisesInstanceTagFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupOnPremisesInstanceTagFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key of the tag filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupOnPremisesInstanceTagFilterGetArgs()
         {
         }
+        public static new DeploymentGroupOnPremisesInstanceTagFilterGetArgs Empty => new DeploymentGroupOnPremisesInstanceTagFilterGetArgs();
     }
 }

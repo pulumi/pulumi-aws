@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ContainerRecipeComponentParameterArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeComponentParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the component parameter.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ContainerRecipeComponentParameterArgs()
         {
         }
+        public static new ContainerRecipeComponentParameterArgs Empty => new ContainerRecipeComponentParameterArgs();
     }
 }

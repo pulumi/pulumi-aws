@@ -15,30 +15,28 @@ namespace Pulumi.Aws.Emr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Emr.Studio("example", new()
     ///     {
-    ///         var example = new Aws.Emr.Studio("example", new Aws.Emr.StudioArgs
+    ///         AuthMode = "SSO",
+    ///         DefaultS3Location = $"s3://{aws_s3_bucket.Test.Bucket}/test",
+    ///         EngineSecurityGroupId = aws_security_group.Test.Id,
+    ///         ServiceRole = aws_iam_role.Test.Arn,
+    ///         SubnetIds = new[]
     ///         {
-    ///             AuthMode = "SSO",
-    ///             DefaultS3Location = $"s3://{aws_s3_bucket.Test.Bucket}/test",
-    ///             EngineSecurityGroupId = aws_security_group.Test.Id,
-    ///             ServiceRole = aws_iam_role.Test.Arn,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Test.Id,
-    ///             },
-    ///             UserRole = aws_iam_role.Test.Arn,
-    ///             VpcId = aws_vpc.Test.Id,
-    ///             WorkspaceSecurityGroupId = aws_security_group.Test.Id,
-    ///         });
-    ///     }
+    ///             aws_subnet.Test.Id,
+    ///         },
+    ///         UserRole = aws_iam_role.Test.Arn,
+    ///         VpcId = aws_vpc.Test.Id,
+    ///         WorkspaceSecurityGroupId = aws_security_group.Test.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Emr
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/studio:Studio")]
-    public partial class Studio : Pulumi.CustomResource
+    public partial class Studio : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -186,7 +184,7 @@ namespace Pulumi.Aws.Emr
         }
     }
 
-    public sealed class StudioArgs : Pulumi.ResourceArgs
+    public sealed class StudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
@@ -281,9 +279,10 @@ namespace Pulumi.Aws.Emr
         public StudioArgs()
         {
         }
+        public static new StudioArgs Empty => new StudioArgs();
     }
 
-    public sealed class StudioState : Pulumi.ResourceArgs
+    public sealed class StudioState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -395,5 +394,6 @@ namespace Pulumi.Aws.Emr
         public StudioState()
         {
         }
+        public static new StudioState Empty => new StudioState();
     }
 }

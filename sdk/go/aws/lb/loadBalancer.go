@@ -21,31 +21,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("network"),
-// 			SubnetMappings: lb.LoadBalancerSubnetMappingArray{
-// 				&lb.LoadBalancerSubnetMappingArgs{
-// 					SubnetId:     pulumi.Any(aws_subnet.Example1.Id),
-// 					AllocationId: pulumi.Any(aws_eip.Example1.Id),
-// 				},
-// 				&lb.LoadBalancerSubnetMappingArgs{
-// 					SubnetId:     pulumi.Any(aws_subnet.Example2.Id),
-// 					AllocationId: pulumi.Any(aws_eip.Example2.Id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("network"),
+//				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:     pulumi.Any(aws_subnet.Example1.Id),
+//						AllocationId: pulumi.Any(aws_eip.Example1.Id),
+//					},
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:     pulumi.Any(aws_subnet.Example2.Id),
+//						AllocationId: pulumi.Any(aws_eip.Example2.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Specifying private IP addresses for an internal-facing load balancer
 //
@@ -53,31 +56,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-// 			LoadBalancerType: pulumi.String("network"),
-// 			SubnetMappings: lb.LoadBalancerSubnetMappingArray{
-// 				&lb.LoadBalancerSubnetMappingArgs{
-// 					SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
-// 					PrivateIpv4Address: pulumi.String("10.0.1.15"),
-// 				},
-// 				&lb.LoadBalancerSubnetMappingArgs{
-// 					SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
-// 					PrivateIpv4Address: pulumi.String("10.0.2.15"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("network"),
+//				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
+//						PrivateIpv4Address: pulumi.String("10.0.1.15"),
+//					},
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
+//						PrivateIpv4Address: pulumi.String("10.0.2.15"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +91,9 @@ import (
 // LBs can be imported using their ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+//
+//	$ pulumi import aws:lb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+//
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
@@ -128,6 +136,8 @@ type LoadBalancer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
@@ -138,7 +148,7 @@ type LoadBalancer struct {
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -219,6 +229,8 @@ type loadBalancerState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
@@ -229,7 +241,7 @@ type loadBalancerState struct {
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	VpcId   *string           `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -276,6 +288,8 @@ type LoadBalancerState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+	PreserveHostHeader pulumi.BoolPtrInput
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
@@ -286,7 +300,7 @@ type LoadBalancerState struct {
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	VpcId   pulumi.StringPtrInput
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -331,6 +345,8 @@ type loadBalancerArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
@@ -377,6 +393,8 @@ type LoadBalancerArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+	PreserveHostHeader pulumi.BoolPtrInput
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
@@ -415,7 +433,7 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 // LoadBalancerArrayInput is an input type that accepts LoadBalancerArray and LoadBalancerArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerArrayInput` via:
 //
-//          LoadBalancerArray{ LoadBalancerArgs{...} }
+//	LoadBalancerArray{ LoadBalancerArgs{...} }
 type LoadBalancerArrayInput interface {
 	pulumi.Input
 
@@ -440,7 +458,7 @@ func (i LoadBalancerArray) ToLoadBalancerArrayOutputWithContext(ctx context.Cont
 // LoadBalancerMapInput is an input type that accepts LoadBalancerMap and LoadBalancerMapOutput values.
 // You can construct a concrete instance of `LoadBalancerMapInput` via:
 //
-//          LoadBalancerMap{ "key": LoadBalancerArgs{...} }
+//	LoadBalancerMap{ "key": LoadBalancerArgs{...} }
 type LoadBalancerMapInput interface {
 	pulumi.Input
 
@@ -565,6 +583,11 @@ func (o LoadBalancerOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+func (o LoadBalancerOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
+}
+
 // A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -587,7 +610,7 @@ func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LoadBalancerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

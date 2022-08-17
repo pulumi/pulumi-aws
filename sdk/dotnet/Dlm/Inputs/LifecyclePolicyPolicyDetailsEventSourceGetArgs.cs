@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsEventSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsEventSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the event. See the `parameters` configuration block.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsEventSourceGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsEventSourceGetArgs Empty => new LifecyclePolicyPolicyDetailsEventSourceGetArgs();
     }
 }

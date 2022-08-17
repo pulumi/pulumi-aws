@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImageRecipeSystemsManagerAgentGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeSystemsManagerAgentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImageRecipeSystemsManagerAgentGetArgs()
         {
         }
+        public static new ImageRecipeSystemsManagerAgentGetArgs Empty => new ImageRecipeSystemsManagerAgentGetArgs();
     }
 }

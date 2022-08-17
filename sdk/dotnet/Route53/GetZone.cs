@@ -24,32 +24,31 @@ namespace Pulumi.Aws.Route53
         /// 
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.Route53.GetZone.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
-        ///         {
-        ///             Name = "test.com.",
-        ///             PrivateZone = true,
-        ///         }));
-        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
-        ///         {
-        ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
-        ///             Name = selected.Apply(selected =&gt; $"www.{selected.Name}"),
-        ///             Type = "A",
-        ///             Ttl = 300,
-        ///             Records = 
-        ///             {
-        ///                 "10.0.0.1",
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "test.com.",
+        ///         PrivateZone = true,
+        ///     });
         /// 
-        /// }
+        ///     var www = new Aws.Route53.Record("www", new()
+        ///     {
+        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+        ///         Name = $"www.{selected.Apply(getZoneResult =&gt; getZoneResult.Name)}",
+        ///         Type = "A",
+        ///         Ttl = 300,
+        ///         Records = new[]
+        ///         {
+        ///             "10.0.0.1",
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -70,32 +69,31 @@ namespace Pulumi.Aws.Route53
         /// 
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.Route53.GetZone.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
-        ///         {
-        ///             Name = "test.com.",
-        ///             PrivateZone = true,
-        ///         }));
-        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
-        ///         {
-        ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
-        ///             Name = selected.Apply(selected =&gt; $"www.{selected.Name}"),
-        ///             Type = "A",
-        ///             Ttl = 300,
-        ///             Records = 
-        ///             {
-        ///                 "10.0.0.1",
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "test.com.",
+        ///         PrivateZone = true,
+        ///     });
         /// 
-        /// }
+        ///     var www = new Aws.Route53.Record("www", new()
+        ///     {
+        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+        ///         Name = $"www.{selected.Apply(getZoneResult =&gt; getZoneResult.Name)}",
+        ///         Type = "A",
+        ///         Ttl = 300,
+        ///         Records = new[]
+        ///         {
+        ///             "10.0.0.1",
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.Route53
     }
 
 
-    public sealed class GetZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Hosted Zone name of the desired Hosted Zone.
@@ -152,9 +150,10 @@ namespace Pulumi.Aws.Route53
         public GetZoneArgs()
         {
         }
+        public static new GetZoneArgs Empty => new GetZoneArgs();
     }
 
-    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Hosted Zone name of the desired Hosted Zone.
@@ -201,6 +200,7 @@ namespace Pulumi.Aws.Route53
         public GetZoneInvokeArgs()
         {
         }
+        public static new GetZoneInvokeArgs Empty => new GetZoneInvokeArgs();
     }
 
 

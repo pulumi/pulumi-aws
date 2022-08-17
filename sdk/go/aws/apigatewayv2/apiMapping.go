@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewApiMapping(ctx, "example", &apigatewayv2.ApiMappingArgs{
-// 			ApiId:      pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			DomainName: pulumi.Any(aws_apigatewayv2_domain_name.Example.Id),
-// 			Stage:      pulumi.Any(aws_apigatewayv2_stage.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewApiMapping(ctx, "example", &apigatewayv2.ApiMappingArgs{
+//				ApiId:      pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				DomainName: pulumi.Any(aws_apigatewayv2_domain_name.Example.Id),
+//				Stage:      pulumi.Any(aws_apigatewayv2_stage.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+//
+//	$ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+//
 // ```
 type ApiMapping struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappi
 // ApiMappingArrayInput is an input type that accepts ApiMappingArray and ApiMappingArrayOutput values.
 // You can construct a concrete instance of `ApiMappingArrayInput` via:
 //
-//          ApiMappingArray{ ApiMappingArgs{...} }
+//	ApiMappingArray{ ApiMappingArgs{...} }
 type ApiMappingArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i ApiMappingArray) ToApiMappingArrayOutputWithContext(ctx context.Context)
 // ApiMappingMapInput is an input type that accepts ApiMappingMap and ApiMappingMapOutput values.
 // You can construct a concrete instance of `ApiMappingMapInput` via:
 //
-//          ApiMappingMap{ "key": ApiMappingArgs{...} }
+//	ApiMappingMap{ "key": ApiMappingArgs{...} }
 type ApiMappingMapInput interface {
 	pulumi.Input
 

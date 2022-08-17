@@ -19,56 +19,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
-// 			AllocatedStorage:   pulumi.Int(10),
-// 			Engine:             pulumi.String("mysql"),
-// 			EngineVersion:      pulumi.String("5.6.17"),
-// 			InstanceClass:      pulumi.String("db.t2.micro"),
-// 			Name:               pulumi.String("mydb"),
-// 			Username:           pulumi.String("foo"),
-// 			Password:           pulumi.String("bar"),
-// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
-// 			ParameterGroupName: pulumi.String("default.mysql5.6"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewEventSubscription(ctx, "defaultEventSubscription", &rds.EventSubscriptionArgs{
-// 			SnsTopic:   defaultTopic.Arn,
-// 			SourceType: pulumi.String("db-instance"),
-// 			SourceIds: pulumi.StringArray{
-// 				defaultInstance.ID(),
-// 			},
-// 			EventCategories: pulumi.StringArray{
-// 				pulumi.String("availability"),
-// 				pulumi.String("deletion"),
-// 				pulumi.String("failover"),
-// 				pulumi.String("failure"),
-// 				pulumi.String("low storage"),
-// 				pulumi.String("maintenance"),
-// 				pulumi.String("notification"),
-// 				pulumi.String("read replica"),
-// 				pulumi.String("recovery"),
-// 				pulumi.String("restoration"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
+//				AllocatedStorage:   pulumi.Int(10),
+//				Engine:             pulumi.String("mysql"),
+//				EngineVersion:      pulumi.String("5.6.17"),
+//				InstanceClass:      pulumi.String("db.t2.micro"),
+//				Name:               pulumi.String("mydb"),
+//				Username:           pulumi.String("foo"),
+//				Password:           pulumi.String("bar"),
+//				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
+//				ParameterGroupName: pulumi.String("default.mysql5.6"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewEventSubscription(ctx, "defaultEventSubscription", &rds.EventSubscriptionArgs{
+//				SnsTopic:   defaultTopic.Arn,
+//				SourceType: pulumi.String("db-instance"),
+//				SourceIds: pulumi.StringArray{
+//					defaultInstance.ID(),
+//				},
+//				EventCategories: pulumi.StringArray{
+//					pulumi.String("availability"),
+//					pulumi.String("deletion"),
+//					pulumi.String("failover"),
+//					pulumi.String("failure"),
+//					pulumi.String("low storage"),
+//					pulumi.String("maintenance"),
+//					pulumi.String("notification"),
+//					pulumi.String("read replica"),
+//					pulumi.String("recovery"),
+//					pulumi.String("restoration"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +79,9 @@ import (
 // DB Event Subscriptions can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+//
+//	$ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+//
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -101,7 +106,7 @@ type EventSubscription struct {
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -157,7 +162,7 @@ type eventSubscriptionState struct {
 	SourceType *string `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -182,7 +187,7 @@ type EventSubscriptionState struct {
 	SourceType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -255,7 +260,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 // EventSubscriptionArrayInput is an input type that accepts EventSubscriptionArray and EventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionArrayInput` via:
 //
-//          EventSubscriptionArray{ EventSubscriptionArgs{...} }
+//	EventSubscriptionArray{ EventSubscriptionArgs{...} }
 type EventSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i EventSubscriptionArray) ToEventSubscriptionArrayOutputWithContext(ctx co
 // EventSubscriptionMapInput is an input type that accepts EventSubscriptionMap and EventSubscriptionMapOutput values.
 // You can construct a concrete instance of `EventSubscriptionMapInput` via:
 //
-//          EventSubscriptionMap{ "key": EventSubscriptionArgs{...} }
+//	EventSubscriptionMap{ "key": EventSubscriptionArgs{...} }
 type EventSubscriptionMapInput interface {
 	pulumi.Input
 
@@ -366,7 +371,7 @@ func (o EventSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

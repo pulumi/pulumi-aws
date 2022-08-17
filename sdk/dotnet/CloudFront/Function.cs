@@ -20,24 +20,22 @@ namespace Pulumi.Aws.CloudFront
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CloudFront.Function("test", new()
     ///     {
-    ///         var test = new Aws.CloudFront.Function("test", new Aws.CloudFront.FunctionArgs
-    ///         {
-    ///             Runtime = "cloudfront-js-1.0",
-    ///             Comment = "my function",
-    ///             Publish = true,
-    ///             Code = File.ReadAllText($"{path.Module}/function.js"),
-    ///         });
-    ///     }
+    ///         Runtime = "cloudfront-js-1.0",
+    ///         Comment = "my function",
+    ///         Publish = true,
+    ///         Code = File.ReadAllText($"{path.Module}/function.js"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/function:Function")]
-    public partial class Function : Pulumi.CustomResource
+    public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifying your CloudFront Function.
@@ -149,7 +147,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class FunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source code of the function
@@ -184,9 +182,10 @@ namespace Pulumi.Aws.CloudFront
         public FunctionArgs()
         {
         }
+        public static new FunctionArgs Empty => new FunctionArgs();
     }
 
-    public sealed class FunctionState : Pulumi.ResourceArgs
+    public sealed class FunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifying your CloudFront Function.
@@ -245,5 +244,6 @@ namespace Pulumi.Aws.CloudFront
         public FunctionState()
         {
         }
+        public static new FunctionState Empty => new FunctionState();
     }
 }

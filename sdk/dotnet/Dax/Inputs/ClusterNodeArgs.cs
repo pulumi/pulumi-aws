@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dax.Inputs
 {
 
-    public sealed class ClusterNodeArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNodeArgs : global::Pulumi.ResourceArgs
     {
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Dax.Inputs
         public ClusterNodeArgs()
         {
         }
+        public static new ClusterNodeArgs Empty => new ClusterNodeArgs();
     }
 }

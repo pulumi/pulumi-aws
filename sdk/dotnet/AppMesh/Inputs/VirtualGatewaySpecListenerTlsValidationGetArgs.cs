@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerTlsValidationGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerTlsValidationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerTlsValidationGetArgs()
         {
         }
+        public static new VirtualGatewaySpecListenerTlsValidationGetArgs Empty => new VirtualGatewaySpecListenerTlsValidationGetArgs();
     }
 }

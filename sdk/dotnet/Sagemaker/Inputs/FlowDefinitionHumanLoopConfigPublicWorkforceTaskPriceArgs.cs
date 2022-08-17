@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs()
         {
         }
+        public static new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs Empty => new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs();
     }
 }

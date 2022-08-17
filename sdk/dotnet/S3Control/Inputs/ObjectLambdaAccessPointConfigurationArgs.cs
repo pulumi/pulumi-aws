@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class ObjectLambdaAccessPointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ObjectLambdaAccessPointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedFeatures")]
         private InputList<string>? _allowedFeatures;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public ObjectLambdaAccessPointConfigurationArgs()
         {
         }
+        public static new ObjectLambdaAccessPointConfigurationArgs Empty => new ObjectLambdaAccessPointConfigurationArgs();
     }
 }

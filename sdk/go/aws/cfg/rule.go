@@ -24,72 +24,79 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "config.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
-// `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		foo, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-// 			RoleArn: role.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
-// 			Source: &cfg.RuleSourceArgs{
-// 				Owner:            pulumi.String("AWS"),
-// 				SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			foo,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-// 			Role: role.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//   	{
-//   		"Action": "config:Put*",
-//   		"Effect": "Allow",
-//   		"Resource": "*"
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "config.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
 //
-//   	}
-//   ]
-// }
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//				RoleArn: role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
+//				Source: &cfg.RuleSourceArgs{
+//					Owner:            pulumi.String("AWS"),
+//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				foo,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
+//				Role: role.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	  	{
+//	  		"Action": "config:Put*",
+//	  		"Effect": "Allow",
+//	  		"Resource": "*"
+//
+//	  	}
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Rules
 //
@@ -99,44 +106,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRecorder, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFunction, err := lambda.NewFunction(ctx, "exampleFunction", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
-// 			Action:    pulumi.String("lambda:InvokeFunction"),
-// 			Function:  exampleFunction.Arn,
-// 			Principal: pulumi.String("config.amazonaws.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewRule(ctx, "exampleRule", &cfg.RuleArgs{
-// 			Source: &cfg.RuleSourceArgs{
-// 				Owner:            pulumi.String("CUSTOM_LAMBDA"),
-// 				SourceIdentifier: exampleFunction.Arn,
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleRecorder,
-// 			examplePermission,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRecorder, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleFunction, err := lambda.NewFunction(ctx, "exampleFunction", nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  exampleFunction.Arn,
+//				Principal: pulumi.String("config.amazonaws.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRule(ctx, "exampleRule", &cfg.RuleArgs{
+//				Source: &cfg.RuleSourceArgs{
+//					Owner:            pulumi.String("CUSTOM_LAMBDA"),
+//					SourceIdentifier: exampleFunction.Arn,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleRecorder,
+//				examplePermission,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Policies
 //
@@ -144,44 +154,49 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
-// 			Source: &cfg.RuleSourceArgs{
-// 				Owner: pulumi.String("CUSTOM_POLICY"),
-// 				SourceDetails: cfg.RuleSourceSourceDetailArray{
-// 					&cfg.RuleSourceSourceDetailArgs{
-// 						MessageType: pulumi.String("ConfigurationItemChangeNotification"),
-// 					},
-// 				},
-// 				CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
-// 					PolicyRuntime: pulumi.String("guard-2.x.x"),
-// 					PolicyText: pulumi.String(fmt.Sprintf(`	  rule tableisactive when
-// 		  resourceType == "AWS::DynamoDB::Table" {
-// 		  configuration.tableStatus == ['ACTIVE']
-// 	  }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
+//				Source: &cfg.RuleSourceArgs{
+//					Owner: pulumi.String("CUSTOM_POLICY"),
+//					SourceDetails: cfg.RuleSourceSourceDetailArray{
+//						&cfg.RuleSourceSourceDetailArgs{
+//							MessageType: pulumi.String("ConfigurationItemChangeNotification"),
+//						},
+//					},
+//					CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
+//						PolicyRuntime: pulumi.String("guard-2.x.x"),
+//						PolicyText: pulumi.String(fmt.Sprintf(`	  rule tableisactive when
+//			  resourceType == "AWS::DynamoDB::Table" {
+//			  configuration.tableStatus == ['ACTIVE']
+//		  }
 //
-// 	  rule checkcompliance when
-// 		  resourceType == "AWS::DynamoDB::Table"
-// 		  tableisactive {
-// 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-// 	  }
+//		  rule checkcompliance when
+//			  resourceType == "AWS::DynamoDB::Table"
+//			  tableisactive {
+//				  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+//		  }
+//
 // `)),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -189,7 +204,9 @@ import (
 // Config Rule can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/rule:Rule foo example
+//
+//	$ pulumi import aws:cfg/rule:Rule foo example
+//
 // ```
 type Rule struct {
 	pulumi.CustomResourceState
@@ -212,7 +229,7 @@ type Rule struct {
 	Source RuleSourceOutput `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -266,7 +283,7 @@ type ruleState struct {
 	Source *RuleSource `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -289,7 +306,7 @@ type RuleState struct {
 	Source RuleSourcePtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -358,7 +375,7 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 // RuleArrayInput is an input type that accepts RuleArray and RuleArrayOutput values.
 // You can construct a concrete instance of `RuleArrayInput` via:
 //
-//          RuleArray{ RuleArgs{...} }
+//	RuleArray{ RuleArgs{...} }
 type RuleArrayInput interface {
 	pulumi.Input
 
@@ -383,7 +400,7 @@ func (i RuleArray) ToRuleArrayOutputWithContext(ctx context.Context) RuleArrayOu
 // RuleMapInput is an input type that accepts RuleMap and RuleMapOutput values.
 // You can construct a concrete instance of `RuleMapInput` via:
 //
-//          RuleMap{ "key": RuleArgs{...} }
+//	RuleMap{ "key": RuleArgs{...} }
 type RuleMapInput interface {
 	pulumi.Input
 
@@ -464,7 +481,7 @@ func (o RuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

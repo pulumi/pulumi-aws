@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class GetAmiFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetAmiFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the AMI that was provided during image creation.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Inputs
         public GetAmiFilterArgs()
         {
         }
+        public static new GetAmiFilterArgs Empty => new GetAmiFilterArgs();
     }
 }

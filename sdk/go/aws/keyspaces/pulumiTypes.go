@@ -22,7 +22,7 @@ type TableCapacitySpecification struct {
 // TableCapacitySpecificationInput is an input type that accepts TableCapacitySpecificationArgs and TableCapacitySpecificationOutput values.
 // You can construct a concrete instance of `TableCapacitySpecificationInput` via:
 //
-//          TableCapacitySpecificationArgs{...}
+//	TableCapacitySpecificationArgs{...}
 type TableCapacitySpecificationInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i TableCapacitySpecificationArgs) ToTableCapacitySpecificationPtrOutputWit
 // TableCapacitySpecificationPtrInput is an input type that accepts TableCapacitySpecificationArgs, TableCapacitySpecificationPtr and TableCapacitySpecificationPtrOutput values.
 // You can construct a concrete instance of `TableCapacitySpecificationPtrInput` via:
 //
-//          TableCapacitySpecificationArgs{...}
+//	        TableCapacitySpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableCapacitySpecificationPtrInput interface {
 	pulumi.Input
 
@@ -193,7 +193,7 @@ type TableComment struct {
 // TableCommentInput is an input type that accepts TableCommentArgs and TableCommentOutput values.
 // You can construct a concrete instance of `TableCommentInput` via:
 //
-//          TableCommentArgs{...}
+//	TableCommentArgs{...}
 type TableCommentInput interface {
 	pulumi.Input
 
@@ -229,11 +229,11 @@ func (i TableCommentArgs) ToTableCommentPtrOutputWithContext(ctx context.Context
 // TableCommentPtrInput is an input type that accepts TableCommentArgs, TableCommentPtr and TableCommentPtrOutput values.
 // You can construct a concrete instance of `TableCommentPtrInput` via:
 //
-//          TableCommentArgs{...}
+//	        TableCommentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableCommentPtrInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ type TableEncryptionSpecification struct {
 // TableEncryptionSpecificationInput is an input type that accepts TableEncryptionSpecificationArgs and TableEncryptionSpecificationOutput values.
 // You can construct a concrete instance of `TableEncryptionSpecificationInput` via:
 //
-//          TableEncryptionSpecificationArgs{...}
+//	TableEncryptionSpecificationArgs{...}
 type TableEncryptionSpecificationInput interface {
 	pulumi.Input
 
@@ -370,11 +370,11 @@ func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationPtrOutpu
 // TableEncryptionSpecificationPtrInput is an input type that accepts TableEncryptionSpecificationArgs, TableEncryptionSpecificationPtr and TableEncryptionSpecificationPtrOutput values.
 // You can construct a concrete instance of `TableEncryptionSpecificationPtrInput` via:
 //
-//          TableEncryptionSpecificationArgs{...}
+//	        TableEncryptionSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableEncryptionSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ type TablePointInTimeRecovery struct {
 // TablePointInTimeRecoveryInput is an input type that accepts TablePointInTimeRecoveryArgs and TablePointInTimeRecoveryOutput values.
 // You can construct a concrete instance of `TablePointInTimeRecoveryInput` via:
 //
-//          TablePointInTimeRecoveryArgs{...}
+//	TablePointInTimeRecoveryArgs{...}
 type TablePointInTimeRecoveryInput interface {
 	pulumi.Input
 
@@ -522,11 +522,11 @@ func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryPtrOutputWithCon
 // TablePointInTimeRecoveryPtrInput is an input type that accepts TablePointInTimeRecoveryArgs, TablePointInTimeRecoveryPtr and TablePointInTimeRecoveryPtrOutput values.
 // You can construct a concrete instance of `TablePointInTimeRecoveryPtrInput` via:
 //
-//          TablePointInTimeRecoveryArgs{...}
+//	        TablePointInTimeRecoveryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TablePointInTimeRecoveryPtrInput interface {
 	pulumi.Input
 
@@ -629,7 +629,7 @@ type TableSchemaDefinition struct {
 // TableSchemaDefinitionInput is an input type that accepts TableSchemaDefinitionArgs and TableSchemaDefinitionOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionInput` via:
 //
-//          TableSchemaDefinitionArgs{...}
+//	TableSchemaDefinitionArgs{...}
 type TableSchemaDefinitionInput interface {
 	pulumi.Input
 
@@ -671,11 +671,11 @@ func (i TableSchemaDefinitionArgs) ToTableSchemaDefinitionPtrOutputWithContext(c
 // TableSchemaDefinitionPtrInput is an input type that accepts TableSchemaDefinitionArgs, TableSchemaDefinitionPtr and TableSchemaDefinitionPtrOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionPtrInput` via:
 //
-//          TableSchemaDefinitionArgs{...}
+//	        TableSchemaDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableSchemaDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ type TableSchemaDefinitionClusteringKey struct {
 // TableSchemaDefinitionClusteringKeyInput is an input type that accepts TableSchemaDefinitionClusteringKeyArgs and TableSchemaDefinitionClusteringKeyOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionClusteringKeyInput` via:
 //
-//          TableSchemaDefinitionClusteringKeyArgs{...}
+//	TableSchemaDefinitionClusteringKeyArgs{...}
 type TableSchemaDefinitionClusteringKeyInput interface {
 	pulumi.Input
 
@@ -849,7 +849,7 @@ func (i TableSchemaDefinitionClusteringKeyArgs) ToTableSchemaDefinitionClusterin
 // TableSchemaDefinitionClusteringKeyArrayInput is an input type that accepts TableSchemaDefinitionClusteringKeyArray and TableSchemaDefinitionClusteringKeyArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionClusteringKeyArrayInput` via:
 //
-//          TableSchemaDefinitionClusteringKeyArray{ TableSchemaDefinitionClusteringKeyArgs{...} }
+//	TableSchemaDefinitionClusteringKeyArray{ TableSchemaDefinitionClusteringKeyArgs{...} }
 type TableSchemaDefinitionClusteringKeyArrayInput interface {
 	pulumi.Input
 
@@ -925,7 +925,7 @@ type TableSchemaDefinitionColumn struct {
 // TableSchemaDefinitionColumnInput is an input type that accepts TableSchemaDefinitionColumnArgs and TableSchemaDefinitionColumnOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionColumnInput` via:
 //
-//          TableSchemaDefinitionColumnArgs{...}
+//	TableSchemaDefinitionColumnArgs{...}
 type TableSchemaDefinitionColumnInput interface {
 	pulumi.Input
 
@@ -955,7 +955,7 @@ func (i TableSchemaDefinitionColumnArgs) ToTableSchemaDefinitionColumnOutputWith
 // TableSchemaDefinitionColumnArrayInput is an input type that accepts TableSchemaDefinitionColumnArray and TableSchemaDefinitionColumnArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionColumnArrayInput` via:
 //
-//          TableSchemaDefinitionColumnArray{ TableSchemaDefinitionColumnArgs{...} }
+//	TableSchemaDefinitionColumnArray{ TableSchemaDefinitionColumnArgs{...} }
 type TableSchemaDefinitionColumnArrayInput interface {
 	pulumi.Input
 
@@ -1029,7 +1029,7 @@ type TableSchemaDefinitionPartitionKey struct {
 // TableSchemaDefinitionPartitionKeyInput is an input type that accepts TableSchemaDefinitionPartitionKeyArgs and TableSchemaDefinitionPartitionKeyOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionPartitionKeyInput` via:
 //
-//          TableSchemaDefinitionPartitionKeyArgs{...}
+//	TableSchemaDefinitionPartitionKeyArgs{...}
 type TableSchemaDefinitionPartitionKeyInput interface {
 	pulumi.Input
 
@@ -1057,7 +1057,7 @@ func (i TableSchemaDefinitionPartitionKeyArgs) ToTableSchemaDefinitionPartitionK
 // TableSchemaDefinitionPartitionKeyArrayInput is an input type that accepts TableSchemaDefinitionPartitionKeyArray and TableSchemaDefinitionPartitionKeyArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionPartitionKeyArrayInput` via:
 //
-//          TableSchemaDefinitionPartitionKeyArray{ TableSchemaDefinitionPartitionKeyArgs{...} }
+//	TableSchemaDefinitionPartitionKeyArray{ TableSchemaDefinitionPartitionKeyArgs{...} }
 type TableSchemaDefinitionPartitionKeyArrayInput interface {
 	pulumi.Input
 
@@ -1126,7 +1126,7 @@ type TableSchemaDefinitionStaticColumn struct {
 // TableSchemaDefinitionStaticColumnInput is an input type that accepts TableSchemaDefinitionStaticColumnArgs and TableSchemaDefinitionStaticColumnOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionStaticColumnInput` via:
 //
-//          TableSchemaDefinitionStaticColumnArgs{...}
+//	TableSchemaDefinitionStaticColumnArgs{...}
 type TableSchemaDefinitionStaticColumnInput interface {
 	pulumi.Input
 
@@ -1154,7 +1154,7 @@ func (i TableSchemaDefinitionStaticColumnArgs) ToTableSchemaDefinitionStaticColu
 // TableSchemaDefinitionStaticColumnArrayInput is an input type that accepts TableSchemaDefinitionStaticColumnArray and TableSchemaDefinitionStaticColumnArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionStaticColumnArrayInput` via:
 //
-//          TableSchemaDefinitionStaticColumnArray{ TableSchemaDefinitionStaticColumnArgs{...} }
+//	TableSchemaDefinitionStaticColumnArray{ TableSchemaDefinitionStaticColumnArgs{...} }
 type TableSchemaDefinitionStaticColumnArrayInput interface {
 	pulumi.Input
 
@@ -1223,7 +1223,7 @@ type TableTtl struct {
 // TableTtlInput is an input type that accepts TableTtlArgs and TableTtlOutput values.
 // You can construct a concrete instance of `TableTtlInput` via:
 //
-//          TableTtlArgs{...}
+//	TableTtlArgs{...}
 type TableTtlInput interface {
 	pulumi.Input
 
@@ -1259,11 +1259,11 @@ func (i TableTtlArgs) ToTableTtlPtrOutputWithContext(ctx context.Context) TableT
 // TableTtlPtrInput is an input type that accepts TableTtlArgs, TableTtlPtr and TableTtlPtrOutput values.
 // You can construct a concrete instance of `TableTtlPtrInput` via:
 //
-//          TableTtlArgs{...}
+//	        TableTtlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableTtlPtrInput interface {
 	pulumi.Input
 

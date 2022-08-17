@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Signer.Inputs
 {
 
-    public sealed class SigningProfileRevocationRecordArgs : Pulumi.ResourceArgs
+    public sealed class SigningProfileRevocationRecordArgs : global::Pulumi.ResourceArgs
     {
         [Input("revocationEffectiveFrom")]
         public Input<string>? RevocationEffectiveFrom { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Signer.Inputs
         public SigningProfileRevocationRecordArgs()
         {
         }
+        public static new SigningProfileRevocationRecordArgs Empty => new SigningProfileRevocationRecordArgs();
     }
 }

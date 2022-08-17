@@ -21,51 +21,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketCorsConfigurationV2(ctx, "exampleBucketCorsConfigurationV2", &s3.BucketCorsConfigurationV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			CorsRules: s3.BucketCorsConfigurationV2CorsRuleArray{
-// 				&s3.BucketCorsConfigurationV2CorsRuleArgs{
-// 					AllowedHeaders: pulumi.StringArray{
-// 						pulumi.String("*"),
-// 					},
-// 					AllowedMethods: pulumi.StringArray{
-// 						pulumi.String("PUT"),
-// 						pulumi.String("POST"),
-// 					},
-// 					AllowedOrigins: pulumi.StringArray{
-// 						pulumi.String("https://s3-website-test.hashicorp.com"),
-// 					},
-// 					ExposeHeaders: pulumi.StringArray{
-// 						pulumi.String("ETag"),
-// 					},
-// 					MaxAgeSeconds: pulumi.Int(3000),
-// 				},
-// 				&s3.BucketCorsConfigurationV2CorsRuleArgs{
-// 					AllowedMethods: pulumi.StringArray{
-// 						pulumi.String("GET"),
-// 					},
-// 					AllowedOrigins: pulumi.StringArray{
-// 						pulumi.String("*"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketCorsConfigurationV2(ctx, "exampleBucketCorsConfigurationV2", &s3.BucketCorsConfigurationV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				CorsRules: s3.BucketCorsConfigurationV2CorsRuleArray{
+//					&s3.BucketCorsConfigurationV2CorsRuleArgs{
+//						AllowedHeaders: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("PUT"),
+//							pulumi.String("POST"),
+//						},
+//						AllowedOrigins: pulumi.StringArray{
+//							pulumi.String("https://s3-website-test.hashicorp.com"),
+//						},
+//						ExposeHeaders: pulumi.StringArray{
+//							pulumi.String("ETag"),
+//						},
+//						MaxAgeSeconds: pulumi.Int(3000),
+//					},
+//					&s3.BucketCorsConfigurationV2CorsRuleArgs{
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//						},
+//						AllowedOrigins: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,13 +76,17 @@ import (
 // S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketCorsConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -193,7 +200,7 @@ func (i *BucketCorsConfigurationV2) ToBucketCorsConfigurationV2OutputWithContext
 // BucketCorsConfigurationV2ArrayInput is an input type that accepts BucketCorsConfigurationV2Array and BucketCorsConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketCorsConfigurationV2ArrayInput` via:
 //
-//          BucketCorsConfigurationV2Array{ BucketCorsConfigurationV2Args{...} }
+//	BucketCorsConfigurationV2Array{ BucketCorsConfigurationV2Args{...} }
 type BucketCorsConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +225,7 @@ func (i BucketCorsConfigurationV2Array) ToBucketCorsConfigurationV2ArrayOutputWi
 // BucketCorsConfigurationV2MapInput is an input type that accepts BucketCorsConfigurationV2Map and BucketCorsConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketCorsConfigurationV2MapInput` via:
 //
-//          BucketCorsConfigurationV2Map{ "key": BucketCorsConfigurationV2Args{...} }
+//	BucketCorsConfigurationV2Map{ "key": BucketCorsConfigurationV2Args{...} }
 type BucketCorsConfigurationV2MapInput interface {
 	pulumi.Input
 

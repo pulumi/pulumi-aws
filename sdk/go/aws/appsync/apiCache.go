@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-// 			AuthenticationType: pulumi.String("API_KEY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appsync.NewApiCache(ctx, "exampleApiCache", &appsync.ApiCacheArgs{
-// 			ApiId:              exampleGraphQLApi.ID(),
-// 			ApiCachingBehavior: pulumi.String("FULL_REQUEST_CACHING"),
-// 			Type:               pulumi.String("LARGE"),
-// 			Ttl:                pulumi.Int(900),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("API_KEY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewApiCache(ctx, "exampleApiCache", &appsync.ApiCacheArgs{
+//				ApiId:              exampleGraphQLApi.ID(),
+//				ApiCachingBehavior: pulumi.String("FULL_REQUEST_CACHING"),
+//				Type:               pulumi.String("LARGE"),
+//				Ttl:                pulumi.Int(900),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+//
+//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+//
 // ```
 type ApiCache struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *ApiCache) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutp
 // ApiCacheArrayInput is an input type that accepts ApiCacheArray and ApiCacheArrayOutput values.
 // You can construct a concrete instance of `ApiCacheArrayInput` via:
 //
-//          ApiCacheArray{ ApiCacheArgs{...} }
+//	ApiCacheArray{ ApiCacheArgs{...} }
 type ApiCacheArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i ApiCacheArray) ToApiCacheArrayOutputWithContext(ctx context.Context) Api
 // ApiCacheMapInput is an input type that accepts ApiCacheMap and ApiCacheMapOutput values.
 // You can construct a concrete instance of `ApiCacheMapInput` via:
 //
-//          ApiCacheMap{ "key": ApiCacheArgs{...} }
+//	ApiCacheMap{ "key": ApiCacheArgs{...} }
 type ApiCacheMapInput interface {
 	pulumi.Input
 

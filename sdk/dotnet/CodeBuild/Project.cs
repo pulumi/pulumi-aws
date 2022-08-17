@@ -15,24 +15,23 @@ namespace Pulumi.Aws.CodeBuild
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -45,15 +44,16 @@ namespace Pulumi.Aws.CodeBuild
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Name,
+    ///         Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
     ///         {
-    ///             Role = exampleRole.Name,
-    ///             Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
-    ///             {
-    ///                 var exampleBucketV2Arn = values.Item1;
-    ///                 var exampleBucketV2Arn1 = values.Item2;
-    ///                 return @$"{{
+    ///             var exampleBucketV2Arn = values.Item1;
+    ///             var exampleBucketV2Arn1 = values.Item2;
+    ///             return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -111,134 +111,135 @@ namespace Pulumi.Aws.CodeBuild
     ///   ]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///         var exampleProject = new Aws.CodeBuild.Project("exampleProject", new Aws.CodeBuild.ProjectArgs
-    ///         {
-    ///             Description = "test_codebuild_project",
-    ///             BuildTimeout = 5,
-    ///             ServiceRole = exampleRole.Arn,
-    ///             Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
-    ///             {
-    ///                 Type = "NO_ARTIFACTS",
-    ///             },
-    ///             Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
-    ///             {
-    ///                 Type = "S3",
-    ///                 Location = exampleBucketV2.Bucket,
-    ///             },
-    ///             Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
-    ///             {
-    ///                 ComputeType = "BUILD_GENERAL1_SMALL",
-    ///                 Image = "aws/codebuild/standard:1.0",
-    ///                 Type = "LINUX_CONTAINER",
-    ///                 ImagePullCredentialsType = "CODEBUILD",
-    ///                 EnvironmentVariables = 
-    ///                 {
-    ///                     new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
-    ///                     {
-    ///                         Name = "SOME_KEY1",
-    ///                         Value = "SOME_VALUE1",
-    ///                     },
-    ///                     new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
-    ///                     {
-    ///                         Name = "SOME_KEY2",
-    ///                         Value = "SOME_VALUE2",
-    ///                         Type = "PARAMETER_STORE",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             LogsConfig = new Aws.CodeBuild.Inputs.ProjectLogsConfigArgs
-    ///             {
-    ///                 CloudwatchLogs = new Aws.CodeBuild.Inputs.ProjectLogsConfigCloudwatchLogsArgs
-    ///                 {
-    ///                     GroupName = "log-group",
-    ///                     StreamName = "log-stream",
-    ///                 },
-    ///                 S3Logs = new Aws.CodeBuild.Inputs.ProjectLogsConfigS3LogsArgs
-    ///                 {
-    ///                     Status = "ENABLED",
-    ///                     Location = exampleBucketV2.Id.Apply(id =&gt; $"{id}/build-log"),
-    ///                 },
-    ///             },
-    ///             Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
-    ///             {
-    ///                 Type = "GITHUB",
-    ///                 Location = "https://github.com/mitchellh/packer.git",
-    ///                 GitCloneDepth = 1,
-    ///                 GitSubmodulesConfig = new Aws.CodeBuild.Inputs.ProjectSourceGitSubmodulesConfigArgs
-    ///                 {
-    ///                     FetchSubmodules = true,
-    ///                 },
-    ///             },
-    ///             SourceVersion = "master",
-    ///             VpcConfig = new Aws.CodeBuild.Inputs.ProjectVpcConfigArgs
-    ///             {
-    ///                 VpcId = aws_vpc.Example.Id,
-    ///                 Subnets = 
-    ///                 {
-    ///                     aws_subnet.Example1.Id,
-    ///                     aws_subnet.Example2.Id,
-    ///                 },
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Example1.Id,
-    ///                     aws_security_group.Example2.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Test" },
-    ///             },
-    ///         });
-    ///         var project_with_cache = new Aws.CodeBuild.Project("project-with-cache", new Aws.CodeBuild.ProjectArgs
-    ///         {
-    ///             Description = "test_codebuild_project_cache",
-    ///             BuildTimeout = 5,
-    ///             QueuedTimeout = 5,
-    ///             ServiceRole = exampleRole.Arn,
-    ///             Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
-    ///             {
-    ///                 Type = "NO_ARTIFACTS",
-    ///             },
-    ///             Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
-    ///             {
-    ///                 Type = "LOCAL",
-    ///                 Modes = 
-    ///                 {
-    ///                     "LOCAL_DOCKER_LAYER_CACHE",
-    ///                     "LOCAL_SOURCE_CACHE",
-    ///                 },
-    ///             },
-    ///             Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
-    ///             {
-    ///                 ComputeType = "BUILD_GENERAL1_SMALL",
-    ///                 Image = "aws/codebuild/standard:1.0",
-    ///                 Type = "LINUX_CONTAINER",
-    ///                 ImagePullCredentialsType = "CODEBUILD",
-    ///                 EnvironmentVariables = 
-    ///                 {
-    ///                     new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
-    ///                     {
-    ///                         Name = "SOME_KEY1",
-    ///                         Value = "SOME_VALUE1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
-    ///             {
-    ///                 Type = "GITHUB",
-    ///                 Location = "https://github.com/mitchellh/packer.git",
-    ///                 GitCloneDepth = 1,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleProject = new Aws.CodeBuild.Project("exampleProject", new()
+    ///     {
+    ///         Description = "test_codebuild_project",
+    ///         BuildTimeout = 5,
+    ///         ServiceRole = exampleRole.Arn,
+    ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
+    ///         {
+    ///             Type = "NO_ARTIFACTS",
+    ///         },
+    ///         Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
+    ///         {
+    ///             Type = "S3",
+    ///             Location = exampleBucketV2.Bucket,
+    ///         },
+    ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
+    ///         {
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/standard:1.0",
+    ///             Type = "LINUX_CONTAINER",
+    ///             ImagePullCredentialsType = "CODEBUILD",
+    ///             EnvironmentVariables = new[]
+    ///             {
+    ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
+    ///                 {
+    ///                     Name = "SOME_KEY1",
+    ///                     Value = "SOME_VALUE1",
+    ///                 },
+    ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
+    ///                 {
+    ///                     Name = "SOME_KEY2",
+    ///                     Value = "SOME_VALUE2",
+    ///                     Type = "PARAMETER_STORE",
+    ///                 },
+    ///             },
+    ///         },
+    ///         LogsConfig = new Aws.CodeBuild.Inputs.ProjectLogsConfigArgs
+    ///         {
+    ///             CloudwatchLogs = new Aws.CodeBuild.Inputs.ProjectLogsConfigCloudwatchLogsArgs
+    ///             {
+    ///                 GroupName = "log-group",
+    ///                 StreamName = "log-stream",
+    ///             },
+    ///             S3Logs = new Aws.CodeBuild.Inputs.ProjectLogsConfigS3LogsArgs
+    ///             {
+    ///                 Status = "ENABLED",
+    ///                 Location = exampleBucketV2.Id.Apply(id =&gt; $"{id}/build-log"),
+    ///             },
+    ///         },
+    ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
+    ///         {
+    ///             Type = "GITHUB",
+    ///             Location = "https://github.com/mitchellh/packer.git",
+    ///             GitCloneDepth = 1,
+    ///             GitSubmodulesConfig = new Aws.CodeBuild.Inputs.ProjectSourceGitSubmodulesConfigArgs
+    ///             {
+    ///                 FetchSubmodules = true,
+    ///             },
+    ///         },
+    ///         SourceVersion = "master",
+    ///         VpcConfig = new Aws.CodeBuild.Inputs.ProjectVpcConfigArgs
+    ///         {
+    ///             VpcId = aws_vpc.Example.Id,
+    ///             Subnets = new[]
+    ///             {
+    ///                 aws_subnet.Example1.Id,
+    ///                 aws_subnet.Example2.Id,
+    ///             },
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 aws_security_group.Example1.Id,
+    ///                 aws_security_group.Example2.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var project_with_cache = new Aws.CodeBuild.Project("project-with-cache", new()
+    ///     {
+    ///         Description = "test_codebuild_project_cache",
+    ///         BuildTimeout = 5,
+    ///         QueuedTimeout = 5,
+    ///         ServiceRole = exampleRole.Arn,
+    ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
+    ///         {
+    ///             Type = "NO_ARTIFACTS",
+    ///         },
+    ///         Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
+    ///         {
+    ///             Type = "LOCAL",
+    ///             Modes = new[]
+    ///             {
+    ///                 "LOCAL_DOCKER_LAYER_CACHE",
+    ///                 "LOCAL_SOURCE_CACHE",
+    ///             },
+    ///         },
+    ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
+    ///         {
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/standard:1.0",
+    ///             Type = "LINUX_CONTAINER",
+    ///             ImagePullCredentialsType = "CODEBUILD",
+    ///             EnvironmentVariables = new[]
+    ///             {
+    ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
+    ///                 {
+    ///                     Name = "SOME_KEY1",
+    ///                     Value = "SOME_VALUE1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
+    ///         {
+    ///             Type = "GITHUB",
+    ///             Location = "https://github.com/mitchellh/packer.git",
+    ///             GitCloneDepth = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -250,7 +251,7 @@ namespace Pulumi.Aws.CodeBuild
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the CodeBuild project.
@@ -397,7 +398,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string?> SourceVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -458,7 +459,7 @@ namespace Pulumi.Aws.CodeBuild
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block. Detailed below.
@@ -614,7 +615,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -631,9 +632,10 @@ namespace Pulumi.Aws.CodeBuild
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 
-    public sealed class ProjectState : Pulumi.ResourceArgs
+    public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the CodeBuild project.
@@ -807,7 +809,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -836,5 +838,6 @@ namespace Pulumi.Aws.CodeBuild
         public ProjectState()
         {
         }
+        public static new ProjectState Empty => new ProjectState();
     }
 }

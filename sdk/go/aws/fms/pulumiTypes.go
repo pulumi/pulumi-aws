@@ -20,7 +20,7 @@ type PolicyExcludeMap struct {
 // PolicyExcludeMapInput is an input type that accepts PolicyExcludeMap and PolicyExcludeMapOutput values.
 // You can construct a concrete instance of `PolicyExcludeMapInput` via:
 //
-//          PolicyExcludeMap{ "key": PolicyExcludeArgs{...} }
+//	PolicyExcludeMap{ "key": PolicyExcludeArgs{...} }
 type PolicyExcludeMapInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i PolicyExcludeMapArgs) ToPolicyExcludeMapPtrOutputWithContext(ctx context
 // PolicyExcludeMapPtrInput is an input type that accepts PolicyExcludeMapArgs, PolicyExcludeMapPtr and PolicyExcludeMapPtrOutput values.
 // You can construct a concrete instance of `PolicyExcludeMapPtrInput` via:
 //
-//          PolicyExcludeMapArgs{...}
+//	        PolicyExcludeMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyExcludeMapPtrInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ type PolicyIncludeMap struct {
 // PolicyIncludeMapInput is an input type that accepts PolicyIncludeMap and PolicyIncludeMapOutput values.
 // You can construct a concrete instance of `PolicyIncludeMapInput` via:
 //
-//          PolicyIncludeMap{ "key": PolicyIncludeArgs{...} }
+//	PolicyIncludeMap{ "key": PolicyIncludeArgs{...} }
 type PolicyIncludeMapInput interface {
 	pulumi.Input
 
@@ -214,11 +214,11 @@ func (i PolicyIncludeMapArgs) ToPolicyIncludeMapPtrOutputWithContext(ctx context
 // PolicyIncludeMapPtrInput is an input type that accepts PolicyIncludeMapArgs, PolicyIncludeMapPtr and PolicyIncludeMapPtrOutput values.
 // You can construct a concrete instance of `PolicyIncludeMapPtrInput` via:
 //
-//          PolicyIncludeMapArgs{...}
+//	        PolicyIncludeMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyIncludeMapPtrInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ type PolicySecurityServicePolicyData struct {
 // PolicySecurityServicePolicyDataInput is an input type that accepts PolicySecurityServicePolicyDataArgs and PolicySecurityServicePolicyDataOutput values.
 // You can construct a concrete instance of `PolicySecurityServicePolicyDataInput` via:
 //
-//          PolicySecurityServicePolicyDataArgs{...}
+//	PolicySecurityServicePolicyDataArgs{...}
 type PolicySecurityServicePolicyDataInput interface {
 	pulumi.Input
 
@@ -370,11 +370,11 @@ func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataPt
 // PolicySecurityServicePolicyDataPtrInput is an input type that accepts PolicySecurityServicePolicyDataArgs, PolicySecurityServicePolicyDataPtr and PolicySecurityServicePolicyDataPtrOutput values.
 // You can construct a concrete instance of `PolicySecurityServicePolicyDataPtrInput` via:
 //
-//          PolicySecurityServicePolicyDataArgs{...}
+//	        PolicySecurityServicePolicyDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicySecurityServicePolicyDataPtrInput interface {
 	pulumi.Input
 

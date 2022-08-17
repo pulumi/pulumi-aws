@@ -33,9 +33,6 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// Return results that match both `Dimension` object.
         /// </summary>
         public readonly ImmutableArray<Outputs.CostCategoryRuleRuleOr> Ors;
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleTags? Tags;
 
         [OutputConstructor]

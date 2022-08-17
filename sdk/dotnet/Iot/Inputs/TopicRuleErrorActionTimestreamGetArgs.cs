@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionTimestreamGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionTimestreamGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an Amazon Timestream database.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionTimestreamGetArgs()
         {
         }
+        public static new TopicRuleErrorActionTimestreamGetArgs Empty => new TopicRuleErrorActionTimestreamGetArgs();
     }
 }

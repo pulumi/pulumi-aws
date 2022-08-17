@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class QueueOutboundCallerConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class QueueOutboundCallerConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caller ID name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public QueueOutboundCallerConfigGetArgs()
         {
         }
+        public static new QueueOutboundCallerConfigGetArgs Empty => new QueueOutboundCallerConfigGetArgs();
     }
 }

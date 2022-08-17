@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectLogsConfigS3LogsArgs : Pulumi.ResourceArgs
+    public sealed class ProjectLogsConfigS3LogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectLogsConfigS3LogsArgs()
         {
         }
+        public static new ProjectLogsConfigS3LogsArgs Empty => new ProjectLogsConfigS3LogsArgs();
     }
 }

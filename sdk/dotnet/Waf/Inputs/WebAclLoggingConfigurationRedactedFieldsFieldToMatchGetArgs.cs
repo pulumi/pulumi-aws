@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs()
         {
         }
+        public static new WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs Empty => new WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs();
     }
 }

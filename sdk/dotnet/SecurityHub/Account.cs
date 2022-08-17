@@ -17,19 +17,15 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.SecurityHub.Account("example", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create a Account resource with the given unique name, arguments, and options.
@@ -86,17 +82,19 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

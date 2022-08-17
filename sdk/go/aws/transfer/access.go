@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := transfer.NewAccess(ctx, "example", &transfer.AccessArgs{
-// 			ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
-// 			ServerId:      pulumi.Any(aws_transfer_server.Example.Id),
-// 			Role:          pulumi.Any(aws_iam_role.Example.Arn),
-// 			HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_s3_bucket.Example.Id)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewAccess(ctx, "example", &transfer.AccessArgs{
+//				ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
+//				ServerId:      pulumi.Any(aws_transfer_server.Example.Id),
+//				Role:          pulumi.Any(aws_iam_role.Example.Arn),
+//				HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_s3_bucket.Example.Id)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Basic EFS
 //
@@ -47,30 +50,33 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := transfer.NewAccess(ctx, "test", &transfer.AccessArgs{
-// 			ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
-// 			ServerId:      pulumi.Any(aws_transfer_server.Test.Id),
-// 			Role:          pulumi.Any(aws_iam_role.Test.Arn),
-// 			HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_efs_file_system.Test.Id)),
-// 			PosixProfile: &transfer.AccessPosixProfileArgs{
-// 				Gid: pulumi.Int(1000),
-// 				Uid: pulumi.Int(1000),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewAccess(ctx, "test", &transfer.AccessArgs{
+//				ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
+//				ServerId:      pulumi.Any(aws_transfer_server.Test.Id),
+//				Role:          pulumi.Any(aws_iam_role.Test.Arn),
+//				HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_efs_file_system.Test.Id)),
+//				PosixProfile: &transfer.AccessPosixProfileArgs{
+//					Gid: pulumi.Int(1000),
+//					Uid: pulumi.Int(1000),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +84,9 @@ import (
 // Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+//
+//	$ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+//
 // ```
 type Access struct {
 	pulumi.CustomResourceState
@@ -237,7 +245,7 @@ func (i *Access) ToAccessOutputWithContext(ctx context.Context) AccessOutput {
 // AccessArrayInput is an input type that accepts AccessArray and AccessArrayOutput values.
 // You can construct a concrete instance of `AccessArrayInput` via:
 //
-//          AccessArray{ AccessArgs{...} }
+//	AccessArray{ AccessArgs{...} }
 type AccessArrayInput interface {
 	pulumi.Input
 
@@ -262,7 +270,7 @@ func (i AccessArray) ToAccessArrayOutputWithContext(ctx context.Context) AccessA
 // AccessMapInput is an input type that accepts AccessMap and AccessMapOutput values.
 // You can construct a concrete instance of `AccessMapInput` via:
 //
-//          AccessMap{ "key": AccessArgs{...} }
+//	AccessMap{ "key": AccessArgs{...} }
 type AccessMapInput interface {
 	pulumi.Input
 

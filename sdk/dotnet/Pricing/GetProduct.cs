@@ -20,88 +20,84 @@ namespace Pulumi.Aws.Pricing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Pricing.GetProduct.InvokeAsync(new Aws.Pricing.GetProductArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
         ///             {
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "instanceType",
-        ///                     Value = "c5.xlarge",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "operatingSystem",
-        ///                     Value = "Linux",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "location",
-        ///                     Value = "US East (N. Virginia)",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "preInstalledSw",
-        ///                     Value = "NA",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "licenseModel",
-        ///                     Value = "No License required",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "tenancy",
-        ///                     Value = "Shared",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "capacitystatus",
-        ///                     Value = "Used",
-        ///                 },
+        ///                 Field = "instanceType",
+        ///                 Value = "c5.xlarge",
         ///             },
-        ///             ServiceCode = "AmazonEC2",
-        ///         }));
-        ///     }
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "operatingSystem",
+        ///                 Value = "Linux",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "preInstalledSw",
+        ///                 Value = "NA",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "licenseModel",
+        ///                 Value = "No License required",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "tenancy",
+        ///                 Value = "Shared",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "capacitystatus",
+        ///                 Value = "Used",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonEC2",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Pricing.GetProduct.InvokeAsync(new Aws.Pricing.GetProductArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
         ///             {
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "instanceType",
-        ///                     Value = "ds1.xlarge",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "location",
-        ///                     Value = "US East (N. Virginia)",
-        ///                 },
+        ///                 Field = "instanceType",
+        ///                 Value = "ds1.xlarge",
         ///             },
-        ///             ServiceCode = "AmazonRedshift",
-        ///         }));
-        ///     }
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonRedshift",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -118,88 +114,84 @@ namespace Pulumi.Aws.Pricing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Pricing.GetProduct.InvokeAsync(new Aws.Pricing.GetProductArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
         ///             {
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "instanceType",
-        ///                     Value = "c5.xlarge",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "operatingSystem",
-        ///                     Value = "Linux",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "location",
-        ///                     Value = "US East (N. Virginia)",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "preInstalledSw",
-        ///                     Value = "NA",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "licenseModel",
-        ///                     Value = "No License required",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "tenancy",
-        ///                     Value = "Shared",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "capacitystatus",
-        ///                     Value = "Used",
-        ///                 },
+        ///                 Field = "instanceType",
+        ///                 Value = "c5.xlarge",
         ///             },
-        ///             ServiceCode = "AmazonEC2",
-        ///         }));
-        ///     }
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "operatingSystem",
+        ///                 Value = "Linux",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "preInstalledSw",
+        ///                 Value = "NA",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "licenseModel",
+        ///                 Value = "No License required",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "tenancy",
+        ///                 Value = "Shared",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "capacitystatus",
+        ///                 Value = "Used",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonEC2",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Pricing.GetProduct.InvokeAsync(new Aws.Pricing.GetProductArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
         ///             {
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "instanceType",
-        ///                     Value = "ds1.xlarge",
-        ///                 },
-        ///                 new Aws.Pricing.Inputs.GetProductFilterArgs
-        ///                 {
-        ///                     Field = "location",
-        ///                     Value = "US East (N. Virginia)",
-        ///                 },
+        ///                 Field = "instanceType",
+        ///                 Value = "ds1.xlarge",
         ///             },
-        ///             ServiceCode = "AmazonRedshift",
-        ///         }));
-        ///     }
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonRedshift",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -209,7 +201,7 @@ namespace Pulumi.Aws.Pricing
     }
 
 
-    public sealed class GetProductArgs : Pulumi.InvokeArgs
+    public sealed class GetProductArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters", required: true)]
         private List<Inputs.GetProductFilterArgs>? _filters;
@@ -232,9 +224,10 @@ namespace Pulumi.Aws.Pricing
         public GetProductArgs()
         {
         }
+        public static new GetProductArgs Empty => new GetProductArgs();
     }
 
-    public sealed class GetProductInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProductInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters", required: true)]
         private InputList<Inputs.GetProductFilterInputArgs>? _filters;
@@ -257,6 +250,7 @@ namespace Pulumi.Aws.Pricing
         public GetProductInvokeArgs()
         {
         }
+        public static new GetProductInvokeArgs Empty => new GetProductInvokeArgs();
     }
 
 

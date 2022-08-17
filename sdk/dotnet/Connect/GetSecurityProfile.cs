@@ -21,41 +21,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetSecurityProfile.InvokeAsync(new Aws.Connect.GetSecurityProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `security_profile_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetSecurityProfile.InvokeAsync(new Aws.Connect.GetSecurityProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +69,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetSecurityProfile.InvokeAsync(new Aws.Connect.GetSecurityProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `security_profile_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetSecurityProfile.InvokeAsync(new Aws.Connect.GetSecurityProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +109,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetSecurityProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Connect
         public GetSecurityProfileArgs()
         {
         }
+        public static new GetSecurityProfileArgs Empty => new GetSecurityProfileArgs();
     }
 
-    public sealed class GetSecurityProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -189,6 +182,7 @@ namespace Pulumi.Aws.Connect
         public GetSecurityProfileInvokeArgs()
         {
         }
+        public static new GetSecurityProfileInvokeArgs Empty => new GetSecurityProfileInvokeArgs();
     }
 
 

@@ -17,54 +17,52 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Workflow("example");
+    /// 
+    ///     var example_start = new Aws.Glue.Trigger("example-start", new()
     ///     {
-    ///         var example = new Aws.Glue.Workflow("example", new Aws.Glue.WorkflowArgs
+    ///         Type = "ON_DEMAND",
+    ///         WorkflowName = example.Name,
+    ///         Actions = new[]
     ///         {
-    ///         });
-    ///         var example_start = new Aws.Glue.Trigger("example-start", new Aws.Glue.TriggerArgs
-    ///         {
-    ///             Type = "ON_DEMAND",
-    ///             WorkflowName = example.Name,
-    ///             Actions = 
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 JobName = "example-job",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_inner = new Aws.Glue.Trigger("example-inner", new()
+    ///     {
+    ///         Type = "CONDITIONAL",
+    ///         WorkflowName = example.Name,
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
     ///                     JobName = "example-job",
+    ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
-    ///         });
-    ///         var example_inner = new Aws.Glue.Trigger("example-inner", new Aws.Glue.TriggerArgs
+    ///         },
+    ///         Actions = new[]
     ///         {
-    ///             Type = "CONDITIONAL",
-    ///             WorkflowName = example.Name,
-    ///             Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 Conditions = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.TriggerPredicateConditionArgs
-    ///                     {
-    ///                         JobName = "example-job",
-    ///                         State = "SUCCEEDED",
-    ///                     },
-    ///                 },
+    ///                 JobName = "another-example-job",
     ///             },
-    ///             Actions = 
-    ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
-    ///                 {
-    ///                     JobName = "another-example-job",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +74,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/workflow:Workflow")]
-    public partial class Workflow : Pulumi.CustomResource
+    public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Workflow
@@ -164,7 +162,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class WorkflowArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultRunProperties")]
         private InputMap<object>? _defaultRunProperties;
@@ -211,9 +209,10 @@ namespace Pulumi.Aws.Glue
         public WorkflowArgs()
         {
         }
+        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 
-    public sealed class WorkflowState : Pulumi.ResourceArgs
+    public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Workflow
@@ -278,5 +277,6 @@ namespace Pulumi.Aws.Glue
         public WorkflowState()
         {
         }
+        public static new WorkflowState Empty => new WorkflowState();
     }
 }

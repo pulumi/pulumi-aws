@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterClientAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClientAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for specifying SASL client authentication. See below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterClientAuthenticationGetArgs()
         {
         }
+        public static new ClusterClientAuthenticationGetArgs Empty => new ClusterClientAuthenticationGetArgs();
     }
 }

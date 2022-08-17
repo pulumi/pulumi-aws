@@ -19,20 +19,18 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.LakeFormation.GetResource.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.LakeFormation.GetResource.InvokeAsync(new Aws.LakeFormation.GetResourceArgs
-        ///         {
-        ///             Arn = "arn:aws:s3:::tf-acc-test-9151654063908211878",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:s3:::tf-acc-test-9151654063908211878",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.LakeFormation.GetResource.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.LakeFormation.GetResource.InvokeAsync(new Aws.LakeFormation.GetResourceArgs
-        ///         {
-        ///             Arn = "arn:aws:s3:::tf-acc-test-9151654063908211878",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:s3:::tf-acc-test-9151654063908211878",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.LakeFormation
     }
 
 
-    public sealed class GetResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource, an S3 path.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.LakeFormation
         public GetResourceArgs()
         {
         }
+        public static new GetResourceArgs Empty => new GetResourceArgs();
     }
 
-    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource, an S3 path.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.LakeFormation
         public GetResourceInvokeArgs()
         {
         }
+        public static new GetResourceInvokeArgs Empty => new GetResourceInvokeArgs();
     }
 
 

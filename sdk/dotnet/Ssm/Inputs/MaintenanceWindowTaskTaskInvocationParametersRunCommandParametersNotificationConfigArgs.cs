@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs()
         {
         }
+        public static new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs Empty => new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs();
     }
 }

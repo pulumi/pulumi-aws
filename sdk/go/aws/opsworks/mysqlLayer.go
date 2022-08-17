@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewMysqlLayer(ctx, "db", &opsworks.MysqlLayerArgs{
-// 			StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewMysqlLayer(ctx, "db", &opsworks.MysqlLayerArgs{
+//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MysqlLayer struct {
 	pulumi.CustomResourceState
@@ -80,7 +83,7 @@ type MysqlLayer struct {
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -160,7 +163,7 @@ type mysqlLayerState struct {
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -209,7 +212,7 @@ type MysqlLayerState struct {
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -336,7 +339,7 @@ func (i *MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLay
 // MysqlLayerArrayInput is an input type that accepts MysqlLayerArray and MysqlLayerArrayOutput values.
 // You can construct a concrete instance of `MysqlLayerArrayInput` via:
 //
-//          MysqlLayerArray{ MysqlLayerArgs{...} }
+//	MysqlLayerArray{ MysqlLayerArgs{...} }
 type MysqlLayerArrayInput interface {
 	pulumi.Input
 
@@ -361,7 +364,7 @@ func (i MysqlLayerArray) ToMysqlLayerArrayOutputWithContext(ctx context.Context)
 // MysqlLayerMapInput is an input type that accepts MysqlLayerMap and MysqlLayerMapOutput values.
 // You can construct a concrete instance of `MysqlLayerMapInput` via:
 //
-//          MysqlLayerMap{ "key": MysqlLayerArgs{...} }
+//	MysqlLayerMap{ "key": MysqlLayerArgs{...} }
 type MysqlLayerMapInput interface {
 	pulumi.Input
 
@@ -511,7 +514,7 @@ func (o MysqlLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MysqlLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MysqlLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MysqlLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

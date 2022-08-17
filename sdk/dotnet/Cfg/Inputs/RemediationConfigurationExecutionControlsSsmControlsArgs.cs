@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RemediationConfigurationExecutionControlsSsmControlsArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationExecutionControlsSsmControlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RemediationConfigurationExecutionControlsSsmControlsArgs()
         {
         }
+        public static new RemediationConfigurationExecutionControlsSsmControlsArgs Empty => new RemediationConfigurationExecutionControlsSsmControlsArgs();
     }
 }

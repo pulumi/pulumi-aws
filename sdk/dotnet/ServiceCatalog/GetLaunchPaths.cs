@@ -20,20 +20,18 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetLaunchPaths.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetLaunchPaths.InvokeAsync(new Aws.ServiceCatalog.GetLaunchPathsArgs
-        ///         {
-        ///             ProductId = "prod-yakog5pdriver",
-        ///         }));
-        ///     }
+        ///         ProductId = "prod-yakog5pdriver",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetLaunchPaths.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetLaunchPaths.InvokeAsync(new Aws.ServiceCatalog.GetLaunchPathsArgs
-        ///         {
-        ///             ProductId = "prod-yakog5pdriver",
-        ///         }));
-        ///     }
+        ///         ProductId = "prod-yakog5pdriver",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.ServiceCatalog
     }
 
 
-    public sealed class GetLaunchPathsArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchPathsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetLaunchPathsArgs()
         {
         }
+        public static new GetLaunchPathsArgs Empty => new GetLaunchPathsArgs();
     }
 
-    public sealed class GetLaunchPathsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchPathsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetLaunchPathsInvokeArgs()
         {
         }
+        public static new GetLaunchPathsInvokeArgs Empty => new GetLaunchPathsInvokeArgs();
     }
 
 

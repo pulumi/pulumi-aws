@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class SelectionConditionArgs : Pulumi.ResourceArgs
+    public sealed class SelectionConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("stringEquals")]
         private InputList<Inputs.SelectionConditionStringEqualArgs>? _stringEquals;
@@ -47,5 +47,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public SelectionConditionArgs()
         {
         }
+        public static new SelectionConditionArgs Empty => new SelectionConditionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class AnomalySubscriptionSubscriberArgs : Pulumi.ResourceArgs
+    public sealed class AnomalySubscriptionSubscriberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public AnomalySubscriptionSubscriberArgs()
         {
         }
+        public static new AnomalySubscriptionSubscriberArgs Empty => new AnomalySubscriptionSubscriberArgs();
     }
 }

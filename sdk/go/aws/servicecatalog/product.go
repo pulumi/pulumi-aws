@@ -24,7 +24,9 @@ import (
 // `aws_servicecatalog_product` can be imported using the product ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
+//
+//	$ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
+//
 // ```
 type Product struct {
 	pulumi.CustomResourceState
@@ -55,9 +57,9 @@ type Product struct {
 	SupportEmail pulumi.StringOutput `pulumi:"supportEmail"`
 	// Contact URL for product support.
 	SupportUrl pulumi.StringOutput `pulumi:"supportUrl"`
-	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -127,9 +129,9 @@ type productState struct {
 	SupportEmail *string `pulumi:"supportEmail"`
 	// Contact URL for product support.
 	SupportUrl *string `pulumi:"supportUrl"`
-	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 	Type *string `pulumi:"type"`
@@ -162,9 +164,9 @@ type ProductState struct {
 	SupportEmail pulumi.StringPtrInput
 	// Contact URL for product support.
 	SupportUrl pulumi.StringPtrInput
-	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 	Type pulumi.StringPtrInput
@@ -193,7 +195,7 @@ type productArgs struct {
 	SupportEmail *string `pulumi:"supportEmail"`
 	// Contact URL for product support.
 	SupportUrl *string `pulumi:"supportUrl"`
-	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 	Type string `pulumi:"type"`
@@ -219,7 +221,7 @@ type ProductArgs struct {
 	SupportEmail pulumi.StringPtrInput
 	// Contact URL for product support.
 	SupportUrl pulumi.StringPtrInput
-	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 	Type pulumi.StringInput
@@ -251,7 +253,7 @@ func (i *Product) ToProductOutputWithContext(ctx context.Context) ProductOutput 
 // ProductArrayInput is an input type that accepts ProductArray and ProductArrayOutput values.
 // You can construct a concrete instance of `ProductArrayInput` via:
 //
-//          ProductArray{ ProductArgs{...} }
+//	ProductArray{ ProductArgs{...} }
 type ProductArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +278,7 @@ func (i ProductArray) ToProductArrayOutputWithContext(ctx context.Context) Produ
 // ProductMapInput is an input type that accepts ProductMap and ProductMapOutput values.
 // You can construct a concrete instance of `ProductMapInput` via:
 //
-//          ProductMap{ "key": ProductArgs{...} }
+//	ProductMap{ "key": ProductArgs{...} }
 type ProductMapInput interface {
 	pulumi.Input
 
@@ -377,12 +379,12 @@ func (o ProductOutput) SupportUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.SupportUrl }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProductOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProductOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

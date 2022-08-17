@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class ServerEndpointDetailsGetArgs : Pulumi.ResourceArgs
+    public sealed class ServerEndpointDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressAllocationIds")]
         private InputList<string>? _addressAllocationIds;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public ServerEndpointDetailsGetArgs()
         {
         }
+        public static new ServerEndpointDetailsGetArgs Empty => new ServerEndpointDetailsGetArgs();
     }
 }

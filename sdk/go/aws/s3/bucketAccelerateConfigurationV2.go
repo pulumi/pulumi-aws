@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAccelerateConfigurationV2(ctx, "example", &s3.BucketAccelerateConfigurationV2Args{
-// 			Bucket: mybucket.Bucket,
-// 			Status: pulumi.String("Enabled"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAccelerateConfigurationV2(ctx, "example", &s3.BucketAccelerateConfigurationV2Args{
+//				Bucket: mybucket.Bucket,
+//				Status: pulumi.String("Enabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,13 +49,17 @@ import (
 // S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketAccelerateConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -166,7 +173,7 @@ func (i *BucketAccelerateConfigurationV2) ToBucketAccelerateConfigurationV2Outpu
 // BucketAccelerateConfigurationV2ArrayInput is an input type that accepts BucketAccelerateConfigurationV2Array and BucketAccelerateConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketAccelerateConfigurationV2ArrayInput` via:
 //
-//          BucketAccelerateConfigurationV2Array{ BucketAccelerateConfigurationV2Args{...} }
+//	BucketAccelerateConfigurationV2Array{ BucketAccelerateConfigurationV2Args{...} }
 type BucketAccelerateConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +198,7 @@ func (i BucketAccelerateConfigurationV2Array) ToBucketAccelerateConfigurationV2A
 // BucketAccelerateConfigurationV2MapInput is an input type that accepts BucketAccelerateConfigurationV2Map and BucketAccelerateConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketAccelerateConfigurationV2MapInput` via:
 //
-//          BucketAccelerateConfigurationV2Map{ "key": BucketAccelerateConfigurationV2Args{...} }
+//	BucketAccelerateConfigurationV2Map{ "key": BucketAccelerateConfigurationV2Args{...} }
 type BucketAccelerateConfigurationV2MapInput interface {
 	pulumi.Input
 

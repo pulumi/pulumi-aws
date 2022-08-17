@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGraph, err := detective.NewGraph(ctx, "exampleGraph", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = detective.NewMember(ctx, "exampleMember", &detective.MemberArgs{
-// 			AccountId:                pulumi.String("AWS ACCOUNT ID"),
-// 			EmailAddress:             pulumi.String("EMAIL"),
-// 			GraphArn:                 exampleGraph.ID(),
-// 			Message:                  pulumi.String("Message of the invitation"),
-// 			DisableEmailNotification: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGraph, err := detective.NewGraph(ctx, "exampleGraph", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = detective.NewMember(ctx, "exampleMember", &detective.MemberArgs{
+//				AccountId:                pulumi.String("AWS ACCOUNT ID"),
+//				EmailAddress:             pulumi.String("EMAIL"),
+//				GraphArn:                 exampleGraph.ID(),
+//				Message:                  pulumi.String("Message of the invitation"),
+//				DisableEmailNotification: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
 //
 // ```sh
-//  $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+//
+//	$ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+//
 // ```
 type Member struct {
 	pulumi.CustomResourceState
@@ -219,7 +224,7 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 // MemberArrayInput is an input type that accepts MemberArray and MemberArrayOutput values.
 // You can construct a concrete instance of `MemberArrayInput` via:
 //
-//          MemberArray{ MemberArgs{...} }
+//	MemberArray{ MemberArgs{...} }
 type MemberArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +249,7 @@ func (i MemberArray) ToMemberArrayOutputWithContext(ctx context.Context) MemberA
 // MemberMapInput is an input type that accepts MemberMap and MemberMapOutput values.
 // You can construct a concrete instance of `MemberMapInput` via:
 //
-//          MemberMap{ "key": MemberArgs{...} }
+//	MemberMap{ "key": MemberArgs{...} }
 type MemberMapInput interface {
 	pulumi.Input
 

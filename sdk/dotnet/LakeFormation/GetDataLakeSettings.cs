@@ -19,20 +19,18 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.LakeFormation.GetDataLakeSettings.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.LakeFormation.GetDataLakeSettings.InvokeAsync(new Aws.LakeFormation.GetDataLakeSettingsArgs
-        ///         {
-        ///             CatalogId = "14916253649",
-        ///         }));
-        ///     }
+        ///         CatalogId = "14916253649",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.LakeFormation.GetDataLakeSettings.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.LakeFormation.GetDataLakeSettings.InvokeAsync(new Aws.LakeFormation.GetDataLakeSettingsArgs
-        ///         {
-        ///             CatalogId = "14916253649",
-        ///         }));
-        ///     }
+        ///         CatalogId = "14916253649",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.LakeFormation
     }
 
 
-    public sealed class GetDataLakeSettingsArgs : Pulumi.InvokeArgs
+    public sealed class GetDataLakeSettingsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.LakeFormation
         public GetDataLakeSettingsArgs()
         {
         }
+        public static new GetDataLakeSettingsArgs Empty => new GetDataLakeSettingsArgs();
     }
 
-    public sealed class GetDataLakeSettingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataLakeSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.LakeFormation
         public GetDataLakeSettingsInvokeArgs()
         {
         }
+        public static new GetDataLakeSettingsInvokeArgs Empty => new GetDataLakeSettingsInvokeArgs();
     }
 
 

@@ -15,46 +15,45 @@ namespace Pulumi.Aws.MediaStore
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleContainer = new Aws.MediaStore.Container("exampleContainer");
+    /// 
+    ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new()
     ///     {
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleContainer = new Aws.MediaStore.Container("exampleContainer", new Aws.MediaStore.ContainerArgs
+    ///         ContainerName = exampleContainer.Name,
+    ///         Policy = Output.Tuple(currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleContainer.Name).Apply(values =&gt;
     ///         {
-    ///         });
-    ///         var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new Aws.MediaStore.ContainerPolicyArgs
-    ///         {
-    ///             ContainerName = exampleContainer.Name,
-    ///             Policy = Output.Tuple(currentCallerIdentity, currentRegion, currentCallerIdentity, exampleContainer.Name).Apply(values =&gt;
-    ///             {
-    ///                 var currentCallerIdentity = values.Item1;
-    ///                 var currentRegion = values.Item2;
-    ///                 var currentCallerIdentity1 = values.Item3;
-    ///                 var name = values.Item4;
-    ///                 return @$"{{
+    ///             var currentCallerIdentity = values.Item1;
+    ///             var currentRegion = values.Item2;
+    ///             var currentCallerIdentity1 = values.Item3;
+    ///             var name = values.Item4;
+    ///             return @$"{{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [{{
     /// 		""Sid"": ""MediaStoreFullAccess"",
     /// 		""Action"": [ ""mediastore:*"" ],
-    /// 		""Principal"": {{""AWS"" : ""arn:aws:iam::{currentCallerIdentity.AccountId}:root""}},
+    /// 		""Principal"": {{""AWS"" : ""arn:aws:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""}},
     /// 		""Effect"": ""Allow"",
-    /// 		""Resource"": ""arn:aws:mediastore:{currentRegion.Name}:{currentCallerIdentity1.AccountId}:container/{name}/*"",
+    /// 		""Resource"": ""arn:aws:mediastore:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:container/{name}/*"",
     /// 		""Condition"": {{
     /// 			""Bool"": {{ ""aws:SecureTransport"": ""true"" }}
     /// 		}}
     /// 	}}]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +65,7 @@ namespace Pulumi.Aws.MediaStore
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediastore/containerPolicy:ContainerPolicy")]
-    public partial class ContainerPolicy : Pulumi.CustomResource
+    public partial class ContainerPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the container.
@@ -124,7 +123,7 @@ namespace Pulumi.Aws.MediaStore
         }
     }
 
-    public sealed class ContainerPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ContainerPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container.
@@ -141,9 +140,10 @@ namespace Pulumi.Aws.MediaStore
         public ContainerPolicyArgs()
         {
         }
+        public static new ContainerPolicyArgs Empty => new ContainerPolicyArgs();
     }
 
-    public sealed class ContainerPolicyState : Pulumi.ResourceArgs
+    public sealed class ContainerPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container.
@@ -160,5 +160,6 @@ namespace Pulumi.Aws.MediaStore
         public ContainerPolicyState()
         {
         }
+        public static new ContainerPolicyState Empty => new ContainerPolicyState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs : Pulumi.ResourceArgs
+    public sealed class GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs()
         {
         }
+        public static new GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs Empty => new GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs();
     }
 }

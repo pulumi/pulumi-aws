@@ -15,24 +15,22 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testLambdafunctionLogfilter = new Aws.CloudWatch.LogSubscriptionFilter("testLambdafunctionLogfilter", new()
     ///     {
-    ///         var testLambdafunctionLogfilter = new Aws.CloudWatch.LogSubscriptionFilter("testLambdafunctionLogfilter", new Aws.CloudWatch.LogSubscriptionFilterArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Iam_for_lambda.Arn,
-    ///             LogGroup = "/aws/lambda/example_lambda_name",
-    ///             FilterPattern = "logtype test",
-    ///             DestinationArn = aws_kinesis_stream.Test_logstream.Arn,
-    ///             Distribution = "Random",
-    ///         });
-    ///     }
+    ///         RoleArn = aws_iam_role.Iam_for_lambda.Arn,
+    ///         LogGroup = "/aws/lambda/example_lambda_name",
+    ///         FilterPattern = "logtype test",
+    ///         DestinationArn = aws_kinesis_stream.Test_logstream.Arn,
+    ///         Distribution = "Random",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]
-    public partial class LogSubscriptionFilter : Pulumi.CustomResource
+    public partial class LogSubscriptionFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogSubscriptionFilterArgs : Pulumi.ResourceArgs
+    public sealed class LogSubscriptionFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
@@ -167,9 +165,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogSubscriptionFilterArgs()
         {
         }
+        public static new LogSubscriptionFilterArgs Empty => new LogSubscriptionFilterArgs();
     }
 
-    public sealed class LogSubscriptionFilterState : Pulumi.ResourceArgs
+    public sealed class LogSubscriptionFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
@@ -210,5 +209,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogSubscriptionFilterState()
         {
         }
+        public static new LogSubscriptionFilterState Empty => new LogSubscriptionFilterState();
     }
 }

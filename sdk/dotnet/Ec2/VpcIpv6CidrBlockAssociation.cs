@@ -17,25 +17,24 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
     ///     {
-    ///         var testVpc = new Aws.Ec2.Vpc("testVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var testVpcIpv6CidrBlockAssociation = new Aws.Ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", new Aws.Ec2.VpcIpv6CidrBlockAssociationArgs
-    ///         {
-    ///             Ipv6IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-    ///             VpcId = testVpc.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var testVpcIpv6CidrBlockAssociation = new Aws.Ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", new()
+    ///     {
+    ///         Ipv6IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+    ///         VpcId = testVpc.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation")]
-    public partial class VpcIpv6CidrBlockAssociation : Pulumi.CustomResource
+    public partial class VpcIpv6CidrBlockAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
@@ -117,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpv6CidrBlockAssociationArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpv6CidrBlockAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
@@ -146,9 +145,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpv6CidrBlockAssociationArgs()
         {
         }
+        public static new VpcIpv6CidrBlockAssociationArgs Empty => new VpcIpv6CidrBlockAssociationArgs();
     }
 
-    public sealed class VpcIpv6CidrBlockAssociationState : Pulumi.ResourceArgs
+    public sealed class VpcIpv6CidrBlockAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
@@ -177,5 +177,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpv6CidrBlockAssociationState()
         {
         }
+        public static new VpcIpv6CidrBlockAssociationState Empty => new VpcIpv6CidrBlockAssociationState();
     }
 }

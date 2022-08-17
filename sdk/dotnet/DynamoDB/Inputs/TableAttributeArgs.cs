@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class TableAttributeArgs : Pulumi.ResourceArgs
+    public sealed class TableAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the index
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public TableAttributeArgs()
         {
         }
+        public static new TableAttributeArgs Empty => new TableAttributeArgs();
     }
 }

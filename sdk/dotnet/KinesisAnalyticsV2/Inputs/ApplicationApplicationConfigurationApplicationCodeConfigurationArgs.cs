@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location and type of the application code.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationApplicationCodeConfigurationArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationApplicationCodeConfigurationArgs Empty => new ApplicationApplicationConfigurationApplicationCodeConfigurationArgs();
     }
 }

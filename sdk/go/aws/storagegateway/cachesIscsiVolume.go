@@ -26,24 +26,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-// 			GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-// 			TargetName:         pulumi.String("example"),
-// 			VolumeSizeInBytes:  pulumi.Int(5368709120),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
+//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
+//				TargetName:         pulumi.String("example"),
+//				VolumeSizeInBytes:  pulumi.Int(5368709120),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create Cached iSCSI Volume From Snapshot
 //
@@ -51,25 +54,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-// 			GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-// 			SnapshotId:         pulumi.Any(aws_ebs_snapshot.Example.Id),
-// 			TargetName:         pulumi.String("example"),
-// 			VolumeSizeInBytes:  aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
+//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
+//				SnapshotId:         pulumi.Any(aws_ebs_snapshot.Example.Id),
+//				TargetName:         pulumi.String("example"),
+//				VolumeSizeInBytes:  aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create Cached iSCSI Volume From Source Volume
 //
@@ -77,25 +83,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-// 			GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-// 			SourceVolumeArn:    pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Arn),
-// 			TargetName:         pulumi.String("example"),
-// 			VolumeSizeInBytes:  pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
+//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
+//				SourceVolumeArn:    pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Arn),
+//				TargetName:         pulumi.String("example"),
+//				VolumeSizeInBytes:  pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -103,7 +112,9 @@ import (
 // `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+//
+//	$ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+//
 // ```
 type CachesIscsiVolume struct {
 	pulumi.CustomResourceState
@@ -331,7 +342,7 @@ func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutputWithContext(ctx context.Con
 // CachesIscsiVolumeArrayInput is an input type that accepts CachesIscsiVolumeArray and CachesIscsiVolumeArrayOutput values.
 // You can construct a concrete instance of `CachesIscsiVolumeArrayInput` via:
 //
-//          CachesIscsiVolumeArray{ CachesIscsiVolumeArgs{...} }
+//	CachesIscsiVolumeArray{ CachesIscsiVolumeArgs{...} }
 type CachesIscsiVolumeArrayInput interface {
 	pulumi.Input
 
@@ -356,7 +367,7 @@ func (i CachesIscsiVolumeArray) ToCachesIscsiVolumeArrayOutputWithContext(ctx co
 // CachesIscsiVolumeMapInput is an input type that accepts CachesIscsiVolumeMap and CachesIscsiVolumeMapOutput values.
 // You can construct a concrete instance of `CachesIscsiVolumeMapInput` via:
 //
-//          CachesIscsiVolumeMap{ "key": CachesIscsiVolumeArgs{...} }
+//	CachesIscsiVolumeMap{ "key": CachesIscsiVolumeArgs{...} }
 type CachesIscsiVolumeMapInput interface {
 	pulumi.Input
 

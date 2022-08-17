@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class EndpointAccessVpcEndpointNetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAccessVpcEndpointNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public EndpointAccessVpcEndpointNetworkInterfaceArgs()
         {
         }
+        public static new EndpointAccessVpcEndpointNetworkInterfaceArgs Empty => new EndpointAccessVpcEndpointNetworkInterfaceArgs();
     }
 }

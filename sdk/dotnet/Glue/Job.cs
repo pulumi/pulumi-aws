@@ -18,102 +18,95 @@ namespace Pulumi.Aws.Glue
     /// ### Python Job
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
-    ///             {
-    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
-    ///             },
-    ///         });
-    ///     }
+    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Scala Job
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
-    ///             {
-    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
-    ///             },
-    ///             DefaultArguments = 
-    ///             {
-    ///                 { "--job-language", "scala" },
-    ///             },
-    ///         });
-    ///     }
+    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
+    ///         },
+    ///         DefaultArguments = 
+    ///         {
+    ///             { "--job-language", "scala" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Streaming Job
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
-    ///             {
-    ///                 Name = "gluestreaming",
-    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.script",
-    ///             },
-    ///         });
-    ///     }
+    ///             Name = "gluestreaming",
+    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.script",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Enabling CloudWatch Logs and Metrics
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
     ///     {
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 14,
-    ///         });
-    ///         // ... other configuration ...
-    ///         var exampleJob = new Aws.Glue.Job("exampleJob", new Aws.Glue.JobArgs
-    ///         {
-    ///             DefaultArguments = 
-    ///             {
-    ///                 { "--continuous-log-logGroup", exampleLogGroup.Name },
-    ///                 { "--enable-continuous-cloudwatch-log", "true" },
-    ///                 { "--enable-continuous-log-filter", "true" },
-    ///                 { "--enable-metrics", "" },
-    ///             },
-    ///         });
-    ///     }
+    ///         RetentionInDays = 14,
+    ///     });
     /// 
-    /// }
+    ///     // ... other configuration ...
+    ///     var exampleJob = new Aws.Glue.Job("exampleJob", new()
+    ///     {
+    ///         DefaultArguments = 
+    ///         {
+    ///             { "--continuous-log-logGroup", exampleLogGroup.Name },
+    ///             { "--enable-continuous-cloudwatch-log", "true" },
+    ///             { "--enable-continuous-log-filter", "true" },
+    ///             { "--enable-metrics", "" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +118,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/job:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
@@ -156,6 +149,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        /// </summary>
+        [Output("executionClass")]
+        public Output<string?> ExecutionClass { get; private set; } = null!;
 
         /// <summary>
         /// Execution property of the job. Defined below.
@@ -285,7 +284,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The command of the job. Defined below.
@@ -322,6 +321,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        /// </summary>
+        [Input("executionClass")]
+        public Input<string>? ExecutionClass { get; set; }
 
         /// <summary>
         /// Execution property of the job. Defined below.
@@ -416,9 +421,10 @@ namespace Pulumi.Aws.Glue
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 
-    public sealed class JobState : Pulumi.ResourceArgs
+    public sealed class JobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
@@ -461,6 +467,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        /// </summary>
+        [Input("executionClass")]
+        public Input<string>? ExecutionClass { get; set; }
 
         /// <summary>
         /// Execution property of the job. Defined below.
@@ -567,5 +579,6 @@ namespace Pulumi.Aws.Glue
         public JobState()
         {
         }
+        public static new JobState Empty => new JobState();
     }
 }

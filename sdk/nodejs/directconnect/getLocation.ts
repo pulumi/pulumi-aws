@@ -47,6 +47,10 @@ export interface GetLocationArgs {
  */
 export interface GetLocationResult {
     /**
+     * The available MAC Security (MACsec) port speeds for the location.
+     */
+    readonly availableMacsecPortSpeeds: string[];
+    /**
      * The available port speeds for the location.
      */
     readonly availablePortSpeeds: string[];

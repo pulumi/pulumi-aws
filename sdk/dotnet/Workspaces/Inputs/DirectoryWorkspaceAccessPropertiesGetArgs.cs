@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces.Inputs
 {
 
-    public sealed class DirectoryWorkspaceAccessPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryWorkspaceAccessPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether users can use Android devices to access their WorkSpaces.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public DirectoryWorkspaceAccessPropertiesGetArgs()
         {
         }
+        public static new DirectoryWorkspaceAccessPropertiesGetArgs Empty => new DirectoryWorkspaceAccessPropertiesGetArgs();
     }
 }

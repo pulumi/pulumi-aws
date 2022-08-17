@@ -76,7 +76,7 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     public readonly resources!: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetResource[]>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -147,7 +147,7 @@ export interface ResourceSetState {
      */
     resources?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResource>[]>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -173,7 +173,7 @@ export interface ResourceSetArgs {
      */
     resources: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResource>[]>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

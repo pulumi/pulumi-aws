@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class AccessPointVpcConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointVpcConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This access point will only allow connections from the specified VPC ID.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public AccessPointVpcConfigurationGetArgs()
         {
         }
+        public static new AccessPointVpcConfigurationGetArgs Empty => new AccessPointVpcConfigurationGetArgs();
     }
 }

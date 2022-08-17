@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudHsmV2.Inputs
 {
 
-    public sealed class ClusterClusterCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClusterCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsHardwareCertificate")]
         public Input<string>? AwsHardwareCertificate { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.CloudHsmV2.Inputs
         public ClusterClusterCertificateGetArgs()
         {
         }
+        public static new ClusterClusterCertificateGetArgs Empty => new ClusterClusterCertificateGetArgs();
     }
 }

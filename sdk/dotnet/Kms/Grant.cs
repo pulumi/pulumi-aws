@@ -15,19 +15,17 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var key = new Aws.Kms.Key("key");
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var key = new Aws.Kms.Key("key", new Aws.Kms.KeyArgs
-    ///         {
-    ///         });
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -41,31 +39,31 @@ namespace Pulumi.Aws.Kms
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var grant = new Aws.Kms.Grant("grant", new Aws.Kms.GrantArgs
+    ///     });
+    /// 
+    ///     var grant = new Aws.Kms.Grant("grant", new()
+    ///     {
+    ///         KeyId = key.KeyId,
+    ///         GranteePrincipal = role.Arn,
+    ///         Operations = new[]
     ///         {
-    ///             KeyId = key.KeyId,
-    ///             GranteePrincipal = role.Arn,
-    ///             Operations = 
+    ///             "Encrypt",
+    ///             "Decrypt",
+    ///             "GenerateDataKey",
+    ///         },
+    ///         Constraints = new[]
+    ///         {
+    ///             new Aws.Kms.Inputs.GrantConstraintArgs
     ///             {
-    ///                 "Encrypt",
-    ///                 "Decrypt",
-    ///                 "GenerateDataKey",
-    ///             },
-    ///             Constraints = 
-    ///             {
-    ///                 new Aws.Kms.Inputs.GrantConstraintArgs
+    ///                 EncryptionContextEquals = 
     ///                 {
-    ///                     EncryptionContextEquals = 
-    ///                     {
-    ///                         { "Department", "Finance" },
-    ///                     },
+    ///                     { "Department", "Finance" },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +75,7 @@ namespace Pulumi.Aws.Kms
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/grant:Grant")]
-    public partial class Grant : Pulumi.CustomResource
+    public partial class Grant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
@@ -184,7 +182,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class GrantArgs : Pulumi.ResourceArgs
+    public sealed class GrantArgs : global::Pulumi.ResourceArgs
     {
         [Input("constraints")]
         private InputList<Inputs.GrantConstraintArgs>? _constraints;
@@ -256,9 +254,10 @@ namespace Pulumi.Aws.Kms
         public GrantArgs()
         {
         }
+        public static new GrantArgs Empty => new GrantArgs();
     }
 
-    public sealed class GrantState : Pulumi.ResourceArgs
+    public sealed class GrantState : global::Pulumi.ResourceArgs
     {
         [Input("constraints")]
         private InputList<Inputs.GrantConstraintGetArgs>? _constraints;
@@ -342,5 +341,6 @@ namespace Pulumi.Aws.Kms
         public GrantState()
         {
         }
+        public static new GrantState Empty => new GrantState();
     }
 }

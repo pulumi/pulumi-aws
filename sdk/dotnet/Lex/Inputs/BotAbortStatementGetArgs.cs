@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class BotAbortStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class BotAbortStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("messages", required: true)]
         private InputList<Inputs.BotAbortStatementMessageGetArgs>? _messages;
@@ -37,5 +37,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public BotAbortStatementGetArgs()
         {
         }
+        public static new BotAbortStatementGetArgs Empty => new BotAbortStatementGetArgs();
     }
 }

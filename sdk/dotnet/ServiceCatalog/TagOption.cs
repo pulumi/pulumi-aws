@@ -16,21 +16,19 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.TagOption("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.TagOption("example", new Aws.ServiceCatalog.TagOptionArgs
-    ///         {
-    ///             Key = "nyckel",
-    ///             Value = "värde",
-    ///         });
-    ///     }
+    ///         Key = "nyckel",
+    ///         Value = "värde",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/tagOption:TagOption")]
-    public partial class TagOption : Pulumi.CustomResource
+    public partial class TagOption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether tag option is active. Default is `true`.
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class TagOptionArgs : Pulumi.ResourceArgs
+    public sealed class TagOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether tag option is active. Default is `true`.
@@ -132,9 +130,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public TagOptionArgs()
         {
         }
+        public static new TagOptionArgs Empty => new TagOptionArgs();
     }
 
-    public sealed class TagOptionState : Pulumi.ResourceArgs
+    public sealed class TagOptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether tag option is active. Default is `true`.
@@ -160,5 +159,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public TagOptionState()
         {
         }
+        public static new TagOptionState Empty => new TagOptionState();
     }
 }

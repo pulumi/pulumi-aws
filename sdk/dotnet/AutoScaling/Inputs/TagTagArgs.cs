@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class TagTagArgs : Pulumi.ResourceArgs
+    public sealed class TagTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tag name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public TagTagArgs()
         {
         }
+        public static new TagTagArgs Empty => new TagTagArgs();
     }
 }

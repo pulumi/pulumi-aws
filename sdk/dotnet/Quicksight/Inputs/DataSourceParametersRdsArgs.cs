@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersRdsArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersRdsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The database to which to connect.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersRdsArgs()
         {
         }
+        public static new DataSourceParametersRdsArgs Empty => new DataSourceParametersRdsArgs();
     }
 }

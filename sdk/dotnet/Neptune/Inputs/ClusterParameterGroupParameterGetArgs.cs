@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Neptune.Inputs
 {
 
-    public sealed class ClusterParameterGroupParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Neptune.Inputs
         public ClusterParameterGroupParameterGetArgs()
         {
         }
+        public static new ClusterParameterGroupParameterGetArgs Empty => new ClusterParameterGroupParameterGetArgs();
     }
 }

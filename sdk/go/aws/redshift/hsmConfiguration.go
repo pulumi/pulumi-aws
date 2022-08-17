@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewHsmConfiguration(ctx, "example", &redshift.HsmConfigurationArgs{
-// 			Description:                pulumi.String("example"),
-// 			HsmConfigurationIdentifier: pulumi.String("example"),
-// 			HsmIpAddress:               pulumi.String("10.0.0.1"),
-// 			HsmPartitionName:           pulumi.String("aws"),
-// 			HsmPartitionPassword:       pulumi.String("example"),
-// 			HsmServerPublicCertificate: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewHsmConfiguration(ctx, "example", &redshift.HsmConfigurationArgs{
+//				Description:                pulumi.String("example"),
+//				HsmConfigurationIdentifier: pulumi.String("example"),
+//				HsmIpAddress:               pulumi.String("10.0.0.1"),
+//				HsmPartitionName:           pulumi.String("aws"),
+//				HsmPartitionPassword:       pulumi.String("example"),
+//				HsmServerPublicCertificate: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+//
+//	$ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+//
 // ```
 type HsmConfiguration struct {
 	pulumi.CustomResourceState
@@ -66,8 +71,7 @@ type HsmConfiguration struct {
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringOutput `pulumi:"hsmServerPublicCertificate"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -133,8 +137,7 @@ type hsmConfigurationState struct {
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate *string `pulumi:"hsmServerPublicCertificate"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -154,8 +157,7 @@ type HsmConfigurationState struct {
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -224,7 +226,7 @@ func (i *HsmConfiguration) ToHsmConfigurationOutputWithContext(ctx context.Conte
 // HsmConfigurationArrayInput is an input type that accepts HsmConfigurationArray and HsmConfigurationArrayOutput values.
 // You can construct a concrete instance of `HsmConfigurationArrayInput` via:
 //
-//          HsmConfigurationArray{ HsmConfigurationArgs{...} }
+//	HsmConfigurationArray{ HsmConfigurationArgs{...} }
 type HsmConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +251,7 @@ func (i HsmConfigurationArray) ToHsmConfigurationArrayOutputWithContext(ctx cont
 // HsmConfigurationMapInput is an input type that accepts HsmConfigurationMap and HsmConfigurationMapOutput values.
 // You can construct a concrete instance of `HsmConfigurationMapInput` via:
 //
-//          HsmConfigurationMap{ "key": HsmConfigurationArgs{...} }
+//	HsmConfigurationMap{ "key": HsmConfigurationArgs{...} }
 type HsmConfigurationMapInput interface {
 	pulumi.Input
 
@@ -325,7 +327,6 @@ func (o HsmConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o HsmConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

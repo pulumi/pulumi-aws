@@ -18,31 +18,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafregional.NewByteMatchSet(ctx, "byteSet", &wafregional.ByteMatchSetArgs{
-// 			ByteMatchTuples: wafregional.ByteMatchSetByteMatchTupleArray{
-// 				&wafregional.ByteMatchSetByteMatchTupleArgs{
-// 					FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-// 						Data: pulumi.String("referer"),
-// 						Type: pulumi.String("HEADER"),
-// 					},
-// 					PositionalConstraint: pulumi.String("CONTAINS"),
-// 					TargetString:         pulumi.String("badrefer1"),
-// 					TextTransformation:   pulumi.String("NONE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafregional.NewByteMatchSet(ctx, "byteSet", &wafregional.ByteMatchSetArgs{
+//				ByteMatchTuples: wafregional.ByteMatchSetByteMatchTupleArray{
+//					&wafregional.ByteMatchSetByteMatchTupleArgs{
+//						FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
+//							Data: pulumi.String("referer"),
+//							Type: pulumi.String("HEADER"),
+//						},
+//						PositionalConstraint: pulumi.String("CONTAINS"),
+//						TargetString:         pulumi.String("badrefer1"),
+//						TextTransformation:   pulumi.String("NONE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // WAF Regional Byte Match Set can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
@@ -148,7 +153,7 @@ func (i *ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) Byte
 // ByteMatchSetArrayInput is an input type that accepts ByteMatchSetArray and ByteMatchSetArrayOutput values.
 // You can construct a concrete instance of `ByteMatchSetArrayInput` via:
 //
-//          ByteMatchSetArray{ ByteMatchSetArgs{...} }
+//	ByteMatchSetArray{ ByteMatchSetArgs{...} }
 type ByteMatchSetArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i ByteMatchSetArray) ToByteMatchSetArrayOutputWithContext(ctx context.Cont
 // ByteMatchSetMapInput is an input type that accepts ByteMatchSetMap and ByteMatchSetMapOutput values.
 // You can construct a concrete instance of `ByteMatchSetMapInput` via:
 //
-//          ByteMatchSetMap{ "key": ByteMatchSetArgs{...} }
+//	ByteMatchSetMap{ "key": ByteMatchSetArgs{...} }
 type ByteMatchSetMapInput interface {
 	pulumi.Input
 

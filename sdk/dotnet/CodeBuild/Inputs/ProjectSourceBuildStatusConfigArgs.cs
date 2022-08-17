@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSourceBuildStatusConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSourceBuildStatusConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectSourceBuildStatusConfigArgs()
         {
         }
+        public static new ProjectSourceBuildStatusConfigArgs Empty => new ProjectSourceBuildStatusConfigArgs();
     }
 }

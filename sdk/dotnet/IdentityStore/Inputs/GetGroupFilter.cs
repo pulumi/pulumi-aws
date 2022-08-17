@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.IdentityStore.Inputs
 {
 
-    public sealed class GetGroupFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         public GetGroupFilterArgs()
         {
         }
+        public static new GetGroupFilterArgs Empty => new GetGroupFilterArgs();
     }
 }

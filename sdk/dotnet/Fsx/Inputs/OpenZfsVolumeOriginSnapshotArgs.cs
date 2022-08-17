@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OpenZfsVolumeOriginSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsVolumeOriginSnapshotArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyStrategy", required: true)]
         public Input<string> CopyStrategy { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OpenZfsVolumeOriginSnapshotArgs()
         {
         }
+        public static new OpenZfsVolumeOriginSnapshotArgs Empty => new OpenZfsVolumeOriginSnapshotArgs();
     }
 }

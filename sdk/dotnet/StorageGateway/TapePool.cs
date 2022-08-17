@@ -15,21 +15,19 @@ namespace Pulumi.Aws.StorageGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.TapePool("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.TapePool("example", new Aws.StorageGateway.TapePoolArgs
-    ///         {
-    ///             PoolName = "example",
-    ///             StorageClass = "GLACIER",
-    ///         });
-    ///     }
+    ///         PoolName = "example",
+    ///         StorageClass = "GLACIER",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/tapePool:TapePool")]
-    public partial class TapePool : Pulumi.CustomResource
+    public partial class TapePool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g. `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class TapePoolArgs : Pulumi.ResourceArgs
+    public sealed class TapePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the new custom tape pool.
@@ -170,9 +168,10 @@ namespace Pulumi.Aws.StorageGateway
         public TapePoolArgs()
         {
         }
+        public static new TapePoolArgs Empty => new TapePoolArgs();
     }
 
-    public sealed class TapePoolState : Pulumi.ResourceArgs
+    public sealed class TapePoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g. `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
@@ -231,5 +230,6 @@ namespace Pulumi.Aws.StorageGateway
         public TapePoolState()
         {
         }
+        public static new TapePoolState Empty => new TapePoolState();
     }
 }

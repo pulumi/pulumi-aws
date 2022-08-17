@@ -35,6 +35,7 @@ public final class GetLoadBalancerResult {
     private final String ipAddressType;
     private final String loadBalancerType;
     private final String name;
+    private final Boolean preserveHostHeader;
     private final List<String> securityGroups;
     private final List<GetLoadBalancerSubnetMapping> subnetMappings;
     private final List<String> subnets;
@@ -60,6 +61,7 @@ public final class GetLoadBalancerResult {
         @CustomType.Parameter("ipAddressType") String ipAddressType,
         @CustomType.Parameter("loadBalancerType") String loadBalancerType,
         @CustomType.Parameter("name") String name,
+        @CustomType.Parameter("preserveHostHeader") Boolean preserveHostHeader,
         @CustomType.Parameter("securityGroups") List<String> securityGroups,
         @CustomType.Parameter("subnetMappings") List<GetLoadBalancerSubnetMapping> subnetMappings,
         @CustomType.Parameter("subnets") List<String> subnets,
@@ -82,6 +84,7 @@ public final class GetLoadBalancerResult {
         this.ipAddressType = ipAddressType;
         this.loadBalancerType = loadBalancerType;
         this.name = name;
+        this.preserveHostHeader = preserveHostHeader;
         this.securityGroups = securityGroups;
         this.subnetMappings = subnetMappings;
         this.subnets = subnets;
@@ -142,6 +145,9 @@ public final class GetLoadBalancerResult {
     public String name() {
         return this.name;
     }
+    public Boolean preserveHostHeader() {
+        return this.preserveHostHeader;
+    }
     public List<String> securityGroups() {
         return this.securityGroups;
     }
@@ -186,6 +192,7 @@ public final class GetLoadBalancerResult {
         private String ipAddressType;
         private String loadBalancerType;
         private String name;
+        private Boolean preserveHostHeader;
         private List<String> securityGroups;
         private List<GetLoadBalancerSubnetMapping> subnetMappings;
         private List<String> subnets;
@@ -215,6 +222,7 @@ public final class GetLoadBalancerResult {
     	      this.ipAddressType = defaults.ipAddressType;
     	      this.loadBalancerType = defaults.loadBalancerType;
     	      this.name = defaults.name;
+    	      this.preserveHostHeader = defaults.preserveHostHeader;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetMappings = defaults.subnetMappings;
     	      this.subnets = defaults.subnets;
@@ -287,6 +295,10 @@ public final class GetLoadBalancerResult {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        public Builder preserveHostHeader(Boolean preserveHostHeader) {
+            this.preserveHostHeader = Objects.requireNonNull(preserveHostHeader);
+            return this;
+        }
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -320,7 +332,7 @@ public final class GetLoadBalancerResult {
             this.zoneId = Objects.requireNonNull(zoneId);
             return this;
         }        public GetLoadBalancerResult build() {
-            return new GetLoadBalancerResult(accessLogs, arn, arnSuffix, customerOwnedIpv4Pool, desyncMitigationMode, dnsName, dropInvalidHeaderFields, enableDeletionProtection, enableHttp2, enableWafFailOpen, id, idleTimeout, internal, ipAddressType, loadBalancerType, name, securityGroups, subnetMappings, subnets, tags, vpcId, zoneId);
+            return new GetLoadBalancerResult(accessLogs, arn, arnSuffix, customerOwnedIpv4Pool, desyncMitigationMode, dnsName, dropInvalidHeaderFields, enableDeletionProtection, enableHttp2, enableWafFailOpen, id, idleTimeout, internal, ipAddressType, loadBalancerType, name, preserveHostHeader, securityGroups, subnetMappings, subnets, tags, vpcId, zoneId);
         }
     }
 }

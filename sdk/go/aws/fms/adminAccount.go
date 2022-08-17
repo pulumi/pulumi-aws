@@ -18,19 +18,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fms.NewAdminAccount(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fms.NewAdminAccount(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -38,7 +41,9 @@ import (
 // Firewall Manager administrator account association can be imported using the account ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+//
+//	$ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+//
 // ```
 type AdminAccount struct {
 	pulumi.CustomResourceState
@@ -126,7 +131,7 @@ func (i *AdminAccount) ToAdminAccountOutputWithContext(ctx context.Context) Admi
 // AdminAccountArrayInput is an input type that accepts AdminAccountArray and AdminAccountArrayOutput values.
 // You can construct a concrete instance of `AdminAccountArrayInput` via:
 //
-//          AdminAccountArray{ AdminAccountArgs{...} }
+//	AdminAccountArray{ AdminAccountArgs{...} }
 type AdminAccountArrayInput interface {
 	pulumi.Input
 
@@ -151,7 +156,7 @@ func (i AdminAccountArray) ToAdminAccountArrayOutputWithContext(ctx context.Cont
 // AdminAccountMapInput is an input type that accepts AdminAccountMap and AdminAccountMapOutput values.
 // You can construct a concrete instance of `AdminAccountMapInput` via:
 //
-//          AdminAccountMap{ "key": AdminAccountArgs{...} }
+//	AdminAccountMap{ "key": AdminAccountArgs{...} }
 type AdminAccountMapInput interface {
 	pulumi.Input
 

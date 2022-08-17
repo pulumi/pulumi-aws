@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectEnvironmentEnvironmentVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentEnvironmentVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectEnvironmentEnvironmentVariableGetArgs()
         {
         }
+        public static new ProjectEnvironmentEnvironmentVariableGetArgs Empty => new ProjectEnvironmentEnvironmentVariableGetArgs();
     }
 }

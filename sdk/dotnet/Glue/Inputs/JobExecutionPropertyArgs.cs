@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class JobExecutionPropertyArgs : Pulumi.ResourceArgs
+    public sealed class JobExecutionPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of concurrent runs allowed for a job. The default is 1.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public JobExecutionPropertyArgs()
         {
         }
+        public static new JobExecutionPropertyArgs Empty => new JobExecutionPropertyArgs();
     }
 }

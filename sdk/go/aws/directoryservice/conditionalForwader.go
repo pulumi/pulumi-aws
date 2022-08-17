@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directoryservice.NewConditionalForwader(ctx, "example", &directoryservice.ConditionalForwaderArgs{
-// 			DirectoryId:      pulumi.Any(aws_directory_service_directory.Ad.Id),
-// 			RemoteDomainName: pulumi.String("example.com"),
-// 			DnsIps: pulumi.StringArray{
-// 				pulumi.String("8.8.8.8"),
-// 				pulumi.String("8.8.4.4"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directoryservice.NewConditionalForwader(ctx, "example", &directoryservice.ConditionalForwaderArgs{
+//				DirectoryId:      pulumi.Any(aws_directory_service_directory.Ad.Id),
+//				RemoteDomainName: pulumi.String("example.com"),
+//				DnsIps: pulumi.StringArray{
+//					pulumi.String("8.8.8.8"),
+//					pulumi.String("8.8.4.4"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+//
+//	$ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+//
 // ```
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *ConditionalForwader) ToConditionalForwaderOutputWithContext(ctx context
 // ConditionalForwaderArrayInput is an input type that accepts ConditionalForwaderArray and ConditionalForwaderArrayOutput values.
 // You can construct a concrete instance of `ConditionalForwaderArrayInput` via:
 //
-//          ConditionalForwaderArray{ ConditionalForwaderArgs{...} }
+//	ConditionalForwaderArray{ ConditionalForwaderArgs{...} }
 type ConditionalForwaderArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i ConditionalForwaderArray) ToConditionalForwaderArrayOutputWithContext(ct
 // ConditionalForwaderMapInput is an input type that accepts ConditionalForwaderMap and ConditionalForwaderMapOutput values.
 // You can construct a concrete instance of `ConditionalForwaderMapInput` via:
 //
-//          ConditionalForwaderMap{ "key": ConditionalForwaderArgs{...} }
+//	ConditionalForwaderMap{ "key": ConditionalForwaderArgs{...} }
 type ConditionalForwaderMapInput interface {
 	pulumi.Input
 

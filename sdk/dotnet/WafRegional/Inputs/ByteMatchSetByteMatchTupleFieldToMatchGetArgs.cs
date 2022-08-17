@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class ByteMatchSetByteMatchTupleFieldToMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class ByteMatchSetByteMatchTupleFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public ByteMatchSetByteMatchTupleFieldToMatchGetArgs()
         {
         }
+        public static new ByteMatchSetByteMatchTupleFieldToMatchGetArgs Empty => new ByteMatchSetByteMatchTupleFieldToMatchGetArgs();
     }
 }

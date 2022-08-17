@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PresetVideoWatermarkGetArgs : Pulumi.ResourceArgs
+    public sealed class PresetVideoWatermarkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PresetVideoWatermarkGetArgs()
         {
         }
+        public static new PresetVideoWatermarkGetArgs Empty => new PresetVideoWatermarkGetArgs();
     }
 }

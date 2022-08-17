@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class EcsClusterLayerCloudwatchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class EcsClusterLayerCloudwatchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public EcsClusterLayerCloudwatchConfigurationGetArgs()
         {
         }
+        public static new EcsClusterLayerCloudwatchConfigurationGetArgs Empty => new EcsClusterLayerCloudwatchConfigurationGetArgs();
     }
 }

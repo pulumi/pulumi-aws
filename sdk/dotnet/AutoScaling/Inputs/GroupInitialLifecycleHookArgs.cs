@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupInitialLifecycleHookArgs : Pulumi.ResourceArgs
+    public sealed class GroupInitialLifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultResult")]
         public Input<string>? DefaultResult { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupInitialLifecycleHookArgs()
         {
         }
+        public static new GroupInitialLifecycleHookArgs Empty => new GroupInitialLifecycleHookArgs();
     }
 }

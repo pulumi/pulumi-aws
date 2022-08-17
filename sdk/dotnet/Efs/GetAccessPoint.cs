@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Efs.GetAccessPoint.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Efs.GetAccessPoint.InvokeAsync(new Aws.Efs.GetAccessPointArgs
-        ///         {
-        ///             AccessPointId = "fsap-12345678",
-        ///         }));
-        ///     }
+        ///         AccessPointId = "fsap-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Efs.GetAccessPoint.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Efs.GetAccessPoint.InvokeAsync(new Aws.Efs.GetAccessPointArgs
-        ///         {
-        ///             AccessPointId = "fsap-12345678",
-        ///         }));
-        ///     }
+        ///         AccessPointId = "fsap-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Efs
     }
 
 
-    public sealed class GetAccessPointArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID that identifies the file system.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Efs
         public GetAccessPointArgs()
         {
         }
+        public static new GetAccessPointArgs Empty => new GetAccessPointArgs();
     }
 
-    public sealed class GetAccessPointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID that identifies the file system.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Efs
         public GetAccessPointInvokeArgs()
         {
         }
+        public static new GetAccessPointInvokeArgs Empty => new GetAccessPointInvokeArgs();
     }
 
 

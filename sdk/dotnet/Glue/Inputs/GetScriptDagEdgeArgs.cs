@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class GetScriptDagEdgeInputArgs : Pulumi.ResourceArgs
+    public sealed class GetScriptDagEdgeInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the node at which the edge starts.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public GetScriptDagEdgeInputArgs()
         {
         }
+        public static new GetScriptDagEdgeInputArgs Empty => new GetScriptDagEdgeInputArgs();
     }
 }

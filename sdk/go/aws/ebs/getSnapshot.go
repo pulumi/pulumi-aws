@@ -18,38 +18,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
-// 			Filters: []ebs.GetSnapshotFilter{
-// 				ebs.GetSnapshotFilter{
-// 					Name: "volume-size",
-// 					Values: []string{
-// 						"40",
-// 					},
-// 				},
-// 				ebs.GetSnapshotFilter{
-// 					Name: "tag:Name",
-// 					Values: []string{
-// 						"Example",
-// 					},
-// 				},
-// 			},
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Owners: []string{
-// 				"self",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
+//				Filters: []ebs.GetSnapshotFilter{
+//					ebs.GetSnapshotFilter{
+//						Name: "volume-size",
+//						Values: []string{
+//							"40",
+//						},
+//					},
+//					ebs.GetSnapshotFilter{
+//						Name: "tag:Name",
+//						Values: []string{
+//							"Example",
+//						},
+//					},
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"self",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult

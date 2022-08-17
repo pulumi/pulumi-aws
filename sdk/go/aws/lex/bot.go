@@ -20,51 +20,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lex.NewBot(ctx, "orderFlowersBot", &lex.BotArgs{
-// 			AbortStatement: &lex.BotAbortStatementArgs{
-// 				Messages: lex.BotAbortStatementMessageArray{
-// 					&lex.BotAbortStatementMessageArgs{
-// 						Content:     pulumi.String("Sorry, I am not able to assist at this time"),
-// 						ContentType: pulumi.String("PlainText"),
-// 					},
-// 				},
-// 			},
-// 			ChildDirected: pulumi.Bool(false),
-// 			ClarificationPrompt: &lex.BotClarificationPromptArgs{
-// 				MaxAttempts: pulumi.Int(2),
-// 				Messages: lex.BotClarificationPromptMessageArray{
-// 					&lex.BotClarificationPromptMessageArgs{
-// 						Content:     pulumi.String("I didn't understand you, what would you like to do?"),
-// 						ContentType: pulumi.String("PlainText"),
-// 					},
-// 				},
-// 			},
-// 			CreateVersion:           pulumi.Bool(false),
-// 			Description:             pulumi.String("Bot to order flowers on the behalf of a user"),
-// 			IdleSessionTtlInSeconds: pulumi.Int(600),
-// 			Intents: lex.BotIntentArray{
-// 				&lex.BotIntentArgs{
-// 					IntentName:    pulumi.String("OrderFlowers"),
-// 					IntentVersion: pulumi.String("1"),
-// 				},
-// 			},
-// 			Locale:          pulumi.String("en-US"),
-// 			Name:            pulumi.String("OrderFlowers"),
-// 			ProcessBehavior: pulumi.String("BUILD"),
-// 			VoiceId:         pulumi.String("Salli"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewBot(ctx, "orderFlowersBot", &lex.BotArgs{
+//				AbortStatement: &lex.BotAbortStatementArgs{
+//					Messages: lex.BotAbortStatementMessageArray{
+//						&lex.BotAbortStatementMessageArgs{
+//							Content:     pulumi.String("Sorry, I am not able to assist at this time"),
+//							ContentType: pulumi.String("PlainText"),
+//						},
+//					},
+//				},
+//				ChildDirected: pulumi.Bool(false),
+//				ClarificationPrompt: &lex.BotClarificationPromptArgs{
+//					MaxAttempts: pulumi.Int(2),
+//					Messages: lex.BotClarificationPromptMessageArray{
+//						&lex.BotClarificationPromptMessageArgs{
+//							Content:     pulumi.String("I didn't understand you, what would you like to do?"),
+//							ContentType: pulumi.String("PlainText"),
+//						},
+//					},
+//				},
+//				CreateVersion:           pulumi.Bool(false),
+//				Description:             pulumi.String("Bot to order flowers on the behalf of a user"),
+//				IdleSessionTtlInSeconds: pulumi.Int(600),
+//				Intents: lex.BotIntentArray{
+//					&lex.BotIntentArgs{
+//						IntentName:    pulumi.String("OrderFlowers"),
+//						IntentVersion: pulumi.String("1"),
+//					},
+//				},
+//				Locale:          pulumi.String("en-US"),
+//				Name:            pulumi.String("OrderFlowers"),
+//				ProcessBehavior: pulumi.String("BUILD"),
+//				VoiceId:         pulumi.String("Salli"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Bots can be imported using their name.
 //
 // ```sh
-//  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+//
+//	$ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+//
 // ```
 type Bot struct {
 	pulumi.CustomResourceState
@@ -350,7 +355,7 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 // BotArrayInput is an input type that accepts BotArray and BotArrayOutput values.
 // You can construct a concrete instance of `BotArrayInput` via:
 //
-//          BotArray{ BotArgs{...} }
+//	BotArray{ BotArgs{...} }
 type BotArrayInput interface {
 	pulumi.Input
 
@@ -375,7 +380,7 @@ func (i BotArray) ToBotArrayOutputWithContext(ctx context.Context) BotArrayOutpu
 // BotMapInput is an input type that accepts BotMap and BotMapOutput values.
 // You can construct a concrete instance of `BotMapInput` via:
 //
-//          BotMap{ "key": BotArgs{...} }
+//	BotMap{ "key": BotArgs{...} }
 type BotMapInput interface {
 	pulumi.Input
 

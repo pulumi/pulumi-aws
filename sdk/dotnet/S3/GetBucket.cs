@@ -23,69 +23,68 @@ namespace Pulumi.Aws.S3
         /// ### Route53 Record
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.S3.GetBucket.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
-        ///         {
-        ///             Bucket = "bucket.test.com",
-        ///         }));
-        ///         var testZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
-        ///         {
-        ///             Name = "test.com.",
-        ///         }));
-        ///         var example = new Aws.Route53.Record("example", new Aws.Route53.RecordArgs
-        ///         {
-        ///             ZoneId = testZone.Apply(testZone =&gt; testZone.Id),
-        ///             Name = "bucket",
-        ///             Type = "A",
-        ///             Aliases = 
-        ///             {
-        ///                 new Aws.Route53.Inputs.RecordAliasArgs
-        ///                 {
-        ///                     Name = selected.Apply(selected =&gt; selected.WebsiteDomain),
-        ///                     ZoneId = selected.Apply(selected =&gt; selected.HostedZoneId),
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Bucket = "bucket.test.com",
+        ///     });
         /// 
-        /// }
+        ///     var testZone = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Name = "test.com.",
+        ///     });
+        /// 
+        ///     var example = new Aws.Route53.Record("example", new()
+        ///     {
+        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///         Name = "bucket",
+        ///         Type = "A",
+        ///         Aliases = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
+        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### CloudFront Origin
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.S3.GetBucket.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
-        ///         {
-        ///             Bucket = "a-test-bucket",
-        ///         }));
-        ///         var test = new Aws.CloudFront.Distribution("test", new Aws.CloudFront.DistributionArgs
-        ///         {
-        ///             Origins = 
-        ///             {
-        ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
-        ///                 {
-        ///                     DomainName = selected.Apply(selected =&gt; selected.BucketDomainName),
-        ///                     OriginId = "s3-selected-bucket",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Bucket = "a-test-bucket",
+        ///     });
         /// 
-        /// }
+        ///     var test = new Aws.CloudFront.Distribution("test", new()
+        ///     {
+        ///         Origins = new[]
+        ///         {
+        ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+        ///             {
+        ///                 DomainName = selected.Apply(getBucketResult =&gt; getBucketResult.BucketDomainName),
+        ///                 OriginId = "s3-selected-bucket",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -105,69 +104,68 @@ namespace Pulumi.Aws.S3
         /// ### Route53 Record
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.S3.GetBucket.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
-        ///         {
-        ///             Bucket = "bucket.test.com",
-        ///         }));
-        ///         var testZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
-        ///         {
-        ///             Name = "test.com.",
-        ///         }));
-        ///         var example = new Aws.Route53.Record("example", new Aws.Route53.RecordArgs
-        ///         {
-        ///             ZoneId = testZone.Apply(testZone =&gt; testZone.Id),
-        ///             Name = "bucket",
-        ///             Type = "A",
-        ///             Aliases = 
-        ///             {
-        ///                 new Aws.Route53.Inputs.RecordAliasArgs
-        ///                 {
-        ///                     Name = selected.Apply(selected =&gt; selected.WebsiteDomain),
-        ///                     ZoneId = selected.Apply(selected =&gt; selected.HostedZoneId),
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Bucket = "bucket.test.com",
+        ///     });
         /// 
-        /// }
+        ///     var testZone = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Name = "test.com.",
+        ///     });
+        /// 
+        ///     var example = new Aws.Route53.Record("example", new()
+        ///     {
+        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///         Name = "bucket",
+        ///         Type = "A",
+        ///         Aliases = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
+        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### CloudFront Origin
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selected = Aws.S3.GetBucket.Invoke(new()
         ///     {
-        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
-        ///         {
-        ///             Bucket = "a-test-bucket",
-        ///         }));
-        ///         var test = new Aws.CloudFront.Distribution("test", new Aws.CloudFront.DistributionArgs
-        ///         {
-        ///             Origins = 
-        ///             {
-        ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
-        ///                 {
-        ///                     DomainName = selected.Apply(selected =&gt; selected.BucketDomainName),
-        ///                     OriginId = "s3-selected-bucket",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Bucket = "a-test-bucket",
+        ///     });
         /// 
-        /// }
+        ///     var test = new Aws.CloudFront.Distribution("test", new()
+        ///     {
+        ///         Origins = new[]
+        ///         {
+        ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+        ///             {
+        ///                 DomainName = selected.Apply(getBucketResult =&gt; getBucketResult.BucketDomainName),
+        ///                 OriginId = "s3-selected-bucket",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -177,7 +175,7 @@ namespace Pulumi.Aws.S3
     }
 
 
-    public sealed class GetBucketArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bucket
@@ -188,9 +186,10 @@ namespace Pulumi.Aws.S3
         public GetBucketArgs()
         {
         }
+        public static new GetBucketArgs Empty => new GetBucketArgs();
     }
 
-    public sealed class GetBucketInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bucket
@@ -201,6 +200,7 @@ namespace Pulumi.Aws.S3
         public GetBucketInvokeArgs()
         {
         }
+        public static new GetBucketInvokeArgs Empty => new GetBucketInvokeArgs();
     }
 
 

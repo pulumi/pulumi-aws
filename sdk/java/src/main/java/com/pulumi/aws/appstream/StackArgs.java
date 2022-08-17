@@ -21,9 +21,17 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StackArgs Empty = new StackArgs();
 
+    /**
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * 
+     */
     @Import(name="accessEndpoints")
     private @Nullable Output<List<StackAccessEndpointArgs>> accessEndpoints;
 
+    /**
+     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * 
+     */
     public Optional<Output<List<StackAccessEndpointArgs>>> accessEndpoints() {
         return Optional.ofNullable(this.accessEndpoints);
     }
@@ -204,15 +212,33 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
             $ = new StackArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessEndpoints(@Nullable Output<List<StackAccessEndpointArgs>> accessEndpoints) {
             $.accessEndpoints = accessEndpoints;
             return this;
         }
 
+        /**
+         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessEndpoints(List<StackAccessEndpointArgs> accessEndpoints) {
             return accessEndpoints(Output.of(accessEndpoints));
         }
 
+        /**
+         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessEndpoints(StackAccessEndpointArgs... accessEndpoints) {
             return accessEndpoints(List.of(accessEndpoints));
         }

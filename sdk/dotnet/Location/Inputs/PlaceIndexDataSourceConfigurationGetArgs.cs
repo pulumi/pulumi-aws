@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Location.Inputs
 {
 
-    public sealed class PlaceIndexDataSourceConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class PlaceIndexDataSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Location.Inputs
         public PlaceIndexDataSourceConfigurationGetArgs()
         {
         }
+        public static new PlaceIndexDataSourceConfigurationGetArgs Empty => new PlaceIndexDataSourceConfigurationGetArgs();
     }
 }

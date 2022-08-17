@@ -16,30 +16,28 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.Vocabulary("example", new()
     ///     {
-    ///         var example = new Aws.Connect.Vocabulary("example", new Aws.Connect.VocabularyArgs
-    ///         {
-    ///             Content = @"Phrase	IPA	SoundsLike	DisplayAs
+    ///         Content = @"Phrase	IPA	SoundsLike	DisplayAs
     /// Los-Angeles			Los Angeles
     /// F.B.I.	ɛ f b i aɪ		FBI
     /// Etienne		eh-tee-en	
     /// ",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             LanguageCode = "en-US",
-    ///             Tags = 
-    ///             {
-    ///                 { "Key1", "Value1" },
-    ///             },
-    ///         });
-    ///     }
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         LanguageCode = "en-US",
+    ///         Tags = 
+    ///         {
+    ///             { "Key1", "Value1" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/vocabulary:Vocabulary")]
-    public partial class Vocabulary : Pulumi.CustomResource
+    public partial class Vocabulary : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the vocabulary.
@@ -101,16 +99,9 @@ namespace Pulumi.Aws.Connect
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the vocabulary. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -164,7 +155,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class VocabularyArgs : Pulumi.ResourceArgs
+    public sealed class VocabularyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
@@ -192,35 +183,19 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the vocabulary. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public VocabularyArgs()
         {
         }
+        public static new VocabularyArgs Empty => new VocabularyArgs();
     }
 
-    public sealed class VocabularyState : Pulumi.ResourceArgs
+    public sealed class VocabularyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the vocabulary.
@@ -272,11 +247,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the vocabulary. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -285,10 +255,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -304,5 +270,6 @@ namespace Pulumi.Aws.Connect
         public VocabularyState()
         {
         }
+        public static new VocabularyState Empty => new VocabularyState();
     }
 }

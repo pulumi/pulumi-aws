@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class RealtimeLogConfigEndpointKinesisStreamConfigArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigEndpointKinesisStreamConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public RealtimeLogConfigEndpointKinesisStreamConfigArgs()
         {
         }
+        public static new RealtimeLogConfigEndpointKinesisStreamConfigArgs Empty => new RealtimeLogConfigEndpointKinesisStreamConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RuleSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RuleSourceGetArgs()
         {
         }
+        public static new RuleSourceGetArgs Empty => new RuleSourceGetArgs();
     }
 }

@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.NewImagePipeline(ctx, "example", &imagebuilder.ImagePipelineArgs{
-// 			ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
-// 			InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
-// 			Schedule: &imagebuilder.ImagePipelineScheduleArgs{
-// 				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.NewImagePipeline(ctx, "example", &imagebuilder.ImagePipelineArgs{
+//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
+//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
+//				Schedule: &imagebuilder.ImagePipelineScheduleArgs{
+//					ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+//
+//	$ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+//
 // ```
 type ImagePipeline struct {
 	pulumi.CustomResourceState
@@ -82,9 +87,9 @@ type ImagePipeline struct {
 	Schedule ImagePipelineSchedulePtrOutput `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -152,9 +157,9 @@ type imagePipelineState struct {
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
 	Status *string `pulumi:"status"`
-	// Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -191,9 +196,9 @@ type ImagePipelineState struct {
 	Schedule ImagePipelineSchedulePtrInput
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
 	Status pulumi.StringPtrInput
-	// Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -222,7 +227,7 @@ type imagePipelineArgs struct {
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
 	Status *string `pulumi:"status"`
-	// Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -248,7 +253,7 @@ type ImagePipelineArgs struct {
 	Schedule ImagePipelineSchedulePtrInput
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
 	Status pulumi.StringPtrInput
-	// Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -278,7 +283,7 @@ func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) Im
 // ImagePipelineArrayInput is an input type that accepts ImagePipelineArray and ImagePipelineArrayOutput values.
 // You can construct a concrete instance of `ImagePipelineArrayInput` via:
 //
-//          ImagePipelineArray{ ImagePipelineArgs{...} }
+//	ImagePipelineArray{ ImagePipelineArgs{...} }
 type ImagePipelineArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +308,7 @@ func (i ImagePipelineArray) ToImagePipelineArrayOutputWithContext(ctx context.Co
 // ImagePipelineMapInput is an input type that accepts ImagePipelineMap and ImagePipelineMapOutput values.
 // You can construct a concrete instance of `ImagePipelineMapInput` via:
 //
-//          ImagePipelineMap{ "key": ImagePipelineArgs{...} }
+//	ImagePipelineMap{ "key": ImagePipelineArgs{...} }
 type ImagePipelineMapInput interface {
 	pulumi.Input
 
@@ -419,12 +424,12 @@ func (o ImagePipelineOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ImagePipelineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImagePipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

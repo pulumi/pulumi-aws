@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectEnvironmentRegistryCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentRegistryCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN or name of credentials created using AWS Secrets Manager.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectEnvironmentRegistryCredentialGetArgs()
         {
         }
+        public static new ProjectEnvironmentRegistryCredentialGetArgs Empty => new ProjectEnvironmentRegistryCredentialGetArgs();
     }
 }

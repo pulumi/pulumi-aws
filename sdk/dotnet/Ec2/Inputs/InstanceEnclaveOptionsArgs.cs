@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstanceEnclaveOptionsArgs : Pulumi.ResourceArgs
+    public sealed class InstanceEnclaveOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstanceEnclaveOptionsArgs()
         {
         }
+        public static new InstanceEnclaveOptionsArgs Empty => new InstanceEnclaveOptionsArgs();
     }
 }

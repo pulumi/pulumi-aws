@@ -34,106 +34,98 @@ namespace Pulumi.Aws.ElastiCache
     /// ### Memcached Cluster
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ElastiCache.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.ElastiCache.Cluster("example", new Aws.ElastiCache.ClusterArgs
-    ///         {
-    ///             Engine = "memcached",
-    ///             NodeType = "cache.m4.large",
-    ///             NumCacheNodes = 2,
-    ///             ParameterGroupName = "default.memcached1.4",
-    ///             Port = 11211,
-    ///         });
-    ///     }
+    ///         Engine = "memcached",
+    ///         NodeType = "cache.m4.large",
+    ///         NumCacheNodes = 2,
+    ///         ParameterGroupName = "default.memcached1.4",
+    ///         Port = 11211,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Redis Instance
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ElastiCache.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.ElastiCache.Cluster("example", new Aws.ElastiCache.ClusterArgs
-    ///         {
-    ///             Engine = "redis",
-    ///             EngineVersion = "3.2.10",
-    ///             NodeType = "cache.m4.large",
-    ///             NumCacheNodes = 1,
-    ///             ParameterGroupName = "default.redis3.2",
-    ///             Port = 6379,
-    ///         });
-    ///     }
+    ///         Engine = "redis",
+    ///         EngineVersion = "3.2.10",
+    ///         NodeType = "cache.m4.large",
+    ///         NumCacheNodes = 1,
+    ///         ParameterGroupName = "default.redis3.2",
+    ///         Port = 6379,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Redis Cluster Mode Disabled Read Replica Instance
     /// 
     /// These inherit their settings from the replication group.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var replica = new Aws.ElastiCache.Cluster("replica", new()
     ///     {
-    ///         var replica = new Aws.ElastiCache.Cluster("replica", new Aws.ElastiCache.ClusterArgs
-    ///         {
-    ///             ReplicationGroupId = aws_elasticache_replication_group.Example.Id,
-    ///         });
-    ///     }
+    ///         ReplicationGroupId = aws_elasticache_replication_group.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Redis Log Delivery configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.ElastiCache.Cluster("test", new()
     ///     {
-    ///         var test = new Aws.ElastiCache.Cluster("test", new Aws.ElastiCache.ClusterArgs
+    ///         Engine = "redis",
+    ///         NodeType = "cache.t3.micro",
+    ///         NumCacheNodes = 1,
+    ///         Port = 6379,
+    ///         ApplyImmediately = true,
+    ///         LogDeliveryConfigurations = new[]
     ///         {
-    ///             Engine = "redis",
-    ///             NodeType = "cache.t3.micro",
-    ///             NumCacheNodes = 1,
-    ///             Port = 6379,
-    ///             ApplyImmediately = true,
-    ///             LogDeliveryConfigurations = 
+    ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
     ///             {
-    ///                 new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
-    ///                 {
-    ///                     Destination = aws_cloudwatch_log_group.Example.Name,
-    ///                     DestinationType = "cloudwatch-logs",
-    ///                     LogFormat = "text",
-    ///                     LogType = "slow-log",
-    ///                 },
-    ///                 new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
-    ///                 {
-    ///                     Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
-    ///                     DestinationType = "kinesis-firehose",
-    ///                     LogFormat = "json",
-    ///                     LogType = "engine-log",
-    ///                 },
+    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                 DestinationType = "cloudwatch-logs",
+    ///                 LogFormat = "text",
+    ///                 LogType = "slow-log",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
+    ///             {
+    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 DestinationType = "kinesis-firehose",
+    ///                 LogFormat = "json",
+    ///                 LogType = "engine-log",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -145,7 +137,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
@@ -384,7 +376,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
@@ -579,9 +571,10 @@ namespace Pulumi.Aws.ElastiCache
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
@@ -820,5 +813,6 @@ namespace Pulumi.Aws.ElastiCache
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

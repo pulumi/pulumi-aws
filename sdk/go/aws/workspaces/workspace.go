@@ -21,42 +21,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		valueWindows10, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-// 			BundleId: pulumi.StringRef("wsb-bh8rsxt14"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
-// 			DirectoryId:                 pulumi.Any(aws_workspaces_directory.Example.Id),
-// 			BundleId:                    pulumi.String(valueWindows10.Id),
-// 			UserName:                    pulumi.String("john.doe"),
-// 			RootVolumeEncryptionEnabled: pulumi.Bool(true),
-// 			UserVolumeEncryptionEnabled: pulumi.Bool(true),
-// 			VolumeEncryptionKey:         pulumi.String("alias/aws/workspaces"),
-// 			WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
-// 				ComputeTypeName:                     pulumi.String("VALUE"),
-// 				UserVolumeSizeGib:                   pulumi.Int(10),
-// 				RootVolumeSizeGib:                   pulumi.Int(80),
-// 				RunningMode:                         pulumi.String("AUTO_STOP"),
-// 				RunningModeAutoStopTimeoutInMinutes: pulumi.Int(60),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Department": pulumi.String("IT"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			valueWindows10, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
+//				BundleId: pulumi.StringRef("wsb-bh8rsxt14"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
+//				DirectoryId:                 pulumi.Any(aws_workspaces_directory.Example.Id),
+//				BundleId:                    pulumi.String(valueWindows10.Id),
+//				UserName:                    pulumi.String("john.doe"),
+//				RootVolumeEncryptionEnabled: pulumi.Bool(true),
+//				UserVolumeEncryptionEnabled: pulumi.Bool(true),
+//				VolumeEncryptionKey:         pulumi.String("alias/aws/workspaces"),
+//				WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
+//					ComputeTypeName:                     pulumi.String("VALUE"),
+//					UserVolumeSizeGib:                   pulumi.Int(10),
+//					RootVolumeSizeGib:                   pulumi.Int(80),
+//					RunningMode:                         pulumi.String("AUTO_STOP"),
+//					RunningModeAutoStopTimeoutInMinutes: pulumi.Int(60),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Department": pulumi.String("IT"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Workspaces can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+//
+//	$ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+//
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState
@@ -81,9 +86,9 @@ type Workspace struct {
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -145,9 +150,9 @@ type workspaceState struct {
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
 	State *string `pulumi:"state"`
-	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName *string `pulumi:"userName"`
@@ -172,9 +177,9 @@ type WorkspaceState struct {
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The operational state of the WorkSpace.
 	State pulumi.StringPtrInput
-	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringPtrInput
@@ -197,7 +202,7 @@ type workspaceArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
-	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName string `pulumi:"userName"`
@@ -217,7 +222,7 @@ type WorkspaceArgs struct {
 	DirectoryId pulumi.StringInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringInput
@@ -255,7 +260,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 // WorkspaceArrayInput is an input type that accepts WorkspaceArray and WorkspaceArrayOutput values.
 // You can construct a concrete instance of `WorkspaceArrayInput` via:
 //
-//          WorkspaceArray{ WorkspaceArgs{...} }
+//	WorkspaceArray{ WorkspaceArgs{...} }
 type WorkspaceArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i WorkspaceArray) ToWorkspaceArrayOutputWithContext(ctx context.Context) W
 // WorkspaceMapInput is an input type that accepts WorkspaceMap and WorkspaceMapOutput values.
 // You can construct a concrete instance of `WorkspaceMapInput` via:
 //
-//          WorkspaceMap{ "key": WorkspaceArgs{...} }
+//	WorkspaceMap{ "key": WorkspaceArgs{...} }
 type WorkspaceMapInput interface {
 	pulumi.Input
 
@@ -346,12 +351,12 @@ func (o WorkspaceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

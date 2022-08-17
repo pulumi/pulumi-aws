@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific event to trigger this function.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs()
         {
         }
+        public static new DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs Empty => new DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs();
     }
 }

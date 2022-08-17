@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class GetInstancesFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetInstancesFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public GetInstancesFilterArgs()
         {
         }
+        public static new GetInstancesFilterArgs Empty => new GetInstancesFilterArgs();
     }
 }

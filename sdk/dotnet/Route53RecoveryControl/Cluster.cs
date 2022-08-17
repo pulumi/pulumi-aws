@@ -15,19 +15,15 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Route53RecoveryControl.Cluster("example", new Aws.Route53RecoveryControl.ClusterArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.Route53RecoveryControl.Cluster("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the cluster
@@ -109,7 +105,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name describing the cluster.
@@ -120,9 +116,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cluster
@@ -157,5 +154,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

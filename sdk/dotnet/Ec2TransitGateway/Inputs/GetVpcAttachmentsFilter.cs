@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 {
 
-    public sealed class GetVpcAttachmentsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
         public GetVpcAttachmentsFilterArgs()
         {
         }
+        public static new GetVpcAttachmentsFilterArgs Empty => new GetVpcAttachmentsFilterArgs();
     }
 }

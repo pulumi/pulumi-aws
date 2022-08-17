@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudTrail.Inputs
 {
 
-    public sealed class TrailEventSelectorArgs : Pulumi.ResourceArgs
+    public sealed class TrailEventSelectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataResources")]
         private InputList<Inputs.TrailEventSelectorDataResourceArgs>? _dataResources;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         public TrailEventSelectorArgs()
         {
         }
+        public static new TrailEventSelectorArgs Empty => new TrailEventSelectorArgs();
     }
 }

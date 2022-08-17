@@ -19,38 +19,33 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate", new Aws.Acm.CertificateArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleListenerCertificate = new Aws.LB.ListenerCertificate("exampleListenerCertificate", new Aws.LB.ListenerCertificateArgs
-    ///         {
-    ///             ListenerArn = frontEndListener.Arn,
-    ///             CertificateArn = exampleCertificate.Arn,
-    ///         });
-    ///     }
+    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate");
     /// 
-    /// }
+    ///     // ...
+    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    /// 
+    ///     // ...
+    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener");
+    /// 
+    ///     // ...
+    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("exampleListenerCertificate", new()
+    ///     {
+    ///         ListenerArn = frontEndListener.Arn,
+    ///         CertificateArn = exampleCertificate.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// Listener Certificates can be imported using their id, e.g.,
+    /// Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
@@ -58,7 +53,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate")]
     [AwsResourceType("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate")]
-    public partial class ListenerCertificate : Pulumi.CustomResource
+    public partial class ListenerCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the certificate to attach to the listener.
@@ -116,7 +111,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class ListenerCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ListenerCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the certificate to attach to the listener.
@@ -133,9 +128,10 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public ListenerCertificateArgs()
         {
         }
+        public static new ListenerCertificateArgs Empty => new ListenerCertificateArgs();
     }
 
-    public sealed class ListenerCertificateState : Pulumi.ResourceArgs
+    public sealed class ListenerCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the certificate to attach to the listener.
@@ -152,5 +148,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public ListenerCertificateState()
         {
         }
+        public static new ListenerCertificateState Empty => new ListenerCertificateState();
     }
 }

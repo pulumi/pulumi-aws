@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class UserHierarchyGroupHierarchyPathArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyGroupHierarchyPathArgs : global::Pulumi.ResourceArgs
     {
         [Input("levelFives")]
         private InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFifeArgs>? _levelFives;
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public UserHierarchyGroupHierarchyPathArgs()
         {
         }
+        public static new UserHierarchyGroupHierarchyPathArgs Empty => new UserHierarchyGroupHierarchyPathArgs();
     }
 }

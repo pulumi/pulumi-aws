@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ClusterSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the setting to manage. Valid values: `containerInsights`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ClusterSettingGetArgs()
         {
         }
+        public static new ClusterSettingGetArgs Empty => new ClusterSettingGetArgs();
     }
 }

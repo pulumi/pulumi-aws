@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class MemcachedLayerCloudwatchConfigurationLogStreamArgs : Pulumi.ResourceArgs
+    public sealed class MemcachedLayerCloudwatchConfigurationLogStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchCount")]
         public Input<int>? BatchCount { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public MemcachedLayerCloudwatchConfigurationLogStreamArgs()
         {
         }
+        public static new MemcachedLayerCloudwatchConfigurationLogStreamArgs Empty => new MemcachedLayerCloudwatchConfigurationLogStreamArgs();
     }
 }

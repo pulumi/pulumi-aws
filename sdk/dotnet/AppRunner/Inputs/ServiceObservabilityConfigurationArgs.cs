@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceObservabilityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceObservabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceObservabilityConfigurationArgs()
         {
         }
+        public static new ServiceObservabilityConfigurationArgs Empty => new ServiceObservabilityConfigurationArgs();
     }
 }

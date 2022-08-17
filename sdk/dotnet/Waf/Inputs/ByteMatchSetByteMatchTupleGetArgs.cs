@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class ByteMatchSetByteMatchTupleGetArgs : Pulumi.ResourceArgs
+    public sealed class ByteMatchSetByteMatchTupleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The part of a web request that you want to search, such as a specified header or a query string.
@@ -49,5 +49,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public ByteMatchSetByteMatchTupleGetArgs()
         {
         }
+        public static new ByteMatchSetByteMatchTupleGetArgs Empty => new ByteMatchSetByteMatchTupleGetArgs();
     }
 }

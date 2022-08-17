@@ -15,17 +15,16 @@ namespace Pulumi.Aws.Budgets
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
     ///     {
-    ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Description = "My example policy",
-    ///             PolicyDocument = @"{
+    ///         Description = "My example policy",
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -38,18 +37,20 @@ namespace Pulumi.Aws.Budgets
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = current.Apply(current =&gt; @$"{{
+    ///     });
+    /// 
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
     ///       ""Effect"": ""Allow"",
     ///       ""Principal"": {{
     ///         ""Service"": [
-    ///           ""budgets.{current.DnsSuffix}""
+    ///           ""budgets.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}""
     ///         ]
     ///       }},
     ///       ""Action"": [
@@ -58,51 +59,52 @@ namespace Pulumi.Aws.Budgets
     ///     }}
     ///   ]
     /// }}
-    /// "),
-    ///         });
-    ///         var exampleBudget = new Aws.Budgets.Budget("exampleBudget", new Aws.Budgets.BudgetArgs
-    ///         {
-    ///             BudgetType = "USAGE",
-    ///             LimitAmount = "10.0",
-    ///             LimitUnit = "dollars",
-    ///             TimePeriodStart = "2006-01-02_15:04",
-    ///             TimeUnit = "MONTHLY",
-    ///         });
-    ///         var exampleBudgetAction = new Aws.Budgets.BudgetAction("exampleBudgetAction", new Aws.Budgets.BudgetActionArgs
-    ///         {
-    ///             BudgetName = exampleBudget.Name,
-    ///             ActionType = "APPLY_IAM_POLICY",
-    ///             ApprovalModel = "AUTOMATIC",
-    ///             NotificationType = "ACTUAL",
-    ///             ExecutionRoleArn = exampleRole.Arn,
-    ///             ActionThreshold = new Aws.Budgets.Inputs.BudgetActionActionThresholdArgs
-    ///             {
-    ///                 ActionThresholdType = "ABSOLUTE_VALUE",
-    ///                 ActionThresholdValue = 100,
-    ///             },
-    ///             Definition = new Aws.Budgets.Inputs.BudgetActionDefinitionArgs
-    ///             {
-    ///                 IamActionDefinition = new Aws.Budgets.Inputs.BudgetActionDefinitionIamActionDefinitionArgs
-    ///                 {
-    ///                     PolicyArn = examplePolicy.Arn,
-    ///                     Roles = 
-    ///                     {
-    ///                         exampleRole.Name,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Subscribers = 
-    ///             {
-    ///                 new Aws.Budgets.Inputs.BudgetActionSubscriberArgs
-    ///                 {
-    ///                     Address = "example@example.example",
-    ///                     SubscriptionType = "EMAIL",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    /// ",
+    ///     });
     /// 
-    /// }
+    ///     var exampleBudget = new Aws.Budgets.Budget("exampleBudget", new()
+    ///     {
+    ///         BudgetType = "USAGE",
+    ///         LimitAmount = "10.0",
+    ///         LimitUnit = "dollars",
+    ///         TimePeriodStart = "2006-01-02_15:04",
+    ///         TimeUnit = "MONTHLY",
+    ///     });
+    /// 
+    ///     var exampleBudgetAction = new Aws.Budgets.BudgetAction("exampleBudgetAction", new()
+    ///     {
+    ///         BudgetName = exampleBudget.Name,
+    ///         ActionType = "APPLY_IAM_POLICY",
+    ///         ApprovalModel = "AUTOMATIC",
+    ///         NotificationType = "ACTUAL",
+    ///         ExecutionRoleArn = exampleRole.Arn,
+    ///         ActionThreshold = new Aws.Budgets.Inputs.BudgetActionActionThresholdArgs
+    ///         {
+    ///             ActionThresholdType = "ABSOLUTE_VALUE",
+    ///             ActionThresholdValue = 100,
+    ///         },
+    ///         Definition = new Aws.Budgets.Inputs.BudgetActionDefinitionArgs
+    ///         {
+    ///             IamActionDefinition = new Aws.Budgets.Inputs.BudgetActionDefinitionIamActionDefinitionArgs
+    ///             {
+    ///                 PolicyArn = examplePolicy.Arn,
+    ///                 Roles = new[]
+    ///                 {
+    ///                     exampleRole.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetActionSubscriberArgs
+    ///             {
+    ///                 Address = "example@example.example",
+    ///                 SubscriptionType = "EMAIL",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -114,7 +116,7 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// </summary>
     [AwsResourceType("aws:budgets/budgetAction:BudgetAction")]
-    public partial class BudgetAction : Pulumi.CustomResource
+    public partial class BudgetAction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -232,7 +234,7 @@ namespace Pulumi.Aws.Budgets
         }
     }
 
-    public sealed class BudgetActionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -297,9 +299,10 @@ namespace Pulumi.Aws.Budgets
         public BudgetActionArgs()
         {
         }
+        public static new BudgetActionArgs Empty => new BudgetActionArgs();
     }
 
-    public sealed class BudgetActionState : Pulumi.ResourceArgs
+    public sealed class BudgetActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -382,5 +385,6 @@ namespace Pulumi.Aws.Budgets
         public BudgetActionState()
         {
         }
+        public static new BudgetActionState Empty => new BudgetActionState();
     }
 }

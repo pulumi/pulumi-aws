@@ -20,21 +20,19 @@ namespace Pulumi.Aws.Ecs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ecs.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ecs.GetService.InvokeAsync(new Aws.Ecs.GetServiceArgs
-        ///         {
-        ///             ServiceName = "example",
-        ///             ClusterArn = data.Aws_ecs_cluster.Example.Arn,
-        ///         }));
-        ///     }
+        ///         ServiceName = "example",
+        ///         ClusterArn = data.Aws_ecs_cluster.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.Aws.Ecs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ecs.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ecs.GetService.InvokeAsync(new Aws.Ecs.GetServiceArgs
-        ///         {
-        ///             ServiceName = "example",
-        ///             ClusterArn = data.Aws_ecs_cluster.Example.Arn,
-        ///         }));
-        ///     }
+        ///         ServiceName = "example",
+        ///         ClusterArn = data.Aws_ecs_cluster.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Ecs
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The arn of the ECS Cluster
@@ -89,12 +85,25 @@ namespace Pulumi.Aws.Ecs
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The arn of the ECS Cluster
@@ -108,9 +117,22 @@ namespace Pulumi.Aws.Ecs
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 
@@ -140,6 +162,10 @@ namespace Pulumi.Aws.Ecs
         public readonly string SchedulingStrategy;
         public readonly string ServiceName;
         /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The family for the latest ACTIVE revision
         /// </summary>
         public readonly string TaskDefinition;
@@ -160,6 +186,8 @@ namespace Pulumi.Aws.Ecs
 
             string serviceName,
 
+            ImmutableDictionary<string, string> tags,
+
             string taskDefinition)
         {
             Arn = arn;
@@ -169,6 +197,7 @@ namespace Pulumi.Aws.Ecs
             LaunchType = launchType;
             SchedulingStrategy = schedulingStrategy;
             ServiceName = serviceName;
+            Tags = tags;
             TaskDefinition = taskDefinition;
         }
     }

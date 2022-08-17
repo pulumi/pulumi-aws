@@ -15,22 +15,20 @@ namespace Pulumi.Aws.CloudFront
     /// The following example below creates a CloudFront public key.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.PublicKey("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.PublicKey("example", new Aws.CloudFront.PublicKeyArgs
-    ///         {
-    ///             Comment = "test public key",
-    ///             EncodedKey = File.ReadAllText("public_key.pem"),
-    ///         });
-    ///     }
+    ///         Comment = "test public key",
+    ///         EncodedKey = File.ReadAllText("public_key.pem"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/publicKey:PublicKey")]
-    public partial class PublicKey : Pulumi.CustomResource
+    public partial class PublicKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the public key configuration.
@@ -124,7 +122,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class PublicKeyArgs : Pulumi.ResourceArgs
+    public sealed class PublicKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional comment about the public key.
@@ -153,9 +151,10 @@ namespace Pulumi.Aws.CloudFront
         public PublicKeyArgs()
         {
         }
+        public static new PublicKeyArgs Empty => new PublicKeyArgs();
     }
 
-    public sealed class PublicKeyState : Pulumi.ResourceArgs
+    public sealed class PublicKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the public key configuration.
@@ -196,5 +195,6 @@ namespace Pulumi.Aws.CloudFront
         public PublicKeyState()
         {
         }
+        public static new PublicKeyState Empty => new PublicKeyState();
     }
 }

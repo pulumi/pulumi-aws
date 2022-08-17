@@ -22,48 +22,53 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
-// 			RestApiId: testRestApi.ID(),
-// 			Policy: testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Principal": {
-//         "AWS": "*"
-//       },
-//       "Action": "execute-api:Invoke",
-//       "Resource": "%v",
-//       "Condition": {
-//         "IpAddress": {
-//           "aws:SourceIp": "123.123.123.123/32"
-//         }
-//       }
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
+//				RestApiId: testRestApi.ID(),
+//				Policy: testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "AWS": "*"
+//	      },
+//	      "Action": "execute-api:Invoke",
+//	      "Resource": "%v",
+//	      "Condition": {
+//	        "IpAddress": {
+//	          "aws:SourceIp": "123.123.123.123/32"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
 // `, executionArn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +76,9 @@ import (
 // `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+//
+//	$ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+//
 // ```
 type RestApiPolicy struct {
 	pulumi.CustomResourceState
@@ -175,7 +182,7 @@ func (i *RestApiPolicy) ToRestApiPolicyOutputWithContext(ctx context.Context) Re
 // RestApiPolicyArrayInput is an input type that accepts RestApiPolicyArray and RestApiPolicyArrayOutput values.
 // You can construct a concrete instance of `RestApiPolicyArrayInput` via:
 //
-//          RestApiPolicyArray{ RestApiPolicyArgs{...} }
+//	RestApiPolicyArray{ RestApiPolicyArgs{...} }
 type RestApiPolicyArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +207,7 @@ func (i RestApiPolicyArray) ToRestApiPolicyArrayOutputWithContext(ctx context.Co
 // RestApiPolicyMapInput is an input type that accepts RestApiPolicyMap and RestApiPolicyMapOutput values.
 // You can construct a concrete instance of `RestApiPolicyMapInput` via:
 //
-//          RestApiPolicyMap{ "key": RestApiPolicyArgs{...} }
+//	RestApiPolicyMap{ "key": RestApiPolicyArgs{...} }
 type RestApiPolicyMapInput interface {
 	pulumi.Input
 

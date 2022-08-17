@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := apigateway.NewRestApi(ctx, "test", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
-// 			ApiStages: apigateway.UsagePlanApiStageArray{
-// 				&apigateway.UsagePlanApiStageArgs{
-// 					ApiId: test.ID(),
-// 					Stage: pulumi.Any(aws_api_gateway_deployment.Foo.Stage_name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		mykey, err := apigateway.NewApiKey(ctx, "mykey", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewUsagePlanKey(ctx, "main", &apigateway.UsagePlanKeyArgs{
-// 			KeyId:       mykey.ID(),
-// 			KeyType:     pulumi.String("API_KEY"),
-// 			UsagePlanId: myusageplan.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := apigateway.NewRestApi(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
+//				ApiStages: apigateway.UsagePlanApiStageArray{
+//					&apigateway.UsagePlanApiStageArgs{
+//						ApiId: test.ID(),
+//						Stage: pulumi.Any(aws_api_gateway_deployment.Foo.Stage_name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mykey, err := apigateway.NewApiKey(ctx, "mykey", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewUsagePlanKey(ctx, "main", &apigateway.UsagePlanKeyArgs{
+//				KeyId:       mykey.ID(),
+//				KeyType:     pulumi.String("API_KEY"),
+//				UsagePlanId: myusageplan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+//
+//	$ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+//
 // ```
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) Usag
 // UsagePlanKeyArrayInput is an input type that accepts UsagePlanKeyArray and UsagePlanKeyArrayOutput values.
 // You can construct a concrete instance of `UsagePlanKeyArrayInput` via:
 //
-//          UsagePlanKeyArray{ UsagePlanKeyArgs{...} }
+//	UsagePlanKeyArray{ UsagePlanKeyArgs{...} }
 type UsagePlanKeyArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i UsagePlanKeyArray) ToUsagePlanKeyArrayOutputWithContext(ctx context.Cont
 // UsagePlanKeyMapInput is an input type that accepts UsagePlanKeyMap and UsagePlanKeyMapOutput values.
 // You can construct a concrete instance of `UsagePlanKeyMapInput` via:
 //
-//          UsagePlanKeyMap{ "key": UsagePlanKeyArgs{...} }
+//	UsagePlanKeyMap{ "key": UsagePlanKeyArgs{...} }
 type UsagePlanKeyMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class EventDestinationKinesisDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EventDestinationKinesisDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the role that has permissions to access the Kinesis Stream
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public EventDestinationKinesisDestinationArgs()
         {
         }
+        public static new EventDestinationKinesisDestinationArgs Empty => new EventDestinationKinesisDestinationArgs();
     }
 }

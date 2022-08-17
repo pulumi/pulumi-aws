@@ -19,54 +19,59 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVault, err := backup.NewVault(ctx, "exampleVault", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewVaultPolicy(ctx, "exampleVaultPolicy", &backup.VaultPolicyArgs{
-// 			BackupVaultName: exampleVault.Name,
-// 			Policy: exampleVault.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Id": "default",
-//   "Statement": [
-//     {
-//       "Sid": "default",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "AWS": "*"
-//       },
-//       "Action": [
-// 		"backup:DescribeBackupVault",
-// 		"backup:DeleteBackupVault",
-// 		"backup:PutBackupVaultAccessPolicy",
-// 		"backup:DeleteBackupVaultAccessPolicy",
-// 		"backup:GetBackupVaultAccessPolicy",
-// 		"backup:StartBackupJob",
-// 		"backup:GetBackupVaultNotifications",
-// 		"backup:PutBackupVaultNotifications"
-//       ],
-//       "Resource": "%v"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVault, err := backup.NewVault(ctx, "exampleVault", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewVaultPolicy(ctx, "exampleVaultPolicy", &backup.VaultPolicyArgs{
+//				BackupVaultName: exampleVault.Name,
+//				Policy: exampleVault.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Id": "default",
+//	  "Statement": [
+//	    {
+//	      "Sid": "default",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "AWS": "*"
+//	      },
+//	      "Action": [
+//			"backup:DescribeBackupVault",
+//			"backup:DeleteBackupVault",
+//			"backup:PutBackupVaultAccessPolicy",
+//			"backup:DeleteBackupVaultAccessPolicy",
+//			"backup:GetBackupVaultAccessPolicy",
+//			"backup:StartBackupJob",
+//			"backup:GetBackupVaultNotifications",
+//			"backup:PutBackupVaultNotifications"
+//	      ],
+//	      "Resource": "%v"
+//	    }
+//	  ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +79,9 @@ import (
 // Backup vault policy can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+//
+//	$ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+//
 // ```
 type VaultPolicy struct {
 	pulumi.CustomResourceState
@@ -184,7 +191,7 @@ func (i *VaultPolicy) ToVaultPolicyOutputWithContext(ctx context.Context) VaultP
 // VaultPolicyArrayInput is an input type that accepts VaultPolicyArray and VaultPolicyArrayOutput values.
 // You can construct a concrete instance of `VaultPolicyArrayInput` via:
 //
-//          VaultPolicyArray{ VaultPolicyArgs{...} }
+//	VaultPolicyArray{ VaultPolicyArgs{...} }
 type VaultPolicyArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +216,7 @@ func (i VaultPolicyArray) ToVaultPolicyArrayOutputWithContext(ctx context.Contex
 // VaultPolicyMapInput is an input type that accepts VaultPolicyMap and VaultPolicyMapOutput values.
 // You can construct a concrete instance of `VaultPolicyMapInput` via:
 //
-//          VaultPolicyMap{ "key": VaultPolicyArgs{...} }
+//	VaultPolicyMap{ "key": VaultPolicyArgs{...} }
 type VaultPolicyMapInput interface {
 	pulumi.Input
 

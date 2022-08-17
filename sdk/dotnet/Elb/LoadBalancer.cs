@@ -24,70 +24,68 @@ namespace Pulumi.Aws.Elb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new load balancer
+    ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
     ///     {
-    ///         // Create a new load balancer
-    ///         var bar = new Aws.Elb.LoadBalancer("bar", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
+    ///         {
+    ///             Bucket = "foo",
+    ///             BucketPrefix = "bar",
+    ///             Interval = 60,
+    ///         },
+    ///         Listeners = new[]
+    ///         {
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
     ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 80,
+    ///                 LbProtocol = "http",
     ///             },
-    ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
     ///             {
-    ///                 Bucket = "foo",
-    ///                 BucketPrefix = "bar",
-    ///                 Interval = 60,
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 443,
+    ///                 LbProtocol = "https",
+    ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
     ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 80,
-    ///                     LbProtocol = "http",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 443,
-    ///                     LbProtocol = "https",
-    ///                     SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
-    ///                 },
-    ///             },
-    ///             HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
-    ///             {
-    ///                 HealthyThreshold = 2,
-    ///                 UnhealthyThreshold = 2,
-    ///                 Timeout = 3,
-    ///                 Target = "HTTP:8000/",
-    ///                 Interval = 30,
-    ///             },
-    ///             Instances = 
-    ///             {
-    ///                 aws_instance.Foo.Id,
-    ///             },
-    ///             CrossZoneLoadBalancing = true,
-    ///             IdleTimeout = 400,
-    ///             ConnectionDraining = true,
-    ///             ConnectionDrainingTimeout = 400,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foobar-elb" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
+    ///         {
+    ///             HealthyThreshold = 2,
+    ///             UnhealthyThreshold = 2,
+    ///             Timeout = 3,
+    ///             Target = "HTTP:8000/",
+    ///             Interval = 30,
+    ///         },
+    ///         Instances = new[]
+    ///         {
+    ///             aws_instance.Foo.Id,
+    ///         },
+    ///         CrossZoneLoadBalancing = true,
+    ///         IdleTimeout = 400,
+    ///         ConnectionDraining = true,
+    ///         ConnectionDrainingTimeout = 400,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "foobar-elb" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Note on ECDSA Key Algorithm
     /// 
@@ -106,7 +104,7 @@ namespace Pulumi.Aws.Elb
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancer:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An Access Logs block. Access Logs documented below.
@@ -271,7 +269,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancer:LoadBalancer"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancer:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -294,7 +292,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Access Logs block. Access Logs documented below.
@@ -441,9 +439,10 @@ namespace Pulumi.Aws.Elb
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 
-    public sealed class LoadBalancerState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Access Logs block. Access Logs documented below.
@@ -628,5 +627,6 @@ namespace Pulumi.Aws.Elb
         public LoadBalancerState()
         {
         }
+        public static new LoadBalancerState Empty => new LoadBalancerState();
     }
 }

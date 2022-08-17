@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FlowLogDestinationOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowLogDestinationOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FlowLogDestinationOptionsGetArgs()
         {
         }
+        public static new FlowLogDestinationOptionsGetArgs Empty => new FlowLogDestinationOptionsGetArgs();
     }
 }

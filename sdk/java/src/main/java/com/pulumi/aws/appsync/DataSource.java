@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an AppSync DataSource.
+ * Provides an AppSync Data Source.
  * 
  * ## Example Usage
  * ```java
@@ -131,14 +131,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/dataSource:DataSource")
 public class DataSource extends com.pulumi.resources.CustomResource {
     /**
-     * The API ID for the GraphQL API for the DataSource.
+     * The API ID for the GraphQL API for the data source.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API ID for the GraphQL API for the DataSource.
+     * @return The API ID for the GraphQL API for the data source.
      * 
      */
     public Output<String> apiId() {
@@ -159,14 +159,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A description of the DataSource.
+     * A description of the data source.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the DataSource.
+     * @return A description of the data source.
      * 
      */
     public Output<Optional<String>> description() {
@@ -229,14 +229,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lambdaConfig);
     }
     /**
-     * A user-supplied name for the DataSource.
+     * A user-supplied name for the data source.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A user-supplied name for the DataSource.
+     * @return A user-supplied name for the data source.
      * 
      */
     public Output<String> name() {
@@ -271,14 +271,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceRoleArn);
     }
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * @return The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
     public Output<String> type() {

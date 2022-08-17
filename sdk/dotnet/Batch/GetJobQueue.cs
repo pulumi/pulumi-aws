@@ -20,20 +20,18 @@ namespace Pulumi.Aws.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
         ///     {
-        ///         var test_queue = Output.Create(Aws.Batch.GetJobQueue.InvokeAsync(new Aws.Batch.GetJobQueueArgs
-        ///         {
-        ///             Name = "tf-test-batch-job-queue",
-        ///         }));
-        ///     }
+        ///         Name = "tf-test-batch-job-queue",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
         ///     {
-        ///         var test_queue = Output.Create(Aws.Batch.GetJobQueue.InvokeAsync(new Aws.Batch.GetJobQueueArgs
-        ///         {
-        ///             Name = "tf-test-batch-job-queue",
-        ///         }));
-        ///     }
+        ///         Name = "tf-test-batch-job-queue",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Batch
     }
 
 
-    public sealed class GetJobQueueArgs : Pulumi.InvokeArgs
+    public sealed class GetJobQueueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the job queue.
@@ -96,9 +92,10 @@ namespace Pulumi.Aws.Batch
         public GetJobQueueArgs()
         {
         }
+        public static new GetJobQueueArgs Empty => new GetJobQueueArgs();
     }
 
-    public sealed class GetJobQueueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the job queue.
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.Batch
         public GetJobQueueInvokeArgs()
         {
         }
+        public static new GetJobQueueInvokeArgs Empty => new GetJobQueueInvokeArgs();
     }
 
 

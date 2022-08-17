@@ -127,10 +127,9 @@ class QueryLog(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
         # Example CloudWatch log group in us-east-1
-        us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
+        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
         aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
         opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         # Example CloudWatch log resource policy to allow Route53 to write logs
@@ -191,10 +190,9 @@ class QueryLog(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
         # Example CloudWatch log group in us-east-1
-        us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
+        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
         aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
         opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         # Example CloudWatch log resource policy to allow Route53 to write logs

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CrawlerSchemaChangePolicyArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerSchemaChangePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CrawlerSchemaChangePolicyArgs()
         {
         }
+        public static new CrawlerSchemaChangePolicyArgs Empty => new CrawlerSchemaChangePolicyArgs();
     }
 }

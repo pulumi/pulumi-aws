@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerOutlierDetectionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerOutlierDetectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base amount of time for which a host is ejected.
@@ -40,5 +40,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerOutlierDetectionArgs()
         {
         }
+        public static new VirtualNodeSpecListenerOutlierDetectionArgs Empty => new VirtualNodeSpecListenerOutlierDetectionArgs();
     }
 }

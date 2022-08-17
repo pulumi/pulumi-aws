@@ -8,6 +8,7 @@ import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -78,6 +79,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+     * 
+     */
+    @Import(name="desiredNumberOfDomainControllers")
+    private @Nullable Output<Integer> desiredNumberOfDomainControllers;
+
+    /**
+     * @return The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+     * 
+     */
+    public Optional<Output<Integer>> desiredNumberOfDomainControllers() {
+        return Optional.ofNullable(this.desiredNumberOfDomainControllers);
     }
 
     /**
@@ -216,14 +232,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -267,6 +283,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         this.alias = $.alias;
         this.connectSettings = $.connectSettings;
         this.description = $.description;
+        this.desiredNumberOfDomainControllers = $.desiredNumberOfDomainControllers;
         this.dnsIpAddresses = $.dnsIpAddresses;
         this.edition = $.edition;
         this.enableSso = $.enableSso;
@@ -381,6 +398,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param desiredNumberOfDomainControllers The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder desiredNumberOfDomainControllers(@Nullable Output<Integer> desiredNumberOfDomainControllers) {
+            $.desiredNumberOfDomainControllers = desiredNumberOfDomainControllers;
+            return this;
+        }
+
+        /**
+         * @param desiredNumberOfDomainControllers The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder desiredNumberOfDomainControllers(Integer desiredNumberOfDomainControllers) {
+            return desiredNumberOfDomainControllers(Output.of(desiredNumberOfDomainControllers));
         }
 
         /**
@@ -583,7 +621,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -594,7 +632,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

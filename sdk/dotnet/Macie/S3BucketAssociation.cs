@@ -19,29 +19,27 @@ namespace Pulumi.Aws.Macie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Macie.S3BucketAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Macie.S3BucketAssociation("example", new Aws.Macie.S3BucketAssociationArgs
+    ///         BucketName = "tf-macie-example",
+    ///         ClassificationType = new Aws.Macie.Inputs.S3BucketAssociationClassificationTypeArgs
     ///         {
-    ///             BucketName = "tf-macie-example",
-    ///             ClassificationType = new Aws.Macie.Inputs.S3BucketAssociationClassificationTypeArgs
-    ///             {
-    ///                 OneTime = "FULL",
-    ///             },
-    ///             Prefix = "data",
-    ///         });
-    ///     }
+    ///             OneTime = "FULL",
+    ///         },
+    ///         Prefix = "data",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie/s3BucketAssociation:S3BucketAssociation")]
-    public partial class S3BucketAssociation : Pulumi.CustomResource
+    public partial class S3BucketAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the S3 bucket that you want to associate with Amazon Macie.
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.Macie
         }
     }
 
-    public sealed class S3BucketAssociationArgs : Pulumi.ResourceArgs
+    public sealed class S3BucketAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket that you want to associate with Amazon Macie.
@@ -140,9 +138,10 @@ namespace Pulumi.Aws.Macie
         public S3BucketAssociationArgs()
         {
         }
+        public static new S3BucketAssociationArgs Empty => new S3BucketAssociationArgs();
     }
 
-    public sealed class S3BucketAssociationState : Pulumi.ResourceArgs
+    public sealed class S3BucketAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket that you want to associate with Amazon Macie.
@@ -171,5 +170,6 @@ namespace Pulumi.Aws.Macie
         public S3BucketAssociationState()
         {
         }
+        public static new S3BucketAssociationState Empty => new S3BucketAssociationState();
     }
 }

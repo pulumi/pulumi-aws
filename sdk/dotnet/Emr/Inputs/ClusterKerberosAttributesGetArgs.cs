@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterKerberosAttributesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterKerberosAttributesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterKerberosAttributesGetArgs()
         {
         }
+        public static new ClusterKerberosAttributesGetArgs Empty => new ClusterKerberosAttributesGetArgs();
     }
 }

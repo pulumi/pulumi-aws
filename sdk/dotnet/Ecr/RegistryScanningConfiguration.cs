@@ -16,80 +16,76 @@ namespace Pulumi.Aws.Ecr
     /// ### Basic example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var configuration = new Aws.Ecr.RegistryScanningConfiguration("configuration", new()
     ///     {
-    ///         var configuration = new Aws.Ecr.RegistryScanningConfiguration("configuration", new Aws.Ecr.RegistryScanningConfigurationArgs
+    ///         Rules = new[]
     ///         {
-    ///             Rules = 
+    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
     ///             {
-    ///                 new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
+    ///                 RepositoryFilters = new[]
     ///                 {
-    ///                     RepositoryFilters = 
+    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
     ///                     {
-    ///                         new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
-    ///                         {
-    ///                             Filter = "example",
-    ///                             FilterType = "WILDCARD",
-    ///                         },
+    ///                         Filter = "example",
+    ///                         FilterType = "WILDCARD",
     ///                     },
-    ///                     ScanFrequency = "CONTINUOUS_SCAN",
     ///                 },
+    ///                 ScanFrequency = "CONTINUOUS_SCAN",
     ///             },
-    ///             ScanType = "ENHANCED",
-    ///         });
-    ///     }
+    ///         },
+    ///         ScanType = "ENHANCED",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Multiple rules
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ecr.RegistryScanningConfiguration("test", new()
     ///     {
-    ///         var test = new Aws.Ecr.RegistryScanningConfiguration("test", new Aws.Ecr.RegistryScanningConfigurationArgs
+    ///         Rules = new[]
     ///         {
-    ///             Rules = 
+    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
     ///             {
-    ///                 new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
+    ///                 RepositoryFilters = new[]
     ///                 {
-    ///                     RepositoryFilters = 
+    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
     ///                     {
-    ///                         new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
-    ///                         {
-    ///                             Filter = "*",
-    ///                             FilterType = "WILDCARD",
-    ///                         },
+    ///                         Filter = "*",
+    ///                         FilterType = "WILDCARD",
     ///                     },
-    ///                     ScanFrequency = "SCAN_ON_PUSH",
     ///                 },
-    ///                 new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
-    ///                 {
-    ///                     RepositoryFilters = 
-    ///                     {
-    ///                         new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
-    ///                         {
-    ///                             Filter = "example",
-    ///                             FilterType = "WILDCARD",
-    ///                         },
-    ///                     },
-    ///                     ScanFrequency = "CONTINUOUS_SCAN",
-    ///                 },
+    ///                 ScanFrequency = "SCAN_ON_PUSH",
     ///             },
-    ///             ScanType = "ENHANCED",
-    ///         });
-    ///     }
+    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
+    ///             {
+    ///                 RepositoryFilters = new[]
+    ///                 {
+    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
+    ///                     {
+    ///                         Filter = "example",
+    ///                         FilterType = "WILDCARD",
+    ///                     },
+    ///                 },
+    ///                 ScanFrequency = "CONTINUOUS_SCAN",
+    ///             },
+    ///         },
+    ///         ScanType = "ENHANCED",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -101,7 +97,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")]
-    public partial class RegistryScanningConfiguration : Pulumi.CustomResource
+    public partial class RegistryScanningConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The registry ID the scanning configuration applies to.
@@ -165,7 +161,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class RegistryScanningConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RegistryScanningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.RegistryScanningConfigurationRuleArgs>? _rules;
@@ -188,9 +184,10 @@ namespace Pulumi.Aws.Ecr
         public RegistryScanningConfigurationArgs()
         {
         }
+        public static new RegistryScanningConfigurationArgs Empty => new RegistryScanningConfigurationArgs();
     }
 
-    public sealed class RegistryScanningConfigurationState : Pulumi.ResourceArgs
+    public sealed class RegistryScanningConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The registry ID the scanning configuration applies to.
@@ -219,5 +216,6 @@ namespace Pulumi.Aws.Ecr
         public RegistryScanningConfigurationState()
         {
         }
+        public static new RegistryScanningConfigurationState Empty => new RegistryScanningConfigurationState();
     }
 }

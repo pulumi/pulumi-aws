@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionInferenceAcceleratorArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionInferenceAcceleratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionInferenceAcceleratorArgs()
         {
         }
+        public static new TaskDefinitionInferenceAcceleratorArgs Empty => new TaskDefinitionInferenceAcceleratorArgs();
     }
 }

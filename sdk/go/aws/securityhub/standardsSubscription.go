@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := securityhub.NewAccount(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewStandardsSubscription(ctx, "cis", &securityhub.StandardsSubscriptionArgs{
-// 			StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewStandardsSubscription(ctx, "pci321", &securityhub.StandardsSubscriptionArgs{
-// 			StandardsArn: pulumi.String("arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewStandardsSubscription(ctx, "cis", &securityhub.StandardsSubscriptionArgs{
+//				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewStandardsSubscription(ctx, "pci321", &securityhub.StandardsSubscriptionArgs{
+//				StandardsArn: pulumi.String("arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,11 +58,15 @@ import (
 // Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+//
+//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+//
 // ```
 //
 // ```sh
-//  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+//
+//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+//
 // ```
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
@@ -150,7 +157,7 @@ func (i *StandardsSubscription) ToStandardsSubscriptionOutputWithContext(ctx con
 // StandardsSubscriptionArrayInput is an input type that accepts StandardsSubscriptionArray and StandardsSubscriptionArrayOutput values.
 // You can construct a concrete instance of `StandardsSubscriptionArrayInput` via:
 //
-//          StandardsSubscriptionArray{ StandardsSubscriptionArgs{...} }
+//	StandardsSubscriptionArray{ StandardsSubscriptionArgs{...} }
 type StandardsSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +182,7 @@ func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutputWithContex
 // StandardsSubscriptionMapInput is an input type that accepts StandardsSubscriptionMap and StandardsSubscriptionMapOutput values.
 // You can construct a concrete instance of `StandardsSubscriptionMapInput` via:
 //
-//          StandardsSubscriptionMap{ "key": StandardsSubscriptionArgs{...} }
+//	StandardsSubscriptionMap{ "key": StandardsSubscriptionArgs{...} }
 type StandardsSubscriptionMapInput interface {
 	pulumi.Input
 

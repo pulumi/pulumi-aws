@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs()
         {
         }
+        public static new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs Empty => new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableSchemaDefinitionStaticColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaDefinitionStaticColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the static column.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableSchemaDefinitionStaticColumnGetArgs()
         {
         }
+        public static new TableSchemaDefinitionStaticColumnGetArgs Empty => new TableSchemaDefinitionStaticColumnGetArgs();
     }
 }

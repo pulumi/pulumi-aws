@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class OptionGroupOptionOptionSettingArgs : Pulumi.ResourceArgs
+    public sealed class OptionGroupOptionOptionSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the setting.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public OptionGroupOptionOptionSettingArgs()
         {
         }
+        public static new OptionGroupOptionOptionSettingArgs Empty => new OptionGroupOptionOptionSettingArgs();
     }
 }

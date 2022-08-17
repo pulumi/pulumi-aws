@@ -41,7 +41,7 @@ class SamplingRuleArgs:
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Matches attributes derived from the request.
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
         pulumi.set(__self__, "host", host)
@@ -208,7 +208,7 @@ class SamplingRuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 
@@ -248,7 +248,7 @@ class _SamplingRuleState:
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
@@ -420,7 +420,7 @@ class _SamplingRuleState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 
@@ -530,7 +530,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
@@ -689,7 +689,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
@@ -807,7 +807,7 @@ class SamplingRule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 

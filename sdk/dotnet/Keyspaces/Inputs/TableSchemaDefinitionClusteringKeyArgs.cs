@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableSchemaDefinitionClusteringKeyArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaDefinitionClusteringKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the clustering key column.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableSchemaDefinitionClusteringKeyArgs()
         {
         }
+        public static new TableSchemaDefinitionClusteringKeyArgs Empty => new TableSchemaDefinitionClusteringKeyArgs();
     }
 }

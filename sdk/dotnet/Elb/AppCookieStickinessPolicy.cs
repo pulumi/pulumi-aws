@@ -15,39 +15,38 @@ namespace Pulumi.Aws.Elb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
-    ///         var lb = new Aws.Elb.LoadBalancer("lb", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 80,
-    ///                     LbProtocol = "http",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new Aws.Elb.AppCookieStickinessPolicyArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             LoadBalancer = lb.Name,
-    ///             LbPort = 80,
-    ///             CookieName = "MyAppCookie",
-    ///         });
-    ///     }
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             {
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 80,
+    ///                 LbProtocol = "http",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new()
+    ///     {
+    ///         LoadBalancer = lb.Name,
+    ///         LbPort = 80,
+    ///         CookieName = "MyAppCookie",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +58,7 @@ namespace Pulumi.Aws.Elb
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
-    public partial class AppCookieStickinessPolicy : Pulumi.CustomResource
+    public partial class AppCookieStickinessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application cookie whose lifetime the ELB's cookie should follow.
@@ -113,7 +112,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +135,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
-    public sealed class AppCookieStickinessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AppCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application cookie whose lifetime the ELB's cookie should follow.
@@ -168,9 +167,10 @@ namespace Pulumi.Aws.Elb
         public AppCookieStickinessPolicyArgs()
         {
         }
+        public static new AppCookieStickinessPolicyArgs Empty => new AppCookieStickinessPolicyArgs();
     }
 
-    public sealed class AppCookieStickinessPolicyState : Pulumi.ResourceArgs
+    public sealed class AppCookieStickinessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application cookie whose lifetime the ELB's cookie should follow.
@@ -202,5 +202,6 @@ namespace Pulumi.Aws.Elb
         public AppCookieStickinessPolicyState()
         {
         }
+        public static new AppCookieStickinessPolicyState Empty => new AppCookieStickinessPolicyState();
     }
 }

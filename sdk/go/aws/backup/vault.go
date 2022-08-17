@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
-// 			KmsKeyArn: pulumi.Any(aws_kms_key.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
+//				KmsKeyArn: pulumi.Any(aws_kms_key.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,13 +43,17 @@ import (
 // Backup vault can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/vault:Vault test-vault TestVault
+//
+//	$ pulumi import aws:backup/vault:Vault test-vault TestVault
+//
 // ```
 type Vault struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the vault.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The server-side encryption key that is used to protect your backups.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
@@ -55,7 +62,7 @@ type Vault struct {
 	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -90,6 +97,8 @@ func GetVault(ctx *pulumi.Context,
 type vaultState struct {
 	// The ARN of the vault.
 	Arn *string `pulumi:"arn"`
+	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The server-side encryption key that is used to protect your backups.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
@@ -98,13 +107,15 @@ type vaultState struct {
 	RecoveryPoints *int `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VaultState struct {
 	// The ARN of the vault.
 	Arn pulumi.StringPtrInput
+	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	ForceDestroy pulumi.BoolPtrInput
 	// The server-side encryption key that is used to protect your backups.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the backup vault to create.
@@ -113,7 +124,7 @@ type VaultState struct {
 	RecoveryPoints pulumi.IntPtrInput
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -122,6 +133,8 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
+	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The server-side encryption key that is used to protect your backups.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
@@ -132,6 +145,8 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
+	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	ForceDestroy pulumi.BoolPtrInput
 	// The server-side encryption key that is used to protect your backups.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the backup vault to create.
@@ -166,7 +181,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 // VaultArrayInput is an input type that accepts VaultArray and VaultArrayOutput values.
 // You can construct a concrete instance of `VaultArrayInput` via:
 //
-//          VaultArray{ VaultArgs{...} }
+//	VaultArray{ VaultArgs{...} }
 type VaultArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +206,7 @@ func (i VaultArray) ToVaultArrayOutputWithContext(ctx context.Context) VaultArra
 // VaultMapInput is an input type that accepts VaultMap and VaultMapOutput values.
 // You can construct a concrete instance of `VaultMapInput` via:
 //
-//          VaultMap{ "key": VaultArgs{...} }
+//	VaultMap{ "key": VaultArgs{...} }
 type VaultMapInput interface {
 	pulumi.Input
 
@@ -232,6 +247,11 @@ func (o VaultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+func (o VaultOutput) ForceDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
+}
+
 // The server-side encryption key that is used to protect your backups.
 func (o VaultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
@@ -252,7 +272,7 @@ func (o VaultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VaultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

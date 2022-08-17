@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionTrustedSignerItemArgs : Pulumi.ResourceArgs
+    public sealed class DistributionTrustedSignerItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID or `self`
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionTrustedSignerItemArgs()
         {
         }
+        public static new DistributionTrustedSignerItemArgs Empty => new DistributionTrustedSignerItemArgs();
     }
 }

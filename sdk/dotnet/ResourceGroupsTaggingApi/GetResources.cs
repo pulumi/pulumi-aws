@@ -20,71 +20,65 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// ### Get All Resource Tag Mappings
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Aws.ResourceGroupsTaggingApi.GetResources.InvokeAsync());
-        ///     }
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter By Tag Key and Value
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ResourceGroupsTaggingApi.GetResources.InvokeAsync(new Aws.ResourceGroupsTaggingApi.GetResourcesArgs
+        ///         TagFilters = new[]
         ///         {
-        ///             TagFilters = 
+        ///             new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterInputArgs
         ///             {
-        ///                 new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterArgs
+        ///                 Key = "tag-key",
+        ///                 Values = new[]
         ///                 {
-        ///                     Key = "tag-key",
-        ///                     Values = 
-        ///                     {
-        ///                         "tag-value-1",
-        ///                         "tag-value-2",
-        ///                     },
+        ///                     "tag-value-1",
+        ///                     "tag-value-2",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter By Resource Type
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ResourceGroupsTaggingApi.GetResources.InvokeAsync(new Aws.ResourceGroupsTaggingApi.GetResourcesArgs
+        ///         ResourceTypeFilters = new[]
         ///         {
-        ///             ResourceTypeFilters = 
-        ///             {
-        ///                 "ec2:instance",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "ec2:instance",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,71 +95,65 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// ### Get All Resource Tag Mappings
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Aws.ResourceGroupsTaggingApi.GetResources.InvokeAsync());
-        ///     }
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter By Tag Key and Value
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ResourceGroupsTaggingApi.GetResources.InvokeAsync(new Aws.ResourceGroupsTaggingApi.GetResourcesArgs
+        ///         TagFilters = new[]
         ///         {
-        ///             TagFilters = 
+        ///             new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterInputArgs
         ///             {
-        ///                 new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterArgs
+        ///                 Key = "tag-key",
+        ///                 Values = new[]
         ///                 {
-        ///                     Key = "tag-key",
-        ///                     Values = 
-        ///                     {
-        ///                         "tag-value-1",
-        ///                         "tag-value-2",
-        ///                     },
+        ///                     "tag-value-1",
+        ///                     "tag-value-2",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter By Resource Type
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ResourceGroupsTaggingApi.GetResources.InvokeAsync(new Aws.ResourceGroupsTaggingApi.GetResourcesArgs
+        ///         ResourceTypeFilters = new[]
         ///         {
-        ///             ResourceTypeFilters = 
-        ///             {
-        ///                 "ec2:instance",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "ec2:instance",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -175,7 +163,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
     }
 
 
-    public sealed class GetResourcesArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
@@ -228,9 +216,10 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         public GetResourcesArgs()
         {
         }
+        public static new GetResourcesArgs Empty => new GetResourcesArgs();
     }
 
-    public sealed class GetResourcesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
@@ -283,6 +272,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         public GetResourcesInvokeArgs()
         {
         }
+        public static new GetResourcesInvokeArgs Empty => new GetResourcesInvokeArgs();
     }
 
 

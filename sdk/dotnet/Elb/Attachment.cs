@@ -22,26 +22,24 @@ namespace Pulumi.Aws.Elb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new load balancer attachment
+    ///     var baz = new Aws.Elb.Attachment("baz", new()
     ///     {
-    ///         // Create a new load balancer attachment
-    ///         var baz = new Aws.Elb.Attachment("baz", new Aws.Elb.AttachmentArgs
-    ///         {
-    ///             Elb = aws_elb.Bar.Id,
-    ///             Instance = aws_instance.Foo.Id,
-    ///         });
-    ///     }
+    ///         Elb = aws_elb.Bar.Id,
+    ///         Instance = aws_instance.Foo.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/attachment:Attachment")]
-    public partial class Attachment : Pulumi.CustomResource
+    public partial class Attachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the ELB.
@@ -80,7 +78,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +101,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
-    public sealed class AttachmentArgs : Pulumi.ResourceArgs
+    public sealed class AttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ELB.
@@ -120,9 +118,10 @@ namespace Pulumi.Aws.Elb
         public AttachmentArgs()
         {
         }
+        public static new AttachmentArgs Empty => new AttachmentArgs();
     }
 
-    public sealed class AttachmentState : Pulumi.ResourceArgs
+    public sealed class AttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ELB.
@@ -139,5 +138,6 @@ namespace Pulumi.Aws.Elb
         public AttachmentState()
         {
         }
+        public static new AttachmentState Empty => new AttachmentState();
     }
 }

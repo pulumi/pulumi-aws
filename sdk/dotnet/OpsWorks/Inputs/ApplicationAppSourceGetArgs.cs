@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class ApplicationAppSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAppSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public ApplicationAppSourceGetArgs()
         {
         }
+        public static new ApplicationAppSourceGetArgs Empty => new ApplicationAppSourceGetArgs();
     }
 }

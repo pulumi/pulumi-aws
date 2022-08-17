@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewRegistry(ctx, "example", &glue.RegistryArgs{
-// 			RegistryName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewRegistry(ctx, "example", &glue.RegistryArgs{
+//				RegistryName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Glue Registries can be imported using `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
+//
+//	$ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
+//
 // ```
 type Registry struct {
 	pulumi.CustomResourceState
@@ -164,7 +169,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 // RegistryArrayInput is an input type that accepts RegistryArray and RegistryArrayOutput values.
 // You can construct a concrete instance of `RegistryArrayInput` via:
 //
-//          RegistryArray{ RegistryArgs{...} }
+//	RegistryArray{ RegistryArgs{...} }
 type RegistryArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i RegistryArray) ToRegistryArrayOutputWithContext(ctx context.Context) Reg
 // RegistryMapInput is an input type that accepts RegistryMap and RegistryMapOutput values.
 // You can construct a concrete instance of `RegistryMapInput` via:
 //
-//          RegistryMap{ "key": RegistryArgs{...} }
+//	RegistryMap{ "key": RegistryArgs{...} }
 type RegistryMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DeviceFarm.Inputs
 {
 
-    public sealed class TestGridProjectVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class TestGridProjectVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.DeviceFarm.Inputs
         public TestGridProjectVpcConfigArgs()
         {
         }
+        public static new TestGridProjectVpcConfigArgs Empty => new TestGridProjectVpcConfigArgs();
     }
 }

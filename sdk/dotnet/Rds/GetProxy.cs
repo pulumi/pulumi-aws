@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var proxy = Aws.Rds.GetProxy.Invoke(new()
         ///     {
-        ///         var proxy = Output.Create(Aws.Rds.GetProxy.InvokeAsync(new Aws.Rds.GetProxyArgs
-        ///         {
-        ///             Name = "my-test-db-proxy",
-        ///         }));
-        ///     }
+        ///         Name = "my-test-db-proxy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var proxy = Aws.Rds.GetProxy.Invoke(new()
         ///     {
-        ///         var proxy = Output.Create(Aws.Rds.GetProxy.InvokeAsync(new Aws.Rds.GetProxyArgs
-        ///         {
-        ///             Name = "my-test-db-proxy",
-        ///         }));
-        ///     }
+        ///         Name = "my-test-db-proxy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetProxyArgs : Pulumi.InvokeArgs
+    public sealed class GetProxyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DB proxy.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Rds
         public GetProxyArgs()
         {
         }
+        public static new GetProxyArgs Empty => new GetProxyArgs();
     }
 
-    public sealed class GetProxyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProxyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DB proxy.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Rds
         public GetProxyInvokeArgs()
         {
         }
+        public static new GetProxyInvokeArgs Empty => new GetProxyInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemGetArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of profile to use for field-level encryption query argument-profile mapping
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemGetArgs()
         {
         }
+        public static new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemGetArgs Empty => new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemGetArgs();
     }
 }

@@ -16,61 +16,66 @@ namespace Pulumi.Aws.Msk
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
     ///     {
-    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "192.168.0.0/22",
-    ///         });
-    ///         var azs = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
-    ///         {
-    ///             State = "available",
-    ///         }));
-    ///         var subnetAz1 = new Aws.Ec2.Subnet("subnetAz1", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names?[0]),
-    ///             CidrBlock = "192.168.0.0/24",
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var subnetAz2 = new Aws.Ec2.Subnet("subnetAz2", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names?[1]),
-    ///             CidrBlock = "192.168.1.0/24",
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var subnetAz3 = new Aws.Ec2.Subnet("subnetAz3", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names?[2]),
-    ///             CidrBlock = "192.168.2.0/24",
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var sg = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
-    ///         {
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var kms = new Aws.Kms.Key("kms", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "example",
-    ///         });
-    ///         var test = new Aws.CloudWatch.LogGroup("test", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = bucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         CidrBlock = "192.168.0.0/22",
+    ///     });
+    /// 
+    ///     var azs = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///     });
+    /// 
+    ///     var subnetAz1 = new Aws.Ec2.Subnet("subnetAz1", new()
+    ///     {
+    ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///         CidrBlock = "192.168.0.0/24",
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var subnetAz2 = new Aws.Ec2.Subnet("subnetAz2", new()
+    ///     {
+    ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
+    ///         CidrBlock = "192.168.1.0/24",
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var subnetAz3 = new Aws.Ec2.Subnet("subnetAz3", new()
+    ///     {
+    ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[2]),
+    ///         CidrBlock = "192.168.2.0/24",
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var sg = new Aws.Ec2.SecurityGroup("sg", new()
+    ///     {
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var kms = new Aws.Kms.Key("kms", new()
+    ///     {
+    ///         Description = "example",
+    ///     });
+    /// 
+    ///     var test = new Aws.CloudWatch.LogGroup("test");
+    /// 
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     /// ""Version"": ""2012-10-17"",
     /// ""Statement"": [
     ///   {
@@ -84,144 +89,142 @@ namespace Pulumi.Aws.Msk
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
-    ///         {
-    ///             Destination = "s3",
-    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///             {
-    ///                 RoleArn = firehoseRole.Arn,
-    ///                 BucketArn = bucket.Arn,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "LogDeliveryEnabled", "placeholder" },
-    ///             },
-    ///         });
-    ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
-    ///         {
-    ///             KafkaVersion = "3.2.0",
-    ///             NumberOfBrokerNodes = 3,
-    ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
-    ///             {
-    ///                 InstanceType = "kafka.m5.large",
-    ///                 ClientSubnets = 
-    ///                 {
-    ///                     subnetAz1.Id,
-    ///                     subnetAz2.Id,
-    ///                     subnetAz3.Id,
-    ///                 },
-    ///                 StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
-    ///                 {
-    ///                     EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
-    ///                     {
-    ///                         VolumeSize = 1000,
-    ///                     },
-    ///                 },
-    ///                 SecurityGroups = 
-    ///                 {
-    ///                     sg.Id,
-    ///                 },
-    ///             },
-    ///             EncryptionInfo = new Aws.Msk.Inputs.ClusterEncryptionInfoArgs
-    ///             {
-    ///                 EncryptionAtRestKmsKeyArn = kms.Arn,
-    ///             },
-    ///             OpenMonitoring = new Aws.Msk.Inputs.ClusterOpenMonitoringArgs
-    ///             {
-    ///                 Prometheus = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusArgs
-    ///                 {
-    ///                     JmxExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs
-    ///                     {
-    ///                         EnabledInBroker = true,
-    ///                     },
-    ///                     NodeExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs
-    ///                     {
-    ///                         EnabledInBroker = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             LoggingInfo = new Aws.Msk.Inputs.ClusterLoggingInfoArgs
-    ///             {
-    ///                 BrokerLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsArgs
-    ///                 {
-    ///                     CloudwatchLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                         LogGroup = test.Name,
-    ///                     },
-    ///                     Firehose = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                         DeliveryStream = testStream.Name,
-    ///                     },
-    ///                     S3 = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsS3Args
-    ///                     {
-    ///                         Enabled = true,
-    ///                         Bucket = bucket.Id,
-    ///                         Prefix = "logs/msk-",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///         this.ZookeeperConnectString = example.ZookeeperConnectString;
-    ///         this.BootstrapBrokersTls = example.BootstrapBrokersTls;
-    ///     }
+    ///     });
     /// 
-    ///     [Output("zookeeperConnectString")]
-    ///     public Output&lt;string&gt; ZookeeperConnectString { get; set; }
-    ///     [Output("bootstrapBrokersTls")]
-    ///     public Output&lt;string&gt; BootstrapBrokersTls { get; set; }
-    /// }
+    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
+    ///     {
+    ///         Destination = "s3",
+    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///         {
+    ///             RoleArn = firehoseRole.Arn,
+    ///             BucketArn = bucket.Arn,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "LogDeliveryEnabled", "placeholder" },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Msk.Cluster("example", new()
+    ///     {
+    ///         KafkaVersion = "3.2.0",
+    ///         NumberOfBrokerNodes = 3,
+    ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
+    ///         {
+    ///             InstanceType = "kafka.m5.large",
+    ///             ClientSubnets = new[]
+    ///             {
+    ///                 subnetAz1.Id,
+    ///                 subnetAz2.Id,
+    ///                 subnetAz3.Id,
+    ///             },
+    ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
+    ///             {
+    ///                 EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
+    ///                 {
+    ///                     VolumeSize = 1000,
+    ///                 },
+    ///             },
+    ///             SecurityGroups = new[]
+    ///             {
+    ///                 sg.Id,
+    ///             },
+    ///         },
+    ///         EncryptionInfo = new Aws.Msk.Inputs.ClusterEncryptionInfoArgs
+    ///         {
+    ///             EncryptionAtRestKmsKeyArn = kms.Arn,
+    ///         },
+    ///         OpenMonitoring = new Aws.Msk.Inputs.ClusterOpenMonitoringArgs
+    ///         {
+    ///             Prometheus = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusArgs
+    ///             {
+    ///                 JmxExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs
+    ///                 {
+    ///                     EnabledInBroker = true,
+    ///                 },
+    ///                 NodeExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs
+    ///                 {
+    ///                     EnabledInBroker = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         LoggingInfo = new Aws.Msk.Inputs.ClusterLoggingInfoArgs
+    ///         {
+    ///             BrokerLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsArgs
+    ///             {
+    ///                 CloudwatchLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     LogGroup = test.Name,
+    ///                 },
+    ///                 Firehose = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     DeliveryStream = testStream.Name,
+    ///                 },
+    ///                 S3 = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsS3Args
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Bucket = bucket.Id,
+    ///                     Prefix = "logs/msk-",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["zookeeperConnectString"] = example.ZookeeperConnectString,
+    ///         ["bootstrapBrokersTls"] = example.BootstrapBrokersTls,
+    ///     };
+    /// });
     /// ```
     /// ### With volume_throughput argument
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
+    ///         KafkaVersion = "2.7.1",
+    ///         NumberOfBrokerNodes = 3,
+    ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///         {
-    ///             KafkaVersion = "2.7.1",
-    ///             NumberOfBrokerNodes = 3,
-    ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
+    ///             InstanceType = "kafka.m5.4xlarge",
+    ///             ClientSubnets = new[]
     ///             {
-    ///                 InstanceType = "kafka.m5.4xlarge",
-    ///                 ClientSubnets = 
+    ///                 aws_subnet.Subnet_az1.Id,
+    ///                 aws_subnet.Subnet_az2.Id,
+    ///                 aws_subnet.Subnet_az3.Id,
+    ///             },
+    ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
+    ///             {
+    ///                 EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
     ///                 {
-    ///                     aws_subnet.Subnet_az1.Id,
-    ///                     aws_subnet.Subnet_az2.Id,
-    ///                     aws_subnet.Subnet_az3.Id,
-    ///                 },
-    ///                 StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
-    ///                 {
-    ///                     EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
+    ///                     ProvisionedThroughput = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs
     ///                     {
-    ///                         ProvisionedThroughput = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs
-    ///                         {
-    ///                             Enabled = true,
-    ///                             VolumeThroughput = 250,
-    ///                         },
-    ///                         VolumeSize = 1000,
+    ///                         Enabled = true,
+    ///                         VolumeThroughput = 250,
     ///                     },
-    ///                 },
-    ///                 SecurityGroups = 
-    ///                 {
-    ///                     aws_security_group.Sg.Id,
+    ///                     VolumeSize = 1000,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             SecurityGroups = new[]
+    ///             {
+    ///                 aws_security_group.Sg.Id,
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -233,7 +236,7 @@ namespace Pulumi.Aws.Msk
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
@@ -418,7 +421,7 @@ namespace Pulumi.Aws.Msk
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.
@@ -495,9 +498,10 @@ namespace Pulumi.Aws.Msk
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
@@ -653,5 +657,6 @@ namespace Pulumi.Aws.Msk
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FlowDefinitionHumanLoopRequestSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionHumanLoopRequestSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FlowDefinitionHumanLoopRequestSourceGetArgs()
         {
         }
+        public static new FlowDefinitionHumanLoopRequestSourceGetArgs Empty => new FlowDefinitionHumanLoopRequestSourceGetArgs();
     }
 }

@@ -24,26 +24,24 @@ namespace Pulumi.Aws.DocDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var docdb = new Aws.DocDB.Cluster("docdb", new()
     ///     {
-    ///         var docdb = new Aws.DocDB.Cluster("docdb", new Aws.DocDB.ClusterArgs
-    ///         {
-    ///             BackupRetentionPeriod = 5,
-    ///             ClusterIdentifier = "my-docdb-cluster",
-    ///             Engine = "docdb",
-    ///             MasterPassword = "mustbeeightchars",
-    ///             MasterUsername = "foo",
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///             SkipFinalSnapshot = true,
-    ///         });
-    ///     }
+    ///         BackupRetentionPeriod = 5,
+    ///         ClusterIdentifier = "my-docdb-cluster",
+    ///         Engine = "docdb",
+    ///         MasterPassword = "mustbeeightchars",
+    ///         MasterUsername = "foo",
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///         SkipFinalSnapshot = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.DocDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether any cluster modifications
@@ -234,13 +232,13 @@ namespace Pulumi.Aws.DocDB
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -296,7 +294,7 @@ namespace Pulumi.Aws.DocDB
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any cluster modifications
@@ -466,7 +464,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -490,9 +488,10 @@ namespace Pulumi.Aws.DocDB
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any cluster modifications
@@ -692,7 +691,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -704,7 +703,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -728,5 +727,6 @@ namespace Pulumi.Aws.DocDB
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

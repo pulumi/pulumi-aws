@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class AssociationTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class AssociationTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public AssociationTargetGetArgs()
         {
         }
+        public static new AssociationTargetGetArgs Empty => new AssociationTargetGetArgs();
     }
 }

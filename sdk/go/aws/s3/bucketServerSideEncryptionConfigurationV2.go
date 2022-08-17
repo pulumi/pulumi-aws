@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-// 			Description:          pulumi.String("This key is used to encrypt bucket objects"),
-// 			DeletionWindowInDays: pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketServerSideEncryptionConfigurationV2(ctx, "example", &s3.BucketServerSideEncryptionConfigurationV2Args{
-// 			Bucket: mybucket.Bucket,
-// 			Rules: s3.BucketServerSideEncryptionConfigurationV2RuleArray{
-// 				&s3.BucketServerSideEncryptionConfigurationV2RuleArgs{
-// 					ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{
-// 						KmsMasterKeyId: mykey.Arn,
-// 						SseAlgorithm:   pulumi.String("aws:kms"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
+//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
+//				DeletionWindowInDays: pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketServerSideEncryptionConfigurationV2(ctx, "example", &s3.BucketServerSideEncryptionConfigurationV2Args{
+//				Bucket: mybucket.Bucket,
+//				Rules: s3.BucketServerSideEncryptionConfigurationV2RuleArray{
+//					&s3.BucketServerSideEncryptionConfigurationV2RuleArgs{
+//						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{
+//							KmsMasterKeyId: mykey.Arn,
+//							SseAlgorithm:   pulumi.String("aws:kms"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,13 +64,17 @@ import (
 // S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketServerSideEncryptionConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -181,7 +188,7 @@ func (i *BucketServerSideEncryptionConfigurationV2) ToBucketServerSideEncryption
 // BucketServerSideEncryptionConfigurationV2ArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationV2Array and BucketServerSideEncryptionConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2ArrayInput` via:
 //
-//          BucketServerSideEncryptionConfigurationV2Array{ BucketServerSideEncryptionConfigurationV2Args{...} }
+//	BucketServerSideEncryptionConfigurationV2Array{ BucketServerSideEncryptionConfigurationV2Args{...} }
 type BucketServerSideEncryptionConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +213,7 @@ func (i BucketServerSideEncryptionConfigurationV2Array) ToBucketServerSideEncryp
 // BucketServerSideEncryptionConfigurationV2MapInput is an input type that accepts BucketServerSideEncryptionConfigurationV2Map and BucketServerSideEncryptionConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2MapInput` via:
 //
-//          BucketServerSideEncryptionConfigurationV2Map{ "key": BucketServerSideEncryptionConfigurationV2Args{...} }
+//	BucketServerSideEncryptionConfigurationV2Map{ "key": BucketServerSideEncryptionConfigurationV2Args{...} }
 type BucketServerSideEncryptionConfigurationV2MapInput interface {
 	pulumi.Input
 

@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
-// 			ObservabilityConfigurationName: pulumi.String("example"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-apprunner-observability-configuration"),
-// 			},
-// 			TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
-// 				Vendor: pulumi.String("AWSXRAY"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
+//				ObservabilityConfigurationName: pulumi.String("example"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-observability-configuration"),
+//				},
+//				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
+//					Vendor: pulumi.String("AWSXRAY"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // App Runner Observability Configuration can be imported by using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example "arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+//
+//	$ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example "arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+//
 // ```
 type ObservabilityConfiguration struct {
 	pulumi.CustomResourceState
@@ -63,8 +68,7 @@ type ObservabilityConfiguration struct {
 	// The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrOutput `pulumi:"traceConfiguration"`
@@ -113,8 +117,7 @@ type observabilityConfigurationState struct {
 	// The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration *ObservabilityConfigurationTraceConfiguration `pulumi:"traceConfiguration"`
@@ -132,8 +135,7 @@ type ObservabilityConfigurationState struct {
 	// The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrInput
@@ -148,8 +150,6 @@ type observabilityConfigurationArgs struct {
 	ObservabilityConfigurationName string `pulumi:"observabilityConfigurationName"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration *ObservabilityConfigurationTraceConfiguration `pulumi:"traceConfiguration"`
 }
@@ -160,8 +160,6 @@ type ObservabilityConfigurationArgs struct {
 	ObservabilityConfigurationName pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrInput
 }
@@ -192,7 +190,7 @@ func (i *ObservabilityConfiguration) ToObservabilityConfigurationOutputWithConte
 // ObservabilityConfigurationArrayInput is an input type that accepts ObservabilityConfigurationArray and ObservabilityConfigurationArrayOutput values.
 // You can construct a concrete instance of `ObservabilityConfigurationArrayInput` via:
 //
-//          ObservabilityConfigurationArray{ ObservabilityConfigurationArgs{...} }
+//	ObservabilityConfigurationArray{ ObservabilityConfigurationArgs{...} }
 type ObservabilityConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +215,7 @@ func (i ObservabilityConfigurationArray) ToObservabilityConfigurationArrayOutput
 // ObservabilityConfigurationMapInput is an input type that accepts ObservabilityConfigurationMap and ObservabilityConfigurationMapOutput values.
 // You can construct a concrete instance of `ObservabilityConfigurationMapInput` via:
 //
-//          ObservabilityConfigurationMap{ "key": ObservabilityConfigurationArgs{...} }
+//	ObservabilityConfigurationMap{ "key": ObservabilityConfigurationArgs{...} }
 type ObservabilityConfigurationMapInput interface {
 	pulumi.Input
 
@@ -283,7 +281,6 @@ func (o ObservabilityConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ObservabilityConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

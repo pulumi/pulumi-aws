@@ -15,29 +15,27 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudWatch.QueryDefinition("example", new()
     ///     {
-    ///         var example = new Aws.CloudWatch.QueryDefinition("example", new Aws.CloudWatch.QueryDefinitionArgs
+    ///         LogGroupNames = new[]
     ///         {
-    ///             LogGroupNames = 
-    ///             {
-    ///                 "/aws/logGroup1",
-    ///                 "/aws/logGroup2",
-    ///             },
-    ///             QueryString = @"fields @timestamp, @message
+    ///             "/aws/logGroup1",
+    ///             "/aws/logGroup2",
+    ///         },
+    ///         QueryString = @"fields @timestamp, @message
     /// | sort @timestamp desc
     /// | limit 25
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]
-    public partial class QueryDefinition : Pulumi.CustomResource
+    public partial class QueryDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specific log groups to use with the query.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class QueryDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class QueryDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
@@ -148,9 +146,10 @@ namespace Pulumi.Aws.CloudWatch
         public QueryDefinitionArgs()
         {
         }
+        public static new QueryDefinitionArgs Empty => new QueryDefinitionArgs();
     }
 
-    public sealed class QueryDefinitionState : Pulumi.ResourceArgs
+    public sealed class QueryDefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
@@ -185,5 +184,6 @@ namespace Pulumi.Aws.CloudWatch
         public QueryDefinitionState()
         {
         }
+        public static new QueryDefinitionState Empty => new QueryDefinitionState();
     }
 }

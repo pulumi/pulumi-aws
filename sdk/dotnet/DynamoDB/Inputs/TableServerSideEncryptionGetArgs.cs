@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class TableServerSideEncryptionGetArgs : Pulumi.ResourceArgs
+    public sealed class TableServerSideEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether TTL is enabled.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public TableServerSideEncryptionGetArgs()
         {
         }
+        public static new TableServerSideEncryptionGetArgs Empty => new TableServerSideEncryptionGetArgs();
     }
 }

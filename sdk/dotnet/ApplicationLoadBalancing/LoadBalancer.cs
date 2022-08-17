@@ -18,64 +18,60 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// ### Specifying Elastic IPs
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
-    ///         var example = new Aws.LB.LoadBalancer("example", new Aws.LB.LoadBalancerArgs
+    ///         LoadBalancerType = "network",
+    ///         SubnetMappings = new[]
     ///         {
-    ///             LoadBalancerType = "network",
-    ///             SubnetMappings = 
+    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Example1.Id,
-    ///                     AllocationId = aws_eip.Example1.Id,
-    ///                 },
-    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Example2.Id,
-    ///                     AllocationId = aws_eip.Example2.Id,
-    ///                 },
+    ///                 SubnetId = aws_subnet.Example1.Id,
+    ///                 AllocationId = aws_eip.Example1.Id,
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///             {
+    ///                 SubnetId = aws_subnet.Example2.Id,
+    ///                 AllocationId = aws_eip.Example2.Id,
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Specifying private IP addresses for an internal-facing load balancer
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
-    ///         var example = new Aws.LB.LoadBalancer("example", new Aws.LB.LoadBalancerArgs
+    ///         LoadBalancerType = "network",
+    ///         SubnetMappings = new[]
     ///         {
-    ///             LoadBalancerType = "network",
-    ///             SubnetMappings = 
+    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Example1.Id,
-    ///                     PrivateIpv4Address = "10.0.1.15",
-    ///                 },
-    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Example2.Id,
-    ///                     PrivateIpv4Address = "10.0.2.15",
-    ///                 },
+    ///                 SubnetId = aws_subnet.Example1.Id,
+    ///                 PrivateIpv4Address = "10.0.1.15",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///             {
+    ///                 SubnetId = aws_subnet.Example2.Id,
+    ///                 PrivateIpv4Address = "10.0.2.15",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +84,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer")]
     [AwsResourceType("aws:applicationloadbalancing/loadBalancer:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An Access Logs block. Access Logs documented below.
@@ -197,6 +193,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+        /// </summary>
+        [Output("preserveHostHeader")]
+        public Output<bool?> PreserveHostHeader { get; private set; } = null!;
+
+        /// <summary>
         /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
         /// </summary>
         [Output("securityGroups")]
@@ -223,7 +225,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -282,7 +284,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Access Logs block. Access Logs documented below.
@@ -372,6 +374,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+        /// </summary>
+        [Input("preserveHostHeader")]
+        public Input<bool>? PreserveHostHeader { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -425,9 +433,10 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 
-    public sealed class LoadBalancerState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Access Logs block. Access Logs documented below.
@@ -535,6 +544,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+        /// </summary>
+        [Input("preserveHostHeader")]
+        public Input<bool>? PreserveHostHeader { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -589,7 +604,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -610,5 +625,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public LoadBalancerState()
         {
         }
+        public static new LoadBalancerState Empty => new LoadBalancerState();
     }
 }

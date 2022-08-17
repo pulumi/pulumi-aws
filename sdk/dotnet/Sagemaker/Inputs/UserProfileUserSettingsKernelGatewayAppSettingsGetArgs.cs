@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsKernelGatewayAppSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsKernelGatewayAppSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("customImages")]
         private InputList<Inputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImageGetArgs>? _customImages;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsKernelGatewayAppSettingsGetArgs()
         {
         }
+        public static new UserProfileUserSettingsKernelGatewayAppSettingsGetArgs Empty => new UserProfileUserSettingsKernelGatewayAppSettingsGetArgs();
     }
 }

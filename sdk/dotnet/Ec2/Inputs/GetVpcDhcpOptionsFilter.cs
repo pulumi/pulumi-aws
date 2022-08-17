@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetVpcDhcpOptionsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcDhcpOptionsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the field to filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetVpcDhcpOptionsFilterArgs()
         {
         }
+        public static new GetVpcDhcpOptionsFilterArgs Empty => new GetVpcDhcpOptionsFilterArgs();
     }
 }

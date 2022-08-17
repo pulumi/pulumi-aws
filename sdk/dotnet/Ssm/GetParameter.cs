@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ssm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ssm.GetParameter.InvokeAsync(new Aws.Ssm.GetParameterArgs
-        ///         {
-        ///             Name = "foo",
-        ///         }));
-        ///     }
+        ///         Name = "foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.Ssm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ssm.GetParameter.InvokeAsync(new Aws.Ssm.GetParameterArgs
-        ///         {
-        ///             Name = "foo",
-        ///         }));
-        ///     }
+        ///         Name = "foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Ssm
     }
 
 
-    public sealed class GetParameterArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the parameter.
@@ -92,9 +88,10 @@ namespace Pulumi.Aws.Ssm
         public GetParameterArgs()
         {
         }
+        public static new GetParameterArgs Empty => new GetParameterArgs();
     }
 
-    public sealed class GetParameterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the parameter.
@@ -111,6 +108,7 @@ namespace Pulumi.Aws.Ssm
         public GetParameterInvokeArgs()
         {
         }
+        public static new GetParameterInvokeArgs Empty => new GetParameterInvokeArgs();
     }
 
 

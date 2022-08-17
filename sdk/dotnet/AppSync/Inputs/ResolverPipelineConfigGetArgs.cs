@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class ResolverPipelineConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ResolverPipelineConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("functions")]
         private InputList<string>? _functions;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public ResolverPipelineConfigGetArgs()
         {
         }
+        public static new ResolverPipelineConfigGetArgs Empty => new ResolverPipelineConfigGetArgs();
     }
 }

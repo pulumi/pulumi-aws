@@ -18,35 +18,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
-// 			Destinations: pulumi.StringArray{
-// 				pulumi.Any(aws_gamelift_fleet.Us_west_2_fleet.Arn),
-// 				pulumi.Any(aws_gamelift_fleet.Eu_central_1_fleet.Arn),
-// 			},
-// 			NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
-// 			PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
-// 				&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-// 					MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
-// 					PolicyDurationSeconds:                      pulumi.Int(5),
-// 				},
-// 				&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-// 					MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(200),
-// 				},
-// 			},
-// 			TimeoutInSeconds: pulumi.Int(60),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
+//				Destinations: pulumi.StringArray{
+//					pulumi.Any(aws_gamelift_fleet.Us_west_2_fleet.Arn),
+//					pulumi.Any(aws_gamelift_fleet.Eu_central_1_fleet.Arn),
+//				},
+//				NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
+//				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
+//						PolicyDurationSeconds:                      pulumi.Int(5),
+//					},
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(200),
+//					},
+//				},
+//				TimeoutInSeconds: pulumi.Int(60),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // GameLift Game Session Queues can be imported by their `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+//
+//	$ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+//
 // ```
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
@@ -71,7 +76,7 @@ type GameSessionQueue struct {
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
@@ -118,7 +123,7 @@ type gameSessionQueueState struct {
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
@@ -137,7 +142,7 @@ type GameSessionQueueState struct {
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrInput
@@ -204,7 +209,7 @@ func (i *GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Conte
 // GameSessionQueueArrayInput is an input type that accepts GameSessionQueueArray and GameSessionQueueArrayOutput values.
 // You can construct a concrete instance of `GameSessionQueueArrayInput` via:
 //
-//          GameSessionQueueArray{ GameSessionQueueArgs{...} }
+//	GameSessionQueueArray{ GameSessionQueueArgs{...} }
 type GameSessionQueueArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +234,7 @@ func (i GameSessionQueueArray) ToGameSessionQueueArrayOutputWithContext(ctx cont
 // GameSessionQueueMapInput is an input type that accepts GameSessionQueueMap and GameSessionQueueMapOutput values.
 // You can construct a concrete instance of `GameSessionQueueMapInput` via:
 //
-//          GameSessionQueueMap{ "key": GameSessionQueueArgs{...} }
+//	GameSessionQueueMap{ "key": GameSessionQueueArgs{...} }
 type GameSessionQueueMapInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (o GameSessionQueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GameSessionQueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

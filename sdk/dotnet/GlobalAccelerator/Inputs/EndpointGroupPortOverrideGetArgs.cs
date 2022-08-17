@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GlobalAccelerator.Inputs
 {
 
-    public sealed class EndpointGroupPortOverrideGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGroupPortOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public EndpointGroupPortOverrideGetArgs()
         {
         }
+        public static new EndpointGroupPortOverrideGetArgs Empty => new EndpointGroupPortOverrideGetArgs();
     }
 }

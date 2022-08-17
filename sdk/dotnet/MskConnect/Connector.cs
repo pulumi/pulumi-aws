@@ -16,83 +16,81 @@ namespace Pulumi.Aws.MskConnect
     /// ### Basic configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.MskConnect.Connector("example", new()
     ///     {
-    ///         var example = new Aws.MskConnect.Connector("example", new Aws.MskConnect.ConnectorArgs
+    ///         KafkaconnectVersion = "2.7.1",
+    ///         Capacity = new Aws.MskConnect.Inputs.ConnectorCapacityArgs
     ///         {
-    ///             KafkaconnectVersion = "2.7.1",
-    ///             Capacity = new Aws.MskConnect.Inputs.ConnectorCapacityArgs
+    ///             Autoscaling = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingArgs
     ///             {
-    ///                 Autoscaling = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingArgs
+    ///                 McuCount = 1,
+    ///                 MinWorkerCount = 1,
+    ///                 MaxWorkerCount = 2,
+    ///                 ScaleInPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleInPolicyArgs
     ///                 {
-    ///                     McuCount = 1,
-    ///                     MinWorkerCount = 1,
-    ///                     MaxWorkerCount = 2,
-    ///                     ScaleInPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleInPolicyArgs
+    ///                     CpuUtilizationPercentage = 20,
+    ///                 },
+    ///                 ScaleOutPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleOutPolicyArgs
+    ///                 {
+    ///                     CpuUtilizationPercentage = 80,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ConnectorConfiguration = 
+    ///         {
+    ///             { "connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector" },
+    ///             { "tasks.max", "1" },
+    ///             { "topics", "example" },
+    ///         },
+    ///         KafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterArgs
+    ///         {
+    ///             ApacheKafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterArgs
+    ///             {
+    ///                 BootstrapServers = aws_msk_cluster.Example.Bootstrap_brokers_tls,
+    ///                 Vpc = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs
+    ///                 {
+    ///                     SecurityGroups = new[]
     ///                     {
-    ///                         CpuUtilizationPercentage = 20,
+    ///                         aws_security_group.Example.Id,
     ///                     },
-    ///                     ScaleOutPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleOutPolicyArgs
+    ///                     Subnets = new[]
     ///                     {
-    ///                         CpuUtilizationPercentage = 80,
+    ///                         aws_subnet.Example1.Id,
+    ///                         aws_subnet.Example2.Id,
+    ///                         aws_subnet.Example3.Id,
     ///                     },
     ///                 },
     ///             },
-    ///             ConnectorConfiguration = 
+    ///         },
+    ///         KafkaClusterClientAuthentication = new Aws.MskConnect.Inputs.ConnectorKafkaClusterClientAuthenticationArgs
+    ///         {
+    ///             AuthenticationType = "NONE",
+    ///         },
+    ///         KafkaClusterEncryptionInTransit = new Aws.MskConnect.Inputs.ConnectorKafkaClusterEncryptionInTransitArgs
+    ///         {
+    ///             EncryptionType = "TLS",
+    ///         },
+    ///         Plugins = new[]
+    ///         {
+    ///             new Aws.MskConnect.Inputs.ConnectorPluginArgs
     ///             {
-    ///                 { "connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector" },
-    ///                 { "tasks.max", "1" },
-    ///                 { "topics", "example" },
-    ///             },
-    ///             KafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterArgs
-    ///             {
-    ///                 ApacheKafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterArgs
+    ///                 CustomPlugin = new Aws.MskConnect.Inputs.ConnectorPluginCustomPluginArgs
     ///                 {
-    ///                     BootstrapServers = aws_msk_cluster.Example.Bootstrap_brokers_tls,
-    ///                     Vpc = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs
-    ///                     {
-    ///                         SecurityGroups = 
-    ///                         {
-    ///                             aws_security_group.Example.Id,
-    ///                         },
-    ///                         Subnets = 
-    ///                         {
-    ///                             aws_subnet.Example1.Id,
-    ///                             aws_subnet.Example2.Id,
-    ///                             aws_subnet.Example3.Id,
-    ///                         },
-    ///                     },
+    ///                     Arn = aws_mskconnect_custom_plugin.Example.Arn,
+    ///                     Revision = aws_mskconnect_custom_plugin.Example.Latest_revision,
     ///                 },
     ///             },
-    ///             KafkaClusterClientAuthentication = new Aws.MskConnect.Inputs.ConnectorKafkaClusterClientAuthenticationArgs
-    ///             {
-    ///                 AuthenticationType = "NONE",
-    ///             },
-    ///             KafkaClusterEncryptionInTransit = new Aws.MskConnect.Inputs.ConnectorKafkaClusterEncryptionInTransitArgs
-    ///             {
-    ///                 EncryptionType = "TLS",
-    ///             },
-    ///             Plugins = 
-    ///             {
-    ///                 new Aws.MskConnect.Inputs.ConnectorPluginArgs
-    ///                 {
-    ///                     CustomPlugin = new Aws.MskConnect.Inputs.ConnectorPluginCustomPluginArgs
-    ///                     {
-    ///                         Arn = aws_mskconnect_custom_plugin.Example.Arn,
-    ///                         Revision = aws_mskconnect_custom_plugin.Example.Latest_revision,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ServiceExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         });
-    ///     }
+    ///         },
+    ///         ServiceExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -104,7 +102,7 @@ namespace Pulumi.Aws.MskConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/connector:Connector")]
-    public partial class Connector : Pulumi.CustomResource
+    public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the worker configuration.
@@ -234,7 +232,7 @@ namespace Pulumi.Aws.MskConnect
         }
     }
 
-    public sealed class ConnectorArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the capacity allocated to the connector. See below.
@@ -323,9 +321,10 @@ namespace Pulumi.Aws.MskConnect
         public ConnectorArgs()
         {
         }
+        public static new ConnectorArgs Empty => new ConnectorArgs();
     }
 
-    public sealed class ConnectorState : Pulumi.ResourceArgs
+    public sealed class ConnectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the worker configuration.
@@ -426,5 +425,6 @@ namespace Pulumi.Aws.MskConnect
         public ConnectorState()
         {
         }
+        public static new ConnectorState Empty => new ConnectorState();
     }
 }

@@ -21,20 +21,18 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceQuotas.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceQuotas.GetService.InvokeAsync(new Aws.ServiceQuotas.GetServiceArgs
-        ///         {
-        ///             ServiceName = "Amazon Virtual Private Cloud (Amazon VPC)",
-        ///         }));
-        ///     }
+        ///         ServiceName = "Amazon Virtual Private Cloud (Amazon VPC)",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceQuotas.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceQuotas.GetService.InvokeAsync(new Aws.ServiceQuotas.GetServiceArgs
-        ///         {
-        ///             ServiceName = "Amazon Virtual Private Cloud (Amazon VPC)",
-        ///         }));
-        ///     }
+        ///         ServiceName = "Amazon Virtual Private Cloud (Amazon VPC)",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.ServiceQuotas
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.ServiceQuotas
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

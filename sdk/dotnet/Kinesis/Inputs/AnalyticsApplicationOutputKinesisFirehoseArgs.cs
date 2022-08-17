@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationOutputKinesisFirehoseArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationOutputKinesisFirehoseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Kinesis Firehose delivery stream.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationOutputKinesisFirehoseArgs()
         {
         }
+        public static new AnalyticsApplicationOutputKinesisFirehoseArgs Empty => new AnalyticsApplicationOutputKinesisFirehoseArgs();
     }
 }

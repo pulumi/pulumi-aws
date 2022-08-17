@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyLaunchTemplateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override the instance launch template specification in the Launch Template.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyLaunchTemplateGetArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyLaunchTemplateGetArgs Empty => new GroupMixedInstancesPolicyLaunchTemplateGetArgs();
     }
 }

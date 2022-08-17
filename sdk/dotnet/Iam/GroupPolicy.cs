@@ -20,39 +20,35 @@ namespace Pulumi.Aws.Iam
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDevelopers = new Aws.Iam.Group("myDevelopers", new()
     ///     {
-    ///         var myDevelopers = new Aws.Iam.Group("myDevelopers", new Aws.Iam.GroupArgs
-    ///         {
-    ///             Path = "/users/",
-    ///         });
-    ///         var myDeveloperPolicy = new Aws.Iam.GroupPolicy("myDeveloperPolicy", new Aws.Iam.GroupPolicyArgs
-    ///         {
-    ///             Group = myDevelopers.Name,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "ec2:Describe*",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///         Path = "/users/",
+    ///     });
     /// 
-    /// }
+    ///     var myDeveloperPolicy = new Aws.Iam.GroupPolicy("myDeveloperPolicy", new()
+    ///     {
+    ///         Group = myDevelopers.Name,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "ec2:Describe*",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +60,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/groupPolicy:GroupPolicy")]
-    public partial class GroupPolicy : Pulumi.CustomResource
+    public partial class GroupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IAM group to attach to the policy.
@@ -136,7 +132,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class GroupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class GroupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IAM group to attach to the policy.
@@ -167,9 +163,10 @@ namespace Pulumi.Aws.Iam
         public GroupPolicyArgs()
         {
         }
+        public static new GroupPolicyArgs Empty => new GroupPolicyArgs();
     }
 
-    public sealed class GroupPolicyState : Pulumi.ResourceArgs
+    public sealed class GroupPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IAM group to attach to the policy.
@@ -200,5 +197,6 @@ namespace Pulumi.Aws.Iam
         public GroupPolicyState()
         {
         }
+        public static new GroupPolicyState Empty => new GroupPolicyState();
     }
 }

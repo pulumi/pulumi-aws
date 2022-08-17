@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appstream.NewUser(ctx, "example", &appstream.UserArgs{
-// 			AuthenticationType: pulumi.String("USERPOOL"),
-// 			FirstName:          pulumi.String("FIRST NAME"),
-// 			LastName:           pulumi.String("LAST NAME"),
-// 			UserName:           pulumi.String("EMAIL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.NewUser(ctx, "example", &appstream.UserArgs{
+//				AuthenticationType: pulumi.String("USERPOOL"),
+//				FirstName:          pulumi.String("FIRST NAME"),
+//				LastName:           pulumi.String("LAST NAME"),
+//				UserName:           pulumi.String("EMAIL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+//
+//	$ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+//
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 

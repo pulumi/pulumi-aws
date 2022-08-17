@@ -15,38 +15,37 @@ namespace Pulumi.Aws.DirectoryService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new()
     ///     {
-    ///         var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new Aws.DirectoryService.DirectoryArgs
+    ///         Name = "tf-example",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Type = "MicrosoftAD",
+    ///         Edition = "Standard",
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
-    ///             Name = "tf-example",
-    ///             Password = "SuperSecretPassw0rd",
-    ///             Type = "MicrosoftAD",
-    ///             Edition = "Standard",
-    ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///             {
-    ///                 VpcId = aws_vpc.Example.Id,
-    ///                 SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
-    ///             },
-    ///         });
-    ///         var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new Aws.DirectoryService.SharedDirectoryArgs
-    ///         {
-    ///             DirectoryId = exampleDirectory.Id,
-    ///             Notes = "You wanna have a catch?",
-    ///             Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
-    ///             {
-    ///                 Id = data.Aws_caller_identity.Receiver.Account_id,
-    ///             },
-    ///         });
-    ///     }
+    ///             VpcId = aws_vpc.Example.Id,
+    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
+    ///     {
+    ///         DirectoryId = exampleDirectory.Id,
+    ///         Notes = "You wanna have a catch?",
+    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
+    ///         {
+    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Aws.DirectoryService
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
-    public partial class SharedDirectory : Pulumi.CustomResource
+    public partial class SharedDirectory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
@@ -134,7 +133,7 @@ namespace Pulumi.Aws.DirectoryService
         }
     }
 
-    public sealed class SharedDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class SharedDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
@@ -163,9 +162,10 @@ namespace Pulumi.Aws.DirectoryService
         public SharedDirectoryArgs()
         {
         }
+        public static new SharedDirectoryArgs Empty => new SharedDirectoryArgs();
     }
 
-    public sealed class SharedDirectoryState : Pulumi.ResourceArgs
+    public sealed class SharedDirectoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
@@ -200,5 +200,6 @@ namespace Pulumi.Aws.DirectoryService
         public SharedDirectoryState()
         {
         }
+        public static new SharedDirectoryState Empty => new SharedDirectoryState();
     }
 }

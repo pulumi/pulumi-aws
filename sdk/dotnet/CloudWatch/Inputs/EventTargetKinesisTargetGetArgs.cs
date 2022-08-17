@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetKinesisTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetKinesisTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON path to be extracted from the event and used as the partition key.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetKinesisTargetGetArgs()
         {
         }
+        public static new EventTargetKinesisTargetGetArgs Empty => new EventTargetKinesisTargetGetArgs();
     }
 }

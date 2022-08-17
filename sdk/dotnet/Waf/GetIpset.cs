@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Waf
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Waf.GetIpset.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Waf.GetIpset.InvokeAsync(new Aws.Waf.GetIpsetArgs
-        ///         {
-        ///             Name = "tfWAFIPSet",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFIPSet",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Waf
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Waf.GetIpset.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Waf.GetIpset.InvokeAsync(new Aws.Waf.GetIpsetArgs
-        ///         {
-        ///             Name = "tfWAFIPSet",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFIPSet",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Waf
     }
 
 
-    public sealed class GetIpsetArgs : Pulumi.InvokeArgs
+    public sealed class GetIpsetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF IP set.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Waf
         public GetIpsetArgs()
         {
         }
+        public static new GetIpsetArgs Empty => new GetIpsetArgs();
     }
 
-    public sealed class GetIpsetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpsetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF IP set.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Waf
         public GetIpsetInvokeArgs()
         {
         }
+        public static new GetIpsetInvokeArgs Empty => new GetIpsetInvokeArgs();
     }
 
 

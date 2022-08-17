@@ -21,21 +21,19 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetPrompt.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetPrompt.InvokeAsync(new Aws.Connect.GetPromptArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Beep.wav",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Beep.wav",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,21 +51,19 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetPrompt.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetPrompt.InvokeAsync(new Aws.Connect.GetPromptArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Beep.wav",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Beep.wav",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetPromptArgs : Pulumi.InvokeArgs
+    public sealed class GetPromptArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Connect
         public GetPromptArgs()
         {
         }
+        public static new GetPromptArgs Empty => new GetPromptArgs();
     }
 
-    public sealed class GetPromptInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPromptInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -113,6 +110,7 @@ namespace Pulumi.Aws.Connect
         public GetPromptInvokeArgs()
         {
         }
+        public static new GetPromptInvokeArgs Empty => new GetPromptInvokeArgs();
     }
 
 

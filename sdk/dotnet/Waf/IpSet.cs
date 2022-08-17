@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.Waf.IpSet("ipset", new Aws.Waf.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
-    ///                 new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "10.16.16.0/16",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///             {
+    ///                 Type = "IPV4",
+    ///                 Value = "10.16.16.0/16",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/ipSet:IpSet")]
-    public partial class IpSet : Pulumi.CustomResource
+    public partial class IpSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the WAF IPSet.
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class IpSetArgs : Pulumi.ResourceArgs
+    public sealed class IpSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipSetDescriptors")]
         private InputList<Inputs.IpSetIpSetDescriptorArgs>? _ipSetDescriptors;
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.Waf
         public IpSetArgs()
         {
         }
+        public static new IpSetArgs Empty => new IpSetArgs();
     }
 
-    public sealed class IpSetState : Pulumi.ResourceArgs
+    public sealed class IpSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the WAF IPSet.
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.Waf
         public IpSetState()
         {
         }
+        public static new IpSetState Empty => new IpSetState();
     }
 }

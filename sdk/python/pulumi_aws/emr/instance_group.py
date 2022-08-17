@@ -581,7 +581,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> pulumi.Output[Optional[int]]:
+    def instance_count(self) -> pulumi.Output[int]:
         """
         target number of instances for the instance group. defaults to 0.
         """

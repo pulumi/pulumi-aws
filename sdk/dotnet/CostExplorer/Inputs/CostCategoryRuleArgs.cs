@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategoryRuleArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public CostCategoryRuleArgs()
         {
         }
+        public static new CostCategoryRuleArgs Empty => new CostCategoryRuleArgs();
     }
 }

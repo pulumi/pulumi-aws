@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/signingCertificate:SigningCertificate")]
-    public partial class SigningCertificate : Pulumi.CustomResource
+    public partial class SigningCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The contents of the signing certificate in PEM-encoded format.
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class SigningCertificateArgs : Pulumi.ResourceArgs
+    public sealed class SigningCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of the signing certificate in PEM-encoded format.
@@ -112,9 +112,10 @@ namespace Pulumi.Aws.Iam
         public SigningCertificateArgs()
         {
         }
+        public static new SigningCertificateArgs Empty => new SigningCertificateArgs();
     }
 
-    public sealed class SigningCertificateState : Pulumi.ResourceArgs
+    public sealed class SigningCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of the signing certificate in PEM-encoded format.
@@ -143,5 +144,6 @@ namespace Pulumi.Aws.Iam
         public SigningCertificateState()
         {
         }
+        public static new SigningCertificateState Empty => new SigningCertificateState();
     }
 }

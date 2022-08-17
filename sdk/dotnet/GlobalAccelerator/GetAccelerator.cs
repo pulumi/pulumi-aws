@@ -19,24 +19,22 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var acceleratorArn = config.Get("acceleratorArn") ?? "";
+        ///     var acceleratorName = config.Get("acceleratorName") ?? "";
+        ///     var example = Aws.GlobalAccelerator.GetAccelerator.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var acceleratorArn = config.Get("acceleratorArn") ?? "";
-        ///         var acceleratorName = config.Get("acceleratorName") ?? "";
-        ///         var example = Output.Create(Aws.GlobalAccelerator.GetAccelerator.InvokeAsync(new Aws.GlobalAccelerator.GetAcceleratorArgs
-        ///         {
-        ///             Arn = acceleratorArn,
-        ///             Name = acceleratorName,
-        ///         }));
-        ///     }
+        ///         Arn = acceleratorArn,
+        ///         Name = acceleratorName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +50,22 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var acceleratorArn = config.Get("acceleratorArn") ?? "";
+        ///     var acceleratorName = config.Get("acceleratorName") ?? "";
+        ///     var example = Aws.GlobalAccelerator.GetAccelerator.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var acceleratorArn = config.Get("acceleratorArn") ?? "";
-        ///         var acceleratorName = config.Get("acceleratorName") ?? "";
-        ///         var example = Output.Create(Aws.GlobalAccelerator.GetAccelerator.InvokeAsync(new Aws.GlobalAccelerator.GetAcceleratorArgs
-        ///         {
-        ///             Arn = acceleratorArn,
-        ///             Name = acceleratorName,
-        ///         }));
-        ///     }
+        ///         Arn = acceleratorArn,
+        ///         Name = acceleratorName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     }
 
 
-    public sealed class GetAcceleratorArgs : Pulumi.InvokeArgs
+    public sealed class GetAcceleratorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full ARN of the Global Accelerator.
@@ -104,9 +100,10 @@ namespace Pulumi.Aws.GlobalAccelerator
         public GetAcceleratorArgs()
         {
         }
+        public static new GetAcceleratorArgs Empty => new GetAcceleratorArgs();
     }
 
-    public sealed class GetAcceleratorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAcceleratorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full ARN of the Global Accelerator.
@@ -131,6 +128,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public GetAcceleratorInvokeArgs()
         {
         }
+        public static new GetAcceleratorInvokeArgs Empty => new GetAcceleratorInvokeArgs();
     }
 
 

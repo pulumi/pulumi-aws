@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class HoursOfOperationConfigEndTimeArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationConfigEndTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the hour of closing.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public HoursOfOperationConfigEndTimeArgs()
         {
         }
+        public static new HoursOfOperationConfigEndTimeArgs Empty => new HoursOfOperationConfigEndTimeArgs();
     }
 }

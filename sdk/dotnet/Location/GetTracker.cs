@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetTracker.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetTracker.InvokeAsync(new Aws.Location.GetTrackerArgs
-        ///         {
-        ///             TrackerName = "example",
-        ///         }));
-        ///     }
+        ///         TrackerName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetTracker.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetTracker.InvokeAsync(new Aws.Location.GetTrackerArgs
-        ///         {
-        ///             TrackerName = "example",
-        ///         }));
-        ///     }
+        ///         TrackerName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Location
     }
 
 
-    public sealed class GetTrackerArgs : Pulumi.InvokeArgs
+    public sealed class GetTrackerArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Location
         public GetTrackerArgs()
         {
         }
+        public static new GetTrackerArgs Empty => new GetTrackerArgs();
     }
 
-    public sealed class GetTrackerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrackerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Location
         public GetTrackerInvokeArgs()
         {
         }
+        public static new GetTrackerInvokeArgs Empty => new GetTrackerInvokeArgs();
     }
 
 

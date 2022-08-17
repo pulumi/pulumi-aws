@@ -17,62 +17,56 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus", new Aws.CloudWatch.EventBusArgs
-    ///         {
-    ///         });
-    ///         var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new Aws.CloudWatch.EventArchiveArgs
-    ///         {
-    ///             EventSourceArn = orderEventBus.Arn,
-    ///         });
-    ///     }
+    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
     /// 
-    /// }
+    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
+    ///     {
+    ///         EventSourceArn = orderEventBus.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Example all optional arguments
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
+    /// 
+    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
     ///     {
-    ///         var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus", new Aws.CloudWatch.EventBusArgs
-    ///         {
-    ///         });
-    ///         var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new Aws.CloudWatch.EventArchiveArgs
-    ///         {
-    ///             Description = "Archived events from order service",
-    ///             EventSourceArn = orderEventBus.Arn,
-    ///             RetentionDays = 7,
-    ///             EventPattern = @"{
+    ///         Description = "Archived events from order service",
+    ///         EventSourceArn = orderEventBus.Arn,
+    ///         RetentionDays = 7,
+    ///         EventPattern = @"{
     ///   ""source"": [""company.team.order""]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// Event Archive can be imported using their name, for example bash
+    /// Event Archive can be imported using their name, for example console
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventArchive:EventArchive")]
-    public partial class EventArchive : Pulumi.CustomResource
+    public partial class EventArchive : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the event archive.
@@ -154,7 +148,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class EventArchiveArgs : Pulumi.ResourceArgs
+    public sealed class EventArchiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the new event archive.
@@ -189,9 +183,10 @@ namespace Pulumi.Aws.CloudWatch
         public EventArchiveArgs()
         {
         }
+        public static new EventArchiveArgs Empty => new EventArchiveArgs();
     }
 
-    public sealed class EventArchiveState : Pulumi.ResourceArgs
+    public sealed class EventArchiveState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the event archive.
@@ -232,5 +227,6 @@ namespace Pulumi.Aws.CloudWatch
         public EventArchiveState()
         {
         }
+        public static new EventArchiveState Empty => new EventArchiveState();
     }
 }

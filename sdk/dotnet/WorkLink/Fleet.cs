@@ -15,74 +15,66 @@ namespace Pulumi.Aws.WorkLink
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.WorkLink.Fleet("example", new Aws.WorkLink.FleetArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.WorkLink.Fleet("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Network Configuration Usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WorkLink.Fleet("example", new()
     ///     {
-    ///         var example = new Aws.WorkLink.Fleet("example", new Aws.WorkLink.FleetArgs
+    ///         Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
     ///         {
-    ///             Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
+    ///             VpcId = aws_vpc.Test.Id,
+    ///             SubnetIds = new[]
     ///             {
-    ///                 VpcId = aws_vpc.Test.Id,
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
-    ///                 },
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Test.Id,
-    ///                 },
+    ///                 aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
     ///             },
-    ///         });
-    ///     }
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 aws_security_group.Test.Id,
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Identity Provider Configuration Usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.WorkLink.Fleet("test", new()
     ///     {
-    ///         var test = new Aws.WorkLink.Fleet("test", new Aws.WorkLink.FleetArgs
+    ///         IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
     ///         {
-    ///             IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
-    ///             {
-    ///                 Type = "SAML",
-    ///                 SamlMetadata = File.ReadAllText("saml-metadata.xml"),
-    ///             },
-    ///         });
-    ///     }
+    ///             Type = "SAML",
+    ///             SamlMetadata = File.ReadAllText("saml-metadata.xml"),
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +86,7 @@ namespace Pulumi.Aws.WorkLink
     /// ```
     /// </summary>
     [AwsResourceType("aws:worklink/fleet:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the created WorkLink Fleet.
@@ -206,7 +198,7 @@ namespace Pulumi.Aws.WorkLink
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
@@ -253,9 +245,10 @@ namespace Pulumi.Aws.WorkLink
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 
-    public sealed class FleetState : Pulumi.ResourceArgs
+    public sealed class FleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the created WorkLink Fleet.
@@ -326,5 +319,6 @@ namespace Pulumi.Aws.WorkLink
         public FleetState()
         {
         }
+        public static new FleetState Empty => new FleetState();
     }
 }

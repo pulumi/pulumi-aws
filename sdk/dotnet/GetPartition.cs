@@ -19,35 +19,34 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
-        ///         var s3Policy = current.Apply(current =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
-        ///         {
-        ///             Statements = 
-        ///             {
-        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-        ///                 {
-        ///                     Actions = 
-        ///                     {
-        ///                         "s3:ListBucket",
-        ///                     },
-        ///                     Resources = 
-        ///                     {
-        ///                         $"arn:{current.Partition}:s3:::my-bucket",
-        ///                     },
-        ///                     Sid = "1",
-        ///                 },
-        ///             },
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetPartition.Invoke();
         /// 
-        /// }
+        ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:ListBucket",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
+        ///                 },
+        ///                 Sid = "1",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

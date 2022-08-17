@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class RiskConfigurationRiskExceptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationRiskExceptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockedIpRangeLists")]
         private InputList<string>? _blockedIpRangeLists;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public RiskConfigurationRiskExceptionConfigurationArgs()
         {
         }
+        public static new RiskConfigurationRiskExceptionConfigurationArgs Empty => new RiskConfigurationRiskExceptionConfigurationArgs();
     }
 }

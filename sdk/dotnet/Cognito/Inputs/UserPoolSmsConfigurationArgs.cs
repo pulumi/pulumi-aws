@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolSmsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolSmsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolSmsConfigurationArgs()
         {
         }
+        public static new UserPoolSmsConfigurationArgs Empty => new UserPoolSmsConfigurationArgs();
     }
 }

@@ -25,8 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.TransitGatewayPeeringAttachmentAccepter;
- * import com.pulumi.aws.ec2.TransitGatewayPeeringAttachmentAccepterArgs;
+ * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentAccepter;
+ * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentAccepterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGatewayPeeringAttachmentAccepter(&#34;example&#34;, TransitGatewayPeeringAttachmentAccepterArgs.builder()        
+ *         var example = new PeeringAttachmentAccepter(&#34;example&#34;, PeeringAttachmentAccepterArgs.builder()        
  *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_peering_attachment.example().id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example cross-account attachment&#34;))
  *             .build());
@@ -57,7 +57,11 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter example tgw-attach-12345678
  * ```
  * 
+ * @deprecated
+ * aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter
+ * 
  */
+@Deprecated /* aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter */
 @ResourceType(type="aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter")
 public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resources.CustomResource {
     /**

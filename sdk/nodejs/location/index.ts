@@ -15,6 +15,7 @@ export * from "./map";
 export * from "./placeIndex";
 export * from "./routeCalculation";
 export * from "./tracker";
+export * from "./trackerAssociation";
 
 // Import resources to register:
 import { GeofenceCollection } from "./geofenceCollection";
@@ -22,6 +23,7 @@ import { Map } from "./map";
 import { PlaceIndex } from "./placeIndex";
 import { RouteCalculation } from "./routeCalculation";
 import { Tracker } from "./tracker";
+import { TrackerAssociation } from "./trackerAssociation";
 
 const _module = {
     version: utilities.getVersion(),
@@ -37,6 +39,8 @@ const _module = {
                 return new RouteCalculation(name, <any>undefined, { urn })
             case "aws:location/tracker:Tracker":
                 return new Tracker(name, <any>undefined, { urn })
+            case "aws:location/trackerAssociation:TrackerAssociation":
+                return new TrackerAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -47,3 +51,4 @@ pulumi.runtime.registerResourceModule("aws", "location/map", _module)
 pulumi.runtime.registerResourceModule("aws", "location/placeIndex", _module)
 pulumi.runtime.registerResourceModule("aws", "location/routeCalculation", _module)
 pulumi.runtime.registerResourceModule("aws", "location/tracker", _module)
+pulumi.runtime.registerResourceModule("aws", "location/trackerAssociation", _module)

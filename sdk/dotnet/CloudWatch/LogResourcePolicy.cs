@@ -16,99 +16,97 @@ namespace Pulumi.Aws.CloudWatch
     /// ### Elasticsearch Log Publishing
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var elasticsearch_log_publishing_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var elasticsearch_log_publishing_policyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                     "logs:PutLogEventsBatch",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "logs:CreateLogStream",
-    ///                         "logs:PutLogEvents",
-    ///                         "logs:PutLogEventsBatch",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:logs:*",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "es.amazonaws.com",
-    ///                             },
-    ///                             Type = "Service",
+    ///                             "es.amazonaws.com",
     ///                         },
+    ///                         Type = "Service",
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var elasticsearch_log_publishing_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
-    ///         {
-    ///             PolicyDocument = elasticsearch_log_publishing_policyPolicyDocument.Apply(elasticsearch_log_publishing_policyPolicyDocument =&gt; elasticsearch_log_publishing_policyPolicyDocument.Json),
-    ///             PolicyName = "elasticsearch-log-publishing-policy",
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var elasticsearch_log_publishing_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", new()
+    ///     {
+    ///         PolicyDocument = elasticsearch_log_publishing_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(elasticsearch_log_publishing_policyPolicyDocument =&gt; elasticsearch_log_publishing_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyName = "elasticsearch-log-publishing-policy",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Route53 Query Logging
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var route53_query_logging_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var route53_query_logging_policyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*:*:log-group:/aws/route53/*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "logs:CreateLogStream",
-    ///                         "logs:PutLogEvents",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:logs:*:*:log-group:/aws/route53/*",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "route53.amazonaws.com",
-    ///                             },
-    ///                             Type = "Service",
+    ///                             "route53.amazonaws.com",
     ///                         },
+    ///                         Type = "Service",
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
-    ///         {
-    ///             PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Json),
-    ///             PolicyName = "route53-query-logging-policy",
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", new()
+    ///     {
+    ///         PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyName = "route53-query-logging-policy",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
-    public partial class LogResourcePolicy : Pulumi.CustomResource
+    public partial class LogResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
@@ -178,7 +176,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class LogResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
@@ -195,9 +193,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogResourcePolicyArgs()
         {
         }
+        public static new LogResourcePolicyArgs Empty => new LogResourcePolicyArgs();
     }
 
-    public sealed class LogResourcePolicyState : Pulumi.ResourceArgs
+    public sealed class LogResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
@@ -214,5 +213,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogResourcePolicyState()
         {
         }
+        public static new LogResourcePolicyState Empty => new LogResourcePolicyState();
     }
 }

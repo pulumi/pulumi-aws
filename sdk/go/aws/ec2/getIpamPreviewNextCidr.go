@@ -18,29 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testIpamPreviewNextCidr, err := ec2.GetIpamPreviewNextCidr(ctx, &ec2.GetIpamPreviewNextCidrArgs{
-// 			IpamPoolId:    aws_vpc_ipam_pool.Test.Id,
-// 			NetmaskLength: pulumi.IntRef(28),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "testVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
-// 			IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-// 			Cidr:       pulumi.String(testIpamPreviewNextCidr.Cidr),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testIpamPreviewNextCidr, err := ec2.GetIpamPreviewNextCidr(ctx, &ec2.GetIpamPreviewNextCidrArgs{
+//				IpamPoolId:    aws_vpc_ipam_pool.Test.Id,
+//				NetmaskLength: pulumi.IntRef(28),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "testVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
+//				IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
+//				Cidr:       pulumi.String(testIpamPreviewNextCidr.Cidr),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArgs, opts ...pulumi.InvokeOption) (*GetIpamPreviewNextCidrResult, error) {
 	var rv GetIpamPreviewNextCidrResult

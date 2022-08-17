@@ -20,20 +20,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myApiKey = Aws.ApiGateway.GetKey.Invoke(new()
         ///     {
-        ///         var myApiKey = Output.Create(Aws.ApiGateway.GetKey.InvokeAsync(new Aws.ApiGateway.GetKeyArgs
-        ///         {
-        ///             Id = "ru3mpjgse6",
-        ///         }));
-        ///     }
+        ///         Id = "ru3mpjgse6",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myApiKey = Aws.ApiGateway.GetKey.Invoke(new()
         ///     {
-        ///         var myApiKey = Output.Create(Aws.ApiGateway.GetKey.InvokeAsync(new Aws.ApiGateway.GetKeyArgs
-        ///         {
-        ///             Id = "ru3mpjgse6",
-        ///         }));
-        ///     }
+        ///         Id = "ru3mpjgse6",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the API Key to look up.
@@ -96,9 +92,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetKeyArgs()
         {
         }
+        public static new GetKeyArgs Empty => new GetKeyArgs();
     }
 
-    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the API Key to look up.
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetKeyInvokeArgs()
         {
         }
+        public static new GetKeyInvokeArgs Empty => new GetKeyInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class UserHierarchyStructureHierarchyStructureArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyStructureHierarchyStructureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that defines the details of level five. The level block is documented below.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public UserHierarchyStructureHierarchyStructureArgs()
         {
         }
+        public static new UserHierarchyStructureHierarchyStructureArgs Empty => new UserHierarchyStructureHierarchyStructureArgs();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Aws.Eks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Eks.GetAddon.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Eks.GetAddon.InvokeAsync(new Aws.Eks.GetAddonArgs
-        ///         {
-        ///             AddonName = "vpc-cni",
-        ///             ClusterName = aws_eks_cluster.Example.Name,
-        ///         }));
-        ///         this.EksAddonOutputs = aws_eks_addon.Example;
-        ///     }
+        ///         AddonName = "vpc-cni",
+        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///     });
         /// 
-        ///     [Output("eksAddonOutputs")]
-        ///     public Output&lt;string&gt; EksAddonOutputs { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksAddonOutputs"] = aws_eks_addon.Example,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Aws.Eks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Eks.GetAddon.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Eks.GetAddon.InvokeAsync(new Aws.Eks.GetAddonArgs
-        ///         {
-        ///             AddonName = "vpc-cni",
-        ///             ClusterName = aws_eks_cluster.Example.Name,
-        ///         }));
-        ///         this.EksAddonOutputs = aws_eks_addon.Example;
-        ///     }
+        ///         AddonName = "vpc-cni",
+        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///     });
         /// 
-        ///     [Output("eksAddonOutputs")]
-        ///     public Output&lt;string&gt; EksAddonOutputs { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksAddonOutputs"] = aws_eks_addon.Example,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.Eks
     }
 
 
-    public sealed class GetAddonArgs : Pulumi.InvokeArgs
+    public sealed class GetAddonArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
@@ -105,9 +103,10 @@ namespace Pulumi.Aws.Eks
         public GetAddonArgs()
         {
         }
+        public static new GetAddonArgs Empty => new GetAddonArgs();
     }
 
-    public sealed class GetAddonInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAddonInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
@@ -133,6 +132,7 @@ namespace Pulumi.Aws.Eks
         public GetAddonInvokeArgs()
         {
         }
+        public static new GetAddonInvokeArgs Empty => new GetAddonInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class DeviceLocationArgs : Pulumi.ResourceArgs
+    public sealed class DeviceLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The physical address.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public DeviceLocationArgs()
         {
         }
+        public static new DeviceLocationArgs Empty => new DeviceLocationArgs();
     }
 }

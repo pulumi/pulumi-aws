@@ -19,47 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-// 			ElasticsearchVersion: pulumi.String("2.3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticsearch.NewDomainPolicy(ctx, "main", &elasticsearch.DomainPolicyArgs{
-// 			DomainName: example.DomainName,
-// 			AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Statement": [
-//         {
-//             "Action": "es:*",
-//             "Principal": "*",
-//             "Effect": "Allow",
-//             "Condition": {
-//                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
-//             },
-//             "Resource": "%v/*"
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				ElasticsearchVersion: pulumi.String("2.3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticsearch.NewDomainPolicy(ctx, "main", &elasticsearch.DomainPolicyArgs{
+//				DomainName: example.DomainName,
+//				AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Action": "es:*",
+//	            "Principal": "*",
+//	            "Effect": "Allow",
+//	            "Condition": {
+//	                "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
+//	            },
+//	            "Resource": "%v/*"
+//	        }
+//	    ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type DomainPolicy struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *DomainPolicy) ToDomainPolicyOutputWithContext(ctx context.Context) Doma
 // DomainPolicyArrayInput is an input type that accepts DomainPolicyArray and DomainPolicyArrayOutput values.
 // You can construct a concrete instance of `DomainPolicyArrayInput` via:
 //
-//          DomainPolicyArray{ DomainPolicyArgs{...} }
+//	DomainPolicyArray{ DomainPolicyArgs{...} }
 type DomainPolicyArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i DomainPolicyArray) ToDomainPolicyArrayOutputWithContext(ctx context.Cont
 // DomainPolicyMapInput is an input type that accepts DomainPolicyMap and DomainPolicyMapOutput values.
 // You can construct a concrete instance of `DomainPolicyMapInput` via:
 //
-//          DomainPolicyMap{ "key": DomainPolicyArgs{...} }
+//	DomainPolicyMap{ "key": DomainPolicyArgs{...} }
 type DomainPolicyMapInput interface {
 	pulumi.Input
 

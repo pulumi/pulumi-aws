@@ -19,43 +19,44 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.Ec2.Vpc("primary", new()
     ///     {
-    ///         var primary = new Aws.Ec2.Vpc("primary", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.6.0.0/16",
-    ///             EnableDnsHostnames = true,
-    ///             EnableDnsSupport = true,
-    ///         });
-    ///         var secondaryVpc = new Aws.Ec2.Vpc("secondaryVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.7.0.0/16",
-    ///             EnableDnsHostnames = true,
-    ///             EnableDnsSupport = true,
-    ///         });
-    ///         var example = new Aws.Route53.Zone("example", new Aws.Route53.ZoneArgs
-    ///         {
-    ///             Vpcs = 
-    ///             {
-    ///                 new Aws.Route53.Inputs.ZoneVpcArgs
-    ///                 {
-    ///                     VpcId = primary.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var secondaryZoneAssociation = new Aws.Route53.ZoneAssociation("secondaryZoneAssociation", new Aws.Route53.ZoneAssociationArgs
-    ///         {
-    ///             ZoneId = example.ZoneId,
-    ///             VpcId = secondaryVpc.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.6.0.0/16",
+    ///         EnableDnsHostnames = true,
+    ///         EnableDnsSupport = true,
+    ///     });
     /// 
-    /// }
+    ///     var secondaryVpc = new Aws.Ec2.Vpc("secondaryVpc", new()
+    ///     {
+    ///         CidrBlock = "10.7.0.0/16",
+    ///         EnableDnsHostnames = true,
+    ///         EnableDnsSupport = true,
+    ///     });
+    /// 
+    ///     var example = new Aws.Route53.Zone("example", new()
+    ///     {
+    ///         Vpcs = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.ZoneVpcArgs
+    ///             {
+    ///                 VpcId = primary.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var secondaryZoneAssociation = new Aws.Route53.ZoneAssociation("secondaryZoneAssociation", new()
+    ///     {
+    ///         ZoneId = example.ZoneId,
+    ///         VpcId = secondaryVpc.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +74,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/zoneAssociation:ZoneAssociation")]
-    public partial class ZoneAssociation : Pulumi.CustomResource
+    public partial class ZoneAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account ID of the account that created the hosted zone.
@@ -143,7 +144,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ZoneAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ZoneAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The VPC to associate with the private hosted zone.
@@ -166,9 +167,10 @@ namespace Pulumi.Aws.Route53
         public ZoneAssociationArgs()
         {
         }
+        public static new ZoneAssociationArgs Empty => new ZoneAssociationArgs();
     }
 
-    public sealed class ZoneAssociationState : Pulumi.ResourceArgs
+    public sealed class ZoneAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID of the account that created the hosted zone.
@@ -197,5 +199,6 @@ namespace Pulumi.Aws.Route53
         public ZoneAssociationState()
         {
         }
+        public static new ZoneAssociationState Empty => new ZoneAssociationState();
     }
 }

@@ -21,29 +21,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := sns.NewTopic(ctx, "test", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// 			Arn: test.Arn,
-// 			Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
-// 				return snsTopicPolicy.Json, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := sns.NewTopic(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: test.Arn,
+//				Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
+//					return snsTopicPolicy.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // SNS Topic Policy can be imported using the topic ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+//
+//	$ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+//
 // ```
 type TopicPolicy struct {
 	pulumi.CustomResourceState
@@ -161,7 +166,7 @@ func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicP
 // TopicPolicyArrayInput is an input type that accepts TopicPolicyArray and TopicPolicyArrayOutput values.
 // You can construct a concrete instance of `TopicPolicyArrayInput` via:
 //
-//          TopicPolicyArray{ TopicPolicyArgs{...} }
+//	TopicPolicyArray{ TopicPolicyArgs{...} }
 type TopicPolicyArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +191,7 @@ func (i TopicPolicyArray) ToTopicPolicyArrayOutputWithContext(ctx context.Contex
 // TopicPolicyMapInput is an input type that accepts TopicPolicyMap and TopicPolicyMapOutput values.
 // You can construct a concrete instance of `TopicPolicyMapInput` via:
 //
-//          TopicPolicyMap{ "key": TopicPolicyArgs{...} }
+//	TopicPolicyMap{ "key": TopicPolicyArgs{...} }
 type TopicPolicyMapInput interface {
 	pulumi.Input
 

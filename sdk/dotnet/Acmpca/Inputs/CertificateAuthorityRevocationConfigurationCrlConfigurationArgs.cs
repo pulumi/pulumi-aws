@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public CertificateAuthorityRevocationConfigurationCrlConfigurationArgs()
         {
         }
+        public static new CertificateAuthorityRevocationConfigurationCrlConfigurationArgs Empty => new CertificateAuthorityRevocationConfigurationCrlConfigurationArgs();
     }
 }

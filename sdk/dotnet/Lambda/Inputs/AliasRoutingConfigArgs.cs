@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class AliasRoutingConfigArgs : Pulumi.ResourceArgs
+    public sealed class AliasRoutingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalVersionWeights")]
         private InputMap<double>? _additionalVersionWeights;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public AliasRoutingConfigArgs()
         {
         }
+        public static new AliasRoutingConfigArgs Empty => new AliasRoutingConfigArgs();
     }
 }

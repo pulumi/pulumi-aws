@@ -20,7 +20,7 @@ type PipelineDefinitionParameterObject struct {
 // PipelineDefinitionParameterObjectInput is an input type that accepts PipelineDefinitionParameterObjectArgs and PipelineDefinitionParameterObjectOutput values.
 // You can construct a concrete instance of `PipelineDefinitionParameterObjectInput` via:
 //
-//          PipelineDefinitionParameterObjectArgs{...}
+//	PipelineDefinitionParameterObjectArgs{...}
 type PipelineDefinitionParameterObjectInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i PipelineDefinitionParameterObjectArgs) ToPipelineDefinitionParameterObje
 // PipelineDefinitionParameterObjectArrayInput is an input type that accepts PipelineDefinitionParameterObjectArray and PipelineDefinitionParameterObjectArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionParameterObjectArrayInput` via:
 //
-//          PipelineDefinitionParameterObjectArray{ PipelineDefinitionParameterObjectArgs{...} }
+//	PipelineDefinitionParameterObjectArray{ PipelineDefinitionParameterObjectArgs{...} }
 type PipelineDefinitionParameterObjectArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ type PipelineDefinitionParameterObjectAttribute struct {
 // PipelineDefinitionParameterObjectAttributeInput is an input type that accepts PipelineDefinitionParameterObjectAttributeArgs and PipelineDefinitionParameterObjectAttributeOutput values.
 // You can construct a concrete instance of `PipelineDefinitionParameterObjectAttributeInput` via:
 //
-//          PipelineDefinitionParameterObjectAttributeArgs{...}
+//	PipelineDefinitionParameterObjectAttributeArgs{...}
 type PipelineDefinitionParameterObjectAttributeInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ func (i PipelineDefinitionParameterObjectAttributeArgs) ToPipelineDefinitionPara
 // PipelineDefinitionParameterObjectAttributeArrayInput is an input type that accepts PipelineDefinitionParameterObjectAttributeArray and PipelineDefinitionParameterObjectAttributeArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionParameterObjectAttributeArrayInput` via:
 //
-//          PipelineDefinitionParameterObjectAttributeArray{ PipelineDefinitionParameterObjectAttributeArgs{...} }
+//	PipelineDefinitionParameterObjectAttributeArray{ PipelineDefinitionParameterObjectAttributeArgs{...} }
 type PipelineDefinitionParameterObjectAttributeArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ type PipelineDefinitionParameterValue struct {
 // PipelineDefinitionParameterValueInput is an input type that accepts PipelineDefinitionParameterValueArgs and PipelineDefinitionParameterValueOutput values.
 // You can construct a concrete instance of `PipelineDefinitionParameterValueInput` via:
 //
-//          PipelineDefinitionParameterValueArgs{...}
+//	PipelineDefinitionParameterValueArgs{...}
 type PipelineDefinitionParameterValueInput interface {
 	pulumi.Input
 
@@ -264,7 +264,7 @@ func (i PipelineDefinitionParameterValueArgs) ToPipelineDefinitionParameterValue
 // PipelineDefinitionParameterValueArrayInput is an input type that accepts PipelineDefinitionParameterValueArray and PipelineDefinitionParameterValueArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionParameterValueArrayInput` via:
 //
-//          PipelineDefinitionParameterValueArray{ PipelineDefinitionParameterValueArgs{...} }
+//	PipelineDefinitionParameterValueArray{ PipelineDefinitionParameterValueArgs{...} }
 type PipelineDefinitionParameterValueArrayInput interface {
 	pulumi.Input
 
@@ -342,7 +342,7 @@ type PipelineDefinitionPipelineObject struct {
 // PipelineDefinitionPipelineObjectInput is an input type that accepts PipelineDefinitionPipelineObjectArgs and PipelineDefinitionPipelineObjectOutput values.
 // You can construct a concrete instance of `PipelineDefinitionPipelineObjectInput` via:
 //
-//          PipelineDefinitionPipelineObjectArgs{...}
+//	PipelineDefinitionPipelineObjectArgs{...}
 type PipelineDefinitionPipelineObjectInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ func (i PipelineDefinitionPipelineObjectArgs) ToPipelineDefinitionPipelineObject
 // PipelineDefinitionPipelineObjectArrayInput is an input type that accepts PipelineDefinitionPipelineObjectArray and PipelineDefinitionPipelineObjectArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionPipelineObjectArrayInput` via:
 //
-//          PipelineDefinitionPipelineObjectArray{ PipelineDefinitionPipelineObjectArgs{...} }
+//	PipelineDefinitionPipelineObjectArray{ PipelineDefinitionPipelineObjectArgs{...} }
 type PipelineDefinitionPipelineObjectArrayInput interface {
 	pulumi.Input
 
@@ -457,7 +457,7 @@ type PipelineDefinitionPipelineObjectField struct {
 // PipelineDefinitionPipelineObjectFieldInput is an input type that accepts PipelineDefinitionPipelineObjectFieldArgs and PipelineDefinitionPipelineObjectFieldOutput values.
 // You can construct a concrete instance of `PipelineDefinitionPipelineObjectFieldInput` via:
 //
-//          PipelineDefinitionPipelineObjectFieldArgs{...}
+//	PipelineDefinitionPipelineObjectFieldArgs{...}
 type PipelineDefinitionPipelineObjectFieldInput interface {
 	pulumi.Input
 
@@ -489,7 +489,7 @@ func (i PipelineDefinitionPipelineObjectFieldArgs) ToPipelineDefinitionPipelineO
 // PipelineDefinitionPipelineObjectFieldArrayInput is an input type that accepts PipelineDefinitionPipelineObjectFieldArray and PipelineDefinitionPipelineObjectFieldArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionPipelineObjectFieldArrayInput` via:
 //
-//          PipelineDefinitionPipelineObjectFieldArray{ PipelineDefinitionPipelineObjectFieldArgs{...} }
+//	PipelineDefinitionPipelineObjectFieldArray{ PipelineDefinitionPipelineObjectFieldArgs{...} }
 type PipelineDefinitionPipelineObjectFieldArrayInput interface {
 	pulumi.Input
 
@@ -569,7 +569,7 @@ type GetPipelineDefinitionParameterObject struct {
 // GetPipelineDefinitionParameterObjectInput is an input type that accepts GetPipelineDefinitionParameterObjectArgs and GetPipelineDefinitionParameterObjectOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionParameterObjectInput` via:
 //
-//          GetPipelineDefinitionParameterObjectArgs{...}
+//	GetPipelineDefinitionParameterObjectArgs{...}
 type GetPipelineDefinitionParameterObjectInput interface {
 	pulumi.Input
 
@@ -598,7 +598,7 @@ func (i GetPipelineDefinitionParameterObjectArgs) ToGetPipelineDefinitionParamet
 // GetPipelineDefinitionParameterObjectArrayInput is an input type that accepts GetPipelineDefinitionParameterObjectArray and GetPipelineDefinitionParameterObjectArrayOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionParameterObjectArrayInput` via:
 //
-//          GetPipelineDefinitionParameterObjectArray{ GetPipelineDefinitionParameterObjectArgs{...} }
+//	GetPipelineDefinitionParameterObjectArray{ GetPipelineDefinitionParameterObjectArgs{...} }
 type GetPipelineDefinitionParameterObjectArrayInput interface {
 	pulumi.Input
 
@@ -675,7 +675,7 @@ type GetPipelineDefinitionParameterObjectAttribute struct {
 // GetPipelineDefinitionParameterObjectAttributeInput is an input type that accepts GetPipelineDefinitionParameterObjectAttributeArgs and GetPipelineDefinitionParameterObjectAttributeOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionParameterObjectAttributeInput` via:
 //
-//          GetPipelineDefinitionParameterObjectAttributeArgs{...}
+//	GetPipelineDefinitionParameterObjectAttributeArgs{...}
 type GetPipelineDefinitionParameterObjectAttributeInput interface {
 	pulumi.Input
 
@@ -705,7 +705,7 @@ func (i GetPipelineDefinitionParameterObjectAttributeArgs) ToGetPipelineDefiniti
 // GetPipelineDefinitionParameterObjectAttributeArrayInput is an input type that accepts GetPipelineDefinitionParameterObjectAttributeArray and GetPipelineDefinitionParameterObjectAttributeArrayOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionParameterObjectAttributeArrayInput` via:
 //
-//          GetPipelineDefinitionParameterObjectAttributeArray{ GetPipelineDefinitionParameterObjectAttributeArgs{...} }
+//	GetPipelineDefinitionParameterObjectAttributeArray{ GetPipelineDefinitionParameterObjectAttributeArgs{...} }
 type GetPipelineDefinitionParameterObjectAttributeArrayInput interface {
 	pulumi.Input
 
@@ -781,7 +781,7 @@ type GetPipelineDefinitionParameterValue struct {
 // GetPipelineDefinitionParameterValueInput is an input type that accepts GetPipelineDefinitionParameterValueArgs and GetPipelineDefinitionParameterValueOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionParameterValueInput` via:
 //
-//          GetPipelineDefinitionParameterValueArgs{...}
+//	GetPipelineDefinitionParameterValueArgs{...}
 type GetPipelineDefinitionParameterValueInput interface {
 	pulumi.Input
 
@@ -811,7 +811,7 @@ func (i GetPipelineDefinitionParameterValueArgs) ToGetPipelineDefinitionParamete
 // GetPipelineDefinitionParameterValueArrayInput is an input type that accepts GetPipelineDefinitionParameterValueArray and GetPipelineDefinitionParameterValueArrayOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionParameterValueArrayInput` via:
 //
-//          GetPipelineDefinitionParameterValueArray{ GetPipelineDefinitionParameterValueArgs{...} }
+//	GetPipelineDefinitionParameterValueArray{ GetPipelineDefinitionParameterValueArgs{...} }
 type GetPipelineDefinitionParameterValueArrayInput interface {
 	pulumi.Input
 
@@ -889,7 +889,7 @@ type GetPipelineDefinitionPipelineObject struct {
 // GetPipelineDefinitionPipelineObjectInput is an input type that accepts GetPipelineDefinitionPipelineObjectArgs and GetPipelineDefinitionPipelineObjectOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionPipelineObjectInput` via:
 //
-//          GetPipelineDefinitionPipelineObjectArgs{...}
+//	GetPipelineDefinitionPipelineObjectArgs{...}
 type GetPipelineDefinitionPipelineObjectInput interface {
 	pulumi.Input
 
@@ -921,7 +921,7 @@ func (i GetPipelineDefinitionPipelineObjectArgs) ToGetPipelineDefinitionPipeline
 // GetPipelineDefinitionPipelineObjectArrayInput is an input type that accepts GetPipelineDefinitionPipelineObjectArray and GetPipelineDefinitionPipelineObjectArrayOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionPipelineObjectArrayInput` via:
 //
-//          GetPipelineDefinitionPipelineObjectArray{ GetPipelineDefinitionPipelineObjectArgs{...} }
+//	GetPipelineDefinitionPipelineObjectArray{ GetPipelineDefinitionPipelineObjectArgs{...} }
 type GetPipelineDefinitionPipelineObjectArrayInput interface {
 	pulumi.Input
 
@@ -1006,7 +1006,7 @@ type GetPipelineDefinitionPipelineObjectField struct {
 // GetPipelineDefinitionPipelineObjectFieldInput is an input type that accepts GetPipelineDefinitionPipelineObjectFieldArgs and GetPipelineDefinitionPipelineObjectFieldOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionPipelineObjectFieldInput` via:
 //
-//          GetPipelineDefinitionPipelineObjectFieldArgs{...}
+//	GetPipelineDefinitionPipelineObjectFieldArgs{...}
 type GetPipelineDefinitionPipelineObjectFieldInput interface {
 	pulumi.Input
 
@@ -1038,7 +1038,7 @@ func (i GetPipelineDefinitionPipelineObjectFieldArgs) ToGetPipelineDefinitionPip
 // GetPipelineDefinitionPipelineObjectFieldArrayInput is an input type that accepts GetPipelineDefinitionPipelineObjectFieldArray and GetPipelineDefinitionPipelineObjectFieldArrayOutput values.
 // You can construct a concrete instance of `GetPipelineDefinitionPipelineObjectFieldArrayInput` via:
 //
-//          GetPipelineDefinitionPipelineObjectFieldArray{ GetPipelineDefinitionPipelineObjectFieldArgs{...} }
+//	GetPipelineDefinitionPipelineObjectFieldArray{ GetPipelineDefinitionPipelineObjectFieldArgs{...} }
 type GetPipelineDefinitionPipelineObjectFieldArrayInput interface {
 	pulumi.Input
 

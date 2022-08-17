@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache.Inputs
 {
 
-    public sealed class ClusterLogDeliveryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLogDeliveryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public ClusterLogDeliveryConfigurationArgs()
         {
         }
+        public static new ClusterLogDeliveryConfigurationArgs Empty => new ClusterLogDeliveryConfigurationArgs();
     }
 }

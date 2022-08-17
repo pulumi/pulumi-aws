@@ -22,20 +22,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myApiGatewayVpcLink = Aws.ApiGateway.GetVpcLink.Invoke(new()
         ///     {
-        ///         var myApiGatewayVpcLink = Output.Create(Aws.ApiGateway.GetVpcLink.InvokeAsync(new Aws.ApiGateway.GetVpcLinkArgs
-        ///         {
-        ///             Name = "my-vpc-link",
-        ///         }));
-        ///     }
+        ///         Name = "my-vpc-link",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myApiGatewayVpcLink = Aws.ApiGateway.GetVpcLink.Invoke(new()
         ///     {
-        ///         var myApiGatewayVpcLink = Output.Create(Aws.ApiGateway.GetVpcLink.InvokeAsync(new Aws.ApiGateway.GetVpcLinkArgs
-        ///         {
-        ///             Name = "my-vpc-link",
-        ///         }));
-        ///     }
+        ///         Name = "my-vpc-link",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetVpcLinkArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
@@ -101,9 +97,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetVpcLinkArgs()
         {
         }
+        public static new GetVpcLinkArgs Empty => new GetVpcLinkArgs();
     }
 
-    public sealed class GetVpcLinkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetVpcLinkInvokeArgs()
         {
         }
+        public static new GetVpcLinkInvokeArgs Empty => new GetVpcLinkInvokeArgs();
     }
 
 

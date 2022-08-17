@@ -20,17 +20,15 @@ namespace Pulumi.Aws.Iam
         /// ### All roles in an account
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync());
-        ///     }
+        ///     var roles = Aws.Iam.GetRoles.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -39,40 +37,36 @@ namespace Pulumi.Aws.Iam
         /// Roles whose role-name contains `project`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             NameRegex = ".*project.*",
-        ///         }));
-        ///     }
+        ///         NameRegex = ".*project.*",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Roles filtered by path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             PathPrefix = "/custom-path",
-        ///         }));
-        ///     }
+        ///         PathPrefix = "/custom-path",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -81,40 +75,36 @@ namespace Pulumi.Aws.Iam
         /// Roles in the account filtered by path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             PathPrefix = "/aws-reserved/sso.amazonaws.com/",
-        ///         }));
-        ///     }
+        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Specific role in the account filtered by name regex and path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             NameRegex = "AWSReservedSSO_permission_set_name_.*",
-        ///             PathPrefix = "/aws-reserved/sso.amazonaws.com/",
-        ///         }));
-        ///     }
+        ///         NameRegex = "AWSReservedSSO_permission_set_name_.*",
+        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -131,17 +121,15 @@ namespace Pulumi.Aws.Iam
         /// ### All roles in an account
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync());
-        ///     }
+        ///     var roles = Aws.Iam.GetRoles.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -150,40 +138,36 @@ namespace Pulumi.Aws.Iam
         /// Roles whose role-name contains `project`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             NameRegex = ".*project.*",
-        ///         }));
-        ///     }
+        ///         NameRegex = ".*project.*",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Roles filtered by path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             PathPrefix = "/custom-path",
-        ///         }));
-        ///     }
+        ///         PathPrefix = "/custom-path",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -192,40 +176,36 @@ namespace Pulumi.Aws.Iam
         /// Roles in the account filtered by path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             PathPrefix = "/aws-reserved/sso.amazonaws.com/",
-        ///         }));
-        ///     }
+        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Specific role in the account filtered by name regex and path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
         ///     {
-        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
-        ///         {
-        ///             NameRegex = "AWSReservedSSO_permission_set_name_.*",
-        ///             PathPrefix = "/aws-reserved/sso.amazonaws.com/",
-        ///         }));
-        ///     }
+        ///         NameRegex = "AWSReservedSSO_permission_set_name_.*",
+        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -235,7 +215,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetRolesArgs : Pulumi.InvokeArgs
+    public sealed class GetRolesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -252,9 +232,10 @@ namespace Pulumi.Aws.Iam
         public GetRolesArgs()
         {
         }
+        public static new GetRolesArgs Empty => new GetRolesArgs();
     }
 
-    public sealed class GetRolesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRolesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -271,6 +252,7 @@ namespace Pulumi.Aws.Iam
         public GetRolesInvokeArgs()
         {
         }
+        public static new GetRolesInvokeArgs Empty => new GetRolesInvokeArgs();
     }
 
 

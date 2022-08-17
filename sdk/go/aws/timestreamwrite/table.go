@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-// 			DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
-// 			TableName:    pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
+//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				TableName:    pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Full usage
 //
@@ -43,29 +46,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-// 			DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
-// 			TableName:    pulumi.String("example"),
-// 			RetentionProperties: &timestreamwrite.TableRetentionPropertiesArgs{
-// 				MagneticStoreRetentionPeriodInDays: pulumi.Int(30),
-// 				MemoryStoreRetentionPeriodInHours:  pulumi.Int(8),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-timestream-table"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
+//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				TableName:    pulumi.String("example"),
+//				RetentionProperties: &timestreamwrite.TableRetentionPropertiesArgs{
+//					MagneticStoreRetentionPeriodInDays: pulumi.Int(30),
+//					MemoryStoreRetentionPeriodInHours:  pulumi.Int(8),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-timestream-table"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +79,9 @@ import (
 // Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+//
+//	$ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+//
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -219,7 +227,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 // TableArrayInput is an input type that accepts TableArray and TableArrayOutput values.
 // You can construct a concrete instance of `TableArrayInput` via:
 //
-//          TableArray{ TableArgs{...} }
+//	TableArray{ TableArgs{...} }
 type TableArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +252,7 @@ func (i TableArray) ToTableArrayOutputWithContext(ctx context.Context) TableArra
 // TableMapInput is an input type that accepts TableMap and TableMapOutput values.
 // You can construct a concrete instance of `TableMapInput` via:
 //
-//          TableMap{ "key": TableArgs{...} }
+//	TableMap{ "key": TableArgs{...} }
 type TableMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class S3LocationS3ConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class S3LocationS3ConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public S3LocationS3ConfigGetArgs()
         {
         }
+        public static new S3LocationS3ConfigGetArgs Empty => new S3LocationS3ConfigGetArgs();
     }
 }

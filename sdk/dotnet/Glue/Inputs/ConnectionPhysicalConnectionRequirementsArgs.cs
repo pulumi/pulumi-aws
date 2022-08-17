@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class ConnectionPhysicalConnectionRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionPhysicalConnectionRequirementsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public ConnectionPhysicalConnectionRequirementsArgs()
         {
         }
+        public static new ConnectionPhysicalConnectionRequirementsArgs Empty => new ConnectionPhysicalConnectionRequirementsArgs();
     }
 }

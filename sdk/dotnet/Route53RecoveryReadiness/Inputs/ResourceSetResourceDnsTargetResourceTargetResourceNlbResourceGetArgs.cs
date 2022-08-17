@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// NLB resource ARN.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         public ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceGetArgs()
         {
         }
+        public static new ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceGetArgs Empty => new ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceGetArgs();
     }
 }

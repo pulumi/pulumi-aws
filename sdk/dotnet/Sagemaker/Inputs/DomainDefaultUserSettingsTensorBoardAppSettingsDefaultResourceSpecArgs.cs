@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs : Pulumi.ResourceArgs
+    public sealed class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs()
         {
         }
+        public static new DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs Empty => new DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs();
     }
 }

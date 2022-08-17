@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentFulfillmentActivityCodeHookGetArgs : Pulumi.ResourceArgs
+    public sealed class IntentFulfillmentActivityCodeHookGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of the request-response that you want Amazon Lex to use
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentFulfillmentActivityCodeHookGetArgs()
         {
         }
+        public static new IntentFulfillmentActivityCodeHookGetArgs Empty => new IntentFulfillmentActivityCodeHookGetArgs();
     }
 }

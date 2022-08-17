@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs Empty => new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs();
     }
 }

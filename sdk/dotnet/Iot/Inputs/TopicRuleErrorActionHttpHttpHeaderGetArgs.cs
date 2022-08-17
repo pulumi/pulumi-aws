@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionHttpHttpHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionHttpHttpHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the HTTP header.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionHttpHttpHeaderGetArgs()
         {
         }
+        public static new TopicRuleErrorActionHttpHttpHeaderGetArgs Empty => new TopicRuleErrorActionHttpHttpHeaderGetArgs();
     }
 }

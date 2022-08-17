@@ -24,83 +24,84 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
     ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "openapi", "3.0.1" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "title", "example" },
-    ///                     { "version", "1.0" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "httpMethod", "GET" },
-    ///                                 { "payloadFormatVersion", "1.0" },
-    ///                                 { "type", "HTTP_PROXY" },
-    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///         var all = new Aws.ApiGateway.MethodSettings("all", new Aws.ApiGateway.MethodSettingsArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = exampleStage.StageName,
-    ///             MethodPath = "*/*",
-    ///             Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///             {
-    ///                 MetricsEnabled = true,
-    ///                 LoggingLevel = "ERROR",
-    ///             },
-    ///         });
-    ///         var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new Aws.ApiGateway.MethodSettingsArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = exampleStage.StageName,
-    ///             MethodPath = "path1/GET",
-    ///             Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///             {
-    ///                 MetricsEnabled = true,
-    ///                 LoggingLevel = "INFO",
-    ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    ///     var all = new Aws.ApiGateway.MethodSettings("all", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = exampleStage.StageName,
+    ///         MethodPath = "*/*",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             MetricsEnabled = true,
+    ///             LoggingLevel = "ERROR",
+    ///         },
+    ///     });
+    /// 
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = exampleStage.StageName,
+    ///         MethodPath = "path1/GET",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             MetricsEnabled = true,
+    ///             LoggingLevel = "INFO",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -112,7 +113,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/methodSettings:MethodSettings")]
-    public partial class MethodSettings : Pulumi.CustomResource
+    public partial class MethodSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
@@ -182,7 +183,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class MethodSettingsArgs : Pulumi.ResourceArgs
+    public sealed class MethodSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
@@ -211,9 +212,10 @@ namespace Pulumi.Aws.ApiGateway
         public MethodSettingsArgs()
         {
         }
+        public static new MethodSettingsArgs Empty => new MethodSettingsArgs();
     }
 
-    public sealed class MethodSettingsState : Pulumi.ResourceArgs
+    public sealed class MethodSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
@@ -242,5 +244,6 @@ namespace Pulumi.Aws.ApiGateway
         public MethodSettingsState()
         {
         }
+        public static new MethodSettingsState Empty => new MethodSettingsState();
     }
 }

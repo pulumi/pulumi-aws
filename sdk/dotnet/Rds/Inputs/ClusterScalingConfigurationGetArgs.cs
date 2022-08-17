@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class ClusterScalingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterScalingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public ClusterScalingConfigurationGetArgs()
         {
         }
+        public static new ClusterScalingConfigurationGetArgs Empty => new ClusterScalingConfigurationGetArgs();
     }
 }

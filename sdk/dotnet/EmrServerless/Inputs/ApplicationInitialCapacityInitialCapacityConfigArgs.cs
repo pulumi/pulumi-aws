@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EmrServerless.Inputs
 {
 
-    public sealed class ApplicationInitialCapacityInitialCapacityConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInitialCapacityInitialCapacityConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource configuration of the initial capacity configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         public ApplicationInitialCapacityInitialCapacityConfigArgs()
         {
         }
+        public static new ApplicationInitialCapacityInitialCapacityConfigArgs Empty => new ApplicationInitialCapacityInitialCapacityConfigArgs();
     }
 }

@@ -17,56 +17,52 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         var test = new Aws.CloudWatch.EventConnection("test", new Aws.CloudWatch.EventConnectionArgs
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
-    ///             AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
     ///             {
-    ///                 ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
-    ///                 {
-    ///                     Key = "x-signature",
-    ///                     Value = "1234",
-    ///                 },
+    ///                 Key = "x-signature",
+    ///                 Value = "1234",
     ///             },
-    ///             AuthorizationType = "API_KEY",
-    ///             Description = "A connection description",
-    ///         });
-    ///     }
+    ///         },
+    ///         AuthorizationType = "API_KEY",
+    ///         Description = "A connection description",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Basic Authorization
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         var test = new Aws.CloudWatch.EventConnection("test", new Aws.CloudWatch.EventConnectionArgs
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
-    ///             AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
     ///             {
-    ///                 Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
-    ///                 {
-    ///                     Password = "Pass1234!",
-    ///                     Username = "user",
-    ///                 },
+    ///                 Password = "Pass1234!",
+    ///                 Username = "user",
     ///             },
-    ///             AuthorizationType = "BASIC",
-    ///             Description = "A connection description",
-    ///         });
-    ///     }
+    ///         },
+    ///         AuthorizationType = "BASIC",
+    ///         Description = "A connection description",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +74,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventConnection:EventConnection")]
-    public partial class EventConnection : Pulumi.CustomResource
+    public partial class EventConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
@@ -160,7 +156,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class EventConnectionArgs : Pulumi.ResourceArgs
+    public sealed class EventConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
@@ -189,9 +185,10 @@ namespace Pulumi.Aws.CloudWatch
         public EventConnectionArgs()
         {
         }
+        public static new EventConnectionArgs Empty => new EventConnectionArgs();
     }
 
-    public sealed class EventConnectionState : Pulumi.ResourceArgs
+    public sealed class EventConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
@@ -232,5 +229,6 @@ namespace Pulumi.Aws.CloudWatch
         public EventConnectionState()
         {
         }
+        public static new EventConnectionState Empty => new EventConnectionState();
     }
 }

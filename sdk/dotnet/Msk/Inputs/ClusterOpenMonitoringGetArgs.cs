@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterOpenMonitoringGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterOpenMonitoringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for Prometheus settings for open monitoring. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterOpenMonitoringGetArgs()
         {
         }
+        public static new ClusterOpenMonitoringGetArgs Empty => new ClusterOpenMonitoringGetArgs();
     }
 }

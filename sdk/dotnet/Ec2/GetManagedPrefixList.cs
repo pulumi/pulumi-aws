@@ -21,51 +21,48 @@ namespace Pulumi.Aws.Ec2
         /// ### Find the regional DynamoDB prefix list
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///         var example = current.Apply(current =&gt; Output.Create(Aws.Ec2.GetManagedPrefixList.InvokeAsync(new Aws.Ec2.GetManagedPrefixListArgs
-        ///         {
-        ///             Name = $"com.amazonaws.{current.Name}.dynamodb",
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
+        ///     {
+        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find a managed prefix list using filters
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetManagedPrefixList.InvokeAsync(new Aws.Ec2.GetManagedPrefixListArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetManagedPrefixListFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetManagedPrefixListFilterArgs
+        ///                 Name = "prefix-list-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "prefix-list-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "my-prefix-list",
-        ///                     },
+        ///                     "my-prefix-list",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,51 +80,48 @@ namespace Pulumi.Aws.Ec2
         /// ### Find the regional DynamoDB prefix list
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///         var example = current.Apply(current =&gt; Output.Create(Aws.Ec2.GetManagedPrefixList.InvokeAsync(new Aws.Ec2.GetManagedPrefixListArgs
-        ///         {
-        ///             Name = $"com.amazonaws.{current.Name}.dynamodb",
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
+        ///     {
+        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find a managed prefix list using filters
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetManagedPrefixList.InvokeAsync(new Aws.Ec2.GetManagedPrefixListArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetManagedPrefixListFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetManagedPrefixListFilterArgs
+        ///                 Name = "prefix-list-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "prefix-list-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "my-prefix-list",
-        ///                     },
+        ///                     "my-prefix-list",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -137,7 +131,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetManagedPrefixListArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedPrefixListArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetManagedPrefixListFilterArgs>? _filters;
@@ -178,9 +172,10 @@ namespace Pulumi.Aws.Ec2
         public GetManagedPrefixListArgs()
         {
         }
+        public static new GetManagedPrefixListArgs Empty => new GetManagedPrefixListArgs();
     }
 
-    public sealed class GetManagedPrefixListInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedPrefixListInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetManagedPrefixListFilterInputArgs>? _filters;
@@ -221,6 +216,7 @@ namespace Pulumi.Aws.Ec2
         public GetManagedPrefixListInvokeArgs()
         {
         }
+        public static new GetManagedPrefixListInvokeArgs Empty => new GetManagedPrefixListInvokeArgs();
     }
 
 

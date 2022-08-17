@@ -20,46 +20,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-// 			Bucket: exampleBucketV2.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3control.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control.ObjectLambdaAccessPointArgs{
-// 			Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
-// 				SupportingAccessPoint: exampleAccessPoint.Arn,
-// 				TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
-// 					&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("GetObject"),
-// 						},
-// 						ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
-// 							AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
-// 								FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
+//				Bucket: exampleBucketV2.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3control.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control.ObjectLambdaAccessPointArgs{
+//				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
+//					SupportingAccessPoint: exampleAccessPoint.Arn,
+//					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
+//						&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("GetObject"),
+//							},
+//							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
+//								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
+//									FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
 //
 // ```sh
-//  $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+//
+//	$ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+//
 // ```
 type ObjectLambdaAccessPoint struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *ObjectLambdaAccessPoint) ToObjectLambdaAccessPointOutputWithContext(ctx
 // ObjectLambdaAccessPointArrayInput is an input type that accepts ObjectLambdaAccessPointArray and ObjectLambdaAccessPointArrayOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointArrayInput` via:
 //
-//          ObjectLambdaAccessPointArray{ ObjectLambdaAccessPointArgs{...} }
+//	ObjectLambdaAccessPointArray{ ObjectLambdaAccessPointArgs{...} }
 type ObjectLambdaAccessPointArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i ObjectLambdaAccessPointArray) ToObjectLambdaAccessPointArrayOutputWithCo
 // ObjectLambdaAccessPointMapInput is an input type that accepts ObjectLambdaAccessPointMap and ObjectLambdaAccessPointMapOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointMapInput` via:
 //
-//          ObjectLambdaAccessPointMap{ "key": ObjectLambdaAccessPointArgs{...} }
+//	ObjectLambdaAccessPointMap{ "key": ObjectLambdaAccessPointArgs{...} }
 type ObjectLambdaAccessPointMapInput interface {
 	pulumi.Input
 

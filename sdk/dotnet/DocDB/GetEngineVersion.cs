@@ -19,20 +19,18 @@ namespace Pulumi.Aws.DocDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.DocDB.GetEngineVersion.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.DocDB.GetEngineVersion.InvokeAsync(new Aws.DocDB.GetEngineVersionArgs
-        ///         {
-        ///             Version = "3.6.0",
-        ///         }));
-        ///     }
+        ///         Version = "3.6.0",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.DocDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.DocDB.GetEngineVersion.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.DocDB.GetEngineVersion.InvokeAsync(new Aws.DocDB.GetEngineVersionArgs
-        ///         {
-        ///             Version = "3.6.0",
-        ///         }));
-        ///     }
+        ///         Version = "3.6.0",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.DocDB
     }
 
 
-    public sealed class GetEngineVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. (Default: `docdb`)
@@ -106,9 +102,10 @@ namespace Pulumi.Aws.DocDB
         public GetEngineVersionArgs()
         {
         }
+        public static new GetEngineVersionArgs Empty => new GetEngineVersionArgs();
     }
 
-    public sealed class GetEngineVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. (Default: `docdb`)
@@ -143,6 +140,7 @@ namespace Pulumi.Aws.DocDB
         public GetEngineVersionInvokeArgs()
         {
         }
+        public static new GetEngineVersionInvokeArgs Empty => new GetEngineVersionInvokeArgs();
     }
 
 

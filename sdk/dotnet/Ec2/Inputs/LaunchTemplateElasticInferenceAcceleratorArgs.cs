@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateElasticInferenceAcceleratorArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateElasticInferenceAcceleratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Accelerator type.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateElasticInferenceAcceleratorArgs()
         {
         }
+        public static new LaunchTemplateElasticInferenceAcceleratorArgs Empty => new LaunchTemplateElasticInferenceAcceleratorArgs();
     }
 }

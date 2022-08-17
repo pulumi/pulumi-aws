@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the host where requests are redirected.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs()
         {
         }
+        public static new BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs Empty => new BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs();
     }
 }

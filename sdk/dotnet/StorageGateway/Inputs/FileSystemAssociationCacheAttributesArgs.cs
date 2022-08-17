@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.StorageGateway.Inputs
 {
 
-    public sealed class FileSystemAssociationCacheAttributesArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemAssociationCacheAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Refreshes a file share's cache by using Time To Live (TTL).
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         public FileSystemAssociationCacheAttributesArgs()
         {
         }
+        public static new FileSystemAssociationCacheAttributesArgs Empty => new FileSystemAssociationCacheAttributesArgs();
     }
 }

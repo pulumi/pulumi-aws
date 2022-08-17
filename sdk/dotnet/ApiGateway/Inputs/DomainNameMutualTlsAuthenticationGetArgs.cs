@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class DomainNameMutualTlsAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameMutualTlsAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public DomainNameMutualTlsAuthenticationGetArgs()
         {
         }
+        public static new DomainNameMutualTlsAuthenticationGetArgs Empty => new DomainNameMutualTlsAuthenticationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the interval in milliseconds between checkpoint operations.
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs Empty => new ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs();
     }
 }

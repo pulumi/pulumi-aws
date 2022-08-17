@@ -201,6 +201,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     */
+    public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -219,7 +223,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
@@ -259,6 +263,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["preserveHostHeader"] = state ? state.preserveHostHeader : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
             resourceInputs["subnets"] = state ? state.subnets : undefined;
@@ -282,6 +287,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["preserveHostHeader"] = args ? args.preserveHostHeader : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
@@ -377,6 +383,10 @@ export interface LoadBalancerState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     */
+    preserveHostHeader?: pulumi.Input<boolean>;
+    /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -395,7 +405,7 @@ export interface LoadBalancerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     vpcId?: pulumi.Input<string>;
@@ -470,6 +480,10 @@ export interface LoadBalancerArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     */
+    preserveHostHeader?: pulumi.Input<boolean>;
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */

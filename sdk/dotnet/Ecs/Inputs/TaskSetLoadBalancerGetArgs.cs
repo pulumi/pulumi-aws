@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskSetLoadBalancerGetArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetLoadBalancerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container to associate with the load balancer (as it appears in a container definition).
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskSetLoadBalancerGetArgs()
         {
         }
+        public static new TaskSetLoadBalancerGetArgs Empty => new TaskSetLoadBalancerGetArgs();
     }
 }

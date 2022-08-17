@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class ResourceDataSyncS3DestinationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDataSyncS3DestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of S3 bucket where the aggregated data is stored.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public ResourceDataSyncS3DestinationArgs()
         {
         }
+        public static new ResourceDataSyncS3DestinationArgs Empty => new ResourceDataSyncS3DestinationArgs();
     }
 }

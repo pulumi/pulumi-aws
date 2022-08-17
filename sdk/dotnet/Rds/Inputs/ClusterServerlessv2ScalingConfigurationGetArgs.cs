@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class ClusterServerlessv2ScalingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServerlessv2ScalingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public ClusterServerlessv2ScalingConfigurationGetArgs()
         {
         }
+        public static new ClusterServerlessv2ScalingConfigurationGetArgs Empty => new ClusterServerlessv2ScalingConfigurationGetArgs();
     }
 }

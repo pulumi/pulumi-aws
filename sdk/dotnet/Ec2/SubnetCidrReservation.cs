@@ -15,22 +15,20 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.SubnetCidrReservation("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.SubnetCidrReservation("example", new Aws.Ec2.SubnetCidrReservationArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.16/28",
-    ///             ReservationType = "prefix",
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.16/28",
+    ///         ReservationType = "prefix",
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/subnetCidrReservation:SubnetCidrReservation")]
-    public partial class SubnetCidrReservation : Pulumi.CustomResource
+    public partial class SubnetCidrReservation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CIDR block for the reservation.
@@ -118,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SubnetCidrReservationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetCidrReservationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block for the reservation.
@@ -147,9 +145,10 @@ namespace Pulumi.Aws.Ec2
         public SubnetCidrReservationArgs()
         {
         }
+        public static new SubnetCidrReservationArgs Empty => new SubnetCidrReservationArgs();
     }
 
-    public sealed class SubnetCidrReservationState : Pulumi.ResourceArgs
+    public sealed class SubnetCidrReservationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block for the reservation.
@@ -184,5 +183,6 @@ namespace Pulumi.Aws.Ec2
         public SubnetCidrReservationState()
         {
         }
+        public static new SubnetCidrReservationState Empty => new SubnetCidrReservationState();
     }
 }

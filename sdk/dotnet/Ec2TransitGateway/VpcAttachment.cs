@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new Aws.Ec2TransitGateway.VpcAttachmentArgs
+    ///         SubnetIds = new[]
     ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///     }
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/vpcAttachment:VpcAttachment")]
-    public partial class VpcAttachment : Pulumi.CustomResource
+    public partial class VpcAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -157,7 +155,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class VpcAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VpcAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -228,9 +226,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public VpcAttachmentArgs()
         {
         }
+        public static new VpcAttachmentArgs Empty => new VpcAttachmentArgs();
     }
 
-    public sealed class VpcAttachmentState : Pulumi.ResourceArgs
+    public sealed class VpcAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -319,5 +318,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public VpcAttachmentState()
         {
         }
+        public static new VpcAttachmentState Empty => new VpcAttachmentState();
     }
 }

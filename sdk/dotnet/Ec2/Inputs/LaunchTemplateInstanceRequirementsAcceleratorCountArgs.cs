@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceRequirementsAcceleratorCountArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceRequirementsAcceleratorCountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateInstanceRequirementsAcceleratorCountArgs()
         {
         }
+        public static new LaunchTemplateInstanceRequirementsAcceleratorCountArgs Empty => new LaunchTemplateInstanceRequirementsAcceleratorCountArgs();
     }
 }

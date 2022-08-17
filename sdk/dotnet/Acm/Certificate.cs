@@ -29,96 +29,92 @@ namespace Pulumi.Aws.Acm
     /// ### Create Certificate
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
-    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         DomainName = "example.com",
+    ///         Tags = 
     ///         {
-    ///             DomainName = "example.com",
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "test" },
-    ///             },
-    ///             ValidationMethod = "DNS",
-    ///         });
-    ///     }
+    ///             { "Environment", "test" },
+    ///         },
+    ///         ValidationMethod = "DNS",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Custom Domain Validation Options
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
-    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         DomainName = "testing.example.com",
+    ///         ValidationMethod = "EMAIL",
+    ///         ValidationOptions = new[]
     ///         {
-    ///             DomainName = "testing.example.com",
-    ///             ValidationMethod = "EMAIL",
-    ///             ValidationOptions = 
+    ///             new Aws.Acm.Inputs.CertificateValidationOptionArgs
     ///             {
-    ///                 new Aws.Acm.Inputs.CertificateValidationOptionArgs
-    ///                 {
-    ///                     DomainName = "testing.example.com",
-    ///                     ValidationDomain = "example.com",
-    ///                 },
+    ///                 DomainName = "testing.example.com",
+    ///                 ValidationDomain = "example.com",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Existing Certificate Body Import
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// using Tls = Pulumi.Tls;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new()
     ///     {
-    ///         var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new Tls.PrivateKeyArgs
-    ///         {
-    ///             Algorithm = "RSA",
-    ///         });
-    ///         var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new Tls.SelfSignedCertArgs
-    ///         {
-    ///             KeyAlgorithm = "RSA",
-    ///             PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
-    ///             Subjects = 
-    ///             {
-    ///                 new Tls.Inputs.SelfSignedCertSubjectArgs
-    ///                 {
-    ///                     CommonName = "example.com",
-    ///                     Organization = "ACME Examples, Inc",
-    ///                 },
-    ///             },
-    ///             ValidityPeriodHours = 12,
-    ///             AllowedUses = 
-    ///             {
-    ///                 "key_encipherment",
-    ///                 "digital_signature",
-    ///                 "server_auth",
-    ///             },
-    ///         });
-    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
-    ///         {
-    ///             PrivateKey = examplePrivateKey.PrivateKeyPem,
-    ///             CertificateBody = exampleSelfSignedCert.CertPem,
-    ///         });
-    ///     }
+    ///         Algorithm = "RSA",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new()
+    ///     {
+    ///         KeyAlgorithm = "RSA",
+    ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///         Subjects = new[]
+    ///         {
+    ///             new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///             {
+    ///                 CommonName = "example.com",
+    ///                 Organization = "ACME Examples, Inc",
+    ///             },
+    ///         },
+    ///         ValidityPeriodHours = 12,
+    ///         AllowedUses = new[]
+    ///         {
+    ///             "key_encipherment",
+    ///             "digital_signature",
+    ///             "server_auth",
+    ///         },
+    ///     });
+    /// 
+    ///     var cert = new Aws.Acm.Certificate("cert", new()
+    ///     {
+    ///         PrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///         CertificateBody = exampleSelfSignedCert.CertPem,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -130,7 +126,7 @@ namespace Pulumi.Aws.Acm
     /// ```
     /// </summary>
     [AwsResourceType("aws:acm/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the certificate
@@ -194,13 +190,13 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource..
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -268,7 +264,7 @@ namespace Pulumi.Aws.Acm
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of an ACM PCA
@@ -323,7 +319,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource..
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -353,9 +349,10 @@ namespace Pulumi.Aws.Acm
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the certificate
@@ -434,7 +431,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource..
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -446,7 +443,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -488,5 +485,6 @@ namespace Pulumi.Aws.Acm
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

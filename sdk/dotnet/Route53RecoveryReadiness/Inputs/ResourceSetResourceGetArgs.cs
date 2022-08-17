@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class ResourceSetResourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetResourceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         public ResourceSetResourceGetArgs()
         {
         }
+        public static new ResourceSetResourceGetArgs Empty => new ResourceSetResourceGetArgs();
     }
 }

@@ -23,46 +23,42 @@ namespace Pulumi.Aws.Ec2
     /// ### Network Load Balancers
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.VpcEndpointService("example", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         AcceptanceRequired = false,
+    ///         NetworkLoadBalancerArns = new[]
     ///         {
-    ///             AcceptanceRequired = false,
-    ///             NetworkLoadBalancerArns = 
-    ///             {
-    ///                 aws_lb.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_lb.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Gateway Load Balancers
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.VpcEndpointService("example", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         AcceptanceRequired = false,
+    ///         GatewayLoadBalancerArns = new[]
     ///         {
-    ///             AcceptanceRequired = false,
-    ///             GatewayLoadBalancerArns = 
-    ///             {
-    ///                 aws_lb.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_lb.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointService:VpcEndpointService")]
-    public partial class VpcEndpointService : Pulumi.CustomResource
+    public partial class VpcEndpointService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
@@ -167,7 +163,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -216,7 +212,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointServiceArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
@@ -293,9 +289,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointServiceArgs()
         {
         }
+        public static new VpcEndpointServiceArgs Empty => new VpcEndpointServiceArgs();
     }
 
-    public sealed class VpcEndpointServiceState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
@@ -439,7 +436,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -450,5 +447,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointServiceState()
         {
         }
+        public static new VpcEndpointServiceState Empty => new VpcEndpointServiceState();
     }
 }

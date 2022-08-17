@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryReadiness.ResourceSet("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryReadiness.ResourceSet("example", new Aws.Route53RecoveryReadiness.ResourceSetArgs
+    ///         ResourceSetName = my_cw_alarm_set,
+    ///         ResourceSetType = "AWS::CloudWatch::Alarm",
+    ///         Resources = new[]
     ///         {
-    ///             ResourceSetName = my_cw_alarm_set,
-    ///             ResourceSetType = "AWS::CloudWatch::Alarm",
-    ///             Resources = 
+    ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
     ///             {
-    ///                 new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
-    ///                 {
-    ///                     ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///                 },
+    ///                 ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/resourceSet:ResourceSet")]
-    public partial class ResourceSet : Pulumi.CustomResource
+    public partial class ResourceSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// NLB resource ARN.
@@ -75,7 +73,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public Output<ImmutableArray<Outputs.ResourceSetResource>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -130,7 +128,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         }
     }
 
-    public sealed class ResourceSetArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name describing the resource set.
@@ -160,7 +158,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -171,9 +169,10 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public ResourceSetArgs()
         {
         }
+        public static new ResourceSetArgs Empty => new ResourceSetArgs();
     }
 
-    public sealed class ResourceSetState : Pulumi.ResourceArgs
+    public sealed class ResourceSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// NLB resource ARN.
@@ -209,7 +208,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -232,5 +231,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public ResourceSetState()
         {
         }
+        public static new ResourceSetState Empty => new ResourceSetState();
     }
 }

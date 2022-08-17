@@ -26,7 +26,7 @@ type EndpointAuthenticationOption struct {
 // EndpointAuthenticationOptionInput is an input type that accepts EndpointAuthenticationOptionArgs and EndpointAuthenticationOptionOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationOptionInput` via:
 //
-//          EndpointAuthenticationOptionArgs{...}
+//	EndpointAuthenticationOptionArgs{...}
 type EndpointAuthenticationOptionInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i EndpointAuthenticationOptionArgs) ToEndpointAuthenticationOptionOutputWi
 // EndpointAuthenticationOptionArrayInput is an input type that accepts EndpointAuthenticationOptionArray and EndpointAuthenticationOptionArrayOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationOptionArrayInput` via:
 //
-//          EndpointAuthenticationOptionArray{ EndpointAuthenticationOptionArgs{...} }
+//	EndpointAuthenticationOptionArray{ EndpointAuthenticationOptionArgs{...} }
 type EndpointAuthenticationOptionArrayInput interface {
 	pulumi.Input
 
@@ -153,7 +153,7 @@ type EndpointClientConnectOptions struct {
 // EndpointClientConnectOptionsInput is an input type that accepts EndpointClientConnectOptionsArgs and EndpointClientConnectOptionsOutput values.
 // You can construct a concrete instance of `EndpointClientConnectOptionsInput` via:
 //
-//          EndpointClientConnectOptionsArgs{...}
+//	EndpointClientConnectOptionsArgs{...}
 type EndpointClientConnectOptionsInput interface {
 	pulumi.Input
 
@@ -191,11 +191,11 @@ func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsPtrOutpu
 // EndpointClientConnectOptionsPtrInput is an input type that accepts EndpointClientConnectOptionsArgs, EndpointClientConnectOptionsPtr and EndpointClientConnectOptionsPtrOutput values.
 // You can construct a concrete instance of `EndpointClientConnectOptionsPtrInput` via:
 //
-//          EndpointClientConnectOptionsArgs{...}
+//	        EndpointClientConnectOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointClientConnectOptionsPtrInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ type EndpointClientLoginBannerOptions struct {
 // EndpointClientLoginBannerOptionsInput is an input type that accepts EndpointClientLoginBannerOptionsArgs and EndpointClientLoginBannerOptionsOutput values.
 // You can construct a concrete instance of `EndpointClientLoginBannerOptionsInput` via:
 //
-//          EndpointClientLoginBannerOptionsArgs{...}
+//	EndpointClientLoginBannerOptionsArgs{...}
 type EndpointClientLoginBannerOptionsInput interface {
 	pulumi.Input
 
@@ -347,11 +347,11 @@ func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptions
 // EndpointClientLoginBannerOptionsPtrInput is an input type that accepts EndpointClientLoginBannerOptionsArgs, EndpointClientLoginBannerOptionsPtr and EndpointClientLoginBannerOptionsPtrOutput values.
 // You can construct a concrete instance of `EndpointClientLoginBannerOptionsPtrInput` via:
 //
-//          EndpointClientLoginBannerOptionsArgs{...}
+//	        EndpointClientLoginBannerOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointClientLoginBannerOptionsPtrInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ type EndpointConnectionLogOptions struct {
 // EndpointConnectionLogOptionsInput is an input type that accepts EndpointConnectionLogOptionsArgs and EndpointConnectionLogOptionsOutput values.
 // You can construct a concrete instance of `EndpointConnectionLogOptionsInput` via:
 //
-//          EndpointConnectionLogOptionsArgs{...}
+//	EndpointConnectionLogOptionsArgs{...}
 type EndpointConnectionLogOptionsInput interface {
 	pulumi.Input
 
@@ -507,11 +507,11 @@ func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutpu
 // EndpointConnectionLogOptionsPtrInput is an input type that accepts EndpointConnectionLogOptionsArgs, EndpointConnectionLogOptionsPtr and EndpointConnectionLogOptionsPtrOutput values.
 // You can construct a concrete instance of `EndpointConnectionLogOptionsPtrInput` via:
 //
-//          EndpointConnectionLogOptionsArgs{...}
+//	        EndpointConnectionLogOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointConnectionLogOptionsPtrInput interface {
 	pulumi.Input
 
@@ -641,7 +641,7 @@ type GetEndpointAuthenticationOption struct {
 // GetEndpointAuthenticationOptionInput is an input type that accepts GetEndpointAuthenticationOptionArgs and GetEndpointAuthenticationOptionOutput values.
 // You can construct a concrete instance of `GetEndpointAuthenticationOptionInput` via:
 //
-//          GetEndpointAuthenticationOptionArgs{...}
+//	GetEndpointAuthenticationOptionArgs{...}
 type GetEndpointAuthenticationOptionInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ func (i GetEndpointAuthenticationOptionArgs) ToGetEndpointAuthenticationOptionOu
 // GetEndpointAuthenticationOptionArrayInput is an input type that accepts GetEndpointAuthenticationOptionArray and GetEndpointAuthenticationOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointAuthenticationOptionArrayInput` via:
 //
-//          GetEndpointAuthenticationOptionArray{ GetEndpointAuthenticationOptionArgs{...} }
+//	GetEndpointAuthenticationOptionArray{ GetEndpointAuthenticationOptionArgs{...} }
 type GetEndpointAuthenticationOptionArrayInput interface {
 	pulumi.Input
 
@@ -756,7 +756,7 @@ type GetEndpointClientConnectOption struct {
 // GetEndpointClientConnectOptionInput is an input type that accepts GetEndpointClientConnectOptionArgs and GetEndpointClientConnectOptionOutput values.
 // You can construct a concrete instance of `GetEndpointClientConnectOptionInput` via:
 //
-//          GetEndpointClientConnectOptionArgs{...}
+//	GetEndpointClientConnectOptionArgs{...}
 type GetEndpointClientConnectOptionInput interface {
 	pulumi.Input
 
@@ -784,7 +784,7 @@ func (i GetEndpointClientConnectOptionArgs) ToGetEndpointClientConnectOptionOutp
 // GetEndpointClientConnectOptionArrayInput is an input type that accepts GetEndpointClientConnectOptionArray and GetEndpointClientConnectOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointClientConnectOptionArrayInput` via:
 //
-//          GetEndpointClientConnectOptionArray{ GetEndpointClientConnectOptionArgs{...} }
+//	GetEndpointClientConnectOptionArray{ GetEndpointClientConnectOptionArgs{...} }
 type GetEndpointClientConnectOptionArrayInput interface {
 	pulumi.Input
 
@@ -856,7 +856,7 @@ type GetEndpointClientLoginBannerOption struct {
 // GetEndpointClientLoginBannerOptionInput is an input type that accepts GetEndpointClientLoginBannerOptionArgs and GetEndpointClientLoginBannerOptionOutput values.
 // You can construct a concrete instance of `GetEndpointClientLoginBannerOptionInput` via:
 //
-//          GetEndpointClientLoginBannerOptionArgs{...}
+//	GetEndpointClientLoginBannerOptionArgs{...}
 type GetEndpointClientLoginBannerOptionInput interface {
 	pulumi.Input
 
@@ -884,7 +884,7 @@ func (i GetEndpointClientLoginBannerOptionArgs) ToGetEndpointClientLoginBannerOp
 // GetEndpointClientLoginBannerOptionArrayInput is an input type that accepts GetEndpointClientLoginBannerOptionArray and GetEndpointClientLoginBannerOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointClientLoginBannerOptionArrayInput` via:
 //
-//          GetEndpointClientLoginBannerOptionArray{ GetEndpointClientLoginBannerOptionArgs{...} }
+//	GetEndpointClientLoginBannerOptionArray{ GetEndpointClientLoginBannerOptionArgs{...} }
 type GetEndpointClientLoginBannerOptionArrayInput interface {
 	pulumi.Input
 
@@ -957,7 +957,7 @@ type GetEndpointConnectionLogOption struct {
 // GetEndpointConnectionLogOptionInput is an input type that accepts GetEndpointConnectionLogOptionArgs and GetEndpointConnectionLogOptionOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionLogOptionInput` via:
 //
-//          GetEndpointConnectionLogOptionArgs{...}
+//	GetEndpointConnectionLogOptionArgs{...}
 type GetEndpointConnectionLogOptionInput interface {
 	pulumi.Input
 
@@ -986,7 +986,7 @@ func (i GetEndpointConnectionLogOptionArgs) ToGetEndpointConnectionLogOptionOutp
 // GetEndpointConnectionLogOptionArrayInput is an input type that accepts GetEndpointConnectionLogOptionArray and GetEndpointConnectionLogOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionLogOptionArrayInput` via:
 //
-//          GetEndpointConnectionLogOptionArray{ GetEndpointConnectionLogOptionArgs{...} }
+//	GetEndpointConnectionLogOptionArray{ GetEndpointConnectionLogOptionArgs{...} }
 type GetEndpointConnectionLogOptionArrayInput interface {
 	pulumi.Input
 
@@ -1064,7 +1064,7 @@ type GetEndpointFilter struct {
 // GetEndpointFilterInput is an input type that accepts GetEndpointFilterArgs and GetEndpointFilterOutput values.
 // You can construct a concrete instance of `GetEndpointFilterInput` via:
 //
-//          GetEndpointFilterArgs{...}
+//	GetEndpointFilterArgs{...}
 type GetEndpointFilterInput interface {
 	pulumi.Input
 
@@ -1094,7 +1094,7 @@ func (i GetEndpointFilterArgs) ToGetEndpointFilterOutputWithContext(ctx context.
 // GetEndpointFilterArrayInput is an input type that accepts GetEndpointFilterArray and GetEndpointFilterArrayOutput values.
 // You can construct a concrete instance of `GetEndpointFilterArrayInput` via:
 //
-//          GetEndpointFilterArray{ GetEndpointFilterArgs{...} }
+//	GetEndpointFilterArray{ GetEndpointFilterArgs{...} }
 type GetEndpointFilterArrayInput interface {
 	pulumi.Input
 

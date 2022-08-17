@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateCapacityReservationSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateCapacityReservationSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateCapacityReservationSpecificationArgs()
         {
         }
+        public static new LaunchTemplateCapacityReservationSpecificationArgs Empty => new LaunchTemplateCapacityReservationSpecificationArgs();
     }
 }

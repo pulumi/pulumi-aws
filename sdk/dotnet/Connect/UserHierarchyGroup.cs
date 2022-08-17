@@ -19,55 +19,52 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.UserHierarchyGroup("example", new()
     ///     {
-    ///         var example = new Aws.Connect.UserHierarchyGroup("example", new Aws.Connect.UserHierarchyGroupArgs
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Tags = 
     ///         {
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example User Hierarchy Group" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Example User Hierarchy Group" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With a parent group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var parent = new Aws.Connect.UserHierarchyGroup("parent", new()
     ///     {
-    ///         var parent = new Aws.Connect.UserHierarchyGroup("parent", new Aws.Connect.UserHierarchyGroupArgs
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Tags = 
     ///         {
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example User Hierarchy Group Parent" },
-    ///             },
-    ///         });
-    ///         var child = new Aws.Connect.UserHierarchyGroup("child", new Aws.Connect.UserHierarchyGroupArgs
-    ///         {
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             ParentGroupId = parent.HierarchyGroupId,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example User Hierarchy Group Child" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Example User Hierarchy Group Parent" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var child = new Aws.Connect.UserHierarchyGroup("child", new()
+    ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         ParentGroupId = parent.HierarchyGroupId,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example User Hierarchy Group Child" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +76,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/userHierarchyGroup:UserHierarchyGroup")]
-    public partial class UserHierarchyGroup : Pulumi.CustomResource
+    public partial class UserHierarchyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hierarchy group.
@@ -123,16 +120,9 @@ namespace Pulumi.Aws.Connect
         [Output("parentGroupId")]
         public Output<string?> ParentGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the hierarchy group. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -180,7 +170,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class UserHierarchyGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -202,11 +192,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the hierarchy group. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -216,9 +201,10 @@ namespace Pulumi.Aws.Connect
         public UserHierarchyGroupArgs()
         {
         }
+        public static new UserHierarchyGroupArgs Empty => new UserHierarchyGroupArgs();
     }
 
-    public sealed class UserHierarchyGroupState : Pulumi.ResourceArgs
+    public sealed class UserHierarchyGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hierarchy group.
@@ -270,11 +256,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the hierarchy group. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -283,10 +264,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -296,5 +273,6 @@ namespace Pulumi.Aws.Connect
         public UserHierarchyGroupState()
         {
         }
+        public static new UserHierarchyGroupState Empty => new UserHierarchyGroupState();
     }
 }

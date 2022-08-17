@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class TaskExcludesArgs : Pulumi.ResourceArgs
+    public sealed class TaskExcludesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
@@ -19,7 +19,7 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<string>? FilterType { get; set; }
 
         /// <summary>
-        /// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        /// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public TaskExcludesArgs()
         {
         }
+        public static new TaskExcludesArgs Empty => new TaskExcludesArgs();
     }
 }

@@ -257,11 +257,6 @@ class MultiRegionAccessPointDetails(dict):
                  name: str,
                  regions: Sequence['outputs.MultiRegionAccessPointDetailsRegion'],
                  public_access_block: Optional['outputs.MultiRegionAccessPointDetailsPublicAccessBlock'] = None):
-        """
-        :param str name: The name of the Multi-Region Access Point.
-        :param Sequence['MultiRegionAccessPointDetailsRegionArgs'] regions: The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-        :param 'MultiRegionAccessPointDetailsPublicAccessBlockArgs' public_access_block: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regions", regions)
         if public_access_block is not None:
@@ -270,25 +265,16 @@ class MultiRegionAccessPointDetails(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Multi-Region Access Point.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def regions(self) -> Sequence['outputs.MultiRegionAccessPointDetailsRegion']:
-        """
-        The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-        """
         return pulumi.get(self, "regions")
 
     @property
     @pulumi.getter(name="publicAccessBlock")
     def public_access_block(self) -> Optional['outputs.MultiRegionAccessPointDetailsPublicAccessBlock']:
-        """
-        Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-        """
         return pulumi.get(self, "public_access_block")
 
 
@@ -322,18 +308,6 @@ class MultiRegionAccessPointDetailsPublicAccessBlock(dict):
                  block_public_policy: Optional[bool] = None,
                  ignore_public_acls: Optional[bool] = None,
                  restrict_public_buckets: Optional[bool] = None):
-        """
-        :param bool block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-               * PUT Object calls fail if the request includes a public ACL.
-               * PUT Bucket calls fail if the request includes a public ACL.
-        :param bool block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param bool ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-               * Ignore all public ACLs on buckets in this account and any objects that they contain.
-        :param bool restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-               * Only the bucket owner and AWS Services can access buckets with public policies.
-        """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
         if block_public_policy is not None:
@@ -346,39 +320,21 @@ class MultiRegionAccessPointDetailsPublicAccessBlock(dict):
     @property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[bool]:
-        """
-        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-        * PUT Object calls fail if the request includes a public ACL.
-        * PUT Bucket calls fail if the request includes a public ACL.
-        """
         return pulumi.get(self, "block_public_acls")
 
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[bool]:
-        """
-        Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        """
         return pulumi.get(self, "block_public_policy")
 
     @property
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> Optional[bool]:
-        """
-        Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-        * Ignore all public ACLs on buckets in this account and any objects that they contain.
-        """
         return pulumi.get(self, "ignore_public_acls")
 
     @property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[bool]:
-        """
-        Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-        * Only the bucket owner and AWS Services can access buckets with public policies.
-        """
         return pulumi.get(self, "restrict_public_buckets")
 
 
@@ -386,17 +342,11 @@ class MultiRegionAccessPointDetailsPublicAccessBlock(dict):
 class MultiRegionAccessPointDetailsRegion(dict):
     def __init__(__self__, *,
                  bucket: str):
-        """
-        :param str bucket: The name of the associated bucket for the Region.
-        """
         pulumi.set(__self__, "bucket", bucket)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
-        """
-        The name of the associated bucket for the Region.
-        """
         return pulumi.get(self, "bucket")
 
 

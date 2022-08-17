@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetExperience.InvokeAsync(new Aws.Kendra.GetExperienceArgs
-        ///         {
-        ///             ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         }));
-        ///     }
+        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetExperience.InvokeAsync(new Aws.Kendra.GetExperienceArgs
-        ///         {
-        ///             ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         }));
-        ///     }
+        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Kendra
     }
 
 
-    public sealed class GetExperienceArgs : Pulumi.InvokeArgs
+    public sealed class GetExperienceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the Experience.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Kendra
         public GetExperienceArgs()
         {
         }
+        public static new GetExperienceArgs Empty => new GetExperienceArgs();
     }
 
-    public sealed class GetExperienceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExperienceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the Experience.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Kendra
         public GetExperienceInvokeArgs()
         {
         }
+        public static new GetExperienceInvokeArgs Empty => new GetExperienceInvokeArgs();
     }
 
 

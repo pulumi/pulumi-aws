@@ -21,53 +21,51 @@ namespace Pulumi.Aws.Grafana
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var assume = new Aws.Iam.Role("assume", new()
     ///     {
-    ///         var assume = new Aws.Iam.Role("assume", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Sid", "" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "grafana.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new Aws.Grafana.WorkspaceArgs
-    ///         {
-    ///             AccountAccessType = "CURRENT_ACCOUNT",
-    ///             AuthenticationProviders = 
-    ///             {
-    ///                 "SAML",
+    ///                         ["Service"] = "grafana.amazonaws.com",
+    ///                     },
+    ///                 },
     ///             },
-    ///             PermissionType = "SERVICE_MANAGED",
-    ///             RoleArn = assume.Arn,
-    ///         });
-    ///         var exampleWorkspaceSamlConfiguration = new Aws.Grafana.WorkspaceSamlConfiguration("exampleWorkspaceSamlConfiguration", new Aws.Grafana.WorkspaceSamlConfigurationArgs
-    ///         {
-    ///             EditorRoleValues = 
-    ///             {
-    ///                 "editor",
-    ///             },
-    ///             IdpMetadataUrl = "https://my_idp_metadata.url",
-    ///             WorkspaceId = exampleWorkspace.Id,
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         AccountAccessType = "CURRENT_ACCOUNT",
+    ///         AuthenticationProviders = new[]
+    ///         {
+    ///             "SAML",
+    ///         },
+    ///         PermissionType = "SERVICE_MANAGED",
+    ///         RoleArn = assume.Arn,
+    ///     });
+    /// 
+    ///     var exampleWorkspaceSamlConfiguration = new Aws.Grafana.WorkspaceSamlConfiguration("exampleWorkspaceSamlConfiguration", new()
+    ///     {
+    ///         EditorRoleValues = new[]
+    ///         {
+    ///             "editor",
+    ///         },
+    ///         IdpMetadataUrl = "https://my_idp_metadata.url",
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.Grafana
     /// ```
     /// </summary>
     [AwsResourceType("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")]
-    public partial class WorkspaceSamlConfiguration : Pulumi.CustomResource
+    public partial class WorkspaceSamlConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The admin role values.
@@ -209,7 +207,7 @@ namespace Pulumi.Aws.Grafana
         }
     }
 
-    public sealed class WorkspaceSamlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceSamlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminRoleValues")]
         private InputList<string>? _adminRoleValues;
@@ -310,9 +308,10 @@ namespace Pulumi.Aws.Grafana
         public WorkspaceSamlConfigurationArgs()
         {
         }
+        public static new WorkspaceSamlConfigurationArgs Empty => new WorkspaceSamlConfigurationArgs();
     }
 
-    public sealed class WorkspaceSamlConfigurationState : Pulumi.ResourceArgs
+    public sealed class WorkspaceSamlConfigurationState : global::Pulumi.ResourceArgs
     {
         [Input("adminRoleValues")]
         private InputList<string>? _adminRoleValues;
@@ -419,5 +418,6 @@ namespace Pulumi.Aws.Grafana
         public WorkspaceSamlConfigurationState()
         {
         }
+        public static new WorkspaceSamlConfigurationState Empty => new WorkspaceSamlConfigurationState();
     }
 }

@@ -15,40 +15,34 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.Ses.ConfigurationSet("test", new Aws.Ses.ConfigurationSetArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var test = new Aws.Ses.ConfigurationSet("test");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Require TLS Connections
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
     ///     {
-    ///         var test = new Aws.Ses.ConfigurationSet("test", new Aws.Ses.ConfigurationSetArgs
+    ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
-    ///             DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
-    ///             {
-    ///                 TlsPolicy = "Require",
-    ///             },
-    ///         });
-    ///     }
+    ///             TlsPolicy = "Require",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +55,7 @@ namespace Pulumi.Aws.Ses
     /// </summary>
     [Obsolete(@"aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")]
     [AwsResourceType("aws:ses/confgurationSet:ConfgurationSet")]
-    public partial class ConfgurationSet : Pulumi.CustomResource
+    public partial class ConfgurationSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// SES configuration set ARN.
@@ -70,13 +64,13 @@ namespace Pulumi.Aws.Ses
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Whether messages that use the configuration set are required to use TLS. See below.
         /// </summary>
         [Output("deliveryOptions")]
         public Output<Outputs.ConfgurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         /// </summary>
         [Output("lastFreshStart")]
         public Output<string> LastFreshStart { get; private set; } = null!;
@@ -98,6 +92,12 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         [Output("sendingEnabled")]
         public Output<bool?> SendingEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        /// </summary>
+        [Output("trackingOptions")]
+        public Output<Outputs.ConfgurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,10 +143,10 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class ConfgurationSetArgs : Pulumi.ResourceArgs
+    public sealed class ConfgurationSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Whether messages that use the configuration set are required to use TLS. See below.
         /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfgurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
@@ -169,12 +169,19 @@ namespace Pulumi.Aws.Ses
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }
 
+        /// <summary>
+        /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        /// </summary>
+        [Input("trackingOptions")]
+        public Input<Inputs.ConfgurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
+
         public ConfgurationSetArgs()
         {
         }
+        public static new ConfgurationSetArgs Empty => new ConfgurationSetArgs();
     }
 
-    public sealed class ConfgurationSetState : Pulumi.ResourceArgs
+    public sealed class ConfgurationSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SES configuration set ARN.
@@ -183,13 +190,13 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Whether messages that use the configuration set are required to use TLS. See below.
         /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfgurationSetDeliveryOptionsGetArgs>? DeliveryOptions { get; set; }
 
         /// <summary>
-        /// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         /// </summary>
         [Input("lastFreshStart")]
         public Input<string>? LastFreshStart { get; set; }
@@ -212,8 +219,15 @@ namespace Pulumi.Aws.Ses
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }
 
+        /// <summary>
+        /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        /// </summary>
+        [Input("trackingOptions")]
+        public Input<Inputs.ConfgurationSetTrackingOptionsGetArgs>? TrackingOptions { get; set; }
+
         public ConfgurationSetState()
         {
         }
+        public static new ConfgurationSetState Empty => new ConfgurationSetState();
     }
 }

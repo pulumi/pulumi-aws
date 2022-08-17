@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionDefaultCacheBehaviorGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionDefaultCacheBehaviorGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
@@ -192,5 +192,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionDefaultCacheBehaviorGetArgs()
         {
         }
+        public static new DistributionDefaultCacheBehaviorGetArgs Empty => new DistributionDefaultCacheBehaviorGetArgs();
     }
 }

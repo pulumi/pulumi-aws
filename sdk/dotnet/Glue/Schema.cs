@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Schema("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Schema("example", new Aws.Glue.SchemaArgs
-    ///         {
-    ///             SchemaName = "example",
-    ///             RegistryArn = aws_glue_registry.Test.Arn,
-    ///             DataFormat = "AVRO",
-    ///             Compatibility = "NONE",
-    ///             SchemaDefinition = "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",
-    ///         });
-    ///     }
+    ///         SchemaName = "example",
+    ///         RegistryArn = aws_glue_registry.Test.Arn,
+    ///         DataFormat = "AVRO",
+    ///         Compatibility = "NONE",
+    ///         SchemaDefinition = "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/schema:Schema")]
-    public partial class Schema : Pulumi.CustomResource
+    public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the schema.
@@ -168,7 +166,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
@@ -221,9 +219,10 @@ namespace Pulumi.Aws.Glue
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 
-    public sealed class SchemaState : Pulumi.ResourceArgs
+    public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the schema.
@@ -318,5 +317,6 @@ namespace Pulumi.Aws.Glue
         public SchemaState()
         {
         }
+        public static new SchemaState Empty => new SchemaState();
     }
 }

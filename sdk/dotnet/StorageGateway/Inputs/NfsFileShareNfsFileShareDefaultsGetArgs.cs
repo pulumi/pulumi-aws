@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.StorageGateway.Inputs
 {
 
-    public sealed class NfsFileShareNfsFileShareDefaultsGetArgs : Pulumi.ResourceArgs
+    public sealed class NfsFileShareNfsFileShareDefaultsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         public NfsFileShareNfsFileShareDefaultsGetArgs()
         {
         }
+        public static new NfsFileShareNfsFileShareDefaultsGetArgs Empty => new NfsFileShareNfsFileShareDefaultsGetArgs();
     }
 }

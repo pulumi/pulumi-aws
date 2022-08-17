@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API tokens used by Dynatrace API to authenticate various API calls.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs();
     }
 }

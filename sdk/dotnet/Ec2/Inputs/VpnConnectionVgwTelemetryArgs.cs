@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpnConnectionVgwTelemetryArgs : Pulumi.ResourceArgs
+    public sealed class VpnConnectionVgwTelemetryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of accepted routes.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpnConnectionVgwTelemetryArgs()
         {
         }
+        public static new VpnConnectionVgwTelemetryArgs Empty => new VpnConnectionVgwTelemetryArgs();
     }
 }

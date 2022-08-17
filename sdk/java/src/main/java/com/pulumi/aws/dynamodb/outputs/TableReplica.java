@@ -23,7 +23,7 @@ public final class TableReplica {
      */
     private final @Nullable Boolean pointInTimeRecovery;
     /**
-     * @return Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+     * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
      * 
      */
     private final @Nullable Boolean propagateTags;
@@ -60,7 +60,7 @@ public final class TableReplica {
         return Optional.ofNullable(this.pointInTimeRecovery);
     }
     /**
-     * @return Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+     * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
      * 
      */
     public Optional<Boolean> propagateTags() {

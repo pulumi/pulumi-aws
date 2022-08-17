@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowOnExceptionStepArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowOnExceptionStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details for a step that performs a file copy. See Copy Step Details below.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowOnExceptionStepArgs()
         {
         }
+        public static new WorkflowOnExceptionStepArgs Empty => new WorkflowOnExceptionStepArgs();
     }
 }

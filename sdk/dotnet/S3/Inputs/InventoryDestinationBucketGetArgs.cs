@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryDestinationBucketGetArgs : Pulumi.ResourceArgs
+    public sealed class InventoryDestinationBucketGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public InventoryDestinationBucketGetArgs()
         {
         }
+        public static new InventoryDestinationBucketGetArgs Empty => new InventoryDestinationBucketGetArgs();
     }
 }

@@ -17,29 +17,27 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGateway.GetSdk.InvokeAsync(new Aws.ApiGateway.GetSdkArgs
+        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
+        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         SdkType = "android",
+        ///         Parameters = 
         ///         {
-        ///             RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///             StageName = aws_api_gateway_stage.Example.Stage_name,
-        ///             SdkType = "android",
-        ///             Parameters = 
-        ///             {
-        ///                 { "groupId", "example" },
-        ///                 { "artifactId", "example" },
-        ///                 { "artifactVersion", "example" },
-        ///                 { "invokerPackage", "example" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "groupId", "example" },
+        ///             { "artifactId", "example" },
+        ///             { "artifactVersion", "example" },
+        ///             { "invokerPackage", "example" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,29 +51,27 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGateway.GetSdk.InvokeAsync(new Aws.ApiGateway.GetSdkArgs
+        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
+        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         SdkType = "android",
+        ///         Parameters = 
         ///         {
-        ///             RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///             StageName = aws_api_gateway_stage.Example.Stage_name,
-        ///             SdkType = "android",
-        ///             Parameters = 
-        ///             {
-        ///                 { "groupId", "example" },
-        ///                 { "artifactId", "example" },
-        ///                 { "artifactVersion", "example" },
-        ///                 { "invokerPackage", "example" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "groupId", "example" },
+        ///             { "artifactId", "example" },
+        ///             { "artifactVersion", "example" },
+        ///             { "invokerPackage", "example" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +81,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetSdkArgs : Pulumi.InvokeArgs
+    public sealed class GetSdkArgs : global::Pulumi.InvokeArgs
     {
         [Input("parameters")]
         private Dictionary<string, string>? _parameters;
@@ -120,9 +116,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetSdkArgs()
         {
         }
+        public static new GetSdkArgs Empty => new GetSdkArgs();
     }
 
-    public sealed class GetSdkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSdkInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("parameters")]
         private InputMap<string>? _parameters;
@@ -157,6 +154,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetSdkInvokeArgs()
         {
         }
+        public static new GetSdkInvokeArgs Empty => new GetSdkInvokeArgs();
     }
 
 

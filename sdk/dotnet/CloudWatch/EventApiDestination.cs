@@ -17,24 +17,22 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CloudWatch.EventApiDestination("test", new()
     ///     {
-    ///         var test = new Aws.CloudWatch.EventApiDestination("test", new Aws.CloudWatch.EventApiDestinationArgs
-    ///         {
-    ///             Description = "An API Destination",
-    ///             InvocationEndpoint = "https://api.destination.com/endpoint",
-    ///             HttpMethod = "POST",
-    ///             InvocationRateLimitPerSecond = 20,
-    ///             ConnectionArn = aws_cloudwatch_event_connection.Test.Arn,
-    ///         });
-    ///     }
+    ///         Description = "An API Destination",
+    ///         InvocationEndpoint = "https://api.destination.com/endpoint",
+    ///         HttpMethod = "POST",
+    ///         InvocationRateLimitPerSecond = 20,
+    ///         ConnectionArn = aws_cloudwatch_event_connection.Test.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventApiDestination:EventApiDestination")]
-    public partial class EventApiDestination : Pulumi.CustomResource
+    public partial class EventApiDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the event API Destination.
@@ -134,7 +132,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class EventApiDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EventApiDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the EventBridge Connection to use for the API Destination.
@@ -175,9 +173,10 @@ namespace Pulumi.Aws.CloudWatch
         public EventApiDestinationArgs()
         {
         }
+        public static new EventApiDestinationArgs Empty => new EventApiDestinationArgs();
     }
 
-    public sealed class EventApiDestinationState : Pulumi.ResourceArgs
+    public sealed class EventApiDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the event API Destination.
@@ -224,5 +223,6 @@ namespace Pulumi.Aws.CloudWatch
         public EventApiDestinationState()
         {
         }
+        public static new EventApiDestinationState Empty => new EventApiDestinationState();
     }
 }

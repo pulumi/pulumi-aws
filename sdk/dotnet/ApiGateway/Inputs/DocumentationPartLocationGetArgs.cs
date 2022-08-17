@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class DocumentationPartLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class DocumentationPartLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP verb of a method. The default value is `*` for any method.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public DocumentationPartLocationGetArgs()
         {
         }
+        public static new DocumentationPartLocationGetArgs Empty => new DocumentationPartLocationGetArgs();
     }
 }

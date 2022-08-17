@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexUserTokenConfigurationsJsonTokenTypeConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexUserTokenConfigurationsJsonTokenTypeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group attribute field. Minimum length of 1. Maximum length of 2048.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexUserTokenConfigurationsJsonTokenTypeConfigurationGetArgs()
         {
         }
+        public static new IndexUserTokenConfigurationsJsonTokenTypeConfigurationGetArgs Empty => new IndexUserTokenConfigurationsJsonTokenTypeConfigurationGetArgs();
     }
 }

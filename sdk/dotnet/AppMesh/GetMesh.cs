@@ -19,39 +19,36 @@ namespace Pulumi.Aws.AppMesh
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
         ///     {
-        ///         var simple = Output.Create(Aws.AppMesh.GetMesh.InvokeAsync(new Aws.AppMesh.GetMeshArgs
-        ///         {
-        ///             Name = "simpleapp",
-        ///         }));
-        ///     }
+        ///         Name = "simpleapp",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-        ///         var simple = current.Apply(current =&gt; Output.Create(Aws.AppMesh.GetMesh.InvokeAsync(new Aws.AppMesh.GetMeshArgs
-        ///         {
-        ///             Name = "simpleapp",
-        ///             MeshOwner = current.AccountId,
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
-        /// }
+        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
+        ///     {
+        ///         Name = "simpleapp",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,39 +64,36 @@ namespace Pulumi.Aws.AppMesh
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
         ///     {
-        ///         var simple = Output.Create(Aws.AppMesh.GetMesh.InvokeAsync(new Aws.AppMesh.GetMeshArgs
-        ///         {
-        ///             Name = "simpleapp",
-        ///         }));
-        ///     }
+        ///         Name = "simpleapp",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-        ///         var simple = current.Apply(current =&gt; Output.Create(Aws.AppMesh.GetMesh.InvokeAsync(new Aws.AppMesh.GetMeshArgs
-        ///         {
-        ///             Name = "simpleapp",
-        ///             MeshOwner = current.AccountId,
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
-        /// }
+        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
+        ///     {
+        ///         Name = "simpleapp",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -109,7 +103,7 @@ namespace Pulumi.Aws.AppMesh
     }
 
 
-    public sealed class GetMeshArgs : Pulumi.InvokeArgs
+    public sealed class GetMeshArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The AWS account ID of the service mesh's owner.
@@ -138,9 +132,10 @@ namespace Pulumi.Aws.AppMesh
         public GetMeshArgs()
         {
         }
+        public static new GetMeshArgs Empty => new GetMeshArgs();
     }
 
-    public sealed class GetMeshInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMeshInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The AWS account ID of the service mesh's owner.
@@ -169,6 +164,7 @@ namespace Pulumi.Aws.AppMesh
         public GetMeshInvokeArgs()
         {
         }
+        public static new GetMeshInvokeArgs Empty => new GetMeshInvokeArgs();
     }
 
 

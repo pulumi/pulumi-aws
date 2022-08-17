@@ -22,22 +22,20 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.ProvisioningArtifact("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.ProvisioningArtifact("example", new Aws.ServiceCatalog.ProvisioningArtifactArgs
-    ///         {
-    ///             ProductId = aws_servicecatalog_product.Example.Id,
-    ///             Type = "CLOUD_FORMATION_TEMPLATE",
-    ///             TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_object.Example.Key}",
-    ///         });
-    ///     }
+    ///         ProductId = aws_servicecatalog_product.Example.Id,
+    ///         Type = "CLOUD_FORMATION_TEMPLATE",
+    ///         TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_object.Example.Key}",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")]
-    public partial class ProvisioningArtifact : Pulumi.CustomResource
+    public partial class ProvisioningArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
@@ -161,7 +159,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class ProvisioningArtifactArgs : Pulumi.ResourceArgs
+    public sealed class ProvisioningArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
@@ -226,9 +224,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public ProvisioningArtifactArgs()
         {
         }
+        public static new ProvisioningArtifactArgs Empty => new ProvisioningArtifactArgs();
     }
 
-    public sealed class ProvisioningArtifactState : Pulumi.ResourceArgs
+    public sealed class ProvisioningArtifactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
@@ -299,5 +298,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public ProvisioningArtifactState()
         {
         }
+        public static new ProvisioningArtifactState Empty => new ProvisioningArtifactState();
     }
 }

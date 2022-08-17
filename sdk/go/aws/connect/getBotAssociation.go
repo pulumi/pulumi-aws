@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.LookupBotAssociation(ctx, &connect.LookupBotAssociationArgs{
-// 			InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-// 			LexBot: connect.GetBotAssociationLexBot{
-// 				Name: "Test",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupBotAssociation(ctx, &connect.LookupBotAssociationArgs{
+//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				LexBot: connect.GetBotAssociationLexBot{
+//					Name: "Test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, opts ...pulumi.InvokeOption) (*LookupBotAssociationResult, error) {
 	var rv LookupBotAssociationResult

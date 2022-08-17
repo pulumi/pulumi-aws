@@ -13,40 +13,39 @@ namespace Pulumi.Aws.CodeCommit
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRepository = new Aws.CodeCommit.Repository("testRepository", new()
     ///     {
-    ///         var testRepository = new Aws.CodeCommit.Repository("testRepository", new Aws.CodeCommit.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "test",
-    ///         });
-    ///         var testTrigger = new Aws.CodeCommit.Trigger("testTrigger", new Aws.CodeCommit.TriggerArgs
-    ///         {
-    ///             RepositoryName = testRepository.RepositoryName,
-    ///             Triggers = 
-    ///             {
-    ///                 new Aws.CodeCommit.Inputs.TriggerTriggerArgs
-    ///                 {
-    ///                     Name = "all",
-    ///                     Events = 
-    ///                     {
-    ///                         "all",
-    ///                     },
-    ///                     DestinationArn = aws_sns_topic.Test.Arn,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         RepositoryName = "test",
+    ///     });
     /// 
-    /// }
+    ///     var testTrigger = new Aws.CodeCommit.Trigger("testTrigger", new()
+    ///     {
+    ///         RepositoryName = testRepository.RepositoryName,
+    ///         Triggers = new[]
+    ///         {
+    ///             new Aws.CodeCommit.Inputs.TriggerTriggerArgs
+    ///             {
+    ///                 Name = "all",
+    ///                 Events = new[]
+    ///                 {
+    ///                     "all",
+    ///                 },
+    ///                 DestinationArn = aws_sns_topic.Test.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/trigger:Trigger")]
-    public partial class Trigger : Pulumi.CustomResource
+    public partial class Trigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// System-generated unique identifier.
@@ -107,7 +106,7 @@ namespace Pulumi.Aws.CodeCommit
         }
     }
 
-    public sealed class TriggerArgs : Pulumi.ResourceArgs
+    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
@@ -126,9 +125,10 @@ namespace Pulumi.Aws.CodeCommit
         public TriggerArgs()
         {
         }
+        public static new TriggerArgs Empty => new TriggerArgs();
     }
 
-    public sealed class TriggerState : Pulumi.ResourceArgs
+    public sealed class TriggerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// System-generated unique identifier.
@@ -153,5 +153,6 @@ namespace Pulumi.Aws.CodeCommit
         public TriggerState()
         {
         }
+        public static new TriggerState Empty => new TriggerState();
     }
 }

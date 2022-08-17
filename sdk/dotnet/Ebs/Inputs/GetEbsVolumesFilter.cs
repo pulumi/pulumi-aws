@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ebs.Inputs
 {
 
-    public sealed class GetEbsVolumesFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetEbsVolumesFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Ebs.Inputs
         public GetEbsVolumesFilterArgs()
         {
         }
+        public static new GetEbsVolumesFilterArgs Empty => new GetEbsVolumesFilterArgs();
     }
 }

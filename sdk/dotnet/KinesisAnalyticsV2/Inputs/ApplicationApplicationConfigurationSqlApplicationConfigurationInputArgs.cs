@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("inAppStreamNames")]
         private InputList<string>? _inAppStreamNames;
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs();
     }
 }

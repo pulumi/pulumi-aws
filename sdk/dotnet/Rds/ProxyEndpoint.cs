@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.ProxyEndpoint("example", new()
     ///     {
-    ///         var example = new Aws.Rds.ProxyEndpoint("example", new Aws.Rds.ProxyEndpointArgs
-    ///         {
-    ///             DbProxyName = aws_db_proxy.Test.Name,
-    ///             DbProxyEndpointName = "example",
-    ///             VpcSubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
-    ///             TargetRole = "READ_ONLY",
-    ///         });
-    ///     }
+    ///         DbProxyName = aws_db_proxy.Test.Name,
+    ///         DbProxyEndpointName = "example",
+    ///         VpcSubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         TargetRole = "READ_ONLY",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]
-    public partial class ProxyEndpoint : Pulumi.CustomResource
+    public partial class ProxyEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy endpoint.
@@ -153,7 +151,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ProxyEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ProxyEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
@@ -212,9 +210,10 @@ namespace Pulumi.Aws.Rds
         public ProxyEndpointArgs()
         {
         }
+        public static new ProxyEndpointArgs Empty => new ProxyEndpointArgs();
     }
 
-    public sealed class ProxyEndpointState : Pulumi.ResourceArgs
+    public sealed class ProxyEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy endpoint.
@@ -305,5 +304,6 @@ namespace Pulumi.Aws.Rds
         public ProxyEndpointState()
         {
         }
+        public static new ProxyEndpointState Empty => new ProxyEndpointState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersResourceAwsIamAccessKeyStatusGetArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersResourceAwsIamAccessKeyStatusGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersResourceAwsIamAccessKeyStatusGetArgs()
         {
         }
+        public static new InsightFiltersResourceAwsIamAccessKeyStatusGetArgs Empty => new InsightFiltersResourceAwsIamAccessKeyStatusGetArgs();
     }
 }

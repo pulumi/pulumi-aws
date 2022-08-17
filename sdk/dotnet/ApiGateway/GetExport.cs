@@ -17,22 +17,20 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGateway.GetExport.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGateway.GetExport.InvokeAsync(new Aws.ApiGateway.GetExportArgs
-        ///         {
-        ///             RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///             StageName = aws_api_gateway_stage.Example.Stage_name,
-        ///             ExportType = "oas30",
-        ///         }));
-        ///     }
+        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
+        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         ExportType = "oas30",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -46,22 +44,20 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGateway.GetExport.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGateway.GetExport.InvokeAsync(new Aws.ApiGateway.GetExportArgs
-        ///         {
-        ///             RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///             StageName = aws_api_gateway_stage.Example.Stage_name,
-        ///             ExportType = "oas30",
-        ///         }));
-        ///     }
+        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
+        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         ExportType = "oas30",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetExportArgs : Pulumi.InvokeArgs
+    public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
@@ -112,9 +108,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetExportArgs()
         {
         }
+        public static new GetExportArgs Empty => new GetExportArgs();
     }
 
-    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
@@ -155,6 +152,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetExportInvokeArgs()
         {
         }
+        public static new GetExportInvokeArgs Empty => new GetExportInvokeArgs();
     }
 
 

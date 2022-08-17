@@ -15,55 +15,54 @@ namespace Pulumi.Aws.Cognito
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
-    ///         var @default = new Aws.Iam.SamlProvider("default", new Aws.Iam.SamlProviderArgs
-    ///         {
-    ///             SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
-    ///         });
-    ///         var main = new Aws.Cognito.IdentityPool("main", new Aws.Cognito.IdentityPoolArgs
-    ///         {
-    ///             IdentityPoolName = "identity pool",
-    ///             AllowUnauthenticatedIdentities = false,
-    ///             AllowClassicFlow = false,
-    ///             CognitoIdentityProviders = 
-    ///             {
-    ///                 new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
-    ///                 {
-    ///                     ClientId = "6lhlkkfbfb4q5kpp90urffae",
-    ///                     ProviderName = "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-    ///                     ServerSideTokenCheck = false,
-    ///                 },
-    ///                 new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
-    ///                 {
-    ///                     ClientId = "7kodkvfqfb4qfkp39eurffae",
-    ///                     ProviderName = "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-    ///                     ServerSideTokenCheck = false,
-    ///                 },
-    ///             },
-    ///             SupportedLoginProviders = 
-    ///             {
-    ///                 { "graph.facebook.com", "7346241598935552" },
-    ///                 { "accounts.google.com", "123456789012.apps.googleusercontent.com" },
-    ///             },
-    ///             SamlProviderArns = 
-    ///             {
-    ///                 @default.Arn,
-    ///             },
-    ///             OpenidConnectProviderArns = 
-    ///             {
-    ///                 "arn:aws:iam::123456789012:oidc-provider/id.example.com",
-    ///             },
-    ///         });
-    ///     }
+    ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
+    ///     });
     /// 
-    /// }
+    ///     var main = new Aws.Cognito.IdentityPool("main", new()
+    ///     {
+    ///         IdentityPoolName = "identity pool",
+    ///         AllowUnauthenticatedIdentities = false,
+    ///         AllowClassicFlow = false,
+    ///         CognitoIdentityProviders = new[]
+    ///         {
+    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///             {
+    ///                 ClientId = "6lhlkkfbfb4q5kpp90urffae",
+    ///                 ProviderName = "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
+    ///                 ServerSideTokenCheck = false,
+    ///             },
+    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///             {
+    ///                 ClientId = "7kodkvfqfb4qfkp39eurffae",
+    ///                 ProviderName = "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
+    ///                 ServerSideTokenCheck = false,
+    ///             },
+    ///         },
+    ///         SupportedLoginProviders = 
+    ///         {
+    ///             { "graph.facebook.com", "7346241598935552" },
+    ///             { "accounts.google.com", "123456789012.apps.googleusercontent.com" },
+    ///         },
+    ///         SamlProviderArns = new[]
+    ///         {
+    ///             @default.Arn,
+    ///         },
+    ///         OpenidConnectProviderArns = new[]
+    ///         {
+    ///             "arn:aws:iam::123456789012:oidc-provider/id.example.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +74,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPool:IdentityPool")]
-    public partial class IdentityPool : Pulumi.CustomResource
+    public partial class IdentityPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enables or disables the classic / basic authentication flow. Default is `false`.
@@ -133,13 +132,13 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableDictionary<string, string>?> SupportedLoginProviders { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Identity Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -188,7 +187,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class IdentityPoolArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables the classic / basic authentication flow. Default is `false`.
@@ -267,7 +266,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Identity Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -278,9 +277,10 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolArgs()
         {
         }
+        public static new IdentityPoolArgs Empty => new IdentityPoolArgs();
     }
 
-    public sealed class IdentityPoolState : Pulumi.ResourceArgs
+    public sealed class IdentityPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables the classic / basic authentication flow. Default is `false`.
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Identity Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -388,5 +388,6 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolState()
         {
         }
+        public static new IdentityPoolState Empty => new IdentityPoolState();
     }
 }

@@ -19,38 +19,38 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "securityhub.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new Aws.SecurityHub.OrganizationAdminAccountArgs
-    ///         {
-    ///             AdminAccountId = "123456789012",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///         var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new Aws.SecurityHub.OrganizationConfigurationArgs
-    ///         {
-    ///             AutoEnable = true,
-    ///         });
-    ///     }
+    ///             "securityhub.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     {
+    ///         AdminAccountId = "123456789012",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     {
+    ///         AutoEnable = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
-    public partial class OrganizationConfiguration : Pulumi.CustomResource
+    public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to automatically enable Security Hub for new accounts in the organization.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class OrganizationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically enable Security Hub for new accounts in the organization.
@@ -125,9 +125,10 @@ namespace Pulumi.Aws.SecurityHub
         public OrganizationConfigurationArgs()
         {
         }
+        public static new OrganizationConfigurationArgs Empty => new OrganizationConfigurationArgs();
     }
 
-    public sealed class OrganizationConfigurationState : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically enable Security Hub for new accounts in the organization.
@@ -138,5 +139,6 @@ namespace Pulumi.Aws.SecurityHub
         public OrganizationConfigurationState()
         {
         }
+        public static new OrganizationConfigurationState Empty => new OrganizationConfigurationState();
     }
 }

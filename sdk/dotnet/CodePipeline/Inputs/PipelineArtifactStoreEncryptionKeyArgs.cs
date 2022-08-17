@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodePipeline.Inputs
 {
 
-    public sealed class PipelineArtifactStoreEncryptionKeyArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArtifactStoreEncryptionKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The KMS key ARN or ID
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public PipelineArtifactStoreEncryptionKeyArgs()
         {
         }
+        public static new PipelineArtifactStoreEncryptionKeyArgs Empty => new PipelineArtifactStoreEncryptionKeyArgs();
     }
 }

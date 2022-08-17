@@ -19,22 +19,20 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetUserSshKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetUserSshKey.InvokeAsync(new Aws.Iam.GetUserSshKeyArgs
-        ///         {
-        ///             Encoding = "SSH",
-        ///             SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
-        ///             Username = "test-user",
-        ///         }));
-        ///     }
+        ///         Encoding = "SSH",
+        ///         SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
+        ///         Username = "test-user",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetUserSshKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetUserSshKey.InvokeAsync(new Aws.Iam.GetUserSshKeyArgs
-        ///         {
-        ///             Encoding = "SSH",
-        ///             SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
-        ///             Username = "test-user",
-        ///         }));
-        ///     }
+        ///         Encoding = "SSH",
+        ///         SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
+        ///         Username = "test-user",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetUserSshKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetUserSshKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
@@ -98,9 +94,10 @@ namespace Pulumi.Aws.Iam
         public GetUserSshKeyArgs()
         {
         }
+        public static new GetUserSshKeyArgs Empty => new GetUserSshKeyArgs();
     }
 
-    public sealed class GetUserSshKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserSshKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
@@ -123,6 +120,7 @@ namespace Pulumi.Aws.Iam
         public GetUserSshKeyInvokeArgs()
         {
         }
+        public static new GetUserSshKeyInvokeArgs Empty => new GetUserSshKeyInvokeArgs();
     }
 
 

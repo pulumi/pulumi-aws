@@ -20,7 +20,7 @@ type AccountThrottleSetting struct {
 // AccountThrottleSettingInput is an input type that accepts AccountThrottleSettingArgs and AccountThrottleSettingOutput values.
 // You can construct a concrete instance of `AccountThrottleSettingInput` via:
 //
-//          AccountThrottleSettingArgs{...}
+//	AccountThrottleSettingArgs{...}
 type AccountThrottleSettingInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AccountThrottleSettingArgs) ToAccountThrottleSettingOutputWithContext(ct
 // AccountThrottleSettingArrayInput is an input type that accepts AccountThrottleSettingArray and AccountThrottleSettingArrayOutput values.
 // You can construct a concrete instance of `AccountThrottleSettingArrayInput` via:
 //
-//          AccountThrottleSettingArray{ AccountThrottleSettingArgs{...} }
+//	AccountThrottleSettingArray{ AccountThrottleSettingArgs{...} }
 type AccountThrottleSettingArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type DocumentationPartLocation struct {
 // DocumentationPartLocationInput is an input type that accepts DocumentationPartLocationArgs and DocumentationPartLocationOutput values.
 // You can construct a concrete instance of `DocumentationPartLocationInput` via:
 //
-//          DocumentationPartLocationArgs{...}
+//	DocumentationPartLocationArgs{...}
 type DocumentationPartLocationInput interface {
 	pulumi.Input
 
@@ -176,11 +176,11 @@ func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutputWithC
 // DocumentationPartLocationPtrInput is an input type that accepts DocumentationPartLocationArgs, DocumentationPartLocationPtr and DocumentationPartLocationPtrOutput values.
 // You can construct a concrete instance of `DocumentationPartLocationPtrInput` via:
 //
-//          DocumentationPartLocationArgs{...}
+//	        DocumentationPartLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DocumentationPartLocationPtrInput interface {
 	pulumi.Input
 
@@ -337,7 +337,7 @@ type DomainNameEndpointConfiguration struct {
 // DomainNameEndpointConfigurationInput is an input type that accepts DomainNameEndpointConfigurationArgs and DomainNameEndpointConfigurationOutput values.
 // You can construct a concrete instance of `DomainNameEndpointConfigurationInput` via:
 //
-//          DomainNameEndpointConfigurationArgs{...}
+//	DomainNameEndpointConfigurationArgs{...}
 type DomainNameEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -373,11 +373,11 @@ func (i DomainNameEndpointConfigurationArgs) ToDomainNameEndpointConfigurationPt
 // DomainNameEndpointConfigurationPtrInput is an input type that accepts DomainNameEndpointConfigurationArgs, DomainNameEndpointConfigurationPtr and DomainNameEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `DomainNameEndpointConfigurationPtrInput` via:
 //
-//          DomainNameEndpointConfigurationArgs{...}
+//	        DomainNameEndpointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainNameEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -476,7 +476,7 @@ type DomainNameMutualTlsAuthentication struct {
 // DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
 // You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
 //
-//          DomainNameMutualTlsAuthenticationArgs{...}
+//	DomainNameMutualTlsAuthenticationArgs{...}
 type DomainNameMutualTlsAuthenticationInput interface {
 	pulumi.Input
 
@@ -514,11 +514,11 @@ func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticati
 // DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
 // You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
 //
-//          DomainNameMutualTlsAuthenticationArgs{...}
+//	        DomainNameMutualTlsAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainNameMutualTlsAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -630,7 +630,7 @@ type IntegrationTlsConfig struct {
 // IntegrationTlsConfigInput is an input type that accepts IntegrationTlsConfigArgs and IntegrationTlsConfigOutput values.
 // You can construct a concrete instance of `IntegrationTlsConfigInput` via:
 //
-//          IntegrationTlsConfigArgs{...}
+//	IntegrationTlsConfigArgs{...}
 type IntegrationTlsConfigInput interface {
 	pulumi.Input
 
@@ -666,11 +666,11 @@ func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutputWithContext(ctx
 // IntegrationTlsConfigPtrInput is an input type that accepts IntegrationTlsConfigArgs, IntegrationTlsConfigPtr and IntegrationTlsConfigPtrOutput values.
 // You can construct a concrete instance of `IntegrationTlsConfigPtrInput` via:
 //
-//          IntegrationTlsConfigArgs{...}
+//	        IntegrationTlsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationTlsConfigPtrInput interface {
 	pulumi.Input
 
@@ -785,7 +785,7 @@ type MethodSettingsSettings struct {
 // MethodSettingsSettingsInput is an input type that accepts MethodSettingsSettingsArgs and MethodSettingsSettingsOutput values.
 // You can construct a concrete instance of `MethodSettingsSettingsInput` via:
 //
-//          MethodSettingsSettingsArgs{...}
+//	MethodSettingsSettingsArgs{...}
 type MethodSettingsSettingsInput interface {
 	pulumi.Input
 
@@ -839,11 +839,11 @@ func (i MethodSettingsSettingsArgs) ToMethodSettingsSettingsPtrOutputWithContext
 // MethodSettingsSettingsPtrInput is an input type that accepts MethodSettingsSettingsArgs, MethodSettingsSettingsPtr and MethodSettingsSettingsPtrOutput values.
 // You can construct a concrete instance of `MethodSettingsSettingsPtrInput` via:
 //
-//          MethodSettingsSettingsArgs{...}
+//	        MethodSettingsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MethodSettingsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1068,16 +1068,16 @@ func (o MethodSettingsSettingsPtrOutput) UnauthorizedCacheControlHeaderStrategy(
 }
 
 type RestApiEndpointConfiguration struct {
-	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types string `pulumi:"types"`
-	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
 }
 
 // RestApiEndpointConfigurationInput is an input type that accepts RestApiEndpointConfigurationArgs and RestApiEndpointConfigurationOutput values.
 // You can construct a concrete instance of `RestApiEndpointConfigurationInput` via:
 //
-//          RestApiEndpointConfigurationArgs{...}
+//	RestApiEndpointConfigurationArgs{...}
 type RestApiEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -1086,9 +1086,9 @@ type RestApiEndpointConfigurationInput interface {
 }
 
 type RestApiEndpointConfigurationArgs struct {
-	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types pulumi.StringInput `pulumi:"types"`
-	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
 	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
 }
 
@@ -1115,11 +1115,11 @@ func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutpu
 // RestApiEndpointConfigurationPtrInput is an input type that accepts RestApiEndpointConfigurationArgs, RestApiEndpointConfigurationPtr and RestApiEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `RestApiEndpointConfigurationPtrInput` via:
 //
-//          RestApiEndpointConfigurationArgs{...}
+//	        RestApiEndpointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RestApiEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1169,12 +1169,12 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
 
-// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
 
-// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
 func (o RestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }
@@ -1203,7 +1203,7 @@ func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurati
 	}).(RestApiEndpointConfigurationOutput)
 }
 
-// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApiEndpointConfiguration) *string {
 		if v == nil {
@@ -1213,7 +1213,7 @@ func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
 func (o RestApiEndpointConfigurationPtrOutput) VpcEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
 		if v == nil {
@@ -1234,7 +1234,7 @@ type StageAccessLogSettings struct {
 // StageAccessLogSettingsInput is an input type that accepts StageAccessLogSettingsArgs and StageAccessLogSettingsOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsInput` via:
 //
-//          StageAccessLogSettingsArgs{...}
+//	StageAccessLogSettingsArgs{...}
 type StageAccessLogSettingsInput interface {
 	pulumi.Input
 
@@ -1273,11 +1273,11 @@ func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutputWithContext
 // StageAccessLogSettingsPtrInput is an input type that accepts StageAccessLogSettingsArgs, StageAccessLogSettingsPtr and StageAccessLogSettingsPtrOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsPtrInput` via:
 //
-//          StageAccessLogSettingsArgs{...}
+//	        StageAccessLogSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StageAccessLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1395,7 +1395,7 @@ type StageCanarySettings struct {
 // StageCanarySettingsInput is an input type that accepts StageCanarySettingsArgs and StageCanarySettingsOutput values.
 // You can construct a concrete instance of `StageCanarySettingsInput` via:
 //
-//          StageCanarySettingsArgs{...}
+//	StageCanarySettingsArgs{...}
 type StageCanarySettingsInput interface {
 	pulumi.Input
 
@@ -1435,11 +1435,11 @@ func (i StageCanarySettingsArgs) ToStageCanarySettingsPtrOutputWithContext(ctx c
 // StageCanarySettingsPtrInput is an input type that accepts StageCanarySettingsArgs, StageCanarySettingsPtr and StageCanarySettingsPtrOutput values.
 // You can construct a concrete instance of `StageCanarySettingsPtrInput` via:
 //
-//          StageCanarySettingsArgs{...}
+//	        StageCanarySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StageCanarySettingsPtrInput interface {
 	pulumi.Input
 
@@ -1570,7 +1570,7 @@ type UsagePlanApiStage struct {
 // UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageInput` via:
 //
-//          UsagePlanApiStageArgs{...}
+//	UsagePlanApiStageArgs{...}
 type UsagePlanApiStageInput interface {
 	pulumi.Input
 
@@ -1602,7 +1602,7 @@ func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutputWithContext(ctx context.
 // UsagePlanApiStageArrayInput is an input type that accepts UsagePlanApiStageArray and UsagePlanApiStageArrayOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageArrayInput` via:
 //
-//          UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
+//	UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
 type UsagePlanApiStageArrayInput interface {
 	pulumi.Input
 
@@ -1685,7 +1685,7 @@ type UsagePlanApiStageThrottle struct {
 // UsagePlanApiStageThrottleInput is an input type that accepts UsagePlanApiStageThrottleArgs and UsagePlanApiStageThrottleOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageThrottleInput` via:
 //
-//          UsagePlanApiStageThrottleArgs{...}
+//	UsagePlanApiStageThrottleArgs{...}
 type UsagePlanApiStageThrottleInput interface {
 	pulumi.Input
 
@@ -1717,7 +1717,7 @@ func (i UsagePlanApiStageThrottleArgs) ToUsagePlanApiStageThrottleOutputWithCont
 // UsagePlanApiStageThrottleArrayInput is an input type that accepts UsagePlanApiStageThrottleArray and UsagePlanApiStageThrottleArrayOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageThrottleArrayInput` via:
 //
-//          UsagePlanApiStageThrottleArray{ UsagePlanApiStageThrottleArgs{...} }
+//	UsagePlanApiStageThrottleArray{ UsagePlanApiStageThrottleArgs{...} }
 type UsagePlanApiStageThrottleArrayInput interface {
 	pulumi.Input
 
@@ -1800,7 +1800,7 @@ type UsagePlanQuotaSettings struct {
 // UsagePlanQuotaSettingsInput is an input type that accepts UsagePlanQuotaSettingsArgs and UsagePlanQuotaSettingsOutput values.
 // You can construct a concrete instance of `UsagePlanQuotaSettingsInput` via:
 //
-//          UsagePlanQuotaSettingsArgs{...}
+//	UsagePlanQuotaSettingsArgs{...}
 type UsagePlanQuotaSettingsInput interface {
 	pulumi.Input
 
@@ -1840,11 +1840,11 @@ func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutputWithContext
 // UsagePlanQuotaSettingsPtrInput is an input type that accepts UsagePlanQuotaSettingsArgs, UsagePlanQuotaSettingsPtr and UsagePlanQuotaSettingsPtrOutput values.
 // You can construct a concrete instance of `UsagePlanQuotaSettingsPtrInput` via:
 //
-//          UsagePlanQuotaSettingsArgs{...}
+//	        UsagePlanQuotaSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UsagePlanQuotaSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1973,7 +1973,7 @@ type UsagePlanThrottleSettings struct {
 // UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
 // You can construct a concrete instance of `UsagePlanThrottleSettingsInput` via:
 //
-//          UsagePlanThrottleSettingsArgs{...}
+//	UsagePlanThrottleSettingsArgs{...}
 type UsagePlanThrottleSettingsInput interface {
 	pulumi.Input
 
@@ -2011,11 +2011,11 @@ func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutputWithC
 // UsagePlanThrottleSettingsPtrInput is an input type that accepts UsagePlanThrottleSettingsArgs, UsagePlanThrottleSettingsPtr and UsagePlanThrottleSettingsPtrOutput values.
 // You can construct a concrete instance of `UsagePlanThrottleSettingsPtrInput` via:
 //
-//          UsagePlanThrottleSettingsArgs{...}
+//	        UsagePlanThrottleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UsagePlanThrottleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2127,7 +2127,7 @@ type GetDomainNameEndpointConfiguration struct {
 // GetDomainNameEndpointConfigurationInput is an input type that accepts GetDomainNameEndpointConfigurationArgs and GetDomainNameEndpointConfigurationOutput values.
 // You can construct a concrete instance of `GetDomainNameEndpointConfigurationInput` via:
 //
-//          GetDomainNameEndpointConfigurationArgs{...}
+//	GetDomainNameEndpointConfigurationArgs{...}
 type GetDomainNameEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -2155,7 +2155,7 @@ func (i GetDomainNameEndpointConfigurationArgs) ToGetDomainNameEndpointConfigura
 // GetDomainNameEndpointConfigurationArrayInput is an input type that accepts GetDomainNameEndpointConfigurationArray and GetDomainNameEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDomainNameEndpointConfigurationArrayInput` via:
 //
-//          GetDomainNameEndpointConfigurationArray{ GetDomainNameEndpointConfigurationArgs{...} }
+//	GetDomainNameEndpointConfigurationArray{ GetDomainNameEndpointConfigurationArgs{...} }
 type GetDomainNameEndpointConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2224,7 +2224,7 @@ type GetRestApiEndpointConfiguration struct {
 // GetRestApiEndpointConfigurationInput is an input type that accepts GetRestApiEndpointConfigurationArgs and GetRestApiEndpointConfigurationOutput values.
 // You can construct a concrete instance of `GetRestApiEndpointConfigurationInput` via:
 //
-//          GetRestApiEndpointConfigurationArgs{...}
+//	GetRestApiEndpointConfigurationArgs{...}
 type GetRestApiEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -2252,7 +2252,7 @@ func (i GetRestApiEndpointConfigurationArgs) ToGetRestApiEndpointConfigurationOu
 // GetRestApiEndpointConfigurationArrayInput is an input type that accepts GetRestApiEndpointConfigurationArray and GetRestApiEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetRestApiEndpointConfigurationArrayInput` via:
 //
-//          GetRestApiEndpointConfigurationArray{ GetRestApiEndpointConfigurationArgs{...} }
+//	GetRestApiEndpointConfigurationArray{ GetRestApiEndpointConfigurationArgs{...} }
 type GetRestApiEndpointConfigurationArrayInput interface {
 	pulumi.Input
 

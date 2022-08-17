@@ -189,11 +189,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        requester = pulumi.providers.Aws("requester")
+        requester = aws.Provider("requester")
         # Requester's credentials.
-        accepter = pulumi.providers.Aws("accepter")
+        accepter = aws.Provider("accepter")
         # Accepter's credentials.
         main = aws.ec2.Vpc("main",
             cidr_block="10.0.0.0/16",
@@ -302,11 +301,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        requester = pulumi.providers.Aws("requester")
+        requester = aws.Provider("requester")
         # Requester's credentials.
-        accepter = pulumi.providers.Aws("accepter")
+        accepter = aws.Provider("accepter")
         # Accepter's credentials.
         main = aws.ec2.Vpc("main",
             cidr_block="10.0.0.0/16",

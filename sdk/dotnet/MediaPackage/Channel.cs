@@ -15,21 +15,19 @@ namespace Pulumi.Aws.MediaPackage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var kittens = new Aws.MediaPackage.Channel("kittens", new()
     ///     {
-    ///         var kittens = new Aws.MediaPackage.Channel("kittens", new Aws.MediaPackage.ChannelArgs
-    ///         {
-    ///             ChannelId = "kitten-channel",
-    ///             Description = "A channel dedicated to amusing videos of kittens.",
-    ///         });
-    ///     }
+    ///         ChannelId = "kitten-channel",
+    ///         Description = "A channel dedicated to amusing videos of kittens.",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.MediaPackage
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediapackage/channel:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the channel
@@ -74,7 +72,7 @@ namespace Pulumi.Aws.MediaPackage
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -123,7 +121,7 @@ namespace Pulumi.Aws.MediaPackage
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier describing the channel
@@ -153,9 +151,10 @@ namespace Pulumi.Aws.MediaPackage
         {
             Description = "Managed by Pulumi";
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 
-    public sealed class ChannelState : Pulumi.ResourceArgs
+    public sealed class ChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the channel
@@ -203,7 +202,7 @@ namespace Pulumi.Aws.MediaPackage
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -215,5 +214,6 @@ namespace Pulumi.Aws.MediaPackage
         {
             Description = "Managed by Pulumi";
         }
+        public static new ChannelState Empty => new ChannelState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceLambdaConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceLambdaConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for the Lambda function.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceLambdaConfigGetArgs()
         {
         }
+        public static new DataSourceLambdaConfigGetArgs Empty => new DataSourceLambdaConfigGetArgs();
     }
 }

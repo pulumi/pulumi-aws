@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamHttpEndpointConfigurationArgs()
         {
         }
+        public static new FirehoseDeliveryStreamHttpEndpointConfigurationArgs Empty => new FirehoseDeliveryStreamHttpEndpointConfigurationArgs();
     }
 }

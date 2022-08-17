@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
-// 			DomainId:        pulumi.Any(aws_sagemaker_domain.Test.Id),
-// 			UserProfileName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
+//				DomainId:        pulumi.Any(aws_sagemaker_domain.Test.Id),
+//				UserProfileName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // SageMaker Code User Profiles can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+//
+//	$ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+//
 // ```
 type UserProfile struct {
 	pulumi.CustomResourceState
@@ -60,7 +65,7 @@ type UserProfile struct {
 	SingleSignOnUserValue pulumi.StringPtrOutput `pulumi:"singleSignOnUserValue"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name for the User Profile.
 	UserProfileName pulumi.StringOutput `pulumi:"userProfileName"`
@@ -115,7 +120,7 @@ type userProfileState struct {
 	SingleSignOnUserValue *string `pulumi:"singleSignOnUserValue"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name for the User Profile.
 	UserProfileName *string `pulumi:"userProfileName"`
@@ -136,7 +141,7 @@ type UserProfileState struct {
 	SingleSignOnUserValue pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The name for the User Profile.
 	UserProfileName pulumi.StringPtrInput
@@ -205,7 +210,7 @@ func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserPr
 // UserProfileArrayInput is an input type that accepts UserProfileArray and UserProfileArrayOutput values.
 // You can construct a concrete instance of `UserProfileArrayInput` via:
 //
-//          UserProfileArray{ UserProfileArgs{...} }
+//	UserProfileArray{ UserProfileArgs{...} }
 type UserProfileArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +235,7 @@ func (i UserProfileArray) ToUserProfileArrayOutputWithContext(ctx context.Contex
 // UserProfileMapInput is an input type that accepts UserProfileMap and UserProfileMapOutput values.
 // You can construct a concrete instance of `UserProfileMapInput` via:
 //
-//          UserProfileMap{ "key": UserProfileArgs{...} }
+//	UserProfileMap{ "key": UserProfileArgs{...} }
 type UserProfileMapInput interface {
 	pulumi.Input
 
@@ -296,7 +301,7 @@ func (o UserProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

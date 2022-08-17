@@ -15,124 +15,120 @@ namespace Pulumi.Aws.GameLift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GameLift.GameServerGroup("example", new()
     ///     {
-    ///         var example = new Aws.GameLift.GameServerGroup("example", new Aws.GameLift.GameServerGroupArgs
+    ///         GameServerGroupName = "example",
+    ///         InstanceDefinitions = new[]
     ///         {
-    ///             GameServerGroupName = "example",
-    ///             InstanceDefinitions = 
+    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
     ///             {
-    ///                 new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
-    ///                 {
-    ///                     InstanceType = "c5.large",
-    ///                 },
-    ///                 new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
-    ///                 {
-    ///                     InstanceType = "c5a.large",
-    ///                 },
+    ///                 InstanceType = "c5.large",
     ///             },
-    ///             LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
+    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
     ///             {
-    ///                 Id = aws_launch_template.Example.Id,
+    ///                 InstanceType = "c5a.large",
     ///             },
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_iam_role_policy_attachment.Example,
-    ///             },
-    ///         });
-    ///     }
+    ///             Id = aws_launch_template.Example.Id,
+    ///         },
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_role_policy_attachment.Example,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Full usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GameLift.GameServerGroup("example", new()
     ///     {
-    ///         var example = new Aws.GameLift.GameServerGroup("example", new Aws.GameLift.GameServerGroupArgs
+    ///         AutoScalingPolicy = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyArgs
     ///         {
-    ///             AutoScalingPolicy = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyArgs
+    ///             EstimatedInstanceWarmup = 60,
+    ///             TargetTrackingConfiguration = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs
     ///             {
-    ///                 EstimatedInstanceWarmup = 60,
-    ///                 TargetTrackingConfiguration = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs
-    ///                 {
-    ///                     TargetValue = 75,
-    ///                 },
+    ///                 TargetValue = 75,
     ///             },
-    ///             BalancingStrategy = "SPOT_ONLY",
-    ///             GameServerGroupName = "example",
-    ///             GameServerProtectionPolicy = "FULL_PROTECTION",
-    ///             InstanceDefinitions = 
-    ///             {
-    ///                 new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
-    ///                 {
-    ///                     InstanceType = "c5.large",
-    ///                     WeightedCapacity = "1",
-    ///                 },
-    ///                 new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
-    ///                 {
-    ///                     InstanceType = "c5.2xlarge",
-    ///                     WeightedCapacity = "2",
-    ///                 },
-    ///             },
-    ///             LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
-    ///             {
-    ///                 Id = aws_launch_template.Example.Id,
-    ///                 Version = "1",
-    ///             },
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///             VpcSubnets = 
-    ///             {
-    ///                 "subnet-12345678",
-    ///                 "subnet-23456789",
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///         BalancingStrategy = "SPOT_ONLY",
+    ///         GameServerGroupName = "example",
+    ///         GameServerProtectionPolicy = "FULL_PROTECTION",
+    ///         InstanceDefinitions = new[]
     ///         {
-    ///             DependsOn = 
+    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
     ///             {
-    ///                 aws_iam_role_policy_attachment.Example,
+    ///                 InstanceType = "c5.large",
+    ///                 WeightedCapacity = "1",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
+    ///             {
+    ///                 InstanceType = "c5.2xlarge",
+    ///                 WeightedCapacity = "2",
+    ///             },
+    ///         },
+    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
+    ///         {
+    ///             Id = aws_launch_template.Example.Id,
+    ///             Version = "1",
+    ///         },
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///         VpcSubnets = new[]
+    ///         {
+    ///             "subnet-12345678",
+    ///             "subnet-23456789",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_role_policy_attachment.Example,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example IAM Role for GameLift Game Server Group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -148,15 +144,15 @@ namespace Pulumi.Aws.GameLift
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = current.Apply(current =&gt; $"arn:{current.Partition}:iam::aws:policy/GameLiftGameServerGroupPolicy"),
-    ///             Role = exampleRole.Name,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     {
+    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/GameLiftGameServerGroupPolicy",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -168,7 +164,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/gameServerGroup:GameServerGroup")]
-    public partial class GameServerGroup : Pulumi.CustomResource
+    public partial class GameServerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the GameLift Game Server Group.
@@ -296,7 +292,7 @@ namespace Pulumi.Aws.GameLift
         }
     }
 
-    public sealed class GameServerGroupArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingPolicy")]
         public Input<Inputs.GameServerGroupAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
@@ -385,9 +381,10 @@ namespace Pulumi.Aws.GameLift
         public GameServerGroupArgs()
         {
         }
+        public static new GameServerGroupArgs Empty => new GameServerGroupArgs();
     }
 
-    public sealed class GameServerGroupState : Pulumi.ResourceArgs
+    public sealed class GameServerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the GameLift Game Server Group.
@@ -496,5 +493,6 @@ namespace Pulumi.Aws.GameLift
         public GameServerGroupState()
         {
         }
+        public static new GameServerGroupState Empty => new GameServerGroupState();
     }
 }

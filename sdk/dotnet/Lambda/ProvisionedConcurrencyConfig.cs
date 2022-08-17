@@ -16,42 +16,38 @@ namespace Pulumi.Aws.Lambda
     /// ### Alias Name
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
     ///     {
-    ///         var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new Aws.Lambda.ProvisionedConcurrencyConfigArgs
-    ///         {
-    ///             FunctionName = aws_lambda_alias.Example.Function_name,
-    ///             ProvisionedConcurrentExecutions = 1,
-    ///             Qualifier = aws_lambda_alias.Example.Name,
-    ///         });
-    ///     }
+    ///         FunctionName = aws_lambda_alias.Example.Function_name,
+    ///         ProvisionedConcurrentExecutions = 1,
+    ///         Qualifier = aws_lambda_alias.Example.Name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Function Version
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
     ///     {
-    ///         var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new Aws.Lambda.ProvisionedConcurrencyConfigArgs
-    ///         {
-    ///             FunctionName = aws_lambda_function.Example.Function_name,
-    ///             ProvisionedConcurrentExecutions = 1,
-    ///             Qualifier = aws_lambda_function.Example.Version,
-    ///         });
-    ///     }
+    ///         FunctionName = aws_lambda_function.Example.Function_name,
+    ///         ProvisionedConcurrentExecutions = 1,
+    ///         Qualifier = aws_lambda_function.Example.Version,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
-    public partial class ProvisionedConcurrencyConfig : Pulumi.CustomResource
+    public partial class ProvisionedConcurrencyConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function.
@@ -127,7 +123,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class ProvisionedConcurrencyConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProvisionedConcurrencyConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function.
@@ -150,9 +146,10 @@ namespace Pulumi.Aws.Lambda
         public ProvisionedConcurrencyConfigArgs()
         {
         }
+        public static new ProvisionedConcurrencyConfigArgs Empty => new ProvisionedConcurrencyConfigArgs();
     }
 
-    public sealed class ProvisionedConcurrencyConfigState : Pulumi.ResourceArgs
+    public sealed class ProvisionedConcurrencyConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function.
@@ -175,5 +172,6 @@ namespace Pulumi.Aws.Lambda
         public ProvisionedConcurrencyConfigState()
         {
         }
+        public static new ProvisionedConcurrencyConfigState Empty => new ProvisionedConcurrencyConfigState();
     }
 }

@@ -12,8 +12,10 @@ from .. import _utilities
 __all__ = [
     'DirectoryConnectSettings',
     'DirectoryVpcSettings',
+    'ServiceRegionVpcSettings',
     'SharedDirectoryTarget',
     'GetDirectoryConnectSettingResult',
+    'GetDirectoryRadiusSettingResult',
     'GetDirectoryVpcSettingResult',
 ]
 
@@ -174,6 +176,54 @@ class DirectoryVpcSettings(dict):
 
 
 @pulumi.output_type
+class ServiceRegionVpcSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegionVpcSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegionVpcSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegionVpcSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_ids: Sequence[str],
+                 vpc_id: str):
+        """
+        :param Sequence[str] subnet_ids: The identifiers of the subnets for the directory servers.
+        :param str vpc_id: The identifier of the VPC in which to create the directory.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        The identifiers of the subnets for the directory servers.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The identifier of the VPC in which to create the directory.
+        """
+        return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
 class SharedDirectoryTarget(dict):
     def __init__(__self__, *,
                  id: str,
@@ -270,6 +320,90 @@ class GetDirectoryConnectSettingResult(dict):
         The ID of the VPC that the connector is in.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetDirectoryRadiusSettingResult(dict):
+    def __init__(__self__, *,
+                 authentication_protocol: str,
+                 display_label: str,
+                 radius_port: int,
+                 radius_retries: int,
+                 radius_servers: Sequence[str],
+                 radius_timeout: int,
+                 use_same_username: bool):
+        """
+        :param str authentication_protocol: The protocol specified for your RADIUS endpoints.
+        :param str display_label: Display label.
+        :param int radius_port: The port that your RADIUS server is using for communications.
+        :param int radius_retries: The maximum number of times that communication with the RADIUS server is attempted.
+        :param Sequence[str] radius_servers: A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+        :param int radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond.
+        :param bool use_same_username: Not currently used.
+        """
+        pulumi.set(__self__, "authentication_protocol", authentication_protocol)
+        pulumi.set(__self__, "display_label", display_label)
+        pulumi.set(__self__, "radius_port", radius_port)
+        pulumi.set(__self__, "radius_retries", radius_retries)
+        pulumi.set(__self__, "radius_servers", radius_servers)
+        pulumi.set(__self__, "radius_timeout", radius_timeout)
+        pulumi.set(__self__, "use_same_username", use_same_username)
+
+    @property
+    @pulumi.getter(name="authenticationProtocol")
+    def authentication_protocol(self) -> str:
+        """
+        The protocol specified for your RADIUS endpoints.
+        """
+        return pulumi.get(self, "authentication_protocol")
+
+    @property
+    @pulumi.getter(name="displayLabel")
+    def display_label(self) -> str:
+        """
+        Display label.
+        """
+        return pulumi.get(self, "display_label")
+
+    @property
+    @pulumi.getter(name="radiusPort")
+    def radius_port(self) -> int:
+        """
+        The port that your RADIUS server is using for communications.
+        """
+        return pulumi.get(self, "radius_port")
+
+    @property
+    @pulumi.getter(name="radiusRetries")
+    def radius_retries(self) -> int:
+        """
+        The maximum number of times that communication with the RADIUS server is attempted.
+        """
+        return pulumi.get(self, "radius_retries")
+
+    @property
+    @pulumi.getter(name="radiusServers")
+    def radius_servers(self) -> Sequence[str]:
+        """
+        A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+        """
+        return pulumi.get(self, "radius_servers")
+
+    @property
+    @pulumi.getter(name="radiusTimeout")
+    def radius_timeout(self) -> int:
+        """
+        The amount of time, in seconds, to wait for the RADIUS server to respond.
+        """
+        return pulumi.get(self, "radius_timeout")
+
+    @property
+    @pulumi.getter(name="useSameUsername")
+    def use_same_username(self) -> bool:
+        """
+        Not currently used.
+        """
+        return pulumi.get(self, "use_same_username")
 
 
 @pulumi.output_type

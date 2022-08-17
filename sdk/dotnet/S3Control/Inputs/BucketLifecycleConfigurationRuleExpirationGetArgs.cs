@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationRuleExpirationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationRuleExpirationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public BucketLifecycleConfigurationRuleExpirationGetArgs()
         {
         }
+        public static new BucketLifecycleConfigurationRuleExpirationGetArgs Empty => new BucketLifecycleConfigurationRuleExpirationGetArgs();
     }
 }

@@ -17,21 +17,19 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.AvailabilityZoneGroup("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.AvailabilityZoneGroup("example", new Aws.Ec2.AvailabilityZoneGroupArgs
-    ///         {
-    ///             GroupName = "us-west-2-lax-1",
-    ///             OptInStatus = "opted-in",
-    ///         });
-    ///     }
+    ///         GroupName = "us-west-2-lax-1",
+    ///         OptInStatus = "opted-in",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")]
-    public partial class AvailabilityZoneGroup : Pulumi.CustomResource
+    public partial class AvailabilityZoneGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Availability Zone Group.
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class AvailabilityZoneGroupArgs : Pulumi.ResourceArgs
+    public sealed class AvailabilityZoneGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Availability Zone Group.
@@ -118,9 +116,10 @@ namespace Pulumi.Aws.Ec2
         public AvailabilityZoneGroupArgs()
         {
         }
+        public static new AvailabilityZoneGroupArgs Empty => new AvailabilityZoneGroupArgs();
     }
 
-    public sealed class AvailabilityZoneGroupState : Pulumi.ResourceArgs
+    public sealed class AvailabilityZoneGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Availability Zone Group.
@@ -137,5 +136,6 @@ namespace Pulumi.Aws.Ec2
         public AvailabilityZoneGroupState()
         {
         }
+        public static new AvailabilityZoneGroupState Empty => new AvailabilityZoneGroupState();
     }
 }

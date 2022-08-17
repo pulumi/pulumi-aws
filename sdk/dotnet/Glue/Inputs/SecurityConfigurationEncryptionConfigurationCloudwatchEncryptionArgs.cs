@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs()
         {
         }
+        public static new SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs Empty => new SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs();
     }
 }

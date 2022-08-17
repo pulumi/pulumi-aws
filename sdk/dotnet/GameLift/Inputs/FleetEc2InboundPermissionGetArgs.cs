@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class FleetEc2InboundPermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetEc2InboundPermissionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Starting value for a range of allowed port numbers.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public FleetEc2InboundPermissionGetArgs()
         {
         }
+        public static new FleetEc2InboundPermissionGetArgs Empty => new FleetEc2InboundPermissionGetArgs();
     }
 }

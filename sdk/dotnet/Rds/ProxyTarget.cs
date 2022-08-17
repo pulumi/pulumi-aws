@@ -15,68 +15,68 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new()
     ///     {
-    ///         var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new Aws.Rds.ProxyArgs
+    ///         DebugLogging = false,
+    ///         EngineFamily = "MYSQL",
+    ///         IdleClientTimeout = 1800,
+    ///         RequireTls = true,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             DebugLogging = false,
-    ///             EngineFamily = "MYSQL",
-    ///             IdleClientTimeout = 1800,
-    ///             RequireTls = true,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             VpcSecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             VpcSubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             Auths = 
-    ///             {
-    ///                 new Aws.Rds.Inputs.ProxyAuthArgs
-    ///                 {
-    ///                     AuthScheme = "SECRETS",
-    ///                     Description = "example",
-    ///                     IamAuth = "DISABLED",
-    ///                     SecretArn = aws_secretsmanager_secret.Example.Arn,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///                 { "Key", "value" },
-    ///             },
-    ///         });
-    ///         var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new Aws.Rds.ProxyDefaultTargetGroupArgs
+    ///             aws_security_group.Example.Id,
+    ///         },
+    ///         VpcSubnetIds = new[]
     ///         {
-    ///             DbProxyName = exampleProxy.Name,
-    ///             ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
-    ///             {
-    ///                 ConnectionBorrowTimeout = 120,
-    ///                 InitQuery = "SET x=1, y=2",
-    ///                 MaxConnectionsPercent = 100,
-    ///                 MaxIdleConnectionsPercent = 50,
-    ///                 SessionPinningFilters = 
-    ///                 {
-    ///                     "EXCLUDE_VARIABLE_SETS",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new Aws.Rds.ProxyTargetArgs
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         Auths = new[]
     ///         {
-    ///             DbInstanceIdentifier = aws_db_instance.Example.Id,
-    ///             DbProxyName = exampleProxy.Name,
-    ///             TargetGroupName = exampleProxyDefaultTargetGroup.Name,
-    ///         });
-    ///     }
+    ///             new Aws.Rds.Inputs.ProxyAuthArgs
+    ///             {
+    ///                 AuthScheme = "SECRETS",
+    ///                 Description = "example",
+    ///                 IamAuth = "DISABLED",
+    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///             { "Key", "value" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new()
+    ///     {
+    ///         DbProxyName = exampleProxy.Name,
+    ///         ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
+    ///         {
+    ///             ConnectionBorrowTimeout = 120,
+    ///             InitQuery = "SET x=1, y=2",
+    ///             MaxConnectionsPercent = 100,
+    ///             MaxIdleConnectionsPercent = 50,
+    ///             SessionPinningFilters = new[]
+    ///             {
+    ///                 "EXCLUDE_VARIABLE_SETS",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new()
+    ///     {
+    ///         DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///         DbProxyName = exampleProxy.Name,
+    ///         TargetGroupName = exampleProxyDefaultTargetGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxyTarget:ProxyTarget")]
-    public partial class ProxyTarget : Pulumi.CustomResource
+    public partial class ProxyTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// DB cluster identifier.
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ProxyTargetArgs : Pulumi.ResourceArgs
+    public sealed class ProxyTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DB cluster identifier.
@@ -229,9 +229,10 @@ namespace Pulumi.Aws.Rds
         public ProxyTargetArgs()
         {
         }
+        public static new ProxyTargetArgs Empty => new ProxyTargetArgs();
     }
 
-    public sealed class ProxyTargetState : Pulumi.ResourceArgs
+    public sealed class ProxyTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DB cluster identifier.
@@ -296,5 +297,6 @@ namespace Pulumi.Aws.Rds
         public ProxyTargetState()
         {
         }
+        public static new ProxyTargetState Empty => new ProxyTargetState();
     }
 }

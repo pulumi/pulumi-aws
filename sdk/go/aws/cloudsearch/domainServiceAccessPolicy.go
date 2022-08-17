@@ -17,41 +17,46 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudsearch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudsearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDomain, err := cloudsearch.NewDomain(ctx, "exampleDomain", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
-// 			DomainName: exampleDomain.ID(),
-// 			AccessPolicy: pulumi.String(fmt.Sprintf(`{
-//   "Version":"2012-10-17",
-//   "Statement":[{
-//     "Sid":"search_only",
-//     "Effect":"Allow",
-//     "Principal":"*",
-//     "Action":[
-//       "cloudsearch:search",
-//       "cloudsearch:document"
-//     ],
-//     "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
-//   }]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomain, err := cloudsearch.NewDomain(ctx, "exampleDomain", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
+//				DomainName: exampleDomain.ID(),
+//				AccessPolicy: pulumi.String(fmt.Sprintf(`{
+//	  "Version":"2012-10-17",
+//	  "Statement":[{
+//	    "Sid":"search_only",
+//	    "Effect":"Allow",
+//	    "Principal":"*",
+//	    "Action":[
+//	      "cloudsearch:search",
+//	      "cloudsearch:document"
+//	    ],
+//	    "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
+//	  }]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +64,9 @@ import (
 // CloudSearch domain service access policies can be imported using the domain name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+//
+//	$ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+//
 // ```
 type DomainServiceAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -163,7 +170,7 @@ func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyOutputWithContext
 // DomainServiceAccessPolicyArrayInput is an input type that accepts DomainServiceAccessPolicyArray and DomainServiceAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `DomainServiceAccessPolicyArrayInput` via:
 //
-//          DomainServiceAccessPolicyArray{ DomainServiceAccessPolicyArgs{...} }
+//	DomainServiceAccessPolicyArray{ DomainServiceAccessPolicyArgs{...} }
 type DomainServiceAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +195,7 @@ func (i DomainServiceAccessPolicyArray) ToDomainServiceAccessPolicyArrayOutputWi
 // DomainServiceAccessPolicyMapInput is an input type that accepts DomainServiceAccessPolicyMap and DomainServiceAccessPolicyMapOutput values.
 // You can construct a concrete instance of `DomainServiceAccessPolicyMapInput` via:
 //
-//          DomainServiceAccessPolicyMap{ "key": DomainServiceAccessPolicyArgs{...} }
+//	DomainServiceAccessPolicyMap{ "key": DomainServiceAccessPolicyArgs{...} }
 type DomainServiceAccessPolicyMapInput interface {
 	pulumi.Input
 

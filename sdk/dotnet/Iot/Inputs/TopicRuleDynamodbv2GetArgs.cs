@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleDynamodbv2GetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDynamodbv2GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleDynamodbv2GetArgs()
         {
         }
+        public static new TopicRuleDynamodbv2GetArgs Empty => new TopicRuleDynamodbv2GetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class ImageBuilderDomainJoinInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderDomainJoinInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified name of the directory (for example, corp.example.com).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public ImageBuilderDomainJoinInfoGetArgs()
         {
         }
+        public static new ImageBuilderDomainJoinInfoGetArgs Empty => new ImageBuilderDomainJoinInfoGetArgs();
     }
 }

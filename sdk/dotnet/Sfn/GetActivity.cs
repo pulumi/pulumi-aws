@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Sfn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sfnActivity = Aws.Sfn.GetActivity.Invoke(new()
         ///     {
-        ///         var sfnActivity = Output.Create(Aws.Sfn.GetActivity.InvokeAsync(new Aws.Sfn.GetActivityArgs
-        ///         {
-        ///             Name = "my-activity",
-        ///         }));
-        ///     }
+        ///         Name = "my-activity",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Sfn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sfnActivity = Aws.Sfn.GetActivity.Invoke(new()
         ///     {
-        ///         var sfnActivity = Output.Create(Aws.Sfn.GetActivity.InvokeAsync(new Aws.Sfn.GetActivityArgs
-        ///         {
-        ///             Name = "my-activity",
-        ///         }));
-        ///     }
+        ///         Name = "my-activity",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Sfn
     }
 
 
-    public sealed class GetActivityArgs : Pulumi.InvokeArgs
+    public sealed class GetActivityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the activity.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.Sfn
         public GetActivityArgs()
         {
         }
+        public static new GetActivityArgs Empty => new GetActivityArgs();
     }
 
-    public sealed class GetActivityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetActivityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the activity.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.Sfn
         public GetActivityInvokeArgs()
         {
         }
+        public static new GetActivityInvokeArgs Empty => new GetActivityInvokeArgs();
     }
 
 

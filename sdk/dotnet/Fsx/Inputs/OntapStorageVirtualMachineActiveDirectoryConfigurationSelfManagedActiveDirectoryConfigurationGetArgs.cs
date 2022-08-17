@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsIps", required: true)]
         private InputList<string>? _dnsIps;
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationGetArgs()
         {
         }
+        public static new OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationGetArgs Empty => new OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationGetArgs();
     }
 }

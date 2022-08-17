@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecs.LookupService(ctx, &ecs.LookupServiceArgs{
-// 			ServiceName: "example",
-// 			ClusterArn:  data.Aws_ecs_cluster.Example.Arn,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.LookupService(ctx, &ecs.LookupServiceArgs{
+//				ServiceName: "example",
+//				ClusterArn:  data.Aws_ecs_cluster.Example.Arn,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
@@ -51,6 +54,8 @@ type LookupServiceArgs struct {
 	ClusterArn string `pulumi:"clusterArn"`
 	// The name of the ECS Service
 	ServiceName string `pulumi:"serviceName"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getService.
@@ -67,6 +72,8 @@ type LookupServiceResult struct {
 	// The scheduling strategy for the ECS Service
 	SchedulingStrategy string `pulumi:"schedulingStrategy"`
 	ServiceName        string `pulumi:"serviceName"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// The family for the latest ACTIVE revision
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -90,6 +97,8 @@ type LookupServiceOutputArgs struct {
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 	// The name of the ECS Service
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {
@@ -142,6 +151,11 @@ func (o LookupServiceResultOutput) SchedulingStrategy() pulumi.StringOutput {
 
 func (o LookupServiceResultOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The family for the latest ACTIVE revision

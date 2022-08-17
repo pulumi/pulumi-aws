@@ -162,7 +162,7 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // RuntimeInput is an input type that accepts RuntimeArgs and RuntimeOutput values.
 // You can construct a concrete instance of `RuntimeInput` via:
 //
-//          RuntimeArgs{...}
+//	RuntimeArgs{...}
 type RuntimeInput interface {
 	pulumi.Input
 

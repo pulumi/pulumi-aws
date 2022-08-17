@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.LookupDedicatedHost(ctx, &ec2.LookupDedicatedHostArgs{
-// 			Filters: []ec2.GetDedicatedHostFilter{
-// 				ec2.GetDedicatedHostFilter{
-// 					Name: "instance-type",
-// 					Values: []string{
-// 						"c5.18xlarge",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.LookupDedicatedHost(ctx, &ec2.LookupDedicatedHostArgs{
+//				Filters: []ec2.GetDedicatedHostFilter{
+//					ec2.GetDedicatedHostFilter{
+//						Name: "instance-type",
+//						Values: []string{
+//							"c5.18xlarge",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult

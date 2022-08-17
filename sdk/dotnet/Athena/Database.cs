@@ -15,24 +15,21 @@ namespace Pulumi.Aws.Athena
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleDatabase = new Aws.Athena.Database("exampleDatabase", new Aws.Athena.DatabaseArgs
-    ///         {
-    ///             Name = "database_name",
-    ///             Bucket = exampleBucketV2.Bucket,
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleDatabase = new Aws.Athena.Database("exampleDatabase", new()
+    ///     {
+    ///         Name = "database_name",
+    ///         Bucket = exampleBucketV2.Bucket,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +57,7 @@ namespace Pulumi.Aws.Athena
     ///  } }
     /// </summary>
     [AwsResourceType("aws:athena/database:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -154,7 +151,7 @@ namespace Pulumi.Aws.Athena
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -213,9 +210,10 @@ namespace Pulumi.Aws.Athena
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 
-    public sealed class DatabaseState : Pulumi.ResourceArgs
+    public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -274,5 +272,6 @@ namespace Pulumi.Aws.Athena
         public DatabaseState()
         {
         }
+        public static new DatabaseState Empty => new DatabaseState();
     }
 }

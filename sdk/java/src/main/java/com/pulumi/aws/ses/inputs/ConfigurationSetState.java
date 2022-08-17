@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.aws.ses.inputs.ConfigurationSetDeliveryOptionsArgs;
+import com.pulumi.aws.ses.inputs.ConfigurationSetTrackingOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -33,14 +34,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
     @Import(name="deliveryOptions")
     private @Nullable Output<ConfigurationSetDeliveryOptionsArgs> deliveryOptions;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
     public Optional<Output<ConfigurationSetDeliveryOptionsArgs>> deliveryOptions() {
@@ -48,14 +49,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
     @Import(name="lastFreshStart")
     private @Nullable Output<String> lastFreshStart;
 
     /**
-     * @return The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     * @return Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
     public Optional<Output<String>> lastFreshStart() {
@@ -107,6 +108,21 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.sendingEnabled);
     }
 
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
+    @Import(name="trackingOptions")
+    private @Nullable Output<ConfigurationSetTrackingOptionsArgs> trackingOptions;
+
+    /**
+     * @return Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
+    public Optional<Output<ConfigurationSetTrackingOptionsArgs>> trackingOptions() {
+        return Optional.ofNullable(this.trackingOptions);
+    }
+
     private ConfigurationSetState() {}
 
     private ConfigurationSetState(ConfigurationSetState $) {
@@ -116,6 +132,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         this.name = $.name;
         this.reputationMetricsEnabled = $.reputationMetricsEnabled;
         this.sendingEnabled = $.sendingEnabled;
+        this.trackingOptions = $.trackingOptions;
     }
 
     public static Builder builder() {
@@ -158,7 +175,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deliveryOptions Configuration block. Detailed below.
+         * @param deliveryOptions Whether messages that use the configuration set are required to use TLS. See below.
          * 
          * @return builder
          * 
@@ -169,7 +186,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deliveryOptions Configuration block. Detailed below.
+         * @param deliveryOptions Whether messages that use the configuration set are required to use TLS. See below.
          * 
          * @return builder
          * 
@@ -179,7 +196,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lastFreshStart The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+         * @param lastFreshStart Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
          * 
          * @return builder
          * 
@@ -190,7 +207,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lastFreshStart The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+         * @param lastFreshStart Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
          * 
          * @return builder
          * 
@@ -260,6 +277,27 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
          */
         public Builder sendingEnabled(Boolean sendingEnabled) {
             return sendingEnabled(Output.of(sendingEnabled));
+        }
+
+        /**
+         * @param trackingOptions Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackingOptions(@Nullable Output<ConfigurationSetTrackingOptionsArgs> trackingOptions) {
+            $.trackingOptions = trackingOptions;
+            return this;
+        }
+
+        /**
+         * @param trackingOptions Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackingOptions(ConfigurationSetTrackingOptionsArgs trackingOptions) {
+            return trackingOptions(Output.of(trackingOptions));
         }
 
         public ConfigurationSetState build() {

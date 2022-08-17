@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class FaqS3PathGetArgs : Pulumi.ResourceArgs
+    public sealed class FaqS3PathGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket that contains the file.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public FaqS3PathGetArgs()
         {
         }
+        public static new FaqS3PathGetArgs Empty => new FaqS3PathGetArgs();
     }
 }

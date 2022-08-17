@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpcEndpointDnsEntryArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointDnsEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS name.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpcEndpointDnsEntryArgs()
         {
         }
+        public static new VpcEndpointDnsEntryArgs Empty => new VpcEndpointDnsEntryArgs();
     }
 }

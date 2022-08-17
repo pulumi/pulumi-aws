@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewMulticastGroupMember(ctx, "example", &ec2transitgateway.MulticastGroupMemberArgs{
-// 			GroupIpAddress:                  pulumi.String("224.0.0.1"),
-// 			NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
-// 			TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewMulticastGroupMember(ctx, "example", &ec2transitgateway.MulticastGroupMemberArgs{
+//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
+//				NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
+//				TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MulticastGroupMember struct {
 	pulumi.CustomResourceState
@@ -153,7 +156,7 @@ func (i *MulticastGroupMember) ToMulticastGroupMemberOutputWithContext(ctx conte
 // MulticastGroupMemberArrayInput is an input type that accepts MulticastGroupMemberArray and MulticastGroupMemberArrayOutput values.
 // You can construct a concrete instance of `MulticastGroupMemberArrayInput` via:
 //
-//          MulticastGroupMemberArray{ MulticastGroupMemberArgs{...} }
+//	MulticastGroupMemberArray{ MulticastGroupMemberArgs{...} }
 type MulticastGroupMemberArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +181,7 @@ func (i MulticastGroupMemberArray) ToMulticastGroupMemberArrayOutputWithContext(
 // MulticastGroupMemberMapInput is an input type that accepts MulticastGroupMemberMap and MulticastGroupMemberMapOutput values.
 // You can construct a concrete instance of `MulticastGroupMemberMapInput` via:
 //
-//          MulticastGroupMemberMap{ "key": MulticastGroupMemberArgs{...} }
+//	MulticastGroupMemberMap{ "key": MulticastGroupMemberArgs{...} }
 type MulticastGroupMemberMapInput interface {
 	pulumi.Input
 

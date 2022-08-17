@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := guardduty.NewFilter(ctx, "myFilter", &guardduty.FilterArgs{
-// 			Action:     pulumi.String("ARCHIVE"),
-// 			DetectorId: pulumi.Any(aws_guardduty_detector.Example.Id),
-// 			Rank:       pulumi.Int(1),
-// 			FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
-// 				Criterions: guardduty.FilterFindingCriteriaCriterionArray{
-// 					&guardduty.FilterFindingCriteriaCriterionArgs{
-// 						Field: pulumi.String("region"),
-// 						Equals: pulumi.StringArray{
-// 							pulumi.String("eu-west-1"),
-// 						},
-// 					},
-// 					&guardduty.FilterFindingCriteriaCriterionArgs{
-// 						Field: pulumi.String("service.additionalInfo.threatListName"),
-// 						NotEquals: pulumi.StringArray{
-// 							pulumi.String("some-threat"),
-// 							pulumi.String("another-threat"),
-// 						},
-// 					},
-// 					&guardduty.FilterFindingCriteriaCriterionArgs{
-// 						Field:       pulumi.String("updatedAt"),
-// 						GreaterThan: pulumi.String("2020-01-01T00:00:00Z"),
-// 						LessThan:    pulumi.String("2020-02-01T00:00:00Z"),
-// 					},
-// 					&guardduty.FilterFindingCriteriaCriterionArgs{
-// 						Field:              pulumi.String("severity"),
-// 						GreaterThanOrEqual: pulumi.String("4"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := guardduty.NewFilter(ctx, "myFilter", &guardduty.FilterArgs{
+//				Action:     pulumi.String("ARCHIVE"),
+//				DetectorId: pulumi.Any(aws_guardduty_detector.Example.Id),
+//				Rank:       pulumi.Int(1),
+//				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
+//					Criterions: guardduty.FilterFindingCriteriaCriterionArray{
+//						&guardduty.FilterFindingCriteriaCriterionArgs{
+//							Field: pulumi.String("region"),
+//							Equals: pulumi.StringArray{
+//								pulumi.String("eu-west-1"),
+//							},
+//						},
+//						&guardduty.FilterFindingCriteriaCriterionArgs{
+//							Field: pulumi.String("service.additionalInfo.threatListName"),
+//							NotEquals: pulumi.StringArray{
+//								pulumi.String("some-threat"),
+//								pulumi.String("another-threat"),
+//							},
+//						},
+//						&guardduty.FilterFindingCriteriaCriterionArgs{
+//							Field:       pulumi.String("updatedAt"),
+//							GreaterThan: pulumi.String("2020-01-01T00:00:00Z"),
+//							LessThan:    pulumi.String("2020-02-01T00:00:00Z"),
+//						},
+//						&guardduty.FilterFindingCriteriaCriterionArgs{
+//							Field:              pulumi.String("severity"),
+//							GreaterThanOrEqual: pulumi.String("4"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // GuardDuty filters can be imported using the detector ID and filter's name separated by a colon, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+//
+//	$ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+//
 // ```
 type Filter struct {
 	pulumi.CustomResourceState
@@ -90,7 +95,7 @@ type Filter struct {
 	Rank pulumi.IntOutput `pulumi:"rank"`
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -151,7 +156,7 @@ type filterState struct {
 	Rank *int `pulumi:"rank"`
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -172,7 +177,7 @@ type FilterState struct {
 	Rank pulumi.IntPtrInput
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -241,7 +246,7 @@ func (i *Filter) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
 // FilterArrayInput is an input type that accepts FilterArray and FilterArrayOutput values.
 // You can construct a concrete instance of `FilterArrayInput` via:
 //
-//          FilterArray{ FilterArgs{...} }
+//	FilterArray{ FilterArgs{...} }
 type FilterArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +271,7 @@ func (i FilterArray) ToFilterArrayOutputWithContext(ctx context.Context) FilterA
 // FilterMapInput is an input type that accepts FilterMap and FilterMapOutput values.
 // You can construct a concrete instance of `FilterMapInput` via:
 //
-//          FilterMap{ "key": FilterArgs{...} }
+//	FilterMap{ "key": FilterArgs{...} }
 type FilterMapInput interface {
 	pulumi.Input
 
@@ -342,7 +347,7 @@ func (o FilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

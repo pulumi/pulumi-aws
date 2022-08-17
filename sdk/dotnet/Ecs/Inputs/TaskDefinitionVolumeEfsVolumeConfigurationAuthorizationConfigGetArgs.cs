@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigGetArgs()
         {
         }
+        public static new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigGetArgs Empty => new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigGetArgs();
     }
 }

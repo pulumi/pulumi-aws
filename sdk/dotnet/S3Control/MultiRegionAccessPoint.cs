@@ -16,54 +16,56 @@ namespace Pulumi.Aws.S3Control
     /// ### Multiple AWS Buckets in Different Regions
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primaryRegion = new Aws.Provider("primaryRegion", new()
     ///     {
-    ///         var primaryRegion = new Aws.Provider("primaryRegion", new Aws.ProviderArgs
+    ///         Region = "us-east-1",
+    ///     });
+    /// 
+    ///     var secondaryRegion = new Aws.Provider("secondaryRegion", new()
+    ///     {
+    ///         Region = "us-west-2",
+    ///     });
+    /// 
+    ///     var fooBucket = new Aws.S3.BucketV2("fooBucket", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary_region,
+    ///     });
+    /// 
+    ///     var barBucket = new Aws.S3.BucketV2("barBucket", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Secondary_region,
+    ///     });
+    /// 
+    ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()
+    ///     {
+    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
     ///         {
-    ///             Region = "us-east-1",
-    ///         });
-    ///         var secondaryRegion = new Aws.Provider("secondaryRegion", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-west-2",
-    ///         });
-    ///         var fooBucket = new Aws.S3.BucketV2("fooBucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary_region,
-    ///         });
-    ///         var barBucket = new Aws.S3.BucketV2("barBucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Secondary_region,
-    ///         });
-    ///         var example = new Aws.S3Control.MultiRegionAccessPoint("example", new Aws.S3Control.MultiRegionAccessPointArgs
-    ///         {
-    ///             Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
+    ///             Name = "example",
+    ///             Regions = new[]
     ///             {
-    ///                 Name = "example",
-    ///                 Regions = 
+    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
     ///                 {
-    ///                     new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                     {
-    ///                         Bucket = fooBucket.Id,
-    ///                     },
-    ///                     new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                     {
-    ///                         Bucket = barBucket.Id,
-    ///                     },
+    ///                     Bucket = fooBucket.Id,
+    ///                 },
+    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
+    ///                 {
+    ///                     Bucket = barBucket.Id,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +77,7 @@ namespace Pulumi.Aws.S3Control
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint")]
-    public partial class MultiRegionAccessPoint : Pulumi.CustomResource
+    public partial class MultiRegionAccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -157,7 +159,7 @@ namespace Pulumi.Aws.S3Control
         }
     }
 
-    public sealed class MultiRegionAccessPointArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -174,9 +176,10 @@ namespace Pulumi.Aws.S3Control
         public MultiRegionAccessPointArgs()
         {
         }
+        public static new MultiRegionAccessPointArgs Empty => new MultiRegionAccessPointArgs();
     }
 
-    public sealed class MultiRegionAccessPointState : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -217,5 +220,6 @@ namespace Pulumi.Aws.S3Control
         public MultiRegionAccessPointState()
         {
         }
+        public static new MultiRegionAccessPointState Empty => new MultiRegionAccessPointState();
     }
 }

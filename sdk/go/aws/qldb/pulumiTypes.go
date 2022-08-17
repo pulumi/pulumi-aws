@@ -20,7 +20,7 @@ type StreamKinesisConfiguration struct {
 // StreamKinesisConfigurationInput is an input type that accepts StreamKinesisConfigurationArgs and StreamKinesisConfigurationOutput values.
 // You can construct a concrete instance of `StreamKinesisConfigurationInput` via:
 //
-//          StreamKinesisConfigurationArgs{...}
+//	StreamKinesisConfigurationArgs{...}
 type StreamKinesisConfigurationInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationPtrOutputWit
 // StreamKinesisConfigurationPtrInput is an input type that accepts StreamKinesisConfigurationArgs, StreamKinesisConfigurationPtr and StreamKinesisConfigurationPtrOutput values.
 // You can construct a concrete instance of `StreamKinesisConfigurationPtrInput` via:
 //
-//          StreamKinesisConfigurationArgs{...}
+//	        StreamKinesisConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamKinesisConfigurationPtrInput interface {
 	pulumi.Input
 

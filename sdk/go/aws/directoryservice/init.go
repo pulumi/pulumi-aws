@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Directory{}
 	case "aws:directoryservice/logService:LogService":
 		r = &LogService{}
+	case "aws:directoryservice/radiusSettings:RadiusSettings":
+		r = &RadiusSettings{}
+	case "aws:directoryservice/serviceRegion:ServiceRegion":
+		r = &ServiceRegion{}
 	case "aws:directoryservice/sharedDirectory:SharedDirectory":
 		r = &SharedDirectory{}
 	case "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter":
@@ -57,6 +61,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directoryservice/logService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directoryservice/radiusSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directoryservice/serviceRegion",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediapackage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediapackage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mediapackage.NewChannel(ctx, "kittens", &mediapackage.ChannelArgs{
-// 			ChannelId:   pulumi.String("kitten-channel"),
-// 			Description: pulumi.String("A channel dedicated to amusing videos of kittens."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mediapackage.NewChannel(ctx, "kittens", &mediapackage.ChannelArgs{
+//				ChannelId:   pulumi.String("kitten-channel"),
+//				Description: pulumi.String("A channel dedicated to amusing videos of kittens."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Media Package Channels can be imported via the channel ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+//
+//	$ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+//
 // ```
 type Channel struct {
 	pulumi.CustomResourceState
@@ -57,7 +62,7 @@ type Channel struct {
 	HlsIngests ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -106,7 +111,7 @@ type channelState struct {
 	HlsIngests []ChannelHlsIngest `pulumi:"hlsIngests"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -121,7 +126,7 @@ type ChannelState struct {
 	HlsIngests ChannelHlsIngestArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -174,7 +179,7 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 // ChannelArrayInput is an input type that accepts ChannelArray and ChannelArrayOutput values.
 // You can construct a concrete instance of `ChannelArrayInput` via:
 //
-//          ChannelArray{ ChannelArgs{...} }
+//	ChannelArray{ ChannelArgs{...} }
 type ChannelArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i ChannelArray) ToChannelArrayOutputWithContext(ctx context.Context) Chann
 // ChannelMapInput is an input type that accepts ChannelMap and ChannelMapOutput values.
 // You can construct a concrete instance of `ChannelMapInput` via:
 //
-//          ChannelMap{ "key": ChannelArgs{...} }
+//	ChannelMap{ "key": ChannelArgs{...} }
 type ChannelMapInput interface {
 	pulumi.Input
 
@@ -260,7 +265,7 @@ func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

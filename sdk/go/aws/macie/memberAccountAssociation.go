@@ -23,21 +23,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := macie.NewMemberAccountAssociation(ctx, "example", &macie.MemberAccountAssociationArgs{
-// 			MemberAccountId: pulumi.String("123456789012"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := macie.NewMemberAccountAssociation(ctx, "example", &macie.MemberAccountAssociationArgs{
+//				MemberAccountId: pulumi.String("123456789012"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MemberAccountAssociation struct {
 	pulumi.CustomResourceState
@@ -128,7 +131,7 @@ func (i *MemberAccountAssociation) ToMemberAccountAssociationOutputWithContext(c
 // MemberAccountAssociationArrayInput is an input type that accepts MemberAccountAssociationArray and MemberAccountAssociationArrayOutput values.
 // You can construct a concrete instance of `MemberAccountAssociationArrayInput` via:
 //
-//          MemberAccountAssociationArray{ MemberAccountAssociationArgs{...} }
+//	MemberAccountAssociationArray{ MemberAccountAssociationArgs{...} }
 type MemberAccountAssociationArrayInput interface {
 	pulumi.Input
 
@@ -153,7 +156,7 @@ func (i MemberAccountAssociationArray) ToMemberAccountAssociationArrayOutputWith
 // MemberAccountAssociationMapInput is an input type that accepts MemberAccountAssociationMap and MemberAccountAssociationMapOutput values.
 // You can construct a concrete instance of `MemberAccountAssociationMapInput` via:
 //
-//          MemberAccountAssociationMap{ "key": MemberAccountAssociationArgs{...} }
+//	MemberAccountAssociationMap{ "key": MemberAccountAssociationArgs{...} }
 type MemberAccountAssociationMapInput interface {
 	pulumi.Input
 

@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-// 			RequireEncryption: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = chime.NewVoiceConnectorLogging(ctx, "defaultVoiceConnectorLogging", &chime.VoiceConnectorLoggingArgs{
-// 			EnableSipLogs:    pulumi.Bool(true),
-// 			VoiceConnectorId: defaultVoiceConnector.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorLogging(ctx, "defaultVoiceConnectorLogging", &chime.VoiceConnectorLoggingArgs{
+//				EnableSipLogs:    pulumi.Bool(true),
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Chime Voice Connector Logging can be imported using the `voice_connector_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+//
+//	$ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+//
 // ```
 type VoiceConnectorLogging struct {
 	pulumi.CustomResourceState
@@ -149,7 +154,7 @@ func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingOutputWithContext(ctx con
 // VoiceConnectorLoggingArrayInput is an input type that accepts VoiceConnectorLoggingArray and VoiceConnectorLoggingArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorLoggingArrayInput` via:
 //
-//          VoiceConnectorLoggingArray{ VoiceConnectorLoggingArgs{...} }
+//	VoiceConnectorLoggingArray{ VoiceConnectorLoggingArgs{...} }
 type VoiceConnectorLoggingArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +179,7 @@ func (i VoiceConnectorLoggingArray) ToVoiceConnectorLoggingArrayOutputWithContex
 // VoiceConnectorLoggingMapInput is an input type that accepts VoiceConnectorLoggingMap and VoiceConnectorLoggingMapOutput values.
 // You can construct a concrete instance of `VoiceConnectorLoggingMapInput` via:
 //
-//          VoiceConnectorLoggingMap{ "key": VoiceConnectorLoggingArgs{...} }
+//	VoiceConnectorLoggingMap{ "key": VoiceConnectorLoggingArgs{...} }
 type VoiceConnectorLoggingMapInput interface {
 	pulumi.Input
 

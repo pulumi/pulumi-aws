@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDeleteMarkerReplicationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDeleteMarkerReplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDeleteMarkerReplicationGetArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDeleteMarkerReplicationGetArgs Empty => new BucketReplicationConfigRuleDeleteMarkerReplicationGetArgs();
     }
 }

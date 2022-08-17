@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerConnectionPoolHttp2Args : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerConnectionPoolHttp2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerConnectionPoolHttp2Args()
         {
         }
+        public static new VirtualGatewaySpecListenerConnectionPoolHttp2Args Empty => new VirtualGatewaySpecListenerConnectionPoolHttp2Args();
     }
 }

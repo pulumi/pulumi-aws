@@ -10,16 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class MultiRegionAccessPointDetailsRegionGetArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointDetailsRegionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the associated bucket for the Region.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         public MultiRegionAccessPointDetailsRegionGetArgs()
         {
         }
+        public static new MultiRegionAccessPointDetailsRegionGetArgs Empty => new MultiRegionAccessPointDetailsRegionGetArgs();
     }
 }

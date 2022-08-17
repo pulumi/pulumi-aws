@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .zoneId(aws_route53_zone.primary().zone_id())
  *             .name(&#34;www.example.com&#34;)
  *             .type(&#34;A&#34;)
- *             .ttl(&#34;300&#34;)
+ *             .ttl(300)
  *             .records(aws_eip.lb().public_ip())
  *             .build());
  * 
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .zoneId(aws_route53_zone.primary().zone_id())
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
- *             .ttl(&#34;5&#34;)
+ *             .ttl(5)
  *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(10)
  *                 .build())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .zoneId(aws_route53_zone.primary().zone_id())
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
- *             .ttl(&#34;5&#34;)
+ *             .ttl(5)
  *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(90)
  *                 .build())

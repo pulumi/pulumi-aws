@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Athena.Inputs
 {
 
-    public sealed class DatabaseEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Athena.Inputs
         public DatabaseEncryptionConfigurationGetArgs()
         {
         }
+        public static new DatabaseEncryptionConfigurationGetArgs Empty => new DatabaseEncryptionConfigurationGetArgs();
     }
 }

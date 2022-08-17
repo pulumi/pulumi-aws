@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class MemcachedLayerEbsVolumeArgs : Pulumi.ResourceArgs
+    public sealed class MemcachedLayerEbsVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public MemcachedLayerEbsVolumeArgs()
         {
         }
+        public static new MemcachedLayerEbsVolumeArgs Empty => new MemcachedLayerEbsVolumeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class ClusterRestoreToPointInTimeArgs : Pulumi.ResourceArgs
+    public sealed class ClusterRestoreToPointInTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
@@ -40,5 +40,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public ClusterRestoreToPointInTimeArgs()
         {
         }
+        public static new ClusterRestoreToPointInTimeArgs Empty => new ClusterRestoreToPointInTimeArgs();
     }
 }

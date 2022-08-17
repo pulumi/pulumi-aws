@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class LoadBalancerAccessLogsGetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerAccessLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 bucket name to store the logs in.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public LoadBalancerAccessLogsGetArgs()
         {
         }
+        public static new LoadBalancerAccessLogsGetArgs Empty => new LoadBalancerAccessLogsGetArgs();
     }
 }

@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewMulticastGroupSource(ctx, "example", &ec2transitgateway.MulticastGroupSourceArgs{
-// 			GroupIpAddress:                  pulumi.String("224.0.0.1"),
-// 			NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
-// 			TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewMulticastGroupSource(ctx, "example", &ec2transitgateway.MulticastGroupSourceArgs{
+//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
+//				NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
+//				TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MulticastGroupSource struct {
 	pulumi.CustomResourceState
@@ -153,7 +156,7 @@ func (i *MulticastGroupSource) ToMulticastGroupSourceOutputWithContext(ctx conte
 // MulticastGroupSourceArrayInput is an input type that accepts MulticastGroupSourceArray and MulticastGroupSourceArrayOutput values.
 // You can construct a concrete instance of `MulticastGroupSourceArrayInput` via:
 //
-//          MulticastGroupSourceArray{ MulticastGroupSourceArgs{...} }
+//	MulticastGroupSourceArray{ MulticastGroupSourceArgs{...} }
 type MulticastGroupSourceArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +181,7 @@ func (i MulticastGroupSourceArray) ToMulticastGroupSourceArrayOutputWithContext(
 // MulticastGroupSourceMapInput is an input type that accepts MulticastGroupSourceMap and MulticastGroupSourceMapOutput values.
 // You can construct a concrete instance of `MulticastGroupSourceMapInput` via:
 //
-//          MulticastGroupSourceMap{ "key": MulticastGroupSourceArgs{...} }
+//	MulticastGroupSourceMap{ "key": MulticastGroupSourceArgs{...} }
 type MulticastGroupSourceMapInput interface {
 	pulumi.Input
 

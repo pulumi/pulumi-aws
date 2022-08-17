@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewMemcachedLayer(ctx, "cache", &opsworks.MemcachedLayerArgs{
-// 			StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewMemcachedLayer(ctx, "cache", &opsworks.MemcachedLayerArgs{
+//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MemcachedLayer struct {
 	pulumi.CustomResourceState
@@ -78,7 +81,7 @@ type MemcachedLayer struct {
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -156,7 +159,7 @@ type memcachedLayerState struct {
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -203,7 +206,7 @@ type MemcachedLayerState struct {
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -326,7 +329,7 @@ func (i *MemcachedLayer) ToMemcachedLayerOutputWithContext(ctx context.Context) 
 // MemcachedLayerArrayInput is an input type that accepts MemcachedLayerArray and MemcachedLayerArrayOutput values.
 // You can construct a concrete instance of `MemcachedLayerArrayInput` via:
 //
-//          MemcachedLayerArray{ MemcachedLayerArgs{...} }
+//	MemcachedLayerArray{ MemcachedLayerArgs{...} }
 type MemcachedLayerArrayInput interface {
 	pulumi.Input
 
@@ -351,7 +354,7 @@ func (i MemcachedLayerArray) ToMemcachedLayerArrayOutputWithContext(ctx context.
 // MemcachedLayerMapInput is an input type that accepts MemcachedLayerMap and MemcachedLayerMapOutput values.
 // You can construct a concrete instance of `MemcachedLayerMapInput` via:
 //
-//          MemcachedLayerMap{ "key": MemcachedLayerArgs{...} }
+//	MemcachedLayerMap{ "key": MemcachedLayerArgs{...} }
 type MemcachedLayerMapInput interface {
 	pulumi.Input
 
@@ -498,7 +501,7 @@ func (o MemcachedLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MemcachedLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MemcachedLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MemcachedLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

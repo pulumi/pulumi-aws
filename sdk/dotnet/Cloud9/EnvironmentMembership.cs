@@ -15,29 +15,27 @@ namespace Pulumi.Aws.Cloud9
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testEnvironmentEC2 = new Aws.Cloud9.EnvironmentEC2("testEnvironmentEC2", new()
     ///     {
-    ///         var testEnvironmentEC2 = new Aws.Cloud9.EnvironmentEC2("testEnvironmentEC2", new Aws.Cloud9.EnvironmentEC2Args
-    ///         {
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///         var testUser = new Aws.Iam.User("testUser", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var testEnvironmentMembership = new Aws.Cloud9.EnvironmentMembership("testEnvironmentMembership", new Aws.Cloud9.EnvironmentMembershipArgs
-    ///         {
-    ///             EnvironmentId = testEnvironmentEC2.Id,
-    ///             Permissions = "read-only",
-    ///             UserArn = testUser.Arn,
-    ///         });
-    ///     }
+    ///         InstanceType = "t2.micro",
+    ///     });
     /// 
-    /// }
+    ///     var testUser = new Aws.Iam.User("testUser");
+    /// 
+    ///     var testEnvironmentMembership = new Aws.Cloud9.EnvironmentMembership("testEnvironmentMembership", new()
+    ///     {
+    ///         EnvironmentId = testEnvironmentEC2.Id,
+    ///         Permissions = "read-only",
+    ///         UserArn = testUser.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Cloud9
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloud9/environmentMembership:EnvironmentMembership")]
-    public partial class EnvironmentMembership : Pulumi.CustomResource
+    public partial class EnvironmentMembership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the environment that contains the environment member you want to add.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Cloud9
         }
     }
 
-    public sealed class EnvironmentMembershipArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the environment that contains the environment member you want to add.
@@ -142,9 +140,10 @@ namespace Pulumi.Aws.Cloud9
         public EnvironmentMembershipArgs()
         {
         }
+        public static new EnvironmentMembershipArgs Empty => new EnvironmentMembershipArgs();
     }
 
-    public sealed class EnvironmentMembershipState : Pulumi.ResourceArgs
+    public sealed class EnvironmentMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the environment that contains the environment member you want to add.
@@ -173,5 +172,6 @@ namespace Pulumi.Aws.Cloud9
         public EnvironmentMembershipState()
         {
         }
+        public static new EnvironmentMembershipState Empty => new EnvironmentMembershipState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Signer.Inputs
 {
 
-    public sealed class SigningJobDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class SigningJobDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block describing the S3 Destination object: See S3 Destination below for details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Signer.Inputs
         public SigningJobDestinationGetArgs()
         {
         }
+        public static new SigningJobDestinationGetArgs Empty => new SigningJobDestinationGetArgs();
     }
 }

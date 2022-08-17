@@ -20,29 +20,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
-// 			Description: pulumi.String("A custom schema registry"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
+//				Description: pulumi.String("A custom schema registry"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// EventBridge schema registries can be imported using the `name`, e.g., console
+// # EventBridge schema registries can be imported using the `name`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:schemas/registry:Registry test my_own_registry
+//
+//	$ pulumi import aws:schemas/registry:Registry test my_own_registry
+//
 // ```
 type Registry struct {
 	pulumi.CustomResourceState
@@ -162,7 +167,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 // RegistryArrayInput is an input type that accepts RegistryArray and RegistryArrayOutput values.
 // You can construct a concrete instance of `RegistryArrayInput` via:
 //
-//          RegistryArray{ RegistryArgs{...} }
+//	RegistryArray{ RegistryArgs{...} }
 type RegistryArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +192,7 @@ func (i RegistryArray) ToRegistryArrayOutputWithContext(ctx context.Context) Reg
 // RegistryMapInput is an input type that accepts RegistryMap and RegistryMapOutput values.
 // You can construct a concrete instance of `RegistryMapInput` via:
 //
-//          RegistryMap{ "key": RegistryArgs{...} }
+//	RegistryMap{ "key": RegistryArgs{...} }
 type RegistryMapInput interface {
 	pulumi.Input
 

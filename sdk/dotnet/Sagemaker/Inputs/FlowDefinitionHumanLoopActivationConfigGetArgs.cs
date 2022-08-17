@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FlowDefinitionHumanLoopActivationConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionHumanLoopActivationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FlowDefinitionHumanLoopActivationConfigGetArgs()
         {
         }
+        public static new FlowDefinitionHumanLoopActivationConfigGetArgs Empty => new FlowDefinitionHumanLoopActivationConfigGetArgs();
     }
 }

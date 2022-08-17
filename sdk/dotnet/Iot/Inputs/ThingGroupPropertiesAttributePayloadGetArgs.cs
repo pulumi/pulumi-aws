@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class ThingGroupPropertiesAttributePayloadGetArgs : Pulumi.ResourceArgs
+    public sealed class ThingGroupPropertiesAttributePayloadGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public ThingGroupPropertiesAttributePayloadGetArgs()
         {
         }
+        public static new ThingGroupPropertiesAttributePayloadGetArgs Empty => new ThingGroupPropertiesAttributePayloadGetArgs();
     }
 }

@@ -19,47 +19,46 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.RedShift.GetCluster.InvokeAsync(new Aws.RedShift.GetClusterArgs
-        ///         {
-        ///             ClusterIdentifier = "example-cluster",
-        ///         }));
-        ///         var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
-        ///         {
-        ///             Destination = "redshift",
-        ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-        ///             {
-        ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
-        ///                 BufferSize = 10,
-        ///                 BufferInterval = 400,
-        ///                 CompressionFormat = "GZIP",
-        ///             },
-        ///             RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
-        ///             {
-        ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///                 ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///                 {
-        ///                     var example = values.Item1;
-        ///                     var example1 = values.Item2;
-        ///                     return $"jdbc:redshift://{example.Endpoint}/{example1.DatabaseName}";
-        ///                 }),
-        ///                 Username = "exampleuser",
-        ///                 Password = "Exampl3Pass",
-        ///                 DataTableName = "example-table",
-        ///                 CopyOptions = "delimiter '|'",
-        ///                 DataTableColumns = "example-col",
-        ///             },
-        ///         });
-        ///     }
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
         /// 
-        /// }
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new()
+        ///     {
+        ///         Destination = "redshift",
+        ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+        ///             BufferSize = 10,
+        ///             BufferInterval = 400,
+        ///             CompressionFormat = "GZIP",
+        ///         },
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example.Apply(getClusterResult =&gt; getClusterResult), example.Apply(getClusterResult =&gt; getClusterResult)).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,47 +74,46 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.RedShift.GetCluster.InvokeAsync(new Aws.RedShift.GetClusterArgs
-        ///         {
-        ///             ClusterIdentifier = "example-cluster",
-        ///         }));
-        ///         var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
-        ///         {
-        ///             Destination = "redshift",
-        ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-        ///             {
-        ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
-        ///                 BufferSize = 10,
-        ///                 BufferInterval = 400,
-        ///                 CompressionFormat = "GZIP",
-        ///             },
-        ///             RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
-        ///             {
-        ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///                 ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///                 {
-        ///                     var example = values.Item1;
-        ///                     var example1 = values.Item2;
-        ///                     return $"jdbc:redshift://{example.Endpoint}/{example1.DatabaseName}";
-        ///                 }),
-        ///                 Username = "exampleuser",
-        ///                 Password = "Exampl3Pass",
-        ///                 DataTableName = "example-table",
-        ///                 CopyOptions = "delimiter '|'",
-        ///                 DataTableColumns = "example-col",
-        ///             },
-        ///         });
-        ///     }
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
         /// 
-        /// }
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new()
+        ///     {
+        ///         Destination = "redshift",
+        ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+        ///             BufferSize = 10,
+        ///             BufferInterval = 400,
+        ///             CompressionFormat = "GZIP",
+        ///         },
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example.Apply(getClusterResult =&gt; getClusterResult), example.Apply(getClusterResult =&gt; getClusterResult)).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -125,7 +123,7 @@ namespace Pulumi.Aws.RedShift
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The cluster identifier
@@ -148,9 +146,10 @@ namespace Pulumi.Aws.RedShift
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The cluster identifier
@@ -173,6 +172,7 @@ namespace Pulumi.Aws.RedShift
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

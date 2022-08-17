@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
-// 			PrefixListId:               pulumi.Any(aws_ec2_managed_prefix_list.Example.Id),
-// 			TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-// 			TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
+//				PrefixListId:               pulumi.Any(aws_ec2_managed_prefix_list.Example.Id),
+//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Blackhole Routing
 //
@@ -44,23 +47,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
-// 			Blackhole:                  pulumi.Bool(true),
-// 			PrefixListId:               pulumi.Any(aws_ec2_managed_prefix_list.Example.Id),
-// 			TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
+//				Blackhole:                  pulumi.Bool(true),
+//				PrefixListId:               pulumi.Any(aws_ec2_managed_prefix_list.Example.Id),
+//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +74,9 @@ import (
 // `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+//
+//	$ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+//
 // ```
 type PrefixListReference struct {
 	pulumi.CustomResourceState
@@ -195,7 +203,7 @@ func (i *PrefixListReference) ToPrefixListReferenceOutputWithContext(ctx context
 // PrefixListReferenceArrayInput is an input type that accepts PrefixListReferenceArray and PrefixListReferenceArrayOutput values.
 // You can construct a concrete instance of `PrefixListReferenceArrayInput` via:
 //
-//          PrefixListReferenceArray{ PrefixListReferenceArgs{...} }
+//	PrefixListReferenceArray{ PrefixListReferenceArgs{...} }
 type PrefixListReferenceArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +228,7 @@ func (i PrefixListReferenceArray) ToPrefixListReferenceArrayOutputWithContext(ct
 // PrefixListReferenceMapInput is an input type that accepts PrefixListReferenceMap and PrefixListReferenceMapOutput values.
 // You can construct a concrete instance of `PrefixListReferenceMapInput` via:
 //
-//          PrefixListReferenceMap{ "key": PrefixListReferenceArgs{...} }
+//	PrefixListReferenceMap{ "key": PrefixListReferenceArgs{...} }
 type PrefixListReferenceMapInput interface {
 	pulumi.Input
 

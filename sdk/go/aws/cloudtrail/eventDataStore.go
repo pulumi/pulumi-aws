@@ -25,19 +25,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudtrail.NewEventDataStore(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudtrail.NewEventDataStore(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Data Event Logging
 //
@@ -50,58 +53,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		table, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
-// 			Name: "not-important-dynamodb-table",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
-// 			AdvancedEventSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorArray{
-// 				&cloudtrail.EventDataStoreAdvancedEventSelectorArgs{
-// 					Name: pulumi.String("Log all DynamoDB PutEvent actions for a specific DynamoDB table"),
-// 					FieldSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArray{
-// 						&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-// 							Field: pulumi.String("eventCategory"),
-// 							Equals: pulumi.StringArray{
-// 								pulumi.String("Data"),
-// 							},
-// 						},
-// 						&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-// 							Field: pulumi.String("resources.type"),
-// 							Equals: pulumi.StringArray{
-// 								pulumi.String("AWS::DynamoDB::Table"),
-// 							},
-// 						},
-// 						&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-// 							Field: pulumi.String("eventName"),
-// 							Equals: pulumi.StringArray{
-// 								pulumi.String("PutItem"),
-// 							},
-// 						},
-// 						&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-// 							Field: pulumi.String("resources.ARN"),
-// 							Equals: pulumi.StringArray{
-// 								pulumi.String(table.Arn),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			table, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
+//				Name: "not-important-dynamodb-table",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
+//				AdvancedEventSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorArray{
+//					&cloudtrail.EventDataStoreAdvancedEventSelectorArgs{
+//						Name: pulumi.String("Log all DynamoDB PutEvent actions for a specific DynamoDB table"),
+//						FieldSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArray{
+//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventCategory"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("Data"),
+//								},
+//							},
+//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.type"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("AWS::DynamoDB::Table"),
+//								},
+//							},
+//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("eventName"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String("PutItem"),
+//								},
+//							},
+//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
+//								Field: pulumi.String("resources.ARN"),
+//								Equals: pulumi.StringArray{
+//									pulumi.String(table.Arn),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -109,7 +115,9 @@ import (
 // Event data stores can be imported using their `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+//
+//	$ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+//
 // ```
 type EventDataStore struct {
 	pulumi.CustomResourceState
@@ -127,8 +135,7 @@ type EventDataStore struct {
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"terminationProtectionEnabled"`
@@ -176,8 +183,7 @@ type eventDataStoreState struct {
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
@@ -197,8 +203,7 @@ type EventDataStoreState struct {
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled pulumi.BoolPtrInput
@@ -269,7 +274,7 @@ func (i *EventDataStore) ToEventDataStoreOutputWithContext(ctx context.Context) 
 // EventDataStoreArrayInput is an input type that accepts EventDataStoreArray and EventDataStoreArrayOutput values.
 // You can construct a concrete instance of `EventDataStoreArrayInput` via:
 //
-//          EventDataStoreArray{ EventDataStoreArgs{...} }
+//	EventDataStoreArray{ EventDataStoreArgs{...} }
 type EventDataStoreArrayInput interface {
 	pulumi.Input
 
@@ -294,7 +299,7 @@ func (i EventDataStoreArray) ToEventDataStoreArrayOutputWithContext(ctx context.
 // EventDataStoreMapInput is an input type that accepts EventDataStoreMap and EventDataStoreMapOutput values.
 // You can construct a concrete instance of `EventDataStoreMapInput` via:
 //
-//          EventDataStoreMap{ "key": EventDataStoreArgs{...} }
+//	EventDataStoreMap{ "key": EventDataStoreArgs{...} }
 type EventDataStoreMapInput interface {
 	pulumi.Input
 
@@ -367,7 +372,6 @@ func (o EventDataStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o EventDataStoreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

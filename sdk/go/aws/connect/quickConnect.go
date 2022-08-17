@@ -20,33 +20,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
-// 			Description: pulumi.String("quick connect phone number"),
-// 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
-// 				PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
-// 					&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
-// 						PhoneNumber: pulumi.String("+12345678912"),
-// 					},
-// 				},
-// 				QuickConnectType: pulumi.String("PHONE_NUMBER"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Quick Connect"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
+//				Description: pulumi.String("quick connect phone number"),
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
+//					PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
+//						&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
+//							PhoneNumber: pulumi.String("+12345678912"),
+//						},
+//					},
+//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Quick Connect"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Amazon Connect Quick Connects can be imported using the `instance_id` and `quick_connect_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type QuickConnect struct {
 	pulumi.CustomResourceState
@@ -72,8 +77,7 @@ type QuickConnect struct {
 	// The identifier for the Quick Connect.
 	QuickConnectId pulumi.StringOutput `pulumi:"quickConnectId"`
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -125,8 +129,7 @@ type quickConnectState struct {
 	// The identifier for the Quick Connect.
 	QuickConnectId *string `pulumi:"quickConnectId"`
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -144,8 +147,7 @@ type QuickConnectState struct {
 	// The identifier for the Quick Connect.
 	QuickConnectId pulumi.StringPtrInput
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -206,7 +208,7 @@ func (i *QuickConnect) ToQuickConnectOutputWithContext(ctx context.Context) Quic
 // QuickConnectArrayInput is an input type that accepts QuickConnectArray and QuickConnectArrayOutput values.
 // You can construct a concrete instance of `QuickConnectArrayInput` via:
 //
-//          QuickConnectArray{ QuickConnectArgs{...} }
+//	QuickConnectArray{ QuickConnectArgs{...} }
 type QuickConnectArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +233,7 @@ func (i QuickConnectArray) ToQuickConnectArrayOutputWithContext(ctx context.Cont
 // QuickConnectMapInput is an input type that accepts QuickConnectMap and QuickConnectMapOutput values.
 // You can construct a concrete instance of `QuickConnectMapInput` via:
 //
-//          QuickConnectMap{ "key": QuickConnectArgs{...} }
+//	QuickConnectMap{ "key": QuickConnectArgs{...} }
 type QuickConnectMapInput interface {
 	pulumi.Input
 
@@ -302,7 +304,6 @@ func (o QuickConnectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o QuickConnectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

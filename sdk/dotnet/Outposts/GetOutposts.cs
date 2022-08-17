@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetOutposts.InvokeAsync(new Aws.Outposts.GetOutpostsArgs
-        ///         {
-        ///             SiteId = data.Aws_outposts_site.Id,
-        ///         }));
-        ///     }
+        ///         SiteId = data.Aws_outposts_site.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetOutposts.InvokeAsync(new Aws.Outposts.GetOutpostsArgs
-        ///         {
-        ///             SiteId = data.Aws_outposts_site.Id,
-        ///         }));
-        ///     }
+        ///         SiteId = data.Aws_outposts_site.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetOutpostsArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Availability Zone name.
@@ -100,9 +96,10 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostsArgs()
         {
         }
+        public static new GetOutpostsArgs Empty => new GetOutpostsArgs();
     }
 
-    public sealed class GetOutpostsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Availability Zone name.
@@ -131,6 +128,7 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostsInvokeArgs()
         {
         }
+        public static new GetOutpostsInvokeArgs Empty => new GetOutpostsInvokeArgs();
     }
 
 

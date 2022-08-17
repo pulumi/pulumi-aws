@@ -16,141 +16,137 @@ namespace Pulumi.Aws.S3
     /// ### Encrypting with KMS Key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplekms = new Aws.Kms.Key("examplekms", new()
     ///     {
-    ///         var examplekms = new Aws.Kms.Key("examplekms", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "KMS key 1",
-    ///             DeletionWindowInDays = 7,
-    ///         });
-    ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = examplebucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Key = "someobject",
-    ///             Bucket = examplebucket.Id,
-    ///             Source = new FileAsset("index.html"),
-    ///             KmsKeyId = examplekms.Arn,
-    ///         });
-    ///     }
+    ///         Description = "KMS key 1",
+    ///         DeletionWindowInDays = 7,
+    ///     });
     /// 
-    /// }
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("index.html"),
+    ///         KmsKeyId = examplekms.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Server Side Encryption with S3 Default Master Key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = examplebucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Key = "someobject",
-    ///             Bucket = examplebucket.Id,
-    ///             Source = new FileAsset("index.html"),
-    ///             ServerSideEncryption = "aws:kms",
-    ///         });
-    ///     }
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
     /// 
-    /// }
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("index.html"),
+    ///         ServerSideEncryption = "aws:kms",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Server Side Encryption with AWS-Managed Key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = examplebucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Key = "someobject",
-    ///             Bucket = examplebucket.Id,
-    ///             Source = new FileAsset("index.html"),
-    ///             ServerSideEncryption = "AES256",
-    ///         });
-    ///     }
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
     /// 
-    /// }
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("index.html"),
+    ///         ServerSideEncryption = "AES256",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### S3 Object Lock
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
     ///     {
-    ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///             ObjectLockEnabled = true,
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = examplebucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
-    ///         {
-    ///             Bucket = examplebucket.Id,
-    ///             VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
-    ///             {
-    ///                 Status = "Enabled",
-    ///             },
-    ///         });
-    ///         var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucketObject", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Key = "someobject",
-    ///             Bucket = examplebucket.Id,
-    ///             Source = new FileAsset("important.txt"),
-    ///             ObjectLockLegalHoldStatus = "ON",
-    ///             ObjectLockMode = "GOVERNANCE",
-    ///             ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
-    ///             ForceDestroy = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleBucketVersioningV2,
-    ///             },
-    ///         });
-    ///     }
+    ///         ObjectLockEnabled = true,
+    ///     });
     /// 
-    /// }
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucketObject", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("important.txt"),
+    ///         ObjectLockLegalHoldStatus = "ON",
+    ///         ObjectLockMode = "GOVERNANCE",
+    ///         ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
+    ///         ForceDestroy = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleBucketVersioningV2,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -168,7 +164,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObjectv2:BucketObjectv2")]
-    public partial class BucketObjectv2 : Pulumi.CustomResource
+    public partial class BucketObjectv2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
@@ -302,9 +298,6 @@ namespace Pulumi.Aws.S3
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -345,7 +338,7 @@ namespace Pulumi.Aws.S3
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:s3/BucketObject:BucketObject"},
+                    new global::Pulumi.Alias { Type = "aws:s3/BucketObject:BucketObject"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -368,7 +361,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketObjectv2Args : Pulumi.ResourceArgs
+    public sealed class BucketObjectv2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
@@ -523,9 +516,10 @@ namespace Pulumi.Aws.S3
         public BucketObjectv2Args()
         {
         }
+        public static new BucketObjectv2Args Empty => new BucketObjectv2Args();
     }
 
-    public sealed class BucketObjectv2State : Pulumi.ResourceArgs
+    public sealed class BucketObjectv2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
@@ -673,10 +667,6 @@ namespace Pulumi.Aws.S3
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -698,5 +688,6 @@ namespace Pulumi.Aws.S3
         public BucketObjectv2State()
         {
         }
+        public static new BucketObjectv2State Empty => new BucketObjectv2State();
     }
 }

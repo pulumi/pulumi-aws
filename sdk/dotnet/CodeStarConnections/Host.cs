@@ -17,21 +17,19 @@ namespace Pulumi.Aws.CodeStarConnections
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeStarConnections.Host("example", new()
     ///     {
-    ///         var example = new Aws.CodeStarConnections.Host("example", new Aws.CodeStarConnections.HostArgs
-    ///         {
-    ///             ProviderEndpoint = "https://example.com",
-    ///             ProviderType = "GitHubEnterpriseServer",
-    ///         });
-    ///     }
+    ///         ProviderEndpoint = "https://example.com",
+    ///         ProviderType = "GitHubEnterpriseServer",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.CodeStarConnections
     /// ```
     /// </summary>
     [AwsResourceType("aws:codestarconnections/host:Host")]
-    public partial class Host : Pulumi.CustomResource
+    public partial class Host : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CodeStar Host ARN.
@@ -125,7 +123,7 @@ namespace Pulumi.Aws.CodeStarConnections
         }
     }
 
-    public sealed class HostArgs : Pulumi.ResourceArgs
+    public sealed class HostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
@@ -154,9 +152,10 @@ namespace Pulumi.Aws.CodeStarConnections
         public HostArgs()
         {
         }
+        public static new HostArgs Empty => new HostArgs();
     }
 
-    public sealed class HostState : Pulumi.ResourceArgs
+    public sealed class HostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CodeStar Host ARN.
@@ -197,5 +196,6 @@ namespace Pulumi.Aws.CodeStarConnections
         public HostState()
         {
         }
+        public static new HostState Empty => new HostState();
     }
 }

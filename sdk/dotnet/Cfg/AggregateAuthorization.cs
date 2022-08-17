@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cfg.AggregateAuthorization("example", new()
     ///     {
-    ///         var example = new Aws.Cfg.AggregateAuthorization("example", new Aws.Cfg.AggregateAuthorizationArgs
-    ///         {
-    ///             AccountId = "123456789012",
-    ///             Region = "eu-west-2",
-    ///         });
-    ///     }
+    ///         AccountId = "123456789012",
+    ///         Region = "eu-west-2",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/aggregateAuthorization:AggregateAuthorization")]
-    public partial class AggregateAuthorization : Pulumi.CustomResource
+    public partial class AggregateAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Account ID
@@ -68,7 +66,7 @@ namespace Pulumi.Aws.Cfg
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class AggregateAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class AggregateAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account ID
@@ -146,9 +144,10 @@ namespace Pulumi.Aws.Cfg
         public AggregateAuthorizationArgs()
         {
         }
+        public static new AggregateAuthorizationArgs Empty => new AggregateAuthorizationArgs();
     }
 
-    public sealed class AggregateAuthorizationState : Pulumi.ResourceArgs
+    public sealed class AggregateAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account ID
@@ -184,7 +183,7 @@ namespace Pulumi.Aws.Cfg
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -195,5 +194,6 @@ namespace Pulumi.Aws.Cfg
         public AggregateAuthorizationState()
         {
         }
+        public static new AggregateAuthorizationState Empty => new AggregateAuthorizationState();
     }
 }

@@ -15,27 +15,25 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkManager.Link("example", new()
     ///     {
-    ///         var example = new Aws.NetworkManager.Link("example", new Aws.NetworkManager.LinkArgs
+    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         SiteId = aws_networkmanager_global_site.Example.Id,
+    ///         Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
     ///         {
-    ///             GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///             SiteId = aws_networkmanager_global_site.Example.Id,
-    ///             Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
-    ///             {
-    ///                 UploadSpeed = 10,
-    ///                 DownloadSpeed = 50,
-    ///             },
-    ///             ProviderName = "MegaCorp",
-    ///         });
-    ///     }
+    ///             UploadSpeed = 10,
+    ///             DownloadSpeed = 50,
+    ///         },
+    ///         ProviderName = "MegaCorp",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/link:Link")]
-    public partial class Link : Pulumi.CustomResource
+    public partial class Link : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Link Amazon Resource Name (ARN).
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class LinkArgs : Pulumi.ResourceArgs
+    public sealed class LinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The upload speed and download speed in Mbps. Documented below.
@@ -190,9 +188,10 @@ namespace Pulumi.Aws.NetworkManager
         public LinkArgs()
         {
         }
+        public static new LinkArgs Empty => new LinkArgs();
     }
 
-    public sealed class LinkState : Pulumi.ResourceArgs
+    public sealed class LinkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Link Amazon Resource Name (ARN).
@@ -255,5 +254,6 @@ namespace Pulumi.Aws.NetworkManager
         public LinkState()
         {
         }
+        public static new LinkState Empty => new LinkState();
     }
 }

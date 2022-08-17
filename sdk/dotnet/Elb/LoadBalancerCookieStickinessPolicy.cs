@@ -15,43 +15,42 @@ namespace Pulumi.Aws.Elb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
-    ///         var lb = new Aws.Elb.LoadBalancer("lb", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 80,
-    ///                     LbProtocol = "http",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var foo = new Aws.Elb.LoadBalancerCookieStickinessPolicy("foo", new Aws.Elb.LoadBalancerCookieStickinessPolicyArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             LoadBalancer = lb.Id,
-    ///             LbPort = 80,
-    ///             CookieExpirationPeriod = 600,
-    ///         });
-    ///     }
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             {
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 80,
+    ///                 LbProtocol = "http",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Elb.LoadBalancerCookieStickinessPolicy("foo", new()
+    ///     {
+    ///         LoadBalancer = lb.Id,
+    ///         LbPort = 80,
+    ///         CookieExpirationPeriod = 600,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")]
-    public partial class LoadBalancerCookieStickinessPolicy : Pulumi.CustomResource
+    public partial class LoadBalancerCookieStickinessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time period after which
@@ -106,7 +105,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +128,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
-    public sealed class LoadBalancerCookieStickinessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time period after which
@@ -162,9 +161,10 @@ namespace Pulumi.Aws.Elb
         public LoadBalancerCookieStickinessPolicyArgs()
         {
         }
+        public static new LoadBalancerCookieStickinessPolicyArgs Empty => new LoadBalancerCookieStickinessPolicyArgs();
     }
 
-    public sealed class LoadBalancerCookieStickinessPolicyState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerCookieStickinessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time period after which
@@ -197,5 +197,6 @@ namespace Pulumi.Aws.Elb
         public LoadBalancerCookieStickinessPolicyState()
         {
         }
+        public static new LoadBalancerCookieStickinessPolicyState Empty => new LoadBalancerCookieStickinessPolicyState();
     }
 }

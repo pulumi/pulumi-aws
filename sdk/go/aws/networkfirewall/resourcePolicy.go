@@ -20,46 +20,49 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": []string{
-// 						"network-firewall:ListFirewallPolicies",
-// 						"network-firewall:CreateFirewall",
-// 						"network-firewall:UpdateFirewall",
-// 						"network-firewall:AssociateFirewallPolicy",
-// 					},
-// 					"Effect":   "Allow",
-// 					"Resource": aws_networkfirewall_firewall_policy.Example.Arn,
-// 					"Principal": map[string]interface{}{
-// 						"AWS": "arn:aws:iam::123456789012:root",
-// 					},
-// 				},
-// 			},
-// 			"Version": "2012-10-17",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
-// 			ResourceArn: pulumi.Any(aws_networkfirewall_firewall_policy.Example.Arn),
-// 			Policy:      pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"network-firewall:ListFirewallPolicies",
+//							"network-firewall:CreateFirewall",
+//							"network-firewall:UpdateFirewall",
+//							"network-firewall:AssociateFirewallPolicy",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": aws_networkfirewall_firewall_policy.Example.Arn,
+//						"Principal": map[string]interface{}{
+//							"AWS": "arn:aws:iam::123456789012:root",
+//						},
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
+//				ResourceArn: pulumi.Any(aws_networkfirewall_firewall_policy.Example.Arn),
+//				Policy:      pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### For a Rule Group resource
 //
@@ -67,45 +70,48 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": []string{
-// 						"network-firewall:ListRuleGroups",
-// 						"network-firewall:CreateFirewallPolicy",
-// 						"network-firewall:UpdateFirewallPolicy",
-// 					},
-// 					"Effect":   "Allow",
-// 					"Resource": aws_networkfirewall_rule_group.Example.Arn,
-// 					"Principal": map[string]interface{}{
-// 						"AWS": "arn:aws:iam::123456789012:root",
-// 					},
-// 				},
-// 			},
-// 			"Version": "2012-10-17",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
-// 			ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
-// 			Policy:      pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"network-firewall:ListRuleGroups",
+//							"network-firewall:CreateFirewallPolicy",
+//							"network-firewall:UpdateFirewallPolicy",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": aws_networkfirewall_rule_group.Example.Arn,
+//						"Principal": map[string]interface{}{
+//							"AWS": "arn:aws:iam::123456789012:root",
+//						},
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
+//				ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//				Policy:      pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -113,7 +119,9 @@ import (
 // Network Firewall Resource Policies can be imported using the `resource_arn` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+//
+//	$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+//
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
@@ -212,7 +220,7 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 // ResourcePolicyArrayInput is an input type that accepts ResourcePolicyArray and ResourcePolicyArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyArrayInput` via:
 //
-//          ResourcePolicyArray{ ResourcePolicyArgs{...} }
+//	ResourcePolicyArray{ ResourcePolicyArgs{...} }
 type ResourcePolicyArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +245,7 @@ func (i ResourcePolicyArray) ToResourcePolicyArrayOutputWithContext(ctx context.
 // ResourcePolicyMapInput is an input type that accepts ResourcePolicyMap and ResourcePolicyMapOutput values.
 // You can construct a concrete instance of `ResourcePolicyMapInput` via:
 //
-//          ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
+//	ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
 type ResourcePolicyMapInput interface {
 	pulumi.Input
 

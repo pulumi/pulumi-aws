@@ -22,42 +22,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
-// 			Bucket: "bucket.test.com",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-// 			Name: pulumi.StringRef("test.com."),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-// 			ZoneId: pulumi.String(testZone.Id),
-// 			Name:   pulumi.String("bucket"),
-// 			Type:   pulumi.String("A"),
-// 			Aliases: route53.RecordAliasArray{
-// 				&route53.RecordAliasArgs{
-// 					Name:   pulumi.String(selected.WebsiteDomain),
-// 					ZoneId: pulumi.String(selected.HostedZoneId),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "bucket.test.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+//				Name: pulumi.StringRef("test.com."),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
+//				ZoneId: pulumi.String(testZone.Id),
+//				Name:   pulumi.String("bucket"),
+//				Type:   pulumi.String("A"),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name:   pulumi.String(selected.WebsiteDomain),
+//						ZoneId: pulumi.String(selected.HostedZoneId),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### CloudFront Origin
 //
@@ -65,33 +68,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
-// 			Bucket: "a-test-bucket",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudfront.NewDistribution(ctx, "test", &cloudfront.DistributionArgs{
-// 			Origins: cloudfront.DistributionOriginArray{
-// 				&cloudfront.DistributionOriginArgs{
-// 					DomainName: pulumi.String(selected.BucketDomainName),
-// 					OriginId:   pulumi.String("s3-selected-bucket"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "a-test-bucket",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewDistribution(ctx, "test", &cloudfront.DistributionArgs{
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: pulumi.String(selected.BucketDomainName),
+//						OriginId:   pulumi.String("s3-selected-bucket"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	var rv LookupBucketResult

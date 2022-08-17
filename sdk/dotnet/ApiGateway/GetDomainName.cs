@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGateway.GetDomainName.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGateway.GetDomainName.InvokeAsync(new Aws.ApiGateway.GetDomainNameArgs
-        ///         {
-        ///             DomainName = "api.example.com",
-        ///         }));
-        ///     }
+        ///         DomainName = "api.example.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ApiGateway.GetDomainName.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ApiGateway.GetDomainName.InvokeAsync(new Aws.ApiGateway.GetDomainNameArgs
-        ///         {
-        ///             DomainName = "api.example.com",
-        ///         }));
-        ///     }
+        ///         DomainName = "api.example.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetDomainNameArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetDomainNameArgs()
         {
         }
+        public static new GetDomainNameArgs Empty => new GetDomainNameArgs();
     }
 
-    public sealed class GetDomainNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetDomainNameInvokeArgs()
         {
         }
+        public static new GetDomainNameInvokeArgs Empty => new GetDomainNameInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<string>? _items;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs()
         {
         }
+        public static new ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs Empty => new ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs();
     }
 }

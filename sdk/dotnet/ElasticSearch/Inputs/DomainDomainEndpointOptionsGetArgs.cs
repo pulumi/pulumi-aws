@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainDomainEndpointOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainDomainEndpointOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified domain for your custom endpoint.
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainDomainEndpointOptionsGetArgs()
         {
         }
+        public static new DomainDomainEndpointOptionsGetArgs Empty => new DomainDomainEndpointOptionsGetArgs();
     }
 }

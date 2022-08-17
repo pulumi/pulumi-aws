@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetImagePipeline.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetImagePipeline.InvokeAsync(new Aws.ImageBuilder.GetImagePipelineArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetImagePipeline.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetImagePipeline.InvokeAsync(new Aws.ImageBuilder.GetImagePipelineArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetImagePipelineArgs : Pulumi.InvokeArgs
+    public sealed class GetImagePipelineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the image pipeline.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetImagePipelineArgs()
         {
         }
+        public static new GetImagePipelineArgs Empty => new GetImagePipelineArgs();
     }
 
-    public sealed class GetImagePipelineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImagePipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the image pipeline.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetImagePipelineInvokeArgs()
         {
         }
+        public static new GetImagePipelineInvokeArgs Empty => new GetImagePipelineInvokeArgs();
     }
 
 

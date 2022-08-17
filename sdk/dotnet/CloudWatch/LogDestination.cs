@@ -15,21 +15,19 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
     ///     {
-    ///         var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new Aws.CloudWatch.LogDestinationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
-    ///             TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
-    ///         });
-    ///     }
+    ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
+    ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logDestination:LogDestination")]
-    public partial class LogDestination : Pulumi.CustomResource
+    public partial class LogDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log destination.
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogDestinationArgs : Pulumi.ResourceArgs
+    public sealed class LogDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for the log destination
@@ -134,9 +132,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogDestinationArgs()
         {
         }
+        public static new LogDestinationArgs Empty => new LogDestinationArgs();
     }
 
-    public sealed class LogDestinationState : Pulumi.ResourceArgs
+    public sealed class LogDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log destination.
@@ -165,5 +164,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogDestinationState()
         {
         }
+        public static new LogDestinationState Empty => new LogDestinationState();
     }
 }

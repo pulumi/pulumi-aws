@@ -20,62 +20,65 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Version": "2012-10-17",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": "sts:AssumeRole",
-// 					"Effect": "Allow",
-// 					"Sid":    "",
-// 					"Principal": map[string]interface{}{
-// 						"Service": "grafana.amazonaws.com",
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
-// 			AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
-// 			AuthenticationProviders: pulumi.StringArray{
-// 				pulumi.String("SAML"),
-// 			},
-// 			PermissionType: pulumi.String("SERVICE_MANAGED"),
-// 			RoleArn:        assume.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = grafana.NewWorkspaceSamlConfiguration(ctx, "exampleWorkspaceSamlConfiguration", &grafana.WorkspaceSamlConfigurationArgs{
-// 			EditorRoleValues: pulumi.StringArray{
-// 				pulumi.String("editor"),
-// 			},
-// 			IdpMetadataUrl: pulumi.String("https://my_idp_metadata.url"),
-// 			WorkspaceId:    exampleWorkspace.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "grafana.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
+//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
+//				AuthenticationProviders: pulumi.StringArray{
+//					pulumi.String("SAML"),
+//				},
+//				PermissionType: pulumi.String("SERVICE_MANAGED"),
+//				RoleArn:        assume.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = grafana.NewWorkspaceSamlConfiguration(ctx, "exampleWorkspaceSamlConfiguration", &grafana.WorkspaceSamlConfigurationArgs{
+//				EditorRoleValues: pulumi.StringArray{
+//					pulumi.String("editor"),
+//				},
+//				IdpMetadataUrl: pulumi.String("https://my_idp_metadata.url"),
+//				WorkspaceId:    exampleWorkspace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Grafana Workspace SAML configuration can be imported using the workspace's `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+//
+//	$ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+//
 // ```
 type WorkspaceSamlConfiguration struct {
 	pulumi.CustomResourceState
@@ -303,7 +308,7 @@ func (i *WorkspaceSamlConfiguration) ToWorkspaceSamlConfigurationOutputWithConte
 // WorkspaceSamlConfigurationArrayInput is an input type that accepts WorkspaceSamlConfigurationArray and WorkspaceSamlConfigurationArrayOutput values.
 // You can construct a concrete instance of `WorkspaceSamlConfigurationArrayInput` via:
 //
-//          WorkspaceSamlConfigurationArray{ WorkspaceSamlConfigurationArgs{...} }
+//	WorkspaceSamlConfigurationArray{ WorkspaceSamlConfigurationArgs{...} }
 type WorkspaceSamlConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -328,7 +333,7 @@ func (i WorkspaceSamlConfigurationArray) ToWorkspaceSamlConfigurationArrayOutput
 // WorkspaceSamlConfigurationMapInput is an input type that accepts WorkspaceSamlConfigurationMap and WorkspaceSamlConfigurationMapOutput values.
 // You can construct a concrete instance of `WorkspaceSamlConfigurationMapInput` via:
 //
-//          WorkspaceSamlConfigurationMap{ "key": WorkspaceSamlConfigurationArgs{...} }
+//	WorkspaceSamlConfigurationMap{ "key": WorkspaceSamlConfigurationArgs{...} }
 type WorkspaceSamlConfigurationMapInput interface {
 	pulumi.Input
 

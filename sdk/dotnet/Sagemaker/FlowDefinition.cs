@@ -16,107 +16,102 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.FlowDefinition("example", new Aws.Sagemaker.FlowDefinitionArgs
+    ///         FlowDefinitionName = "example",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             FlowDefinitionName = "example",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
-    ///             {
-    ///                 HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
-    ///                 TaskAvailabilityLifetimeInSeconds = 1,
-    ///                 TaskCount = 1,
-    ///                 TaskDescription = "example",
-    ///                 TaskTitle = "example",
-    ///                 WorkteamArn = aws_sagemaker_workteam.Example.Arn,
-    ///             },
-    ///             OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
-    ///             {
-    ///                 S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
-    ///             },
-    ///         });
-    ///     }
+    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             TaskAvailabilityLifetimeInSeconds = 1,
+    ///             TaskCount = 1,
+    ///             TaskDescription = "example",
+    ///             TaskTitle = "example",
+    ///             WorkteamArn = aws_sagemaker_workteam.Example.Arn,
+    ///         },
+    ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
+    ///         {
+    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Public Workteam Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.FlowDefinition("example", new Aws.Sagemaker.FlowDefinitionArgs
+    ///         FlowDefinitionName = "example",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             FlowDefinitionName = "example",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
+    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             TaskAvailabilityLifetimeInSeconds = 1,
+    ///             TaskCount = 1,
+    ///             TaskDescription = "example",
+    ///             TaskTitle = "example",
+    ///             WorkteamArn = $"arn:aws:sagemaker:{data.Aws_region.Current.Name}:394669845002:workteam/public-crowd/default",
+    ///             PublicWorkforceTaskPrice = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
     ///             {
-    ///                 HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
-    ///                 TaskAvailabilityLifetimeInSeconds = 1,
-    ///                 TaskCount = 1,
-    ///                 TaskDescription = "example",
-    ///                 TaskTitle = "example",
-    ///                 WorkteamArn = $"arn:aws:sagemaker:{data.Aws_region.Current.Name}:394669845002:workteam/public-crowd/default",
-    ///                 PublicWorkforceTaskPrice = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
+    ///                 AmountInUsd = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs
     ///                 {
-    ///                     AmountInUsd = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs
-    ///                     {
-    ///                         Cents = 1,
-    ///                         TenthFractionsOfACent = 2,
-    ///                     },
+    ///                     Cents = 1,
+    ///                     TenthFractionsOfACent = 2,
     ///                 },
     ///             },
-    ///             OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
-    ///             {
-    ///                 S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
+    ///         {
+    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Human Loop Activation Config Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.FlowDefinition("example", new Aws.Sagemaker.FlowDefinitionArgs
+    ///         FlowDefinitionName = "example",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             FlowDefinitionName = "example",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
+    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             TaskAvailabilityLifetimeInSeconds = 1,
+    ///             TaskCount = 1,
+    ///             TaskDescription = "example",
+    ///             TaskTitle = "example",
+    ///             WorkteamArn = aws_sagemaker_workteam.Example.Arn,
+    ///         },
+    ///         HumanLoopRequestSource = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopRequestSourceArgs
+    ///         {
+    ///             AwsManagedHumanLoopRequestSource = "AWS/Textract/AnalyzeDocument/Forms/V1",
+    ///         },
+    ///         HumanLoopActivationConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopActivationConfigArgs
+    ///         {
+    ///             HumanLoopActivationConditionsConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs
     ///             {
-    ///                 HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
-    ///                 TaskAvailabilityLifetimeInSeconds = 1,
-    ///                 TaskCount = 1,
-    ///                 TaskDescription = "example",
-    ///                 TaskTitle = "example",
-    ///                 WorkteamArn = aws_sagemaker_workteam.Example.Arn,
-    ///             },
-    ///             HumanLoopRequestSource = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopRequestSourceArgs
-    ///             {
-    ///                 AwsManagedHumanLoopRequestSource = "AWS/Textract/AnalyzeDocument/Forms/V1",
-    ///             },
-    ///             HumanLoopActivationConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopActivationConfigArgs
-    ///             {
-    ///                 HumanLoopActivationConditionsConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs
-    ///                 {
-    ///                     HumanLoopActivationConditions = @"        {
+    ///                 HumanLoopActivationConditions = @"        {
     /// 			""Conditions"": [
     /// 			  {
     /// 				""ConditionType"": ""Sampling"",
@@ -127,16 +122,15 @@ namespace Pulumi.Aws.Sagemaker
     /// 			]
     /// 		}
     /// ",
-    ///                 },
     ///             },
-    ///             OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
-    ///             {
-    ///                 S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
+    ///         {
+    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -148,7 +142,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/flowDefinition:FlowDefinition")]
-    public partial class FlowDefinition : Pulumi.CustomResource
+    public partial class FlowDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
@@ -248,7 +242,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class FlowDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of your flow definition.
@@ -301,9 +295,10 @@ namespace Pulumi.Aws.Sagemaker
         public FlowDefinitionArgs()
         {
         }
+        public static new FlowDefinitionArgs Empty => new FlowDefinitionArgs();
     }
 
-    public sealed class FlowDefinitionState : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
@@ -374,5 +369,6 @@ namespace Pulumi.Aws.Sagemaker
         public FlowDefinitionState()
         {
         }
+        public static new FlowDefinitionState Empty => new FlowDefinitionState();
     }
 }

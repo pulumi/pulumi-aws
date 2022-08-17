@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail.Inputs
 {
 
-    public sealed class ContainerServicePublicDomainNamesCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServicePublicDomainNamesCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateName", required: true)]
         public Input<string> CertificateName { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.LightSail.Inputs
         public ContainerServicePublicDomainNamesCertificateGetArgs()
         {
         }
+        public static new ContainerServicePublicDomainNamesCertificateGetArgs Empty => new ContainerServicePublicDomainNamesCertificateGetArgs();
     }
 }

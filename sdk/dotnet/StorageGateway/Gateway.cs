@@ -18,145 +18,135 @@ namespace Pulumi.Aws.StorageGateway
     /// ### Local Cache
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testVolumeAttachment = new Aws.Ec2.VolumeAttachment("testVolumeAttachment", new()
     ///     {
-    ///         var testVolumeAttachment = new Aws.Ec2.VolumeAttachment("testVolumeAttachment", new Aws.Ec2.VolumeAttachmentArgs
-    ///         {
-    ///             DeviceName = "/dev/xvdb",
-    ///             VolumeId = aws_ebs_volume.Test.Id,
-    ///             InstanceId = aws_instance.Test.Id,
-    ///         });
-    ///         var testLocalDisk = testVolumeAttachment.DeviceName.Apply(deviceName =&gt; Aws.StorageGateway.GetLocalDisk.Invoke(new Aws.StorageGateway.GetLocalDiskInvokeArgs
-    ///         {
-    ///             DiskNode = deviceName,
-    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///         }));
-    ///         var testCache = new Aws.StorageGateway.Cache("testCache", new Aws.StorageGateway.CacheArgs
-    ///         {
-    ///             DiskId = testLocalDisk.Apply(testLocalDisk =&gt; testLocalDisk.DiskId),
-    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///         });
-    ///     }
+    ///         DeviceName = "/dev/xvdb",
+    ///         VolumeId = aws_ebs_volume.Test.Id,
+    ///         InstanceId = aws_instance.Test.Id,
+    ///     });
     /// 
-    /// }
+    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
+    ///     {
+    ///         DiskNode = testVolumeAttachment.DeviceName,
+    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///     });
+    /// 
+    ///     var testCache = new Aws.StorageGateway.Cache("testCache", new()
+    ///     {
+    ///         DiskId = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskId),
+    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### FSx File Gateway
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "FILE_FSX_SMB",
+    ///         SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
     ///         {
-    ///             GatewayIpAddress = "1.2.3.4",
-    ///             GatewayName = "example",
-    ///             GatewayTimezone = "GMT",
-    ///             GatewayType = "FILE_FSX_SMB",
-    ///             SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
-    ///             {
-    ///                 DomainName = "corp.example.com",
-    ///                 Password = "avoid-plaintext-passwords",
-    ///                 Username = "Admin",
-    ///             },
-    ///         });
-    ///     }
+    ///             DomainName = "corp.example.com",
+    ///             Password = "avoid-plaintext-passwords",
+    ///             Username = "Admin",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### S3 File Gateway
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
-    ///         {
-    ///             GatewayIpAddress = "1.2.3.4",
-    ///             GatewayName = "example",
-    ///             GatewayTimezone = "GMT",
-    ///             GatewayType = "FILE_S3",
-    ///         });
-    ///     }
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "FILE_S3",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Tape Gateway
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
-    ///         {
-    ///             GatewayIpAddress = "1.2.3.4",
-    ///             GatewayName = "example",
-    ///             GatewayTimezone = "GMT",
-    ///             GatewayType = "VTL",
-    ///             MediumChangerType = "AWS-Gateway-VTL",
-    ///             TapeDriveType = "IBM-ULT3580-TD5",
-    ///         });
-    ///     }
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "VTL",
+    ///         MediumChangerType = "AWS-Gateway-VTL",
+    ///         TapeDriveType = "IBM-ULT3580-TD5",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Volume Gateway (Cached)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
-    ///         {
-    ///             GatewayIpAddress = "1.2.3.4",
-    ///             GatewayName = "example",
-    ///             GatewayTimezone = "GMT",
-    ///             GatewayType = "CACHED",
-    ///         });
-    ///     }
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "CACHED",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Volume Gateway (Stored)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
-    ///         {
-    ///             GatewayIpAddress = "1.2.3.4",
-    ///             GatewayName = "example",
-    ///             GatewayTimezone = "GMT",
-    ///             GatewayType = "STORED",
-    ///         });
-    ///     }
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "STORED",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -170,7 +160,7 @@ namespace Pulumi.Aws.StorageGateway
     ///  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
     /// </summary>
     [AwsResourceType("aws:storagegateway/gateway:Gateway")]
-    public partial class Gateway : Pulumi.CustomResource
+    public partial class Gateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -299,13 +289,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> SmbSecurityStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -360,7 +350,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class GatewayArgs : Pulumi.ResourceArgs
+    public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -456,7 +446,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -473,9 +463,10 @@ namespace Pulumi.Aws.StorageGateway
         public GatewayArgs()
         {
         }
+        public static new GatewayArgs Empty => new GatewayArgs();
     }
 
-    public sealed class GatewayState : Pulumi.ResourceArgs
+    public sealed class GatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -613,7 +604,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -625,7 +616,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -642,5 +633,6 @@ namespace Pulumi.Aws.StorageGateway
         public GatewayState()
         {
         }
+        public static new GatewayState Empty => new GatewayState();
     }
 }

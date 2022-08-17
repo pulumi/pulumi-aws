@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "alternate", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.6.0.0/16"),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := route53.NewZone(ctx, "exampleZone", &route53.ZoneArgs{
-// 			Vpcs: route53.ZoneVpcArray{
-// 				&route53.ZoneVpcArgs{
-// 					VpcId: exampleVpc.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		alternateVpc, err := ec2.NewVpc(ctx, "alternateVpc", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.7.0.0/16"),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 		}, pulumi.Provider("aws.alternate"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "exampleVpcAssociationAuthorization", &route53.VpcAssociationAuthorizationArgs{
-// 			VpcId:  alternateVpc.ID(),
-// 			ZoneId: exampleZone.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
-// 			VpcId:  exampleVpcAssociationAuthorization.VpcId,
-// 			ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-// 		}, pulumi.Provider("aws.alternate"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "alternate", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.6.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := route53.NewZone(ctx, "exampleZone", &route53.ZoneArgs{
+//				Vpcs: route53.ZoneVpcArray{
+//					&route53.ZoneVpcArgs{
+//						VpcId: exampleVpc.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			alternateVpc, err := ec2.NewVpc(ctx, "alternateVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.7.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			}, pulumi.Provider("aws.alternate"))
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "exampleVpcAssociationAuthorization", &route53.VpcAssociationAuthorizationArgs{
+//				VpcId:  alternateVpc.ID(),
+//				ZoneId: exampleZone.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
+//				VpcId:  exampleVpcAssociationAuthorization.VpcId,
+//				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
+//			}, pulumi.Provider("aws.alternate"))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+//
+//	$ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+//
 // ```
 type VpcAssociationAuthorization struct {
 	pulumi.CustomResourceState
@@ -195,7 +200,7 @@ func (i *VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutputWithCon
 // VpcAssociationAuthorizationArrayInput is an input type that accepts VpcAssociationAuthorizationArray and VpcAssociationAuthorizationArrayOutput values.
 // You can construct a concrete instance of `VpcAssociationAuthorizationArrayInput` via:
 //
-//          VpcAssociationAuthorizationArray{ VpcAssociationAuthorizationArgs{...} }
+//	VpcAssociationAuthorizationArray{ VpcAssociationAuthorizationArgs{...} }
 type VpcAssociationAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +225,7 @@ func (i VpcAssociationAuthorizationArray) ToVpcAssociationAuthorizationArrayOutp
 // VpcAssociationAuthorizationMapInput is an input type that accepts VpcAssociationAuthorizationMap and VpcAssociationAuthorizationMapOutput values.
 // You can construct a concrete instance of `VpcAssociationAuthorizationMapInput` via:
 //
-//          VpcAssociationAuthorizationMap{ "key": VpcAssociationAuthorizationArgs{...} }
+//	VpcAssociationAuthorizationMap{ "key": VpcAssociationAuthorizationArgs{...} }
 type VpcAssociationAuthorizationMapInput interface {
 	pulumi.Input
 

@@ -15,32 +15,30 @@ namespace Pulumi.Aws.WafV2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafV2.IpSet("example", new()
     ///     {
-    ///         var example = new Aws.WafV2.IpSet("example", new Aws.WafV2.IpSetArgs
+    ///         Addresses = new[]
     ///         {
-    ///             Addresses = 
-    ///             {
-    ///                 "1.2.3.4/32",
-    ///                 "5.6.7.8/32",
-    ///             },
-    ///             Description = "Example IP set",
-    ///             IpAddressVersion = "IPV4",
-    ///             Scope = "REGIONAL",
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "1.2.3.4/32",
+    ///             "5.6.7.8/32",
+    ///         },
+    ///         Description = "Example IP set",
+    ///         IpAddressVersion = "IPV4",
+    ///         Scope = "REGIONAL",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.WafV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/ipSet:IpSet")]
-    public partial class IpSet : Pulumi.CustomResource
+    public partial class IpSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
@@ -94,13 +92,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -149,7 +147,7 @@ namespace Pulumi.Aws.WafV2
         }
     }
 
-    public sealed class IpSetArgs : Pulumi.ResourceArgs
+    public sealed class IpSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("addresses")]
         private InputList<string>? _addresses;
@@ -191,7 +189,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,9 +200,10 @@ namespace Pulumi.Aws.WafV2
         public IpSetArgs()
         {
         }
+        public static new IpSetArgs Empty => new IpSetArgs();
     }
 
-    public sealed class IpSetState : Pulumi.ResourceArgs
+    public sealed class IpSetState : global::Pulumi.ResourceArgs
     {
         [Input("addresses")]
         private InputList<string>? _addresses;
@@ -255,7 +254,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -267,7 +266,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -278,5 +277,6 @@ namespace Pulumi.Aws.WafV2
         public IpSetState()
         {
         }
+        public static new IpSetState Empty => new IpSetState();
     }
 }

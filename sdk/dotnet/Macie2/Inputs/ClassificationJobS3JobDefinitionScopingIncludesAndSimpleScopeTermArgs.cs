@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs Empty => new ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs();
     }
 }

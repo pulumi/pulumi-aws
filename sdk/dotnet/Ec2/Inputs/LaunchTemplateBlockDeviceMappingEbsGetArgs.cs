@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateBlockDeviceMappingEbsGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateBlockDeviceMappingEbsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
@@ -67,5 +67,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateBlockDeviceMappingEbsGetArgs()
         {
         }
+        public static new LaunchTemplateBlockDeviceMappingEbsGetArgs Empty => new LaunchTemplateBlockDeviceMappingEbsGetArgs();
     }
 }

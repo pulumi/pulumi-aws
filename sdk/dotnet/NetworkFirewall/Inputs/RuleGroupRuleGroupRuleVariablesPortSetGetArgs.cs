@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRuleVariablesPortSetGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRuleVariablesPortSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An unique alphanumeric string to identify the `port_set`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRuleVariablesPortSetGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupRuleVariablesPortSetGetArgs Empty => new RuleGroupRuleGroupRuleVariablesPortSetGetArgs();
     }
 }

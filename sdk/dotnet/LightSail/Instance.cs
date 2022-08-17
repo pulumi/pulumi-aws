@@ -19,28 +19,26 @@ namespace Pulumi.Aws.LightSail
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new GitLab Lightsail Instance
+    ///     var gitlabTest = new Aws.LightSail.Instance("gitlabTest", new()
     ///     {
-    ///         // Create a new GitLab Lightsail Instance
-    ///         var gitlabTest = new Aws.LightSail.Instance("gitlabTest", new Aws.LightSail.InstanceArgs
+    ///         AvailabilityZone = "us-east-1b",
+    ///         BlueprintId = "string",
+    ///         BundleId = "string",
+    ///         KeyPairName = "some_key_name",
+    ///         Tags = 
     ///         {
-    ///             AvailabilityZone = "us-east-1b",
-    ///             BlueprintId = "string",
-    ///             BundleId = "string",
-    ///             KeyPairName = "some_key_name",
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Availability Zones
     /// 
@@ -103,7 +101,7 @@ namespace Pulumi.Aws.LightSail
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
@@ -259,7 +257,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone in which to create your
@@ -314,9 +312,10 @@ namespace Pulumi.Aws.LightSail
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
@@ -449,5 +448,6 @@ namespace Pulumi.Aws.LightSail
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		alphaSubnet, err := ec2.NewSubnet(ctx, "alphaSubnet", &ec2.SubnetArgs{
-// 			VpcId:            foo.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = efs.NewMountTarget(ctx, "alphaMountTarget", &efs.MountTargetArgs{
-// 			FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
-// 			SubnetId:     alphaSubnet.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			alphaSubnet, err := ec2.NewSubnet(ctx, "alphaSubnet", &ec2.SubnetArgs{
+//				VpcId:            foo.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				CidrBlock:        pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewMountTarget(ctx, "alphaMountTarget", &efs.MountTargetArgs{
+//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
+//				SubnetId:     alphaSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // The EFS mount targets can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+//
+//	$ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+//
 // ```
 type MountTarget struct {
 	pulumi.CustomResourceState
@@ -233,7 +238,7 @@ func (i *MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountT
 // MountTargetArrayInput is an input type that accepts MountTargetArray and MountTargetArrayOutput values.
 // You can construct a concrete instance of `MountTargetArrayInput` via:
 //
-//          MountTargetArray{ MountTargetArgs{...} }
+//	MountTargetArray{ MountTargetArgs{...} }
 type MountTargetArrayInput interface {
 	pulumi.Input
 
@@ -258,7 +263,7 @@ func (i MountTargetArray) ToMountTargetArrayOutputWithContext(ctx context.Contex
 // MountTargetMapInput is an input type that accepts MountTargetMap and MountTargetMapOutput values.
 // You can construct a concrete instance of `MountTargetMapInput` via:
 //
-//          MountTargetMap{ "key": MountTargetArgs{...} }
+//	MountTargetMap{ "key": MountTargetArgs{...} }
 type MountTargetMapInput interface {
 	pulumi.Input
 

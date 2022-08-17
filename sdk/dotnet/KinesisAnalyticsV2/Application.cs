@@ -19,293 +19,287 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// ### Apache Flink Application
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Bucket,
-    ///             Key = "example-flink-application",
-    ///             Source = new FileAsset("flink-app.jar"),
-    ///         });
-    ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
-    ///         {
-    ///             RuntimeEnvironment = "FLINK-1_8",
-    ///             ServiceExecutionRole = aws_iam_role.Example.Arn,
-    ///             ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
-    ///             {
-    ///                 ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
-    ///                 {
-    ///                     CodeContent = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs
-    ///                     {
-    ///                         S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
-    ///                         {
-    ///                             BucketArn = exampleBucketV2.Arn,
-    ///                             FileKey = exampleBucketObjectv2.Key,
-    ///                         },
-    ///                     },
-    ///                     CodeContentType = "ZIPFILE",
-    ///                 },
-    ///                 EnvironmentProperties = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs
-    ///                 {
-    ///                     PropertyGroups = 
-    ///                     {
-    ///                         new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs
-    ///                         {
-    ///                             PropertyGroupId = "PROPERTY-GROUP-1",
-    ///                             PropertyMap = 
-    ///                             {
-    ///                                 { "Key1", "Value1" },
-    ///                             },
-    ///                         },
-    ///                         new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs
-    ///                         {
-    ///                             PropertyGroupId = "PROPERTY-GROUP-2",
-    ///                             PropertyMap = 
-    ///                             {
-    ///                                 { "KeyA", "ValueA" },
-    ///                                 { "KeyB", "ValueB" },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 FlinkApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs
-    ///                 {
-    ///                     CheckpointConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs
-    ///                     {
-    ///                         ConfigurationType = "DEFAULT",
-    ///                     },
-    ///                     MonitoringConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs
-    ///                     {
-    ///                         ConfigurationType = "CUSTOM",
-    ///                         LogLevel = "DEBUG",
-    ///                         MetricsLevel = "TASK",
-    ///                     },
-    ///                     ParallelismConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs
-    ///                     {
-    ///                         AutoScalingEnabled = true,
-    ///                         ConfigurationType = "CUSTOM",
-    ///                         Parallelism = 10,
-    ///                         ParallelismPerKpu = 4,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Bucket,
+    ///         Key = "example-flink-application",
+    ///         Source = new FileAsset("flink-app.jar"),
+    ///     });
+    /// 
+    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new()
+    ///     {
+    ///         RuntimeEnvironment = "FLINK-1_8",
+    ///         ServiceExecutionRole = aws_iam_role.Example.Arn,
+    ///         ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
+    ///         {
+    ///             ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
+    ///             {
+    ///                 CodeContent = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs
+    ///                 {
+    ///                     S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
+    ///                     {
+    ///                         BucketArn = exampleBucketV2.Arn,
+    ///                         FileKey = exampleBucketObjectv2.Key,
+    ///                     },
+    ///                 },
+    ///                 CodeContentType = "ZIPFILE",
+    ///             },
+    ///             EnvironmentProperties = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs
+    ///             {
+    ///                 PropertyGroups = new[]
+    ///                 {
+    ///                     new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs
+    ///                     {
+    ///                         PropertyGroupId = "PROPERTY-GROUP-1",
+    ///                         PropertyMap = 
+    ///                         {
+    ///                             { "Key1", "Value1" },
+    ///                         },
+    ///                     },
+    ///                     new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs
+    ///                     {
+    ///                         PropertyGroupId = "PROPERTY-GROUP-2",
+    ///                         PropertyMap = 
+    ///                         {
+    ///                             { "KeyA", "ValueA" },
+    ///                             { "KeyB", "ValueB" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             FlinkApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs
+    ///             {
+    ///                 CheckpointConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs
+    ///                 {
+    ///                     ConfigurationType = "DEFAULT",
+    ///                 },
+    ///                 MonitoringConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs
+    ///                 {
+    ///                     ConfigurationType = "CUSTOM",
+    ///                     LogLevel = "DEBUG",
+    ///                     MetricsLevel = "TASK",
+    ///                 },
+    ///                 ParallelismConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs
+    ///                 {
+    ///                     AutoScalingEnabled = true,
+    ///                     ConfigurationType = "CUSTOM",
+    ///                     Parallelism = 10,
+    ///                     ParallelismPerKpu = 4,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### SQL Application
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var exampleLogStream = new Aws.CloudWatch.LogStream("exampleLogStream", new Aws.CloudWatch.LogStreamArgs
-    ///         {
-    ///             LogGroupName = exampleLogGroup.Name,
-    ///         });
-    ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
-    ///         {
-    ///             RuntimeEnvironment = "SQL-1_0",
-    ///             ServiceExecutionRole = aws_iam_role.Example.Arn,
-    ///             ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
-    ///             {
-    ///                 ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
-    ///                 {
-    ///                     CodeContent = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs
-    ///                     {
-    ///                         TextContent = @"SELECT 1;
-    /// ",
-    ///                     },
-    ///                     CodeContentType = "PLAINTEXT",
-    ///                 },
-    ///                 SqlApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs
-    ///                 {
-    ///                     Input = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs
-    ///                     {
-    ///                         NamePrefix = "PREFIX_1",
-    ///                         InputParallelism = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs
-    ///                         {
-    ///                             Count = 3,
-    ///                         },
-    ///                         InputSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs
-    ///                         {
-    ///                             RecordColumns = 
-    ///                             {
-    ///                                 new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs
-    ///                                 {
-    ///                                     Name = "COLUMN_1",
-    ///                                     SqlType = "VARCHAR(8)",
-    ///                                     Mapping = "MAPPING-1",
-    ///                                 },
-    ///                                 new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs
-    ///                                 {
-    ///                                     Name = "COLUMN_2",
-    ///                                     SqlType = "DOUBLE",
-    ///                                 },
-    ///                             },
-    ///                             RecordEncoding = "UTF-8",
-    ///                             RecordFormat = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs
-    ///                             {
-    ///                                 RecordFormatType = "CSV",
-    ///                                 MappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs
-    ///                                 {
-    ///                                     CsvMappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs
-    ///                                     {
-    ///                                         RecordColumnDelimiter = ",",
-    ///                                         RecordRowDelimiter = @"
-    /// ",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         KinesisStreamsInput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs
-    ///                         {
-    ///                             ResourceArn = aws_kinesis_stream.Example.Arn,
-    ///                         },
-    ///                     },
-    ///                     Outputs = 
-    ///                     {
-    ///                         new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs
-    ///                         {
-    ///                             Name = "OUTPUT_1",
-    ///                             DestinationSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs
-    ///                             {
-    ///                                 RecordFormatType = "JSON",
-    ///                             },
-    ///                             LambdaOutput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs
-    ///                             {
-    ///                                 ResourceArn = aws_lambda_function.Example.Arn,
-    ///                             },
-    ///                         },
-    ///                         new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs
-    ///                         {
-    ///                             Name = "OUTPUT_2",
-    ///                             DestinationSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs
-    ///                             {
-    ///                                 RecordFormatType = "CSV",
-    ///                             },
-    ///                             KinesisFirehoseOutput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs
-    ///                             {
-    ///                                 ResourceArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     ReferenceDataSource = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs
-    ///                     {
-    ///                         TableName = "TABLE-1",
-    ///                         ReferenceSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs
-    ///                         {
-    ///                             RecordColumns = 
-    ///                             {
-    ///                                 new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs
-    ///                                 {
-    ///                                     Name = "COLUMN_1",
-    ///                                     SqlType = "INTEGER",
-    ///                                 },
-    ///                             },
-    ///                             RecordFormat = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs
-    ///                             {
-    ///                                 RecordFormatType = "JSON",
-    ///                                 MappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs
-    ///                                 {
-    ///                                     JsonMappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs
-    ///                                     {
-    ///                                         RecordRowPath = "$",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         S3ReferenceDataSource = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs
-    ///                         {
-    ///                             BucketArn = aws_s3_bucket.Example.Arn,
-    ///                             FileKey = "KEY-1",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             CloudwatchLoggingOptions = new Aws.KinesisAnalyticsV2.Inputs.ApplicationCloudwatchLoggingOptionsArgs
-    ///             {
-    ///                 LogStreamArn = exampleLogStream.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
     /// 
-    /// }
+    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("exampleLogStream", new()
+    ///     {
+    ///         LogGroupName = exampleLogGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new()
+    ///     {
+    ///         RuntimeEnvironment = "SQL-1_0",
+    ///         ServiceExecutionRole = aws_iam_role.Example.Arn,
+    ///         ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
+    ///         {
+    ///             ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
+    ///             {
+    ///                 CodeContent = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs
+    ///                 {
+    ///                     TextContent = @"SELECT 1;
+    /// ",
+    ///                 },
+    ///                 CodeContentType = "PLAINTEXT",
+    ///             },
+    ///             SqlApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs
+    ///             {
+    ///                 Input = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs
+    ///                 {
+    ///                     NamePrefix = "PREFIX_1",
+    ///                     InputParallelism = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs
+    ///                     {
+    ///                         Count = 3,
+    ///                     },
+    ///                     InputSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs
+    ///                     {
+    ///                         RecordColumns = new[]
+    ///                         {
+    ///                             new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs
+    ///                             {
+    ///                                 Name = "COLUMN_1",
+    ///                                 SqlType = "VARCHAR(8)",
+    ///                                 Mapping = "MAPPING-1",
+    ///                             },
+    ///                             new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs
+    ///                             {
+    ///                                 Name = "COLUMN_2",
+    ///                                 SqlType = "DOUBLE",
+    ///                             },
+    ///                         },
+    ///                         RecordEncoding = "UTF-8",
+    ///                         RecordFormat = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs
+    ///                         {
+    ///                             RecordFormatType = "CSV",
+    ///                             MappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs
+    ///                             {
+    ///                                 CsvMappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs
+    ///                                 {
+    ///                                     RecordColumnDelimiter = ",",
+    ///                                     RecordRowDelimiter = @"
+    /// ",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     KinesisStreamsInput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs
+    ///                     {
+    ///                         ResourceArn = aws_kinesis_stream.Example.Arn,
+    ///                     },
+    ///                 },
+    ///                 Outputs = new[]
+    ///                 {
+    ///                     new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs
+    ///                     {
+    ///                         Name = "OUTPUT_1",
+    ///                         DestinationSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs
+    ///                         {
+    ///                             RecordFormatType = "JSON",
+    ///                         },
+    ///                         LambdaOutput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs
+    ///                         {
+    ///                             ResourceArn = aws_lambda_function.Example.Arn,
+    ///                         },
+    ///                     },
+    ///                     new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs
+    ///                     {
+    ///                         Name = "OUTPUT_2",
+    ///                         DestinationSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs
+    ///                         {
+    ///                             RecordFormatType = "CSV",
+    ///                         },
+    ///                         KinesisFirehoseOutput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs
+    ///                         {
+    ///                             ResourceArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ReferenceDataSource = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs
+    ///                 {
+    ///                     TableName = "TABLE-1",
+    ///                     ReferenceSchema = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs
+    ///                     {
+    ///                         RecordColumns = new[]
+    ///                         {
+    ///                             new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs
+    ///                             {
+    ///                                 Name = "COLUMN_1",
+    ///                                 SqlType = "INTEGER",
+    ///                             },
+    ///                         },
+    ///                         RecordFormat = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs
+    ///                         {
+    ///                             RecordFormatType = "JSON",
+    ///                             MappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs
+    ///                             {
+    ///                                 JsonMappingParameters = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs
+    ///                                 {
+    ///                                     RecordRowPath = "$",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     S3ReferenceDataSource = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs
+    ///                     {
+    ///                         BucketArn = aws_s3_bucket.Example.Arn,
+    ///                         FileKey = "KEY-1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CloudwatchLoggingOptions = new Aws.KinesisAnalyticsV2.Inputs.ApplicationCloudwatchLoggingOptionsArgs
+    ///         {
+    ///             LogStreamArn = exampleLogStream.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### VPC Configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+    ///         Bucket = exampleBucketV2.Bucket,
+    ///         Key = "example-flink-application",
+    ///         Source = new FileAsset("flink-app.jar"),
+    ///     });
+    /// 
+    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new()
+    ///     {
+    ///         RuntimeEnvironment = "FLINK-1_8",
+    ///         ServiceExecutionRole = aws_iam_role.Example.Arn,
+    ///         ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
     ///         {
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Bucket,
-    ///             Key = "example-flink-application",
-    ///             Source = new FileAsset("flink-app.jar"),
-    ///         });
-    ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
-    ///         {
-    ///             RuntimeEnvironment = "FLINK-1_8",
-    ///             ServiceExecutionRole = aws_iam_role.Example.Arn,
-    ///             ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
+    ///             ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
     ///             {
-    ///                 ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
+    ///                 CodeContent = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs
     ///                 {
-    ///                     CodeContent = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs
+    ///                     S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
     ///                     {
-    ///                         S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
-    ///                         {
-    ///                             BucketArn = exampleBucketV2.Arn,
-    ///                             FileKey = exampleBucketObjectv2.Key,
-    ///                         },
+    ///                         BucketArn = exampleBucketV2.Arn,
+    ///                         FileKey = exampleBucketObjectv2.Key,
     ///                     },
-    ///                     CodeContentType = "ZIPFILE",
     ///                 },
-    ///                 VpcConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationVpcConfigurationArgs
+    ///                 CodeContentType = "ZIPFILE",
+    ///             },
+    ///             VpcConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationVpcConfigurationArgs
+    ///             {
+    ///                 SecurityGroupIds = new[]
     ///                 {
-    ///                     SecurityGroupIds = 
-    ///                     {
-    ///                         aws_security_group.Example[0].Id,
-    ///                         aws_security_group.Example[1].Id,
-    ///                     },
-    ///                     SubnetIds = 
-    ///                     {
-    ///                         aws_subnet.Example.Id,
-    ///                     },
+    ///                     aws_security_group.Example[0].Id,
+    ///                     aws_security_group.Example[1].Id,
+    ///                 },
+    ///                 SubnetIds = new[]
+    ///                 {
+    ///                     aws_subnet.Example.Id,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -317,7 +311,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesisanalyticsv2/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application's configuration
@@ -392,7 +386,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -453,7 +447,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application's configuration
@@ -507,7 +501,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -518,9 +512,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application's configuration
@@ -598,7 +593,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -627,5 +622,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

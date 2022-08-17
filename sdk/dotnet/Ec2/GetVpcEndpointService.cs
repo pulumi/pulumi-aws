@@ -21,82 +21,78 @@ namespace Pulumi.Aws.Ec2
         /// ### AWS Service
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
-        ///         {
-        ///             Service = "s3",
-        ///             ServiceType = "Gateway",
-        ///         }));
-        ///         // Create a VPC
-        ///         var foo = new Aws.Ec2.Vpc("foo", new Aws.Ec2.VpcArgs
-        ///         {
-        ///             CidrBlock = "10.0.0.0/16",
-        ///         });
-        ///         // Create a VPC endpoint
-        ///         var ep = new Aws.Ec2.VpcEndpoint("ep", new Aws.Ec2.VpcEndpointArgs
-        ///         {
-        ///             VpcId = foo.Id,
-        ///             ServiceName = s3.Apply(s3 =&gt; s3.ServiceName),
-        ///         });
-        ///     }
+        ///         Service = "s3",
+        ///         ServiceType = "Gateway",
+        ///     });
         /// 
-        /// }
+        ///     // Create a VPC
+        ///     var foo = new Aws.Ec2.Vpc("foo", new()
+        ///     {
+        ///         CidrBlock = "10.0.0.0/16",
+        ///     });
+        /// 
+        ///     // Create a VPC endpoint
+        ///     var ep = new Aws.Ec2.VpcEndpoint("ep", new()
+        ///     {
+        ///         VpcId = foo.Id,
+        ///         ServiceName = s3.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Non-AWS Service
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var custome = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
-        ///         var custome = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
-        ///         {
-        ///             ServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
-        ///         }));
-        ///     }
+        ///         ServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpcEndpointServiceFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpcEndpointServiceFilterArgs
+        ///                 Name = "service-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "service-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "some-service",
-        ///                     },
+        ///                     "some-service",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -114,82 +110,78 @@ namespace Pulumi.Aws.Ec2
         /// ### AWS Service
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
-        ///         {
-        ///             Service = "s3",
-        ///             ServiceType = "Gateway",
-        ///         }));
-        ///         // Create a VPC
-        ///         var foo = new Aws.Ec2.Vpc("foo", new Aws.Ec2.VpcArgs
-        ///         {
-        ///             CidrBlock = "10.0.0.0/16",
-        ///         });
-        ///         // Create a VPC endpoint
-        ///         var ep = new Aws.Ec2.VpcEndpoint("ep", new Aws.Ec2.VpcEndpointArgs
-        ///         {
-        ///             VpcId = foo.Id,
-        ///             ServiceName = s3.Apply(s3 =&gt; s3.ServiceName),
-        ///         });
-        ///     }
+        ///         Service = "s3",
+        ///         ServiceType = "Gateway",
+        ///     });
         /// 
-        /// }
+        ///     // Create a VPC
+        ///     var foo = new Aws.Ec2.Vpc("foo", new()
+        ///     {
+        ///         CidrBlock = "10.0.0.0/16",
+        ///     });
+        /// 
+        ///     // Create a VPC endpoint
+        ///     var ep = new Aws.Ec2.VpcEndpoint("ep", new()
+        ///     {
+        ///         VpcId = foo.Id,
+        ///         ServiceName = s3.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Non-AWS Service
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var custome = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
-        ///         var custome = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
-        ///         {
-        ///             ServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
-        ///         }));
-        ///     }
+        ///         ServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpcEndpointServiceFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpcEndpointServiceFilterArgs
+        ///                 Name = "service-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "service-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "some-service",
-        ///                     },
+        ///                     "some-service",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -199,7 +191,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcEndpointServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcEndpointServiceArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpcEndpointServiceFilterArgs>? _filters;
@@ -246,9 +238,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcEndpointServiceArgs()
         {
         }
+        public static new GetVpcEndpointServiceArgs Empty => new GetVpcEndpointServiceArgs();
     }
 
-    public sealed class GetVpcEndpointServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcEndpointServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcEndpointServiceFilterInputArgs>? _filters;
@@ -295,6 +288,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcEndpointServiceInvokeArgs()
         {
         }
+        public static new GetVpcEndpointServiceInvokeArgs Empty => new GetVpcEndpointServiceInvokeArgs();
     }
 
 

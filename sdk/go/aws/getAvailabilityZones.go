@@ -26,34 +26,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
-// 			State: pulumi.StringRef("available"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSubnet(ctx, "primary", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(available.Names[0]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSubnet(ctx, "secondary", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(available.Names[1]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSubnet(ctx, "primary", &ec2.SubnetArgs{
+//				AvailabilityZone: pulumi.String(available.Names[0]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSubnet(ctx, "secondary", &ec2.SubnetArgs{
+//				AvailabilityZone: pulumi.String(available.Names[1]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### By Filter
 //
@@ -63,30 +66,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
-// 			AllAvailabilityZones: pulumi.BoolRef(true),
-// 			Filters: []GetAvailabilityZonesFilter{
-// 				GetAvailabilityZonesFilter{
-// 					Name: "opt-in-status",
-// 					Values: []string{
-// 						"not-opted-in",
-// 						"opted-in",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//				AllAvailabilityZones: pulumi.BoolRef(true),
+//				Filters: []GetAvailabilityZonesFilter{
+//					GetAvailabilityZonesFilter{
+//						Name: "opt-in-status",
+//						Values: []string{
+//							"not-opted-in",
+//							"opted-in",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Only Availability Zones (no Local Zones):
@@ -95,28 +101,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
-// 			Filters: []GetAvailabilityZonesFilter{
-// 				GetAvailabilityZonesFilter{
-// 					Name: "opt-in-status",
-// 					Values: []string{
-// 						"opt-in-not-required",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//				Filters: []GetAvailabilityZonesFilter{
+//					GetAvailabilityZonesFilter{
+//						Name: "opt-in-status",
+//						Values: []string{
+//							"opt-in-not-required",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZonesResult, error) {
 	var rv GetAvailabilityZonesResult

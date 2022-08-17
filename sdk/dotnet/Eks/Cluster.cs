@@ -16,55 +16,51 @@ namespace Pulumi.Aws.Eks
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.Eks.Cluster("example", new Aws.Eks.ClusterArgs
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///             SubnetIds = new[]
     ///             {
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     aws_subnet.Example1.Id,
-    ///                     aws_subnet.Example2.Id,
-    ///                 },
+    ///                 aws_subnet.Example1.Id,
+    ///                 aws_subnet.Example2.Id,
     ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_iam_role_policy_attachment.Example_AmazonEKSClusterPolicy,
-    ///                 aws_iam_role_policy_attachment.Example_AmazonEKSVPCResourceController,
-    ///             },
-    ///         });
-    ///         this.Endpoint = example.Endpoint;
-    ///         this.Kubeconfig_certificate_authority_data = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data);
-    ///     }
+    ///             aws_iam_role_policy_attachment.Example_AmazonEKSClusterPolicy,
+    ///             aws_iam_role_policy_attachment.Example_AmazonEKSVPCResourceController,
+    ///         },
+    ///     });
     /// 
-    ///     [Output("endpoint")]
-    ///     public Output&lt;string&gt; Endpoint { get; set; }
-    ///     [Output("kubeconfig-certificate-authority-data")]
-    ///     public Output&lt;string&gt; Kubeconfig_certificate_authority_data { get; set; }
-    /// }
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["endpoint"] = example.Endpoint,
+    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data),
+    ///     };
+    /// });
     /// ```
     /// ### Example IAM Role for EKS Cluster
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -77,22 +73,23 @@ namespace Pulumi.Aws.Eks
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-    ///             Role = example.Name,
-    ///         });
-    ///         // Optionally, enable Security Groups for Pods
-    ///         // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-    ///         var example_AmazonEKSVPCResourceController = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-    ///             Role = example.Name,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    ///         Role = example.Name,
+    ///     });
+    /// 
+    ///     // Optionally, enable Security Groups for Pods
+    ///     // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
+    ///     var example_AmazonEKSVPCResourceController = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+    ///         Role = example.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Enabling Control Plane Logging
     /// 
@@ -101,38 +98,37 @@ namespace Pulumi.Aws.Eks
     /// &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var clusterName = config.Get("clusterName") ?? "example";
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
     ///     {
-    ///         var config = new Config();
-    ///         var clusterName = config.Get("clusterName") ?? "example";
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 7,
-    ///         });
-    ///         // ... potentially other configuration ...
-    ///         var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new Aws.Eks.ClusterArgs
-    ///         {
-    ///             EnabledClusterLogTypes = 
-    ///             {
-    ///                 "api",
-    ///                 "audit",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleLogGroup,
-    ///             },
-    ///         });
-    ///         // ... other configuration ...
-    ///     }
+    ///         RetentionInDays = 7,
+    ///     });
     /// 
-    /// }
+    ///     // ... potentially other configuration ...
+    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     {
+    ///         EnabledClusterLogTypes = new[]
+    ///         {
+    ///             "api",
+    ///             "audit",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleLogGroup,
+    ///         },
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -144,7 +140,7 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the cluster.
@@ -231,13 +227,13 @@ namespace Pulumi.Aws.Eks
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -298,7 +294,7 @@ namespace Pulumi.Aws.Eks
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
@@ -352,7 +348,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -375,9 +371,10 @@ namespace Pulumi.Aws.Eks
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cluster.
@@ -491,7 +488,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -503,7 +500,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -526,5 +523,6 @@ namespace Pulumi.Aws.Eks
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

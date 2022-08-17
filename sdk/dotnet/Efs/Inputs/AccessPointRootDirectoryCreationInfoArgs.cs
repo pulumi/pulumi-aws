@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs.Inputs
 {
 
-    public sealed class AccessPointRootDirectoryCreationInfoArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointRootDirectoryCreationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// POSIX group ID to apply to the `root_directory`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Efs.Inputs
         public AccessPointRootDirectoryCreationInfoArgs()
         {
         }
+        public static new AccessPointRootDirectoryCreationInfoArgs Empty => new AccessPointRootDirectoryCreationInfoArgs();
     }
 }

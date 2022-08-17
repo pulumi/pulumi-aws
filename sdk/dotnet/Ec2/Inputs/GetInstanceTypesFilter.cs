@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetInstanceTypesFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypesFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetInstanceTypesFilterArgs()
         {
         }
+        public static new GetInstanceTypesFilterArgs Empty => new GetInstanceTypesFilterArgs();
     }
 }

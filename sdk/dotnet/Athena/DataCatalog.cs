@@ -19,99 +19,91 @@ namespace Pulumi.Aws.Athena
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
-    ///         var example = new Aws.Athena.DataCatalog("example", new Aws.Athena.DataCatalogArgs
+    ///         Description = "Example Athena data catalog",
+    ///         Parameters = 
     ///         {
-    ///             Description = "Example Athena data catalog",
-    ///             Parameters = 
-    ///             {
-    ///                 { "function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-athena-data-catalog" },
-    ///             },
-    ///             Type = "LAMBDA",
-    ///         });
-    ///     }
+    ///             { "function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-athena-data-catalog" },
+    ///         },
+    ///         Type = "LAMBDA",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Hive based Data Catalog
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
-    ///         var example = new Aws.Athena.DataCatalog("example", new Aws.Athena.DataCatalogArgs
+    ///         Description = "Hive based Data Catalog",
+    ///         Parameters = 
     ///         {
-    ///             Description = "Hive based Data Catalog",
-    ///             Parameters = 
-    ///             {
-    ///                 { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
-    ///             },
-    ///             Type = "HIVE",
-    ///         });
-    ///     }
+    ///             { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
+    ///         },
+    ///         Type = "HIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Glue based Data Catalog
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
-    ///         var example = new Aws.Athena.DataCatalog("example", new Aws.Athena.DataCatalogArgs
+    ///         Description = "Glue based Data Catalog",
+    ///         Parameters = 
     ///         {
-    ///             Description = "Glue based Data Catalog",
-    ///             Parameters = 
-    ///             {
-    ///                 { "catalog-id", "123456789012" },
-    ///             },
-    ///             Type = "GLUE",
-    ///         });
-    ///     }
+    ///             { "catalog-id", "123456789012" },
+    ///         },
+    ///         Type = "GLUE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Lambda based Data Catalog
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
-    ///         var example = new Aws.Athena.DataCatalog("example", new Aws.Athena.DataCatalogArgs
+    ///         Description = "Lambda based Data Catalog",
+    ///         Parameters = 
     ///         {
-    ///             Description = "Lambda based Data Catalog",
-    ///             Parameters = 
-    ///             {
-    ///                 { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1" },
-    ///                 { "record-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2" },
-    ///             },
-    ///             Type = "LAMBDA",
-    ///         });
-    ///     }
+    ///             { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1" },
+    ///             { "record-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2" },
+    ///         },
+    ///         Type = "LAMBDA",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -123,7 +115,7 @@ namespace Pulumi.Aws.Athena
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/dataCatalog:DataCatalog")]
-    public partial class DataCatalog : Pulumi.CustomResource
+    public partial class DataCatalog : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the data catalog.
@@ -155,9 +147,6 @@ namespace Pulumi.Aws.Athena
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -211,7 +200,7 @@ namespace Pulumi.Aws.Athena
         }
     }
 
-    public sealed class DataCatalogArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the data catalog.
@@ -258,9 +247,10 @@ namespace Pulumi.Aws.Athena
         public DataCatalogArgs()
         {
         }
+        public static new DataCatalogArgs Empty => new DataCatalogArgs();
     }
 
-    public sealed class DataCatalogState : Pulumi.ResourceArgs
+    public sealed class DataCatalogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the data catalog.
@@ -306,10 +296,6 @@ namespace Pulumi.Aws.Athena
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -325,5 +311,6 @@ namespace Pulumi.Aws.Athena
         public DataCatalogState()
         {
         }
+        public static new DataCatalogState Empty => new DataCatalogState();
     }
 }

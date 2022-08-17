@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation.Inputs
 {
 
-    public sealed class StackSetOperationPreferencesGetArgs : Pulumi.ResourceArgs
+    public sealed class StackSetOperationPreferencesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public StackSetOperationPreferencesGetArgs()
         {
         }
+        public static new StackSetOperationPreferencesGetArgs Empty => new StackSetOperationPreferencesGetArgs();
     }
 }

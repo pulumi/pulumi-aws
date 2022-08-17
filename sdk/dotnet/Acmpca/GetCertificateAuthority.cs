@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Acmpca
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Acmpca.GetCertificateAuthority.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Acmpca.GetCertificateAuthority.InvokeAsync(new Aws.Acmpca.GetCertificateAuthorityArgs
-        ///         {
-        ///             Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Acmpca
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Acmpca.GetCertificateAuthority.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Acmpca.GetCertificateAuthority.InvokeAsync(new Aws.Acmpca.GetCertificateAuthorityArgs
-        ///         {
-        ///             Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Acmpca
     }
 
 
-    public sealed class GetCertificateAuthorityArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate authority.
@@ -114,9 +110,10 @@ namespace Pulumi.Aws.Acmpca
         public GetCertificateAuthorityArgs()
         {
         }
+        public static new GetCertificateAuthorityArgs Empty => new GetCertificateAuthorityArgs();
     }
 
-    public sealed class GetCertificateAuthorityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate authority.
@@ -159,6 +156,7 @@ namespace Pulumi.Aws.Acmpca
         public GetCertificateAuthorityInvokeArgs()
         {
         }
+        public static new GetCertificateAuthorityInvokeArgs Empty => new GetCertificateAuthorityInvokeArgs();
     }
 
 

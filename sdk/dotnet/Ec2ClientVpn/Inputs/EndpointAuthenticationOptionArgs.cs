@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 {
 
-    public sealed class EndpointAuthenticationOptionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAuthenticationOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public EndpointAuthenticationOptionArgs()
         {
         }
+        public static new EndpointAuthenticationOptionArgs Empty => new EndpointAuthenticationOptionArgs();
     }
 }

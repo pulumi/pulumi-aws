@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class CustomDomainAssociationCertificateValidationRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainAssociationCertificateValidationRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate CNAME record name.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public CustomDomainAssociationCertificateValidationRecordGetArgs()
         {
         }
+        public static new CustomDomainAssociationCertificateValidationRecordGetArgs Empty => new CustomDomainAssociationCertificateValidationRecordGetArgs();
     }
 }

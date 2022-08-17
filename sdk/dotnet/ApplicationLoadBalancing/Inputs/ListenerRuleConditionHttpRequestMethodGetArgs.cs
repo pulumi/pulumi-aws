@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerRuleConditionHttpRequestMethodGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleConditionHttpRequestMethodGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("values", required: true)]
         private InputList<string>? _values;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerRuleConditionHttpRequestMethodGetArgs()
         {
         }
+        public static new ListenerRuleConditionHttpRequestMethodGetArgs Empty => new ListenerRuleConditionHttpRequestMethodGetArgs();
     }
 }

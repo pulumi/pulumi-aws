@@ -15,42 +15,40 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testFleet = new Aws.AppStream.Fleet("testFleet", new()
     ///     {
-    ///         var testFleet = new Aws.AppStream.Fleet("testFleet", new Aws.AppStream.FleetArgs
+    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {
-    ///             ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
+    ///             DesiredInstances = 1,
+    ///         },
+    ///         Description = "test fleet",
+    ///         DisplayName = "test-fleet",
+    ///         EnableDefaultInternetAccess = false,
+    ///         FleetType = "ON_DEMAND",
+    ///         IdleDisconnectTimeoutInSeconds = 60,
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         InstanceType = "stream.standard.large",
+    ///         MaxUserDurationInSeconds = 600,
+    ///         Tags = 
+    ///         {
+    ///             { "TagName", "tag-value" },
+    ///         },
+    ///         VpcConfig = new Aws.AppStream.Inputs.FleetVpcConfigArgs
+    ///         {
+    ///             SubnetIds = new[]
     ///             {
-    ///                 DesiredInstances = 1,
+    ///                 "subnet-06e9b13400c225127",
     ///             },
-    ///             Description = "test fleet",
-    ///             DisplayName = "test-fleet",
-    ///             EnableDefaultInternetAccess = false,
-    ///             FleetType = "ON_DEMAND",
-    ///             IdleDisconnectTimeoutInSeconds = 60,
-    ///             ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
-    ///             InstanceType = "stream.standard.large",
-    ///             MaxUserDurationInSeconds = 600,
-    ///             Tags = 
-    ///             {
-    ///                 { "TagName", "tag-value" },
-    ///             },
-    ///             VpcConfig = new Aws.AppStream.Inputs.FleetVpcConfigArgs
-    ///             {
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     "subnet-06e9b13400c225127",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +60,7 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/fleet:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the appstream fleet.
@@ -231,7 +229,7 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the desired capacity of the fleet. See below.
@@ -344,9 +342,10 @@ namespace Pulumi.Aws.AppStream
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 
-    public sealed class FleetState : Pulumi.ResourceArgs
+    public sealed class FleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the appstream fleet.
@@ -485,5 +484,6 @@ namespace Pulumi.Aws.AppStream
         public FleetState()
         {
         }
+        public static new FleetState Empty => new FleetState();
     }
 }

@@ -20,26 +20,25 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpoint.InvokeAsync(new Aws.Ec2.GetVpcEndpointArgs
-        ///         {
-        ///             VpcId = aws_vpc.Foo.Id,
-        ///             ServiceName = "com.amazonaws.us-west-2.s3",
-        ///         }));
-        ///         var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new Aws.Ec2.VpcEndpointRouteTableAssociationArgs
-        ///         {
-        ///             VpcEndpointId = s3.Apply(s3 =&gt; s3.Id),
-        ///             RouteTableId = aws_route_table.Private.Id,
-        ///         });
-        ///     }
+        ///         VpcId = aws_vpc.Foo.Id,
+        ///         ServiceName = "com.amazonaws.us-west-2.s3",
+        ///     });
         /// 
-        /// }
+        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new()
+        ///     {
+        ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
+        ///         RouteTableId = aws_route_table.Private.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -56,26 +55,25 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpoint.InvokeAsync(new Aws.Ec2.GetVpcEndpointArgs
-        ///         {
-        ///             VpcId = aws_vpc.Foo.Id,
-        ///             ServiceName = "com.amazonaws.us-west-2.s3",
-        ///         }));
-        ///         var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new Aws.Ec2.VpcEndpointRouteTableAssociationArgs
-        ///         {
-        ///             VpcEndpointId = s3.Apply(s3 =&gt; s3.Id),
-        ///             RouteTableId = aws_route_table.Private.Id,
-        ///         });
-        ///     }
+        ///         VpcId = aws_vpc.Foo.Id,
+        ///         ServiceName = "com.amazonaws.us-west-2.s3",
+        ///     });
         /// 
-        /// }
+        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new()
+        ///     {
+        ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
+        ///         RouteTableId = aws_route_table.Private.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +83,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpcEndpointFilterArgs>? _filters;
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcEndpointArgs()
         {
         }
+        public static new GetVpcEndpointArgs Empty => new GetVpcEndpointArgs();
     }
 
-    public sealed class GetVpcEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcEndpointFilterInputArgs>? _filters;
@@ -195,6 +194,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcEndpointInvokeArgs()
         {
         }
+        public static new GetVpcEndpointInvokeArgs Empty => new GetVpcEndpointInvokeArgs();
     }
 
 

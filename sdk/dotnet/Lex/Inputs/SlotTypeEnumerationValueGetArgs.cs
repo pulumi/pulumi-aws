@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class SlotTypeEnumerationValueGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotTypeEnumerationValueGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("synonyms")]
         private InputList<string>? _synonyms;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public SlotTypeEnumerationValueGetArgs()
         {
         }
+        public static new SlotTypeEnumerationValueGetArgs Empty => new SlotTypeEnumerationValueGetArgs();
     }
 }

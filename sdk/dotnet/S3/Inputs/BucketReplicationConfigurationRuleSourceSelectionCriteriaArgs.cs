@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
@@ -22,5 +22,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs()
         {
         }
+        public static new BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs Empty => new BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs();
     }
 }

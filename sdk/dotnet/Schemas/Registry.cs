@@ -17,20 +17,18 @@ namespace Pulumi.Aws.Schemas
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Schemas.Registry("test", new()
     ///     {
-    ///         var test = new Aws.Schemas.Registry("test", new Aws.Schemas.RegistryArgs
-    ///         {
-    ///             Description = "A custom schema registry",
-    ///         });
-    ///     }
+    ///         Description = "A custom schema registry",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Schemas
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/registry:Registry")]
-    public partial class Registry : Pulumi.CustomResource
+    public partial class Registry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
@@ -118,7 +116,7 @@ namespace Pulumi.Aws.Schemas
         }
     }
 
-    public sealed class RegistryArgs : Pulumi.ResourceArgs
+    public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the discoverer. Maximum of 256 characters.
@@ -147,9 +145,10 @@ namespace Pulumi.Aws.Schemas
         public RegistryArgs()
         {
         }
+        public static new RegistryArgs Empty => new RegistryArgs();
     }
 
-    public sealed class RegistryState : Pulumi.ResourceArgs
+    public sealed class RegistryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
@@ -196,5 +195,6 @@ namespace Pulumi.Aws.Schemas
         public RegistryState()
         {
         }
+        public static new RegistryState Empty => new RegistryState();
     }
 }

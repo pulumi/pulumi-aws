@@ -19,25 +19,23 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new Aws.Ec2.VpnGatewayRoutePropagationArgs
-    ///         {
-    ///             VpnGatewayId = aws_vpn_gateway.Example.Id,
-    ///             RouteTableId = aws_route_table.Example.Id,
-    ///         });
-    ///     }
+    ///         VpnGatewayId = aws_vpn_gateway.Example.Id,
+    ///         RouteTableId = aws_route_table.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
-    public partial class VpnGatewayRoutePropagation : Pulumi.CustomResource
+    public partial class VpnGatewayRoutePropagation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
@@ -95,7 +93,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpnGatewayRoutePropagationArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayRoutePropagationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
@@ -112,9 +110,10 @@ namespace Pulumi.Aws.Ec2
         public VpnGatewayRoutePropagationArgs()
         {
         }
+        public static new VpnGatewayRoutePropagationArgs Empty => new VpnGatewayRoutePropagationArgs();
     }
 
-    public sealed class VpnGatewayRoutePropagationState : Pulumi.ResourceArgs
+    public sealed class VpnGatewayRoutePropagationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
@@ -131,5 +130,6 @@ namespace Pulumi.Aws.Ec2
         public VpnGatewayRoutePropagationState()
         {
         }
+        public static new VpnGatewayRoutePropagationState Empty => new VpnGatewayRoutePropagationState();
     }
 }

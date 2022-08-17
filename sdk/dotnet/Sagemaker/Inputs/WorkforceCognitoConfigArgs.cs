@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkforceCognitoConfigArgs : Pulumi.ResourceArgs
+    public sealed class WorkforceCognitoConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OIDC IdP client ID used to configure your private workforce.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkforceCognitoConfigArgs()
         {
         }
+        public static new WorkforceCognitoConfigArgs Empty => new WorkforceCognitoConfigArgs();
     }
 }

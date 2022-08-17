@@ -19,30 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverQueryLogConfigAssociation(ctx, "example", &route53.ResolverQueryLogConfigAssociationArgs{
-// 			ResolverQueryLogConfigId: pulumi.Any(aws_route53_resolver_query_log_config.Example.Id),
-// 			ResourceId:               pulumi.Any(aws_vpc.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverQueryLogConfigAssociation(ctx, "example", &route53.ResolverQueryLogConfigAssociationArgs{
+//				ResolverQueryLogConfigId: pulumi.Any(aws_route53_resolver_query_log_config.Example.Id),
+//				ResourceId:               pulumi.Any(aws_vpc.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-//  Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
+//	Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+//
+//	$ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+//
 // ```
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState
@@ -146,7 +151,7 @@ func (i *ResolverQueryLogConfigAssociation) ToResolverQueryLogConfigAssociationO
 // ResolverQueryLogConfigAssociationArrayInput is an input type that accepts ResolverQueryLogConfigAssociationArray and ResolverQueryLogConfigAssociationArrayOutput values.
 // You can construct a concrete instance of `ResolverQueryLogConfigAssociationArrayInput` via:
 //
-//          ResolverQueryLogConfigAssociationArray{ ResolverQueryLogConfigAssociationArgs{...} }
+//	ResolverQueryLogConfigAssociationArray{ ResolverQueryLogConfigAssociationArgs{...} }
 type ResolverQueryLogConfigAssociationArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +176,7 @@ func (i ResolverQueryLogConfigAssociationArray) ToResolverQueryLogConfigAssociat
 // ResolverQueryLogConfigAssociationMapInput is an input type that accepts ResolverQueryLogConfigAssociationMap and ResolverQueryLogConfigAssociationMapOutput values.
 // You can construct a concrete instance of `ResolverQueryLogConfigAssociationMapInput` via:
 //
-//          ResolverQueryLogConfigAssociationMap{ "key": ResolverQueryLogConfigAssociationArgs{...} }
+//	ResolverQueryLogConfigAssociationMap{ "key": ResolverQueryLogConfigAssociationArgs{...} }
 type ResolverQueryLogConfigAssociationMapInput interface {
 	pulumi.Input
 

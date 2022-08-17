@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudhsmv2/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of cluster certificates.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.CloudHsmV2
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
@@ -182,9 +182,10 @@ namespace Pulumi.Aws.CloudHsmV2
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         [Input("clusterCertificates")]
         private InputList<Inputs.ClusterClusterCertificateGetArgs>? _clusterCertificates;
@@ -261,7 +262,7 @@ namespace Pulumi.Aws.CloudHsmV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -278,5 +279,6 @@ namespace Pulumi.Aws.CloudHsmV2
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

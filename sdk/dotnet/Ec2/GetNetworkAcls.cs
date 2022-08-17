@@ -19,78 +19,73 @@ namespace Pulumi.Aws.Ec2
         /// The following shows outputing all network ACL ids in a vpc.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleNetworkAcls = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         var exampleNetworkAcls = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
-        ///         {
-        ///             VpcId = @var.Vpc_id,
-        ///         }));
-        ///         this.Example = exampleNetworkAcls.Apply(exampleNetworkAcls =&gt; exampleNetworkAcls.Ids);
-        ///     }
+        ///         VpcId = @var.Vpc_id,
+        ///     });
         /// 
-        ///     [Output("example")]
-        ///     public Output&lt;string&gt; Example { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = exampleNetworkAcls.Apply(getNetworkAclsResult =&gt; getNetworkAclsResult.Ids),
+        ///     };
+        /// });
         /// ```
         /// 
         /// The following example retrieves a list of all network ACL ids in a VPC with a custom
         /// tag of `Tier` set to a value of "Private".
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         VpcId = @var.Vpc_id,
+        ///         Tags = 
         ///         {
-        ///             VpcId = @var.Vpc_id,
-        ///             Tags = 
-        ///             {
-        ///                 { "Tier", "Private" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// The following example retrieves a network ACL id in a VPC which associated
         /// with specific subnet.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         VpcId = @var.Vpc_id,
+        ///         Filters = new[]
         ///         {
-        ///             VpcId = @var.Vpc_id,
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetNetworkAclsFilterArgs
+        ///                 Name = "association.subnet-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "association.subnet-id",
-        ///                     Values = 
-        ///                     {
-        ///                         aws_subnet.Test.Id,
-        ///                     },
+        ///                     aws_subnet.Test.Id,
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -106,78 +101,73 @@ namespace Pulumi.Aws.Ec2
         /// The following shows outputing all network ACL ids in a vpc.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleNetworkAcls = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         var exampleNetworkAcls = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
-        ///         {
-        ///             VpcId = @var.Vpc_id,
-        ///         }));
-        ///         this.Example = exampleNetworkAcls.Apply(exampleNetworkAcls =&gt; exampleNetworkAcls.Ids);
-        ///     }
+        ///         VpcId = @var.Vpc_id,
+        ///     });
         /// 
-        ///     [Output("example")]
-        ///     public Output&lt;string&gt; Example { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = exampleNetworkAcls.Apply(getNetworkAclsResult =&gt; getNetworkAclsResult.Ids),
+        ///     };
+        /// });
         /// ```
         /// 
         /// The following example retrieves a list of all network ACL ids in a VPC with a custom
         /// tag of `Tier` set to a value of "Private".
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         VpcId = @var.Vpc_id,
+        ///         Tags = 
         ///         {
-        ///             VpcId = @var.Vpc_id,
-        ///             Tags = 
-        ///             {
-        ///                 { "Tier", "Private" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// The following example retrieves a network ACL id in a VPC which associated
         /// with specific subnet.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         VpcId = @var.Vpc_id,
+        ///         Filters = new[]
         ///         {
-        ///             VpcId = @var.Vpc_id,
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetNetworkAclsFilterArgs
+        ///                 Name = "association.subnet-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "association.subnet-id",
-        ///                     Values = 
-        ///                     {
-        ///                         aws_subnet.Test.Id,
-        ///                     },
+        ///                     aws_subnet.Test.Id,
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -187,7 +177,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetNetworkAclsArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkAclsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetNetworkAclsFilterArgs>? _filters;
@@ -223,9 +213,10 @@ namespace Pulumi.Aws.Ec2
         public GetNetworkAclsArgs()
         {
         }
+        public static new GetNetworkAclsArgs Empty => new GetNetworkAclsArgs();
     }
 
-    public sealed class GetNetworkAclsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkAclsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetNetworkAclsFilterInputArgs>? _filters;
@@ -261,6 +252,7 @@ namespace Pulumi.Aws.Ec2
         public GetNetworkAclsInvokeArgs()
         {
         }
+        public static new GetNetworkAclsInvokeArgs Empty => new GetNetworkAclsInvokeArgs();
     }
 
 

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
     ///     {
-    ///         var gw = new Aws.Ec2.InternetGateway("gw", new Aws.Ec2.InternetGatewayArgs
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         Tags = 
     ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "main" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "main" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/internetGateway:InternetGateway")]
-    public partial class InternetGateway : Pulumi.CustomResource
+    public partial class InternetGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Internet Gateway.
@@ -65,7 +63,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class InternetGatewayArgs : Pulumi.ResourceArgs
+    public sealed class InternetGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.Ec2
         public InternetGatewayArgs()
         {
         }
+        public static new InternetGatewayArgs Empty => new InternetGatewayArgs();
     }
 
-    public sealed class InternetGatewayState : Pulumi.ResourceArgs
+    public sealed class InternetGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Internet Gateway.
@@ -175,7 +174,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -192,5 +191,6 @@ namespace Pulumi.Aws.Ec2
         public InternetGatewayState()
         {
         }
+        public static new InternetGatewayState Empty => new InternetGatewayState();
     }
 }

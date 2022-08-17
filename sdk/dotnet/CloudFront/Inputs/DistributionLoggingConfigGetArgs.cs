@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionLoggingConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionLoggingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket to store the access logs in, for
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionLoggingConfigGetArgs()
         {
         }
+        public static new DistributionLoggingConfigGetArgs Empty => new DistributionLoggingConfigGetArgs();
     }
 }

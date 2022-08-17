@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DeviceFarm.Inputs
 {
 
-    public sealed class DevicePoolRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class DevicePoolRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.DeviceFarm.Inputs
         public DevicePoolRuleGetArgs()
         {
         }
+        public static new DevicePoolRuleGetArgs Empty => new DevicePoolRuleGetArgs();
     }
 }

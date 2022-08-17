@@ -14,45 +14,41 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ### Using default security group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new Aws.Ec2ClientVpn.NetworkAssociationArgs
-    ///         {
-    ///             ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         });
-    ///     }
+    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using custom security groups
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new Aws.Ec2ClientVpn.NetworkAssociationArgs
+    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SecurityGroups = new[]
     ///         {
-    ///             ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///             SecurityGroups = 
-    ///             {
-    ///                 aws_security_group.Example1.Id,
-    ///                 aws_security_group.Example2.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_security_group.Example1.Id,
+    ///             aws_security_group.Example2.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +60,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]
-    public partial class NetworkAssociation : Pulumi.CustomResource
+    public partial class NetworkAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique ID of the target network association.
@@ -146,7 +142,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
     }
 
-    public sealed class NetworkAssociationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -176,9 +172,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public NetworkAssociationArgs()
         {
         }
+        public static new NetworkAssociationArgs Empty => new NetworkAssociationArgs();
     }
 
-    public sealed class NetworkAssociationState : Pulumi.ResourceArgs
+    public sealed class NetworkAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID of the target network association.
@@ -226,5 +223,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public NetworkAssociationState()
         {
         }
+        public static new NetworkAssociationState Empty => new NetworkAssociationState();
     }
 }

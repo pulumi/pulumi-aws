@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ebs.Inputs
 {
 
-    public sealed class SnapshotImportDiskContainerUserBucketGetArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotImportDiskContainerUserBucketGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Amazon S3 bucket where the disk image is located.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ebs.Inputs
         public SnapshotImportDiskContainerUserBucketGetArgs()
         {
         }
+        public static new SnapshotImportDiskContainerUserBucketGetArgs Empty => new SnapshotImportDiskContainerUserBucketGetArgs();
     }
 }

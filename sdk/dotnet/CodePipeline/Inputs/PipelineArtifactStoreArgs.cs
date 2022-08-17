@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodePipeline.Inputs
 {
 
-    public sealed class PipelineArtifactStoreArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArtifactStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public PipelineArtifactStoreArgs()
         {
         }
+        public static new PipelineArtifactStoreArgs Empty => new PipelineArtifactStoreArgs();
     }
 }

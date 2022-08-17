@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewTrafficPolicyInstance(ctx, "test", &route53.TrafficPolicyInstanceArgs{
-// 			HostedZoneId:         pulumi.String("Z033120931TAQO548OGJC"),
-// 			TrafficPolicyId:      pulumi.String("b3gb108f-ea6f-45a5-baab-9d112d8b4037"),
-// 			TrafficPolicyVersion: pulumi.Int(1),
-// 			Ttl:                  pulumi.Int(360),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewTrafficPolicyInstance(ctx, "test", &route53.TrafficPolicyInstanceArgs{
+//				HostedZoneId:         pulumi.String("Z033120931TAQO548OGJC"),
+//				TrafficPolicyId:      pulumi.String("b3gb108f-ea6f-45a5-baab-9d112d8b4037"),
+//				TrafficPolicyVersion: pulumi.Int(1),
+//				Ttl:                  pulumi.Int(360),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Route53 traffic policy instance can be imported using its id.
 //
 // ```sh
-//  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+//
+//	$ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+//
 // ```
 type TrafficPolicyInstance struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *TrafficPolicyInstance) ToTrafficPolicyInstanceOutputWithContext(ctx con
 // TrafficPolicyInstanceArrayInput is an input type that accepts TrafficPolicyInstanceArray and TrafficPolicyInstanceArrayOutput values.
 // You can construct a concrete instance of `TrafficPolicyInstanceArrayInput` via:
 //
-//          TrafficPolicyInstanceArray{ TrafficPolicyInstanceArgs{...} }
+//	TrafficPolicyInstanceArray{ TrafficPolicyInstanceArgs{...} }
 type TrafficPolicyInstanceArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i TrafficPolicyInstanceArray) ToTrafficPolicyInstanceArrayOutputWithContex
 // TrafficPolicyInstanceMapInput is an input type that accepts TrafficPolicyInstanceMap and TrafficPolicyInstanceMapOutput values.
 // You can construct a concrete instance of `TrafficPolicyInstanceMapInput` via:
 //
-//          TrafficPolicyInstanceMap{ "key": TrafficPolicyInstanceArgs{...} }
+//	TrafficPolicyInstanceMap{ "key": TrafficPolicyInstanceArgs{...} }
 type TrafficPolicyInstanceMapInput interface {
 	pulumi.Input
 

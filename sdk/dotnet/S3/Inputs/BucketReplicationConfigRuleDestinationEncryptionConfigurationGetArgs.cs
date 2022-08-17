@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDestinationEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDestinationEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDestinationEncryptionConfigurationGetArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDestinationEncryptionConfigurationGetArgs Empty => new BucketReplicationConfigRuleDestinationEncryptionConfigurationGetArgs();
     }
 }

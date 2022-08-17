@@ -19,17 +19,15 @@ namespace Pulumi.Aws.Ebs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.Ebs.GetEncryptionByDefault.InvokeAsync());
-        ///     }
+        ///     var current = Aws.Ebs.GetEncryptionByDefault.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

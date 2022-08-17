@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskSetScaleGetArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetScaleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unit of measure for the scale value. Default: `PERCENT`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskSetScaleGetArgs()
         {
         }
+        public static new TaskSetScaleGetArgs Empty => new TaskSetScaleGetArgs();
     }
 }

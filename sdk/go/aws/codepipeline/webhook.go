@@ -19,107 +19,110 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		barPipeline, err := codepipeline.NewPipeline(ctx, "barPipeline", &codepipeline.PipelineArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Bar.Arn),
-// 			ArtifactStores: codepipeline.PipelineArtifactStoreArray{
-// 				&codepipeline.PipelineArtifactStoreArgs{
-// 					Location: pulumi.Any(aws_s3_bucket.Bar.Bucket),
-// 					Type:     pulumi.String("S3"),
-// 					EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-// 						Id:   pulumi.Any(data.Aws_kms_alias.S3kmskey.Arn),
-// 						Type: pulumi.String("KMS"),
-// 					},
-// 				},
-// 			},
-// 			Stages: codepipeline.PipelineStageArray{
-// 				&codepipeline.PipelineStageArgs{
-// 					Name: pulumi.String("Source"),
-// 					Actions: codepipeline.PipelineStageActionArray{
-// 						&codepipeline.PipelineStageActionArgs{
-// 							Name:     pulumi.String("Source"),
-// 							Category: pulumi.String("Source"),
-// 							Owner:    pulumi.String("ThirdParty"),
-// 							Provider: pulumi.String("GitHub"),
-// 							Version:  pulumi.String("1"),
-// 							OutputArtifacts: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 							},
-// 							Configuration: pulumi.StringMap{
-// 								"Owner":  pulumi.String("my-organization"),
-// 								"Repo":   pulumi.String("test"),
-// 								"Branch": pulumi.String("master"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				&codepipeline.PipelineStageArgs{
-// 					Name: pulumi.String("Build"),
-// 					Actions: codepipeline.PipelineStageActionArray{
-// 						&codepipeline.PipelineStageActionArgs{
-// 							Name:     pulumi.String("Build"),
-// 							Category: pulumi.String("Build"),
-// 							Owner:    pulumi.String("AWS"),
-// 							Provider: pulumi.String("CodeBuild"),
-// 							InputArtifacts: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 							},
-// 							Version: pulumi.String("1"),
-// 							Configuration: pulumi.StringMap{
-// 								"ProjectName": pulumi.String("test"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		webhookSecret := "super-secret"
-// 		barWebhook, err := codepipeline.NewWebhook(ctx, "barWebhook", &codepipeline.WebhookArgs{
-// 			Authentication: pulumi.String("GITHUB_HMAC"),
-// 			TargetAction:   pulumi.String("Source"),
-// 			TargetPipeline: barPipeline.Name,
-// 			AuthenticationConfiguration: &codepipeline.WebhookAuthenticationConfigurationArgs{
-// 				SecretToken: pulumi.String(webhookSecret),
-// 			},
-// 			Filters: codepipeline.WebhookFilterArray{
-// 				&codepipeline.WebhookFilterArgs{
-// 					JsonPath:    pulumi.String(fmt.Sprintf("$.ref")),
-// 					MatchEquals: pulumi.String("refs/heads/{Branch}"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
-// 			Repository: pulumi.Any(github_repository.Repo.Name),
-// 			Configuration: &RepositoryWebhookConfigurationArgs{
-// 				Url:         barWebhook.Url,
-// 				ContentType: pulumi.String("json"),
-// 				InsecureSsl: pulumi.Bool(true),
-// 				Secret:      pulumi.String(webhookSecret),
-// 			},
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("push"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			barPipeline, err := codepipeline.NewPipeline(ctx, "barPipeline", &codepipeline.PipelineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Bar.Arn),
+//				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+//					&codepipeline.PipelineArtifactStoreArgs{
+//						Location: pulumi.Any(aws_s3_bucket.Bar.Bucket),
+//						Type:     pulumi.String("S3"),
+//						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
+//							Id:   pulumi.Any(data.Aws_kms_alias.S3kmskey.Arn),
+//							Type: pulumi.String("KMS"),
+//						},
+//					},
+//				},
+//				Stages: codepipeline.PipelineStageArray{
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Source"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							&codepipeline.PipelineStageActionArgs{
+//								Name:     pulumi.String("Source"),
+//								Category: pulumi.String("Source"),
+//								Owner:    pulumi.String("ThirdParty"),
+//								Provider: pulumi.String("GitHub"),
+//								Version:  pulumi.String("1"),
+//								OutputArtifacts: pulumi.StringArray{
+//									pulumi.String("test"),
+//								},
+//								Configuration: pulumi.StringMap{
+//									"Owner":  pulumi.String("my-organization"),
+//									"Repo":   pulumi.String("test"),
+//									"Branch": pulumi.String("master"),
+//								},
+//							},
+//						},
+//					},
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Build"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							&codepipeline.PipelineStageActionArgs{
+//								Name:     pulumi.String("Build"),
+//								Category: pulumi.String("Build"),
+//								Owner:    pulumi.String("AWS"),
+//								Provider: pulumi.String("CodeBuild"),
+//								InputArtifacts: pulumi.StringArray{
+//									pulumi.String("test"),
+//								},
+//								Version: pulumi.String("1"),
+//								Configuration: pulumi.StringMap{
+//									"ProjectName": pulumi.String("test"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			webhookSecret := "super-secret"
+//			barWebhook, err := codepipeline.NewWebhook(ctx, "barWebhook", &codepipeline.WebhookArgs{
+//				Authentication: pulumi.String("GITHUB_HMAC"),
+//				TargetAction:   pulumi.String("Source"),
+//				TargetPipeline: barPipeline.Name,
+//				AuthenticationConfiguration: &codepipeline.WebhookAuthenticationConfigurationArgs{
+//					SecretToken: pulumi.String(webhookSecret),
+//				},
+//				Filters: codepipeline.WebhookFilterArray{
+//					&codepipeline.WebhookFilterArgs{
+//						JsonPath:    pulumi.String(fmt.Sprintf("$.ref")),
+//						MatchEquals: pulumi.String("refs/heads/{Branch}"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
+//				Repository: pulumi.Any(github_repository.Repo.Name),
+//				Configuration: &RepositoryWebhookConfigurationArgs{
+//					Url:         barWebhook.Url,
+//					ContentType: pulumi.String("json"),
+//					InsecureSsl: pulumi.Bool(true),
+//					Secret:      pulumi.String(webhookSecret),
+//				},
+//				Events: pulumi.StringArray{
+//					pulumi.String("push"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -127,7 +130,9 @@ import (
 // CodePipeline Webhooks can be imported by their ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+//
+//	$ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+//
 // ```
 type Webhook struct {
 	pulumi.CustomResourceState
@@ -144,7 +149,7 @@ type Webhook struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringOutput `pulumi:"targetAction"`
@@ -207,7 +212,7 @@ type webhookState struct {
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction *string `pulumi:"targetAction"`
@@ -230,7 +235,7 @@ type WebhookState struct {
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringPtrInput
@@ -305,7 +310,7 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 // WebhookArrayInput is an input type that accepts WebhookArray and WebhookArrayOutput values.
 // You can construct a concrete instance of `WebhookArrayInput` via:
 //
-//          WebhookArray{ WebhookArgs{...} }
+//	WebhookArray{ WebhookArgs{...} }
 type WebhookArrayInput interface {
 	pulumi.Input
 
@@ -330,7 +335,7 @@ func (i WebhookArray) ToWebhookArrayOutputWithContext(ctx context.Context) Webho
 // WebhookMapInput is an input type that accepts WebhookMap and WebhookMapOutput values.
 // You can construct a concrete instance of `WebhookMapInput` via:
 //
-//          WebhookMap{ "key": WebhookArgs{...} }
+//	WebhookMap{ "key": WebhookArgs{...} }
 type WebhookMapInput interface {
 	pulumi.Input
 
@@ -396,7 +401,7 @@ func (o WebhookOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WebhookOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

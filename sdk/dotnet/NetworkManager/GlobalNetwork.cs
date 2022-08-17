@@ -15,20 +15,18 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkManager.GlobalNetwork("example", new()
     ///     {
-    ///         var example = new Aws.NetworkManager.GlobalNetwork("example", new Aws.NetworkManager.GlobalNetworkArgs
-    ///         {
-    ///             Description = "example",
-    ///         });
-    ///     }
+    ///         Description = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/globalNetwork:GlobalNetwork")]
-    public partial class GlobalNetwork : Pulumi.CustomResource
+    public partial class GlobalNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Global Network Amazon Resource Name (ARN)
@@ -104,7 +102,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class GlobalNetworkArgs : Pulumi.ResourceArgs
+    public sealed class GlobalNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the Global Network.
@@ -123,9 +121,10 @@ namespace Pulumi.Aws.NetworkManager
         public GlobalNetworkArgs()
         {
         }
+        public static new GlobalNetworkArgs Empty => new GlobalNetworkArgs();
     }
 
-    public sealed class GlobalNetworkState : Pulumi.ResourceArgs
+    public sealed class GlobalNetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Global Network Amazon Resource Name (ARN)
@@ -158,5 +157,6 @@ namespace Pulumi.Aws.NetworkManager
         public GlobalNetworkState()
         {
         }
+        public static new GlobalNetworkState Empty => new GlobalNetworkState();
     }
 }

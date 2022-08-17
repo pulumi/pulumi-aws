@@ -16,21 +16,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewSerialConsoleAccess(ctx, "example", &ec2.SerialConsoleAccessArgs{
-// 			Enabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSerialConsoleAccess(ctx, "example", &ec2.SerialConsoleAccessArgs{
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -38,7 +41,9 @@ import (
 // Serial console access state can be imported, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+//
+//	$ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+//
 // ```
 type SerialConsoleAccess struct {
 	pulumi.CustomResourceState
@@ -126,7 +131,7 @@ func (i *SerialConsoleAccess) ToSerialConsoleAccessOutputWithContext(ctx context
 // SerialConsoleAccessArrayInput is an input type that accepts SerialConsoleAccessArray and SerialConsoleAccessArrayOutput values.
 // You can construct a concrete instance of `SerialConsoleAccessArrayInput` via:
 //
-//          SerialConsoleAccessArray{ SerialConsoleAccessArgs{...} }
+//	SerialConsoleAccessArray{ SerialConsoleAccessArgs{...} }
 type SerialConsoleAccessArrayInput interface {
 	pulumi.Input
 
@@ -151,7 +156,7 @@ func (i SerialConsoleAccessArray) ToSerialConsoleAccessArrayOutputWithContext(ct
 // SerialConsoleAccessMapInput is an input type that accepts SerialConsoleAccessMap and SerialConsoleAccessMapOutput values.
 // You can construct a concrete instance of `SerialConsoleAccessMapInput` via:
 //
-//          SerialConsoleAccessMap{ "key": SerialConsoleAccessArgs{...} }
+//	SerialConsoleAccessMap{ "key": SerialConsoleAccessArgs{...} }
 type SerialConsoleAccessMapInput interface {
 	pulumi.Input
 

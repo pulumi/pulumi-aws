@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53.ResolverQueryLogConfigAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Route53.ResolverQueryLogConfigAssociation("example", new Aws.Route53.ResolverQueryLogConfigAssociationArgs
-    ///         {
-    ///             ResolverQueryLogConfigId = aws_route53_resolver_query_log_config.Example.Id,
-    ///             ResourceId = aws_vpc.Example.Id,
-    ///         });
-    ///     }
+    ///         ResolverQueryLogConfigId = aws_route53_resolver_query_log_config.Example.Id,
+    ///         ResourceId = aws_vpc.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]
-    public partial class ResolverQueryLogConfigAssociation : Pulumi.CustomResource
+    public partial class ResolverQueryLogConfigAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverQueryLogConfigAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ResolverQueryLogConfigAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
@@ -116,9 +114,10 @@ namespace Pulumi.Aws.Route53
         public ResolverQueryLogConfigAssociationArgs()
         {
         }
+        public static new ResolverQueryLogConfigAssociationArgs Empty => new ResolverQueryLogConfigAssociationArgs();
     }
 
-    public sealed class ResolverQueryLogConfigAssociationState : Pulumi.ResourceArgs
+    public sealed class ResolverQueryLogConfigAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
@@ -135,5 +134,6 @@ namespace Pulumi.Aws.Route53
         public ResolverQueryLogConfigAssociationState()
         {
         }
+        public static new ResolverQueryLogConfigAssociationState Empty => new ResolverQueryLogConfigAssociationState();
     }
 }

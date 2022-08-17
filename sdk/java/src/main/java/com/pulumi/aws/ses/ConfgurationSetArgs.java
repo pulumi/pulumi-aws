@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses;
 
 import com.pulumi.aws.ses.inputs.ConfgurationSetDeliveryOptionsArgs;
+import com.pulumi.aws.ses.inputs.ConfgurationSetTrackingOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -18,14 +19,14 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
     public static final ConfgurationSetArgs Empty = new ConfgurationSetArgs();
 
     /**
-     * Configuration block. Detailed below.
+     * Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
     @Import(name="deliveryOptions")
     private @Nullable Output<ConfgurationSetDeliveryOptionsArgs> deliveryOptions;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
     public Optional<Output<ConfgurationSetDeliveryOptionsArgs>> deliveryOptions() {
@@ -77,6 +78,21 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.sendingEnabled);
     }
 
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
+    @Import(name="trackingOptions")
+    private @Nullable Output<ConfgurationSetTrackingOptionsArgs> trackingOptions;
+
+    /**
+     * @return Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
+    public Optional<Output<ConfgurationSetTrackingOptionsArgs>> trackingOptions() {
+        return Optional.ofNullable(this.trackingOptions);
+    }
+
     private ConfgurationSetArgs() {}
 
     private ConfgurationSetArgs(ConfgurationSetArgs $) {
@@ -84,6 +100,7 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.reputationMetricsEnabled = $.reputationMetricsEnabled;
         this.sendingEnabled = $.sendingEnabled;
+        this.trackingOptions = $.trackingOptions;
     }
 
     public static Builder builder() {
@@ -105,7 +122,7 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deliveryOptions Configuration block. Detailed below.
+         * @param deliveryOptions Whether messages that use the configuration set are required to use TLS. See below.
          * 
          * @return builder
          * 
@@ -116,7 +133,7 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deliveryOptions Configuration block. Detailed below.
+         * @param deliveryOptions Whether messages that use the configuration set are required to use TLS. See below.
          * 
          * @return builder
          * 
@@ -186,6 +203,27 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder sendingEnabled(Boolean sendingEnabled) {
             return sendingEnabled(Output.of(sendingEnabled));
+        }
+
+        /**
+         * @param trackingOptions Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackingOptions(@Nullable Output<ConfgurationSetTrackingOptionsArgs> trackingOptions) {
+            $.trackingOptions = trackingOptions;
+            return this;
+        }
+
+        /**
+         * @param trackingOptions Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackingOptions(ConfgurationSetTrackingOptionsArgs trackingOptions) {
+            return trackingOptions(Output.of(trackingOptions));
         }
 
         public ConfgurationSetArgs build() {

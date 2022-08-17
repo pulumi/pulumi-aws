@@ -22,40 +22,40 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var prod = new Aws.Rds.Instance("prod", new()
         ///     {
-        ///         var prod = new Aws.Rds.Instance("prod", new Aws.Rds.InstanceArgs
-        ///         {
-        ///             AllocatedStorage = 10,
-        ///             Engine = "mysql",
-        ///             EngineVersion = "5.6.17",
-        ///             InstanceClass = "db.t2.micro",
-        ///             Name = "mydb",
-        ///             Username = "foo",
-        ///             Password = "bar",
-        ///             DbSubnetGroupName = "my_database_subnet_group",
-        ///             ParameterGroupName = "default.mysql5.6",
-        ///         });
-        ///         var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new Aws.Rds.GetSnapshotInvokeArgs
-        ///         {
-        ///             DbInstanceIdentifier = prod.Id,
-        ///             MostRecent = true,
-        ///         });
-        ///         // Use the latest production snapshot to create a dev instance.
-        ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
-        ///         {
-        ///             InstanceClass = "db.t2.micro",
-        ///             Name = "mydbdev",
-        ///             SnapshotIdentifier = latestProdSnapshot.Apply(latestProdSnapshot =&gt; latestProdSnapshot.Id),
-        ///         });
-        ///     }
+        ///         AllocatedStorage = 10,
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.6.17",
+        ///         InstanceClass = "db.t2.micro",
+        ///         Name = "mydb",
+        ///         Username = "foo",
+        ///         Password = "bar",
+        ///         DbSubnetGroupName = "my_database_subnet_group",
+        ///         ParameterGroupName = "default.mysql5.6",
+        ///     });
         /// 
-        /// }
+        ///     var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new()
+        ///     {
+        ///         DbInstanceIdentifier = prod.Id,
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     // Use the latest production snapshot to create a dev instance.
+        ///     var dev = new Aws.Rds.Instance("dev", new()
+        ///     {
+        ///         InstanceClass = "db.t2.micro",
+        ///         Name = "mydbdev",
+        ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -74,40 +74,40 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var prod = new Aws.Rds.Instance("prod", new()
         ///     {
-        ///         var prod = new Aws.Rds.Instance("prod", new Aws.Rds.InstanceArgs
-        ///         {
-        ///             AllocatedStorage = 10,
-        ///             Engine = "mysql",
-        ///             EngineVersion = "5.6.17",
-        ///             InstanceClass = "db.t2.micro",
-        ///             Name = "mydb",
-        ///             Username = "foo",
-        ///             Password = "bar",
-        ///             DbSubnetGroupName = "my_database_subnet_group",
-        ///             ParameterGroupName = "default.mysql5.6",
-        ///         });
-        ///         var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new Aws.Rds.GetSnapshotInvokeArgs
-        ///         {
-        ///             DbInstanceIdentifier = prod.Id,
-        ///             MostRecent = true,
-        ///         });
-        ///         // Use the latest production snapshot to create a dev instance.
-        ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
-        ///         {
-        ///             InstanceClass = "db.t2.micro",
-        ///             Name = "mydbdev",
-        ///             SnapshotIdentifier = latestProdSnapshot.Apply(latestProdSnapshot =&gt; latestProdSnapshot.Id),
-        ///         });
-        ///     }
+        ///         AllocatedStorage = 10,
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.6.17",
+        ///         InstanceClass = "db.t2.micro",
+        ///         Name = "mydb",
+        ///         Username = "foo",
+        ///         Password = "bar",
+        ///         DbSubnetGroupName = "my_database_subnet_group",
+        ///         ParameterGroupName = "default.mysql5.6",
+        ///     });
         /// 
-        /// }
+        ///     var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new()
+        ///     {
+        ///         DbInstanceIdentifier = prod.Id,
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     // Use the latest production snapshot to create a dev instance.
+        ///     var dev = new Aws.Rds.Instance("dev", new()
+        ///     {
+        ///         InstanceClass = "db.t2.micro",
+        ///         Name = "mydbdev",
+        ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns the list of snapshots created by the specific db_instance
@@ -164,9 +164,10 @@ namespace Pulumi.Aws.Rds
         public GetSnapshotArgs()
         {
         }
+        public static new GetSnapshotArgs Empty => new GetSnapshotArgs();
     }
 
-    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns the list of snapshots created by the specific db_instance
@@ -213,6 +214,7 @@ namespace Pulumi.Aws.Rds
         public GetSnapshotInvokeArgs()
         {
         }
+        public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
     }
 
 

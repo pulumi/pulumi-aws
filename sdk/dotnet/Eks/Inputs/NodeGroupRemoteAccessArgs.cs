@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupRemoteAccessArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupRemoteAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupRemoteAccessArgs()
         {
         }
+        public static new NodeGroupRemoteAccessArgs Empty => new NodeGroupRemoteAccessArgs();
     }
 }

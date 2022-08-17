@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationV2RuleFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2RuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleConfigurationV2RuleFilterGetArgs()
         {
         }
+        public static new BucketLifecycleConfigurationV2RuleFilterGetArgs Empty => new BucketLifecycleConfigurationV2RuleFilterGetArgs();
     }
 }

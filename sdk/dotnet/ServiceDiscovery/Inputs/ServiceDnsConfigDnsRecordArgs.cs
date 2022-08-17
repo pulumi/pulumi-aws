@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceDiscovery.Inputs
 {
 
-    public sealed class ServiceDnsConfigDnsRecordArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDnsConfigDnsRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
         public ServiceDnsConfigDnsRecordArgs()
         {
         }
+        public static new ServiceDnsConfigDnsRecordArgs Empty => new ServiceDnsConfigDnsRecordArgs();
     }
 }

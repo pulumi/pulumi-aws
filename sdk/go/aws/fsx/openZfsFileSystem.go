@@ -19,22 +19,24 @@ import (
 // FSx File Systems can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
+//
+//	$ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
+//
 // ```
 //
-//  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_fsx_openzfs_file_system" "example" {
+//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_fsx_openzfs_file_system" "example" {
 //
 // # ... other configuration ...
 //
-//  security_group_ids = [aws_security_group.example.id]
+//	security_group_ids = [aws_security_group.example.id]
 //
 // # There is no FSx API for reading security_group_ids
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [security_group_ids]
+//	ignore_changes = [security_group_ids]
 //
-//  } }
+//	} }
 type OpenZfsFileSystem struct {
 	pulumi.CustomResourceState
 
@@ -74,9 +76,8 @@ type OpenZfsFileSystem struct {
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
@@ -160,9 +161,8 @@ type openZfsFileSystemState struct {
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds *string `pulumi:"subnetIds"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
@@ -209,9 +209,8 @@ type OpenZfsFileSystemState struct {
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity pulumi.IntPtrInput
@@ -252,7 +251,7 @@ type openZfsFileSystemArgs struct {
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds string `pulumi:"subnetIds"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity int `pulumi:"throughputCapacity"`
@@ -288,7 +287,7 @@ type OpenZfsFileSystemArgs struct {
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds pulumi.StringInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity pulumi.IntInput
@@ -322,7 +321,7 @@ func (i *OpenZfsFileSystem) ToOpenZfsFileSystemOutputWithContext(ctx context.Con
 // OpenZfsFileSystemArrayInput is an input type that accepts OpenZfsFileSystemArray and OpenZfsFileSystemArrayOutput values.
 // You can construct a concrete instance of `OpenZfsFileSystemArrayInput` via:
 //
-//          OpenZfsFileSystemArray{ OpenZfsFileSystemArgs{...} }
+//	OpenZfsFileSystemArray{ OpenZfsFileSystemArgs{...} }
 type OpenZfsFileSystemArrayInput interface {
 	pulumi.Input
 
@@ -347,7 +346,7 @@ func (i OpenZfsFileSystemArray) ToOpenZfsFileSystemArrayOutputWithContext(ctx co
 // OpenZfsFileSystemMapInput is an input type that accepts OpenZfsFileSystemMap and OpenZfsFileSystemMapOutput values.
 // You can construct a concrete instance of `OpenZfsFileSystemMapInput` via:
 //
-//          OpenZfsFileSystemMap{ "key": OpenZfsFileSystemArgs{...} }
+//	OpenZfsFileSystemMap{ "key": OpenZfsFileSystemArgs{...} }
 type OpenZfsFileSystemMapInput interface {
 	pulumi.Input
 
@@ -477,12 +476,11 @@ func (o OpenZfsFileSystemOutput) SubnetIds() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.SubnetIds }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OpenZfsFileSystemOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o OpenZfsFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

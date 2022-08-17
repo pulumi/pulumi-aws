@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appstream.NewFleet(ctx, "testFleet", &appstream.FleetArgs{
-// 			ComputeCapacity: &appstream.FleetComputeCapacityArgs{
-// 				DesiredInstances: pulumi.Int(1),
-// 			},
-// 			Description:                    pulumi.String("test fleet"),
-// 			DisplayName:                    pulumi.String("test-fleet"),
-// 			EnableDefaultInternetAccess:    pulumi.Bool(false),
-// 			FleetType:                      pulumi.String("ON_DEMAND"),
-// 			IdleDisconnectTimeoutInSeconds: pulumi.Int(60),
-// 			ImageName:                      pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
-// 			InstanceType:                   pulumi.String("stream.standard.large"),
-// 			MaxUserDurationInSeconds:       pulumi.Int(600),
-// 			Tags: pulumi.StringMap{
-// 				"TagName": pulumi.String("tag-value"),
-// 			},
-// 			VpcConfig: &appstream.FleetVpcConfigArgs{
-// 				SubnetIds: pulumi.StringArray{
-// 					pulumi.String("subnet-06e9b13400c225127"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.NewFleet(ctx, "testFleet", &appstream.FleetArgs{
+//				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
+//					DesiredInstances: pulumi.Int(1),
+//				},
+//				Description:                    pulumi.String("test fleet"),
+//				DisplayName:                    pulumi.String("test-fleet"),
+//				EnableDefaultInternetAccess:    pulumi.Bool(false),
+//				FleetType:                      pulumi.String("ON_DEMAND"),
+//				IdleDisconnectTimeoutInSeconds: pulumi.Int(60),
+//				ImageName:                      pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
+//				InstanceType:                   pulumi.String("stream.standard.large"),
+//				MaxUserDurationInSeconds:       pulumi.Int(600),
+//				Tags: pulumi.StringMap{
+//					"TagName": pulumi.String("tag-value"),
+//				},
+//				VpcConfig: &appstream.FleetVpcConfigArgs{
+//					SubnetIds: pulumi.StringArray{
+//						pulumi.String("subnet-06e9b13400c225127"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // `aws_appstream_fleet` can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+//
+//	$ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+//
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -334,7 +339,7 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 // FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
 // You can construct a concrete instance of `FleetArrayInput` via:
 //
-//          FleetArray{ FleetArgs{...} }
+//	FleetArray{ FleetArgs{...} }
 type FleetArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +364,7 @@ func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArra
 // FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
 // You can construct a concrete instance of `FleetMapInput` via:
 //
-//          FleetMap{ "key": FleetArgs{...} }
+//	FleetMap{ "key": FleetArgs{...} }
 type FleetMapInput interface {
 	pulumi.Input
 

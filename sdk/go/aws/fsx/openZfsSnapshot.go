@@ -21,7 +21,9 @@ import (
 // FSx OpenZFS snapshot can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+//
+//	$ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+//
 // ```
 type OpenZfsSnapshot struct {
 	pulumi.CustomResourceState
@@ -32,8 +34,7 @@ type OpenZfsSnapshot struct {
 	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
@@ -77,8 +78,7 @@ type openZfsSnapshotState struct {
 	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId *string `pulumi:"volumeId"`
@@ -91,8 +91,7 @@ type OpenZfsSnapshotState struct {
 	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId pulumi.StringPtrInput
@@ -147,7 +146,7 @@ func (i *OpenZfsSnapshot) ToOpenZfsSnapshotOutputWithContext(ctx context.Context
 // OpenZfsSnapshotArrayInput is an input type that accepts OpenZfsSnapshotArray and OpenZfsSnapshotArrayOutput values.
 // You can construct a concrete instance of `OpenZfsSnapshotArrayInput` via:
 //
-//          OpenZfsSnapshotArray{ OpenZfsSnapshotArgs{...} }
+//	OpenZfsSnapshotArray{ OpenZfsSnapshotArgs{...} }
 type OpenZfsSnapshotArrayInput interface {
 	pulumi.Input
 
@@ -172,7 +171,7 @@ func (i OpenZfsSnapshotArray) ToOpenZfsSnapshotArrayOutputWithContext(ctx contex
 // OpenZfsSnapshotMapInput is an input type that accepts OpenZfsSnapshotMap and OpenZfsSnapshotMapOutput values.
 // You can construct a concrete instance of `OpenZfsSnapshotMapInput` via:
 //
-//          OpenZfsSnapshotMap{ "key": OpenZfsSnapshotArgs{...} }
+//	OpenZfsSnapshotMap{ "key": OpenZfsSnapshotArgs{...} }
 type OpenZfsSnapshotMapInput interface {
 	pulumi.Input
 
@@ -227,7 +226,6 @@ func (o OpenZfsSnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o OpenZfsSnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

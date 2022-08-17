@@ -15,26 +15,27 @@ namespace Pulumi.Aws.CodeArtifact
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "domain key",
-    ///         });
-    ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
-    ///         {
-    ///             DomainName = "example",
-    ///             EncryptionKey = exampleKey.Arn,
-    ///         });
-    ///         var test = new Aws.CodeArtifact.DomainPermissions("test", new Aws.CodeArtifact.DomainPermissionsArgs
-    ///         {
-    ///             Domain = exampleDomain.DomainName,
-    ///             PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
+    ///         Description = "domain key",
+    ///     });
+    /// 
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     {
+    ///         DomainName = "example",
+    ///         EncryptionKey = exampleKey.Arn,
+    ///     });
+    /// 
+    ///     var test = new Aws.CodeArtifact.DomainPermissions("test", new()
+    ///     {
+    ///         Domain = exampleDomain.DomainName,
+    ///         PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {{
@@ -46,10 +47,9 @@ namespace Pulumi.Aws.CodeArtifact
     ///     ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/domainPermissions:DomainPermissions")]
-    public partial class DomainPermissions : Pulumi.CustomResource
+    public partial class DomainPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.CodeArtifact
         }
     }
 
-    public sealed class DomainPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
@@ -166,9 +166,10 @@ namespace Pulumi.Aws.CodeArtifact
         public DomainPermissionsArgs()
         {
         }
+        public static new DomainPermissionsArgs Empty => new DomainPermissionsArgs();
     }
 
-    public sealed class DomainPermissionsState : Pulumi.ResourceArgs
+    public sealed class DomainPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
@@ -203,5 +204,6 @@ namespace Pulumi.Aws.CodeArtifact
         public DomainPermissionsState()
         {
         }
+        public static new DomainPermissionsState Empty => new DomainPermissionsState();
     }
 }

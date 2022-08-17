@@ -16,53 +16,47 @@ namespace Pulumi.Aws.S3
     /// ### Add metrics configuration for entire S3 bucket
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new Aws.S3.BucketMetricArgs
-    ///         {
-    ///             Bucket = example.Bucket,
-    ///         });
-    ///     }
+    ///     var example = new Aws.S3.BucketV2("example");
     /// 
-    /// }
+    ///     var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Add metrics configuration with S3 object filter
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example_filtered = new Aws.S3.BucketMetric("example-filtered", new Aws.S3.BucketMetricArgs
-    ///         {
-    ///             Bucket = example.Bucket,
-    ///             Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
-    ///             {
-    ///                 Prefix = "documents/",
-    ///                 Tags = 
-    ///                 {
-    ///                     { "priority", "high" },
-    ///                     { "class", "blue" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.S3.BucketV2("example");
     /// 
-    /// }
+    ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
+    ///         {
+    ///             Prefix = "documents/",
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +68,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketMetric:BucketMetric")]
-    public partial class BucketMetric : Pulumi.CustomResource
+    public partial class BucketMetric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket to put metric configuration.
@@ -138,7 +132,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketMetricArgs : Pulumi.ResourceArgs
+    public sealed class BucketMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket to put metric configuration.
@@ -161,9 +155,10 @@ namespace Pulumi.Aws.S3
         public BucketMetricArgs()
         {
         }
+        public static new BucketMetricArgs Empty => new BucketMetricArgs();
     }
 
-    public sealed class BucketMetricState : Pulumi.ResourceArgs
+    public sealed class BucketMetricState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket to put metric configuration.
@@ -186,5 +181,6 @@ namespace Pulumi.Aws.S3
         public BucketMetricState()
         {
         }
+        public static new BucketMetricState Empty => new BucketMetricState();
     }
 }

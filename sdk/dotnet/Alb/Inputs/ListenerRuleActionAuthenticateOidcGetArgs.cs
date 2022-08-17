@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class ListenerRuleActionAuthenticateOidcGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionAuthenticateOidcGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationRequestExtraParams")]
         private InputMap<string>? _authenticationRequestExtraParams;
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public ListenerRuleActionAuthenticateOidcGetArgs()
         {
         }
+        public static new ListenerRuleActionAuthenticateOidcGetArgs Empty => new ListenerRuleActionAuthenticateOidcGetArgs();
     }
 }

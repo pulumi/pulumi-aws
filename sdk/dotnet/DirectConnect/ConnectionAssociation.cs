@@ -15,35 +15,35 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleConnection = new Aws.DirectConnect.Connection("exampleConnection", new()
     ///     {
-    ///         var exampleConnection = new Aws.DirectConnect.Connection("exampleConnection", new Aws.DirectConnect.ConnectionArgs
-    ///         {
-    ///             Bandwidth = "1Gbps",
-    ///             Location = "EqSe2-EQ",
-    ///         });
-    ///         var exampleLinkAggregationGroup = new Aws.DirectConnect.LinkAggregationGroup("exampleLinkAggregationGroup", new Aws.DirectConnect.LinkAggregationGroupArgs
-    ///         {
-    ///             ConnectionsBandwidth = "1Gbps",
-    ///             Location = "EqSe2-EQ",
-    ///         });
-    ///         var exampleConnectionAssociation = new Aws.DirectConnect.ConnectionAssociation("exampleConnectionAssociation", new Aws.DirectConnect.ConnectionAssociationArgs
-    ///         {
-    ///             ConnectionId = exampleConnection.Id,
-    ///             LagId = exampleLinkAggregationGroup.Id,
-    ///         });
-    ///     }
+    ///         Bandwidth = "1Gbps",
+    ///         Location = "EqSe2-EQ",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLinkAggregationGroup = new Aws.DirectConnect.LinkAggregationGroup("exampleLinkAggregationGroup", new()
+    ///     {
+    ///         ConnectionsBandwidth = "1Gbps",
+    ///         Location = "EqSe2-EQ",
+    ///     });
+    /// 
+    ///     var exampleConnectionAssociation = new Aws.DirectConnect.ConnectionAssociation("exampleConnectionAssociation", new()
+    ///     {
+    ///         ConnectionId = exampleConnection.Id,
+    ///         LagId = exampleLinkAggregationGroup.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
-    public partial class ConnectionAssociation : Pulumi.CustomResource
+    public partial class ConnectionAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the connection.
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class ConnectionAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the connection.
@@ -118,9 +118,10 @@ namespace Pulumi.Aws.DirectConnect
         public ConnectionAssociationArgs()
         {
         }
+        public static new ConnectionAssociationArgs Empty => new ConnectionAssociationArgs();
     }
 
-    public sealed class ConnectionAssociationState : Pulumi.ResourceArgs
+    public sealed class ConnectionAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the connection.
@@ -137,5 +138,6 @@ namespace Pulumi.Aws.DirectConnect
         public ConnectionAssociationState()
         {
         }
+        public static new ConnectionAssociationState Empty => new ConnectionAssociationState();
     }
 }

@@ -15,32 +15,30 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sizeConstraintSet = new Aws.WafRegional.SizeConstraintSet("sizeConstraintSet", new()
     ///     {
-    ///         var sizeConstraintSet = new Aws.WafRegional.SizeConstraintSet("sizeConstraintSet", new Aws.WafRegional.SizeConstraintSetArgs
+    ///         SizeConstraints = new[]
     ///         {
-    ///             SizeConstraints = 
+    ///             new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintArgs
+    ///                 ComparisonOperator = "EQ",
+    ///                 FieldToMatch = new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
     ///                 {
-    ///                     ComparisonOperator = "EQ",
-    ///                     FieldToMatch = new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
-    ///                     {
-    ///                         Type = "BODY",
-    ///                     },
-    ///                     Size = 4096,
-    ///                     TextTransformation = "NONE",
+    ///                     Type = "BODY",
     ///                 },
+    ///                 Size = 4096,
+    ///                 TextTransformation = "NONE",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/sizeConstraintSet:SizeConstraintSet")]
-    public partial class SizeConstraintSet : Pulumi.CustomResource
+    public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -113,7 +111,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class SizeConstraintSetArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the Size Constraint Set.
@@ -136,9 +134,10 @@ namespace Pulumi.Aws.WafRegional
         public SizeConstraintSetArgs()
         {
         }
+        public static new SizeConstraintSetArgs Empty => new SizeConstraintSetArgs();
     }
 
-    public sealed class SizeConstraintSetState : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -164,5 +163,6 @@ namespace Pulumi.Aws.WafRegional
         public SizeConstraintSetState()
         {
         }
+        public static new SizeConstraintSetState Empty => new SizeConstraintSetState();
     }
 }

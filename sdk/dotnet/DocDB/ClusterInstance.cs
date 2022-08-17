@@ -26,36 +26,33 @@ namespace Pulumi.Aws.DocDB
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.DocDB.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.DocDB.Cluster("default", new Aws.DocDB.ClusterArgs
+    ///         ClusterIdentifier = "docdb-cluster-demo",
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             ClusterIdentifier = "docdb-cluster-demo",
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             MasterUsername = "foo",
-    ///             MasterPassword = "barbut8chars",
-    ///         });
-    ///         var clusterInstances = new List&lt;Aws.DocDB.ClusterInstance&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             clusterInstances.Add(new Aws.DocDB.ClusterInstance($"clusterInstances-{range.Value}", new Aws.DocDB.ClusterInstanceArgs
-    ///             {
-    ///                 Identifier = $"docdb-cluster-demo-{range.Value}",
-    ///                 ClusterIdentifier = @default.Id,
-    ///                 InstanceClass = "db.r5.large",
-    ///             }));
-    ///         }
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         MasterUsername = "foo",
+    ///         MasterPassword = "barbut8chars",
+    ///     });
     /// 
-    /// }
+    ///     var clusterInstances = new List&lt;Aws.DocDB.ClusterInstance&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         clusterInstances.Add(new Aws.DocDB.ClusterInstance($"clusterInstances-{range.Value}", new()
+    ///         {
+    ///             Identifier = $"docdb-cluster-demo-{range.Value}",
+    ///             ClusterIdentifier = @default.Id,
+    ///             InstanceClass = "db.r5.large",
+    ///         }));
+    ///     }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +64,7 @@ namespace Pulumi.Aws.DocDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterInstance:ClusterInstance")]
-    public partial class ClusterInstance : Pulumi.CustomResource
+    public partial class ClusterInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether any database modifications
@@ -209,13 +206,13 @@ namespace Pulumi.Aws.DocDB
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -270,7 +267,7 @@ namespace Pulumi.Aws.DocDB
         }
     }
 
-    public sealed class ClusterInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any database modifications
@@ -358,7 +355,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -369,9 +366,10 @@ namespace Pulumi.Aws.DocDB
         public ClusterInstanceArgs()
         {
         }
+        public static new ClusterInstanceArgs Empty => new ClusterInstanceArgs();
     }
 
-    public sealed class ClusterInstanceState : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any database modifications
@@ -516,7 +514,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -528,7 +526,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -545,5 +543,6 @@ namespace Pulumi.Aws.DocDB
         public ClusterInstanceState()
         {
         }
+        public static new ClusterInstanceState Empty => new ClusterInstanceState();
     }
 }

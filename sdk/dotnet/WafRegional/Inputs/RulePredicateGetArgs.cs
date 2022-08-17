@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class RulePredicateGetArgs : Pulumi.ResourceArgs
+    public sealed class RulePredicateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataId", required: true)]
         public Input<string> DataId { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public RulePredicateGetArgs()
         {
         }
+        public static new RulePredicateGetArgs Empty => new RulePredicateGetArgs();
     }
 }

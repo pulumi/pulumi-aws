@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicySecurityHeadersConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicySecurityHeadersConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicySecurityHeadersConfigArgs()
         {
         }
+        public static new ResponseHeadersPolicySecurityHeadersConfigArgs Empty => new ResponseHeadersPolicySecurityHeadersConfigArgs();
     }
 }

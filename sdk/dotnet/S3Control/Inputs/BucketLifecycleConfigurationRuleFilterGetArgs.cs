@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationRuleFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationRuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Object prefix for rule filtering.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public BucketLifecycleConfigurationRuleFilterGetArgs()
         {
         }
+        public static new BucketLifecycleConfigurationRuleFilterGetArgs Empty => new BucketLifecycleConfigurationRuleFilterGetArgs();
     }
 }

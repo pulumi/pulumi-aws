@@ -20,53 +20,51 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.OptionGroup("example", new()
     ///     {
-    ///         var example = new Aws.Rds.OptionGroup("example", new Aws.Rds.OptionGroupArgs
+    ///         OptionGroupDescription = "Option Group",
+    ///         EngineName = "sqlserver-ee",
+    ///         MajorEngineVersion = "11.00",
+    ///         Options = new[]
     ///         {
-    ///             OptionGroupDescription = "Option Group",
-    ///             EngineName = "sqlserver-ee",
-    ///             MajorEngineVersion = "11.00",
-    ///             Options = 
+    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
-    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 OptionName = "Timezone",
+    ///                 OptionSettings = new[]
     ///                 {
-    ///                     OptionName = "Timezone",
-    ///                     OptionSettings = 
+    ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
     ///                     {
-    ///                         new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
-    ///                         {
-    ///                             Name = "TIME_ZONE",
-    ///                             Value = "UTC",
-    ///                         },
+    ///                         Name = "TIME_ZONE",
+    ///                         Value = "UTC",
     ///                     },
-    ///                 },
-    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
-    ///                 {
-    ///                     OptionName = "SQLSERVER_BACKUP_RESTORE",
-    ///                     OptionSettings = 
-    ///                     {
-    ///                         new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
-    ///                         {
-    ///                             Name = "IAM_ROLE_ARN",
-    ///                             Value = aws_iam_role.Example.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
-    ///                 {
-    ///                     OptionName = "TDE",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///             {
+    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
+    ///                 OptionSettings = new[]
+    ///                 {
+    ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                     {
+    ///                         Name = "IAM_ROLE_ARN",
+    ///                         Value = aws_iam_role.Example.Arn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///             {
+    ///                 OptionName = "TDE",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// &gt; **Note**: Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/optionGroup:OptionGroup")]
-    public partial class OptionGroup : Pulumi.CustomResource
+    public partial class OptionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the db option group.
@@ -139,7 +137,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -188,7 +186,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class OptionGroupArgs : Pulumi.ResourceArgs
+    public sealed class OptionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
@@ -248,9 +246,10 @@ namespace Pulumi.Aws.Rds
         {
             OptionGroupDescription = "Managed by Pulumi";
         }
+        public static new OptionGroupArgs Empty => new OptionGroupArgs();
     }
 
-    public sealed class OptionGroupState : Pulumi.ResourceArgs
+    public sealed class OptionGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the db option group.
@@ -316,7 +315,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -328,5 +327,6 @@ namespace Pulumi.Aws.Rds
         {
             OptionGroupDescription = "Managed by Pulumi";
         }
+        public static new OptionGroupState Empty => new OptionGroupState();
     }
 }

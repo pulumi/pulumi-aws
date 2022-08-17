@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesArgs;
+import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs;
 import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesS3LogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
     }
 
     /**
+     * Enable Malware Protection automatically for new member accounts.
+     * 
+     */
+    @Import(name="malwareProtection")
+    private @Nullable Output<OrganizationConfigurationDatasourcesMalwareProtectionArgs> malwareProtection;
+
+    /**
+     * @return Enable Malware Protection automatically for new member accounts.
+     * 
+     */
+    public Optional<Output<OrganizationConfigurationDatasourcesMalwareProtectionArgs>> malwareProtection() {
+        return Optional.ofNullable(this.malwareProtection);
+    }
+
+    /**
      * Enable S3 Protection automatically for new member accounts.
      * 
      */
@@ -50,6 +66,7 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
 
     private OrganizationConfigurationDatasourcesArgs(OrganizationConfigurationDatasourcesArgs $) {
         this.kubernetes = $.kubernetes;
+        this.malwareProtection = $.malwareProtection;
         this.s3Logs = $.s3Logs;
     }
 
@@ -90,6 +107,27 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
          */
         public Builder kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs kubernetes) {
             return kubernetes(Output.of(kubernetes));
+        }
+
+        /**
+         * @param malwareProtection Enable Malware Protection automatically for new member accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder malwareProtection(@Nullable Output<OrganizationConfigurationDatasourcesMalwareProtectionArgs> malwareProtection) {
+            $.malwareProtection = malwareProtection;
+            return this;
+        }
+
+        /**
+         * @param malwareProtection Enable Malware Protection automatically for new member accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder malwareProtection(OrganizationConfigurationDatasourcesMalwareProtectionArgs malwareProtection) {
+            return malwareProtection(Output.of(malwareProtection));
         }
 
         /**

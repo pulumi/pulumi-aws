@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class AccountThrottleSettingArgs : Pulumi.ResourceArgs
+    public sealed class AccountThrottleSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public AccountThrottleSettingArgs()
         {
         }
+        public static new AccountThrottleSettingArgs Empty => new AccountThrottleSettingArgs();
     }
 }

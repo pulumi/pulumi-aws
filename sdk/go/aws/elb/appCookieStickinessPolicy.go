@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-east-1a"),
-// 			},
-// 			Listeners: elb.LoadBalancerListenerArray{
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(8000),
-// 					InstanceProtocol: pulumi.String("http"),
-// 					LbPort:           pulumi.Int(80),
-// 					LbProtocol:       pulumi.String("http"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
-// 			LoadBalancer: lb.Name,
-// 			LbPort:       pulumi.Int(80),
-// 			CookieName:   pulumi.String("MyAppCookie"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(80),
+//						LbProtocol:       pulumi.String("http"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
+//				LoadBalancer: lb.Name,
+//				LbPort:       pulumi.Int(80),
+//				CookieName:   pulumi.String("MyAppCookie"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
+//
+//	$ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
+//
 // ```
 type AppCookieStickinessPolicy struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *AppCookieStickinessPolicy) ToAppCookieStickinessPolicyOutputWithContext
 // AppCookieStickinessPolicyArrayInput is an input type that accepts AppCookieStickinessPolicyArray and AppCookieStickinessPolicyArrayOutput values.
 // You can construct a concrete instance of `AppCookieStickinessPolicyArrayInput` via:
 //
-//          AppCookieStickinessPolicyArray{ AppCookieStickinessPolicyArgs{...} }
+//	AppCookieStickinessPolicyArray{ AppCookieStickinessPolicyArgs{...} }
 type AppCookieStickinessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i AppCookieStickinessPolicyArray) ToAppCookieStickinessPolicyArrayOutputWi
 // AppCookieStickinessPolicyMapInput is an input type that accepts AppCookieStickinessPolicyMap and AppCookieStickinessPolicyMapOutput values.
 // You can construct a concrete instance of `AppCookieStickinessPolicyMapInput` via:
 //
-//          AppCookieStickinessPolicyMap{ "key": AppCookieStickinessPolicyArgs{...} }
+//	AppCookieStickinessPolicyMap{ "key": AppCookieStickinessPolicyArgs{...} }
 type AppCookieStickinessPolicyMapInput interface {
 	pulumi.Input
 

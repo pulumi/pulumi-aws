@@ -27,17 +27,15 @@ namespace Pulumi.Aws
         /// the name of the AWS region configured on the provider.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -61,17 +59,15 @@ namespace Pulumi.Aws
         /// the name of the AWS region configured on the provider.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +77,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetRegionArgs : Pulumi.InvokeArgs
+    public sealed class GetRegionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EC2 endpoint of the region to select.
@@ -98,9 +94,10 @@ namespace Pulumi.Aws
         public GetRegionArgs()
         {
         }
+        public static new GetRegionArgs Empty => new GetRegionArgs();
     }
 
-    public sealed class GetRegionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EC2 endpoint of the region to select.
@@ -117,6 +114,7 @@ namespace Pulumi.Aws
         public GetRegionInvokeArgs()
         {
         }
+        public static new GetRegionInvokeArgs Empty => new GetRegionInvokeArgs();
     }
 
 

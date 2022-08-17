@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]
-    public partial class StudioLifecycleConfig : Pulumi.CustomResource
+    public partial class StudioLifecycleConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class StudioLifecycleConfigArgs : Pulumi.ResourceArgs
+    public sealed class StudioLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
@@ -140,9 +140,10 @@ namespace Pulumi.Aws.Sagemaker
         public StudioLifecycleConfigArgs()
         {
         }
+        public static new StudioLifecycleConfigArgs Empty => new StudioLifecycleConfigArgs();
     }
 
-    public sealed class StudioLifecycleConfigState : Pulumi.ResourceArgs
+    public sealed class StudioLifecycleConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
@@ -195,5 +196,6 @@ namespace Pulumi.Aws.Sagemaker
         public StudioLifecycleConfigState()
         {
         }
+        public static new StudioLifecycleConfigState Empty => new StudioLifecycleConfigState();
     }
 }

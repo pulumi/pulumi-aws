@@ -18,24 +18,21 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new Aws.Ec2.SpotDatafeedSubscriptionArgs
-    ///         {
-    ///             Bucket = defaultBucketV2.Bucket,
-    ///             Prefix = "my_subdirectory",
-    ///         });
-    ///     }
+    ///     var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2");
     /// 
-    /// }
+    ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new()
+    ///     {
+    ///         Bucket = defaultBucketV2.Bucket,
+    ///         Prefix = "my_subdirectory",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
-    public partial class SpotDatafeedSubscription : Pulumi.CustomResource
+    public partial class SpotDatafeedSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon S3 bucket in which to store the Spot instance data feed.
@@ -105,7 +102,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SpotDatafeedSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SpotDatafeedSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket in which to store the Spot instance data feed.
@@ -122,9 +119,10 @@ namespace Pulumi.Aws.Ec2
         public SpotDatafeedSubscriptionArgs()
         {
         }
+        public static new SpotDatafeedSubscriptionArgs Empty => new SpotDatafeedSubscriptionArgs();
     }
 
-    public sealed class SpotDatafeedSubscriptionState : Pulumi.ResourceArgs
+    public sealed class SpotDatafeedSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket in which to store the Spot instance data feed.
@@ -141,5 +139,6 @@ namespace Pulumi.Aws.Ec2
         public SpotDatafeedSubscriptionState()
         {
         }
+        public static new SpotDatafeedSubscriptionState Empty => new SpotDatafeedSubscriptionState();
     }
 }

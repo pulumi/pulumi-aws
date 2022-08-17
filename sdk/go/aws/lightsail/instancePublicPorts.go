@@ -23,36 +23,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-// 			AvailabilityZone: pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
-// 			BlueprintId:      pulumi.String("amazon_linux"),
-// 			BundleId:         pulumi.String("nano_1_0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lightsail.NewInstancePublicPorts(ctx, "testInstancePublicPorts", &lightsail.InstancePublicPortsArgs{
-// 			InstanceName: testInstance.Name,
-// 			PortInfos: lightsail.InstancePublicPortsPortInfoArray{
-// 				&lightsail.InstancePublicPortsPortInfoArgs{
-// 					Protocol: pulumi.String("tcp"),
-// 					FromPort: pulumi.Int(80),
-// 					ToPort:   pulumi.Int(80),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
+//				AvailabilityZone: pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
+//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BundleId:         pulumi.String("nano_1_0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lightsail.NewInstancePublicPorts(ctx, "testInstancePublicPorts", &lightsail.InstancePublicPortsArgs{
+//				InstanceName: testInstance.Name,
+//				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
+//					&lightsail.InstancePublicPortsPortInfoArgs{
+//						Protocol: pulumi.String("tcp"),
+//						FromPort: pulumi.Int(80),
+//						ToPort:   pulumi.Int(80),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type InstancePublicPorts struct {
 	pulumi.CustomResourceState
@@ -156,7 +159,7 @@ func (i *InstancePublicPorts) ToInstancePublicPortsOutputWithContext(ctx context
 // InstancePublicPortsArrayInput is an input type that accepts InstancePublicPortsArray and InstancePublicPortsArrayOutput values.
 // You can construct a concrete instance of `InstancePublicPortsArrayInput` via:
 //
-//          InstancePublicPortsArray{ InstancePublicPortsArgs{...} }
+//	InstancePublicPortsArray{ InstancePublicPortsArgs{...} }
 type InstancePublicPortsArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +184,7 @@ func (i InstancePublicPortsArray) ToInstancePublicPortsArrayOutputWithContext(ct
 // InstancePublicPortsMapInput is an input type that accepts InstancePublicPortsMap and InstancePublicPortsMapOutput values.
 // You can construct a concrete instance of `InstancePublicPortsMapInput` via:
 //
-//          InstancePublicPortsMap{ "key": InstancePublicPortsArgs{...} }
+//	InstancePublicPortsMap{ "key": InstancePublicPortsArgs{...} }
 type InstancePublicPortsMapInput interface {
 	pulumi.Input
 

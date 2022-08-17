@@ -17,22 +17,20 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.RouteResponse("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.RouteResponse("example", new Aws.ApiGatewayV2.RouteResponseArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             RouteId = aws_apigatewayv2_route.Example.Id,
-    ///             RouteResponseKey = "$default",
-    ///         });
-    ///     }
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         RouteId = aws_apigatewayv2_route.Example.Id,
+    ///         RouteResponseKey = "$default",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/routeResponse:RouteResponse")]
-    public partial class RouteResponse : Pulumi.CustomResource
+    public partial class RouteResponse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class RouteResponseArgs : Pulumi.ResourceArgs
+    public sealed class RouteResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -161,9 +159,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public RouteResponseArgs()
         {
         }
+        public static new RouteResponseArgs Empty => new RouteResponseArgs();
     }
 
-    public sealed class RouteResponseState : Pulumi.ResourceArgs
+    public sealed class RouteResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -204,5 +203,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public RouteResponseState()
         {
         }
+        public static new RouteResponseState Empty => new RouteResponseState();
     }
 }

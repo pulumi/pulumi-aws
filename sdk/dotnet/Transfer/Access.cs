@@ -16,49 +16,45 @@ namespace Pulumi.Aws.Transfer
     /// ### Basic S3
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Access("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Access("example", new Aws.Transfer.AccessArgs
-    ///         {
-    ///             ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///             ServerId = aws_transfer_server.Example.Id,
-    ///             Role = aws_iam_role.Example.Arn,
-    ///             HomeDirectory = $"/{aws_s3_bucket.Example.Id}/",
-    ///         });
-    ///     }
+    ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
+    ///         ServerId = aws_transfer_server.Example.Id,
+    ///         Role = aws_iam_role.Example.Arn,
+    ///         HomeDirectory = $"/{aws_s3_bucket.Example.Id}/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Basic EFS
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Transfer.Access("test", new()
     ///     {
-    ///         var test = new Aws.Transfer.Access("test", new Aws.Transfer.AccessArgs
+    ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
+    ///         ServerId = aws_transfer_server.Test.Id,
+    ///         Role = aws_iam_role.Test.Arn,
+    ///         HomeDirectory = $"/{aws_efs_file_system.Test.Id}/",
+    ///         PosixProfile = new Aws.Transfer.Inputs.AccessPosixProfileArgs
     ///         {
-    ///             ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///             ServerId = aws_transfer_server.Test.Id,
-    ///             Role = aws_iam_role.Test.Arn,
-    ///             HomeDirectory = $"/{aws_efs_file_system.Test.Id}/",
-    ///             PosixProfile = new Aws.Transfer.Inputs.AccessPosixProfileArgs
-    ///             {
-    ///                 Gid = 1000,
-    ///                 Uid = 1000,
-    ///             },
-    ///         });
-    ///     }
+    ///             Gid = 1000,
+    ///             Uid = 1000,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +66,7 @@ namespace Pulumi.Aws.Transfer
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/access:Access")]
-    public partial class Access : Pulumi.CustomResource
+    public partial class Access : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
@@ -161,7 +157,7 @@ namespace Pulumi.Aws.Transfer
         }
     }
 
-    public sealed class AccessArgs : Pulumi.ResourceArgs
+    public sealed class AccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
@@ -217,9 +213,10 @@ namespace Pulumi.Aws.Transfer
         public AccessArgs()
         {
         }
+        public static new AccessArgs Empty => new AccessArgs();
     }
 
-    public sealed class AccessState : Pulumi.ResourceArgs
+    public sealed class AccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
@@ -275,5 +272,6 @@ namespace Pulumi.Aws.Transfer
         public AccessState()
         {
         }
+        public static new AccessState Empty => new AccessState();
     }
 }

@@ -15,38 +15,36 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var xssMatchSet = new Aws.Waf.XssMatchSet("xssMatchSet", new()
     ///     {
-    ///         var xssMatchSet = new Aws.Waf.XssMatchSet("xssMatchSet", new Aws.Waf.XssMatchSetArgs
+    ///         XssMatchTuples = new[]
     ///         {
-    ///             XssMatchTuples = 
+    ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
+    ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
-    ///                     FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
-    ///                     {
-    ///                         Type = "URI",
-    ///                     },
-    ///                     TextTransformation = "NONE",
+    ///                     Type = "URI",
     ///                 },
-    ///                 new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
-    ///                 {
-    ///                     FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
-    ///                     {
-    ///                         Type = "QUERY_STRING",
-    ///                     },
-    ///                     TextTransformation = "NONE",
-    ///                 },
+    ///                 TextTransformation = "NONE",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
+    ///             {
+    ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
+    ///                 {
+    ///                     Type = "QUERY_STRING",
+    ///                 },
+    ///                 TextTransformation = "NONE",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/xssMatchSet:XssMatchSet")]
-    public partial class XssMatchSet : Pulumi.CustomResource
+    public partial class XssMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class XssMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class XssMatchSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the SizeConstraintSet.
@@ -145,9 +143,10 @@ namespace Pulumi.Aws.Waf
         public XssMatchSetArgs()
         {
         }
+        public static new XssMatchSetArgs Empty => new XssMatchSetArgs();
     }
 
-    public sealed class XssMatchSetState : Pulumi.ResourceArgs
+    public sealed class XssMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -176,5 +175,6 @@ namespace Pulumi.Aws.Waf
         public XssMatchSetState()
         {
         }
+        public static new XssMatchSetState Empty => new XssMatchSetState();
     }
 }

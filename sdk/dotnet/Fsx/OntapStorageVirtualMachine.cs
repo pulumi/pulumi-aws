@@ -17,55 +17,51 @@ namespace Pulumi.Aws.Fsx
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
     ///     {
-    ///         var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new Aws.Fsx.OntapStorageVirtualMachineArgs
-    ///         {
-    ///             FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///         });
-    ///     }
+    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using a Self-Managed Microsoft Active Directory
     /// 
     /// Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
     ///     {
-    ///         var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new Aws.Fsx.OntapStorageVirtualMachineArgs
+    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
+    ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
     ///         {
-    ///             FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///             ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
+    ///             NetbiosName = "mysvm",
+    ///             SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
     ///             {
-    ///                 NetbiosName = "mysvm",
-    ///                 SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
+    ///                 DnsIps = new[]
     ///                 {
-    ///                     DnsIps = 
-    ///                     {
-    ///                         "10.0.0.111",
-    ///                         "10.0.0.222",
-    ///                     },
-    ///                     DomainName = "corp.example.com",
-    ///                     Password = "avoid-plaintext-passwords",
-    ///                     Username = "Admin",
+    ///                     "10.0.0.111",
+    ///                     "10.0.0.222",
     ///                 },
+    ///                 DomainName = "corp.example.com",
+    ///                 Password = "avoid-plaintext-passwords",
+    ///                 Username = "Admin",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.Fsx
     ///  } }
     /// </summary>
     [AwsResourceType("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")]
-    public partial class OntapStorageVirtualMachine : Pulumi.CustomResource
+    public partial class OntapStorageVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
@@ -200,7 +196,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class OntapStorageVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class OntapStorageVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
@@ -244,9 +240,10 @@ namespace Pulumi.Aws.Fsx
         public OntapStorageVirtualMachineArgs()
         {
         }
+        public static new OntapStorageVirtualMachineArgs Empty => new OntapStorageVirtualMachineArgs();
     }
 
-    public sealed class OntapStorageVirtualMachineState : Pulumi.ResourceArgs
+    public sealed class OntapStorageVirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
@@ -332,5 +329,6 @@ namespace Pulumi.Aws.Fsx
         public OntapStorageVirtualMachineState()
         {
         }
+        public static new OntapStorageVirtualMachineState Empty => new OntapStorageVirtualMachineState();
     }
 }

@@ -15,28 +15,28 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Route53.DelegationSet("main", new()
     ///     {
-    ///         var main = new Aws.Route53.DelegationSet("main", new Aws.Route53.DelegationSetArgs
-    ///         {
-    ///             ReferenceName = "DynDNS",
-    ///         });
-    ///         var primary = new Aws.Route53.Zone("primary", new Aws.Route53.ZoneArgs
-    ///         {
-    ///             DelegationSetId = main.Id,
-    ///         });
-    ///         var secondary = new Aws.Route53.Zone("secondary", new Aws.Route53.ZoneArgs
-    ///         {
-    ///             DelegationSetId = main.Id,
-    ///         });
-    ///     }
+    ///         ReferenceName = "DynDNS",
+    ///     });
     /// 
-    /// }
+    ///     var primary = new Aws.Route53.Zone("primary", new()
+    ///     {
+    ///         DelegationSetId = main.Id,
+    ///     });
+    /// 
+    ///     var secondary = new Aws.Route53.Zone("secondary", new()
+    ///     {
+    ///         DelegationSetId = main.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/delegationSet:DelegationSet")]
-    public partial class DelegationSet : Pulumi.CustomResource
+    public partial class DelegationSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Delegation Set.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class DelegationSetArgs : Pulumi.ResourceArgs
+    public sealed class DelegationSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is a reference name used in Caller Reference
@@ -126,9 +126,10 @@ namespace Pulumi.Aws.Route53
         public DelegationSetArgs()
         {
         }
+        public static new DelegationSetArgs Empty => new DelegationSetArgs();
     }
 
-    public sealed class DelegationSetState : Pulumi.ResourceArgs
+    public sealed class DelegationSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Delegation Set.
@@ -159,5 +160,6 @@ namespace Pulumi.Aws.Route53
         public DelegationSetState()
         {
         }
+        public static new DelegationSetState Empty => new DelegationSetState();
     }
 }

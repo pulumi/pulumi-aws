@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewVaultLockConfiguration(ctx, "test", &backup.VaultLockConfigurationArgs{
-// 			BackupVaultName:   pulumi.String("example_backup_vault"),
-// 			ChangeableForDays: pulumi.Int(3),
-// 			MaxRetentionDays:  pulumi.Int(1200),
-// 			MinRetentionDays:  pulumi.Int(7),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewVaultLockConfiguration(ctx, "test", &backup.VaultLockConfigurationArgs{
+//				BackupVaultName:   pulumi.String("example_backup_vault"),
+//				ChangeableForDays: pulumi.Int(3),
+//				MaxRetentionDays:  pulumi.Int(1200),
+//				MinRetentionDays:  pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Backup vault lock configuration can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+//
+//	$ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+//
 // ```
 type VaultLockConfiguration struct {
 	pulumi.CustomResourceState
@@ -171,7 +176,7 @@ func (i *VaultLockConfiguration) ToVaultLockConfigurationOutputWithContext(ctx c
 // VaultLockConfigurationArrayInput is an input type that accepts VaultLockConfigurationArray and VaultLockConfigurationArrayOutput values.
 // You can construct a concrete instance of `VaultLockConfigurationArrayInput` via:
 //
-//          VaultLockConfigurationArray{ VaultLockConfigurationArgs{...} }
+//	VaultLockConfigurationArray{ VaultLockConfigurationArgs{...} }
 type VaultLockConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i VaultLockConfigurationArray) ToVaultLockConfigurationArrayOutputWithCont
 // VaultLockConfigurationMapInput is an input type that accepts VaultLockConfigurationMap and VaultLockConfigurationMapOutput values.
 // You can construct a concrete instance of `VaultLockConfigurationMapInput` via:
 //
-//          VaultLockConfigurationMap{ "key": VaultLockConfigurationArgs{...} }
+//	VaultLockConfigurationMap{ "key": VaultLockConfigurationArgs{...} }
 type VaultLockConfigurationMapInput interface {
 	pulumi.Input
 

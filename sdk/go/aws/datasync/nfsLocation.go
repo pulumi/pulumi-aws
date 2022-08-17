@@ -21,27 +21,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewNfsLocation(ctx, "example", &datasync.NfsLocationArgs{
-// 			ServerHostname: pulumi.String("nfs.example.com"),
-// 			Subdirectory:   pulumi.String("/exported/path"),
-// 			OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
-// 				AgentArns: pulumi.StringArray{
-// 					pulumi.Any(aws_datasync_agent.Example.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewNfsLocation(ctx, "example", &datasync.NfsLocationArgs{
+//				ServerHostname: pulumi.String("nfs.example.com"),
+//				Subdirectory:   pulumi.String("/exported/path"),
+//				OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
+//					AgentArns: pulumi.StringArray{
+//						pulumi.Any(aws_datasync_agent.Example.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
+//	$ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
 // ```
 type NfsLocation struct {
 	pulumi.CustomResourceState
@@ -66,7 +71,7 @@ type NfsLocation struct {
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
@@ -121,7 +126,7 @@ type nfsLocationState struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 }
@@ -139,7 +144,7 @@ type NfsLocationState struct {
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 }
@@ -201,7 +206,7 @@ func (i *NfsLocation) ToNfsLocationOutputWithContext(ctx context.Context) NfsLoc
 // NfsLocationArrayInput is an input type that accepts NfsLocationArray and NfsLocationArrayOutput values.
 // You can construct a concrete instance of `NfsLocationArrayInput` via:
 //
-//          NfsLocationArray{ NfsLocationArgs{...} }
+//	NfsLocationArray{ NfsLocationArgs{...} }
 type NfsLocationArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +231,7 @@ func (i NfsLocationArray) ToNfsLocationArrayOutputWithContext(ctx context.Contex
 // NfsLocationMapInput is an input type that accepts NfsLocationMap and NfsLocationMapOutput values.
 // You can construct a concrete instance of `NfsLocationMapInput` via:
 //
-//          NfsLocationMap{ "key": NfsLocationArgs{...} }
+//	NfsLocationMap{ "key": NfsLocationArgs{...} }
 type NfsLocationMapInput interface {
 	pulumi.Input
 
@@ -292,7 +297,7 @@ func (o NfsLocationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NfsLocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

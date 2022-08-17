@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewStage(ctx, "example", &apigatewayv2.StageArgs{
-// 			ApiId: pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewStage(ctx, "example", &apigatewayv2.StageArgs{
+//				ApiId: pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+//
+//	$ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+//
 // ```
 type Stage struct {
 	pulumi.CustomResourceState
@@ -79,7 +84,7 @@ type Stage struct {
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapOutput `pulumi:"stageVariables"`
-	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -148,7 +153,7 @@ type stageState struct {
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
-	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -186,7 +191,7 @@ type StageState struct {
 	RouteSettings StageRouteSettingArrayInput
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
-	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -219,7 +224,7 @@ type stageArgs struct {
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
-	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -247,7 +252,7 @@ type StageArgs struct {
 	RouteSettings StageRouteSettingArrayInput
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
-	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -277,7 +282,7 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
 // You can construct a concrete instance of `StageArrayInput` via:
 //
-//          StageArray{ StageArgs{...} }
+//	StageArray{ StageArgs{...} }
 type StageArrayInput interface {
 	pulumi.Input
 
@@ -302,7 +307,7 @@ func (i StageArray) ToStageArrayOutputWithContext(ctx context.Context) StageArra
 // StageMapInput is an input type that accepts StageMap and StageMapOutput values.
 // You can construct a concrete instance of `StageMapInput` via:
 //
-//          StageMap{ "key": StageArgs{...} }
+//	StageMap{ "key": StageArgs{...} }
 type StageMapInput interface {
 	pulumi.Input
 
@@ -408,7 +413,7 @@ func (o StageOutput) StageVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.StageVariables }).(pulumi.StringMapOutput)
 }
 
-// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

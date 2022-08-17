@@ -17,24 +17,22 @@ namespace Pulumi.Aws.MemoryDb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.MemoryDb.Acl("example", new()
     ///     {
-    ///         var example = new Aws.MemoryDb.Acl("example", new Aws.MemoryDb.AclArgs
+    ///         UserNames = new[]
     ///         {
-    ///             UserNames = 
-    ///             {
-    ///                 "my-user-1",
-    ///                 "my-user-2",
-    ///             },
-    ///         });
-    ///     }
+    ///             "my-user-1",
+    ///             "my-user-2",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.MemoryDb
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/acl:Acl")]
-    public partial class Acl : Pulumi.CustomResource
+    public partial class Acl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the ACL.
@@ -75,9 +73,6 @@ namespace Pulumi.Aws.MemoryDb
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -131,7 +126,7 @@ namespace Pulumi.Aws.MemoryDb
         }
     }
 
-    public sealed class AclArgs : Pulumi.ResourceArgs
+    public sealed class AclArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -169,9 +164,10 @@ namespace Pulumi.Aws.MemoryDb
         public AclArgs()
         {
         }
+        public static new AclArgs Empty => new AclArgs();
     }
 
-    public sealed class AclState : Pulumi.ResourceArgs
+    public sealed class AclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the ACL.
@@ -208,10 +204,6 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -233,5 +225,6 @@ namespace Pulumi.Aws.MemoryDb
         public AclState()
         {
         }
+        public static new AclState Empty => new AclState();
     }
 }

@@ -15,42 +15,41 @@ namespace Pulumi.Aws.AutoScaling
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
     ///     {
-    ///         var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new Aws.AutoScaling.GroupArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///             },
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             HealthCheckGracePeriod = 300,
-    ///             HealthCheckType = "ELB",
-    ///             ForceDelete = true,
-    ///             TerminationPolicies = 
-    ///             {
-    ///                 "OldestInstance",
-    ///             },
-    ///         });
-    ///         var foobarSchedule = new Aws.AutoScaling.Schedule("foobarSchedule", new Aws.AutoScaling.ScheduleArgs
+    ///             "us-west-2a",
+    ///         },
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         HealthCheckGracePeriod = 300,
+    ///         HealthCheckType = "ELB",
+    ///         ForceDelete = true,
+    ///         TerminationPolicies = new[]
     ///         {
-    ///             ScheduledActionName = "foobar",
-    ///             MinSize = 0,
-    ///             MaxSize = 1,
-    ///             DesiredCapacity = 0,
-    ///             StartTime = "2016-12-11T18:00:00Z",
-    ///             EndTime = "2016-12-12T06:00:00Z",
-    ///             AutoscalingGroupName = foobarGroup.Name,
-    ///         });
-    ///     }
+    ///             "OldestInstance",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobarSchedule", new()
+    ///     {
+    ///         ScheduledActionName = "foobar",
+    ///         MinSize = 0,
+    ///         MaxSize = 1,
+    ///         DesiredCapacity = 0,
+    ///         StartTime = "2016-12-11T18:00:00Z",
+    ///         EndTime = "2016-12-12T06:00:00Z",
+    ///         AutoscalingGroupName = foobarGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.AutoScaling
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/schedule:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS to the autoscaling schedule.
@@ -172,7 +171,7 @@ namespace Pulumi.Aws.AutoScaling
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
@@ -235,9 +234,10 @@ namespace Pulumi.Aws.AutoScaling
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 
-    public sealed class ScheduleState : Pulumi.ResourceArgs
+    public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS to the autoscaling schedule.
@@ -306,5 +306,6 @@ namespace Pulumi.Aws.AutoScaling
         public ScheduleState()
         {
         }
+        public static new ScheduleState Empty => new ScheduleState();
     }
 }

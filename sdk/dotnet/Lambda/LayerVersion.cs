@@ -14,53 +14,49 @@ namespace Pulumi.Aws.Lambda
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new()
     ///     {
-    ///         var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new Aws.Lambda.LayerVersionArgs
+    ///         CompatibleRuntimes = new[]
     ///         {
-    ///             CompatibleRuntimes = 
-    ///             {
-    ///                 "nodejs12.x",
-    ///             },
-    ///             Code = new FileArchive("lambda_layer_payload.zip"),
-    ///             LayerName = "lambda_layer_name",
-    ///         });
-    ///     }
+    ///             "nodejs12.x",
+    ///         },
+    ///         Code = new FileArchive("lambda_layer_payload.zip"),
+    ///         LayerName = "lambda_layer_name",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Lambda Layer with Compatible Architectures
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new()
     ///     {
-    ///         var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new Aws.Lambda.LayerVersionArgs
+    ///         CompatibleArchitectures = new[]
     ///         {
-    ///             CompatibleArchitectures = 
-    ///             {
-    ///                 "arm64",
-    ///                 "x86_64",
-    ///             },
-    ///             CompatibleRuntimes = 
-    ///             {
-    ///                 "nodejs12.x",
-    ///             },
-    ///             Code = new FileArchive("lambda_layer_payload.zip"),
-    ///             LayerName = "lambda_layer_name",
-    ///         });
-    ///     }
+    ///             "arm64",
+    ///             "x86_64",
+    ///         },
+    ///         CompatibleRuntimes = new[]
+    ///         {
+    ///             "nodejs12.x",
+    ///         },
+    ///         Code = new FileArchive("lambda_layer_payload.zip"),
+    ///         LayerName = "lambda_layer_name",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Specifying the Deployment Package
     /// 
@@ -86,7 +82,7 @@ namespace Pulumi.Aws.Lambda
     ///  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
     /// </summary>
     [AwsResourceType("aws:lambda/layerVersion:LayerVersion")]
-    public partial class LayerVersion : Pulumi.CustomResource
+    public partial class LayerVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Lambda Layer with version.
@@ -237,7 +233,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class LayerVersionArgs : Pulumi.ResourceArgs
+    public sealed class LayerVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -317,9 +313,10 @@ namespace Pulumi.Aws.Lambda
         public LayerVersionArgs()
         {
         }
+        public static new LayerVersionArgs Empty => new LayerVersionArgs();
     }
 
-    public sealed class LayerVersionState : Pulumi.ResourceArgs
+    public sealed class LayerVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Lambda Layer with version.
@@ -441,5 +438,6 @@ namespace Pulumi.Aws.Lambda
         public LayerVersionState()
         {
         }
+        public static new LayerVersionState Empty => new LayerVersionState();
     }
 }

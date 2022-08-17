@@ -19,52 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fs, err := efs.NewFileSystem(ctx, "fs", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
-// 			FileSystemId:                   fs.ID(),
-// 			BypassPolicyLockoutSafetyCheck: pulumi.Bool(true),
-// 			Policy: pulumi.String(fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Id": "ExamplePolicy01",
-//     "Statement": [
-//         {
-//             "Sid": "ExampleStatement01",
-//             "Effect": "Allow",
-//             "Principal": {
-//                 "AWS": "*"
-//             },
-//             "Resource": "%v",
-//             "Action": [
-//                 "elasticfilesystem:ClientMount",
-//                 "elasticfilesystem:ClientWrite"
-//             ],
-//             "Condition": {
-//                 "Bool": {
-//                     "aws:SecureTransport": "true"
-//                 }
-//             }
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
+//				FileSystemId:                   fs.ID(),
+//				BypassPolicyLockoutSafetyCheck: pulumi.Bool(true),
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Id": "ExamplePolicy01",
+//	    "Statement": [
+//	        {
+//	            "Sid": "ExampleStatement01",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//	                "AWS": "*"
+//	            },
+//	            "Resource": "%v",
+//	            "Action": [
+//	                "elasticfilesystem:ClientMount",
+//	                "elasticfilesystem:ClientWrite"
+//	            ],
+//	            "Condition": {
+//	                "Bool": {
+//	                    "aws:SecureTransport": "true"
+//	                }
+//	            }
+//	        }
+//	    ]
+//	}
+//
 // `, aws_efs_file_system.Test.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +77,9 @@ import (
 // The EFS file system policies can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+//
+//	$ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+//
 // ```
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState
@@ -186,7 +193,7 @@ func (i *FileSystemPolicy) ToFileSystemPolicyOutputWithContext(ctx context.Conte
 // FileSystemPolicyArrayInput is an input type that accepts FileSystemPolicyArray and FileSystemPolicyArrayOutput values.
 // You can construct a concrete instance of `FileSystemPolicyArrayInput` via:
 //
-//          FileSystemPolicyArray{ FileSystemPolicyArgs{...} }
+//	FileSystemPolicyArray{ FileSystemPolicyArgs{...} }
 type FileSystemPolicyArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +218,7 @@ func (i FileSystemPolicyArray) ToFileSystemPolicyArrayOutputWithContext(ctx cont
 // FileSystemPolicyMapInput is an input type that accepts FileSystemPolicyMap and FileSystemPolicyMapOutput values.
 // You can construct a concrete instance of `FileSystemPolicyMapInput` via:
 //
-//          FileSystemPolicyMap{ "key": FileSystemPolicyArgs{...} }
+//	FileSystemPolicyMap{ "key": FileSystemPolicyArgs{...} }
 type FileSystemPolicyMapInput interface {
 	pulumi.Input
 

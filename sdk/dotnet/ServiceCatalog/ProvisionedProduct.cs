@@ -24,33 +24,31 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.ProvisionedProduct("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.ProvisionedProduct("example", new Aws.ServiceCatalog.ProvisionedProductArgs
+    ///         ProductName = "Example product",
+    ///         ProvisioningArtifactName = "Example version",
+    ///         ProvisioningParameters = new[]
     ///         {
-    ///             ProductName = "Example product",
-    ///             ProvisioningArtifactName = "Example version",
-    ///             ProvisioningParameters = 
+    ///             new Aws.ServiceCatalog.Inputs.ProvisionedProductProvisioningParameterArgs
     ///             {
-    ///                 new Aws.ServiceCatalog.Inputs.ProvisionedProductProvisioningParameterArgs
-    ///                 {
-    ///                     Key = "foo",
-    ///                     Value = "bar",
-    ///                 },
+    ///                 Key = "foo",
+    ///                 Value = "bar",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +60,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/provisionedProduct:ProvisionedProduct")]
-    public partial class ProvisionedProduct : Pulumi.CustomResource
+    public partial class ProvisionedProduct : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -264,7 +262,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class ProvisionedProductArgs : Pulumi.ResourceArgs
+    public sealed class ProvisionedProductArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -371,9 +369,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public ProvisionedProductArgs()
         {
         }
+        public static new ProvisionedProductArgs Empty => new ProvisionedProductArgs();
     }
 
-    public sealed class ProvisionedProductState : Pulumi.ResourceArgs
+    public sealed class ProvisionedProductState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -570,5 +569,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public ProvisionedProductState()
         {
         }
+        public static new ProvisionedProductState Empty => new ProvisionedProductState();
     }
 }

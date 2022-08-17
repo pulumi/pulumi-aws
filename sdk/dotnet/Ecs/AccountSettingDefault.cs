@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ecs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
     ///     {
-    ///         var test = new Aws.Ecs.AccountSettingDefault("test", new Aws.Ecs.AccountSettingDefaultArgs
-    ///         {
-    ///             Value = "enabled",
-    ///         });
-    ///     }
+    ///         Value = "enabled",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/accountSettingDefault:AccountSettingDefault")]
-    public partial class AccountSettingDefault : Pulumi.CustomResource
+    public partial class AccountSettingDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class AccountSettingDefaultArgs : Pulumi.ResourceArgs
+    public sealed class AccountSettingDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
@@ -122,9 +120,10 @@ namespace Pulumi.Aws.Ecs
         public AccountSettingDefaultArgs()
         {
         }
+        public static new AccountSettingDefaultArgs Empty => new AccountSettingDefaultArgs();
     }
 
-    public sealed class AccountSettingDefaultState : Pulumi.ResourceArgs
+    public sealed class AccountSettingDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
@@ -144,5 +143,6 @@ namespace Pulumi.Aws.Ecs
         public AccountSettingDefaultState()
         {
         }
+        public static new AccountSettingDefaultState Empty => new AccountSettingDefaultState();
     }
 }

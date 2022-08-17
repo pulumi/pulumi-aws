@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class MeshSpecEgressFilterArgs : Pulumi.ResourceArgs
+    public sealed class MeshSpecEgressFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The egress filter type. By default, the type is `DROP_ALL`.
@@ -22,5 +22,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public MeshSpecEgressFilterArgs()
         {
         }
+        public static new MeshSpecEgressFilterArgs Empty => new MeshSpecEgressFilterArgs();
     }
 }

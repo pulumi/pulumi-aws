@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("listenerArns", required: true)]
         private InputList<string>? _listenerArns;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs()
         {
         }
+        public static new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs Empty => new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementRuleGroupReferenceStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementRuleGroupReferenceStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementRuleGroupReferenceStatementArgs()
         {
         }
+        public static new WebAclRuleStatementRuleGroupReferenceStatementArgs Empty => new WebAclRuleStatementRuleGroupReferenceStatementArgs();
     }
 }

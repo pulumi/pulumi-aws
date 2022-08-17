@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainClusterConfigZoneAwarenessConfigArgs : Pulumi.ResourceArgs
+    public sealed class DomainClusterConfigZoneAwarenessConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainClusterConfigZoneAwarenessConfigArgs()
         {
         }
+        public static new DomainClusterConfigZoneAwarenessConfigArgs Empty => new DomainClusterConfigZoneAwarenessConfigArgs();
     }
 }

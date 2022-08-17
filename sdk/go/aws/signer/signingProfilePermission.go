@@ -19,57 +19,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		prodSp, err := signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-// 			PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-// 			NamePrefix: pulumi.String("prod_sp_"),
-// 			SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-// 				Value: pulumi.Int(5),
-// 				Type:  pulumi.String("YEARS"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = signer.NewSigningProfilePermission(ctx, "spPermission1", &signer.SigningProfilePermissionArgs{
-// 			ProfileName: prodSp.Name,
-// 			Action:      pulumi.String("signer:StartSigningJob"),
-// 			Principal:   pulumi.Any(_var.Aws_account),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = signer.NewSigningProfilePermission(ctx, "spPermission2", &signer.SigningProfilePermissionArgs{
-// 			ProfileName: prodSp.Name,
-// 			Action:      pulumi.String("signer:GetSigningProfile"),
-// 			Principal:   pulumi.Any(_var.Aws_team_role_arn),
-// 			StatementId: pulumi.String("ProdAccountStartSigningJob_StatementId"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = signer.NewSigningProfilePermission(ctx, "spPermission3", &signer.SigningProfilePermissionArgs{
-// 			ProfileName:       prodSp.Name,
-// 			Action:            pulumi.String("signer:RevokeSignature"),
-// 			Principal:         pulumi.String("123456789012"),
-// 			ProfileVersion:    prodSp.Version,
-// 			StatementIdPrefix: pulumi.String("version-permission-"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			prodSp, err := signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				NamePrefix: pulumi.String("prod_sp_"),
+//				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
+//					Value: pulumi.Int(5),
+//					Type:  pulumi.String("YEARS"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission1", &signer.SigningProfilePermissionArgs{
+//				ProfileName: prodSp.Name,
+//				Action:      pulumi.String("signer:StartSigningJob"),
+//				Principal:   pulumi.Any(_var.Aws_account),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission2", &signer.SigningProfilePermissionArgs{
+//				ProfileName: prodSp.Name,
+//				Action:      pulumi.String("signer:GetSigningProfile"),
+//				Principal:   pulumi.Any(_var.Aws_team_role_arn),
+//				StatementId: pulumi.String("ProdAccountStartSigningJob_StatementId"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission3", &signer.SigningProfilePermissionArgs{
+//				ProfileName:       prodSp.Name,
+//				Action:            pulumi.String("signer:RevokeSignature"),
+//				Principal:         pulumi.String("123456789012"),
+//				ProfileVersion:    prodSp.Version,
+//				StatementIdPrefix: pulumi.String("version-permission-"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // Signer signing profile permission statements can be imported using profile_name/statement_id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
+//
+//	$ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
+//
 // ```
 type SigningProfilePermission struct {
 	pulumi.CustomResourceState
@@ -224,7 +229,7 @@ func (i *SigningProfilePermission) ToSigningProfilePermissionOutputWithContext(c
 // SigningProfilePermissionArrayInput is an input type that accepts SigningProfilePermissionArray and SigningProfilePermissionArrayOutput values.
 // You can construct a concrete instance of `SigningProfilePermissionArrayInput` via:
 //
-//          SigningProfilePermissionArray{ SigningProfilePermissionArgs{...} }
+//	SigningProfilePermissionArray{ SigningProfilePermissionArgs{...} }
 type SigningProfilePermissionArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (i SigningProfilePermissionArray) ToSigningProfilePermissionArrayOutputWith
 // SigningProfilePermissionMapInput is an input type that accepts SigningProfilePermissionMap and SigningProfilePermissionMapOutput values.
 // You can construct a concrete instance of `SigningProfilePermissionMapInput` via:
 //
-//          SigningProfilePermissionMap{ "key": SigningProfilePermissionArgs{...} }
+//	SigningProfilePermissionMap{ "key": SigningProfilePermissionArgs{...} }
 type SigningProfilePermissionMapInput interface {
 	pulumi.Input
 

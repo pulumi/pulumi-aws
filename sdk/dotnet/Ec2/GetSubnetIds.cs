@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetSubnetIdsArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetIdsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetSubnetIdsFilterArgs>? _filters;
@@ -69,9 +69,10 @@ namespace Pulumi.Aws.Ec2
         public GetSubnetIdsArgs()
         {
         }
+        public static new GetSubnetIdsArgs Empty => new GetSubnetIdsArgs();
     }
 
-    public sealed class GetSubnetIdsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetIdsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetSubnetIdsFilterInputArgs>? _filters;
@@ -107,6 +108,7 @@ namespace Pulumi.Aws.Ec2
         public GetSubnetIdsInvokeArgs()
         {
         }
+        public static new GetSubnetIdsInvokeArgs Empty => new GetSubnetIdsInvokeArgs();
     }
 
 

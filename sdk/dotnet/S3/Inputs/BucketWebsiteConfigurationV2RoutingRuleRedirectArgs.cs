@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The host name to use in the redirect request.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteConfigurationV2RoutingRuleRedirectArgs()
         {
         }
+        public static new BucketWebsiteConfigurationV2RoutingRuleRedirectArgs Empty => new BucketWebsiteConfigurationV2RoutingRuleRedirectArgs();
     }
 }

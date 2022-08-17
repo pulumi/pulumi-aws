@@ -16,80 +16,77 @@ namespace Pulumi.Aws.Route53
     /// ### Simple routing policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var www = new Aws.Route53.Record("www", new()
     ///     {
-    ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
+    ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///         Name = "www.example.com",
+    ///         Type = "A",
+    ///         Ttl = 300,
+    ///         Records = new[]
     ///         {
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
-    ///             Name = "www.example.com",
-    ///             Type = "A",
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 aws_eip.Lb.Public_ip,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_eip.Lb.Public_ip,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Weighted routing policy
     /// Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var www_dev = new Aws.Route53.Record("www-dev", new()
     ///     {
-    ///         var www_dev = new Aws.Route53.Record("www-dev", new Aws.Route53.RecordArgs
+    ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///         Name = "www",
+    ///         Type = "CNAME",
+    ///         Ttl = 5,
+    ///         WeightedRoutingPolicies = new[]
     ///         {
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
-    ///             Name = "www",
-    ///             Type = "CNAME",
-    ///             Ttl = 5,
-    ///             WeightedRoutingPolicies = 
+    ///             new Aws.Route53.Inputs.RecordWeightedRoutingPolicyArgs
     ///             {
-    ///                 new Aws.Route53.Inputs.RecordWeightedRoutingPolicyArgs
-    ///                 {
-    ///                     Weight = 10,
-    ///                 },
+    ///                 Weight = 10,
     ///             },
-    ///             SetIdentifier = "dev",
-    ///             Records = 
-    ///             {
-    ///                 "dev.example.com",
-    ///             },
-    ///         });
-    ///         var www_live = new Aws.Route53.Record("www-live", new Aws.Route53.RecordArgs
+    ///         },
+    ///         SetIdentifier = "dev",
+    ///         Records = new[]
     ///         {
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
-    ///             Name = "www",
-    ///             Type = "CNAME",
-    ///             Ttl = 5,
-    ///             WeightedRoutingPolicies = 
-    ///             {
-    ///                 new Aws.Route53.Inputs.RecordWeightedRoutingPolicyArgs
-    ///                 {
-    ///                     Weight = 90,
-    ///                 },
-    ///             },
-    ///             SetIdentifier = "live",
-    ///             Records = 
-    ///             {
-    ///                 "live.example.com",
-    ///             },
-    ///         });
-    ///     }
+    ///             "dev.example.com",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var www_live = new Aws.Route53.Record("www-live", new()
+    ///     {
+    ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///         Name = "www",
+    ///         Type = "CNAME",
+    ///         Ttl = 5,
+    ///         WeightedRoutingPolicies = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.RecordWeightedRoutingPolicyArgs
+    ///             {
+    ///                 Weight = 90,
+    ///             },
+    ///         },
+    ///         SetIdentifier = "live",
+    ///         Records = new[]
+    ///         {
+    ///             "live.example.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Alias record
     /// See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -99,82 +96,78 @@ namespace Pulumi.Aws.Route53
     /// you cannot change this, therefore `ttl` has to be omitted in alias records.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Elb.LoadBalancer("main", new()
     ///     {
-    ///         var main = new Aws.Elb.LoadBalancer("main", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1c",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 80,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 80,
-    ///                     LbProtocol = "http",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
+    ///             "us-east-1c",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
-    ///             Name = "example.com",
-    ///             Type = "A",
-    ///             Aliases = 
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
     ///             {
-    ///                 new Aws.Route53.Inputs.RecordAliasArgs
-    ///                 {
-    ///                     Name = main.DnsName,
-    ///                     ZoneId = main.ZoneId,
-    ///                     EvaluateTargetHealth = true,
-    ///                 },
+    ///                 InstancePort = 80,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 80,
+    ///                 LbProtocol = "http",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var www = new Aws.Route53.Record("www", new()
+    ///     {
+    ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///         Name = "example.com",
+    ///         Type = "A",
+    ///         Aliases = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             {
+    ///                 Name = main.DnsName,
+    ///                 ZoneId = main.ZoneId,
+    ///                 EvaluateTargetHealth = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### NS and SOA Record Management
     /// 
     /// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleZone = new Aws.Route53.Zone("exampleZone", new Aws.Route53.ZoneArgs
-    ///         {
-    ///         });
-    ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             AllowOverwrite = true,
-    ///             Name = "test.example.com",
-    ///             Ttl = 172800,
-    ///             Type = "NS",
-    ///             ZoneId = exampleZone.ZoneId,
-    ///             Records = 
-    ///             {
-    ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[0]),
-    ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[1]),
-    ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[2]),
-    ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[3]),
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleZone = new Aws.Route53.Zone("exampleZone");
     /// 
-    /// }
+    ///     var exampleRecord = new Aws.Route53.Record("exampleRecord", new()
+    ///     {
+    ///         AllowOverwrite = true,
+    ///         Name = "test.example.com",
+    ///         Ttl = 172800,
+    ///         Type = "NS",
+    ///         ZoneId = exampleZone.ZoneId,
+    ///         Records = new[]
+    ///         {
+    ///             exampleZone.NameServers.Apply(nameServers =&gt; nameServers[0]),
+    ///             exampleZone.NameServers.Apply(nameServers =&gt; nameServers[1]),
+    ///             exampleZone.NameServers.Apply(nameServers =&gt; nameServers[2]),
+    ///             exampleZone.NameServers.Apply(nameServers =&gt; nameServers[3]),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -192,7 +185,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/record:Record")]
-    public partial class Record : Pulumi.CustomResource
+    public partial class Record : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An alias block. Conflicts with `ttl` &amp; `records`.
@@ -326,7 +319,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class RecordArgs : Pulumi.ResourceArgs
+    public sealed class RecordArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<Inputs.RecordAliasArgs>? _aliases;
@@ -448,9 +441,10 @@ namespace Pulumi.Aws.Route53
         public RecordArgs()
         {
         }
+        public static new RecordArgs Empty => new RecordArgs();
     }
 
-    public sealed class RecordState : Pulumi.ResourceArgs
+    public sealed class RecordState : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<Inputs.RecordAliasGetArgs>? _aliases;
@@ -578,5 +572,6 @@ namespace Pulumi.Aws.Route53
         public RecordState()
         {
         }
+        public static new RecordState Empty => new RecordState();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.IdentityStore
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters", required: true)]
         private List<Inputs.GetUserFilterArgs>? _filters;
@@ -54,9 +54,10 @@ namespace Pulumi.Aws.IdentityStore
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters", required: true)]
         private InputList<Inputs.GetUserFilterInputArgs>? _filters;
@@ -85,6 +86,7 @@ namespace Pulumi.Aws.IdentityStore
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

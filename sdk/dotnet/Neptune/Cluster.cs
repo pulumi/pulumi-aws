@@ -23,26 +23,24 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Neptune.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
-    ///         {
-    ///             ApplyImmediately = true,
-    ///             BackupRetentionPeriod = 5,
-    ///             ClusterIdentifier = "neptune-cluster-demo",
-    ///             Engine = "neptune",
-    ///             IamDatabaseAuthenticationEnabled = true,
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///             SkipFinalSnapshot = true,
-    ///         });
-    ///     }
+    ///         ApplyImmediately = true,
+    ///         BackupRetentionPeriod = 5,
+    ///         ClusterIdentifier = "neptune-cluster-demo",
+    ///         Engine = "neptune",
+    ///         IamDatabaseAuthenticationEnabled = true,
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///         SkipFinalSnapshot = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// &gt; **Note:** AWS Neptune does not support user name/password–based access control.
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
@@ -240,13 +238,13 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Neptune cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -301,7 +299,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
@@ -469,7 +467,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Neptune cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -492,9 +490,10 @@ namespace Pulumi.Aws.Neptune
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
@@ -704,7 +703,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Neptune cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -716,7 +715,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -739,5 +738,6 @@ namespace Pulumi.Aws.Neptune
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the S3 bucket
@@ -71,5 +71,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs()
         {
         }
+        public static new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs Empty => new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs();
     }
 }

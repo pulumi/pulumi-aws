@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			Size:             pulumi.Int(40),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
-// 			VolumeId: example.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2.SnapshotCreateVolumePermissionArgs{
-// 			SnapshotId: exampleSnapshot.ID(),
-// 			AccountId:  pulumi.String("12345678"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				Size:             pulumi.Int(40),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//				VolumeId: example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2.SnapshotCreateVolumePermissionArgs{
+//				SnapshotId: exampleSnapshot.ID(),
+//				AccountId:  pulumi.String("12345678"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SnapshotCreateVolumePermission struct {
 	pulumi.CustomResourceState
@@ -152,7 +155,7 @@ func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutputW
 // SnapshotCreateVolumePermissionArrayInput is an input type that accepts SnapshotCreateVolumePermissionArray and SnapshotCreateVolumePermissionArrayOutput values.
 // You can construct a concrete instance of `SnapshotCreateVolumePermissionArrayInput` via:
 //
-//          SnapshotCreateVolumePermissionArray{ SnapshotCreateVolumePermissionArgs{...} }
+//	SnapshotCreateVolumePermissionArray{ SnapshotCreateVolumePermissionArgs{...} }
 type SnapshotCreateVolumePermissionArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +180,7 @@ func (i SnapshotCreateVolumePermissionArray) ToSnapshotCreateVolumePermissionArr
 // SnapshotCreateVolumePermissionMapInput is an input type that accepts SnapshotCreateVolumePermissionMap and SnapshotCreateVolumePermissionMapOutput values.
 // You can construct a concrete instance of `SnapshotCreateVolumePermissionMapInput` via:
 //
-//          SnapshotCreateVolumePermissionMap{ "key": SnapshotCreateVolumePermissionArgs{...} }
+//	SnapshotCreateVolumePermissionMap{ "key": SnapshotCreateVolumePermissionArgs{...} }
 type SnapshotCreateVolumePermissionMapInput interface {
 	pulumi.Input
 

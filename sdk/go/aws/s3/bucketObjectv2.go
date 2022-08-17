@@ -20,43 +20,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplekms, err := kms.NewKey(ctx, "examplekms", &kms.KeyArgs{
-// 			Description:          pulumi.String("KMS key 1"),
-// 			DeletionWindowInDays: pulumi.Int(7),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: examplebucket.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Key:      pulumi.String("someobject"),
-// 			Bucket:   examplebucket.ID(),
-// 			Source:   pulumi.NewFileAsset("index.html"),
-// 			KmsKeyId: examplekms.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplekms, err := kms.NewKey(ctx, "examplekms", &kms.KeyArgs{
+//				Description:          pulumi.String("KMS key 1"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Key:      pulumi.String("someobject"),
+//				Bucket:   examplebucket.ID(),
+//				Source:   pulumi.NewFileAsset("index.html"),
+//				KmsKeyId: examplekms.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Server Side Encryption with S3 Default Master Key
 //
@@ -64,35 +67,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: examplebucket.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Key:                  pulumi.String("someobject"),
-// 			Bucket:               examplebucket.ID(),
-// 			Source:               pulumi.NewFileAsset("index.html"),
-// 			ServerSideEncryption: pulumi.String("aws:kms"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Key:                  pulumi.String("someobject"),
+//				Bucket:               examplebucket.ID(),
+//				Source:               pulumi.NewFileAsset("index.html"),
+//				ServerSideEncryption: pulumi.String("aws:kms"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Server Side Encryption with AWS-Managed Key
 //
@@ -100,35 +106,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: examplebucket.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Key:                  pulumi.String("someobject"),
-// 			Bucket:               examplebucket.ID(),
-// 			Source:               pulumi.NewFileAsset("index.html"),
-// 			ServerSideEncryption: pulumi.String("AES256"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Key:                  pulumi.String("someobject"),
+//				Bucket:               examplebucket.ID(),
+//				Source:               pulumi.NewFileAsset("index.html"),
+//				ServerSideEncryption: pulumi.String("AES256"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### S3 Object Lock
 //
@@ -136,51 +145,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			ObjectLockEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: examplebucket.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-// 			Bucket: examplebucket.ID(),
-// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-// 				Status: pulumi.String("Enabled"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
-// 			Key:                       pulumi.String("someobject"),
-// 			Bucket:                    examplebucket.ID(),
-// 			Source:                    pulumi.NewFileAsset("important.txt"),
-// 			ObjectLockLegalHoldStatus: pulumi.String("ON"),
-// 			ObjectLockMode:            pulumi.String("GOVERNANCE"),
-// 			ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
-// 			ForceDestroy:              pulumi.Bool(true),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleBucketVersioningV2,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//				ObjectLockEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
+//				Bucket: examplebucket.ID(),
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
+//				Key:                       pulumi.String("someobject"),
+//				Bucket:                    examplebucket.ID(),
+//				Source:                    pulumi.NewFileAsset("important.txt"),
+//				ObjectLockLegalHoldStatus: pulumi.String("ON"),
+//				ObjectLockMode:            pulumi.String("GOVERNANCE"),
+//				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
+//				ForceDestroy:              pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketVersioningV2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -188,13 +200,17 @@ import (
 // Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+//
+//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+//
 // ```
 //
-//  Additionally, s3 url syntax can be used, e.g.,
+//	Additionally, s3 url syntax can be used, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
+//
+//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
+//
 // ```
 type BucketObjectv2 struct {
 	pulumi.CustomResourceState
@@ -242,8 +258,7 @@ type BucketObjectv2 struct {
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -332,8 +347,7 @@ type bucketObjectv2State struct {
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId *string `pulumi:"versionId"`
@@ -385,8 +399,7 @@ type BucketObjectv2State struct {
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringPtrInput
@@ -523,7 +536,7 @@ func (i *BucketObjectv2) ToBucketObjectv2OutputWithContext(ctx context.Context) 
 // BucketObjectv2ArrayInput is an input type that accepts BucketObjectv2Array and BucketObjectv2ArrayOutput values.
 // You can construct a concrete instance of `BucketObjectv2ArrayInput` via:
 //
-//          BucketObjectv2Array{ BucketObjectv2Args{...} }
+//	BucketObjectv2Array{ BucketObjectv2Args{...} }
 type BucketObjectv2ArrayInput interface {
 	pulumi.Input
 
@@ -548,7 +561,7 @@ func (i BucketObjectv2Array) ToBucketObjectv2ArrayOutputWithContext(ctx context.
 // BucketObjectv2MapInput is an input type that accepts BucketObjectv2Map and BucketObjectv2MapOutput values.
 // You can construct a concrete instance of `BucketObjectv2MapInput` via:
 //
-//          BucketObjectv2Map{ "key": BucketObjectv2Args{...} }
+//	BucketObjectv2Map{ "key": BucketObjectv2Args{...} }
 type BucketObjectv2MapInput interface {
 	pulumi.Input
 
@@ -697,7 +710,6 @@ func (o BucketObjectv2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o BucketObjectv2Output) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

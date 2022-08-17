@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("main"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+//				VpcId: pulumi.Any(aws_vpc.Main.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("main"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Internet Gateways can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+//
+//	$ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+//
 // ```
 type InternetGateway struct {
 	pulumi.CustomResourceState
@@ -54,7 +59,7 @@ type InternetGateway struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -95,7 +100,7 @@ type internetGatewayState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -108,7 +113,7 @@ type InternetGatewayState struct {
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId pulumi.StringPtrInput
@@ -159,7 +164,7 @@ func (i *InternetGateway) ToInternetGatewayOutputWithContext(ctx context.Context
 // InternetGatewayArrayInput is an input type that accepts InternetGatewayArray and InternetGatewayArrayOutput values.
 // You can construct a concrete instance of `InternetGatewayArrayInput` via:
 //
-//          InternetGatewayArray{ InternetGatewayArgs{...} }
+//	InternetGatewayArray{ InternetGatewayArgs{...} }
 type InternetGatewayArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i InternetGatewayArray) ToInternetGatewayArrayOutputWithContext(ctx contex
 // InternetGatewayMapInput is an input type that accepts InternetGatewayMap and InternetGatewayMapOutput values.
 // You can construct a concrete instance of `InternetGatewayMapInput` via:
 //
-//          InternetGatewayMap{ "key": InternetGatewayArgs{...} }
+//	InternetGatewayMap{ "key": InternetGatewayArgs{...} }
 type InternetGatewayMapInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (o InternetGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InternetGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

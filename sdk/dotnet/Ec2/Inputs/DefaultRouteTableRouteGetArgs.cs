@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class DefaultRouteTableRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRouteTableRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block of the route.
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public DefaultRouteTableRouteGetArgs()
         {
         }
+        public static new DefaultRouteTableRouteGetArgs Empty => new DefaultRouteTableRouteGetArgs();
     }
 }

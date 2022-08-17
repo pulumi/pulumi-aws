@@ -15,40 +15,39 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.WafRegional.IpSet("ipset", new Aws.WafRegional.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///         var wafrule = new Aws.WafRegional.Rule("wafrule", new Aws.WafRegional.RuleArgs
-    ///         {
-    ///             MetricName = "tfWAFRule",
-    ///             Predicates = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.RulePredicateArgs
-    ///                 {
-    ///                     Type = "IPMatch",
-    ///                     DataId = ipset.Id,
-    ///                     Negated = false,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 Type = "IPMatch",
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Nested Fields
     /// 
@@ -71,7 +70,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/rule:Rule")]
-    public partial class Rule : Pulumi.CustomResource
+    public partial class Rule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the WAF Regional Rule.
@@ -104,7 +103,7 @@ namespace Pulumi.Aws.WafRegional
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -153,7 +152,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class RuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
@@ -194,9 +193,10 @@ namespace Pulumi.Aws.WafRegional
         public RuleArgs()
         {
         }
+        public static new RuleArgs Empty => new RuleArgs();
     }
 
-    public sealed class RuleState : Pulumi.ResourceArgs
+    public sealed class RuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the WAF Regional Rule.
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.WafRegional
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -255,5 +255,6 @@ namespace Pulumi.Aws.WafRegional
         public RuleState()
         {
         }
+        public static new RuleState Empty => new RuleState();
     }
 }

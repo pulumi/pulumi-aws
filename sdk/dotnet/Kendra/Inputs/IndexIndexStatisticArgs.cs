@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexIndexStatisticArgs : Pulumi.ResourceArgs
+    public sealed class IndexIndexStatisticArgs : global::Pulumi.ResourceArgs
     {
         [Input("faqStatistics")]
         private InputList<Inputs.IndexIndexStatisticFaqStatisticArgs>? _faqStatistics;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexIndexStatisticArgs()
         {
         }
+        public static new IndexIndexStatisticArgs Empty => new IndexIndexStatisticArgs();
     }
 }

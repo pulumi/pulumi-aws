@@ -16,56 +16,59 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var local = new Aws.Provider("local", new()
     ///     {
-    ///         var local = new Aws.Provider("local", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-east-1",
-    ///         });
-    ///         var peer = new Aws.Provider("peer", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-west-2",
-    ///         });
-    ///         var peerRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var localTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("localTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Local TGW" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Local,
-    ///         });
-    ///         var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peerTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Peer TGW" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Peer,
-    ///         });
-    ///         var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new Aws.Ec2TransitGateway.PeeringAttachmentArgs
-    ///         {
-    ///             PeerAccountId = peerTransitGateway.OwnerId,
-    ///             PeerRegion = peerRegion.Apply(peerRegion =&gt; peerRegion.Name),
-    ///             PeerTransitGatewayId = peerTransitGateway.Id,
-    ///             TransitGatewayId = localTransitGateway.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "TGW Peering Requestor" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Region = "us-east-1",
+    ///     });
     /// 
-    /// }
+    ///     var peer = new Aws.Provider("peer", new()
+    ///     {
+    ///         Region = "us-west-2",
+    ///     });
+    /// 
+    ///     var peerRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var localTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("localTransitGateway", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Local TGW" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Local,
+    ///     });
+    /// 
+    ///     var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peerTransitGateway", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Peer TGW" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Peer,
+    ///     });
+    /// 
+    ///     var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new()
+    ///     {
+    ///         PeerAccountId = peerTransitGateway.OwnerId,
+    ///         PeerRegion = peerRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         PeerTransitGatewayId = peerTransitGateway.Id,
+    ///         TransitGatewayId = localTransitGateway.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "TGW Peering Requestor" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +80,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/peeringAttachment:PeeringAttachment")]
-    public partial class PeeringAttachment : Pulumi.CustomResource
+    public partial class PeeringAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
@@ -159,7 +162,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class PeeringAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class PeeringAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
@@ -200,9 +203,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public PeeringAttachmentArgs()
         {
         }
+        public static new PeeringAttachmentArgs Empty => new PeeringAttachmentArgs();
     }
 
-    public sealed class PeeringAttachmentState : Pulumi.ResourceArgs
+    public sealed class PeeringAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
@@ -255,5 +259,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public PeeringAttachmentState()
         {
         }
+        public static new PeeringAttachmentState Empty => new PeeringAttachmentState();
     }
 }

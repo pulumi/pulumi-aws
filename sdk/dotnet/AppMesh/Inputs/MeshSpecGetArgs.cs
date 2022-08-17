@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class MeshSpecGetArgs : Pulumi.ResourceArgs
+    public sealed class MeshSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The egress filter rules for the service mesh.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public MeshSpecGetArgs()
         {
         }
+        public static new MeshSpecGetArgs Empty => new MeshSpecGetArgs();
     }
 }

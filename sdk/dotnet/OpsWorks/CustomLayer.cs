@@ -15,21 +15,19 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var custlayer = new Aws.OpsWorks.CustomLayer("custlayer", new()
     ///     {
-    ///         var custlayer = new Aws.OpsWorks.CustomLayer("custlayer", new Aws.OpsWorks.CustomLayerArgs
-    ///         {
-    ///             ShortName = "awesome",
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///         });
-    ///     }
+    ///         ShortName = "awesome",
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.OpsWorks
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/customLayer:CustomLayer")]
-    public partial class CustomLayer : Pulumi.CustomResource
+    public partial class CustomLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -167,7 +165,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -222,7 +220,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class CustomLayerArgs : Pulumi.ResourceArgs
+    public sealed class CustomLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -399,9 +397,10 @@ namespace Pulumi.Aws.OpsWorks
         public CustomLayerArgs()
         {
         }
+        public static new CustomLayerArgs Empty => new CustomLayerArgs();
     }
 
-    public sealed class CustomLayerState : Pulumi.ResourceArgs
+    public sealed class CustomLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -579,7 +578,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -596,5 +595,6 @@ namespace Pulumi.Aws.OpsWorks
         public CustomLayerState()
         {
         }
+        public static new CustomLayerState Empty => new CustomLayerState();
     }
 }

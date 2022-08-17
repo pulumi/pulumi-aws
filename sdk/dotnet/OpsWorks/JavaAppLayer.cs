@@ -15,24 +15,22 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var app = new Aws.OpsWorks.JavaAppLayer("app", new()
     ///     {
-    ///         var app = new Aws.OpsWorks.JavaAppLayer("app", new Aws.OpsWorks.JavaAppLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/javaAppLayer:JavaAppLayer")]
-    public partial class JavaAppLayer : Pulumi.CustomResource
+    public partial class JavaAppLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Keyword for the application container to use. Defaults to "tomcat".
@@ -179,7 +177,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -234,7 +232,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class JavaAppLayerArgs : Pulumi.ResourceArgs
+    public sealed class JavaAppLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Keyword for the application container to use. Defaults to "tomcat".
@@ -432,9 +430,10 @@ namespace Pulumi.Aws.OpsWorks
         public JavaAppLayerArgs()
         {
         }
+        public static new JavaAppLayerArgs Empty => new JavaAppLayerArgs();
     }
 
-    public sealed class JavaAppLayerState : Pulumi.ResourceArgs
+    public sealed class JavaAppLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Keyword for the application container to use. Defaults to "tomcat".
@@ -633,7 +632,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -650,5 +649,6 @@ namespace Pulumi.Aws.OpsWorks
         public JavaAppLayerState()
         {
         }
+        public static new JavaAppLayerState Empty => new JavaAppLayerState();
     }
 }

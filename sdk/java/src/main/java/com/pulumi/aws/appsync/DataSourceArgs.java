@@ -21,14 +21,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final DataSourceArgs Empty = new DataSourceArgs();
 
     /**
-     * The API ID for the GraphQL API for the DataSource.
+     * The API ID for the GraphQL API for the data source.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API ID for the GraphQL API for the DataSource.
+     * @return The API ID for the GraphQL API for the data source.
      * 
      */
     public Output<String> apiId() {
@@ -36,14 +36,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the DataSource.
+     * A description of the data source.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the DataSource.
+     * @return A description of the data source.
      * 
      */
     public Optional<Output<String>> description() {
@@ -111,14 +111,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A user-supplied name for the DataSource.
+     * A user-supplied name for the data source.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A user-supplied name for the DataSource.
+     * @return A user-supplied name for the data source.
      * 
      */
     public Optional<Output<String>> name() {
@@ -156,14 +156,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * @return The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
     public Output<String> type() {
@@ -204,7 +204,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API ID for the GraphQL API for the DataSource.
+         * @param apiId The API ID for the GraphQL API for the data source.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API ID for the GraphQL API for the DataSource.
+         * @param apiId The API ID for the GraphQL API for the data source.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the DataSource.
+         * @param description A description of the data source.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the DataSource.
+         * @param description A description of the data source.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A user-supplied name for the DataSource.
+         * @param name A user-supplied name for the data source.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A user-supplied name for the DataSource.
+         * @param name A user-supplied name for the data source.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+         * @param type The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+         * @param type The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
          * 
          * @return builder
          * 

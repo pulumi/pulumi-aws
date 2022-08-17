@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53Domains.Inputs
 {
 
-    public sealed class RegisteredDomainAdminContactArgs : Pulumi.ResourceArgs
+    public sealed class RegisteredDomainAdminContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// First line of the contact's address.
@@ -105,5 +105,6 @@ namespace Pulumi.Aws.Route53Domains.Inputs
         public RegisteredDomainAdminContactArgs()
         {
         }
+        public static new RegisteredDomainAdminContactArgs Empty => new RegisteredDomainAdminContactArgs();
     }
 }

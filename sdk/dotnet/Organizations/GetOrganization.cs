@@ -20,96 +20,89 @@ namespace Pulumi.Aws.Organizations
         /// ### List all account IDs for the organization
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
-        ///         this.AccountIds = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Accounts),
-        ///         }.Select(__item =&gt; __item?.Id).ToList();
-        ///     }
+        ///     var example = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     [Output("accountIds")]
-        ///     public Output&lt;string&gt; AccountIds { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountIds"] = new[]
+        ///         {
+        ///             example.Apply(getOrganizationResult =&gt; getOrganizationResult.Accounts),
+        ///         }.Select(__item =&gt; __item?.Id).ToList(),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### SNS topic that can be interacted by the organization only
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     var snsTopic = new Aws.Sns.Topic("snsTopic");
+        /// 
+        ///     var snsTopicPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
-        ///         var snsTopic = new Aws.Sns.Topic("snsTopic", new Aws.Sns.TopicArgs
+        ///         Statements = new[]
         ///         {
-        ///         });
-        ///         var snsTopicPolicyPolicyDocument = Output.Tuple(example, snsTopic.Arn).Apply(values =&gt;
-        ///         {
-        ///             var example = values.Item1;
-        ///             var arn = values.Item2;
-        ///             return Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Statements = 
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///                     "SNS:Subscribe",
+        ///                     "SNS:Publish",
+        ///                 },
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
-        ///                         Effect = "Allow",
-        ///                         Actions = 
+        ///                         Test = "StringEquals",
+        ///                         Variable = "aws:PrincipalOrgID",
+        ///                         Values = new[]
         ///                         {
-        ///                             "SNS:Subscribe",
-        ///                             "SNS:Publish",
-        ///                         },
-        ///                         Conditions = 
-        ///                         {
-        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-        ///                             {
-        ///                                 Test = "StringEquals",
-        ///                                 Variable = "aws:PrincipalOrgID",
-        ///                                 Values = 
-        ///                                 {
-        ///                                     example.Id,
-        ///                                 },
-        ///                             },
-        ///                         },
-        ///                         Principals = 
-        ///                         {
-        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-        ///                             {
-        ///                                 Type = "AWS",
-        ///                                 Identifiers = 
-        ///                                 {
-        ///                                     "*",
-        ///                                 },
-        ///                             },
-        ///                         },
-        ///                         Resources = 
-        ///                         {
-        ///                             arn,
+        ///                             example.Apply(getOrganizationResult =&gt; getOrganizationResult.Id),
         ///                         },
         ///                     },
         ///                 },
-        ///             });
-        ///         });
-        ///         var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new Aws.Sns.TopicPolicyArgs
-        ///         {
-        ///             Arn = snsTopic.Arn,
-        ///             Policy = snsTopicPolicyPolicyDocument.Apply(snsTopicPolicyPolicyDocument =&gt; snsTopicPolicyPolicyDocument.Json),
-        ///         });
-        ///     }
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             "*",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     snsTopic.Arn,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new()
+        ///     {
+        ///         Arn = snsTopic.Arn,
+        ///         Policy = snsTopicPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

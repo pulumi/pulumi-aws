@@ -15,26 +15,25 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///             EnableDnsSupport = true,
-    ///             EnableDnsHostnames = true,
-    ///         });
-    ///         var exampleResolverDnsSecConfig = new Aws.Route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", new Aws.Route53.ResolverDnsSecConfigArgs
-    ///         {
-    ///             ResourceId = exampleVpc.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         EnableDnsSupport = true,
+    ///         EnableDnsHostnames = true,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResolverDnsSecConfig = new Aws.Route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", new()
+    ///     {
+    ///         ResourceId = exampleVpc.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]
-    public partial class ResolverDnsSecConfig : Pulumi.CustomResource
+    public partial class ResolverDnsSecConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN for a configuration for DNSSEC validation.
@@ -116,7 +115,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverDnsSecConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResolverDnsSecConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
@@ -127,9 +126,10 @@ namespace Pulumi.Aws.Route53
         public ResolverDnsSecConfigArgs()
         {
         }
+        public static new ResolverDnsSecConfigArgs Empty => new ResolverDnsSecConfigArgs();
     }
 
-    public sealed class ResolverDnsSecConfigState : Pulumi.ResourceArgs
+    public sealed class ResolverDnsSecConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for a configuration for DNSSEC validation.
@@ -158,5 +158,6 @@ namespace Pulumi.Aws.Route53
         public ResolverDnsSecConfigState()
         {
         }
+        public static new ResolverDnsSecConfigState Empty => new ResolverDnsSecConfigState();
     }
 }

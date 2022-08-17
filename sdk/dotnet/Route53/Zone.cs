@@ -16,19 +16,15 @@ namespace Pulumi.Aws.Route53
     /// ### Public Zone
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary = new Aws.Route53.Zone("primary", new Aws.Route53.ZoneArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var primary = new Aws.Route53.Zone("primary");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Public Subdomain Zone
     /// 
@@ -37,34 +33,32 @@ namespace Pulumi.Aws.Route53
     /// zone.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var main = new Aws.Route53.Zone("main", new Aws.Route53.ZoneArgs
-    ///         {
-    ///         });
-    ///         var dev = new Aws.Route53.Zone("dev", new Aws.Route53.ZoneArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "dev" },
-    ///             },
-    ///         });
-    ///         var dev_ns = new Aws.Route53.Record("dev-ns", new Aws.Route53.RecordArgs
-    ///         {
-    ///             ZoneId = main.ZoneId,
-    ///             Name = "dev.example.com",
-    ///             Type = "NS",
-    ///             Ttl = 30,
-    ///             Records = dev.NameServers,
-    ///         });
-    ///     }
+    ///     var main = new Aws.Route53.Zone("main");
     /// 
-    /// }
+    ///     var dev = new Aws.Route53.Zone("dev", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "dev" },
+    ///         },
+    ///     });
+    /// 
+    ///     var dev_ns = new Aws.Route53.Record("dev-ns", new()
+    ///     {
+    ///         ZoneId = main.ZoneId,
+    ///         Name = "dev.example.com",
+    ///         Type = "NS",
+    ///         Ttl = 30,
+    ///         Records = dev.NameServers,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Private Zone
     /// 
@@ -73,26 +67,24 @@ namespace Pulumi.Aws.Route53
     /// &gt; **NOTE:** Private zones require at least one VPC association at all times.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @private = new Aws.Route53.Zone("private", new()
     ///     {
-    ///         var @private = new Aws.Route53.Zone("private", new Aws.Route53.ZoneArgs
+    ///         Vpcs = new[]
     ///         {
-    ///             Vpcs = 
+    ///             new Aws.Route53.Inputs.ZoneVpcArgs
     ///             {
-    ///                 new Aws.Route53.Inputs.ZoneVpcArgs
-    ///                 {
-    ///                     VpcId = aws_vpc.Example.Id,
-    ///                 },
+    ///                 VpcId = aws_vpc.Example.Id,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -104,7 +96,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/zone:Zone")]
-    public partial class Zone : Pulumi.CustomResource
+    public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Hosted Zone.
@@ -144,13 +136,13 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the zone.
+        /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -211,7 +203,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ZoneArgs : Pulumi.ResourceArgs
+    public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
@@ -241,7 +233,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the zone.
+        /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -265,9 +257,10 @@ namespace Pulumi.Aws.Route53
         {
             Comment = "Managed by Pulumi";
         }
+        public static new ZoneArgs Empty => new ZoneArgs();
     }
 
-    public sealed class ZoneState : Pulumi.ResourceArgs
+    public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Hosted Zone.
@@ -316,7 +309,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the zone.
+        /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -328,7 +321,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -358,5 +351,6 @@ namespace Pulumi.Aws.Route53
         {
             Comment = "Managed by Pulumi";
         }
+        public static new ZoneState Empty => new ZoneState();
     }
 }

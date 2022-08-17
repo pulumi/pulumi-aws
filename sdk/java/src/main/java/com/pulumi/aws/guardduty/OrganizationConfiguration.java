@@ -35,6 +35,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesS3LogsArgs;
  * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesArgs;
  * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,6 +65,13 @@ import javax.annotation.Nullable;
  *                 .kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs.builder()
  *                     .auditLogs(OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs.builder()
  *                         .enable(true)
+ *                         .build())
+ *                     .build())
+ *                 .malwareProtection(OrganizationConfigurationDatasourcesMalwareProtectionArgs.builder()
+ *                     .scanEc2InstanceWithFindings(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs.builder()
+ *                         .ebsVolumes(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs.builder()
+ *                             .autoEnable(true)
+ *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())

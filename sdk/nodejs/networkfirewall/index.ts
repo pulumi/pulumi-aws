@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./firewall";
 export * from "./firewallPolicy";
+export * from "./getFirewall";
 export * from "./getFirewallPolicy";
 export * from "./loggingConfiguration";
 export * from "./resourcePolicy";

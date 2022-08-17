@@ -20,30 +20,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewHostedPublicVirtualInterface(ctx, "foo", &directconnect.HostedPublicVirtualInterfaceArgs{
-// 			AddressFamily:   pulumi.String("ipv4"),
-// 			AmazonAddress:   pulumi.String("175.45.176.2/30"),
-// 			BgpAsn:          pulumi.Int(65352),
-// 			ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-// 			CustomerAddress: pulumi.String("175.45.176.1/30"),
-// 			RouteFilterPrefixes: pulumi.StringArray{
-// 				pulumi.String("210.52.109.0/24"),
-// 				pulumi.String("175.45.176.0/22"),
-// 			},
-// 			Vlan: pulumi.Int(4094),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewHostedPublicVirtualInterface(ctx, "foo", &directconnect.HostedPublicVirtualInterfaceArgs{
+//				AddressFamily:   pulumi.String("ipv4"),
+//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
+//				BgpAsn:          pulumi.Int(65352),
+//				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
+//				CustomerAddress: pulumi.String("175.45.176.1/30"),
+//				RouteFilterPrefixes: pulumi.StringArray{
+//					pulumi.String("210.52.109.0/24"),
+//					pulumi.String("175.45.176.0/22"),
+//				},
+//				Vlan: pulumi.Int(4094),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
+//
+//	$ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
+//
 // ```
 type HostedPublicVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -262,7 +267,7 @@ func (i *HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutputWithC
 // HostedPublicVirtualInterfaceArrayInput is an input type that accepts HostedPublicVirtualInterfaceArray and HostedPublicVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `HostedPublicVirtualInterfaceArrayInput` via:
 //
-//          HostedPublicVirtualInterfaceArray{ HostedPublicVirtualInterfaceArgs{...} }
+//	HostedPublicVirtualInterfaceArray{ HostedPublicVirtualInterfaceArgs{...} }
 type HostedPublicVirtualInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -287,7 +292,7 @@ func (i HostedPublicVirtualInterfaceArray) ToHostedPublicVirtualInterfaceArrayOu
 // HostedPublicVirtualInterfaceMapInput is an input type that accepts HostedPublicVirtualInterfaceMap and HostedPublicVirtualInterfaceMapOutput values.
 // You can construct a concrete instance of `HostedPublicVirtualInterfaceMapInput` via:
 //
-//          HostedPublicVirtualInterfaceMap{ "key": HostedPublicVirtualInterfaceArgs{...} }
+//	HostedPublicVirtualInterfaceMap{ "key": HostedPublicVirtualInterfaceArgs{...} }
 type HostedPublicVirtualInterfaceMapInput interface {
 	pulumi.Input
 

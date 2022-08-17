@@ -18,24 +18,22 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.OrganizationsAccess("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.OrganizationsAccess("example", new Aws.ServiceCatalog.OrganizationsAccessArgs
-    ///         {
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         Enabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/organizationsAccess:OrganizationsAccess")]
-    public partial class OrganizationsAccess : Pulumi.CustomResource
+    public partial class OrganizationsAccess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to enable AWS Organizations access.
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class OrganizationsAccessArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationsAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable AWS Organizations access.
@@ -98,9 +96,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public OrganizationsAccessArgs()
         {
         }
+        public static new OrganizationsAccessArgs Empty => new OrganizationsAccessArgs();
     }
 
-    public sealed class OrganizationsAccessState : Pulumi.ResourceArgs
+    public sealed class OrganizationsAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable AWS Organizations access.
@@ -111,5 +110,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public OrganizationsAccessState()
         {
         }
+        public static new OrganizationsAccessState Empty => new OrganizationsAccessState();
     }
 }

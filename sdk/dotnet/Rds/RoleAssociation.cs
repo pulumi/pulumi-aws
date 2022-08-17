@@ -20,22 +20,20 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.RoleAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Rds.RoleAssociation("example", new Aws.Rds.RoleAssociationArgs
-    ///         {
-    ///             DbInstanceIdentifier = aws_db_instance.Example.Id,
-    ///             FeatureName = "S3_INTEGRATION",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         });
-    ///     }
+    ///         DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///         FeatureName = "S3_INTEGRATION",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/roleAssociation:RoleAssociation")]
-    public partial class RoleAssociation : Pulumi.CustomResource
+    public partial class RoleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// DB Instance Identifier to associate with the IAM Role.
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class RoleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DB Instance Identifier to associate with the IAM Role.
@@ -134,9 +132,10 @@ namespace Pulumi.Aws.Rds
         public RoleAssociationArgs()
         {
         }
+        public static new RoleAssociationArgs Empty => new RoleAssociationArgs();
     }
 
-    public sealed class RoleAssociationState : Pulumi.ResourceArgs
+    public sealed class RoleAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DB Instance Identifier to associate with the IAM Role.
@@ -159,5 +158,6 @@ namespace Pulumi.Aws.Rds
         public RoleAssociationState()
         {
         }
+        public static new RoleAssociationState Empty => new RoleAssociationState();
     }
 }

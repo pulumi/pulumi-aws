@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53.ResolverQueryLogConfig("example", new()
     ///     {
-    ///         var example = new Aws.Route53.ResolverQueryLogConfig("example", new Aws.Route53.ResolverQueryLogConfigArgs
+    ///         DestinationArn = aws_s3_bucket.Example.Arn,
+    ///         Tags = 
     ///         {
-    ///             DestinationArn = aws_s3_bucket.Example.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Prod" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")]
-    public partial class ResolverQueryLogConfig : Pulumi.CustomResource
+    public partial class ResolverQueryLogConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
@@ -86,7 +84,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -135,7 +133,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverQueryLogConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResolverQueryLogConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the resource that you want Route 53 Resolver to send query logs.
@@ -165,9 +163,10 @@ namespace Pulumi.Aws.Route53
         public ResolverQueryLogConfigArgs()
         {
         }
+        public static new ResolverQueryLogConfigArgs Empty => new ResolverQueryLogConfigArgs();
     }
 
-    public sealed class ResolverQueryLogConfigState : Pulumi.ResourceArgs
+    public sealed class ResolverQueryLogConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
@@ -218,7 +217,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -229,5 +228,6 @@ namespace Pulumi.Aws.Route53
         public ResolverQueryLogConfigState()
         {
         }
+        public static new ResolverQueryLogConfigState Empty => new ResolverQueryLogConfigState();
     }
 }

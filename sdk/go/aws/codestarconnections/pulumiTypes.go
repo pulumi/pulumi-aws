@@ -24,7 +24,7 @@ type HostVpcConfiguration struct {
 // HostVpcConfigurationInput is an input type that accepts HostVpcConfigurationArgs and HostVpcConfigurationOutput values.
 // You can construct a concrete instance of `HostVpcConfigurationInput` via:
 //
-//          HostVpcConfigurationArgs{...}
+//	HostVpcConfigurationArgs{...}
 type HostVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i HostVpcConfigurationArgs) ToHostVpcConfigurationPtrOutputWithContext(ctx
 // HostVpcConfigurationPtrInput is an input type that accepts HostVpcConfigurationArgs, HostVpcConfigurationPtr and HostVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `HostVpcConfigurationPtrInput` via:
 //
-//          HostVpcConfigurationArgs{...}
+//	        HostVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HostVpcConfigurationPtrInput interface {
 	pulumi.Input
 

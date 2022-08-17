@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexDocumentMetadataConfigurationUpdateGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexDocumentMetadataConfigurationUpdateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Index.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexDocumentMetadataConfigurationUpdateGetArgs()
         {
         }
+        public static new IndexDocumentMetadataConfigurationUpdateGetArgs Empty => new IndexDocumentMetadataConfigurationUpdateGetArgs();
     }
 }

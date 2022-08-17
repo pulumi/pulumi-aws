@@ -20,7 +20,7 @@ type ContainerRecipeComponent struct {
 // ContainerRecipeComponentInput is an input type that accepts ContainerRecipeComponentArgs and ContainerRecipeComponentOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentInput` via:
 //
-//          ContainerRecipeComponentArgs{...}
+//	ContainerRecipeComponentArgs{...}
 type ContainerRecipeComponentInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ContainerRecipeComponentArgs) ToContainerRecipeComponentOutputWithContex
 // ContainerRecipeComponentArrayInput is an input type that accepts ContainerRecipeComponentArray and ContainerRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentArrayInput` via:
 //
-//          ContainerRecipeComponentArray{ ContainerRecipeComponentArgs{...} }
+//	ContainerRecipeComponentArray{ ContainerRecipeComponentArgs{...} }
 type ContainerRecipeComponentArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type ContainerRecipeComponentParameter struct {
 // ContainerRecipeComponentParameterInput is an input type that accepts ContainerRecipeComponentParameterArgs and ContainerRecipeComponentParameterOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentParameterInput` via:
 //
-//          ContainerRecipeComponentParameterArgs{...}
+//	ContainerRecipeComponentParameterArgs{...}
 type ContainerRecipeComponentParameterInput interface {
 	pulumi.Input
 
@@ -156,7 +156,7 @@ func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParamet
 // ContainerRecipeComponentParameterArrayInput is an input type that accepts ContainerRecipeComponentParameterArray and ContainerRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentParameterArrayInput` via:
 //
-//          ContainerRecipeComponentParameterArray{ ContainerRecipeComponentParameterArgs{...} }
+//	ContainerRecipeComponentParameterArray{ ContainerRecipeComponentParameterArgs{...} }
 type ContainerRecipeComponentParameterArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +232,7 @@ type ContainerRecipeInstanceConfiguration struct {
 // ContainerRecipeInstanceConfigurationInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs and ContainerRecipeInstanceConfigurationOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationInput` via:
 //
-//          ContainerRecipeInstanceConfigurationArgs{...}
+//	ContainerRecipeInstanceConfigurationArgs{...}
 type ContainerRecipeInstanceConfigurationInput interface {
 	pulumi.Input
 
@@ -270,11 +270,11 @@ func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfi
 // ContainerRecipeInstanceConfigurationPtrInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs, ContainerRecipeInstanceConfigurationPtr and ContainerRecipeInstanceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationPtrInput` via:
 //
-//          ContainerRecipeInstanceConfigurationArgs{...}
+//	        ContainerRecipeInstanceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerRecipeInstanceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -394,7 +394,7 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMapping struct {
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs and ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingInput` via:
 //
-//          ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...}
+//	ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...}
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -428,7 +428,7 @@ func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToContainerR
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingArray and ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput` via:
 //
-//          ContainerRecipeInstanceConfigurationBlockDeviceMappingArray{ ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...} }
+//	ContainerRecipeInstanceConfigurationBlockDeviceMappingArray{ ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...} }
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -528,7 +528,7 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs struct {
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs and ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput` via:
 //
-//          ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{...}
+//	ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{...}
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput interface {
 	pulumi.Input
 
@@ -578,11 +578,11 @@ func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContain
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs, ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtr and ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput` via:
 //
-//          ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{...}
+//	        ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput interface {
 	pulumi.Input
 
@@ -788,7 +788,7 @@ type ContainerRecipeTargetRepository struct {
 // ContainerRecipeTargetRepositoryInput is an input type that accepts ContainerRecipeTargetRepositoryArgs and ContainerRecipeTargetRepositoryOutput values.
 // You can construct a concrete instance of `ContainerRecipeTargetRepositoryInput` via:
 //
-//          ContainerRecipeTargetRepositoryArgs{...}
+//	ContainerRecipeTargetRepositoryArgs{...}
 type ContainerRecipeTargetRepositoryInput interface {
 	pulumi.Input
 
@@ -826,11 +826,11 @@ func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryPt
 // ContainerRecipeTargetRepositoryPtrInput is an input type that accepts ContainerRecipeTargetRepositoryArgs, ContainerRecipeTargetRepositoryPtr and ContainerRecipeTargetRepositoryPtrOutput values.
 // You can construct a concrete instance of `ContainerRecipeTargetRepositoryPtrInput` via:
 //
-//          ContainerRecipeTargetRepositoryArgs{...}
+//	        ContainerRecipeTargetRepositoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerRecipeTargetRepositoryPtrInput interface {
 	pulumi.Input
 
@@ -952,7 +952,7 @@ type DistributionConfigurationDistribution struct {
 // DistributionConfigurationDistributionInput is an input type that accepts DistributionConfigurationDistributionArgs and DistributionConfigurationDistributionOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionInput` via:
 //
-//          DistributionConfigurationDistributionArgs{...}
+//	DistributionConfigurationDistributionArgs{...}
 type DistributionConfigurationDistributionInput interface {
 	pulumi.Input
 
@@ -990,7 +990,7 @@ func (i DistributionConfigurationDistributionArgs) ToDistributionConfigurationDi
 // DistributionConfigurationDistributionArrayInput is an input type that accepts DistributionConfigurationDistributionArray and DistributionConfigurationDistributionArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionArrayInput` via:
 //
-//          DistributionConfigurationDistributionArray{ DistributionConfigurationDistributionArgs{...} }
+//	DistributionConfigurationDistributionArray{ DistributionConfigurationDistributionArgs{...} }
 type DistributionConfigurationDistributionArrayInput interface {
 	pulumi.Input
 
@@ -1102,7 +1102,7 @@ type DistributionConfigurationDistributionAmiDistributionConfiguration struct {
 // DistributionConfigurationDistributionAmiDistributionConfigurationInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationArgs and DistributionConfigurationDistributionAmiDistributionConfigurationOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationInput` via:
 //
-//          DistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
+//	DistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
 type DistributionConfigurationDistributionAmiDistributionConfigurationInput interface {
 	pulumi.Input
 
@@ -1148,11 +1148,11 @@ func (i DistributionConfigurationDistributionAmiDistributionConfigurationArgs) T
 // DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationArgs, DistributionConfigurationDistributionAmiDistributionConfigurationPtr and DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput` via:
 //
-//          DistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
+//	        DistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1338,7 +1338,7 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPerm
 // DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs and DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput` via:
 //
-//          DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
+//	DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput interface {
 	pulumi.Input
 
@@ -1380,11 +1380,11 @@ func (i DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 // DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs, DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtr and DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput` via:
 //
-//          DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
+//	        DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput interface {
 	pulumi.Input
 
@@ -1538,7 +1538,7 @@ type DistributionConfigurationDistributionContainerDistributionConfiguration str
 // DistributionConfigurationDistributionContainerDistributionConfigurationInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationArgs and DistributionConfigurationDistributionContainerDistributionConfigurationOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationInput` via:
 //
-//          DistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
+//	DistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
 type DistributionConfigurationDistributionContainerDistributionConfigurationInput interface {
 	pulumi.Input
 
@@ -1578,11 +1578,11 @@ func (i DistributionConfigurationDistributionContainerDistributionConfigurationA
 // DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationArgs, DistributionConfigurationDistributionContainerDistributionConfigurationPtr and DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput` via:
 //
-//          DistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
+//	        DistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1717,7 +1717,7 @@ type DistributionConfigurationDistributionContainerDistributionConfigurationTarg
 // DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs and DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput` via:
 //
-//          DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
+//	DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
 type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput interface {
 	pulumi.Input
 
@@ -1755,11 +1755,11 @@ func (i DistributionConfigurationDistributionContainerDistributionConfigurationT
 // DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs, DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtr and DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput` via:
 //
-//          DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
+//	        DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput interface {
 	pulumi.Input
 
@@ -1883,7 +1883,7 @@ type DistributionConfigurationDistributionFastLaunchConfiguration struct {
 // DistributionConfigurationDistributionFastLaunchConfigurationInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationArgs and DistributionConfigurationDistributionFastLaunchConfigurationOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationInput` via:
 //
-//          DistributionConfigurationDistributionFastLaunchConfigurationArgs{...}
+//	DistributionConfigurationDistributionFastLaunchConfigurationArgs{...}
 type DistributionConfigurationDistributionFastLaunchConfigurationInput interface {
 	pulumi.Input
 
@@ -1919,7 +1919,7 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationArgs) ToDist
 // DistributionConfigurationDistributionFastLaunchConfigurationArrayInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationArray and DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationArrayInput` via:
 //
-//          DistributionConfigurationDistributionFastLaunchConfigurationArray{ DistributionConfigurationDistributionFastLaunchConfigurationArgs{...} }
+//	DistributionConfigurationDistributionFastLaunchConfigurationArray{ DistributionConfigurationDistributionFastLaunchConfigurationArgs{...} }
 type DistributionConfigurationDistributionFastLaunchConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2018,7 +2018,7 @@ type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate 
 // DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs and DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput` via:
 //
-//          DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
+//	DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -2058,11 +2058,11 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 // DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs, DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtr and DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput` via:
 //
-//          DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
+//	        DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -2195,7 +2195,7 @@ type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigu
 // DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs and DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput` via:
 //
-//          DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
+//	DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
 type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput interface {
 	pulumi.Input
 
@@ -2231,11 +2231,11 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 // DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs, DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtr and DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput` via:
 //
-//          DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
+//	        DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2338,7 +2338,7 @@ type DistributionConfigurationDistributionLaunchTemplateConfiguration struct {
 // DistributionConfigurationDistributionLaunchTemplateConfigurationInput is an input type that accepts DistributionConfigurationDistributionLaunchTemplateConfigurationArgs and DistributionConfigurationDistributionLaunchTemplateConfigurationOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionLaunchTemplateConfigurationInput` via:
 //
-//          DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...}
+//	DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...}
 type DistributionConfigurationDistributionLaunchTemplateConfigurationInput interface {
 	pulumi.Input
 
@@ -2370,7 +2370,7 @@ func (i DistributionConfigurationDistributionLaunchTemplateConfigurationArgs) To
 // DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput is an input type that accepts DistributionConfigurationDistributionLaunchTemplateConfigurationArray and DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput` via:
 //
-//          DistributionConfigurationDistributionLaunchTemplateConfigurationArray{ DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...} }
+//	DistributionConfigurationDistributionLaunchTemplateConfigurationArray{ DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...} }
 type DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2453,7 +2453,7 @@ type ImageImageTestsConfiguration struct {
 // ImageImageTestsConfigurationInput is an input type that accepts ImageImageTestsConfigurationArgs and ImageImageTestsConfigurationOutput values.
 // You can construct a concrete instance of `ImageImageTestsConfigurationInput` via:
 //
-//          ImageImageTestsConfigurationArgs{...}
+//	ImageImageTestsConfigurationArgs{...}
 type ImageImageTestsConfigurationInput interface {
 	pulumi.Input
 
@@ -2491,11 +2491,11 @@ func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationPtrOutpu
 // ImageImageTestsConfigurationPtrInput is an input type that accepts ImageImageTestsConfigurationArgs, ImageImageTestsConfigurationPtr and ImageImageTestsConfigurationPtrOutput values.
 // You can construct a concrete instance of `ImageImageTestsConfigurationPtrInput` via:
 //
-//          ImageImageTestsConfigurationArgs{...}
+//	        ImageImageTestsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageImageTestsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2607,7 +2607,7 @@ type ImageOutputResource struct {
 // ImageOutputResourceInput is an input type that accepts ImageOutputResourceArgs and ImageOutputResourceOutput values.
 // You can construct a concrete instance of `ImageOutputResourceInput` via:
 //
-//          ImageOutputResourceArgs{...}
+//	ImageOutputResourceArgs{...}
 type ImageOutputResourceInput interface {
 	pulumi.Input
 
@@ -2635,7 +2635,7 @@ func (i ImageOutputResourceArgs) ToImageOutputResourceOutputWithContext(ctx cont
 // ImageOutputResourceArrayInput is an input type that accepts ImageOutputResourceArray and ImageOutputResourceArrayOutput values.
 // You can construct a concrete instance of `ImageOutputResourceArrayInput` via:
 //
-//          ImageOutputResourceArray{ ImageOutputResourceArgs{...} }
+//	ImageOutputResourceArray{ ImageOutputResourceArgs{...} }
 type ImageOutputResourceArrayInput interface {
 	pulumi.Input
 
@@ -2712,7 +2712,7 @@ type ImageOutputResourceAmi struct {
 // ImageOutputResourceAmiInput is an input type that accepts ImageOutputResourceAmiArgs and ImageOutputResourceAmiOutput values.
 // You can construct a concrete instance of `ImageOutputResourceAmiInput` via:
 //
-//          ImageOutputResourceAmiArgs{...}
+//	ImageOutputResourceAmiArgs{...}
 type ImageOutputResourceAmiInput interface {
 	pulumi.Input
 
@@ -2748,7 +2748,7 @@ func (i ImageOutputResourceAmiArgs) ToImageOutputResourceAmiOutputWithContext(ct
 // ImageOutputResourceAmiArrayInput is an input type that accepts ImageOutputResourceAmiArray and ImageOutputResourceAmiArrayOutput values.
 // You can construct a concrete instance of `ImageOutputResourceAmiArrayInput` via:
 //
-//          ImageOutputResourceAmiArray{ ImageOutputResourceAmiArgs{...} }
+//	ImageOutputResourceAmiArray{ ImageOutputResourceAmiArgs{...} }
 type ImageOutputResourceAmiArrayInput interface {
 	pulumi.Input
 
@@ -2839,7 +2839,7 @@ type ImagePipelineImageTestsConfiguration struct {
 // ImagePipelineImageTestsConfigurationInput is an input type that accepts ImagePipelineImageTestsConfigurationArgs and ImagePipelineImageTestsConfigurationOutput values.
 // You can construct a concrete instance of `ImagePipelineImageTestsConfigurationInput` via:
 //
-//          ImagePipelineImageTestsConfigurationArgs{...}
+//	ImagePipelineImageTestsConfigurationArgs{...}
 type ImagePipelineImageTestsConfigurationInput interface {
 	pulumi.Input
 
@@ -2877,11 +2877,11 @@ func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfi
 // ImagePipelineImageTestsConfigurationPtrInput is an input type that accepts ImagePipelineImageTestsConfigurationArgs, ImagePipelineImageTestsConfigurationPtr and ImagePipelineImageTestsConfigurationPtrOutput values.
 // You can construct a concrete instance of `ImagePipelineImageTestsConfigurationPtrInput` via:
 //
-//          ImagePipelineImageTestsConfigurationArgs{...}
+//	        ImagePipelineImageTestsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImagePipelineImageTestsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2997,7 +2997,7 @@ type ImagePipelineSchedule struct {
 // ImagePipelineScheduleInput is an input type that accepts ImagePipelineScheduleArgs and ImagePipelineScheduleOutput values.
 // You can construct a concrete instance of `ImagePipelineScheduleInput` via:
 //
-//          ImagePipelineScheduleArgs{...}
+//	ImagePipelineScheduleArgs{...}
 type ImagePipelineScheduleInput interface {
 	pulumi.Input
 
@@ -3037,11 +3037,11 @@ func (i ImagePipelineScheduleArgs) ToImagePipelineSchedulePtrOutputWithContext(c
 // ImagePipelineSchedulePtrInput is an input type that accepts ImagePipelineScheduleArgs, ImagePipelineSchedulePtr and ImagePipelineSchedulePtrOutput values.
 // You can construct a concrete instance of `ImagePipelineSchedulePtrInput` via:
 //
-//          ImagePipelineScheduleArgs{...}
+//	        ImagePipelineScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImagePipelineSchedulePtrInput interface {
 	pulumi.Input
 
@@ -3174,7 +3174,7 @@ type ImageRecipeBlockDeviceMapping struct {
 // ImageRecipeBlockDeviceMappingInput is an input type that accepts ImageRecipeBlockDeviceMappingArgs and ImageRecipeBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `ImageRecipeBlockDeviceMappingInput` via:
 //
-//          ImageRecipeBlockDeviceMappingArgs{...}
+//	ImageRecipeBlockDeviceMappingArgs{...}
 type ImageRecipeBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -3208,7 +3208,7 @@ func (i ImageRecipeBlockDeviceMappingArgs) ToImageRecipeBlockDeviceMappingOutput
 // ImageRecipeBlockDeviceMappingArrayInput is an input type that accepts ImageRecipeBlockDeviceMappingArray and ImageRecipeBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeBlockDeviceMappingArrayInput` via:
 //
-//          ImageRecipeBlockDeviceMappingArray{ ImageRecipeBlockDeviceMappingArgs{...} }
+//	ImageRecipeBlockDeviceMappingArray{ ImageRecipeBlockDeviceMappingArgs{...} }
 type ImageRecipeBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -3306,7 +3306,7 @@ type ImageRecipeBlockDeviceMappingEbs struct {
 // ImageRecipeBlockDeviceMappingEbsInput is an input type that accepts ImageRecipeBlockDeviceMappingEbsArgs and ImageRecipeBlockDeviceMappingEbsOutput values.
 // You can construct a concrete instance of `ImageRecipeBlockDeviceMappingEbsInput` via:
 //
-//          ImageRecipeBlockDeviceMappingEbsArgs{...}
+//	ImageRecipeBlockDeviceMappingEbsArgs{...}
 type ImageRecipeBlockDeviceMappingEbsInput interface {
 	pulumi.Input
 
@@ -3356,11 +3356,11 @@ func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbs
 // ImageRecipeBlockDeviceMappingEbsPtrInput is an input type that accepts ImageRecipeBlockDeviceMappingEbsArgs, ImageRecipeBlockDeviceMappingEbsPtr and ImageRecipeBlockDeviceMappingEbsPtrOutput values.
 // You can construct a concrete instance of `ImageRecipeBlockDeviceMappingEbsPtrInput` via:
 //
-//          ImageRecipeBlockDeviceMappingEbsArgs{...}
+//	        ImageRecipeBlockDeviceMappingEbsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageRecipeBlockDeviceMappingEbsPtrInput interface {
 	pulumi.Input
 
@@ -3564,7 +3564,7 @@ type ImageRecipeComponent struct {
 // ImageRecipeComponentInput is an input type that accepts ImageRecipeComponentArgs and ImageRecipeComponentOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentInput` via:
 //
-//          ImageRecipeComponentArgs{...}
+//	ImageRecipeComponentArgs{...}
 type ImageRecipeComponentInput interface {
 	pulumi.Input
 
@@ -3594,7 +3594,7 @@ func (i ImageRecipeComponentArgs) ToImageRecipeComponentOutputWithContext(ctx co
 // ImageRecipeComponentArrayInput is an input type that accepts ImageRecipeComponentArray and ImageRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentArrayInput` via:
 //
-//          ImageRecipeComponentArray{ ImageRecipeComponentArgs{...} }
+//	ImageRecipeComponentArray{ ImageRecipeComponentArgs{...} }
 type ImageRecipeComponentArrayInput interface {
 	pulumi.Input
 
@@ -3670,7 +3670,7 @@ type ImageRecipeComponentParameter struct {
 // ImageRecipeComponentParameterInput is an input type that accepts ImageRecipeComponentParameterArgs and ImageRecipeComponentParameterOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentParameterInput` via:
 //
-//          ImageRecipeComponentParameterArgs{...}
+//	ImageRecipeComponentParameterArgs{...}
 type ImageRecipeComponentParameterInput interface {
 	pulumi.Input
 
@@ -3700,7 +3700,7 @@ func (i ImageRecipeComponentParameterArgs) ToImageRecipeComponentParameterOutput
 // ImageRecipeComponentParameterArrayInput is an input type that accepts ImageRecipeComponentParameterArray and ImageRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentParameterArrayInput` via:
 //
-//          ImageRecipeComponentParameterArray{ ImageRecipeComponentParameterArgs{...} }
+//	ImageRecipeComponentParameterArray{ ImageRecipeComponentParameterArgs{...} }
 type ImageRecipeComponentParameterArrayInput interface {
 	pulumi.Input
 
@@ -3774,7 +3774,7 @@ type ImageRecipeSystemsManagerAgent struct {
 // ImageRecipeSystemsManagerAgentInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs and ImageRecipeSystemsManagerAgentOutput values.
 // You can construct a concrete instance of `ImageRecipeSystemsManagerAgentInput` via:
 //
-//          ImageRecipeSystemsManagerAgentArgs{...}
+//	ImageRecipeSystemsManagerAgentArgs{...}
 type ImageRecipeSystemsManagerAgentInput interface {
 	pulumi.Input
 
@@ -3810,11 +3810,11 @@ func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrO
 // ImageRecipeSystemsManagerAgentPtrInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs, ImageRecipeSystemsManagerAgentPtr and ImageRecipeSystemsManagerAgentPtrOutput values.
 // You can construct a concrete instance of `ImageRecipeSystemsManagerAgentPtrInput` via:
 //
-//          ImageRecipeSystemsManagerAgentArgs{...}
+//	        ImageRecipeSystemsManagerAgentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageRecipeSystemsManagerAgentPtrInput interface {
 	pulumi.Input
 
@@ -3913,7 +3913,7 @@ type InfrastructureConfigurationInstanceMetadataOptions struct {
 // InfrastructureConfigurationInstanceMetadataOptionsInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs and InfrastructureConfigurationInstanceMetadataOptionsOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsInput` via:
 //
-//          InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
+//	InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
 type InfrastructureConfigurationInstanceMetadataOptionsInput interface {
 	pulumi.Input
 
@@ -3951,11 +3951,11 @@ func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructure
 // InfrastructureConfigurationInstanceMetadataOptionsPtrInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs, InfrastructureConfigurationInstanceMetadataOptionsPtr and InfrastructureConfigurationInstanceMetadataOptionsPtrOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsPtrInput` via:
 //
-//          InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
+//	        InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InfrastructureConfigurationInstanceMetadataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -4067,7 +4067,7 @@ type InfrastructureConfigurationLogging struct {
 // InfrastructureConfigurationLoggingInput is an input type that accepts InfrastructureConfigurationLoggingArgs and InfrastructureConfigurationLoggingOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationLoggingInput` via:
 //
-//          InfrastructureConfigurationLoggingArgs{...}
+//	InfrastructureConfigurationLoggingArgs{...}
 type InfrastructureConfigurationLoggingInput interface {
 	pulumi.Input
 
@@ -4103,11 +4103,11 @@ func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLog
 // InfrastructureConfigurationLoggingPtrInput is an input type that accepts InfrastructureConfigurationLoggingArgs, InfrastructureConfigurationLoggingPtr and InfrastructureConfigurationLoggingPtrOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationLoggingPtrInput` via:
 //
-//          InfrastructureConfigurationLoggingArgs{...}
+//	        InfrastructureConfigurationLoggingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InfrastructureConfigurationLoggingPtrInput interface {
 	pulumi.Input
 
@@ -4206,7 +4206,7 @@ type InfrastructureConfigurationLoggingS3Logs struct {
 // InfrastructureConfigurationLoggingS3LogsInput is an input type that accepts InfrastructureConfigurationLoggingS3LogsArgs and InfrastructureConfigurationLoggingS3LogsOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationLoggingS3LogsInput` via:
 //
-//          InfrastructureConfigurationLoggingS3LogsArgs{...}
+//	InfrastructureConfigurationLoggingS3LogsArgs{...}
 type InfrastructureConfigurationLoggingS3LogsInput interface {
 	pulumi.Input
 
@@ -4244,11 +4244,11 @@ func (i InfrastructureConfigurationLoggingS3LogsArgs) ToInfrastructureConfigurat
 // InfrastructureConfigurationLoggingS3LogsPtrInput is an input type that accepts InfrastructureConfigurationLoggingS3LogsArgs, InfrastructureConfigurationLoggingS3LogsPtr and InfrastructureConfigurationLoggingS3LogsPtrOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationLoggingS3LogsPtrInput` via:
 //
-//          InfrastructureConfigurationLoggingS3LogsArgs{...}
+//	        InfrastructureConfigurationLoggingS3LogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InfrastructureConfigurationLoggingS3LogsPtrInput interface {
 	pulumi.Input
 
@@ -4362,7 +4362,7 @@ type GetComponentsFilter struct {
 // GetComponentsFilterInput is an input type that accepts GetComponentsFilterArgs and GetComponentsFilterOutput values.
 // You can construct a concrete instance of `GetComponentsFilterInput` via:
 //
-//          GetComponentsFilterArgs{...}
+//	GetComponentsFilterArgs{...}
 type GetComponentsFilterInput interface {
 	pulumi.Input
 
@@ -4392,7 +4392,7 @@ func (i GetComponentsFilterArgs) ToGetComponentsFilterOutputWithContext(ctx cont
 // GetComponentsFilterArrayInput is an input type that accepts GetComponentsFilterArray and GetComponentsFilterArrayOutput values.
 // You can construct a concrete instance of `GetComponentsFilterArrayInput` via:
 //
-//          GetComponentsFilterArray{ GetComponentsFilterArgs{...} }
+//	GetComponentsFilterArray{ GetComponentsFilterArgs{...} }
 type GetComponentsFilterArrayInput interface {
 	pulumi.Input
 
@@ -4468,7 +4468,7 @@ type GetContainerRecipeComponent struct {
 // GetContainerRecipeComponentInput is an input type that accepts GetContainerRecipeComponentArgs and GetContainerRecipeComponentOutput values.
 // You can construct a concrete instance of `GetContainerRecipeComponentInput` via:
 //
-//          GetContainerRecipeComponentArgs{...}
+//	GetContainerRecipeComponentArgs{...}
 type GetContainerRecipeComponentInput interface {
 	pulumi.Input
 
@@ -4498,7 +4498,7 @@ func (i GetContainerRecipeComponentArgs) ToGetContainerRecipeComponentOutputWith
 // GetContainerRecipeComponentArrayInput is an input type that accepts GetContainerRecipeComponentArray and GetContainerRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeComponentArrayInput` via:
 //
-//          GetContainerRecipeComponentArray{ GetContainerRecipeComponentArgs{...} }
+//	GetContainerRecipeComponentArray{ GetContainerRecipeComponentArgs{...} }
 type GetContainerRecipeComponentArrayInput interface {
 	pulumi.Input
 
@@ -4574,7 +4574,7 @@ type GetContainerRecipeComponentParameter struct {
 // GetContainerRecipeComponentParameterInput is an input type that accepts GetContainerRecipeComponentParameterArgs and GetContainerRecipeComponentParameterOutput values.
 // You can construct a concrete instance of `GetContainerRecipeComponentParameterInput` via:
 //
-//          GetContainerRecipeComponentParameterArgs{...}
+//	GetContainerRecipeComponentParameterArgs{...}
 type GetContainerRecipeComponentParameterInput interface {
 	pulumi.Input
 
@@ -4604,7 +4604,7 @@ func (i GetContainerRecipeComponentParameterArgs) ToGetContainerRecipeComponentP
 // GetContainerRecipeComponentParameterArrayInput is an input type that accepts GetContainerRecipeComponentParameterArray and GetContainerRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeComponentParameterArrayInput` via:
 //
-//          GetContainerRecipeComponentParameterArray{ GetContainerRecipeComponentParameterArgs{...} }
+//	GetContainerRecipeComponentParameterArray{ GetContainerRecipeComponentParameterArgs{...} }
 type GetContainerRecipeComponentParameterArrayInput interface {
 	pulumi.Input
 
@@ -4680,7 +4680,7 @@ type GetContainerRecipeInstanceConfiguration struct {
 // GetContainerRecipeInstanceConfigurationInput is an input type that accepts GetContainerRecipeInstanceConfigurationArgs and GetContainerRecipeInstanceConfigurationOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationInput` via:
 //
-//          GetContainerRecipeInstanceConfigurationArgs{...}
+//	GetContainerRecipeInstanceConfigurationArgs{...}
 type GetContainerRecipeInstanceConfigurationInput interface {
 	pulumi.Input
 
@@ -4710,7 +4710,7 @@ func (i GetContainerRecipeInstanceConfigurationArgs) ToGetContainerRecipeInstanc
 // GetContainerRecipeInstanceConfigurationArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationArray and GetContainerRecipeInstanceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationArrayInput` via:
 //
-//          GetContainerRecipeInstanceConfigurationArray{ GetContainerRecipeInstanceConfigurationArgs{...} }
+//	GetContainerRecipeInstanceConfigurationArray{ GetContainerRecipeInstanceConfigurationArgs{...} }
 type GetContainerRecipeInstanceConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4792,7 +4792,7 @@ type GetContainerRecipeInstanceConfigurationBlockDeviceMapping struct {
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs and GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput` via:
 //
-//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...}
+//	GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...}
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -4826,7 +4826,7 @@ func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToGetCont
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray and GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput` via:
 //
-//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray{ GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...} }
+//	GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray{ GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...} }
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -4926,7 +4926,7 @@ type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb struct {
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs and GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput` via:
 //
-//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{...}
+//	GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{...}
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput interface {
 	pulumi.Input
 
@@ -4968,7 +4968,7 @@ func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ToGetCo
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray and GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput` via:
 //
-//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray{ GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{...} }
+//	GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray{ GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{...} }
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput interface {
 	pulumi.Input
 
@@ -5074,7 +5074,7 @@ type GetContainerRecipeTargetRepository struct {
 // GetContainerRecipeTargetRepositoryInput is an input type that accepts GetContainerRecipeTargetRepositoryArgs and GetContainerRecipeTargetRepositoryOutput values.
 // You can construct a concrete instance of `GetContainerRecipeTargetRepositoryInput` via:
 //
-//          GetContainerRecipeTargetRepositoryArgs{...}
+//	GetContainerRecipeTargetRepositoryArgs{...}
 type GetContainerRecipeTargetRepositoryInput interface {
 	pulumi.Input
 
@@ -5104,7 +5104,7 @@ func (i GetContainerRecipeTargetRepositoryArgs) ToGetContainerRecipeTargetReposi
 // GetContainerRecipeTargetRepositoryArrayInput is an input type that accepts GetContainerRecipeTargetRepositoryArray and GetContainerRecipeTargetRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeTargetRepositoryArrayInput` via:
 //
-//          GetContainerRecipeTargetRepositoryArray{ GetContainerRecipeTargetRepositoryArgs{...} }
+//	GetContainerRecipeTargetRepositoryArray{ GetContainerRecipeTargetRepositoryArgs{...} }
 type GetContainerRecipeTargetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -5180,7 +5180,7 @@ type GetContainerRecipesFilter struct {
 // GetContainerRecipesFilterInput is an input type that accepts GetContainerRecipesFilterArgs and GetContainerRecipesFilterOutput values.
 // You can construct a concrete instance of `GetContainerRecipesFilterInput` via:
 //
-//          GetContainerRecipesFilterArgs{...}
+//	GetContainerRecipesFilterArgs{...}
 type GetContainerRecipesFilterInput interface {
 	pulumi.Input
 
@@ -5210,7 +5210,7 @@ func (i GetContainerRecipesFilterArgs) ToGetContainerRecipesFilterOutputWithCont
 // GetContainerRecipesFilterArrayInput is an input type that accepts GetContainerRecipesFilterArray and GetContainerRecipesFilterArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipesFilterArrayInput` via:
 //
-//          GetContainerRecipesFilterArray{ GetContainerRecipesFilterArgs{...} }
+//	GetContainerRecipesFilterArray{ GetContainerRecipesFilterArgs{...} }
 type GetContainerRecipesFilterArrayInput interface {
 	pulumi.Input
 
@@ -5294,7 +5294,7 @@ type GetDistributionConfigurationDistribution struct {
 // GetDistributionConfigurationDistributionInput is an input type that accepts GetDistributionConfigurationDistributionArgs and GetDistributionConfigurationDistributionOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionInput` via:
 //
-//          GetDistributionConfigurationDistributionArgs{...}
+//	GetDistributionConfigurationDistributionArgs{...}
 type GetDistributionConfigurationDistributionInput interface {
 	pulumi.Input
 
@@ -5332,7 +5332,7 @@ func (i GetDistributionConfigurationDistributionArgs) ToGetDistributionConfigura
 // GetDistributionConfigurationDistributionArrayInput is an input type that accepts GetDistributionConfigurationDistributionArray and GetDistributionConfigurationDistributionArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionArray{ GetDistributionConfigurationDistributionArgs{...} }
+//	GetDistributionConfigurationDistributionArray{ GetDistributionConfigurationDistributionArgs{...} }
 type GetDistributionConfigurationDistributionArrayInput interface {
 	pulumi.Input
 
@@ -5444,7 +5444,7 @@ type GetDistributionConfigurationDistributionAmiDistributionConfiguration struct
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs and GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationInput` via:
 //
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
+//	GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationInput interface {
 	pulumi.Input
 
@@ -5482,7 +5482,7 @@ func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationArray and GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationArray{ GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{...} }
+//	GetDistributionConfigurationDistributionAmiDistributionConfigurationArray{ GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{...} }
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5590,7 +5590,7 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs and GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput` via:
 //
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
+//	GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput interface {
 	pulumi.Input
 
@@ -5624,7 +5624,7 @@ func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray and GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray{ GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...} }
+//	GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray{ GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...} }
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput interface {
 	pulumi.Input
 
@@ -5720,7 +5720,7 @@ type GetDistributionConfigurationDistributionContainerDistributionConfiguration 
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs and GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionContainerDistributionConfigurationInput` via:
 //
-//          GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
+//	GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationInput interface {
 	pulumi.Input
 
@@ -5752,7 +5752,7 @@ func (i GetDistributionConfigurationDistributionContainerDistributionConfigurati
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationArray and GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionContainerDistributionConfigurationArray{ GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs{...} }
+//	GetDistributionConfigurationDistributionContainerDistributionConfigurationArray{ GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs{...} }
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5839,7 +5839,7 @@ type GetDistributionConfigurationDistributionContainerDistributionConfigurationT
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs and GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput` via:
 //
-//          GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
+//	GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput interface {
 	pulumi.Input
 
@@ -5869,7 +5869,7 @@ func (i GetDistributionConfigurationDistributionContainerDistributionConfigurati
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArray and GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArray{ GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...} }
+//	GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArray{ GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...} }
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -5955,7 +5955,7 @@ type GetDistributionConfigurationDistributionFastLaunchConfiguration struct {
 // GetDistributionConfigurationDistributionFastLaunchConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationArgs and GetDistributionConfigurationDistributionFastLaunchConfigurationOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationInput` via:
 //
-//          GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{...}
+//	GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{...}
 type GetDistributionConfigurationDistributionFastLaunchConfigurationInput interface {
 	pulumi.Input
 
@@ -5991,7 +5991,7 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArgs) ToG
 // GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationArray and GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionFastLaunchConfigurationArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{...} }
+//	GetDistributionConfigurationDistributionFastLaunchConfigurationArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{...} }
 type GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6090,7 +6090,7 @@ type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 // GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs and GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput` via:
 //
-//          GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
+//	GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
 type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -6122,7 +6122,7 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 // GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray and GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...} }
+//	GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...} }
 type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput interface {
 	pulumi.Input
 
@@ -6207,7 +6207,7 @@ type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 // GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs and GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput` via:
 //
-//          GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
+//	GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
 type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput interface {
 	pulumi.Input
 
@@ -6235,7 +6235,7 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 // GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray and GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...} }
+//	GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...} }
 type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6310,7 +6310,7 @@ type GetDistributionConfigurationDistributionLaunchTemplateConfiguration struct 
 // GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs and GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput` via:
 //
-//          GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...}
+//	GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...}
 type GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput interface {
 	pulumi.Input
 
@@ -6342,7 +6342,7 @@ func (i GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs)
 // GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray and GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput` via:
 //
-//          GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray{ GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...} }
+//	GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray{ GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs{...} }
 type GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6425,7 +6425,7 @@ type GetDistributionConfigurationsFilter struct {
 // GetDistributionConfigurationsFilterInput is an input type that accepts GetDistributionConfigurationsFilterArgs and GetDistributionConfigurationsFilterOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationsFilterInput` via:
 //
-//          GetDistributionConfigurationsFilterArgs{...}
+//	GetDistributionConfigurationsFilterArgs{...}
 type GetDistributionConfigurationsFilterInput interface {
 	pulumi.Input
 
@@ -6455,7 +6455,7 @@ func (i GetDistributionConfigurationsFilterArgs) ToGetDistributionConfigurations
 // GetDistributionConfigurationsFilterArrayInput is an input type that accepts GetDistributionConfigurationsFilterArray and GetDistributionConfigurationsFilterArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationsFilterArrayInput` via:
 //
-//          GetDistributionConfigurationsFilterArray{ GetDistributionConfigurationsFilterArgs{...} }
+//	GetDistributionConfigurationsFilterArray{ GetDistributionConfigurationsFilterArgs{...} }
 type GetDistributionConfigurationsFilterArrayInput interface {
 	pulumi.Input
 
@@ -6531,7 +6531,7 @@ type GetImageImageTestsConfiguration struct {
 // GetImageImageTestsConfigurationInput is an input type that accepts GetImageImageTestsConfigurationArgs and GetImageImageTestsConfigurationOutput values.
 // You can construct a concrete instance of `GetImageImageTestsConfigurationInput` via:
 //
-//          GetImageImageTestsConfigurationArgs{...}
+//	GetImageImageTestsConfigurationArgs{...}
 type GetImageImageTestsConfigurationInput interface {
 	pulumi.Input
 
@@ -6561,7 +6561,7 @@ func (i GetImageImageTestsConfigurationArgs) ToGetImageImageTestsConfigurationOu
 // GetImageImageTestsConfigurationArrayInput is an input type that accepts GetImageImageTestsConfigurationArray and GetImageImageTestsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetImageImageTestsConfigurationArrayInput` via:
 //
-//          GetImageImageTestsConfigurationArray{ GetImageImageTestsConfigurationArgs{...} }
+//	GetImageImageTestsConfigurationArray{ GetImageImageTestsConfigurationArgs{...} }
 type GetImageImageTestsConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6635,7 +6635,7 @@ type GetImageOutputResource struct {
 // GetImageOutputResourceInput is an input type that accepts GetImageOutputResourceArgs and GetImageOutputResourceOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceInput` via:
 //
-//          GetImageOutputResourceArgs{...}
+//	GetImageOutputResourceArgs{...}
 type GetImageOutputResourceInput interface {
 	pulumi.Input
 
@@ -6663,7 +6663,7 @@ func (i GetImageOutputResourceArgs) ToGetImageOutputResourceOutputWithContext(ct
 // GetImageOutputResourceArrayInput is an input type that accepts GetImageOutputResourceArray and GetImageOutputResourceArrayOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceArrayInput` via:
 //
-//          GetImageOutputResourceArray{ GetImageOutputResourceArgs{...} }
+//	GetImageOutputResourceArray{ GetImageOutputResourceArgs{...} }
 type GetImageOutputResourceArrayInput interface {
 	pulumi.Input
 
@@ -6740,7 +6740,7 @@ type GetImageOutputResourceAmi struct {
 // GetImageOutputResourceAmiInput is an input type that accepts GetImageOutputResourceAmiArgs and GetImageOutputResourceAmiOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceAmiInput` via:
 //
-//          GetImageOutputResourceAmiArgs{...}
+//	GetImageOutputResourceAmiArgs{...}
 type GetImageOutputResourceAmiInput interface {
 	pulumi.Input
 
@@ -6776,7 +6776,7 @@ func (i GetImageOutputResourceAmiArgs) ToGetImageOutputResourceAmiOutputWithCont
 // GetImageOutputResourceAmiArrayInput is an input type that accepts GetImageOutputResourceAmiArray and GetImageOutputResourceAmiArrayOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceAmiArrayInput` via:
 //
-//          GetImageOutputResourceAmiArray{ GetImageOutputResourceAmiArgs{...} }
+//	GetImageOutputResourceAmiArray{ GetImageOutputResourceAmiArgs{...} }
 type GetImageOutputResourceAmiArrayInput interface {
 	pulumi.Input
 
@@ -6867,7 +6867,7 @@ type GetImagePipelineImageTestsConfiguration struct {
 // GetImagePipelineImageTestsConfigurationInput is an input type that accepts GetImagePipelineImageTestsConfigurationArgs and GetImagePipelineImageTestsConfigurationOutput values.
 // You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationInput` via:
 //
-//          GetImagePipelineImageTestsConfigurationArgs{...}
+//	GetImagePipelineImageTestsConfigurationArgs{...}
 type GetImagePipelineImageTestsConfigurationInput interface {
 	pulumi.Input
 
@@ -6897,7 +6897,7 @@ func (i GetImagePipelineImageTestsConfigurationArgs) ToGetImagePipelineImageTest
 // GetImagePipelineImageTestsConfigurationArrayInput is an input type that accepts GetImagePipelineImageTestsConfigurationArray and GetImagePipelineImageTestsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationArrayInput` via:
 //
-//          GetImagePipelineImageTestsConfigurationArray{ GetImagePipelineImageTestsConfigurationArgs{...} }
+//	GetImagePipelineImageTestsConfigurationArray{ GetImagePipelineImageTestsConfigurationArgs{...} }
 type GetImagePipelineImageTestsConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6973,7 +6973,7 @@ type GetImagePipelineSchedule struct {
 // GetImagePipelineScheduleInput is an input type that accepts GetImagePipelineScheduleArgs and GetImagePipelineScheduleOutput values.
 // You can construct a concrete instance of `GetImagePipelineScheduleInput` via:
 //
-//          GetImagePipelineScheduleArgs{...}
+//	GetImagePipelineScheduleArgs{...}
 type GetImagePipelineScheduleInput interface {
 	pulumi.Input
 
@@ -7003,7 +7003,7 @@ func (i GetImagePipelineScheduleArgs) ToGetImagePipelineScheduleOutputWithContex
 // GetImagePipelineScheduleArrayInput is an input type that accepts GetImagePipelineScheduleArray and GetImagePipelineScheduleArrayOutput values.
 // You can construct a concrete instance of `GetImagePipelineScheduleArrayInput` via:
 //
-//          GetImagePipelineScheduleArray{ GetImagePipelineScheduleArgs{...} }
+//	GetImagePipelineScheduleArray{ GetImagePipelineScheduleArgs{...} }
 type GetImagePipelineScheduleArrayInput interface {
 	pulumi.Input
 
@@ -7079,7 +7079,7 @@ type GetImagePipelinesFilter struct {
 // GetImagePipelinesFilterInput is an input type that accepts GetImagePipelinesFilterArgs and GetImagePipelinesFilterOutput values.
 // You can construct a concrete instance of `GetImagePipelinesFilterInput` via:
 //
-//          GetImagePipelinesFilterArgs{...}
+//	GetImagePipelinesFilterArgs{...}
 type GetImagePipelinesFilterInput interface {
 	pulumi.Input
 
@@ -7109,7 +7109,7 @@ func (i GetImagePipelinesFilterArgs) ToGetImagePipelinesFilterOutputWithContext(
 // GetImagePipelinesFilterArrayInput is an input type that accepts GetImagePipelinesFilterArray and GetImagePipelinesFilterArrayOutput values.
 // You can construct a concrete instance of `GetImagePipelinesFilterArrayInput` via:
 //
-//          GetImagePipelinesFilterArray{ GetImagePipelinesFilterArgs{...} }
+//	GetImagePipelinesFilterArray{ GetImagePipelinesFilterArgs{...} }
 type GetImagePipelinesFilterArrayInput interface {
 	pulumi.Input
 
@@ -7189,7 +7189,7 @@ type GetImageRecipeBlockDeviceMapping struct {
 // GetImageRecipeBlockDeviceMappingInput is an input type that accepts GetImageRecipeBlockDeviceMappingArgs and GetImageRecipeBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingInput` via:
 //
-//          GetImageRecipeBlockDeviceMappingArgs{...}
+//	GetImageRecipeBlockDeviceMappingArgs{...}
 type GetImageRecipeBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -7223,7 +7223,7 @@ func (i GetImageRecipeBlockDeviceMappingArgs) ToGetImageRecipeBlockDeviceMapping
 // GetImageRecipeBlockDeviceMappingArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingArray and GetImageRecipeBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingArrayInput` via:
 //
-//          GetImageRecipeBlockDeviceMappingArray{ GetImageRecipeBlockDeviceMappingArgs{...} }
+//	GetImageRecipeBlockDeviceMappingArray{ GetImageRecipeBlockDeviceMappingArgs{...} }
 type GetImageRecipeBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -7321,7 +7321,7 @@ type GetImageRecipeBlockDeviceMappingEb struct {
 // GetImageRecipeBlockDeviceMappingEbInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArgs and GetImageRecipeBlockDeviceMappingEbOutput values.
 // You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbInput` via:
 //
-//          GetImageRecipeBlockDeviceMappingEbArgs{...}
+//	GetImageRecipeBlockDeviceMappingEbArgs{...}
 type GetImageRecipeBlockDeviceMappingEbInput interface {
 	pulumi.Input
 
@@ -7363,7 +7363,7 @@ func (i GetImageRecipeBlockDeviceMappingEbArgs) ToGetImageRecipeBlockDeviceMappi
 // GetImageRecipeBlockDeviceMappingEbArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArray and GetImageRecipeBlockDeviceMappingEbArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbArrayInput` via:
 //
-//          GetImageRecipeBlockDeviceMappingEbArray{ GetImageRecipeBlockDeviceMappingEbArgs{...} }
+//	GetImageRecipeBlockDeviceMappingEbArray{ GetImageRecipeBlockDeviceMappingEbArgs{...} }
 type GetImageRecipeBlockDeviceMappingEbArrayInput interface {
 	pulumi.Input
 
@@ -7469,7 +7469,7 @@ type GetImageRecipeComponent struct {
 // GetImageRecipeComponentInput is an input type that accepts GetImageRecipeComponentArgs and GetImageRecipeComponentOutput values.
 // You can construct a concrete instance of `GetImageRecipeComponentInput` via:
 //
-//          GetImageRecipeComponentArgs{...}
+//	GetImageRecipeComponentArgs{...}
 type GetImageRecipeComponentInput interface {
 	pulumi.Input
 
@@ -7499,7 +7499,7 @@ func (i GetImageRecipeComponentArgs) ToGetImageRecipeComponentOutputWithContext(
 // GetImageRecipeComponentArrayInput is an input type that accepts GetImageRecipeComponentArray and GetImageRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeComponentArrayInput` via:
 //
-//          GetImageRecipeComponentArray{ GetImageRecipeComponentArgs{...} }
+//	GetImageRecipeComponentArray{ GetImageRecipeComponentArgs{...} }
 type GetImageRecipeComponentArrayInput interface {
 	pulumi.Input
 
@@ -7575,7 +7575,7 @@ type GetImageRecipeComponentParameter struct {
 // GetImageRecipeComponentParameterInput is an input type that accepts GetImageRecipeComponentParameterArgs and GetImageRecipeComponentParameterOutput values.
 // You can construct a concrete instance of `GetImageRecipeComponentParameterInput` via:
 //
-//          GetImageRecipeComponentParameterArgs{...}
+//	GetImageRecipeComponentParameterArgs{...}
 type GetImageRecipeComponentParameterInput interface {
 	pulumi.Input
 
@@ -7605,7 +7605,7 @@ func (i GetImageRecipeComponentParameterArgs) ToGetImageRecipeComponentParameter
 // GetImageRecipeComponentParameterArrayInput is an input type that accepts GetImageRecipeComponentParameterArray and GetImageRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeComponentParameterArrayInput` via:
 //
-//          GetImageRecipeComponentParameterArray{ GetImageRecipeComponentParameterArgs{...} }
+//	GetImageRecipeComponentParameterArray{ GetImageRecipeComponentParameterArgs{...} }
 type GetImageRecipeComponentParameterArrayInput interface {
 	pulumi.Input
 
@@ -7681,7 +7681,7 @@ type GetImageRecipesFilter struct {
 // GetImageRecipesFilterInput is an input type that accepts GetImageRecipesFilterArgs and GetImageRecipesFilterOutput values.
 // You can construct a concrete instance of `GetImageRecipesFilterInput` via:
 //
-//          GetImageRecipesFilterArgs{...}
+//	GetImageRecipesFilterArgs{...}
 type GetImageRecipesFilterInput interface {
 	pulumi.Input
 
@@ -7711,7 +7711,7 @@ func (i GetImageRecipesFilterArgs) ToGetImageRecipesFilterOutputWithContext(ctx 
 // GetImageRecipesFilterArrayInput is an input type that accepts GetImageRecipesFilterArray and GetImageRecipesFilterArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipesFilterArrayInput` via:
 //
-//          GetImageRecipesFilterArray{ GetImageRecipesFilterArgs{...} }
+//	GetImageRecipesFilterArray{ GetImageRecipesFilterArgs{...} }
 type GetImageRecipesFilterArrayInput interface {
 	pulumi.Input
 
@@ -7787,7 +7787,7 @@ type GetInfrastructureConfigurationInstanceMetadataOption struct {
 // GetInfrastructureConfigurationInstanceMetadataOptionInput is an input type that accepts GetInfrastructureConfigurationInstanceMetadataOptionArgs and GetInfrastructureConfigurationInstanceMetadataOptionOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationInstanceMetadataOptionInput` via:
 //
-//          GetInfrastructureConfigurationInstanceMetadataOptionArgs{...}
+//	GetInfrastructureConfigurationInstanceMetadataOptionArgs{...}
 type GetInfrastructureConfigurationInstanceMetadataOptionInput interface {
 	pulumi.Input
 
@@ -7817,7 +7817,7 @@ func (i GetInfrastructureConfigurationInstanceMetadataOptionArgs) ToGetInfrastru
 // GetInfrastructureConfigurationInstanceMetadataOptionArrayInput is an input type that accepts GetInfrastructureConfigurationInstanceMetadataOptionArray and GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationInstanceMetadataOptionArrayInput` via:
 //
-//          GetInfrastructureConfigurationInstanceMetadataOptionArray{ GetInfrastructureConfigurationInstanceMetadataOptionArgs{...} }
+//	GetInfrastructureConfigurationInstanceMetadataOptionArray{ GetInfrastructureConfigurationInstanceMetadataOptionArgs{...} }
 type GetInfrastructureConfigurationInstanceMetadataOptionArrayInput interface {
 	pulumi.Input
 
@@ -7891,7 +7891,7 @@ type GetInfrastructureConfigurationLogging struct {
 // GetInfrastructureConfigurationLoggingInput is an input type that accepts GetInfrastructureConfigurationLoggingArgs and GetInfrastructureConfigurationLoggingOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationLoggingInput` via:
 //
-//          GetInfrastructureConfigurationLoggingArgs{...}
+//	GetInfrastructureConfigurationLoggingArgs{...}
 type GetInfrastructureConfigurationLoggingInput interface {
 	pulumi.Input
 
@@ -7919,7 +7919,7 @@ func (i GetInfrastructureConfigurationLoggingArgs) ToGetInfrastructureConfigurat
 // GetInfrastructureConfigurationLoggingArrayInput is an input type that accepts GetInfrastructureConfigurationLoggingArray and GetInfrastructureConfigurationLoggingArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationLoggingArrayInput` via:
 //
-//          GetInfrastructureConfigurationLoggingArray{ GetInfrastructureConfigurationLoggingArgs{...} }
+//	GetInfrastructureConfigurationLoggingArray{ GetInfrastructureConfigurationLoggingArgs{...} }
 type GetInfrastructureConfigurationLoggingArrayInput interface {
 	pulumi.Input
 
@@ -7992,7 +7992,7 @@ type GetInfrastructureConfigurationLoggingS3Log struct {
 // GetInfrastructureConfigurationLoggingS3LogInput is an input type that accepts GetInfrastructureConfigurationLoggingS3LogArgs and GetInfrastructureConfigurationLoggingS3LogOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationLoggingS3LogInput` via:
 //
-//          GetInfrastructureConfigurationLoggingS3LogArgs{...}
+//	GetInfrastructureConfigurationLoggingS3LogArgs{...}
 type GetInfrastructureConfigurationLoggingS3LogInput interface {
 	pulumi.Input
 
@@ -8022,7 +8022,7 @@ func (i GetInfrastructureConfigurationLoggingS3LogArgs) ToGetInfrastructureConfi
 // GetInfrastructureConfigurationLoggingS3LogArrayInput is an input type that accepts GetInfrastructureConfigurationLoggingS3LogArray and GetInfrastructureConfigurationLoggingS3LogArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationLoggingS3LogArrayInput` via:
 //
-//          GetInfrastructureConfigurationLoggingS3LogArray{ GetInfrastructureConfigurationLoggingS3LogArgs{...} }
+//	GetInfrastructureConfigurationLoggingS3LogArray{ GetInfrastructureConfigurationLoggingS3LogArgs{...} }
 type GetInfrastructureConfigurationLoggingS3LogArrayInput interface {
 	pulumi.Input
 
@@ -8098,7 +8098,7 @@ type GetInfrastructureConfigurationsFilter struct {
 // GetInfrastructureConfigurationsFilterInput is an input type that accepts GetInfrastructureConfigurationsFilterArgs and GetInfrastructureConfigurationsFilterOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationsFilterInput` via:
 //
-//          GetInfrastructureConfigurationsFilterArgs{...}
+//	GetInfrastructureConfigurationsFilterArgs{...}
 type GetInfrastructureConfigurationsFilterInput interface {
 	pulumi.Input
 
@@ -8128,7 +8128,7 @@ func (i GetInfrastructureConfigurationsFilterArgs) ToGetInfrastructureConfigurat
 // GetInfrastructureConfigurationsFilterArrayInput is an input type that accepts GetInfrastructureConfigurationsFilterArray and GetInfrastructureConfigurationsFilterArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationsFilterArrayInput` via:
 //
-//          GetInfrastructureConfigurationsFilterArray{ GetInfrastructureConfigurationsFilterArgs{...} }
+//	GetInfrastructureConfigurationsFilterArray{ GetInfrastructureConfigurationsFilterArgs{...} }
 type GetInfrastructureConfigurationsFilterArrayInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class CertificateValidityArgs : Pulumi.ResourceArgs
+    public sealed class CertificateValidityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public CertificateValidityArgs()
         {
         }
+        public static new CertificateValidityArgs Empty => new CertificateValidityArgs();
     }
 }

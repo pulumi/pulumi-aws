@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := waf.NewXssMatchSet(ctx, "xssMatchSet", &waf.XssMatchSetArgs{
-// 			XssMatchTuples: waf.XssMatchSetXssMatchTupleArray{
-// 				&waf.XssMatchSetXssMatchTupleArgs{
-// 					FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
-// 						Type: pulumi.String("URI"),
-// 					},
-// 					TextTransformation: pulumi.String("NONE"),
-// 				},
-// 				&waf.XssMatchSetXssMatchTupleArgs{
-// 					FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
-// 						Type: pulumi.String("QUERY_STRING"),
-// 					},
-// 					TextTransformation: pulumi.String("NONE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.NewXssMatchSet(ctx, "xssMatchSet", &waf.XssMatchSetArgs{
+//				XssMatchTuples: waf.XssMatchSetXssMatchTupleArray{
+//					&waf.XssMatchSetXssMatchTupleArgs{
+//						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("URI"),
+//						},
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//					&waf.XssMatchSetXssMatchTupleArgs{
+//						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("QUERY_STRING"),
+//						},
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // WAF XSS Match Set can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMat
 // XssMatchSetArrayInput is an input type that accepts XssMatchSetArray and XssMatchSetArrayOutput values.
 // You can construct a concrete instance of `XssMatchSetArrayInput` via:
 //
-//          XssMatchSetArray{ XssMatchSetArgs{...} }
+//	XssMatchSetArray{ XssMatchSetArgs{...} }
 type XssMatchSetArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i XssMatchSetArray) ToXssMatchSetArrayOutputWithContext(ctx context.Contex
 // XssMatchSetMapInput is an input type that accepts XssMatchSetMap and XssMatchSetMapOutput values.
 // You can construct a concrete instance of `XssMatchSetMapInput` via:
 //
-//          XssMatchSetMap{ "key": XssMatchSetArgs{...} }
+//	XssMatchSetMap{ "key": XssMatchSetArgs{...} }
 type XssMatchSetMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class GangliaLayerCloudwatchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class GangliaLayerCloudwatchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public GangliaLayerCloudwatchConfigurationGetArgs()
         {
         }
+        public static new GangliaLayerCloudwatchConfigurationGetArgs Empty => new GangliaLayerCloudwatchConfigurationGetArgs();
     }
 }

@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apprunner.NewConnection(ctx, "example", &apprunner.ConnectionArgs{
-// 			ConnectionName: pulumi.String("example"),
-// 			ProviderType:   pulumi.String("GITHUB"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-apprunner-connection"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewConnection(ctx, "example", &apprunner.ConnectionArgs{
+//				ConnectionName: pulumi.String("example"),
+//				ProviderType:   pulumi.String("GITHUB"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-connection"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // App Runner Connections can be imported by using the `connection_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apprunner/connection:Connection example example
+//
+//	$ pulumi import aws:apprunner/connection:Connection example example
+//
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
-//          ConnectionArray{ ConnectionArgs{...} }
+//	ConnectionArray{ ConnectionArgs{...} }
 type ConnectionArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context)
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
 // You can construct a concrete instance of `ConnectionMapInput` via:
 //
-//          ConnectionMap{ "key": ConnectionArgs{...} }
+//	ConnectionMap{ "key": ConnectionArgs{...} }
 type ConnectionMapInput interface {
 	pulumi.Input
 

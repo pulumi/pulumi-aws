@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ClusterConfigurationExecuteCommandConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConfigurationExecuteCommandConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ClusterConfigurationExecuteCommandConfigurationArgs()
         {
         }
+        public static new ClusterConfigurationExecuteCommandConfigurationArgs Empty => new ClusterConfigurationExecuteCommandConfigurationArgs();
     }
 }

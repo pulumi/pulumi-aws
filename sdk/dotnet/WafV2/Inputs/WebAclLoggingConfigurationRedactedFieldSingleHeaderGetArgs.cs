@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the query header to redact. This setting must be provided as lower case characters.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs()
         {
         }
+        public static new WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs Empty => new WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs();
     }
 }

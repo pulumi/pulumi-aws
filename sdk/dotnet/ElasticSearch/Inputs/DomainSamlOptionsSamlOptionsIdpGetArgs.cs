@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainSamlOptionsSamlOptionsIdpGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsSamlOptionsIdpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique Entity ID of the application in SAML Identity Provider.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainSamlOptionsSamlOptionsIdpGetArgs()
         {
         }
+        public static new DomainSamlOptionsSamlOptionsIdpGetArgs Empty => new DomainSamlOptionsSamlOptionsIdpGetArgs();
     }
 }

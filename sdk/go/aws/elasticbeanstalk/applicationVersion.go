@@ -29,43 +29,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Bucket: defaultBucketV2.ID(),
-// 			Key:    pulumi.String("beanstalk/go-v1.zip"),
-// 			Source: pulumi.NewFileAsset("go-v1.zip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticbeanstalk.NewApplication(ctx, "defaultApplication", &elasticbeanstalk.ApplicationArgs{
-// 			Description: pulumi.String("tf-test-desc"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
-// 			Application: pulumi.Any("tf-test-name"),
-// 			Description: pulumi.String("application version"),
-// 			Bucket:      defaultBucketV2.ID(),
-// 			Key:         defaultBucketObjectv2.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: defaultBucketV2.ID(),
+//				Key:    pulumi.String("beanstalk/go-v1.zip"),
+//				Source: pulumi.NewFileAsset("go-v1.zip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticbeanstalk.NewApplication(ctx, "defaultApplication", &elasticbeanstalk.ApplicationArgs{
+//				Description: pulumi.String("tf-test-desc"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
+//				Application: pulumi.Any("tf-test-name"),
+//				Description: pulumi.String("application version"),
+//				Bucket:      defaultBucketV2.ID(),
+//				Key:         defaultBucketObjectv2.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ApplicationVersion struct {
 	pulumi.CustomResourceState
@@ -231,7 +234,7 @@ func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.C
 // ApplicationVersionArrayInput is an input type that accepts ApplicationVersionArray and ApplicationVersionArrayOutput values.
 // You can construct a concrete instance of `ApplicationVersionArrayInput` via:
 //
-//          ApplicationVersionArray{ ApplicationVersionArgs{...} }
+//	ApplicationVersionArray{ ApplicationVersionArgs{...} }
 type ApplicationVersionArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +259,7 @@ func (i ApplicationVersionArray) ToApplicationVersionArrayOutputWithContext(ctx 
 // ApplicationVersionMapInput is an input type that accepts ApplicationVersionMap and ApplicationVersionMapOutput values.
 // You can construct a concrete instance of `ApplicationVersionMapInput` via:
 //
-//          ApplicationVersionMap{ "key": ApplicationVersionArgs{...} }
+//	ApplicationVersionMap{ "key": ApplicationVersionArgs{...} }
 type ApplicationVersionMapInput interface {
 	pulumi.Input
 

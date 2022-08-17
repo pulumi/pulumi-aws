@@ -15,34 +15,32 @@ namespace Pulumi.Aws.AppConfig
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.ConfigurationProfile("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.ConfigurationProfile("example", new Aws.AppConfig.ConfigurationProfileArgs
+    ///         ApplicationId = aws_appconfig_application.Example.Id,
+    ///         Description = "Example Configuration Profile",
+    ///         LocationUri = "hosted",
+    ///         Validators = new[]
     ///         {
-    ///             ApplicationId = aws_appconfig_application.Example.Id,
-    ///             Description = "Example Configuration Profile",
-    ///             LocationUri = "hosted",
-    ///             Validators = 
+    ///             new Aws.AppConfig.Inputs.ConfigurationProfileValidatorArgs
     ///             {
-    ///                 new Aws.AppConfig.Inputs.ConfigurationProfileValidatorArgs
-    ///                 {
-    ///                     Content = aws_lambda_function.Example.Arn,
-    ///                     Type = "LAMBDA",
-    ///                 },
+    ///                 Content = aws_lambda_function.Example.Arn,
+    ///                 Type = "LAMBDA",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Type", "AppConfig Configuration Profile" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Type", "AppConfig Configuration Profile" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/configurationProfile:ConfigurationProfile")]
-    public partial class ConfigurationProfile : Pulumi.CustomResource
+    public partial class ConfigurationProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID. Must be between 4 and 7 characters in length.
@@ -166,7 +164,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class ConfigurationProfileArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID. Must be between 4 and 7 characters in length.
@@ -231,9 +229,10 @@ namespace Pulumi.Aws.AppConfig
         public ConfigurationProfileArgs()
         {
         }
+        public static new ConfigurationProfileArgs Empty => new ConfigurationProfileArgs();
     }
 
-    public sealed class ConfigurationProfileState : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID. Must be between 4 and 7 characters in length.
@@ -322,5 +321,6 @@ namespace Pulumi.Aws.AppConfig
         public ConfigurationProfileState()
         {
         }
+        public static new ConfigurationProfileState Empty => new ConfigurationProfileState();
     }
 }

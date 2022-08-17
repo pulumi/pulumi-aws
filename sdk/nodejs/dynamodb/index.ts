@@ -12,6 +12,7 @@ export * from "./globalTable";
 export * from "./kinesisStreamingDestination";
 export * from "./table";
 export * from "./tableItem";
+export * from "./tableReplica";
 export * from "./tag";
 
 // Import resources to register:
@@ -20,6 +21,7 @@ import { GlobalTable } from "./globalTable";
 import { KinesisStreamingDestination } from "./kinesisStreamingDestination";
 import { Table } from "./table";
 import { TableItem } from "./tableItem";
+import { TableReplica } from "./tableReplica";
 import { Tag } from "./tag";
 
 const _module = {
@@ -36,6 +38,8 @@ const _module = {
                 return new Table(name, <any>undefined, { urn })
             case "aws:dynamodb/tableItem:TableItem":
                 return new TableItem(name, <any>undefined, { urn })
+            case "aws:dynamodb/tableReplica:TableReplica":
+                return new TableReplica(name, <any>undefined, { urn })
             case "aws:dynamodb/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
             default:
@@ -48,4 +52,5 @@ pulumi.runtime.registerResourceModule("aws", "dynamodb/globalTable", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/kinesisStreamingDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/table", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tableItem", _module)
+pulumi.runtime.registerResourceModule("aws", "dynamodb/tableReplica", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tag", _module)

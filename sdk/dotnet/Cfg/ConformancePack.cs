@@ -22,24 +22,23 @@ namespace Pulumi.Aws.Cfg
     /// ### Template Body
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cfg.ConformancePack("example", new()
     ///     {
-    ///         var example = new Aws.Cfg.ConformancePack("example", new Aws.Cfg.ConformancePackArgs
+    ///         InputParameters = new[]
     ///         {
-    ///             InputParameters = 
+    ///             new Aws.Cfg.Inputs.ConformancePackInputParameterArgs
     ///             {
-    ///                 new Aws.Cfg.Inputs.ConformancePackInputParameterArgs
-    ///                 {
-    ///                     ParameterName = "AccessKeysRotatedParameterMaxAccessKeyAge",
-    ///                     ParameterValue = "90",
-    ///                 },
+    ///                 ParameterName = "AccessKeysRotatedParameterMaxAccessKeyAge",
+    ///                 ParameterValue = "90",
     ///             },
-    ///             TemplateBody = @"Parameters:
+    ///         },
+    ///         TemplateBody = @"Parameters:
     ///   AccessKeysRotatedParameterMaxAccessKeyAge:
     ///     Type: String
     /// Resources:
@@ -51,35 +50,32 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///         }, new CustomResourceOptions
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_config_configuration_recorder.Example,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_config_configuration_recorder.Example,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Template S3 URI
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Key = "example-key",
-    ///             Content = @"Resources:
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "example-key",
+    ///         Content = @"Resources:
     ///   IAMPasswordPolicy:
     ///     Properties:
     ///       ConfigRuleName: IAMPasswordPolicy
@@ -88,25 +84,25 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///         });
-    ///         var exampleConformancePack = new Aws.Cfg.ConformancePack("exampleConformancePack", new Aws.Cfg.ConformancePackArgs
-    ///         {
-    ///             TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
-    ///             {
-    ///                 var bucket = values.Item1;
-    ///                 var key = values.Item2;
-    ///                 return $"s3://{bucket}/{key}";
-    ///             }),
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_config_configuration_recorder.Example,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleConformancePack = new Aws.Cfg.ConformancePack("exampleConformancePack", new()
+    ///     {
+    ///         TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
+    ///         {
+    ///             var bucket = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"s3://{bucket}/{key}";
+    ///         }),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_config_configuration_recorder.Example,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -118,7 +114,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/conformancePack:ConformancePack")]
-    public partial class ConformancePack : Pulumi.CustomResource
+    public partial class ConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the conformance pack.
@@ -206,7 +202,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class ConformancePackArgs : Pulumi.ResourceArgs
+    public sealed class ConformancePackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
@@ -253,9 +249,10 @@ namespace Pulumi.Aws.Cfg
         public ConformancePackArgs()
         {
         }
+        public static new ConformancePackArgs Empty => new ConformancePackArgs();
     }
 
-    public sealed class ConformancePackState : Pulumi.ResourceArgs
+    public sealed class ConformancePackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the conformance pack.
@@ -308,5 +305,6 @@ namespace Pulumi.Aws.Cfg
         public ConformancePackState()
         {
         }
+        public static new ConformancePackState Empty => new ConformancePackState();
     }
 }

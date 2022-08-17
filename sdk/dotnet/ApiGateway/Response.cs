@@ -15,33 +15,30 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var main = new Aws.ApiGateway.RestApi("main", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var test = new Aws.ApiGateway.Response("test", new Aws.ApiGateway.ResponseArgs
-    ///         {
-    ///             RestApiId = main.Id,
-    ///             StatusCode = "401",
-    ///             ResponseType = "UNAUTHORIZED",
-    ///             ResponseTemplates = 
-    ///             {
-    ///                 { "application/json", "{\"message\":$context.error.messageString}" },
-    ///             },
-    ///             ResponseParameters = 
-    ///             {
-    ///                 { "gatewayresponse.header.Authorization", "'Basic'" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var main = new Aws.ApiGateway.RestApi("main");
     /// 
-    /// }
+    ///     var test = new Aws.ApiGateway.Response("test", new()
+    ///     {
+    ///         RestApiId = main.Id,
+    ///         StatusCode = "401",
+    ///         ResponseType = "UNAUTHORIZED",
+    ///         ResponseTemplates = 
+    ///         {
+    ///             { "application/json", "{\"message\":$context.error.messageString}" },
+    ///         },
+    ///         ResponseParameters = 
+    ///         {
+    ///             { "gatewayresponse.header.Authorization", "'Basic'" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +50,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/response:Response")]
-    public partial class Response : Pulumi.CustomResource
+    public partial class Response : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
@@ -129,7 +126,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class ResponseArgs : Pulumi.ResourceArgs
+    public sealed class ResponseArgs : global::Pulumi.ResourceArgs
     {
         [Input("responseParameters")]
         private InputMap<string>? _responseParameters;
@@ -176,9 +173,10 @@ namespace Pulumi.Aws.ApiGateway
         public ResponseArgs()
         {
         }
+        public static new ResponseArgs Empty => new ResponseArgs();
     }
 
-    public sealed class ResponseState : Pulumi.ResourceArgs
+    public sealed class ResponseState : global::Pulumi.ResourceArgs
     {
         [Input("responseParameters")]
         private InputMap<string>? _responseParameters;
@@ -225,5 +223,6 @@ namespace Pulumi.Aws.ApiGateway
         public ResponseState()
         {
         }
+        public static new ResponseState Empty => new ResponseState();
     }
 }

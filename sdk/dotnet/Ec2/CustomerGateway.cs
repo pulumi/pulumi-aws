@@ -15,26 +15,24 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.CustomerGateway("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.CustomerGateway("main", new Aws.Ec2.CustomerGatewayArgs
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.83.124.10",
+    ///         Tags = 
     ///         {
-    ///             BgpAsn = "65000",
-    ///             IpAddress = "172.83.124.10",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "main-customer-gateway" },
-    ///             },
-    ///             Type = "ipsec.1",
-    ///         });
-    ///     }
+    ///             { "Name", "main-customer-gateway" },
+    ///         },
+    ///         Type = "ipsec.1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/customerGateway:CustomerGateway")]
-    public partial class CustomerGateway : Pulumi.CustomResource
+    public partial class CustomerGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the customer gateway.
@@ -79,13 +77,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the gateway. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class CustomerGatewayArgs : Pulumi.ResourceArgs
+    public sealed class CustomerGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
@@ -171,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the gateway. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -189,9 +187,10 @@ namespace Pulumi.Aws.Ec2
         public CustomerGatewayArgs()
         {
         }
+        public static new CustomerGatewayArgs Empty => new CustomerGatewayArgs();
     }
 
-    public sealed class CustomerGatewayState : Pulumi.ResourceArgs
+    public sealed class CustomerGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the customer gateway.
@@ -227,7 +226,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the gateway. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -239,7 +238,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -257,5 +256,6 @@ namespace Pulumi.Aws.Ec2
         public CustomerGatewayState()
         {
         }
+        public static new CustomerGatewayState Empty => new CustomerGatewayState();
     }
 }

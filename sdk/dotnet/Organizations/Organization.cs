@@ -17,25 +17,23 @@ namespace Pulumi.Aws.Organizations
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var org = new Aws.Organizations.Organization("org", new()
     ///     {
-    ///         var org = new Aws.Organizations.Organization("org", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "cloudtrail.amazonaws.com",
-    ///                 "config.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///     }
+    ///             "cloudtrail.amazonaws.com",
+    ///             "config.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Organizations
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/organization:Organization")]
-    public partial class Organization : Pulumi.CustomResource
+    public partial class Organization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
@@ -153,7 +151,7 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
-    public sealed class OrganizationArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsServiceAccessPrincipals")]
         private InputList<string>? _awsServiceAccessPrincipals;
@@ -188,9 +186,10 @@ namespace Pulumi.Aws.Organizations
         public OrganizationArgs()
         {
         }
+        public static new OrganizationArgs Empty => new OrganizationArgs();
     }
 
-    public sealed class OrganizationState : Pulumi.ResourceArgs
+    public sealed class OrganizationState : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<Inputs.OrganizationAccountGetArgs>? _accounts;
@@ -285,5 +284,6 @@ namespace Pulumi.Aws.Organizations
         public OrganizationState()
         {
         }
+        public static new OrganizationState Empty => new OrganizationState();
     }
 }

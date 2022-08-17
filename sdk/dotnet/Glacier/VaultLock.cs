@@ -20,75 +20,71 @@ namespace Pulumi.Aws.Glacier
     /// ### Testing Glacier Vault Lock Policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVault = new Aws.Glacier.Vault("exampleVault");
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var exampleVault = new Aws.Glacier.Vault("exampleVault", new Aws.Glacier.VaultArgs
+    ///         Statements = new[]
     ///         {
-    ///         });
-    ///         var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "glacier:DeleteArchive",
+    ///                 },
+    ///                 Effect = "Deny",
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleVault.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                     {
-    ///                         "glacier:DeleteArchive",
-    ///                     },
-    ///                     Effect = "Deny",
-    ///                     Resources = 
-    ///                     {
-    ///                         exampleVault.Arn,
-    ///                     },
-    ///                     Conditions = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                         Test = "NumericLessThanEquals",
+    ///                         Variable = "glacier:ArchiveAgeinDays",
+    ///                         Values = new[]
     ///                         {
-    ///                             Test = "NumericLessThanEquals",
-    ///                             Variable = "glacier:ArchiveAgeinDays",
-    ///                             Values = 
-    ///                             {
-    ///                                 "365",
-    ///                             },
+    ///                             "365",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new Aws.Glacier.VaultLockArgs
-    ///         {
-    ///             CompleteLock = false,
-    ///             Policy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
-    ///             VaultName = exampleVault.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new()
+    ///     {
+    ///         CompleteLock = false,
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         VaultName = exampleVault.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Permanently Applying Glacier Vault Lock Policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glacier.VaultLock("example", new()
     ///     {
-    ///         var example = new Aws.Glacier.VaultLock("example", new Aws.Glacier.VaultLockArgs
-    ///         {
-    ///             CompleteLock = true,
-    ///             Policy = data.Aws_iam_policy_document.Example.Json,
-    ///             VaultName = aws_glacier_vault.Example.Name,
-    ///         });
-    ///     }
+    ///         CompleteLock = true,
+    ///         Policy = data.Aws_iam_policy_document.Example.Json,
+    ///         VaultName = aws_glacier_vault.Example.Name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +96,7 @@ namespace Pulumi.Aws.Glacier
     /// ```
     /// </summary>
     [AwsResourceType("aws:glacier/vaultLock:VaultLock")]
-    public partial class VaultLock : Pulumi.CustomResource
+    public partial class VaultLock : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
@@ -170,7 +166,7 @@ namespace Pulumi.Aws.Glacier
         }
     }
 
-    public sealed class VaultLockArgs : Pulumi.ResourceArgs
+    public sealed class VaultLockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
@@ -199,9 +195,10 @@ namespace Pulumi.Aws.Glacier
         public VaultLockArgs()
         {
         }
+        public static new VaultLockArgs Empty => new VaultLockArgs();
     }
 
-    public sealed class VaultLockState : Pulumi.ResourceArgs
+    public sealed class VaultLockState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
@@ -230,5 +227,6 @@ namespace Pulumi.Aws.Glacier
         public VaultLockState()
         {
         }
+        public static new VaultLockState Empty => new VaultLockState();
     }
 }

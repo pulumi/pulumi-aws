@@ -18,7 +18,9 @@ import (
 // Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+//
+//	$ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+//
 // ```
 type SharedDirectory struct {
 	pulumi.CustomResourceState
@@ -148,7 +150,7 @@ func (i *SharedDirectory) ToSharedDirectoryOutputWithContext(ctx context.Context
 // SharedDirectoryArrayInput is an input type that accepts SharedDirectoryArray and SharedDirectoryArrayOutput values.
 // You can construct a concrete instance of `SharedDirectoryArrayInput` via:
 //
-//          SharedDirectoryArray{ SharedDirectoryArgs{...} }
+//	SharedDirectoryArray{ SharedDirectoryArgs{...} }
 type SharedDirectoryArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +175,7 @@ func (i SharedDirectoryArray) ToSharedDirectoryArrayOutputWithContext(ctx contex
 // SharedDirectoryMapInput is an input type that accepts SharedDirectoryMap and SharedDirectoryMapOutput values.
 // You can construct a concrete instance of `SharedDirectoryMapInput` via:
 //
-//          SharedDirectoryMap{ "key": SharedDirectoryArgs{...} }
+//	SharedDirectoryMap{ "key": SharedDirectoryArgs{...} }
 type SharedDirectoryMapInput interface {
 	pulumi.Input
 

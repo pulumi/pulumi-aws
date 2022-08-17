@@ -22,31 +22,34 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
-// 			Description: pulumi.String("oauth config"),
-// 			IsEnabled:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.NewCiphertext(ctx, "oauth", &kms.CiphertextArgs{
-// 			KeyId:     oauthConfig.KeyId,
-// 			Plaintext: pulumi.String(fmt.Sprintf("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
+//				Description: pulumi.String("oauth config"),
+//				IsEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.NewCiphertext(ctx, "oauth", &kms.CiphertextArgs{
+//				KeyId:     oauthConfig.KeyId,
+//				Plaintext: pulumi.String(fmt.Sprintf("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Ciphertext struct {
 	pulumi.CustomResourceState
@@ -166,7 +169,7 @@ func (i *Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) Cipherte
 // CiphertextArrayInput is an input type that accepts CiphertextArray and CiphertextArrayOutput values.
 // You can construct a concrete instance of `CiphertextArrayInput` via:
 //
-//          CiphertextArray{ CiphertextArgs{...} }
+//	CiphertextArray{ CiphertextArgs{...} }
 type CiphertextArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +194,7 @@ func (i CiphertextArray) ToCiphertextArrayOutputWithContext(ctx context.Context)
 // CiphertextMapInput is an input type that accepts CiphertextMap and CiphertextMapOutput values.
 // You can construct a concrete instance of `CiphertextMapInput` via:
 //
-//          CiphertextMap{ "key": CiphertextArgs{...} }
+//	CiphertextMap{ "key": CiphertextArgs{...} }
 type CiphertextMapInput interface {
 	pulumi.Input
 

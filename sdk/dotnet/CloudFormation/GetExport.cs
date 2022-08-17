@@ -22,26 +22,25 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var subnetId = Aws.CloudFormation.GetExport.Invoke(new()
         ///     {
-        ///         var subnetId = Output.Create(Aws.CloudFormation.GetExport.InvokeAsync(new Aws.CloudFormation.GetExportArgs
-        ///         {
-        ///             Name = "mySubnetIdExportName",
-        ///         }));
-        ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
-        ///         {
-        ///             Ami = "ami-abb07bcb",
-        ///             InstanceType = "t2.micro",
-        ///             SubnetId = subnetId.Apply(subnetId =&gt; subnetId.Value),
-        ///         });
-        ///     }
+        ///         Name = "mySubnetIdExportName",
+        ///     });
         /// 
-        /// }
+        ///     var web = new Aws.Ec2.Instance("web", new()
+        ///     {
+        ///         Ami = "ami-abb07bcb",
+        ///         InstanceType = "t2.micro",
+        ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,26 +59,25 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var subnetId = Aws.CloudFormation.GetExport.Invoke(new()
         ///     {
-        ///         var subnetId = Output.Create(Aws.CloudFormation.GetExport.InvokeAsync(new Aws.CloudFormation.GetExportArgs
-        ///         {
-        ///             Name = "mySubnetIdExportName",
-        ///         }));
-        ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
-        ///         {
-        ///             Ami = "ami-abb07bcb",
-        ///             InstanceType = "t2.micro",
-        ///             SubnetId = subnetId.Apply(subnetId =&gt; subnetId.Value),
-        ///         });
-        ///     }
+        ///         Name = "mySubnetIdExportName",
+        ///     });
         /// 
-        /// }
+        ///     var web = new Aws.Ec2.Instance("web", new()
+        ///     {
+        ///         Ami = "ami-abb07bcb",
+        ///         InstanceType = "t2.micro",
+        ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.CloudFormation
     }
 
 
-    public sealed class GetExportArgs : Pulumi.InvokeArgs
+    public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
@@ -100,9 +98,10 @@ namespace Pulumi.Aws.CloudFormation
         public GetExportArgs()
         {
         }
+        public static new GetExportArgs Empty => new GetExportArgs();
     }
 
-    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
@@ -113,6 +112,7 @@ namespace Pulumi.Aws.CloudFormation
         public GetExportInvokeArgs()
         {
         }
+        public static new GetExportInvokeArgs Empty => new GetExportInvokeArgs();
     }
 
 

@@ -22,7 +22,7 @@ type QueueReservationPlanSettings struct {
 // QueueReservationPlanSettingsInput is an input type that accepts QueueReservationPlanSettingsArgs and QueueReservationPlanSettingsOutput values.
 // You can construct a concrete instance of `QueueReservationPlanSettingsInput` via:
 //
-//          QueueReservationPlanSettingsArgs{...}
+//	QueueReservationPlanSettingsArgs{...}
 type QueueReservationPlanSettingsInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i QueueReservationPlanSettingsArgs) ToQueueReservationPlanSettingsPtrOutpu
 // QueueReservationPlanSettingsPtrInput is an input type that accepts QueueReservationPlanSettingsArgs, QueueReservationPlanSettingsPtr and QueueReservationPlanSettingsPtrOutput values.
 // You can construct a concrete instance of `QueueReservationPlanSettingsPtrInput` via:
 //
-//          QueueReservationPlanSettingsArgs{...}
+//	        QueueReservationPlanSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type QueueReservationPlanSettingsPtrInput interface {
 	pulumi.Input
 

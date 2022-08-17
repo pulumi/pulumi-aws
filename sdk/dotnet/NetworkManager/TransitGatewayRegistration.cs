@@ -17,28 +17,26 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new()
     ///     {
-    ///         var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new Aws.NetworkManager.GlobalNetworkArgs
-    ///         {
-    ///             Description = "example",
-    ///         });
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///         });
-    ///         var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new Aws.NetworkManager.TransitGatewayRegistrationArgs
-    ///         {
-    ///             GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///             TransitGatewayArn = exampleTransitGateway.Arn,
-    ///         });
-    ///     }
+    ///         Description = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    /// 
+    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         TransitGatewayArn = exampleTransitGateway.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")]
-    public partial class TransitGatewayRegistration : Pulumi.CustomResource
+    public partial class TransitGatewayRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Global Network to register to.
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class TransitGatewayRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Global Network to register to.
@@ -125,9 +123,10 @@ namespace Pulumi.Aws.NetworkManager
         public TransitGatewayRegistrationArgs()
         {
         }
+        public static new TransitGatewayRegistrationArgs Empty => new TransitGatewayRegistrationArgs();
     }
 
-    public sealed class TransitGatewayRegistrationState : Pulumi.ResourceArgs
+    public sealed class TransitGatewayRegistrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Global Network to register to.
@@ -144,5 +143,6 @@ namespace Pulumi.Aws.NetworkManager
         public TransitGatewayRegistrationState()
         {
         }
+        public static new TransitGatewayRegistrationState Empty => new TransitGatewayRegistrationState();
     }
 }

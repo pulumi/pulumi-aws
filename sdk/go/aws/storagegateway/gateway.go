@@ -22,33 +22,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testVolumeAttachment, err := ec2.NewVolumeAttachment(ctx, "testVolumeAttachment", &ec2.VolumeAttachmentArgs{
-// 			DeviceName: pulumi.String("/dev/xvdb"),
-// 			VolumeId:   pulumi.Any(aws_ebs_volume.Test.Id),
-// 			InstanceId: pulumi.Any(aws_instance.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storagegateway.NewCache(ctx, "testCache", &storagegateway.CacheArgs{
-// 			DiskId: testLocalDisk.ApplyT(func(testLocalDisk storagegateway.GetLocalDiskResult) (string, error) {
-// 				return testLocalDisk.DiskId, nil
-// 			}).(pulumi.StringOutput),
-// 			GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVolumeAttachment, err := ec2.NewVolumeAttachment(ctx, "testVolumeAttachment", &ec2.VolumeAttachmentArgs{
+//				DeviceName: pulumi.String("/dev/xvdb"),
+//				VolumeId:   pulumi.Any(aws_ebs_volume.Test.Id),
+//				InstanceId: pulumi.Any(aws_instance.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storagegateway.NewCache(ctx, "testCache", &storagegateway.CacheArgs{
+//				DiskId: testLocalDisk.ApplyT(func(testLocalDisk storagegateway.GetLocalDiskResult) (string, error) {
+//					return testLocalDisk.DiskId, nil
+//				}).(pulumi.StringOutput),
+//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### FSx File Gateway
 //
@@ -56,29 +59,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
-// 			GatewayName:      pulumi.String("example"),
-// 			GatewayTimezone:  pulumi.String("GMT"),
-// 			GatewayType:      pulumi.String("FILE_FSX_SMB"),
-// 			SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
-// 				DomainName: pulumi.String("corp.example.com"),
-// 				Password:   pulumi.String("avoid-plaintext-passwords"),
-// 				Username:   pulumi.String("Admin"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+//				GatewayIpAddress: pulumi.String("1.2.3.4"),
+//				GatewayName:      pulumi.String("example"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
+//				SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
+//					DomainName: pulumi.String("corp.example.com"),
+//					Password:   pulumi.String("avoid-plaintext-passwords"),
+//					Username:   pulumi.String("Admin"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### S3 File Gateway
 //
@@ -86,24 +92,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
-// 			GatewayName:      pulumi.String("example"),
-// 			GatewayTimezone:  pulumi.String("GMT"),
-// 			GatewayType:      pulumi.String("FILE_S3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+//				GatewayIpAddress: pulumi.String("1.2.3.4"),
+//				GatewayName:      pulumi.String("example"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("FILE_S3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Tape Gateway
 //
@@ -111,26 +120,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-// 			GatewayIpAddress:  pulumi.String("1.2.3.4"),
-// 			GatewayName:       pulumi.String("example"),
-// 			GatewayTimezone:   pulumi.String("GMT"),
-// 			GatewayType:       pulumi.String("VTL"),
-// 			MediumChangerType: pulumi.String("AWS-Gateway-VTL"),
-// 			TapeDriveType:     pulumi.String("IBM-ULT3580-TD5"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+//				GatewayIpAddress:  pulumi.String("1.2.3.4"),
+//				GatewayName:       pulumi.String("example"),
+//				GatewayTimezone:   pulumi.String("GMT"),
+//				GatewayType:       pulumi.String("VTL"),
+//				MediumChangerType: pulumi.String("AWS-Gateway-VTL"),
+//				TapeDriveType:     pulumi.String("IBM-ULT3580-TD5"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Volume Gateway (Cached)
 //
@@ -138,24 +150,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
-// 			GatewayName:      pulumi.String("example"),
-// 			GatewayTimezone:  pulumi.String("GMT"),
-// 			GatewayType:      pulumi.String("CACHED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+//				GatewayIpAddress: pulumi.String("1.2.3.4"),
+//				GatewayName:      pulumi.String("example"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("CACHED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Volume Gateway (Stored)
 //
@@ -163,24 +178,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
-// 			GatewayName:      pulumi.String("example"),
-// 			GatewayTimezone:  pulumi.String("GMT"),
-// 			GatewayType:      pulumi.String("STORED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+//				GatewayIpAddress: pulumi.String("1.2.3.4"),
+//				GatewayName:      pulumi.String("example"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("STORED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -188,10 +206,12 @@ import (
 // `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+//
+//	$ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+//
 // ```
 //
-//  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
+//	Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
 type Gateway struct {
 	pulumi.CustomResourceState
 
@@ -237,9 +257,9 @@ type Gateway struct {
 	SmbGuestPassword pulumi.StringPtrOutput `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringOutput `pulumi:"smbSecurityStrategy"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrOutput `pulumi:"tapeDriveType"`
@@ -322,9 +342,9 @@ type gatewayState struct {
 	SmbGuestPassword *string `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType *string `pulumi:"tapeDriveType"`
@@ -373,9 +393,9 @@ type GatewayState struct {
 	SmbGuestPassword pulumi.StringPtrInput
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrInput
@@ -416,7 +436,7 @@ type gatewayArgs struct {
 	SmbGuestPassword *string `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType *string `pulumi:"tapeDriveType"`
@@ -454,7 +474,7 @@ type GatewayArgs struct {
 	SmbGuestPassword pulumi.StringPtrInput
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrInput
@@ -486,7 +506,7 @@ func (i *Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput 
 // GatewayArrayInput is an input type that accepts GatewayArray and GatewayArrayOutput values.
 // You can construct a concrete instance of `GatewayArrayInput` via:
 //
-//          GatewayArray{ GatewayArgs{...} }
+//	GatewayArray{ GatewayArgs{...} }
 type GatewayArrayInput interface {
 	pulumi.Input
 
@@ -511,7 +531,7 @@ func (i GatewayArray) ToGatewayArrayOutputWithContext(ctx context.Context) Gatew
 // GatewayMapInput is an input type that accepts GatewayMap and GatewayMapOutput values.
 // You can construct a concrete instance of `GatewayMapInput` via:
 //
-//          GatewayMap{ "key": GatewayArgs{...} }
+//	GatewayMap{ "key": GatewayArgs{...} }
 type GatewayMapInput interface {
 	pulumi.Input
 
@@ -652,12 +672,12 @@ func (o GatewayOutput) SmbSecurityStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.SmbSecurityStrategy }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

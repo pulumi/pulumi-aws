@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetVpcEndpointFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetVpcEndpointFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetVpcEndpointFilterInputArgs()
         {
         }
+        public static new GetVpcEndpointFilterInputArgs Empty => new GetVpcEndpointFilterInputArgs();
     }
 }

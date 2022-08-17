@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkteamMemberDefinitionOidcMemberDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamMemberDefinitionOidcMemberDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups", required: true)]
         private InputList<string>? _groups;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkteamMemberDefinitionOidcMemberDefinitionGetArgs()
         {
         }
+        public static new WorkteamMemberDefinitionOidcMemberDefinitionGetArgs Empty => new WorkteamMemberDefinitionOidcMemberDefinitionGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualRouterSpecListenerPortMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRouterSpecListenerPortMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for the port mapping.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualRouterSpecListenerPortMappingGetArgs()
         {
         }
+        public static new VirtualRouterSpecListenerPortMappingGetArgs Empty => new VirtualRouterSpecListenerPortMappingGetArgs();
     }
 }

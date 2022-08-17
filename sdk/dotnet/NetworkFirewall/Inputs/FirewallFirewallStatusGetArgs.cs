@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallFirewallStatusGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallFirewallStatusGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("syncStates")]
         private InputList<Inputs.FirewallFirewallStatusSyncStateGetArgs>? _syncStates;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallFirewallStatusGetArgs()
         {
         }
+        public static new FirewallFirewallStatusGetArgs Empty => new FirewallFirewallStatusGetArgs();
     }
 }

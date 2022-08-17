@@ -15,21 +15,19 @@ namespace Pulumi.Aws.CostExplorer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
     ///     {
-    ///         var example = new Aws.CostExplorer.CostAllocationTag("example", new Aws.CostExplorer.CostAllocationTagArgs
-    ///         {
-    ///             Status = "Active",
-    ///             TagKey = "example",
-    ///         });
-    ///     }
+    ///         Status = "Active",
+    ///         TagKey = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.CostExplorer
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]
-    public partial class CostAllocationTag : Pulumi.CustomResource
+    public partial class CostAllocationTag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.CostExplorer
         }
     }
 
-    public sealed class CostAllocationTagArgs : Pulumi.ResourceArgs
+    public sealed class CostAllocationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
@@ -122,9 +120,10 @@ namespace Pulumi.Aws.CostExplorer
         public CostAllocationTagArgs()
         {
         }
+        public static new CostAllocationTagArgs Empty => new CostAllocationTagArgs();
     }
 
-    public sealed class CostAllocationTagState : Pulumi.ResourceArgs
+    public sealed class CostAllocationTagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
@@ -147,5 +146,6 @@ namespace Pulumi.Aws.CostExplorer
         public CostAllocationTagState()
         {
         }
+        public static new CostAllocationTagState Empty => new CostAllocationTagState();
     }
 }

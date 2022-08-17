@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class SslNegotiationPolicyAttributeGetArgs : Pulumi.ResourceArgs
+    public sealed class SslNegotiationPolicyAttributeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attribute
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
         public SslNegotiationPolicyAttributeGetArgs()
         {
         }
+        public static new SslNegotiationPolicyAttributeGetArgs Empty => new SslNegotiationPolicyAttributeGetArgs();
     }
 }

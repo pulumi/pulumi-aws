@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CostExplorer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CostExplorer.GetCostCategory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CostExplorer.GetCostCategory.InvokeAsync(new Aws.CostExplorer.GetCostCategoryArgs
-        ///         {
-        ///             CostCategoryArn = "costCategoryARN",
-        ///         }));
-        ///     }
+        ///         CostCategoryArn = "costCategoryARN",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CostExplorer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CostExplorer.GetCostCategory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CostExplorer.GetCostCategory.InvokeAsync(new Aws.CostExplorer.GetCostCategoryArgs
-        ///         {
-        ///             CostCategoryArn = "costCategoryARN",
-        ///         }));
-        ///     }
+        ///         CostCategoryArn = "costCategoryARN",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CostExplorer
     }
 
 
-    public sealed class GetCostCategoryArgs : Pulumi.InvokeArgs
+    public sealed class GetCostCategoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name for the Cost Category.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.CostExplorer
         public GetCostCategoryArgs()
         {
         }
+        public static new GetCostCategoryArgs Empty => new GetCostCategoryArgs();
     }
 
-    public sealed class GetCostCategoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCostCategoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name for the Cost Category.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.CostExplorer
         public GetCostCategoryInvokeArgs()
         {
         }
+        public static new GetCostCategoryInvokeArgs Empty => new GetCostCategoryInvokeArgs();
     }
 
 

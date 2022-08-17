@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceHttpConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceHttpConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceHttpConfigArgs()
         {
         }
+        public static new DataSourceHttpConfigArgs Empty => new DataSourceHttpConfigArgs();
     }
 }

@@ -13,33 +13,31 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.ParameterGroup("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.ParameterGroup("default", new Aws.Rds.ParameterGroupArgs
+    ///         Family = "mysql5.6",
+    ///         Parameters = new[]
     ///         {
-    ///             Family = "mysql5.6",
-    ///             Parameters = 
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "character_set_server",
-    ///                     Value = "utf8",
-    ///                 },
-    ///                 new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "character_set_client",
-    ///                     Value = "utf8",
-    ///                 },
+    ///                 Name = "character_set_server",
+    ///                 Value = "utf8",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "character_set_client",
+    ///                 Value = "utf8",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/parameterGroup:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the db parameter group.
@@ -96,7 +94,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -145,7 +143,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the DB parameter group. Defaults to "Managed by Pulumi".
@@ -199,9 +197,10 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 
-    public sealed class ParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the db parameter group.
@@ -261,7 +260,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -273,5 +272,6 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
+        public static new ParameterGroupState Empty => new ParameterGroupState();
     }
 }

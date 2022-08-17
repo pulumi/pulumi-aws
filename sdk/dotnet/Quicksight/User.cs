@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Quicksight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Quicksight.User("example", new()
     ///     {
-    ///         var example = new Aws.Quicksight.User("example", new Aws.Quicksight.UserArgs
-    ///         {
-    ///             Email = "author@example.com",
-    ///             IamArn = "arn:aws:iam::123456789012:user/Example",
-    ///             IdentityType = "IAM",
-    ///             Namespace = "foo",
-    ///             SessionName = "an-author",
-    ///             UserRole = "AUTHOR",
-    ///         });
-    ///     }
+    ///         Email = "author@example.com",
+    ///         IamArn = "arn:aws:iam::123456789012:user/Example",
+    ///         IdentityType = "IAM",
+    ///         Namespace = "foo",
+    ///         SessionName = "an-author",
+    ///         UserRole = "AUTHOR",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Quicksight
     /// Importing is currently not supported on this resource.
     /// </summary>
     [AwsResourceType("aws:quicksight/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the user
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.Quicksight
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
@@ -194,9 +192,10 @@ namespace Pulumi.Aws.Quicksight
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the user
@@ -255,5 +254,6 @@ namespace Pulumi.Aws.Quicksight
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

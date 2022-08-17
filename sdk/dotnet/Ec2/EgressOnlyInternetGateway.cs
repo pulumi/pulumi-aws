@@ -18,29 +18,28 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///             AssignGeneratedIpv6CidrBlock = true,
-    ///         });
-    ///         var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new Aws.Ec2.EgressOnlyInternetGatewayArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "main" },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///         AssignGeneratedIpv6CidrBlock = true,
+    ///     });
     /// 
-    /// }
+    ///     var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "main" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway")]
-    public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
+    public partial class EgressOnlyInternetGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,7 +115,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class EgressOnlyInternetGatewayArgs : Pulumi.ResourceArgs
+    public sealed class EgressOnlyInternetGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -139,9 +138,10 @@ namespace Pulumi.Aws.Ec2
         public EgressOnlyInternetGatewayArgs()
         {
         }
+        public static new EgressOnlyInternetGatewayArgs Empty => new EgressOnlyInternetGatewayArgs();
     }
 
-    public sealed class EgressOnlyInternetGatewayState : Pulumi.ResourceArgs
+    public sealed class EgressOnlyInternetGatewayState : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -176,5 +176,6 @@ namespace Pulumi.Aws.Ec2
         public EgressOnlyInternetGatewayState()
         {
         }
+        public static new EgressOnlyInternetGatewayState Empty => new EgressOnlyInternetGatewayState();
     }
 }

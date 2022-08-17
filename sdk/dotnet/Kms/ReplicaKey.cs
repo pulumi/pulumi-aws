@@ -15,35 +15,35 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.Provider("primary", new()
     ///     {
-    ///         var primary = new Aws.Provider("primary", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-east-1",
-    ///         });
-    ///         var primaryKey = new Aws.Kms.Key("primaryKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "Multi-Region primary key",
-    ///             DeletionWindowInDays = 30,
-    ///             MultiRegion = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
-    ///         });
-    ///         var replica = new Aws.Kms.ReplicaKey("replica", new Aws.Kms.ReplicaKeyArgs
-    ///         {
-    ///             Description = "Multi-Region replica key",
-    ///             DeletionWindowInDays = 7,
-    ///             PrimaryKeyArn = primaryKey.Arn,
-    ///         });
-    ///     }
+    ///         Region = "us-east-1",
+    ///     });
     /// 
-    /// }
+    ///     var primaryKey = new Aws.Kms.Key("primaryKey", new()
+    ///     {
+    ///         Description = "Multi-Region primary key",
+    ///         DeletionWindowInDays = 30,
+    ///         MultiRegion = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary,
+    ///     });
+    /// 
+    ///     var replica = new Aws.Kms.ReplicaKey("replica", new()
+    ///     {
+    ///         Description = "Multi-Region replica key",
+    ///         DeletionWindowInDays = 7,
+    ///         PrimaryKeyArn = primaryKey.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Kms
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/replicaKey:ReplicaKey")]
-    public partial class ReplicaKey : Pulumi.CustomResource
+    public partial class ReplicaKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class ReplicaKeyArgs : Pulumi.ResourceArgs
+    public sealed class ReplicaKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -234,9 +234,10 @@ namespace Pulumi.Aws.Kms
         public ReplicaKeyArgs()
         {
         }
+        public static new ReplicaKeyArgs Empty => new ReplicaKeyArgs();
     }
 
-    public sealed class ReplicaKeyState : Pulumi.ResourceArgs
+    public sealed class ReplicaKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
@@ -332,5 +333,6 @@ namespace Pulumi.Aws.Kms
         public ReplicaKeyState()
         {
         }
+        public static new ReplicaKeyState Empty => new ReplicaKeyState();
     }
 }

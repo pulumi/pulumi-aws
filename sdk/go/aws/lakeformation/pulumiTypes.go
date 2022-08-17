@@ -20,7 +20,7 @@ type DataLakeSettingsCreateDatabaseDefaultPermission struct {
 // DataLakeSettingsCreateDatabaseDefaultPermissionInput is an input type that accepts DataLakeSettingsCreateDatabaseDefaultPermissionArgs and DataLakeSettingsCreateDatabaseDefaultPermissionOutput values.
 // You can construct a concrete instance of `DataLakeSettingsCreateDatabaseDefaultPermissionInput` via:
 //
-//          DataLakeSettingsCreateDatabaseDefaultPermissionArgs{...}
+//	DataLakeSettingsCreateDatabaseDefaultPermissionArgs{...}
 type DataLakeSettingsCreateDatabaseDefaultPermissionInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i DataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToDataLakeSettingsC
 // DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput is an input type that accepts DataLakeSettingsCreateDatabaseDefaultPermissionArray and DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput` via:
 //
-//          DataLakeSettingsCreateDatabaseDefaultPermissionArray{ DataLakeSettingsCreateDatabaseDefaultPermissionArgs{...} }
+//	DataLakeSettingsCreateDatabaseDefaultPermissionArray{ DataLakeSettingsCreateDatabaseDefaultPermissionArgs{...} }
 type DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type DataLakeSettingsCreateTableDefaultPermission struct {
 // DataLakeSettingsCreateTableDefaultPermissionInput is an input type that accepts DataLakeSettingsCreateTableDefaultPermissionArgs and DataLakeSettingsCreateTableDefaultPermissionOutput values.
 // You can construct a concrete instance of `DataLakeSettingsCreateTableDefaultPermissionInput` via:
 //
-//          DataLakeSettingsCreateTableDefaultPermissionArgs{...}
+//	DataLakeSettingsCreateTableDefaultPermissionArgs{...}
 type DataLakeSettingsCreateTableDefaultPermissionInput interface {
 	pulumi.Input
 
@@ -156,7 +156,7 @@ func (i DataLakeSettingsCreateTableDefaultPermissionArgs) ToDataLakeSettingsCrea
 // DataLakeSettingsCreateTableDefaultPermissionArrayInput is an input type that accepts DataLakeSettingsCreateTableDefaultPermissionArray and DataLakeSettingsCreateTableDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsCreateTableDefaultPermissionArrayInput` via:
 //
-//          DataLakeSettingsCreateTableDefaultPermissionArray{ DataLakeSettingsCreateTableDefaultPermissionArgs{...} }
+//	DataLakeSettingsCreateTableDefaultPermissionArray{ DataLakeSettingsCreateTableDefaultPermissionArgs{...} }
 type DataLakeSettingsCreateTableDefaultPermissionArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +232,7 @@ type PermissionsDataLocation struct {
 // PermissionsDataLocationInput is an input type that accepts PermissionsDataLocationArgs and PermissionsDataLocationOutput values.
 // You can construct a concrete instance of `PermissionsDataLocationInput` via:
 //
-//          PermissionsDataLocationArgs{...}
+//	PermissionsDataLocationArgs{...}
 type PermissionsDataLocationInput interface {
 	pulumi.Input
 
@@ -270,11 +270,11 @@ func (i PermissionsDataLocationArgs) ToPermissionsDataLocationPtrOutputWithConte
 // PermissionsDataLocationPtrInput is an input type that accepts PermissionsDataLocationArgs, PermissionsDataLocationPtr and PermissionsDataLocationPtrOutput values.
 // You can construct a concrete instance of `PermissionsDataLocationPtrInput` via:
 //
-//          PermissionsDataLocationArgs{...}
+//	        PermissionsDataLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsDataLocationPtrInput interface {
 	pulumi.Input
 
@@ -388,7 +388,7 @@ type PermissionsDatabase struct {
 // PermissionsDatabaseInput is an input type that accepts PermissionsDatabaseArgs and PermissionsDatabaseOutput values.
 // You can construct a concrete instance of `PermissionsDatabaseInput` via:
 //
-//          PermissionsDatabaseArgs{...}
+//	PermissionsDatabaseArgs{...}
 type PermissionsDatabaseInput interface {
 	pulumi.Input
 
@@ -426,11 +426,11 @@ func (i PermissionsDatabaseArgs) ToPermissionsDatabasePtrOutputWithContext(ctx c
 // PermissionsDatabasePtrInput is an input type that accepts PermissionsDatabaseArgs, PermissionsDatabasePtr and PermissionsDatabasePtrOutput values.
 // You can construct a concrete instance of `PermissionsDatabasePtrInput` via:
 //
-//          PermissionsDatabaseArgs{...}
+//	        PermissionsDatabaseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsDatabasePtrInput interface {
 	pulumi.Input
 
@@ -546,7 +546,7 @@ type PermissionsLfTag struct {
 // PermissionsLfTagInput is an input type that accepts PermissionsLfTagArgs and PermissionsLfTagOutput values.
 // You can construct a concrete instance of `PermissionsLfTagInput` via:
 //
-//          PermissionsLfTagArgs{...}
+//	PermissionsLfTagArgs{...}
 type PermissionsLfTagInput interface {
 	pulumi.Input
 
@@ -586,11 +586,11 @@ func (i PermissionsLfTagArgs) ToPermissionsLfTagPtrOutputWithContext(ctx context
 // PermissionsLfTagPtrInput is an input type that accepts PermissionsLfTagArgs, PermissionsLfTagPtr and PermissionsLfTagPtrOutput values.
 // You can construct a concrete instance of `PermissionsLfTagPtrInput` via:
 //
-//          PermissionsLfTagArgs{...}
+//	        PermissionsLfTagArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsLfTagPtrInput interface {
 	pulumi.Input
 
@@ -721,7 +721,7 @@ type PermissionsLfTagPolicy struct {
 // PermissionsLfTagPolicyInput is an input type that accepts PermissionsLfTagPolicyArgs and PermissionsLfTagPolicyOutput values.
 // You can construct a concrete instance of `PermissionsLfTagPolicyInput` via:
 //
-//          PermissionsLfTagPolicyArgs{...}
+//	PermissionsLfTagPolicyArgs{...}
 type PermissionsLfTagPolicyInput interface {
 	pulumi.Input
 
@@ -761,11 +761,11 @@ func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyPtrOutputWithContext
 // PermissionsLfTagPolicyPtrInput is an input type that accepts PermissionsLfTagPolicyArgs, PermissionsLfTagPolicyPtr and PermissionsLfTagPolicyPtrOutput values.
 // You can construct a concrete instance of `PermissionsLfTagPolicyPtrInput` via:
 //
-//          PermissionsLfTagPolicyArgs{...}
+//	        PermissionsLfTagPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsLfTagPolicyPtrInput interface {
 	pulumi.Input
 
@@ -894,7 +894,7 @@ type PermissionsLfTagPolicyExpression struct {
 // PermissionsLfTagPolicyExpressionInput is an input type that accepts PermissionsLfTagPolicyExpressionArgs and PermissionsLfTagPolicyExpressionOutput values.
 // You can construct a concrete instance of `PermissionsLfTagPolicyExpressionInput` via:
 //
-//          PermissionsLfTagPolicyExpressionArgs{...}
+//	PermissionsLfTagPolicyExpressionArgs{...}
 type PermissionsLfTagPolicyExpressionInput interface {
 	pulumi.Input
 
@@ -924,7 +924,7 @@ func (i PermissionsLfTagPolicyExpressionArgs) ToPermissionsLfTagPolicyExpression
 // PermissionsLfTagPolicyExpressionArrayInput is an input type that accepts PermissionsLfTagPolicyExpressionArray and PermissionsLfTagPolicyExpressionArrayOutput values.
 // You can construct a concrete instance of `PermissionsLfTagPolicyExpressionArrayInput` via:
 //
-//          PermissionsLfTagPolicyExpressionArray{ PermissionsLfTagPolicyExpressionArgs{...} }
+//	PermissionsLfTagPolicyExpressionArray{ PermissionsLfTagPolicyExpressionArgs{...} }
 type PermissionsLfTagPolicyExpressionArrayInput interface {
 	pulumi.Input
 
@@ -1003,7 +1003,7 @@ type PermissionsTable struct {
 // PermissionsTableInput is an input type that accepts PermissionsTableArgs and PermissionsTableOutput values.
 // You can construct a concrete instance of `PermissionsTableInput` via:
 //
-//          PermissionsTableArgs{...}
+//	PermissionsTableArgs{...}
 type PermissionsTableInput interface {
 	pulumi.Input
 
@@ -1044,11 +1044,11 @@ func (i PermissionsTableArgs) ToPermissionsTablePtrOutputWithContext(ctx context
 // PermissionsTablePtrInput is an input type that accepts PermissionsTableArgs, PermissionsTablePtr and PermissionsTablePtrOutput values.
 // You can construct a concrete instance of `PermissionsTablePtrInput` via:
 //
-//          PermissionsTableArgs{...}
+//	        PermissionsTableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsTablePtrInput interface {
 	pulumi.Input
 
@@ -1196,7 +1196,7 @@ type PermissionsTableWithColumns struct {
 // PermissionsTableWithColumnsInput is an input type that accepts PermissionsTableWithColumnsArgs and PermissionsTableWithColumnsOutput values.
 // You can construct a concrete instance of `PermissionsTableWithColumnsInput` via:
 //
-//          PermissionsTableWithColumnsArgs{...}
+//	PermissionsTableWithColumnsArgs{...}
 type PermissionsTableWithColumnsInput interface {
 	pulumi.Input
 
@@ -1240,11 +1240,11 @@ func (i PermissionsTableWithColumnsArgs) ToPermissionsTableWithColumnsPtrOutputW
 // PermissionsTableWithColumnsPtrInput is an input type that accepts PermissionsTableWithColumnsArgs, PermissionsTableWithColumnsPtr and PermissionsTableWithColumnsPtrOutput values.
 // You can construct a concrete instance of `PermissionsTableWithColumnsPtrInput` via:
 //
-//          PermissionsTableWithColumnsArgs{...}
+//	        PermissionsTableWithColumnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsTableWithColumnsPtrInput interface {
 	pulumi.Input
 
@@ -1414,7 +1414,7 @@ type ResourceLfTagsDatabase struct {
 // ResourceLfTagsDatabaseInput is an input type that accepts ResourceLfTagsDatabaseArgs and ResourceLfTagsDatabaseOutput values.
 // You can construct a concrete instance of `ResourceLfTagsDatabaseInput` via:
 //
-//          ResourceLfTagsDatabaseArgs{...}
+//	ResourceLfTagsDatabaseArgs{...}
 type ResourceLfTagsDatabaseInput interface {
 	pulumi.Input
 
@@ -1452,11 +1452,11 @@ func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabasePtrOutputWithContext
 // ResourceLfTagsDatabasePtrInput is an input type that accepts ResourceLfTagsDatabaseArgs, ResourceLfTagsDatabasePtr and ResourceLfTagsDatabasePtrOutput values.
 // You can construct a concrete instance of `ResourceLfTagsDatabasePtrInput` via:
 //
-//          ResourceLfTagsDatabaseArgs{...}
+//	        ResourceLfTagsDatabaseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceLfTagsDatabasePtrInput interface {
 	pulumi.Input
 
@@ -1572,7 +1572,7 @@ type ResourceLfTagsLfTag struct {
 // ResourceLfTagsLfTagInput is an input type that accepts ResourceLfTagsLfTagArgs and ResourceLfTagsLfTagOutput values.
 // You can construct a concrete instance of `ResourceLfTagsLfTagInput` via:
 //
-//          ResourceLfTagsLfTagArgs{...}
+//	ResourceLfTagsLfTagArgs{...}
 type ResourceLfTagsLfTagInput interface {
 	pulumi.Input
 
@@ -1604,7 +1604,7 @@ func (i ResourceLfTagsLfTagArgs) ToResourceLfTagsLfTagOutputWithContext(ctx cont
 // ResourceLfTagsLfTagArrayInput is an input type that accepts ResourceLfTagsLfTagArray and ResourceLfTagsLfTagArrayOutput values.
 // You can construct a concrete instance of `ResourceLfTagsLfTagArrayInput` via:
 //
-//          ResourceLfTagsLfTagArray{ ResourceLfTagsLfTagArgs{...} }
+//	ResourceLfTagsLfTagArray{ ResourceLfTagsLfTagArgs{...} }
 type ResourceLfTagsLfTagArrayInput interface {
 	pulumi.Input
 
@@ -1688,7 +1688,7 @@ type ResourceLfTagsTable struct {
 // ResourceLfTagsTableInput is an input type that accepts ResourceLfTagsTableArgs and ResourceLfTagsTableOutput values.
 // You can construct a concrete instance of `ResourceLfTagsTableInput` via:
 //
-//          ResourceLfTagsTableArgs{...}
+//	ResourceLfTagsTableArgs{...}
 type ResourceLfTagsTableInput interface {
 	pulumi.Input
 
@@ -1729,11 +1729,11 @@ func (i ResourceLfTagsTableArgs) ToResourceLfTagsTablePtrOutputWithContext(ctx c
 // ResourceLfTagsTablePtrInput is an input type that accepts ResourceLfTagsTableArgs, ResourceLfTagsTablePtr and ResourceLfTagsTablePtrOutput values.
 // You can construct a concrete instance of `ResourceLfTagsTablePtrInput` via:
 //
-//          ResourceLfTagsTableArgs{...}
+//	        ResourceLfTagsTableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceLfTagsTablePtrInput interface {
 	pulumi.Input
 
@@ -1881,7 +1881,7 @@ type ResourceLfTagsTableWithColumns struct {
 // ResourceLfTagsTableWithColumnsInput is an input type that accepts ResourceLfTagsTableWithColumnsArgs and ResourceLfTagsTableWithColumnsOutput values.
 // You can construct a concrete instance of `ResourceLfTagsTableWithColumnsInput` via:
 //
-//          ResourceLfTagsTableWithColumnsArgs{...}
+//	ResourceLfTagsTableWithColumnsArgs{...}
 type ResourceLfTagsTableWithColumnsInput interface {
 	pulumi.Input
 
@@ -1925,11 +1925,11 @@ func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsPtrO
 // ResourceLfTagsTableWithColumnsPtrInput is an input type that accepts ResourceLfTagsTableWithColumnsArgs, ResourceLfTagsTableWithColumnsPtr and ResourceLfTagsTableWithColumnsPtrOutput values.
 // You can construct a concrete instance of `ResourceLfTagsTableWithColumnsPtrInput` via:
 //
-//          ResourceLfTagsTableWithColumnsArgs{...}
+//	        ResourceLfTagsTableWithColumnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceLfTagsTableWithColumnsPtrInput interface {
 	pulumi.Input
 
@@ -2099,7 +2099,7 @@ type GetDataLakeSettingsCreateDatabaseDefaultPermission struct {
 // GetDataLakeSettingsCreateDatabaseDefaultPermissionInput is an input type that accepts GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs and GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput values.
 // You can construct a concrete instance of `GetDataLakeSettingsCreateDatabaseDefaultPermissionInput` via:
 //
-//          GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{...}
+//	GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{...}
 type GetDataLakeSettingsCreateDatabaseDefaultPermissionInput interface {
 	pulumi.Input
 
@@ -2129,7 +2129,7 @@ func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToGetDataLakeSet
 // GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput is an input type that accepts GetDataLakeSettingsCreateDatabaseDefaultPermissionArray and GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput` via:
 //
-//          GetDataLakeSettingsCreateDatabaseDefaultPermissionArray{ GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{...} }
+//	GetDataLakeSettingsCreateDatabaseDefaultPermissionArray{ GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{...} }
 type GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput interface {
 	pulumi.Input
 
@@ -2205,7 +2205,7 @@ type GetDataLakeSettingsCreateTableDefaultPermission struct {
 // GetDataLakeSettingsCreateTableDefaultPermissionInput is an input type that accepts GetDataLakeSettingsCreateTableDefaultPermissionArgs and GetDataLakeSettingsCreateTableDefaultPermissionOutput values.
 // You can construct a concrete instance of `GetDataLakeSettingsCreateTableDefaultPermissionInput` via:
 //
-//          GetDataLakeSettingsCreateTableDefaultPermissionArgs{...}
+//	GetDataLakeSettingsCreateTableDefaultPermissionArgs{...}
 type GetDataLakeSettingsCreateTableDefaultPermissionInput interface {
 	pulumi.Input
 
@@ -2235,7 +2235,7 @@ func (i GetDataLakeSettingsCreateTableDefaultPermissionArgs) ToGetDataLakeSettin
 // GetDataLakeSettingsCreateTableDefaultPermissionArrayInput is an input type that accepts GetDataLakeSettingsCreateTableDefaultPermissionArray and GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `GetDataLakeSettingsCreateTableDefaultPermissionArrayInput` via:
 //
-//          GetDataLakeSettingsCreateTableDefaultPermissionArray{ GetDataLakeSettingsCreateTableDefaultPermissionArgs{...} }
+//	GetDataLakeSettingsCreateTableDefaultPermissionArray{ GetDataLakeSettingsCreateTableDefaultPermissionArgs{...} }
 type GetDataLakeSettingsCreateTableDefaultPermissionArrayInput interface {
 	pulumi.Input
 
@@ -2311,7 +2311,7 @@ type GetPermissionsDataLocation struct {
 // GetPermissionsDataLocationInput is an input type that accepts GetPermissionsDataLocationArgs and GetPermissionsDataLocationOutput values.
 // You can construct a concrete instance of `GetPermissionsDataLocationInput` via:
 //
-//          GetPermissionsDataLocationArgs{...}
+//	GetPermissionsDataLocationArgs{...}
 type GetPermissionsDataLocationInput interface {
 	pulumi.Input
 
@@ -2349,11 +2349,11 @@ func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationPtrOutputWit
 // GetPermissionsDataLocationPtrInput is an input type that accepts GetPermissionsDataLocationArgs, GetPermissionsDataLocationPtr and GetPermissionsDataLocationPtrOutput values.
 // You can construct a concrete instance of `GetPermissionsDataLocationPtrInput` via:
 //
-//          GetPermissionsDataLocationArgs{...}
+//	        GetPermissionsDataLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetPermissionsDataLocationPtrInput interface {
 	pulumi.Input
 
@@ -2467,7 +2467,7 @@ type GetPermissionsDatabase struct {
 // GetPermissionsDatabaseInput is an input type that accepts GetPermissionsDatabaseArgs and GetPermissionsDatabaseOutput values.
 // You can construct a concrete instance of `GetPermissionsDatabaseInput` via:
 //
-//          GetPermissionsDatabaseArgs{...}
+//	GetPermissionsDatabaseArgs{...}
 type GetPermissionsDatabaseInput interface {
 	pulumi.Input
 
@@ -2505,11 +2505,11 @@ func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabasePtrOutputWithContext
 // GetPermissionsDatabasePtrInput is an input type that accepts GetPermissionsDatabaseArgs, GetPermissionsDatabasePtr and GetPermissionsDatabasePtrOutput values.
 // You can construct a concrete instance of `GetPermissionsDatabasePtrInput` via:
 //
-//          GetPermissionsDatabaseArgs{...}
+//	        GetPermissionsDatabaseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetPermissionsDatabasePtrInput interface {
 	pulumi.Input
 
@@ -2625,7 +2625,7 @@ type GetPermissionsLfTag struct {
 // GetPermissionsLfTagInput is an input type that accepts GetPermissionsLfTagArgs and GetPermissionsLfTagOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagInput` via:
 //
-//          GetPermissionsLfTagArgs{...}
+//	GetPermissionsLfTagArgs{...}
 type GetPermissionsLfTagInput interface {
 	pulumi.Input
 
@@ -2665,11 +2665,11 @@ func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagPtrOutputWithContext(ctx c
 // GetPermissionsLfTagPtrInput is an input type that accepts GetPermissionsLfTagArgs, GetPermissionsLfTagPtr and GetPermissionsLfTagPtrOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagPtrInput` via:
 //
-//          GetPermissionsLfTagArgs{...}
+//	        GetPermissionsLfTagArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetPermissionsLfTagPtrInput interface {
 	pulumi.Input
 
@@ -2800,7 +2800,7 @@ type GetPermissionsLfTagPolicy struct {
 // GetPermissionsLfTagPolicyInput is an input type that accepts GetPermissionsLfTagPolicyArgs and GetPermissionsLfTagPolicyOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagPolicyInput` via:
 //
-//          GetPermissionsLfTagPolicyArgs{...}
+//	GetPermissionsLfTagPolicyArgs{...}
 type GetPermissionsLfTagPolicyInput interface {
 	pulumi.Input
 
@@ -2840,11 +2840,11 @@ func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyPtrOutputWithC
 // GetPermissionsLfTagPolicyPtrInput is an input type that accepts GetPermissionsLfTagPolicyArgs, GetPermissionsLfTagPolicyPtr and GetPermissionsLfTagPolicyPtrOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagPolicyPtrInput` via:
 //
-//          GetPermissionsLfTagPolicyArgs{...}
+//	        GetPermissionsLfTagPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetPermissionsLfTagPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2973,7 +2973,7 @@ type GetPermissionsLfTagPolicyExpression struct {
 // GetPermissionsLfTagPolicyExpressionInput is an input type that accepts GetPermissionsLfTagPolicyExpressionArgs and GetPermissionsLfTagPolicyExpressionOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagPolicyExpressionInput` via:
 //
-//          GetPermissionsLfTagPolicyExpressionArgs{...}
+//	GetPermissionsLfTagPolicyExpressionArgs{...}
 type GetPermissionsLfTagPolicyExpressionInput interface {
 	pulumi.Input
 
@@ -3003,7 +3003,7 @@ func (i GetPermissionsLfTagPolicyExpressionArgs) ToGetPermissionsLfTagPolicyExpr
 // GetPermissionsLfTagPolicyExpressionArrayInput is an input type that accepts GetPermissionsLfTagPolicyExpressionArray and GetPermissionsLfTagPolicyExpressionArrayOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagPolicyExpressionArrayInput` via:
 //
-//          GetPermissionsLfTagPolicyExpressionArray{ GetPermissionsLfTagPolicyExpressionArgs{...} }
+//	GetPermissionsLfTagPolicyExpressionArray{ GetPermissionsLfTagPolicyExpressionArgs{...} }
 type GetPermissionsLfTagPolicyExpressionArrayInput interface {
 	pulumi.Input
 
@@ -3083,7 +3083,7 @@ type GetPermissionsTable struct {
 // GetPermissionsTableInput is an input type that accepts GetPermissionsTableArgs and GetPermissionsTableOutput values.
 // You can construct a concrete instance of `GetPermissionsTableInput` via:
 //
-//          GetPermissionsTableArgs{...}
+//	GetPermissionsTableArgs{...}
 type GetPermissionsTableInput interface {
 	pulumi.Input
 
@@ -3125,11 +3125,11 @@ func (i GetPermissionsTableArgs) ToGetPermissionsTablePtrOutputWithContext(ctx c
 // GetPermissionsTablePtrInput is an input type that accepts GetPermissionsTableArgs, GetPermissionsTablePtr and GetPermissionsTablePtrOutput values.
 // You can construct a concrete instance of `GetPermissionsTablePtrInput` via:
 //
-//          GetPermissionsTableArgs{...}
+//	        GetPermissionsTableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetPermissionsTablePtrInput interface {
 	pulumi.Input
 
@@ -3281,7 +3281,7 @@ type GetPermissionsTableWithColumns struct {
 // GetPermissionsTableWithColumnsInput is an input type that accepts GetPermissionsTableWithColumnsArgs and GetPermissionsTableWithColumnsOutput values.
 // You can construct a concrete instance of `GetPermissionsTableWithColumnsInput` via:
 //
-//          GetPermissionsTableWithColumnsArgs{...}
+//	GetPermissionsTableWithColumnsArgs{...}
 type GetPermissionsTableWithColumnsInput interface {
 	pulumi.Input
 
@@ -3327,11 +3327,11 @@ func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsPtrO
 // GetPermissionsTableWithColumnsPtrInput is an input type that accepts GetPermissionsTableWithColumnsArgs, GetPermissionsTableWithColumnsPtr and GetPermissionsTableWithColumnsPtrOutput values.
 // You can construct a concrete instance of `GetPermissionsTableWithColumnsPtrInput` via:
 //
-//          GetPermissionsTableWithColumnsArgs{...}
+//	        GetPermissionsTableWithColumnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetPermissionsTableWithColumnsPtrInput interface {
 	pulumi.Input
 

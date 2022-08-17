@@ -20,7 +20,7 @@ type ScalingPlanApplicationSource struct {
 // ScalingPlanApplicationSourceInput is an input type that accepts ScalingPlanApplicationSourceArgs and ScalingPlanApplicationSourceOutput values.
 // You can construct a concrete instance of `ScalingPlanApplicationSourceInput` via:
 //
-//          ScalingPlanApplicationSourceArgs{...}
+//	ScalingPlanApplicationSourceArgs{...}
 type ScalingPlanApplicationSourceInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ScalingPlanApplicationSourceArgs) ToScalingPlanApplicationSourcePtrOutpu
 // ScalingPlanApplicationSourcePtrInput is an input type that accepts ScalingPlanApplicationSourceArgs, ScalingPlanApplicationSourcePtr and ScalingPlanApplicationSourcePtrOutput values.
 // You can construct a concrete instance of `ScalingPlanApplicationSourcePtrInput` via:
 //
-//          ScalingPlanApplicationSourceArgs{...}
+//	        ScalingPlanApplicationSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPlanApplicationSourcePtrInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ type ScalingPlanApplicationSourceTagFilter struct {
 // ScalingPlanApplicationSourceTagFilterInput is an input type that accepts ScalingPlanApplicationSourceTagFilterArgs and ScalingPlanApplicationSourceTagFilterOutput values.
 // You can construct a concrete instance of `ScalingPlanApplicationSourceTagFilterInput` via:
 //
-//          ScalingPlanApplicationSourceTagFilterArgs{...}
+//	ScalingPlanApplicationSourceTagFilterArgs{...}
 type ScalingPlanApplicationSourceTagFilterInput interface {
 	pulumi.Input
 
@@ -206,7 +206,7 @@ func (i ScalingPlanApplicationSourceTagFilterArgs) ToScalingPlanApplicationSourc
 // ScalingPlanApplicationSourceTagFilterArrayInput is an input type that accepts ScalingPlanApplicationSourceTagFilterArray and ScalingPlanApplicationSourceTagFilterArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanApplicationSourceTagFilterArrayInput` via:
 //
-//          ScalingPlanApplicationSourceTagFilterArray{ ScalingPlanApplicationSourceTagFilterArgs{...} }
+//	ScalingPlanApplicationSourceTagFilterArray{ ScalingPlanApplicationSourceTagFilterArgs{...} }
 type ScalingPlanApplicationSourceTagFilterArrayInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ type ScalingPlanScalingInstruction struct {
 // ScalingPlanScalingInstructionInput is an input type that accepts ScalingPlanScalingInstructionArgs and ScalingPlanScalingInstructionOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionInput` via:
 //
-//          ScalingPlanScalingInstructionArgs{...}
+//	ScalingPlanScalingInstructionArgs{...}
 type ScalingPlanScalingInstructionInput interface {
 	pulumi.Input
 
@@ -368,7 +368,7 @@ func (i ScalingPlanScalingInstructionArgs) ToScalingPlanScalingInstructionOutput
 // ScalingPlanScalingInstructionArrayInput is an input type that accepts ScalingPlanScalingInstructionArray and ScalingPlanScalingInstructionArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionArrayInput` via:
 //
-//          ScalingPlanScalingInstructionArray{ ScalingPlanScalingInstructionArgs{...} }
+//	ScalingPlanScalingInstructionArray{ ScalingPlanScalingInstructionArgs{...} }
 type ScalingPlanScalingInstructionArrayInput interface {
 	pulumi.Input
 
@@ -520,7 +520,7 @@ type ScalingPlanScalingInstructionCustomizedLoadMetricSpecification struct {
 // ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationInput is an input type that accepts ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs and ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationInput` via:
 //
-//          ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs{...}
+//	ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs{...}
 type ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -564,11 +564,11 @@ func (i ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs) ToSc
 // ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrInput is an input type that accepts ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs, ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtr and ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrInput` via:
 //
-//          ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs{...}
+//	        ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -729,7 +729,7 @@ type ScalingPlanScalingInstructionPredefinedLoadMetricSpecification struct {
 // ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationInput is an input type that accepts ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs and ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationInput` via:
 //
-//          ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{...}
+//	ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{...}
 type ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -767,11 +767,11 @@ func (i ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs) ToSc
 // ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrInput is an input type that accepts ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs, ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtr and ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrInput` via:
 //
-//          ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{...}
+//	        ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -902,7 +902,7 @@ type ScalingPlanScalingInstructionTargetTrackingConfiguration struct {
 // ScalingPlanScalingInstructionTargetTrackingConfigurationInput is an input type that accepts ScalingPlanScalingInstructionTargetTrackingConfigurationArgs and ScalingPlanScalingInstructionTargetTrackingConfigurationOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionTargetTrackingConfigurationInput` via:
 //
-//          ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{...}
+//	ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{...}
 type ScalingPlanScalingInstructionTargetTrackingConfigurationInput interface {
 	pulumi.Input
 
@@ -947,7 +947,7 @@ func (i ScalingPlanScalingInstructionTargetTrackingConfigurationArgs) ToScalingP
 // ScalingPlanScalingInstructionTargetTrackingConfigurationArrayInput is an input type that accepts ScalingPlanScalingInstructionTargetTrackingConfigurationArray and ScalingPlanScalingInstructionTargetTrackingConfigurationArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionTargetTrackingConfigurationArrayInput` via:
 //
-//          ScalingPlanScalingInstructionTargetTrackingConfigurationArray{ ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{...} }
+//	ScalingPlanScalingInstructionTargetTrackingConfigurationArray{ ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{...} }
 type ScalingPlanScalingInstructionTargetTrackingConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1065,7 +1065,7 @@ type ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMe
 // ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationInput is an input type that accepts ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs and ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationInput` via:
 //
-//          ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs{...}
+//	ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs{...}
 type ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -1109,11 +1109,11 @@ func (i ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 // ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrInput is an input type that accepts ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs, ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtr and ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrInput` via:
 //
-//          ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs{...}
+//	        ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1282,7 +1282,7 @@ type ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMe
 // ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationInput is an input type that accepts ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs and ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationInput` via:
 //
-//          ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{...}
+//	ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{...}
 type ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -1320,11 +1320,11 @@ func (i ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 // ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrInput is an input type that accepts ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs, ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtr and ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrInput` via:
 //
-//          ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{...}
+//	        ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrInput interface {
 	pulumi.Input
 

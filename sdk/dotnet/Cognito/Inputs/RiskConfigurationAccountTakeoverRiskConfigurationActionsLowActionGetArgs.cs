@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionGetArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event action. Valid values are `BLOCK` or `NO_ACTION`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionGetArgs()
         {
         }
+        public static new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionGetArgs Empty => new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionGetArgs();
     }
 }

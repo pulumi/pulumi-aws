@@ -17,21 +17,20 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var delegated = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var example = new Aws.Ec2.VpcIpamOrganizationAdminAccount("example", new Aws.Ec2.VpcIpamOrganizationAdminAccountArgs
-    ///         {
-    ///             DelegatedAdminAccountId = delegated.Apply(delegated =&gt; delegated.AccountId),
-    ///         });
-    ///     }
+    ///     var delegated = Aws.GetCallerIdentity.Invoke();
     /// 
-    /// }
+    ///     var example = new Aws.Ec2.VpcIpamOrganizationAdminAccount("example", new()
+    ///     {
+    ///         DelegatedAdminAccountId = delegated.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")]
-    public partial class VpcIpamOrganizationAdminAccount : Pulumi.CustomResource
+    public partial class VpcIpamOrganizationAdminAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Organizations ARN for the delegate account.
@@ -116,7 +115,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpamOrganizationAdminAccountArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamOrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
         [Input("delegatedAdminAccountId", required: true)]
         public Input<string> DelegatedAdminAccountId { get; set; } = null!;
@@ -124,9 +123,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamOrganizationAdminAccountArgs()
         {
         }
+        public static new VpcIpamOrganizationAdminAccountArgs Empty => new VpcIpamOrganizationAdminAccountArgs();
     }
 
-    public sealed class VpcIpamOrganizationAdminAccountState : Pulumi.ResourceArgs
+    public sealed class VpcIpamOrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Organizations ARN for the delegate account.
@@ -158,5 +158,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamOrganizationAdminAccountState()
         {
         }
+        public static new VpcIpamOrganizationAdminAccountState Empty => new VpcIpamOrganizationAdminAccountState();
     }
 }

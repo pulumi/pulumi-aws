@@ -18,33 +18,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "exampleWindowsFileSystem", &fsx.WindowsFileSystemArgs{
-// 			ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Eample.Id),
-// 			SkipFinalBackup:   pulumi.Bool(true),
-// 			StorageCapacity:   pulumi.Int(32),
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Example1.Id),
-// 			},
-// 			ThroughputCapacity: pulumi.Int(8),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
-// 			FileSystemId: exampleWindowsFileSystem.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "exampleWindowsFileSystem", &fsx.WindowsFileSystemArgs{
+//				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Eample.Id),
+//				SkipFinalBackup:   pulumi.Bool(true),
+//				StorageCapacity:   pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Example1.Id),
+//				},
+//				ThroughputCapacity: pulumi.Int(8),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+//				FileSystemId: exampleWindowsFileSystem.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## ONTAP Example
@@ -53,30 +56,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleOntapVolume, err := fsx.NewOntapVolume(ctx, "exampleOntapVolume", &fsx.OntapVolumeArgs{
-// 			JunctionPath:             pulumi.String("/example"),
-// 			SizeInMegabytes:          pulumi.Int(1024),
-// 			StorageEfficiencyEnabled: pulumi.Bool(true),
-// 			StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
-// 			VolumeId: exampleOntapVolume.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOntapVolume, err := fsx.NewOntapVolume(ctx, "exampleOntapVolume", &fsx.OntapVolumeArgs{
+//				JunctionPath:             pulumi.String("/example"),
+//				SizeInMegabytes:          pulumi.Int(1024),
+//				StorageEfficiencyEnabled: pulumi.Bool(true),
+//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+//				VolumeId: exampleOntapVolume.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +90,9 @@ import (
 // FSx Backups can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+//
+//	$ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+//
 // ```
 type Backup struct {
 	pulumi.CustomResourceState
@@ -222,7 +230,7 @@ func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 // BackupArrayInput is an input type that accepts BackupArray and BackupArrayOutput values.
 // You can construct a concrete instance of `BackupArrayInput` via:
 //
-//          BackupArray{ BackupArgs{...} }
+//	BackupArray{ BackupArgs{...} }
 type BackupArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +255,7 @@ func (i BackupArray) ToBackupArrayOutputWithContext(ctx context.Context) BackupA
 // BackupMapInput is an input type that accepts BackupMap and BackupMapOutput values.
 // You can construct a concrete instance of `BackupMapInput` via:
 //
-//          BackupMap{ "key": BackupArgs{...} }
+//	BackupMap{ "key": BackupArgs{...} }
 type BackupMapInput interface {
 	pulumi.Input
 

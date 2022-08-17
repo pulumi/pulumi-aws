@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketVersioningArgs : Pulumi.ResourceArgs
+    public sealed class BucketVersioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketVersioningArgs()
         {
         }
+        public static new BucketVersioningArgs Empty => new BucketVersioningArgs();
     }
 }

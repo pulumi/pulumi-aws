@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dms.NewReplicationSubnetGroup(ctx, "test", &dms.ReplicationSubnetGroupArgs{
-// 			ReplicationSubnetGroupDescription: pulumi.String("Test replication subnet group"),
-// 			ReplicationSubnetGroupId:          pulumi.String("test-dms-replication-subnet-group-tf"),
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.String("subnet-12345678"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dms.NewReplicationSubnetGroup(ctx, "test", &dms.ReplicationSubnetGroupArgs{
+//				ReplicationSubnetGroupDescription: pulumi.String("Test replication subnet group"),
+//				ReplicationSubnetGroupId:          pulumi.String("test-dms-replication-subnet-group-tf"),
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.String("subnet-12345678"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+//
+//	$ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+//
 // ```
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
@@ -62,7 +67,7 @@ type ReplicationSubnetGroup struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet group is in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -115,7 +120,7 @@ type replicationSubnetGroupState struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet group is in.
 	VpcId *string `pulumi:"vpcId"`
@@ -131,7 +136,7 @@ type ReplicationSubnetGroupState struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the VPC the subnet group is in.
 	VpcId pulumi.StringPtrInput
@@ -190,7 +195,7 @@ func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx c
 // ReplicationSubnetGroupArrayInput is an input type that accepts ReplicationSubnetGroupArray and ReplicationSubnetGroupArrayOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupArrayInput` via:
 //
-//          ReplicationSubnetGroupArray{ ReplicationSubnetGroupArgs{...} }
+//	ReplicationSubnetGroupArray{ ReplicationSubnetGroupArgs{...} }
 type ReplicationSubnetGroupArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +220,7 @@ func (i ReplicationSubnetGroupArray) ToReplicationSubnetGroupArrayOutputWithCont
 // ReplicationSubnetGroupMapInput is an input type that accepts ReplicationSubnetGroupMap and ReplicationSubnetGroupMapOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupMapInput` via:
 //
-//          ReplicationSubnetGroupMap{ "key": ReplicationSubnetGroupArgs{...} }
+//	ReplicationSubnetGroupMap{ "key": ReplicationSubnetGroupArgs{...} }
 type ReplicationSubnetGroupMapInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (o ReplicationSubnetGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReplicationSubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

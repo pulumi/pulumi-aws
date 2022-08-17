@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class GetTagsTimePeriodArgs : Pulumi.InvokeArgs
+    public sealed class GetTagsTimePeriodArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Beginning of the time period.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public GetTagsTimePeriodArgs()
         {
         }
+        public static new GetTagsTimePeriodArgs Empty => new GetTagsTimePeriodArgs();
     }
 }

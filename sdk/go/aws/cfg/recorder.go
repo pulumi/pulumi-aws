@@ -21,43 +21,48 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "config.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "config.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-// 			RoleArn: role.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//				RoleArn: role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +70,9 @@ import (
 // Configuration Recorder can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/recorder:Recorder foo example
+//
+//	$ pulumi import aws:cfg/recorder:Recorder foo example
+//
 // ```
 type Recorder struct {
 	pulumi.CustomResourceState
@@ -176,7 +183,7 @@ func (i *Recorder) ToRecorderOutputWithContext(ctx context.Context) RecorderOutp
 // RecorderArrayInput is an input type that accepts RecorderArray and RecorderArrayOutput values.
 // You can construct a concrete instance of `RecorderArrayInput` via:
 //
-//          RecorderArray{ RecorderArgs{...} }
+//	RecorderArray{ RecorderArgs{...} }
 type RecorderArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +208,7 @@ func (i RecorderArray) ToRecorderArrayOutputWithContext(ctx context.Context) Rec
 // RecorderMapInput is an input type that accepts RecorderMap and RecorderMapOutput values.
 // You can construct a concrete instance of `RecorderMapInput` via:
 //
-//          RecorderMap{ "key": RecorderArgs{...} }
+//	RecorderMap{ "key": RecorderArgs{...} }
 type RecorderMapInput interface {
 	pulumi.Input
 

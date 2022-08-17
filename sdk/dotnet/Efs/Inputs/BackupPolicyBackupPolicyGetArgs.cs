@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs.Inputs
 {
 
-    public sealed class BackupPolicyBackupPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyBackupPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Efs.Inputs
         public BackupPolicyBackupPolicyGetArgs()
         {
         }
+        public static new BackupPolicyBackupPolicyGetArgs Empty => new BackupPolicyBackupPolicyGetArgs();
     }
 }

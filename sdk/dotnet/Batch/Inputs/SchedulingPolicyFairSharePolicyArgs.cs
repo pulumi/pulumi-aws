@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class SchedulingPolicyFairSharePolicyArgs : Pulumi.ResourceArgs
+    public sealed class SchedulingPolicyFairSharePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public SchedulingPolicyFairSharePolicyArgs()
         {
         }
+        public static new SchedulingPolicyFairSharePolicyArgs Empty => new SchedulingPolicyFairSharePolicyArgs();
     }
 }

@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
-// 			DebugLogging:      pulumi.Bool(false),
-// 			EngineFamily:      pulumi.String("MYSQL"),
-// 			IdleClientTimeout: pulumi.Int(1800),
-// 			RequireTls:        pulumi.Bool(true),
-// 			RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
-// 			VpcSecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Id),
-// 			},
-// 			VpcSubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Example.Id),
-// 			},
-// 			Auths: rds.ProxyAuthArray{
-// 				&rds.ProxyAuthArgs{
-// 					AuthScheme:  pulumi.String("SECRETS"),
-// 					Description: pulumi.String("example"),
-// 					IamAuth:     pulumi.String("DISABLED"),
-// 					SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 				"Key":  pulumi.String("value"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
+//				DebugLogging:      pulumi.Bool(false),
+//				EngineFamily:      pulumi.String("MYSQL"),
+//				IdleClientTimeout: pulumi.Int(1800),
+//				RequireTls:        pulumi.Bool(true),
+//				RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Id),
+//				},
+//				VpcSubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Example.Id),
+//				},
+//				Auths: rds.ProxyAuthArray{
+//					&rds.ProxyAuthArgs{
+//						AuthScheme:  pulumi.String("SECRETS"),
+//						Description: pulumi.String("example"),
+//						IamAuth:     pulumi.String("DISABLED"),
+//						SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//					"Key":  pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // DB proxies can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/proxy:Proxy example example
+//
+//	$ pulumi import aws:rds/proxy:Proxy example example
+//
 // ```
 type Proxy struct {
 	pulumi.CustomResourceState
@@ -86,9 +91,9 @@ type Proxy struct {
 	RequireTls pulumi.BoolPtrOutput `pulumi:"requireTls"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -155,9 +160,9 @@ type proxyState struct {
 	RequireTls *bool `pulumi:"requireTls"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn *string `pulumi:"roleArn"`
-	// A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -184,9 +189,9 @@ type ProxyState struct {
 	RequireTls pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -213,7 +218,7 @@ type proxyArgs struct {
 	RequireTls *bool `pulumi:"requireTls"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
-	// A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -237,7 +242,7 @@ type ProxyArgs struct {
 	RequireTls pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringInput
-	// A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -271,7 +276,7 @@ func (i *Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 // ProxyArrayInput is an input type that accepts ProxyArray and ProxyArrayOutput values.
 // You can construct a concrete instance of `ProxyArrayInput` via:
 //
-//          ProxyArray{ ProxyArgs{...} }
+//	ProxyArray{ ProxyArgs{...} }
 type ProxyArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +301,7 @@ func (i ProxyArray) ToProxyArrayOutputWithContext(ctx context.Context) ProxyArra
 // ProxyMapInput is an input type that accepts ProxyMap and ProxyMapOutput values.
 // You can construct a concrete instance of `ProxyMapInput` via:
 //
-//          ProxyMap{ "key": ProxyArgs{...} }
+//	ProxyMap{ "key": ProxyArgs{...} }
 type ProxyMapInput interface {
 	pulumi.Input
 
@@ -377,12 +382,12 @@ func (o ProxyOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProxyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProxyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

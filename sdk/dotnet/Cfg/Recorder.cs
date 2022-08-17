@@ -17,16 +17,15 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -40,14 +39,14 @@ namespace Pulumi.Aws.Cfg
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var foo = new Aws.Cfg.Recorder("foo", new Aws.Cfg.RecorderArgs
-    ///         {
-    ///             RoleArn = role.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Cfg.Recorder("foo", new()
+    ///     {
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +58,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorder:Recorder")]
-    public partial class Recorder : Pulumi.CustomResource
+    public partial class Recorder : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
@@ -123,7 +122,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class RecorderArgs : Pulumi.ResourceArgs
+    public sealed class RecorderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
@@ -146,9 +145,10 @@ namespace Pulumi.Aws.Cfg
         public RecorderArgs()
         {
         }
+        public static new RecorderArgs Empty => new RecorderArgs();
     }
 
-    public sealed class RecorderState : Pulumi.ResourceArgs
+    public sealed class RecorderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
@@ -171,5 +171,6 @@ namespace Pulumi.Aws.Cfg
         public RecorderState()
         {
         }
+        public static new RecorderState Empty => new RecorderState();
     }
 }

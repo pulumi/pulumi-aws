@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerTags")]
         private InputList<string>? _containerTags;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs()
         {
         }
+        public static new DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs Empty => new DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs();
     }
 }

@@ -15,33 +15,31 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var byteSet = new Aws.Waf.ByteMatchSet("byteSet", new()
     ///     {
-    ///         var byteSet = new Aws.Waf.ByteMatchSet("byteSet", new Aws.Waf.ByteMatchSetArgs
+    ///         ByteMatchTuples = new[]
     ///         {
-    ///             ByteMatchTuples = 
+    ///             new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleArgs
+    ///                 FieldToMatch = new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs
     ///                 {
-    ///                     FieldToMatch = new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs
-    ///                     {
-    ///                         Data = "referer",
-    ///                         Type = "HEADER",
-    ///                     },
-    ///                     PositionalConstraint = "CONTAINS",
-    ///                     TargetString = "badrefer1",
-    ///                     TextTransformation = "NONE",
+    ///                     Data = "referer",
+    ///                     Type = "HEADER",
     ///                 },
+    ///                 PositionalConstraint = "CONTAINS",
+    ///                 TargetString = "badrefer1",
+    ///                 TextTransformation = "NONE",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/byteMatchSet:ByteMatchSet")]
-    public partial class ByteMatchSet : Pulumi.CustomResource
+    public partial class ByteMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the bytes (typically a string that corresponds
@@ -113,7 +111,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class ByteMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class ByteMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("byteMatchTuples")]
         private InputList<Inputs.ByteMatchSetByteMatchTupleArgs>? _byteMatchTuples;
@@ -138,9 +136,10 @@ namespace Pulumi.Aws.Waf
         public ByteMatchSetArgs()
         {
         }
+        public static new ByteMatchSetArgs Empty => new ByteMatchSetArgs();
     }
 
-    public sealed class ByteMatchSetState : Pulumi.ResourceArgs
+    public sealed class ByteMatchSetState : global::Pulumi.ResourceArgs
     {
         [Input("byteMatchTuples")]
         private InputList<Inputs.ByteMatchSetByteMatchTupleGetArgs>? _byteMatchTuples;
@@ -165,5 +164,6 @@ namespace Pulumi.Aws.Waf
         public ByteMatchSetState()
         {
         }
+        public static new ByteMatchSetState Empty => new ByteMatchSetState();
     }
 }

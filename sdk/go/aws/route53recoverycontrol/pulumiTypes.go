@@ -20,7 +20,7 @@ type ClusterClusterEndpoint struct {
 // ClusterClusterEndpointInput is an input type that accepts ClusterClusterEndpointArgs and ClusterClusterEndpointOutput values.
 // You can construct a concrete instance of `ClusterClusterEndpointInput` via:
 //
-//          ClusterClusterEndpointArgs{...}
+//	ClusterClusterEndpointArgs{...}
 type ClusterClusterEndpointInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ClusterClusterEndpointArgs) ToClusterClusterEndpointOutputWithContext(ct
 // ClusterClusterEndpointArrayInput is an input type that accepts ClusterClusterEndpointArray and ClusterClusterEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterEndpointArrayInput` via:
 //
-//          ClusterClusterEndpointArray{ ClusterClusterEndpointArgs{...} }
+//	ClusterClusterEndpointArray{ ClusterClusterEndpointArgs{...} }
 type ClusterClusterEndpointArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ type SafetyRuleRuleConfig struct {
 // SafetyRuleRuleConfigInput is an input type that accepts SafetyRuleRuleConfigArgs and SafetyRuleRuleConfigOutput values.
 // You can construct a concrete instance of `SafetyRuleRuleConfigInput` via:
 //
-//          SafetyRuleRuleConfigArgs{...}
+//	SafetyRuleRuleConfigArgs{...}
 type SafetyRuleRuleConfigInput interface {
 	pulumi.Input
 
@@ -168,11 +168,11 @@ func (i SafetyRuleRuleConfigArgs) ToSafetyRuleRuleConfigPtrOutputWithContext(ctx
 // SafetyRuleRuleConfigPtrInput is an input type that accepts SafetyRuleRuleConfigArgs, SafetyRuleRuleConfigPtr and SafetyRuleRuleConfigPtrOutput values.
 // You can construct a concrete instance of `SafetyRuleRuleConfigPtrInput` via:
 //
-//          SafetyRuleRuleConfigArgs{...}
+//	        SafetyRuleRuleConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SafetyRuleRuleConfigPtrInput interface {
 	pulumi.Input
 

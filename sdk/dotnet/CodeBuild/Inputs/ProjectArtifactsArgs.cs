@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectArtifactsArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArtifactsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectArtifactsArgs()
         {
         }
+        public static new ProjectArtifactsArgs Empty => new ProjectArtifactsArgs();
     }
 }

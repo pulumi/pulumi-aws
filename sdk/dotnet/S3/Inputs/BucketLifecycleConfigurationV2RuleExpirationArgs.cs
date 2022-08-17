@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationV2RuleExpirationArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2RuleExpirationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleConfigurationV2RuleExpirationArgs()
         {
         }
+        public static new BucketLifecycleConfigurationV2RuleExpirationArgs Empty => new BucketLifecycleConfigurationV2RuleExpirationArgs();
     }
 }

@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := apigateway.NewRestApi(ctx, "main", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-// 			RestApiId:    main.ID(),
-// 			StatusCode:   pulumi.String("401"),
-// 			ResponseType: pulumi.String("UNAUTHORIZED"),
-// 			ResponseTemplates: pulumi.StringMap{
-// 				"application/json": pulumi.String(fmt.Sprintf("{\"message\":$context.error.messageString}")),
-// 			},
-// 			ResponseParameters: pulumi.StringMap{
-// 				"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := apigateway.NewRestApi(ctx, "main", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
+//				RestApiId:    main.ID(),
+//				StatusCode:   pulumi.String("401"),
+//				ResponseType: pulumi.String("UNAUTHORIZED"),
+//				ResponseTemplates: pulumi.StringMap{
+//					"application/json": pulumi.String(fmt.Sprintf("{\"message\":$context.error.messageString}")),
+//				},
+//				ResponseParameters: pulumi.StringMap{
+//					"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+//
+//	$ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+//
 // ```
 type Response struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *Response) ToResponseOutputWithContext(ctx context.Context) ResponseOutp
 // ResponseArrayInput is an input type that accepts ResponseArray and ResponseArrayOutput values.
 // You can construct a concrete instance of `ResponseArrayInput` via:
 //
-//          ResponseArray{ ResponseArgs{...} }
+//	ResponseArray{ ResponseArgs{...} }
 type ResponseArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i ResponseArray) ToResponseArrayOutputWithContext(ctx context.Context) Res
 // ResponseMapInput is an input type that accepts ResponseMap and ResponseMapOutput values.
 // You can construct a concrete instance of `ResponseMapInput` via:
 //
-//          ResponseMap{ "key": ResponseArgs{...} }
+//	ResponseMap{ "key": ResponseArgs{...} }
 type ResponseMapInput interface {
 	pulumi.Input
 

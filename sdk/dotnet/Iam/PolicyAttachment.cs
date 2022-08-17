@@ -21,19 +21,17 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var user = new Aws.Iam.User("user");
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var user = new Aws.Iam.User("user", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -47,14 +45,14 @@ namespace Pulumi.Aws.Iam
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var @group = new Aws.Iam.Group("group", new Aws.Iam.GroupArgs
-    ///         {
-    ///         });
-    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Description = "A test policy",
-    ///             PolicyDocument = @"{
+    ///     });
+    /// 
+    ///     var @group = new Aws.Iam.Group("group");
+    /// 
+    ///     var policy = new Aws.Iam.Policy("policy", new()
+    ///     {
+    ///         Description = "A test policy",
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -67,30 +65,30 @@ namespace Pulumi.Aws.Iam
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var test_attach = new Aws.Iam.PolicyAttachment("test-attach", new Aws.Iam.PolicyAttachmentArgs
-    ///         {
-    ///             Users = 
-    ///             {
-    ///                 user.Name,
-    ///             },
-    ///             Roles = 
-    ///             {
-    ///                 role.Name,
-    ///             },
-    ///             Groups = 
-    ///             {
-    ///                 @group.Name,
-    ///             },
-    ///             PolicyArn = policy.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var test_attach = new Aws.Iam.PolicyAttachment("test-attach", new()
+    ///     {
+    ///         Users = new[]
+    ///         {
+    ///             user.Name,
+    ///         },
+    ///         Roles = new[]
+    ///         {
+    ///             role.Name,
+    ///         },
+    ///         Groups = new[]
+    ///         {
+    ///             @group.Name,
+    ///         },
+    ///         PolicyArn = policy.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/policyAttachment:PolicyAttachment")]
-    public partial class PolicyAttachment : Pulumi.CustomResource
+    public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The group(s) the policy should be applied to
@@ -166,7 +164,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class PolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -219,9 +217,10 @@ namespace Pulumi.Aws.Iam
         public PolicyAttachmentArgs()
         {
         }
+        public static new PolicyAttachmentArgs Empty => new PolicyAttachmentArgs();
     }
 
-    public sealed class PolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -274,5 +273,6 @@ namespace Pulumi.Aws.Iam
         public PolicyAttachmentState()
         {
         }
+        public static new PolicyAttachmentState Empty => new PolicyAttachmentState();
     }
 }

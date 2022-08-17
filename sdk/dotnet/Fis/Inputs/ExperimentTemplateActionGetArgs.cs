@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fis.Inputs
 {
 
-    public sealed class ExperimentTemplateActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Fis.Inputs
         public ExperimentTemplateActionGetArgs()
         {
         }
+        public static new ExperimentTemplateActionGetArgs Empty => new ExperimentTemplateActionGetArgs();
     }
 }

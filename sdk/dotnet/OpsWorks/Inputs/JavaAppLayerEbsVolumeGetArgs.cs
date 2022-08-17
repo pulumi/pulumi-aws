@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class JavaAppLayerEbsVolumeGetArgs : Pulumi.ResourceArgs
+    public sealed class JavaAppLayerEbsVolumeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public JavaAppLayerEbsVolumeGetArgs()
         {
         }
+        public static new JavaAppLayerEbsVolumeGetArgs Empty => new JavaAppLayerEbsVolumeGetArgs();
     }
 }

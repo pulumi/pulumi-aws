@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orderFlowersProd = Aws.Lex.GetBotAlias.Invoke(new()
         ///     {
-        ///         var orderFlowersProd = Output.Create(Aws.Lex.GetBotAlias.InvokeAsync(new Aws.Lex.GetBotAliasArgs
-        ///         {
-        ///             BotName = "OrderFlowers",
-        ///             Name = "OrderFlowersProd",
-        ///         }));
-        ///     }
+        ///         BotName = "OrderFlowers",
+        ///         Name = "OrderFlowersProd",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orderFlowersProd = Aws.Lex.GetBotAlias.Invoke(new()
         ///     {
-        ///         var orderFlowersProd = Output.Create(Aws.Lex.GetBotAlias.InvokeAsync(new Aws.Lex.GetBotAliasArgs
-        ///         {
-        ///             BotName = "OrderFlowers",
-        ///             Name = "OrderFlowersProd",
-        ///         }));
-        ///     }
+        ///         BotName = "OrderFlowers",
+        ///         Name = "OrderFlowersProd",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Lex
     }
 
 
-    public sealed class GetBotAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetBotAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bot.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Lex
         public GetBotAliasArgs()
         {
         }
+        public static new GetBotAliasArgs Empty => new GetBotAliasArgs();
     }
 
-    public sealed class GetBotAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBotAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bot.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Lex
         public GetBotAliasInvokeArgs()
         {
         }
+        public static new GetBotAliasInvokeArgs Empty => new GetBotAliasInvokeArgs();
     }
 
 

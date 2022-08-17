@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class AnalyticsConfigurationFilterArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsConfigurationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Object prefix for filtering.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public AnalyticsConfigurationFilterArgs()
         {
         }
+        public static new AnalyticsConfigurationFilterArgs Empty => new AnalyticsConfigurationFilterArgs();
     }
 }

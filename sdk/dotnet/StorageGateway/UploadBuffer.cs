@@ -18,50 +18,48 @@ namespace Pulumi.Aws.StorageGateway
     /// ### Cached and VTL Gateway Type
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
     ///     {
-    ///         var testLocalDisk = Output.Create(Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
-    ///         {
-    ///             DiskNode = aws_volume_attachment.Test.Device_name,
-    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///         }));
-    ///         var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new Aws.StorageGateway.UploadBufferArgs
-    ///         {
-    ///             DiskPath = testLocalDisk.Apply(testLocalDisk =&gt; testLocalDisk.DiskPath),
-    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///         });
-    ///     }
+    ///         DiskNode = aws_volume_attachment.Test.Device_name,
+    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///     });
     /// 
-    /// }
+    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new()
+    ///     {
+    ///         DiskPath = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
+    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Stored Gateway Type
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
     ///     {
-    ///         var test = Output.Create(Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
-    ///         {
-    ///             DiskNode = aws_volume_attachment.Test.Device_name,
-    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///         }));
-    ///         var example = new Aws.StorageGateway.UploadBuffer("example", new Aws.StorageGateway.UploadBufferArgs
-    ///         {
-    ///             DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///             GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         });
-    ///     }
+    ///         DiskNode = aws_volume_attachment.Test.Device_name,
+    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.StorageGateway.UploadBuffer("example", new()
+    ///     {
+    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +71,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/uploadBuffer:UploadBuffer")]
-    public partial class UploadBuffer : Pulumi.CustomResource
+    public partial class UploadBuffer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -137,7 +135,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class UploadBufferArgs : Pulumi.ResourceArgs
+    public sealed class UploadBufferArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -160,9 +158,10 @@ namespace Pulumi.Aws.StorageGateway
         public UploadBufferArgs()
         {
         }
+        public static new UploadBufferArgs Empty => new UploadBufferArgs();
     }
 
-    public sealed class UploadBufferState : Pulumi.ResourceArgs
+    public sealed class UploadBufferState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -185,5 +184,6 @@ namespace Pulumi.Aws.StorageGateway
         public UploadBufferState()
         {
         }
+        public static new UploadBufferState Empty => new UploadBufferState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerMaintenanceWindowStartTimeArgs : Pulumi.ResourceArgs
+    public sealed class BrokerMaintenanceWindowStartTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerMaintenanceWindowStartTimeArgs()
         {
         }
+        public static new BrokerMaintenanceWindowStartTimeArgs Empty => new BrokerMaintenanceWindowStartTimeArgs();
     }
 }

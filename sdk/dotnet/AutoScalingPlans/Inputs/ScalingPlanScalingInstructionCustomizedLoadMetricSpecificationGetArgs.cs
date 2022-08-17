@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputMap<string>? _dimensions;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationGetArgs()
         {
         }
+        public static new ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationGetArgs Empty => new ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationGetArgs();
     }
 }

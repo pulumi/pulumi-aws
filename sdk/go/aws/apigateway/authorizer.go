@@ -19,98 +19,107 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
-// 			Path: pulumi.String("/"),
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "apigateway.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
+//				Path: pulumi.String("/"),
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "apigateway.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "lambda.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "lambda.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
-// 			Code:    pulumi.NewFileArchive("lambda-function.zip"),
-// 			Role:    lambda.Arn,
-// 			Handler: pulumi.String("exports.example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
-// 			RestApi:               demoRestApi.ID(),
-// 			AuthorizerUri:         authorizer.InvokeArn,
-// 			AuthorizerCredentials: invocationRole.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "invocationPolicy", &iam.RolePolicyArgs{
-// 			Role: invocationRole.ID(),
-// 			Policy: authorizer.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "lambda:InvokeFunction",
-//       "Effect": "Allow",
-//       "Resource": "%v"
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("lambda-function.zip"),
+//				Role:    lambda.Arn,
+//				Handler: pulumi.String("exports.example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
+//				RestApi:               demoRestApi.ID(),
+//				AuthorizerUri:         authorizer.InvokeArn,
+//				AuthorizerCredentials: invocationRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "invocationPolicy", &iam.RolePolicyArgs{
+//				Role: invocationRole.ID(),
+//				Policy: authorizer.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "lambda:InvokeFunction",
+//	      "Effect": "Allow",
+//	      "Resource": "%v"
+//	    }
+//	  ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -118,7 +127,9 @@ import (
 // AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+//
+//	$ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+//
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState
@@ -300,7 +311,7 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 // AuthorizerArrayInput is an input type that accepts AuthorizerArray and AuthorizerArrayOutput values.
 // You can construct a concrete instance of `AuthorizerArrayInput` via:
 //
-//          AuthorizerArray{ AuthorizerArgs{...} }
+//	AuthorizerArray{ AuthorizerArgs{...} }
 type AuthorizerArrayInput interface {
 	pulumi.Input
 
@@ -325,7 +336,7 @@ func (i AuthorizerArray) ToAuthorizerArrayOutputWithContext(ctx context.Context)
 // AuthorizerMapInput is an input type that accepts AuthorizerMap and AuthorizerMapOutput values.
 // You can construct a concrete instance of `AuthorizerMapInput` via:
 //
-//          AuthorizerMap{ "key": AuthorizerArgs{...} }
+//	AuthorizerMap{ "key": AuthorizerArgs{...} }
 type AuthorizerMapInput interface {
 	pulumi.Input
 

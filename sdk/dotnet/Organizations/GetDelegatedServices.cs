@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Organizations.GetDelegatedServices.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Organizations.GetDelegatedServices.InvokeAsync(new Aws.Organizations.GetDelegatedServicesArgs
-        ///         {
-        ///             AccountId = "AWS ACCOUNT ID",
-        ///         }));
-        ///     }
+        ///         AccountId = "AWS ACCOUNT ID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Organizations.GetDelegatedServices.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Organizations.GetDelegatedServices.InvokeAsync(new Aws.Organizations.GetDelegatedServicesArgs
-        ///         {
-        ///             AccountId = "AWS ACCOUNT ID",
-        ///         }));
-        ///     }
+        ///         AccountId = "AWS ACCOUNT ID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Organizations
     }
 
 
-    public sealed class GetDelegatedServicesArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegatedServicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The account ID number of a delegated administrator account in the organization.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Organizations
         public GetDelegatedServicesArgs()
         {
         }
+        public static new GetDelegatedServicesArgs Empty => new GetDelegatedServicesArgs();
     }
 
-    public sealed class GetDelegatedServicesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegatedServicesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The account ID number of a delegated administrator account in the organization.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Organizations
         public GetDelegatedServicesInvokeArgs()
         {
         }
+        public static new GetDelegatedServicesInvokeArgs Empty => new GetDelegatedServicesInvokeArgs();
     }
 
 

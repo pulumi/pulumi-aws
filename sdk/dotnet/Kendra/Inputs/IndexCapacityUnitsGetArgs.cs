@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexCapacityUnitsGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexCapacityUnitsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexCapacityUnitsGetArgs()
         {
         }
+        public static new IndexCapacityUnitsGetArgs Empty => new IndexCapacityUnitsGetArgs();
     }
 }

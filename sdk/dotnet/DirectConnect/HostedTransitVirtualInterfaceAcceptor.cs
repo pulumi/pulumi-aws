@@ -18,56 +18,56 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
-    ///         {
-    ///         });
-    ///         // Accepter's credentials.
-    ///         var accepterCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Accepter's side of the VIF.
-    ///         var example = new Aws.DirectConnect.Gateway("example", new Aws.DirectConnect.GatewayArgs
-    ///         {
-    ///             AmazonSideAsn = "64512",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Accepter,
-    ///         });
-    ///         // Creator's side of the VIF
-    ///         var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new Aws.DirectConnect.HostedTransitVirtualInterfaceArgs
-    ///         {
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
-    ///             Vlan = 4094,
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 example,
-    ///             },
-    ///         });
-    ///         var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptorArgs
-    ///         {
-    ///             VirtualInterfaceId = creator.Id,
-    ///             DxGatewayId = example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Side", "Accepter" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Accepter,
-    ///         });
-    ///     }
+    ///     var accepter = new Aws.Provider("accepter");
     /// 
-    /// }
+    ///     // Accepter's credentials.
+    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     // Accepter's side of the VIF.
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
+    ///     {
+    ///         AmazonSideAsn = "64512",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Accepter,
+    ///     });
+    /// 
+    ///     // Creator's side of the VIF
+    ///     var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new()
+    ///     {
+    ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         Vlan = 4094,
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    ///     var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new()
+    ///     {
+    ///         VirtualInterfaceId = creator.Id,
+    ///         DxGatewayId = example.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Accepter" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Accepter,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor")]
-    public partial class HostedTransitVirtualInterfaceAcceptor : Pulumi.CustomResource
+    public partial class HostedTransitVirtualInterfaceAcceptor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the virtual interface.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class HostedTransitVirtualInterfaceAcceptorArgs : Pulumi.ResourceArgs
+    public sealed class HostedTransitVirtualInterfaceAcceptorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
@@ -184,9 +184,10 @@ namespace Pulumi.Aws.DirectConnect
         public HostedTransitVirtualInterfaceAcceptorArgs()
         {
         }
+        public static new HostedTransitVirtualInterfaceAcceptorArgs Empty => new HostedTransitVirtualInterfaceAcceptorArgs();
     }
 
-    public sealed class HostedTransitVirtualInterfaceAcceptorState : Pulumi.ResourceArgs
+    public sealed class HostedTransitVirtualInterfaceAcceptorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the virtual interface.
@@ -216,7 +217,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -233,5 +234,6 @@ namespace Pulumi.Aws.DirectConnect
         public HostedTransitVirtualInterfaceAcceptorState()
         {
         }
+        public static new HostedTransitVirtualInterfaceAcceptorState Empty => new HostedTransitVirtualInterfaceAcceptorState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetCostTypesGetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetCostTypesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean value whether to include credits in the cost budget. Defaults to `true`
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetCostTypesGetArgs()
         {
         }
+        public static new BudgetCostTypesGetArgs Empty => new BudgetCostTypesGetArgs();
     }
 }

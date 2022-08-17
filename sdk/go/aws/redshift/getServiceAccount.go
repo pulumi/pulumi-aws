@@ -19,58 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := redshift.GetServiceAccount(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			ForceDestroy: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketPolicy(ctx, "allowAuditLogging", &s3.BucketPolicyArgs{
-// 			Bucket: bucket.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-// 	"Version": "2008-10-17",
-// 	"Statement": [
-// 		{
-//             "Sid": "Put bucket policy needed for audit logging",
-//             "Effect": "Allow",
-//             "Principal": {
-// 		        "AWS": "%v"
-//             },
-//             "Action": "s3:PutObject",
-//             "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
-//         },
-//         {
-//             "Sid": "Get bucket policy needed for audit logging ",
-//             "Effect": "Allow",
-//             "Principal": {
-// 		        "AWS": "%v"
-//             },
-//             "Action": "s3:GetBucketAcl",
-//             "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
-//         }
-// 	]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := redshift.GetServiceAccount(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketPolicy(ctx, "allowAuditLogging", &s3.BucketPolicyArgs{
+//				Bucket: bucket.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//		"Version": "2008-10-17",
+//		"Statement": [
+//			{
+//	            "Sid": "Put bucket policy needed for audit logging",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//			        "AWS": "%v"
+//	            },
+//	            "Action": "s3:PutObject",
+//	            "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
+//	        },
+//	        {
+//	            "Sid": "Get bucket policy needed for audit logging ",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//			        "AWS": "%v"
+//	            },
+//	            "Action": "s3:GetBucketAcl",
+//	            "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
+//	        }
+//		]
+//	}
+//
 // `, main.Arn, main.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	var rv GetServiceAccountResult

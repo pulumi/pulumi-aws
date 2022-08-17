@@ -46,13 +46,6 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
@@ -88,7 +81,6 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
     private MedicalVocabularyArgs(MedicalVocabularyArgs $) {
         this.languageCode = $.languageCode;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.vocabularyFileUri = $.vocabularyFileUri;
         this.vocabularyName = $.vocabularyName;
     }
@@ -151,15 +143,6 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

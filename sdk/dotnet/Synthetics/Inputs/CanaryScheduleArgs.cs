@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Synthetics.Inputs
 {
 
-    public sealed class CanaryScheduleArgs : Pulumi.ResourceArgs
+    public sealed class CanaryScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Synthetics.Inputs
         public CanaryScheduleArgs()
         {
         }
+        public static new CanaryScheduleArgs Empty => new CanaryScheduleArgs();
     }
 }

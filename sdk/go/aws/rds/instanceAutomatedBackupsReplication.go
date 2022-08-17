@@ -23,22 +23,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
-// 			RetentionPeriod:     pulumi.Int(14),
-// 			SourceDbInstanceArn: pulumi.String("arn:aws:rds:us-west-2:123456789012:db:mydatabase"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
+//				RetentionPeriod:     pulumi.Int(14),
+//				SourceDbInstanceArn: pulumi.String("arn:aws:rds:us-west-2:123456789012:db:mydatabase"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Encrypting the automated backup with KMS
 //
@@ -46,22 +49,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
-// 			KmsKeyId:            pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
-// 			SourceDbInstanceArn: pulumi.String("arn:aws:rds:us-west-2:123456789012:db:mydatabase"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewInstanceAutomatedBackupsReplication(ctx, "default", &rds.InstanceAutomatedBackupsReplicationArgs{
+//				KmsKeyId:            pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
+//				SourceDbInstanceArn: pulumi.String("arn:aws:rds:us-west-2:123456789012:db:mydatabase"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Example including a RDS DB instance
@@ -70,52 +76,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "replica", &providers.awsArgs{
-// 			Region: "us-west-2",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
-// 			AllocatedStorage:      pulumi.Int(10),
-// 			Identifier:            pulumi.String("mydb"),
-// 			Engine:                pulumi.String("postgres"),
-// 			EngineVersion:         pulumi.String("13.4"),
-// 			InstanceClass:         pulumi.String("db.t3.micro"),
-// 			Name:                  pulumi.String("mydb"),
-// 			Username:              pulumi.String("masterusername"),
-// 			Password:              pulumi.String("mustbeeightcharacters"),
-// 			BackupRetentionPeriod: pulumi.Int(7),
-// 			StorageEncrypted:      pulumi.Bool(true),
-// 			SkipFinalSnapshot:     pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
-// 			Description: pulumi.String("Encryption key for automated backups"),
-// 		}, pulumi.Provider("aws.replica"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewInstanceAutomatedBackupsReplication(ctx, "defaultInstanceAutomatedBackupsReplication", &rds.InstanceAutomatedBackupsReplicationArgs{
-// 			SourceDbInstanceArn: defaultInstance.Arn,
-// 			KmsKeyId:            defaultKey.Arn,
-// 		}, pulumi.Provider("aws.replica"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "replica", &aws.ProviderArgs{
+//				Region: pulumi.String("us-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
+//				AllocatedStorage:      pulumi.Int(10),
+//				Identifier:            pulumi.String("mydb"),
+//				Engine:                pulumi.String("postgres"),
+//				EngineVersion:         pulumi.String("13.4"),
+//				InstanceClass:         pulumi.String("db.t3.micro"),
+//				Name:                  pulumi.String("mydb"),
+//				Username:              pulumi.String("masterusername"),
+//				Password:              pulumi.String("mustbeeightcharacters"),
+//				BackupRetentionPeriod: pulumi.Int(7),
+//				StorageEncrypted:      pulumi.Bool(true),
+//				SkipFinalSnapshot:     pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
+//				Description: pulumi.String("Encryption key for automated backups"),
+//			}, pulumi.Provider("aws.replica"))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewInstanceAutomatedBackupsReplication(ctx, "defaultInstanceAutomatedBackupsReplication", &rds.InstanceAutomatedBackupsReplicationArgs{
+//				SourceDbInstanceArn: defaultInstance.Arn,
+//				KmsKeyId:            defaultKey.Arn,
+//			}, pulumi.Provider("aws.replica"))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -123,7 +132,9 @@ import (
 // RDS instance automated backups replication can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+//
+//	$ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+//
 // ```
 type InstanceAutomatedBackupsReplication struct {
 	pulumi.CustomResourceState
@@ -244,7 +255,7 @@ func (i *InstanceAutomatedBackupsReplication) ToInstanceAutomatedBackupsReplicat
 // InstanceAutomatedBackupsReplicationArrayInput is an input type that accepts InstanceAutomatedBackupsReplicationArray and InstanceAutomatedBackupsReplicationArrayOutput values.
 // You can construct a concrete instance of `InstanceAutomatedBackupsReplicationArrayInput` via:
 //
-//          InstanceAutomatedBackupsReplicationArray{ InstanceAutomatedBackupsReplicationArgs{...} }
+//	InstanceAutomatedBackupsReplicationArray{ InstanceAutomatedBackupsReplicationArgs{...} }
 type InstanceAutomatedBackupsReplicationArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +280,7 @@ func (i InstanceAutomatedBackupsReplicationArray) ToInstanceAutomatedBackupsRepl
 // InstanceAutomatedBackupsReplicationMapInput is an input type that accepts InstanceAutomatedBackupsReplicationMap and InstanceAutomatedBackupsReplicationMapOutput values.
 // You can construct a concrete instance of `InstanceAutomatedBackupsReplicationMapInput` via:
 //
-//          InstanceAutomatedBackupsReplicationMap{ "key": InstanceAutomatedBackupsReplicationArgs{...} }
+//	InstanceAutomatedBackupsReplicationMap{ "key": InstanceAutomatedBackupsReplicationArgs{...} }
 type InstanceAutomatedBackupsReplicationMapInput interface {
 	pulumi.Input
 

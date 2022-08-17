@@ -16,22 +16,20 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2ClientVpn.AuthorizationRule("example", new()
     ///     {
-    ///         var example = new Aws.Ec2ClientVpn.AuthorizationRule("example", new Aws.Ec2ClientVpn.AuthorizationRuleArgs
-    ///         {
-    ///             ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///             TargetNetworkCidr = aws_subnet.Example.Cidr_block,
-    ///             AuthorizeAllGroups = true,
-    ///         });
-    ///     }
+    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
+    ///         TargetNetworkCidr = aws_subnet.Example.Cidr_block,
+    ///         AuthorizeAllGroups = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/authorizationRule:AuthorizationRule")]
-    public partial class AuthorizationRule : Pulumi.CustomResource
+    public partial class AuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
@@ -123,7 +121,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
     }
 
-    public sealed class AuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public AuthorizationRuleArgs()
         {
         }
+        public static new AuthorizationRuleArgs Empty => new AuthorizationRuleArgs();
     }
 
-    public sealed class AuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class AuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
@@ -195,5 +194,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public AuthorizationRuleState()
         {
         }
+        public static new AuthorizationRuleState Empty => new AuthorizationRuleState();
     }
 }

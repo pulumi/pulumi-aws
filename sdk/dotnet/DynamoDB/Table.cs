@@ -10,129 +10,114 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB
 {
     /// <summary>
-    /// Provides a DynamoDB table resource
-    /// 
-    /// &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
-    /// 
-    /// ## DynamoDB Table attributes
-    /// 
-    /// Only define attributes on the table object that are going to be used as:
-    /// 
-    /// * Table hash key or range key
-    /// * LSI or GSI hash key or range key
-    /// 
-    /// The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
-    /// 
     /// ## Example Usage
     /// ### Basic Example
     /// 
     /// The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
     ///     {
-    ///         var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new Aws.DynamoDB.TableArgs
+    ///         Attributes = new[]
     ///         {
-    ///             Attributes = 
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "UserId",
-    ///                     Type = "S",
-    ///                 },
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "GameTitle",
-    ///                     Type = "S",
-    ///                 },
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "TopScore",
-    ///                     Type = "N",
-    ///                 },
+    ///                 Name = "UserId",
+    ///                 Type = "S",
     ///             },
-    ///             BillingMode = "PROVISIONED",
-    ///             GlobalSecondaryIndexes = 
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///                 Name = "GameTitle",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "TopScore",
+    ///                 Type = "N",
+    ///             },
+    ///         },
+    ///         BillingMode = "PROVISIONED",
+    ///         GlobalSecondaryIndexes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 HashKey = "GameTitle",
+    ///                 Name = "GameTitleIndex",
+    ///                 NonKeyAttributes = new[]
     ///                 {
-    ///                     HashKey = "GameTitle",
-    ///                     Name = "GameTitleIndex",
-    ///                     NonKeyAttributes = 
-    ///                     {
-    ///                         "UserId",
-    ///                     },
-    ///                     ProjectionType = "INCLUDE",
-    ///                     RangeKey = "TopScore",
-    ///                     ReadCapacity = 10,
-    ///                     WriteCapacity = 10,
+    ///                     "UserId",
     ///                 },
+    ///                 ProjectionType = "INCLUDE",
+    ///                 RangeKey = "TopScore",
+    ///                 ReadCapacity = 10,
+    ///                 WriteCapacity = 10,
     ///             },
-    ///             HashKey = "UserId",
-    ///             RangeKey = "GameTitle",
-    ///             ReadCapacity = 20,
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "production" },
-    ///                 { "Name", "dynamodb-table-1" },
-    ///             },
-    ///             Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
-    ///             {
-    ///                 AttributeName = "TimeToExist",
-    ///                 Enabled = false,
-    ///             },
-    ///             WriteCapacity = 20,
-    ///         });
-    ///     }
+    ///         },
+    ///         HashKey = "UserId",
+    ///         RangeKey = "GameTitle",
+    ///         ReadCapacity = 20,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Name", "dynamodb-table-1" },
+    ///         },
+    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
+    ///         {
+    ///             AttributeName = "TimeToExist",
+    ///             Enabled = false,
+    ///         },
+    ///         WriteCapacity = 20,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Global Tables
     /// 
     /// This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
     /// 
+    /// &gt; **Note:** [aws.dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html) is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `aws.dynamodb.Table` together with [aws.dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html).
+    /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         var example = new Aws.DynamoDB.Table("example", new Aws.DynamoDB.TableArgs
+    ///         Attributes = new[]
     ///         {
-    ///             Attributes = 
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "TestTableHashKey",
-    ///                     Type = "S",
-    ///                 },
+    ///                 Name = "TestTableHashKey",
+    ///                 Type = "S",
     ///             },
-    ///             BillingMode = "PAY_PER_REQUEST",
-    ///             HashKey = "TestTableHashKey",
-    ///             Replicas = 
+    ///         },
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         HashKey = "TestTableHashKey",
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableReplicaArgs
-    ///                 {
-    ///                     RegionName = "us-east-2",
-    ///                 },
-    ///                 new Aws.DynamoDB.Inputs.TableReplicaArgs
-    ///                 {
-    ///                     RegionName = "us-west-2",
-    ///                 },
+    ///                 RegionName = "us-east-2",
     ///             },
-    ///             StreamEnabled = true,
-    ///             StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         });
-    ///     }
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = "us-west-2",
+    ///             },
+    ///         },
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -144,7 +129,7 @@ namespace Pulumi.Aws.DynamoDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/table:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the table
@@ -334,7 +319,7 @@ namespace Pulumi.Aws.DynamoDB
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<Inputs.TableAttributeArgs>? _attributes;
@@ -489,9 +474,10 @@ namespace Pulumi.Aws.DynamoDB
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 
-    public sealed class TableState : Pulumi.ResourceArgs
+    public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the table
@@ -676,5 +662,6 @@ namespace Pulumi.Aws.DynamoDB
         public TableState()
         {
         }
+        public static new TableState Empty => new TableState();
     }
 }

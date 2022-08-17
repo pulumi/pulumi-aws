@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class RouteRequestParameterArgs : Pulumi.ResourceArgs
+    public sealed class RouteRequestParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public RouteRequestParameterArgs()
         {
         }
+        public static new RouteRequestParameterArgs Empty => new RouteRequestParameterArgs();
     }
 }

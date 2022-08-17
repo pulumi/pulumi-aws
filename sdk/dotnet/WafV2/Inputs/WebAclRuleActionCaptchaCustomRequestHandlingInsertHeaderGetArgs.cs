@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Label string.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderGetArgs()
         {
         }
+        public static new WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderGetArgs Empty => new WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderGetArgs();
     }
 }

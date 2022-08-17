@@ -15,85 +15,84 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///             EnableDnsSupport = true,
-    ///             EnableDnsHostnames = true,
-    ///         });
-    ///         var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new Aws.ServiceDiscovery.PrivateDnsNamespaceArgs
-    ///         {
-    ///             Description = "example",
-    ///             Vpc = exampleVpc.Id,
-    ///         });
-    ///         var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new Aws.ServiceDiscovery.ServiceArgs
-    ///         {
-    ///             DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
-    ///             {
-    ///                 NamespaceId = examplePrivateDnsNamespace.Id,
-    ///                 DnsRecords = 
-    ///                 {
-    ///                     new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
-    ///                     {
-    ///                         Ttl = 10,
-    ///                         Type = "A",
-    ///                     },
-    ///                 },
-    ///                 RoutingPolicy = "MULTIVALUE",
-    ///             },
-    ///             HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
-    ///             {
-    ///                 FailureThreshold = 1,
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         EnableDnsSupport = true,
+    ///         EnableDnsHostnames = true,
+    ///     });
     /// 
-    /// }
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     {
+    ///         Description = "example",
+    ///         Vpc = exampleVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     {
+    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
+    ///         {
+    ///             NamespaceId = examplePrivateDnsNamespace.Id,
+    ///             DnsRecords = new[]
+    ///             {
+    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
+    ///                 {
+    ///                     Ttl = 10,
+    ///                     Type = "A",
+    ///                 },
+    ///             },
+    ///             RoutingPolicy = "MULTIVALUE",
+    ///         },
+    ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
+    ///         {
+    ///             FailureThreshold = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePublicDnsNamespace = new Aws.ServiceDiscovery.PublicDnsNamespace("examplePublicDnsNamespace", new()
     ///     {
-    ///         var examplePublicDnsNamespace = new Aws.ServiceDiscovery.PublicDnsNamespace("examplePublicDnsNamespace", new Aws.ServiceDiscovery.PublicDnsNamespaceArgs
+    ///         Description = "example",
+    ///     });
+    /// 
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     {
+    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
-    ///             Description = "example",
-    ///         });
-    ///         var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new Aws.ServiceDiscovery.ServiceArgs
-    ///         {
-    ///             DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
+    ///             NamespaceId = examplePublicDnsNamespace.Id,
+    ///             DnsRecords = new[]
     ///             {
-    ///                 NamespaceId = examplePublicDnsNamespace.Id,
-    ///                 DnsRecords = 
+    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
     ///                 {
-    ///                     new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
-    ///                     {
-    ///                         Ttl = 10,
-    ///                         Type = "A",
-    ///                     },
+    ///                     Ttl = 10,
+    ///                     Type = "A",
     ///                 },
     ///             },
-    ///             HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
-    ///             {
-    ///                 FailureThreshold = 10,
-    ///                 ResourcePath = "path",
-    ///                 Type = "HTTP",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
+    ///         {
+    ///             FailureThreshold = 10,
+    ///             ResourcePath = "path",
+    ///             Type = "HTTP",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -105,7 +104,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the service.
@@ -156,13 +155,13 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> NamespaceId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the service. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -211,7 +210,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the service.
@@ -259,7 +258,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -270,9 +269,10 @@ namespace Pulumi.Aws.ServiceDiscovery
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the service.
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -349,5 +349,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

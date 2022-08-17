@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs()
         {
         }
+        public static new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs Empty => new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs();
     }
 }

@@ -20,65 +20,62 @@ namespace Pulumi.Aws.S3Control
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+    ///         Bucket = exampleBucketV2.Id,
+    ///     });
+    /// 
+    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new()
+    ///     {
+    ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
     ///         {
-    ///         });
-    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///         });
-    ///         var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new Aws.S3Control.ObjectLambdaAccessPointArgs
-    ///         {
-    ///             Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
+    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
+    ///             TransformationConfigurations = new[]
     ///             {
-    ///                 SupportingAccessPoint = exampleAccessPoint.Arn,
-    ///                 TransformationConfigurations = 
+    ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
     ///                 {
-    ///                     new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
+    ///                     Actions = new[]
     ///                     {
-    ///                         Actions = 
+    ///                         "GetObject",
+    ///                     },
+    ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
+    ///                     {
+    ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
     ///                         {
-    ///                             "GetObject",
-    ///                         },
-    ///                         ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
-    ///                         {
-    ///                             AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
-    ///                             {
-    ///                                 FunctionArn = aws_lambda_function.Example.Arn,
-    ///                             },
+    ///                             FunctionArn = aws_lambda_function.Example.Arn,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", new Aws.S3Control.ObjectLambdaAccessPointPolicyArgs
-    ///         {
-    ///             Policy = exampleObjectLambdaAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2008-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Effect", "Allow" },
-    ///                             { "Action", "s3-object-lambda:GetObject" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "AWS", data.Aws_caller_identity.Current.Account_id },
-    ///                             } },
-    ///                             { "Resource", arn },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             })),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", new()
+    ///     {
+    ///         Policy = exampleObjectLambdaAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2008-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = "s3-object-lambda:GetObject",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = data.Aws_caller_identity.Current.Account_id,
+    ///                     },
+    ///                     ["Resource"] = arn,
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +87,7 @@ namespace Pulumi.Aws.S3Control
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")]
-    public partial class ObjectLambdaAccessPointPolicy : Pulumi.CustomResource
+    public partial class ObjectLambdaAccessPointPolicy : global::Pulumi.CustomResource
     {
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -157,7 +154,7 @@ namespace Pulumi.Aws.S3Control
         }
     }
 
-    public sealed class ObjectLambdaAccessPointPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ObjectLambdaAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -177,9 +174,10 @@ namespace Pulumi.Aws.S3Control
         public ObjectLambdaAccessPointPolicyArgs()
         {
         }
+        public static new ObjectLambdaAccessPointPolicyArgs Empty => new ObjectLambdaAccessPointPolicyArgs();
     }
 
-    public sealed class ObjectLambdaAccessPointPolicyState : Pulumi.ResourceArgs
+    public sealed class ObjectLambdaAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -205,5 +203,6 @@ namespace Pulumi.Aws.S3Control
         public ObjectLambdaAccessPointPolicyState()
         {
         }
+        public static new ObjectLambdaAccessPointPolicyState Empty => new ObjectLambdaAccessPointPolicyState();
     }
 }

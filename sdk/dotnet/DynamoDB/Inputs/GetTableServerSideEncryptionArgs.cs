@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class GetTableServerSideEncryptionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetTableServerSideEncryptionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public GetTableServerSideEncryptionInputArgs()
         {
         }
+        public static new GetTableServerSideEncryptionInputArgs Empty => new GetTableServerSideEncryptionInputArgs();
     }
 }

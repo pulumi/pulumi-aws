@@ -18,7 +18,9 @@ import (
 // AccessAnalyzer ArchiveRule can be imported using the `analyzer_name/rule_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+//
+//	$ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+//
 // ```
 type ArchiveRule struct {
 	pulumi.CustomResourceState
@@ -135,7 +137,7 @@ func (i *ArchiveRule) ToArchiveRuleOutputWithContext(ctx context.Context) Archiv
 // ArchiveRuleArrayInput is an input type that accepts ArchiveRuleArray and ArchiveRuleArrayOutput values.
 // You can construct a concrete instance of `ArchiveRuleArrayInput` via:
 //
-//          ArchiveRuleArray{ ArchiveRuleArgs{...} }
+//	ArchiveRuleArray{ ArchiveRuleArgs{...} }
 type ArchiveRuleArrayInput interface {
 	pulumi.Input
 
@@ -160,7 +162,7 @@ func (i ArchiveRuleArray) ToArchiveRuleArrayOutputWithContext(ctx context.Contex
 // ArchiveRuleMapInput is an input type that accepts ArchiveRuleMap and ArchiveRuleMapOutput values.
 // You can construct a concrete instance of `ArchiveRuleMapInput` via:
 //
-//          ArchiveRuleMap{ "key": ArchiveRuleArgs{...} }
+//	ArchiveRuleMap{ "key": ArchiveRuleArgs{...} }
 type ArchiveRuleMapInput interface {
 	pulumi.Input
 

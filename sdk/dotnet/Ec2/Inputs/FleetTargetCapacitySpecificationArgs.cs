@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetTargetCapacitySpecificationArgs : Pulumi.ResourceArgs
+    public sealed class FleetTargetCapacitySpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default target capacity type. Valid values: `on-demand`, `spot`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetTargetCapacitySpecificationArgs()
         {
         }
+        public static new FleetTargetCapacitySpecificationArgs Empty => new FleetTargetCapacitySpecificationArgs();
     }
 }

@@ -16,23 +16,21 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.App("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.App("example", new Aws.Sagemaker.AppArgs
-    ///         {
-    ///             DomainId = aws_sagemaker_domain.Example.Id,
-    ///             UserProfileName = aws_sagemaker_user_profile.Example.User_profile_name,
-    ///             AppName = "example",
-    ///             AppType = "JupyterServer",
-    ///         });
-    ///     }
+    ///         DomainId = aws_sagemaker_domain.Example.Id,
+    ///         UserProfileName = aws_sagemaker_user_profile.Example.User_profile_name,
+    ///         AppName = "example",
+    ///         AppType = "JupyterServer",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/app:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the app.
@@ -83,7 +81,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -138,7 +136,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the app.
@@ -185,9 +183,10 @@ namespace Pulumi.Aws.Sagemaker
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 
-    public sealed class AppState : Pulumi.ResourceArgs
+    public sealed class AppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the app.
@@ -235,7 +234,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -252,5 +251,6 @@ namespace Pulumi.Aws.Sagemaker
         public AppState()
         {
         }
+        public static new AppState Empty => new AppState();
     }
 }

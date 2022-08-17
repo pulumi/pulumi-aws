@@ -17,75 +17,73 @@ namespace Pulumi.Aws.Sns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.Sns.Topic("test", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var snsTopicPolicy = test.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             PolicyId = "__default_policy_ID",
-    ///             Statements = 
-    ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "SNS:Subscribe",
-    ///                         "SNS:SetTopicAttributes",
-    ///                         "SNS:RemovePermission",
-    ///                         "SNS:Receive",
-    ///                         "SNS:Publish",
-    ///                         "SNS:ListSubscriptionsByTopic",
-    ///                         "SNS:GetTopicAttributes",
-    ///                         "SNS:DeleteTopic",
-    ///                         "SNS:AddPermission",
-    ///                     },
-    ///                     Conditions = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                         {
-    ///                             Test = "StringEquals",
-    ///                             Variable = "AWS:SourceOwner",
-    ///                             Values = 
-    ///                             {
-    ///                                 @var.Account_id,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "*",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         arn,
-    ///                     },
-    ///                     Sid = "__default_statement_ID",
-    ///                 },
-    ///             },
-    ///         }));
-    ///         var @default = new Aws.Sns.TopicPolicy("default", new Aws.Sns.TopicPolicyArgs
-    ///         {
-    ///             Arn = test.Arn,
-    ///             Policy = snsTopicPolicy.Apply(snsTopicPolicy =&gt; snsTopicPolicy.Json),
-    ///         });
-    ///     }
+    ///     var test = new Aws.Sns.Topic("test");
     /// 
-    /// }
+    ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         PolicyId = "__default_policy_ID",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Subscribe",
+    ///                     "SNS:SetTopicAttributes",
+    ///                     "SNS:RemovePermission",
+    ///                     "SNS:Receive",
+    ///                     "SNS:Publish",
+    ///                     "SNS:ListSubscriptionsByTopic",
+    ///                     "SNS:GetTopicAttributes",
+    ///                     "SNS:DeleteTopic",
+    ///                     "SNS:AddPermission",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "AWS:SourceOwner",
+    ///                         Values = new[]
+    ///                         {
+    ///                             @var.Account_id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     test.Arn,
+    ///                 },
+    ///                 Sid = "__default_statement_ID",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var @default = new Aws.Sns.TopicPolicy("default", new()
+    ///     {
+    ///         Arn = test.Arn,
+    ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topicPolicy:TopicPolicy")]
-    public partial class TopicPolicy : Pulumi.CustomResource
+    public partial class TopicPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the SNS topic
@@ -161,7 +159,7 @@ namespace Pulumi.Aws.Sns
         }
     }
 
-    public sealed class TopicPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TopicPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SNS topic
@@ -178,9 +176,10 @@ namespace Pulumi.Aws.Sns
         public TopicPolicyArgs()
         {
         }
+        public static new TopicPolicyArgs Empty => new TopicPolicyArgs();
     }
 
-    public sealed class TopicPolicyState : Pulumi.ResourceArgs
+    public sealed class TopicPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SNS topic
@@ -203,5 +202,6 @@ namespace Pulumi.Aws.Sns
         public TopicPolicyState()
         {
         }
+        public static new TopicPolicyState Empty => new TopicPolicyState();
     }
 }

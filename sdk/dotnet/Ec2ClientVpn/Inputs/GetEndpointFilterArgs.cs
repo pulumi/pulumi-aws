@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 {
 
-    public sealed class GetEndpointFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetEndpointFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public GetEndpointFilterInputArgs()
         {
         }
+        public static new GetEndpointFilterInputArgs Empty => new GetEndpointFilterInputArgs();
     }
 }

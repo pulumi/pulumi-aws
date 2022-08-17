@@ -24,49 +24,54 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": ["sts:AssumeRole"],
-//       "Effect": "allow",
-//       "Principal": {
-//         "Service": ["backup.amazonaws.com"]
-//       }
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": ["sts:AssumeRole"],
+//	      "Effect": "allow",
+//	      "Principal": {
+//	        "Service": ["backup.amazonaws.com"]
+//	      }
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"),
-// 			Role:      exampleRole.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewSelection(ctx, "exampleSelection", &backup.SelectionArgs{
-// 			IamRoleArn: exampleRole.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"),
+//				Role:      exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewSelection(ctx, "exampleSelection", &backup.SelectionArgs{
+//				IamRoleArn: exampleRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Selecting Backups By Tag
 //
@@ -74,29 +79,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-// 			IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
-// 			SelectionTags: backup.SelectionSelectionTagArray{
-// 				&backup.SelectionSelectionTagArgs{
-// 					Type:  pulumi.String("STRINGEQUALS"),
-// 					Key:   pulumi.String("foo"),
-// 					Value: pulumi.String("bar"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				SelectionTags: backup.SelectionSelectionTagArray{
+//					&backup.SelectionSelectionTagArgs{
+//						Type:  pulumi.String("STRINGEQUALS"),
+//						Key:   pulumi.String("foo"),
+//						Value: pulumi.String("bar"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Selecting Backups By Conditions
 //
@@ -104,53 +112,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-// 			IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
-// 			Resources: pulumi.StringArray{
-// 				pulumi.String("*"),
-// 			},
-// 			Conditions: backup.SelectionConditionArray{
-// 				&backup.SelectionConditionArgs{
-// 					StringEquals: backup.SelectionConditionStringEqualArray{
-// 						&backup.SelectionConditionStringEqualArgs{
-// 							Key:   pulumi.String("aws:ResourceTag/Component"),
-// 							Value: pulumi.String("rds"),
-// 						},
-// 					},
-// 					StringLikes: backup.SelectionConditionStringLikeArray{
-// 						&backup.SelectionConditionStringLikeArgs{
-// 							Key:   pulumi.String("aws:ResourceTag/Application"),
-// 							Value: pulumi.String("app*"),
-// 						},
-// 					},
-// 					StringNotEquals: backup.SelectionConditionStringNotEqualArray{
-// 						&backup.SelectionConditionStringNotEqualArgs{
-// 							Key:   pulumi.String("aws:ResourceTag/Backup"),
-// 							Value: pulumi.String("false"),
-// 						},
-// 					},
-// 					StringNotLikes: backup.SelectionConditionStringNotLikeArray{
-// 						&backup.SelectionConditionStringNotLikeArgs{
-// 							Key:   pulumi.String("aws:ResourceTag/Environment"),
-// 							Value: pulumi.String("test*"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				Resources: pulumi.StringArray{
+//					pulumi.String("*"),
+//				},
+//				Conditions: backup.SelectionConditionArray{
+//					&backup.SelectionConditionArgs{
+//						StringEquals: backup.SelectionConditionStringEqualArray{
+//							&backup.SelectionConditionStringEqualArgs{
+//								Key:   pulumi.String("aws:ResourceTag/Component"),
+//								Value: pulumi.String("rds"),
+//							},
+//						},
+//						StringLikes: backup.SelectionConditionStringLikeArray{
+//							&backup.SelectionConditionStringLikeArgs{
+//								Key:   pulumi.String("aws:ResourceTag/Application"),
+//								Value: pulumi.String("app*"),
+//							},
+//						},
+//						StringNotEquals: backup.SelectionConditionStringNotEqualArray{
+//							&backup.SelectionConditionStringNotEqualArgs{
+//								Key:   pulumi.String("aws:ResourceTag/Backup"),
+//								Value: pulumi.String("false"),
+//							},
+//						},
+//						StringNotLikes: backup.SelectionConditionStringNotLikeArray{
+//							&backup.SelectionConditionStringNotLikeArgs{
+//								Key:   pulumi.String("aws:ResourceTag/Environment"),
+//								Value: pulumi.String("test*"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Selecting Backups By Resource
 //
@@ -158,27 +169,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-// 			IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
-// 			Resources: pulumi.StringArray{
-// 				pulumi.Any(aws_db_instance.Example.Arn),
-// 				pulumi.Any(aws_ebs_volume.Example.Arn),
-// 				pulumi.Any(aws_efs_file_system.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				Resources: pulumi.StringArray{
+//					pulumi.Any(aws_db_instance.Example.Arn),
+//					pulumi.Any(aws_ebs_volume.Example.Arn),
+//					pulumi.Any(aws_efs_file_system.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Selecting Backups By Not Resource
 //
@@ -186,27 +200,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-// 			IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
-// 			NotResources: pulumi.StringArray{
-// 				pulumi.Any(aws_db_instance.Example.Arn),
-// 				pulumi.Any(aws_ebs_volume.Example.Arn),
-// 				pulumi.Any(aws_efs_file_system.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				NotResources: pulumi.StringArray{
+//					pulumi.Any(aws_db_instance.Example.Arn),
+//					pulumi.Any(aws_ebs_volume.Example.Arn),
+//					pulumi.Any(aws_efs_file_system.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -214,7 +231,9 @@ import (
 // Backup selection can be imported using the role plan_id and id separated by `|`.
 //
 // ```sh
-//  $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+//
+//	$ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+//
 // ```
 type Selection struct {
 	pulumi.CustomResourceState
@@ -368,7 +387,7 @@ func (i *Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionO
 // SelectionArrayInput is an input type that accepts SelectionArray and SelectionArrayOutput values.
 // You can construct a concrete instance of `SelectionArrayInput` via:
 //
-//          SelectionArray{ SelectionArgs{...} }
+//	SelectionArray{ SelectionArgs{...} }
 type SelectionArrayInput interface {
 	pulumi.Input
 
@@ -393,7 +412,7 @@ func (i SelectionArray) ToSelectionArrayOutputWithContext(ctx context.Context) S
 // SelectionMapInput is an input type that accepts SelectionMap and SelectionMapOutput values.
 // You can construct a concrete instance of `SelectionMapInput` via:
 //
-//          SelectionMap{ "key": SelectionArgs{...} }
+//	SelectionMap{ "key": SelectionArgs{...} }
 type SelectionMapInput interface {
 	pulumi.Input
 

@@ -19,47 +19,45 @@ namespace Pulumi.Aws.S3Control
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new Aws.S3Control.BucketLifecycleConfigurationArgs
+    ///         Bucket = aws_s3control_bucket.Example.Arn,
+    ///         Rules = new[]
     ///         {
-    ///             Bucket = aws_s3control_bucket.Example.Arn,
-    ///             Rules = 
+    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
     ///             {
-    ///                 new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
     ///                 {
-    ///                     Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
-    ///                     {
-    ///                         Days = 365,
-    ///                     },
-    ///                     Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
-    ///                     {
-    ///                         Prefix = "logs/",
-    ///                     },
-    ///                     Id = "logs",
+    ///                     Days = 365,
     ///                 },
-    ///                 new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
     ///                 {
-    ///                     Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
-    ///                     {
-    ///                         Days = 7,
-    ///                     },
-    ///                     Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
-    ///                     {
-    ///                         Prefix = "temp/",
-    ///                     },
-    ///                     Id = "temp",
+    ///                     Prefix = "logs/",
     ///                 },
+    ///                 Id = "logs",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                 {
+    ///                     Days = 7,
+    ///                 },
+    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Prefix = "temp/",
+    ///                 },
+    ///                 Id = "temp",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +69,7 @@ namespace Pulumi.Aws.S3Control
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]
-    public partial class BucketLifecycleConfiguration : Pulumi.CustomResource
+    public partial class BucketLifecycleConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.S3Control
         }
     }
 
-    public sealed class BucketLifecycleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -152,9 +150,10 @@ namespace Pulumi.Aws.S3Control
         public BucketLifecycleConfigurationArgs()
         {
         }
+        public static new BucketLifecycleConfigurationArgs Empty => new BucketLifecycleConfigurationArgs();
     }
 
-    public sealed class BucketLifecycleConfigurationState : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -177,5 +176,6 @@ namespace Pulumi.Aws.S3Control
         public BucketLifecycleConfigurationState()
         {
         }
+        public static new BucketLifecycleConfigurationState Empty => new BucketLifecycleConfigurationState();
     }
 }

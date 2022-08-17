@@ -15,23 +15,21 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppStream.User("example", new()
     ///     {
-    ///         var example = new Aws.AppStream.User("example", new Aws.AppStream.UserArgs
-    ///         {
-    ///             AuthenticationType = "USERPOOL",
-    ///             FirstName = "FIRST NAME",
-    ///             LastName = "LAST NAME",
-    ///             UserName = "EMAIL",
-    ///         });
-    ///     }
+    ///         AuthenticationType = "USERPOOL",
+    ///         FirstName = "FIRST NAME",
+    ///         LastName = "LAST NAME",
+    ///         UserName = "EMAIL",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the appstream user.
@@ -137,7 +135,7 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
@@ -178,9 +176,10 @@ namespace Pulumi.Aws.AppStream
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the appstream user.
@@ -233,5 +232,6 @@ namespace Pulumi.Aws.AppStream
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

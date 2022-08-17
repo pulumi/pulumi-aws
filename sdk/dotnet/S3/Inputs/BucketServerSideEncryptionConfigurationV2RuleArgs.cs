@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketServerSideEncryptionConfigurationV2RuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketServerSideEncryptionConfigurationV2RuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A single object for setting server-side encryption by default documented below
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketServerSideEncryptionConfigurationV2RuleArgs()
         {
         }
+        public static new BucketServerSideEncryptionConfigurationV2RuleArgs Empty => new BucketServerSideEncryptionConfigurationV2RuleArgs();
     }
 }

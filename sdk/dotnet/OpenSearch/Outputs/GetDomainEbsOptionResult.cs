@@ -22,6 +22,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly int Iops;
         /// <summary>
+        /// The throughput (in MiB/s) of the EBS volumes attached to data nodes.
+        /// </summary>
+        public readonly int Throughput;
+        /// <summary>
         /// Size of EBS volumes attached to data nodes (in GB).
         /// </summary>
         public readonly int VolumeSize;
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             int iops,
 
+            int throughput,
+
             int volumeSize,
 
             string volumeType)
         {
             EbsEnabled = ebsEnabled;
             Iops = iops;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

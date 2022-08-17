@@ -18,29 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.GetImageRecipes(ctx, &imagebuilder.GetImageRecipesArgs{
-// 			Filters: []imagebuilder.GetImageRecipesFilter{
-// 				imagebuilder.GetImageRecipesFilter{
-// 					Name: "platform",
-// 					Values: []string{
-// 						"Linux",
-// 					},
-// 				},
-// 			},
-// 			Owner: pulumi.StringRef("Self"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.GetImageRecipes(ctx, &imagebuilder.GetImageRecipesArgs{
+//				Filters: []imagebuilder.GetImageRecipesFilter{
+//					imagebuilder.GetImageRecipesFilter{
+//						Name: "platform",
+//						Values: []string{
+//							"Linux",
+//						},
+//					},
+//				},
+//				Owner: pulumi.StringRef("Self"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetImageRecipes(ctx *pulumi.Context, args *GetImageRecipesArgs, opts ...pulumi.InvokeOption) (*GetImageRecipesResult, error) {
 	var rv GetImageRecipesResult

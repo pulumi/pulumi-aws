@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectSourceGetArgs()
         {
         }
+        public static new ProjectSourceGetArgs Empty => new ProjectSourceGetArgs();
     }
 }

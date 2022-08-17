@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The failover criteria for when to failover to the secondary origin
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOriginGroupGetArgs()
         {
         }
+        public static new DistributionOriginGroupGetArgs Empty => new DistributionOriginGroupGetArgs();
     }
 }

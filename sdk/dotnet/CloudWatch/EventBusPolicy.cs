@@ -20,205 +20,202 @@ namespace Pulumi.Aws.CloudWatch
     /// ### Account Access
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var testPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Sid = "DevAccountAccess",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Sid = "DevAccountAccess",
-    ///                     Effect = "Allow",
-    ///                     Actions = 
+    ///                     "events:PutEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "events:PutEvents",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "123456789012",
-    ///                             },
+    ///                             "123456789012",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new Aws.CloudWatch.EventBusPolicyArgs
-    ///         {
-    ///             Policy = testPolicyDocument.Apply(testPolicyDocument =&gt; testPolicyDocument.Json),
-    ///             EventBusName = aws_cloudwatch_event_bus.Test.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     {
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Organization Access
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var testPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Sid = "OrganizationAccess",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Sid = "OrganizationAccess",
-    ///                     Effect = "Allow",
-    ///                     Actions = 
+    ///                     "events:DescribeRule",
+    ///                     "events:ListRules",
+    ///                     "events:ListTargetsByRule",
+    ///                     "events:ListTagsForResource",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:events:eu-west-1:123456789012:rule/*",
+    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "events:DescribeRule",
-    ///                         "events:ListRules",
-    ///                         "events:ListTargetsByRule",
-    ///                         "events:ListTagsForResource",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:events:eu-west-1:123456789012:rule/*",
-    ///                         "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "*",
-    ///                             },
+    ///                             "*",
     ///                         },
     ///                     },
-    ///                     Conditions = 
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:PrincipalOrgID",
+    ///                         Values = new[]
     ///                         {
-    ///                             Test = "StringEquals",
-    ///                             Variable = "aws:PrincipalOrgID",
-    ///                             Values = 
-    ///                             {
-    ///                                 aws_organizations_organization.Example.Id,
-    ///                             },
+    ///                             aws_organizations_organization.Example.Id,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new Aws.CloudWatch.EventBusPolicyArgs
-    ///         {
-    ///             Policy = testPolicyDocument.Apply(testPolicyDocument =&gt; testPolicyDocument.Json),
-    ///             EventBusName = aws_cloudwatch_event_bus.Test.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     {
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Multiple Statements
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var testPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Sid = "DevAccountAccess",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Sid = "DevAccountAccess",
-    ///                     Effect = "Allow",
-    ///                     Actions = 
-    ///                     {
-    ///                         "events:PutEvents",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "123456789012",
-    ///                             },
-    ///                         },
-    ///                     },
+    ///                     "events:PutEvents",
     ///                 },
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Resources = new[]
     ///                 {
-    ///                     Sid = "OrganizationAccess",
-    ///                     Effect = "Allow",
-    ///                     Actions = 
+    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "events:DescribeRule",
-    ///                         "events:ListRules",
-    ///                         "events:ListTargetsByRule",
-    ///                         "events:ListTagsForResource",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:events:eu-west-1:123456789012:rule/*",
-    ///                         "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "*",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Conditions = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
-    ///                         {
-    ///                             Test = "StringEquals",
-    ///                             Variable = "aws:PrincipalOrgID",
-    ///                             Values = 
-    ///                             {
-    ///                                 aws_organizations_organization.Example.Id,
-    ///                             },
+    ///                             "123456789012",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new Aws.CloudWatch.EventBusPolicyArgs
-    ///         {
-    ///             Policy = testPolicyDocument.Apply(testPolicyDocument =&gt; testPolicyDocument.Json),
-    ///             EventBusName = aws_cloudwatch_event_bus.Test.Name,
-    ///         });
-    ///     }
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "OrganizationAccess",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "events:DescribeRule",
+    ///                     "events:ListRules",
+    ///                     "events:ListTargetsByRule",
+    ///                     "events:ListTagsForResource",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:events:eu-west-1:123456789012:rule/*",
+    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:PrincipalOrgID",
+    ///                         Values = new[]
+    ///                         {
+    ///                             aws_organizations_organization.Example.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     {
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -230,7 +227,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBusPolicy:EventBusPolicy")]
-    public partial class EventBusPolicy : Pulumi.CustomResource
+    public partial class EventBusPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
@@ -285,7 +282,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class EventBusPolicyArgs : Pulumi.ResourceArgs
+    public sealed class EventBusPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
@@ -299,9 +296,10 @@ namespace Pulumi.Aws.CloudWatch
         public EventBusPolicyArgs()
         {
         }
+        public static new EventBusPolicyArgs Empty => new EventBusPolicyArgs();
     }
 
-    public sealed class EventBusPolicyState : Pulumi.ResourceArgs
+    public sealed class EventBusPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
@@ -315,5 +313,6 @@ namespace Pulumi.Aws.CloudWatch
         public EventBusPolicyState()
         {
         }
+        public static new EventBusPolicyState Empty => new EventBusPolicyState();
     }
 }

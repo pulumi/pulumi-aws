@@ -15,32 +15,30 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var geoMatchSet = new Aws.WafRegional.GeoMatchSet("geoMatchSet", new()
     ///     {
-    ///         var geoMatchSet = new Aws.WafRegional.GeoMatchSet("geoMatchSet", new Aws.WafRegional.GeoMatchSetArgs
+    ///         GeoMatchConstraints = new[]
     ///         {
-    ///             GeoMatchConstraints = 
+    ///             new Aws.WafRegional.Inputs.GeoMatchSetGeoMatchConstraintArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///                 {
-    ///                     Type = "Country",
-    ///                     Value = "US",
-    ///                 },
-    ///                 new Aws.WafRegional.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///                 {
-    ///                     Type = "Country",
-    ///                     Value = "CA",
-    ///                 },
+    ///                 Type = "Country",
+    ///                 Value = "US",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.WafRegional.Inputs.GeoMatchSetGeoMatchConstraintArgs
+    ///             {
+    ///                 Type = "Country",
+    ///                 Value = "CA",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/geoMatchSet:GeoMatchSet")]
-    public partial class GeoMatchSet : Pulumi.CustomResource
+    public partial class GeoMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class GeoMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _geoMatchConstraints;
@@ -133,9 +131,10 @@ namespace Pulumi.Aws.WafRegional
         public GeoMatchSetArgs()
         {
         }
+        public static new GeoMatchSetArgs Empty => new GeoMatchSetArgs();
     }
 
-    public sealed class GeoMatchSetState : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetState : global::Pulumi.ResourceArgs
     {
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs>? _geoMatchConstraints;
@@ -158,5 +157,6 @@ namespace Pulumi.Aws.WafRegional
         public GeoMatchSetState()
         {
         }
+        public static new GeoMatchSetState Empty => new GeoMatchSetState();
     }
 }

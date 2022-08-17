@@ -11,14 +11,14 @@ import (
 )
 
 type ConfgurationSetDeliveryOptions struct {
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 }
 
 // ConfgurationSetDeliveryOptionsInput is an input type that accepts ConfgurationSetDeliveryOptionsArgs and ConfgurationSetDeliveryOptionsOutput values.
 // You can construct a concrete instance of `ConfgurationSetDeliveryOptionsInput` via:
 //
-//          ConfgurationSetDeliveryOptionsArgs{...}
+//	ConfgurationSetDeliveryOptionsArgs{...}
 type ConfgurationSetDeliveryOptionsInput interface {
 	pulumi.Input
 
@@ -27,7 +27,7 @@ type ConfgurationSetDeliveryOptionsInput interface {
 }
 
 type ConfgurationSetDeliveryOptionsArgs struct {
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
 }
 
@@ -54,11 +54,11 @@ func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsPtrO
 // ConfgurationSetDeliveryOptionsPtrInput is an input type that accepts ConfgurationSetDeliveryOptionsArgs, ConfgurationSetDeliveryOptionsPtr and ConfgurationSetDeliveryOptionsPtrOutput values.
 // You can construct a concrete instance of `ConfgurationSetDeliveryOptionsPtrInput` via:
 //
-//          ConfgurationSetDeliveryOptionsArgs{...}
+//	        ConfgurationSetDeliveryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfgurationSetDeliveryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -108,7 +108,7 @@ func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPt
 	}).(ConfgurationSetDeliveryOptionsPtrOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfgurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfgurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +137,7 @@ func (o ConfgurationSetDeliveryOptionsPtrOutput) Elem() ConfgurationSetDeliveryO
 	}).(ConfgurationSetDeliveryOptionsOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfgurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) *string {
 		if v == nil {
@@ -147,15 +147,152 @@ func (o ConfgurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConfgurationSetTrackingOptions struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
+}
+
+// ConfgurationSetTrackingOptionsInput is an input type that accepts ConfgurationSetTrackingOptionsArgs and ConfgurationSetTrackingOptionsOutput values.
+// You can construct a concrete instance of `ConfgurationSetTrackingOptionsInput` via:
+//
+//	ConfgurationSetTrackingOptionsArgs{...}
+type ConfgurationSetTrackingOptionsInput interface {
+	pulumi.Input
+
+	ToConfgurationSetTrackingOptionsOutput() ConfgurationSetTrackingOptionsOutput
+	ToConfgurationSetTrackingOptionsOutputWithContext(context.Context) ConfgurationSetTrackingOptionsOutput
+}
+
+type ConfgurationSetTrackingOptionsArgs struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
+}
+
+func (ConfgurationSetTrackingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfgurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsOutput() ConfgurationSetTrackingOptionsOutput {
+	return i.ToConfgurationSetTrackingOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetTrackingOptionsOutput)
+}
+
+func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
+	return i.ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetTrackingOptionsOutput).ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfgurationSetTrackingOptionsPtrInput is an input type that accepts ConfgurationSetTrackingOptionsArgs, ConfgurationSetTrackingOptionsPtr and ConfgurationSetTrackingOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfgurationSetTrackingOptionsPtrInput` via:
+//
+//	        ConfgurationSetTrackingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfgurationSetTrackingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput
+	ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Context) ConfgurationSetTrackingOptionsPtrOutput
+}
+
+type confgurationSetTrackingOptionsPtrType ConfgurationSetTrackingOptionsArgs
+
+func ConfgurationSetTrackingOptionsPtr(v *ConfgurationSetTrackingOptionsArgs) ConfgurationSetTrackingOptionsPtrInput {
+	return (*confgurationSetTrackingOptionsPtrType)(v)
+}
+
+func (*confgurationSetTrackingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfgurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (i *confgurationSetTrackingOptionsPtrType) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
+	return i.ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *confgurationSetTrackingOptionsPtrType) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetTrackingOptionsPtrOutput)
+}
+
+type ConfgurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfgurationSetTrackingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfgurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsOutput() ConfgurationSetTrackingOptionsOutput {
+	return o
+}
+
+func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsOutput {
+	return o
+}
+
+func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
+	return o.ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfgurationSetTrackingOptions) *ConfgurationSetTrackingOptions {
+		return &v
+	}).(ConfgurationSetTrackingOptionsPtrOutput)
+}
+
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+func (o ConfgurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfgurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
+}
+
+type ConfgurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfgurationSetTrackingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfgurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (o ConfgurationSetTrackingOptionsPtrOutput) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfgurationSetTrackingOptionsPtrOutput) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfgurationSetTrackingOptionsPtrOutput) Elem() ConfgurationSetTrackingOptionsOutput {
+	return o.ApplyT(func(v *ConfgurationSetTrackingOptions) ConfgurationSetTrackingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfgurationSetTrackingOptions
+		return ret
+	}).(ConfgurationSetTrackingOptionsOutput)
+}
+
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+func (o ConfgurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfgurationSetTrackingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRedirectDomain
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetDeliveryOptions struct {
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 }
 
 // ConfigurationSetDeliveryOptionsInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs and ConfigurationSetDeliveryOptionsOutput values.
 // You can construct a concrete instance of `ConfigurationSetDeliveryOptionsInput` via:
 //
-//          ConfigurationSetDeliveryOptionsArgs{...}
+//	ConfigurationSetDeliveryOptionsArgs{...}
 type ConfigurationSetDeliveryOptionsInput interface {
 	pulumi.Input
 
@@ -164,7 +301,7 @@ type ConfigurationSetDeliveryOptionsInput interface {
 }
 
 type ConfigurationSetDeliveryOptionsArgs struct {
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
 }
 
@@ -191,11 +328,11 @@ func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPt
 // ConfigurationSetDeliveryOptionsPtrInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs, ConfigurationSetDeliveryOptionsPtr and ConfigurationSetDeliveryOptionsPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetDeliveryOptionsPtrInput` via:
 //
-//          ConfigurationSetDeliveryOptionsArgs{...}
+//	        ConfigurationSetDeliveryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetDeliveryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -245,7 +382,7 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfigurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
@@ -274,13 +411,150 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliver
 	}).(ConfigurationSetDeliveryOptionsOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
 		if v == nil {
 			return nil
 		}
 		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetTrackingOptions struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
+}
+
+// ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetTrackingOptionsInput` via:
+//
+//	ConfigurationSetTrackingOptionsArgs{...}
+type ConfigurationSetTrackingOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetTrackingOptionsOutput() ConfigurationSetTrackingOptionsOutput
+	ToConfigurationSetTrackingOptionsOutputWithContext(context.Context) ConfigurationSetTrackingOptionsOutput
+}
+
+type ConfigurationSetTrackingOptionsArgs struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
+}
+
+func (ConfigurationSetTrackingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOutput() ConfigurationSetTrackingOptionsOutput {
+	return i.ToConfigurationSetTrackingOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput)
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput).ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetTrackingOptionsPtrInput is an input type that accepts ConfigurationSetTrackingOptionsArgs, ConfigurationSetTrackingOptionsPtr and ConfigurationSetTrackingOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetTrackingOptionsPtrInput` via:
+//
+//	        ConfigurationSetTrackingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetTrackingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput
+	ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Context) ConfigurationSetTrackingOptionsPtrOutput
+}
+
+type configurationSetTrackingOptionsPtrType ConfigurationSetTrackingOptionsArgs
+
+func ConfigurationSetTrackingOptionsPtr(v *ConfigurationSetTrackingOptionsArgs) ConfigurationSetTrackingOptionsPtrInput {
+	return (*configurationSetTrackingOptionsPtrType)(v)
+}
+
+func (*configurationSetTrackingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+type ConfigurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetTrackingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsOutput() ConfigurationSetTrackingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetTrackingOptions) *ConfigurationSetTrackingOptions {
+		return &v
+	}).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetTrackingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackingOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) ConfigurationSetTrackingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetTrackingOptions
+		return ret
+	}).(ConfigurationSetTrackingOptionsOutput)
+}
+
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRedirectDomain
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -296,7 +570,7 @@ type EventDestinationCloudwatchDestination struct {
 // EventDestinationCloudwatchDestinationInput is an input type that accepts EventDestinationCloudwatchDestinationArgs and EventDestinationCloudwatchDestinationOutput values.
 // You can construct a concrete instance of `EventDestinationCloudwatchDestinationInput` via:
 //
-//          EventDestinationCloudwatchDestinationArgs{...}
+//	EventDestinationCloudwatchDestinationArgs{...}
 type EventDestinationCloudwatchDestinationInput interface {
 	pulumi.Input
 
@@ -328,7 +602,7 @@ func (i EventDestinationCloudwatchDestinationArgs) ToEventDestinationCloudwatchD
 // EventDestinationCloudwatchDestinationArrayInput is an input type that accepts EventDestinationCloudwatchDestinationArray and EventDestinationCloudwatchDestinationArrayOutput values.
 // You can construct a concrete instance of `EventDestinationCloudwatchDestinationArrayInput` via:
 //
-//          EventDestinationCloudwatchDestinationArray{ EventDestinationCloudwatchDestinationArgs{...} }
+//	EventDestinationCloudwatchDestinationArray{ EventDestinationCloudwatchDestinationArgs{...} }
 type EventDestinationCloudwatchDestinationArrayInput interface {
 	pulumi.Input
 
@@ -409,7 +683,7 @@ type EventDestinationKinesisDestination struct {
 // EventDestinationKinesisDestinationInput is an input type that accepts EventDestinationKinesisDestinationArgs and EventDestinationKinesisDestinationOutput values.
 // You can construct a concrete instance of `EventDestinationKinesisDestinationInput` via:
 //
-//          EventDestinationKinesisDestinationArgs{...}
+//	EventDestinationKinesisDestinationArgs{...}
 type EventDestinationKinesisDestinationInput interface {
 	pulumi.Input
 
@@ -447,11 +721,11 @@ func (i EventDestinationKinesisDestinationArgs) ToEventDestinationKinesisDestina
 // EventDestinationKinesisDestinationPtrInput is an input type that accepts EventDestinationKinesisDestinationArgs, EventDestinationKinesisDestinationPtr and EventDestinationKinesisDestinationPtrOutput values.
 // You can construct a concrete instance of `EventDestinationKinesisDestinationPtrInput` via:
 //
-//          EventDestinationKinesisDestinationArgs{...}
+//	        EventDestinationKinesisDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventDestinationKinesisDestinationPtrInput interface {
 	pulumi.Input
 
@@ -563,7 +837,7 @@ type EventDestinationSnsDestination struct {
 // EventDestinationSnsDestinationInput is an input type that accepts EventDestinationSnsDestinationArgs and EventDestinationSnsDestinationOutput values.
 // You can construct a concrete instance of `EventDestinationSnsDestinationInput` via:
 //
-//          EventDestinationSnsDestinationArgs{...}
+//	EventDestinationSnsDestinationArgs{...}
 type EventDestinationSnsDestinationInput interface {
 	pulumi.Input
 
@@ -599,11 +873,11 @@ func (i EventDestinationSnsDestinationArgs) ToEventDestinationSnsDestinationPtrO
 // EventDestinationSnsDestinationPtrInput is an input type that accepts EventDestinationSnsDestinationArgs, EventDestinationSnsDestinationPtr and EventDestinationSnsDestinationPtrOutput values.
 // You can construct a concrete instance of `EventDestinationSnsDestinationPtrInput` via:
 //
-//          EventDestinationSnsDestinationArgs{...}
+//	        EventDestinationSnsDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventDestinationSnsDestinationPtrInput interface {
 	pulumi.Input
 
@@ -704,7 +978,7 @@ type ReceiptRuleAddHeaderAction struct {
 // ReceiptRuleAddHeaderActionInput is an input type that accepts ReceiptRuleAddHeaderActionArgs and ReceiptRuleAddHeaderActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleAddHeaderActionInput` via:
 //
-//          ReceiptRuleAddHeaderActionArgs{...}
+//	ReceiptRuleAddHeaderActionArgs{...}
 type ReceiptRuleAddHeaderActionInput interface {
 	pulumi.Input
 
@@ -736,7 +1010,7 @@ func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutputWithCo
 // ReceiptRuleAddHeaderActionArrayInput is an input type that accepts ReceiptRuleAddHeaderActionArray and ReceiptRuleAddHeaderActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleAddHeaderActionArrayInput` via:
 //
-//          ReceiptRuleAddHeaderActionArray{ ReceiptRuleAddHeaderActionArgs{...} }
+//	ReceiptRuleAddHeaderActionArray{ ReceiptRuleAddHeaderActionArgs{...} }
 type ReceiptRuleAddHeaderActionArrayInput interface {
 	pulumi.Input
 
@@ -825,7 +1099,7 @@ type ReceiptRuleBounceAction struct {
 // ReceiptRuleBounceActionInput is an input type that accepts ReceiptRuleBounceActionArgs and ReceiptRuleBounceActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleBounceActionInput` via:
 //
-//          ReceiptRuleBounceActionArgs{...}
+//	ReceiptRuleBounceActionArgs{...}
 type ReceiptRuleBounceActionInput interface {
 	pulumi.Input
 
@@ -863,7 +1137,7 @@ func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutputWithContext(
 // ReceiptRuleBounceActionArrayInput is an input type that accepts ReceiptRuleBounceActionArray and ReceiptRuleBounceActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleBounceActionArrayInput` via:
 //
-//          ReceiptRuleBounceActionArray{ ReceiptRuleBounceActionArgs{...} }
+//	ReceiptRuleBounceActionArray{ ReceiptRuleBounceActionArgs{...} }
 type ReceiptRuleBounceActionArrayInput interface {
 	pulumi.Input
 
@@ -963,7 +1237,7 @@ type ReceiptRuleLambdaAction struct {
 // ReceiptRuleLambdaActionInput is an input type that accepts ReceiptRuleLambdaActionArgs and ReceiptRuleLambdaActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleLambdaActionInput` via:
 //
-//          ReceiptRuleLambdaActionArgs{...}
+//	ReceiptRuleLambdaActionArgs{...}
 type ReceiptRuleLambdaActionInput interface {
 	pulumi.Input
 
@@ -997,7 +1271,7 @@ func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutputWithContext(
 // ReceiptRuleLambdaActionArrayInput is an input type that accepts ReceiptRuleLambdaActionArray and ReceiptRuleLambdaActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleLambdaActionArrayInput` via:
 //
-//          ReceiptRuleLambdaActionArray{ ReceiptRuleLambdaActionArgs{...} }
+//	ReceiptRuleLambdaActionArray{ ReceiptRuleLambdaActionArgs{...} }
 type ReceiptRuleLambdaActionArrayInput interface {
 	pulumi.Input
 
@@ -1089,7 +1363,7 @@ type ReceiptRuleS3Action struct {
 // ReceiptRuleS3ActionInput is an input type that accepts ReceiptRuleS3ActionArgs and ReceiptRuleS3ActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleS3ActionInput` via:
 //
-//          ReceiptRuleS3ActionArgs{...}
+//	ReceiptRuleS3ActionArgs{...}
 type ReceiptRuleS3ActionInput interface {
 	pulumi.Input
 
@@ -1125,7 +1399,7 @@ func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutputWithContext(ctx cont
 // ReceiptRuleS3ActionArrayInput is an input type that accepts ReceiptRuleS3ActionArray and ReceiptRuleS3ActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleS3ActionArrayInput` via:
 //
-//          ReceiptRuleS3ActionArray{ ReceiptRuleS3ActionArgs{...} }
+//	ReceiptRuleS3ActionArray{ ReceiptRuleS3ActionArgs{...} }
 type ReceiptRuleS3ActionArrayInput interface {
 	pulumi.Input
 
@@ -1218,7 +1492,7 @@ type ReceiptRuleSnsAction struct {
 // ReceiptRuleSnsActionInput is an input type that accepts ReceiptRuleSnsActionArgs and ReceiptRuleSnsActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleSnsActionInput` via:
 //
-//          ReceiptRuleSnsActionArgs{...}
+//	ReceiptRuleSnsActionArgs{...}
 type ReceiptRuleSnsActionInput interface {
 	pulumi.Input
 
@@ -1250,7 +1524,7 @@ func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutputWithContext(ctx co
 // ReceiptRuleSnsActionArrayInput is an input type that accepts ReceiptRuleSnsActionArray and ReceiptRuleSnsActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleSnsActionArrayInput` via:
 //
-//          ReceiptRuleSnsActionArray{ ReceiptRuleSnsActionArgs{...} }
+//	ReceiptRuleSnsActionArray{ ReceiptRuleSnsActionArgs{...} }
 type ReceiptRuleSnsActionArrayInput interface {
 	pulumi.Input
 
@@ -1333,7 +1607,7 @@ type ReceiptRuleStopAction struct {
 // ReceiptRuleStopActionInput is an input type that accepts ReceiptRuleStopActionArgs and ReceiptRuleStopActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleStopActionInput` via:
 //
-//          ReceiptRuleStopActionArgs{...}
+//	ReceiptRuleStopActionArgs{...}
 type ReceiptRuleStopActionInput interface {
 	pulumi.Input
 
@@ -1365,7 +1639,7 @@ func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutputWithContext(ctx 
 // ReceiptRuleStopActionArrayInput is an input type that accepts ReceiptRuleStopActionArray and ReceiptRuleStopActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleStopActionArrayInput` via:
 //
-//          ReceiptRuleStopActionArray{ ReceiptRuleStopActionArgs{...} }
+//	ReceiptRuleStopActionArray{ ReceiptRuleStopActionArgs{...} }
 type ReceiptRuleStopActionArrayInput interface {
 	pulumi.Input
 
@@ -1448,7 +1722,7 @@ type ReceiptRuleWorkmailAction struct {
 // ReceiptRuleWorkmailActionInput is an input type that accepts ReceiptRuleWorkmailActionArgs and ReceiptRuleWorkmailActionOutput values.
 // You can construct a concrete instance of `ReceiptRuleWorkmailActionInput` via:
 //
-//          ReceiptRuleWorkmailActionArgs{...}
+//	ReceiptRuleWorkmailActionArgs{...}
 type ReceiptRuleWorkmailActionInput interface {
 	pulumi.Input
 
@@ -1480,7 +1754,7 @@ func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutputWithCont
 // ReceiptRuleWorkmailActionArrayInput is an input type that accepts ReceiptRuleWorkmailActionArray and ReceiptRuleWorkmailActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleWorkmailActionArrayInput` via:
 //
-//          ReceiptRuleWorkmailActionArray{ ReceiptRuleWorkmailActionArgs{...} }
+//	ReceiptRuleWorkmailActionArray{ ReceiptRuleWorkmailActionArgs{...} }
 type ReceiptRuleWorkmailActionArrayInput interface {
 	pulumi.Input
 
@@ -1554,8 +1828,12 @@ func (o ReceiptRuleWorkmailActionArrayOutput) Index(i pulumi.IntInput) ReceiptRu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetDeliveryOptionsInput)(nil)).Elem(), ConfgurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfgurationSetDeliveryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetTrackingOptionsInput)(nil)).Elem(), ConfgurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfgurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationCloudwatchDestinationInput)(nil)).Elem(), EventDestinationCloudwatchDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationCloudwatchDestinationArrayInput)(nil)).Elem(), EventDestinationCloudwatchDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationKinesisDestinationInput)(nil)).Elem(), EventDestinationKinesisDestinationArgs{})
@@ -1578,8 +1856,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionArrayInput)(nil)).Elem(), ReceiptRuleWorkmailActionArray{})
 	pulumi.RegisterOutputType(ConfgurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfgurationSetDeliveryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfgurationSetTrackingOptionsOutput{})
+	pulumi.RegisterOutputType(ConfgurationSetTrackingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EventDestinationCloudwatchDestinationOutput{})
 	pulumi.RegisterOutputType(EventDestinationCloudwatchDestinationArrayOutput{})
 	pulumi.RegisterOutputType(EventDestinationKinesisDestinationOutput{})

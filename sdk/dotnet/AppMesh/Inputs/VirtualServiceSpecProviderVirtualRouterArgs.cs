@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualServiceSpecProviderVirtualRouterArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceSpecProviderVirtualRouterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualServiceSpecProviderVirtualRouterArgs()
         {
         }
+        public static new VirtualServiceSpecProviderVirtualRouterArgs Empty => new VirtualServiceSpecProviderVirtualRouterArgs();
     }
 }

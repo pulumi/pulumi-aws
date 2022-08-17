@@ -17,20 +17,18 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Stage("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Stage("example", new Aws.ApiGatewayV2.StageArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         });
-    ///     }
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/stage:Stage")]
-    public partial class Stage : Pulumi.CustomResource
+    public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Settings for logging access in this stage.
@@ -128,7 +126,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> StageVariables { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the stage. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -183,7 +181,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class StageArgs : Pulumi.ResourceArgs
+    public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for logging access in this stage.
@@ -263,7 +261,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the stage. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -274,9 +272,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public StageArgs()
         {
         }
+        public static new StageArgs Empty => new StageArgs();
     }
 
-    public sealed class StageState : Pulumi.ResourceArgs
+    public sealed class StageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for logging access in this stage.
@@ -377,7 +376,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the stage. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -400,5 +399,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public StageState()
         {
         }
+        public static new StageState Empty => new StageState();
     }
 }

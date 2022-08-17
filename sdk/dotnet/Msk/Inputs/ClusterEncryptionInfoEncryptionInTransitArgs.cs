@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterEncryptionInfoEncryptionInTransitArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionInfoEncryptionInTransitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterEncryptionInfoEncryptionInTransitArgs()
         {
         }
+        public static new ClusterEncryptionInfoEncryptionInTransitArgs Empty => new ClusterEncryptionInfoEncryptionInTransitArgs();
     }
 }

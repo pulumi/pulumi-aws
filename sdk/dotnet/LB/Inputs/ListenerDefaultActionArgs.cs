@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LB.Inputs
 {
 
-    public sealed class ListenerDefaultActionArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.LB.Inputs
         public ListenerDefaultActionArgs()
         {
         }
+        public static new ListenerDefaultActionArgs Empty => new ListenerDefaultActionArgs();
     }
 }

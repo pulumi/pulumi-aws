@@ -15,20 +15,18 @@ namespace Pulumi.Aws.DynamoDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.DynamoDB.ContributorInsights("test", new()
     ///     {
-    ///         var test = new Aws.DynamoDB.ContributorInsights("test", new Aws.DynamoDB.ContributorInsightsArgs
-    ///         {
-    ///             TableName = "ExampleTableName",
-    ///         });
-    ///     }
+    ///         TableName = "ExampleTableName",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.DynamoDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/contributorInsights:ContributorInsights")]
-    public partial class ContributorInsights : Pulumi.CustomResource
+    public partial class ContributorInsights : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The global secondary index name
@@ -98,7 +96,7 @@ namespace Pulumi.Aws.DynamoDB
         }
     }
 
-    public sealed class ContributorInsightsArgs : Pulumi.ResourceArgs
+    public sealed class ContributorInsightsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The global secondary index name
@@ -115,9 +113,10 @@ namespace Pulumi.Aws.DynamoDB
         public ContributorInsightsArgs()
         {
         }
+        public static new ContributorInsightsArgs Empty => new ContributorInsightsArgs();
     }
 
-    public sealed class ContributorInsightsState : Pulumi.ResourceArgs
+    public sealed class ContributorInsightsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The global secondary index name
@@ -134,5 +133,6 @@ namespace Pulumi.Aws.DynamoDB
         public ContributorInsightsState()
         {
         }
+        public static new ContributorInsightsState Empty => new ContributorInsightsState();
     }
 }

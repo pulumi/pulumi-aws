@@ -18,19 +18,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sns.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sns.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SmsPreferences struct {
 	pulumi.CustomResourceState
@@ -168,7 +171,7 @@ func (i *SmsPreferences) ToSmsPreferencesOutputWithContext(ctx context.Context) 
 // SmsPreferencesArrayInput is an input type that accepts SmsPreferencesArray and SmsPreferencesArrayOutput values.
 // You can construct a concrete instance of `SmsPreferencesArrayInput` via:
 //
-//          SmsPreferencesArray{ SmsPreferencesArgs{...} }
+//	SmsPreferencesArray{ SmsPreferencesArgs{...} }
 type SmsPreferencesArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +196,7 @@ func (i SmsPreferencesArray) ToSmsPreferencesArrayOutputWithContext(ctx context.
 // SmsPreferencesMapInput is an input type that accepts SmsPreferencesMap and SmsPreferencesMapOutput values.
 // You can construct a concrete instance of `SmsPreferencesMapInput` via:
 //
-//          SmsPreferencesMap{ "key": SmsPreferencesArgs{...} }
+//	SmsPreferencesMap{ "key": SmsPreferencesArgs{...} }
 type SmsPreferencesMapInput interface {
 	pulumi.Input
 

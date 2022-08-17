@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Location
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Location.PlaceIndex("example", new()
     ///     {
-    ///         var example = new Aws.Location.PlaceIndex("example", new Aws.Location.PlaceIndexArgs
-    ///         {
-    ///             DataSource = "Here",
-    ///             IndexName = "example",
-    ///         });
-    ///     }
+    ///         DataSource = "Here",
+    ///         IndexName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Location
     /// ```
     /// </summary>
     [AwsResourceType("aws:location/placeIndex:PlaceIndex")]
-    public partial class PlaceIndex : Pulumi.CustomResource
+    public partial class PlaceIndex : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp for when the place index resource was created in ISO 8601 format.
@@ -135,7 +133,7 @@ namespace Pulumi.Aws.Location
         }
     }
 
-    public sealed class PlaceIndexArgs : Pulumi.ResourceArgs
+    public sealed class PlaceIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the geospatial data provider for the new place index.
@@ -172,9 +170,10 @@ namespace Pulumi.Aws.Location
         public PlaceIndexArgs()
         {
         }
+        public static new PlaceIndexArgs Empty => new PlaceIndexArgs();
     }
 
-    public sealed class PlaceIndexState : Pulumi.ResourceArgs
+    public sealed class PlaceIndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp for when the place index resource was created in ISO 8601 format.
@@ -237,5 +236,6 @@ namespace Pulumi.Aws.Location
         public PlaceIndexState()
         {
         }
+        public static new PlaceIndexState Empty => new PlaceIndexState();
     }
 }

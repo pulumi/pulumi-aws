@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Iam
     /// **Using certs on file:**
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iam.VirtualMfaDevice("example", new()
     ///     {
-    ///         var example = new Aws.Iam.VirtualMfaDevice("example", new Aws.Iam.VirtualMfaDeviceArgs
-    ///         {
-    ///             VirtualMfaDeviceName = "example",
-    ///         });
-    ///     }
+    ///         VirtualMfaDeviceName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/virtualMfaDevice:VirtualMfaDevice")]
-    public partial class VirtualMfaDevice : Pulumi.CustomResource
+    public partial class VirtualMfaDevice : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
@@ -72,9 +70,6 @@ namespace Pulumi.Aws.Iam
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -128,7 +123,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class VirtualMfaDeviceArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMfaDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path for the virtual MFA device.
@@ -157,9 +152,10 @@ namespace Pulumi.Aws.Iam
         public VirtualMfaDeviceArgs()
         {
         }
+        public static new VirtualMfaDeviceArgs Empty => new VirtualMfaDeviceArgs();
     }
 
-    public sealed class VirtualMfaDeviceState : Pulumi.ResourceArgs
+    public sealed class VirtualMfaDeviceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
@@ -199,10 +195,6 @@ namespace Pulumi.Aws.Iam
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -218,5 +210,6 @@ namespace Pulumi.Aws.Iam
         public VirtualMfaDeviceState()
         {
         }
+        public static new VirtualMfaDeviceState Empty => new VirtualMfaDeviceState();
     }
 }

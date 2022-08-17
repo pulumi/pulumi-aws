@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53RecoveryControl.Inputs
 {
 
-    public sealed class ClusterClusterEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClusterEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster endpoint.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Route53RecoveryControl.Inputs
         public ClusterClusterEndpointGetArgs()
         {
         }
+        public static new ClusterClusterEndpointGetArgs Empty => new ClusterClusterEndpointGetArgs();
     }
 }

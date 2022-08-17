@@ -20,20 +20,18 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetPortfolioConstraints.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetPortfolioConstraints.InvokeAsync(new Aws.ServiceCatalog.GetPortfolioConstraintsArgs
-        ///         {
-        ///             PortfolioId = "port-3lli3b3an",
-        ///         }));
-        ///     }
+        ///         PortfolioId = "port-3lli3b3an",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetPortfolioConstraints.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetPortfolioConstraints.InvokeAsync(new Aws.ServiceCatalog.GetPortfolioConstraintsArgs
-        ///         {
-        ///             PortfolioId = "port-3lli3b3an",
-        ///         }));
-        ///     }
+        ///         PortfolioId = "port-3lli3b3an",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.ServiceCatalog
     }
 
 
-    public sealed class GetPortfolioConstraintsArgs : Pulumi.InvokeArgs
+    public sealed class GetPortfolioConstraintsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -96,9 +92,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetPortfolioConstraintsArgs()
         {
         }
+        public static new GetPortfolioConstraintsArgs Empty => new GetPortfolioConstraintsArgs();
     }
 
-    public sealed class GetPortfolioConstraintsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPortfolioConstraintsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetPortfolioConstraintsInvokeArgs()
         {
         }
+        public static new GetPortfolioConstraintsInvokeArgs Empty => new GetPortfolioConstraintsInvokeArgs();
     }
 
 

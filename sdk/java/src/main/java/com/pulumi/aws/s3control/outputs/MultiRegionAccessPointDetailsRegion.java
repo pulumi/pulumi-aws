@@ -9,10 +9,6 @@ import java.util.Objects;
 
 @CustomType
 public final class MultiRegionAccessPointDetailsRegion {
-    /**
-     * @return The name of the associated bucket for the Region.
-     * 
-     */
     private final String bucket;
 
     @CustomType.Constructor
@@ -20,10 +16,6 @@ public final class MultiRegionAccessPointDetailsRegion {
         this.bucket = bucket;
     }
 
-    /**
-     * @return The name of the associated bucket for the Region.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }

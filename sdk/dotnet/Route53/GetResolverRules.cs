@@ -20,43 +20,39 @@ namespace Pulumi.Aws.Route53
         /// ### Retrieving the default resolver rule
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
-        ///         {
-        ///             OwnerId = "Route 53 Resolver",
-        ///             RuleType = "RECURSIVE",
-        ///             ShareStatus = "NOT_SHARED",
-        ///         }));
-        ///     }
+        ///         OwnerId = "Route 53 Resolver",
+        ///         RuleType = "RECURSIVE",
+        ///         ShareStatus = "NOT_SHARED",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Retrieving forward rules shared with me
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
-        ///         {
-        ///             RuleType = "FORWARD",
-        ///             ShareStatus = "SHARED_WITH_ME",
-        ///         }));
-        ///     }
+        ///         RuleType = "FORWARD",
+        ///         ShareStatus = "SHARED_WITH_ME",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -65,20 +61,18 @@ namespace Pulumi.Aws.Route53
         /// Resolver rules whose name contains `abc`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
-        ///         {
-        ///             NameRegex = ".*abc.*",
-        ///         }));
-        ///     }
+        ///         NameRegex = ".*abc.*",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -95,43 +89,39 @@ namespace Pulumi.Aws.Route53
         /// ### Retrieving the default resolver rule
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
-        ///         {
-        ///             OwnerId = "Route 53 Resolver",
-        ///             RuleType = "RECURSIVE",
-        ///             ShareStatus = "NOT_SHARED",
-        ///         }));
-        ///     }
+        ///         OwnerId = "Route 53 Resolver",
+        ///         RuleType = "RECURSIVE",
+        ///         ShareStatus = "NOT_SHARED",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Retrieving forward rules shared with me
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
-        ///         {
-        ///             RuleType = "FORWARD",
-        ///             ShareStatus = "SHARED_WITH_ME",
-        ///         }));
-        ///     }
+        ///         RuleType = "FORWARD",
+        ///         ShareStatus = "SHARED_WITH_ME",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -140,20 +130,18 @@ namespace Pulumi.Aws.Route53
         /// Resolver rules whose name contains `abc`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
-        ///         {
-        ///             NameRegex = ".*abc.*",
-        ///         }));
-        ///     }
+        ///         NameRegex = ".*abc.*",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -163,7 +151,7 @@ namespace Pulumi.Aws.Route53
     }
 
 
-    public sealed class GetResolverRulesArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRulesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A regex string to filter resolver rule names.
@@ -200,9 +188,10 @@ namespace Pulumi.Aws.Route53
         public GetResolverRulesArgs()
         {
         }
+        public static new GetResolverRulesArgs Empty => new GetResolverRulesArgs();
     }
 
-    public sealed class GetResolverRulesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A regex string to filter resolver rule names.
@@ -239,6 +228,7 @@ namespace Pulumi.Aws.Route53
         public GetResolverRulesInvokeArgs()
         {
         }
+        public static new GetResolverRulesInvokeArgs Empty => new GetResolverRulesInvokeArgs();
     }
 
 

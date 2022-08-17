@@ -29,6 +29,13 @@ import * as utilities from "../utilities";
  *                 enable: true,
  *             },
  *         },
+ *         malwareProtection: {
+ *             scanEc2InstanceWithFindings: {
+ *                 ebsVolumes: {
+ *                     autoEnable: true,
+ *                 },
+ *             },
+ *         },
  *     },
  * });
  * ```

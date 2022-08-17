@@ -18,7 +18,7 @@ type ClusterAutoTerminationPolicy struct {
 // ClusterAutoTerminationPolicyInput is an input type that accepts ClusterAutoTerminationPolicyArgs and ClusterAutoTerminationPolicyOutput values.
 // You can construct a concrete instance of `ClusterAutoTerminationPolicyInput` via:
 //
-//          ClusterAutoTerminationPolicyArgs{...}
+//	ClusterAutoTerminationPolicyArgs{...}
 type ClusterAutoTerminationPolicyInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutpu
 // ClusterAutoTerminationPolicyPtrInput is an input type that accepts ClusterAutoTerminationPolicyArgs, ClusterAutoTerminationPolicyPtr and ClusterAutoTerminationPolicyPtrOutput values.
 // You can construct a concrete instance of `ClusterAutoTerminationPolicyPtrInput` via:
 //
-//          ClusterAutoTerminationPolicyArgs{...}
+//	        ClusterAutoTerminationPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterAutoTerminationPolicyPtrInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ type ClusterBootstrapAction struct {
 // ClusterBootstrapActionInput is an input type that accepts ClusterBootstrapActionArgs and ClusterBootstrapActionOutput values.
 // You can construct a concrete instance of `ClusterBootstrapActionInput` via:
 //
-//          ClusterBootstrapActionArgs{...}
+//	ClusterBootstrapActionArgs{...}
 type ClusterBootstrapActionInput interface {
 	pulumi.Input
 
@@ -191,7 +191,7 @@ func (i ClusterBootstrapActionArgs) ToClusterBootstrapActionOutputWithContext(ct
 // ClusterBootstrapActionArrayInput is an input type that accepts ClusterBootstrapActionArray and ClusterBootstrapActionArrayOutput values.
 // You can construct a concrete instance of `ClusterBootstrapActionArrayInput` via:
 //
-//          ClusterBootstrapActionArray{ ClusterBootstrapActionArgs{...} }
+//	ClusterBootstrapActionArray{ ClusterBootstrapActionArgs{...} }
 type ClusterBootstrapActionArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +282,7 @@ type ClusterCoreInstanceFleet struct {
 // ClusterCoreInstanceFleetInput is an input type that accepts ClusterCoreInstanceFleetArgs and ClusterCoreInstanceFleetOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInput` via:
 //
-//          ClusterCoreInstanceFleetArgs{...}
+//	ClusterCoreInstanceFleetArgs{...}
 type ClusterCoreInstanceFleetInput interface {
 	pulumi.Input
 
@@ -330,11 +330,11 @@ func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetPtrOutputWithCon
 // ClusterCoreInstanceFleetPtrInput is an input type that accepts ClusterCoreInstanceFleetArgs, ClusterCoreInstanceFleetPtr and ClusterCoreInstanceFleetPtrOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetPtrInput` via:
 //
-//          ClusterCoreInstanceFleetArgs{...}
+//	        ClusterCoreInstanceFleetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterCoreInstanceFleetPtrInput interface {
 	pulumi.Input
 
@@ -546,7 +546,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfig struct {
 // ClusterCoreInstanceFleetInstanceTypeConfigInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigArgs and ClusterCoreInstanceFleetInstanceTypeConfigOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigInput` via:
 //
-//          ClusterCoreInstanceFleetInstanceTypeConfigArgs{...}
+//	ClusterCoreInstanceFleetInstanceTypeConfigArgs{...}
 type ClusterCoreInstanceFleetInstanceTypeConfigInput interface {
 	pulumi.Input
 
@@ -584,7 +584,7 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigArgs) ToClusterCoreInstanceFle
 // ClusterCoreInstanceFleetInstanceTypeConfigArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigArray and ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigArrayInput` via:
 //
-//          ClusterCoreInstanceFleetInstanceTypeConfigArray{ ClusterCoreInstanceFleetInstanceTypeConfigArgs{...} }
+//	ClusterCoreInstanceFleetInstanceTypeConfigArray{ ClusterCoreInstanceFleetInstanceTypeConfigArgs{...} }
 type ClusterCoreInstanceFleetInstanceTypeConfigArrayInput interface {
 	pulumi.Input
 
@@ -686,7 +686,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfigConfiguration struct {
 // ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput` via:
 //
-//          ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs{...}
+//	ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs{...}
 type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput interface {
 	pulumi.Input
 
@@ -716,7 +716,7 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ToClusterCo
 // ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
 //
-//          ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray{ ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs{...} }
+//	ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray{ ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs{...} }
 type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig struct {
 // ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs and ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput` via:
 //
-//          ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{...}
+//	ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{...}
 type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput interface {
 	pulumi.Input
 
@@ -832,7 +832,7 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterCoreIn
 // ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray and ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
 //
-//          ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{ ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
+//	ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{ ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
 type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -918,7 +918,7 @@ type ClusterCoreInstanceFleetLaunchSpecifications struct {
 // ClusterCoreInstanceFleetLaunchSpecificationsInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsArgs and ClusterCoreInstanceFleetLaunchSpecificationsOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsInput` via:
 //
-//          ClusterCoreInstanceFleetLaunchSpecificationsArgs{...}
+//	ClusterCoreInstanceFleetLaunchSpecificationsArgs{...}
 type ClusterCoreInstanceFleetLaunchSpecificationsInput interface {
 	pulumi.Input
 
@@ -956,11 +956,11 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceF
 // ClusterCoreInstanceFleetLaunchSpecificationsPtrInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsArgs, ClusterCoreInstanceFleetLaunchSpecificationsPtr and ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsPtrInput` via:
 //
-//          ClusterCoreInstanceFleetLaunchSpecificationsArgs{...}
+//	        ClusterCoreInstanceFleetLaunchSpecificationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterCoreInstanceFleetLaunchSpecificationsPtrInput interface {
 	pulumi.Input
 
@@ -1076,7 +1076,7 @@ type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification struct {
 // ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs and ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput` via:
 //
-//          ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
+//	ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
 type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
 	pulumi.Input
 
@@ -1104,7 +1104,7 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) T
 // ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray and ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
 //
-//          ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
+//	ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
 type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -1181,7 +1181,7 @@ type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification struct {
 // ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs and ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput` via:
 //
-//          ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
+//	ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
 	pulumi.Input
 
@@ -1215,7 +1215,7 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToClu
 // ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray and ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
 //
-//          ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray{ ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
+//	ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray{ ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -1317,7 +1317,7 @@ type ClusterCoreInstanceGroup struct {
 // ClusterCoreInstanceGroupInput is an input type that accepts ClusterCoreInstanceGroupArgs and ClusterCoreInstanceGroupOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceGroupInput` via:
 //
-//          ClusterCoreInstanceGroupArgs{...}
+//	ClusterCoreInstanceGroupArgs{...}
 type ClusterCoreInstanceGroupInput interface {
 	pulumi.Input
 
@@ -1365,11 +1365,11 @@ func (i ClusterCoreInstanceGroupArgs) ToClusterCoreInstanceGroupPtrOutputWithCon
 // ClusterCoreInstanceGroupPtrInput is an input type that accepts ClusterCoreInstanceGroupArgs, ClusterCoreInstanceGroupPtr and ClusterCoreInstanceGroupPtrOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceGroupPtrInput` via:
 //
-//          ClusterCoreInstanceGroupArgs{...}
+//	        ClusterCoreInstanceGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterCoreInstanceGroupPtrInput interface {
 	pulumi.Input
 
@@ -1564,7 +1564,7 @@ type ClusterCoreInstanceGroupEbsConfig struct {
 // ClusterCoreInstanceGroupEbsConfigInput is an input type that accepts ClusterCoreInstanceGroupEbsConfigArgs and ClusterCoreInstanceGroupEbsConfigOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceGroupEbsConfigInput` via:
 //
-//          ClusterCoreInstanceGroupEbsConfigArgs{...}
+//	ClusterCoreInstanceGroupEbsConfigArgs{...}
 type ClusterCoreInstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -1600,7 +1600,7 @@ func (i ClusterCoreInstanceGroupEbsConfigArgs) ToClusterCoreInstanceGroupEbsConf
 // ClusterCoreInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterCoreInstanceGroupEbsConfigArray and ClusterCoreInstanceGroupEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceGroupEbsConfigArrayInput` via:
 //
-//          ClusterCoreInstanceGroupEbsConfigArray{ ClusterCoreInstanceGroupEbsConfigArgs{...} }
+//	ClusterCoreInstanceGroupEbsConfigArray{ ClusterCoreInstanceGroupEbsConfigArgs{...} }
 type ClusterCoreInstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -1705,7 +1705,7 @@ type ClusterEc2Attributes struct {
 // ClusterEc2AttributesInput is an input type that accepts ClusterEc2AttributesArgs and ClusterEc2AttributesOutput values.
 // You can construct a concrete instance of `ClusterEc2AttributesInput` via:
 //
-//          ClusterEc2AttributesArgs{...}
+//	ClusterEc2AttributesArgs{...}
 type ClusterEc2AttributesInput interface {
 	pulumi.Input
 
@@ -1757,11 +1757,11 @@ func (i ClusterEc2AttributesArgs) ToClusterEc2AttributesPtrOutputWithContext(ctx
 // ClusterEc2AttributesPtrInput is an input type that accepts ClusterEc2AttributesArgs, ClusterEc2AttributesPtr and ClusterEc2AttributesPtrOutput values.
 // You can construct a concrete instance of `ClusterEc2AttributesPtrInput` via:
 //
-//          ClusterEc2AttributesArgs{...}
+//	        ClusterEc2AttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterEc2AttributesPtrInput interface {
 	pulumi.Input
 
@@ -1986,7 +1986,7 @@ type ClusterKerberosAttributes struct {
 // ClusterKerberosAttributesInput is an input type that accepts ClusterKerberosAttributesArgs and ClusterKerberosAttributesOutput values.
 // You can construct a concrete instance of `ClusterKerberosAttributesInput` via:
 //
-//          ClusterKerberosAttributesArgs{...}
+//	ClusterKerberosAttributesArgs{...}
 type ClusterKerberosAttributesInput interface {
 	pulumi.Input
 
@@ -2030,11 +2030,11 @@ func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesPtrOutputWithC
 // ClusterKerberosAttributesPtrInput is an input type that accepts ClusterKerberosAttributesArgs, ClusterKerberosAttributesPtr and ClusterKerberosAttributesPtrOutput values.
 // You can construct a concrete instance of `ClusterKerberosAttributesPtrInput` via:
 //
-//          ClusterKerberosAttributesArgs{...}
+//	        ClusterKerberosAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterKerberosAttributesPtrInput interface {
 	pulumi.Input
 
@@ -2203,7 +2203,7 @@ type ClusterMasterInstanceFleet struct {
 // ClusterMasterInstanceFleetInput is an input type that accepts ClusterMasterInstanceFleetArgs and ClusterMasterInstanceFleetOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInput` via:
 //
-//          ClusterMasterInstanceFleetArgs{...}
+//	ClusterMasterInstanceFleetArgs{...}
 type ClusterMasterInstanceFleetInput interface {
 	pulumi.Input
 
@@ -2251,11 +2251,11 @@ func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetPtrOutputWit
 // ClusterMasterInstanceFleetPtrInput is an input type that accepts ClusterMasterInstanceFleetArgs, ClusterMasterInstanceFleetPtr and ClusterMasterInstanceFleetPtrOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetPtrInput` via:
 //
-//          ClusterMasterInstanceFleetArgs{...}
+//	        ClusterMasterInstanceFleetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterMasterInstanceFleetPtrInput interface {
 	pulumi.Input
 
@@ -2467,7 +2467,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfig struct {
 // ClusterMasterInstanceFleetInstanceTypeConfigInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigArgs and ClusterMasterInstanceFleetInstanceTypeConfigOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigInput` via:
 //
-//          ClusterMasterInstanceFleetInstanceTypeConfigArgs{...}
+//	ClusterMasterInstanceFleetInstanceTypeConfigArgs{...}
 type ClusterMasterInstanceFleetInstanceTypeConfigInput interface {
 	pulumi.Input
 
@@ -2505,7 +2505,7 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigArgs) ToClusterMasterInstanc
 // ClusterMasterInstanceFleetInstanceTypeConfigArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigArray and ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigArrayInput` via:
 //
-//          ClusterMasterInstanceFleetInstanceTypeConfigArray{ ClusterMasterInstanceFleetInstanceTypeConfigArgs{...} }
+//	ClusterMasterInstanceFleetInstanceTypeConfigArray{ ClusterMasterInstanceFleetInstanceTypeConfigArgs{...} }
 type ClusterMasterInstanceFleetInstanceTypeConfigArrayInput interface {
 	pulumi.Input
 
@@ -2607,7 +2607,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfigConfiguration struct {
 // ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput` via:
 //
-//          ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs{...}
+//	ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs{...}
 type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput interface {
 	pulumi.Input
 
@@ -2637,7 +2637,7 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ToCluster
 // ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
 //
-//          ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray{ ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs{...} }
+//	ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray{ ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs{...} }
 type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2719,7 +2719,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig struct {
 // ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs and ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput` via:
 //
-//          ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs{...}
+//	ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs{...}
 type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput interface {
 	pulumi.Input
 
@@ -2753,7 +2753,7 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterMast
 // ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray and ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
 //
-//          ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray{ ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
+//	ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray{ ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
 type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -2839,7 +2839,7 @@ type ClusterMasterInstanceFleetLaunchSpecifications struct {
 // ClusterMasterInstanceFleetLaunchSpecificationsInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsArgs and ClusterMasterInstanceFleetLaunchSpecificationsOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsInput` via:
 //
-//          ClusterMasterInstanceFleetLaunchSpecificationsArgs{...}
+//	ClusterMasterInstanceFleetLaunchSpecificationsArgs{...}
 type ClusterMasterInstanceFleetLaunchSpecificationsInput interface {
 	pulumi.Input
 
@@ -2877,11 +2877,11 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInsta
 // ClusterMasterInstanceFleetLaunchSpecificationsPtrInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsArgs, ClusterMasterInstanceFleetLaunchSpecificationsPtr and ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsPtrInput` via:
 //
-//          ClusterMasterInstanceFleetLaunchSpecificationsArgs{...}
+//	        ClusterMasterInstanceFleetLaunchSpecificationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterMasterInstanceFleetLaunchSpecificationsPtrInput interface {
 	pulumi.Input
 
@@ -2997,7 +2997,7 @@ type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification struct 
 // ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs and ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput` via:
 //
-//          ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
+//	ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
 type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
 	pulumi.Input
 
@@ -3025,7 +3025,7 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs)
 // ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray and ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
 //
-//          ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
+//	ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
 type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -3102,7 +3102,7 @@ type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification struct {
 // ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs and ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput` via:
 //
-//          ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
+//	ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
 	pulumi.Input
 
@@ -3136,7 +3136,7 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToC
 // ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray and ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
 //
-//          ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray{ ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
+//	ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray{ ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -3236,7 +3236,7 @@ type ClusterMasterInstanceGroup struct {
 // ClusterMasterInstanceGroupInput is an input type that accepts ClusterMasterInstanceGroupArgs and ClusterMasterInstanceGroupOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceGroupInput` via:
 //
-//          ClusterMasterInstanceGroupArgs{...}
+//	ClusterMasterInstanceGroupArgs{...}
 type ClusterMasterInstanceGroupInput interface {
 	pulumi.Input
 
@@ -3282,11 +3282,11 @@ func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupPtrOutputWit
 // ClusterMasterInstanceGroupPtrInput is an input type that accepts ClusterMasterInstanceGroupArgs, ClusterMasterInstanceGroupPtr and ClusterMasterInstanceGroupPtrOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceGroupPtrInput` via:
 //
-//          ClusterMasterInstanceGroupArgs{...}
+//	        ClusterMasterInstanceGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterMasterInstanceGroupPtrInput interface {
 	pulumi.Input
 
@@ -3466,7 +3466,7 @@ type ClusterMasterInstanceGroupEbsConfig struct {
 // ClusterMasterInstanceGroupEbsConfigInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArgs and ClusterMasterInstanceGroupEbsConfigOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigInput` via:
 //
-//          ClusterMasterInstanceGroupEbsConfigArgs{...}
+//	ClusterMasterInstanceGroupEbsConfigArgs{...}
 type ClusterMasterInstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -3502,7 +3502,7 @@ func (i ClusterMasterInstanceGroupEbsConfigArgs) ToClusterMasterInstanceGroupEbs
 // ClusterMasterInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArray and ClusterMasterInstanceGroupEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigArrayInput` via:
 //
-//          ClusterMasterInstanceGroupEbsConfigArray{ ClusterMasterInstanceGroupEbsConfigArgs{...} }
+//	ClusterMasterInstanceGroupEbsConfigArray{ ClusterMasterInstanceGroupEbsConfigArgs{...} }
 type ClusterMasterInstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -3595,7 +3595,7 @@ type ClusterStep struct {
 // ClusterStepInput is an input type that accepts ClusterStepArgs and ClusterStepOutput values.
 // You can construct a concrete instance of `ClusterStepInput` via:
 //
-//          ClusterStepArgs{...}
+//	ClusterStepArgs{...}
 type ClusterStepInput interface {
 	pulumi.Input
 
@@ -3627,7 +3627,7 @@ func (i ClusterStepArgs) ToClusterStepOutputWithContext(ctx context.Context) Clu
 // ClusterStepArrayInput is an input type that accepts ClusterStepArray and ClusterStepArrayOutput values.
 // You can construct a concrete instance of `ClusterStepArrayInput` via:
 //
-//          ClusterStepArray{ ClusterStepArgs{...} }
+//	ClusterStepArray{ ClusterStepArgs{...} }
 type ClusterStepArrayInput interface {
 	pulumi.Input
 
@@ -3712,7 +3712,7 @@ type ClusterStepHadoopJarStep struct {
 // ClusterStepHadoopJarStepInput is an input type that accepts ClusterStepHadoopJarStepArgs and ClusterStepHadoopJarStepOutput values.
 // You can construct a concrete instance of `ClusterStepHadoopJarStepInput` via:
 //
-//          ClusterStepHadoopJarStepArgs{...}
+//	ClusterStepHadoopJarStepArgs{...}
 type ClusterStepHadoopJarStepInput interface {
 	pulumi.Input
 
@@ -3795,7 +3795,7 @@ type InstanceFleetInstanceTypeConfig struct {
 // InstanceFleetInstanceTypeConfigInput is an input type that accepts InstanceFleetInstanceTypeConfigArgs and InstanceFleetInstanceTypeConfigOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigInput` via:
 //
-//          InstanceFleetInstanceTypeConfigArgs{...}
+//	InstanceFleetInstanceTypeConfigArgs{...}
 type InstanceFleetInstanceTypeConfigInput interface {
 	pulumi.Input
 
@@ -3833,7 +3833,7 @@ func (i InstanceFleetInstanceTypeConfigArgs) ToInstanceFleetInstanceTypeConfigOu
 // InstanceFleetInstanceTypeConfigArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigArray and InstanceFleetInstanceTypeConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigArrayInput` via:
 //
-//          InstanceFleetInstanceTypeConfigArray{ InstanceFleetInstanceTypeConfigArgs{...} }
+//	InstanceFleetInstanceTypeConfigArray{ InstanceFleetInstanceTypeConfigArgs{...} }
 type InstanceFleetInstanceTypeConfigArrayInput interface {
 	pulumi.Input
 
@@ -3933,7 +3933,7 @@ type InstanceFleetInstanceTypeConfigConfiguration struct {
 // InstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArgs and InstanceFleetInstanceTypeConfigConfigurationOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigConfigurationInput` via:
 //
-//          InstanceFleetInstanceTypeConfigConfigurationArgs{...}
+//	InstanceFleetInstanceTypeConfigConfigurationArgs{...}
 type InstanceFleetInstanceTypeConfigConfigurationInput interface {
 	pulumi.Input
 
@@ -3963,7 +3963,7 @@ func (i InstanceFleetInstanceTypeConfigConfigurationArgs) ToInstanceFleetInstanc
 // InstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArray and InstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
 //
-//          InstanceFleetInstanceTypeConfigConfigurationArray{ InstanceFleetInstanceTypeConfigConfigurationArgs{...} }
+//	InstanceFleetInstanceTypeConfigConfigurationArray{ InstanceFleetInstanceTypeConfigConfigurationArgs{...} }
 type InstanceFleetInstanceTypeConfigConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4043,7 +4043,7 @@ type InstanceFleetInstanceTypeConfigEbsConfig struct {
 // InstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts InstanceFleetInstanceTypeConfigEbsConfigArgs and InstanceFleetInstanceTypeConfigEbsConfigOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigEbsConfigInput` via:
 //
-//          InstanceFleetInstanceTypeConfigEbsConfigArgs{...}
+//	InstanceFleetInstanceTypeConfigEbsConfigArgs{...}
 type InstanceFleetInstanceTypeConfigEbsConfigInput interface {
 	pulumi.Input
 
@@ -4077,7 +4077,7 @@ func (i InstanceFleetInstanceTypeConfigEbsConfigArgs) ToInstanceFleetInstanceTyp
 // InstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigEbsConfigArray and InstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
 //
-//          InstanceFleetInstanceTypeConfigEbsConfigArray{ InstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
+//	InstanceFleetInstanceTypeConfigEbsConfigArray{ InstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
 type InstanceFleetInstanceTypeConfigEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -4163,7 +4163,7 @@ type InstanceFleetLaunchSpecifications struct {
 // InstanceFleetLaunchSpecificationsInput is an input type that accepts InstanceFleetLaunchSpecificationsArgs and InstanceFleetLaunchSpecificationsOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsInput` via:
 //
-//          InstanceFleetLaunchSpecificationsArgs{...}
+//	InstanceFleetLaunchSpecificationsArgs{...}
 type InstanceFleetLaunchSpecificationsInput interface {
 	pulumi.Input
 
@@ -4201,11 +4201,11 @@ func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificatio
 // InstanceFleetLaunchSpecificationsPtrInput is an input type that accepts InstanceFleetLaunchSpecificationsArgs, InstanceFleetLaunchSpecificationsPtr and InstanceFleetLaunchSpecificationsPtrOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsPtrInput` via:
 //
-//          InstanceFleetLaunchSpecificationsArgs{...}
+//	        InstanceFleetLaunchSpecificationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceFleetLaunchSpecificationsPtrInput interface {
 	pulumi.Input
 
@@ -4321,7 +4321,7 @@ type InstanceFleetLaunchSpecificationsOnDemandSpecification struct {
 // InstanceFleetLaunchSpecificationsOnDemandSpecificationInput is an input type that accepts InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs and InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsOnDemandSpecificationInput` via:
 //
-//          InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
+//	InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
 type InstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
 	pulumi.Input
 
@@ -4349,7 +4349,7 @@ func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToInstanceFl
 // InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts InstanceFleetLaunchSpecificationsOnDemandSpecificationArray and InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
 //
-//          InstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
+//	InstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
 type InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -4424,7 +4424,7 @@ type InstanceFleetLaunchSpecificationsSpotSpecification struct {
 // InstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts InstanceFleetLaunchSpecificationsSpotSpecificationArgs and InstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsSpotSpecificationInput` via:
 //
-//          InstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
+//	InstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
 type InstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
 	pulumi.Input
 
@@ -4458,7 +4458,7 @@ func (i InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToInstanceFleetL
 // InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts InstanceFleetLaunchSpecificationsSpotSpecificationArray and InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
 //
-//          InstanceFleetLaunchSpecificationsSpotSpecificationArray{ InstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
+//	InstanceFleetLaunchSpecificationsSpotSpecificationArray{ InstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
 type InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -4548,7 +4548,7 @@ type InstanceGroupEbsConfig struct {
 // InstanceGroupEbsConfigInput is an input type that accepts InstanceGroupEbsConfigArgs and InstanceGroupEbsConfigOutput values.
 // You can construct a concrete instance of `InstanceGroupEbsConfigInput` via:
 //
-//          InstanceGroupEbsConfigArgs{...}
+//	InstanceGroupEbsConfigArgs{...}
 type InstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -4582,7 +4582,7 @@ func (i InstanceGroupEbsConfigArgs) ToInstanceGroupEbsConfigOutputWithContext(ct
 // InstanceGroupEbsConfigArrayInput is an input type that accepts InstanceGroupEbsConfigArray and InstanceGroupEbsConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceGroupEbsConfigArrayInput` via:
 //
-//          InstanceGroupEbsConfigArray{ InstanceGroupEbsConfigArgs{...} }
+//	InstanceGroupEbsConfigArray{ InstanceGroupEbsConfigArgs{...} }
 type InstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -4674,7 +4674,7 @@ type ManagedScalingPolicyComputeLimit struct {
 // ManagedScalingPolicyComputeLimitInput is an input type that accepts ManagedScalingPolicyComputeLimitArgs and ManagedScalingPolicyComputeLimitOutput values.
 // You can construct a concrete instance of `ManagedScalingPolicyComputeLimitInput` via:
 //
-//          ManagedScalingPolicyComputeLimitArgs{...}
+//	ManagedScalingPolicyComputeLimitArgs{...}
 type ManagedScalingPolicyComputeLimitInput interface {
 	pulumi.Input
 
@@ -4710,7 +4710,7 @@ func (i ManagedScalingPolicyComputeLimitArgs) ToManagedScalingPolicyComputeLimit
 // ManagedScalingPolicyComputeLimitArrayInput is an input type that accepts ManagedScalingPolicyComputeLimitArray and ManagedScalingPolicyComputeLimitArrayOutput values.
 // You can construct a concrete instance of `ManagedScalingPolicyComputeLimitArrayInput` via:
 //
-//          ManagedScalingPolicyComputeLimitArray{ ManagedScalingPolicyComputeLimitArgs{...} }
+//	ManagedScalingPolicyComputeLimitArray{ ManagedScalingPolicyComputeLimitArgs{...} }
 type ManagedScalingPolicyComputeLimitArrayInput interface {
 	pulumi.Input
 
@@ -4801,7 +4801,7 @@ type GetReleaseLabelsFilters struct {
 // GetReleaseLabelsFiltersInput is an input type that accepts GetReleaseLabelsFiltersArgs and GetReleaseLabelsFiltersOutput values.
 // You can construct a concrete instance of `GetReleaseLabelsFiltersInput` via:
 //
-//          GetReleaseLabelsFiltersArgs{...}
+//	GetReleaseLabelsFiltersArgs{...}
 type GetReleaseLabelsFiltersInput interface {
 	pulumi.Input
 
@@ -4839,11 +4839,11 @@ func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersPtrOutputWithConte
 // GetReleaseLabelsFiltersPtrInput is an input type that accepts GetReleaseLabelsFiltersArgs, GetReleaseLabelsFiltersPtr and GetReleaseLabelsFiltersPtrOutput values.
 // You can construct a concrete instance of `GetReleaseLabelsFiltersPtrInput` via:
 //
-//          GetReleaseLabelsFiltersArgs{...}
+//	        GetReleaseLabelsFiltersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetReleaseLabelsFiltersPtrInput interface {
 	pulumi.Input
 

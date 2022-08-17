@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudTrail.Inputs
 {
 
-    public sealed class TrailEventSelectorDataResourceArgs : Pulumi.ResourceArgs
+    public sealed class TrailEventSelectorDataResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         public TrailEventSelectorDataResourceArgs()
         {
         }
+        public static new TrailEventSelectorDataResourceArgs Empty => new TrailEventSelectorDataResourceArgs();
     }
 }

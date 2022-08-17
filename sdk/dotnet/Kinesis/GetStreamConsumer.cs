@@ -21,21 +21,19 @@ namespace Pulumi.Aws.Kinesis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kinesis.GetStreamConsumer.InvokeAsync(new Aws.Kinesis.GetStreamConsumerArgs
-        ///         {
-        ///             Name = "example-consumer",
-        ///             StreamArn = aws_kinesis_stream.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Name = "example-consumer",
+        ///         StreamArn = aws_kinesis_stream.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,21 +51,19 @@ namespace Pulumi.Aws.Kinesis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kinesis.GetStreamConsumer.InvokeAsync(new Aws.Kinesis.GetStreamConsumerArgs
-        ///         {
-        ///             Name = "example-consumer",
-        ///             StreamArn = aws_kinesis_stream.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Name = "example-consumer",
+        ///         StreamArn = aws_kinesis_stream.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.Kinesis
     }
 
 
-    public sealed class GetStreamConsumerArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamConsumerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the stream consumer.
@@ -100,9 +96,10 @@ namespace Pulumi.Aws.Kinesis
         public GetStreamConsumerArgs()
         {
         }
+        public static new GetStreamConsumerArgs Empty => new GetStreamConsumerArgs();
     }
 
-    public sealed class GetStreamConsumerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamConsumerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the stream consumer.
@@ -125,6 +122,7 @@ namespace Pulumi.Aws.Kinesis
         public GetStreamConsumerInvokeArgs()
         {
         }
+        public static new GetStreamConsumerInvokeArgs Empty => new GetStreamConsumerInvokeArgs();
     }
 
 

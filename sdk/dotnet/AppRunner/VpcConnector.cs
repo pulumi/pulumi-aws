@@ -15,30 +15,28 @@ namespace Pulumi.Aws.AppRunner
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var connector = new Aws.AppRunner.VpcConnector("connector", new()
     ///     {
-    ///         var connector = new Aws.AppRunner.VpcConnector("connector", new Aws.AppRunner.VpcConnectorArgs
+    ///         SecurityGroups = new[]
     ///         {
-    ///             SecurityGroups = 
-    ///             {
-    ///                 "sg1",
-    ///                 "sg2",
-    ///             },
-    ///             Subnets = 
-    ///             {
-    ///                 "subnet1",
-    ///                 "subnet2",
-    ///             },
-    ///             VpcConnectorName = "name",
-    ///         });
-    ///     }
+    ///             "sg1",
+    ///             "sg2",
+    ///         },
+    ///         Subnets = new[]
+    ///         {
+    ///             "subnet1",
+    ///             "subnet2",
+    ///         },
+    ///         VpcConnectorName = "name",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.AppRunner
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/vpcConnector:VpcConnector")]
-    public partial class VpcConnector : Pulumi.CustomResource
+    public partial class VpcConnector : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -135,7 +133,7 @@ namespace Pulumi.Aws.AppRunner
         }
     }
 
-    public sealed class VpcConnectorArgs : Pulumi.ResourceArgs
+    public sealed class VpcConnectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
@@ -182,9 +180,10 @@ namespace Pulumi.Aws.AppRunner
         public VpcConnectorArgs()
         {
         }
+        public static new VpcConnectorArgs Empty => new VpcConnectorArgs();
     }
 
-    public sealed class VpcConnectorState : Pulumi.ResourceArgs
+    public sealed class VpcConnectorState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -246,5 +245,6 @@ namespace Pulumi.Aws.AppRunner
         public VpcConnectorState()
         {
         }
+        public static new VpcConnectorState Empty => new VpcConnectorState();
     }
 }

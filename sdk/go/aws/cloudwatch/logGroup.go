@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Application": pulumi.String("serviceA"),
-// 				"Environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
+//				Tags: pulumi.StringMap{
+//					"Application": pulumi.String("serviceA"),
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Cloudwatch Log Groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+//
+//	$ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+//
 // ```
 type LogGroup struct {
 	pulumi.CustomResourceState
@@ -64,7 +69,7 @@ type LogGroup struct {
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -113,7 +118,7 @@ type logGroupState struct {
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -134,7 +139,7 @@ type LogGroupState struct {
 	RetentionInDays pulumi.IntPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -203,7 +208,7 @@ func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutp
 // LogGroupArrayInput is an input type that accepts LogGroupArray and LogGroupArrayOutput values.
 // You can construct a concrete instance of `LogGroupArrayInput` via:
 //
-//          LogGroupArray{ LogGroupArgs{...} }
+//	LogGroupArray{ LogGroupArgs{...} }
 type LogGroupArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +233,7 @@ func (i LogGroupArray) ToLogGroupArrayOutputWithContext(ctx context.Context) Log
 // LogGroupMapInput is an input type that accepts LogGroupMap and LogGroupMapOutput values.
 // You can construct a concrete instance of `LogGroupMapInput` via:
 //
-//          LogGroupMap{ "key": LogGroupArgs{...} }
+//	LogGroupMap{ "key": LogGroupArgs{...} }
 type LogGroupMapInput interface {
 	pulumi.Input
 
@@ -298,7 +303,7 @@ func (o LogGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewVpcDhcpOptionsAssociation(ctx, "dnsResolver", &ec2.VpcDhcpOptionsAssociationArgs{
-// 			VpcId:         pulumi.Any(aws_vpc.Foo.Id),
-// 			DhcpOptionsId: pulumi.Any(aws_vpc_dhcp_options.Foo.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcDhcpOptionsAssociation(ctx, "dnsResolver", &ec2.VpcDhcpOptionsAssociationArgs{
+//				VpcId:         pulumi.Any(aws_vpc.Foo.Id),
+//				DhcpOptionsId: pulumi.Any(aws_vpc_dhcp_options.Foo.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Remarks
 //
@@ -43,10 +46,12 @@ import (
 //
 // ## Import
 //
-// DHCP associations can be imported by providing the VPC ID associated with the options
+// # DHCP associations can be imported by providing the VPC ID associated with the options
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+//
+//	$ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+//
 // ```
 type VpcDhcpOptionsAssociation struct {
 	pulumi.CustomResourceState
@@ -150,7 +155,7 @@ func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutputWithContext
 // VpcDhcpOptionsAssociationArrayInput is an input type that accepts VpcDhcpOptionsAssociationArray and VpcDhcpOptionsAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcDhcpOptionsAssociationArrayInput` via:
 //
-//          VpcDhcpOptionsAssociationArray{ VpcDhcpOptionsAssociationArgs{...} }
+//	VpcDhcpOptionsAssociationArray{ VpcDhcpOptionsAssociationArgs{...} }
 type VpcDhcpOptionsAssociationArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +180,7 @@ func (i VpcDhcpOptionsAssociationArray) ToVpcDhcpOptionsAssociationArrayOutputWi
 // VpcDhcpOptionsAssociationMapInput is an input type that accepts VpcDhcpOptionsAssociationMap and VpcDhcpOptionsAssociationMapOutput values.
 // You can construct a concrete instance of `VpcDhcpOptionsAssociationMapInput` via:
 //
-//          VpcDhcpOptionsAssociationMap{ "key": VpcDhcpOptionsAssociationArgs{...} }
+//	VpcDhcpOptionsAssociationMap{ "key": VpcDhcpOptionsAssociationArgs{...} }
 type VpcDhcpOptionsAssociationMapInput interface {
 	pulumi.Input
 

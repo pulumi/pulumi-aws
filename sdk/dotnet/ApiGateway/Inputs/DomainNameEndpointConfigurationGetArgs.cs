@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class DomainNameEndpointConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameEndpointConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public DomainNameEndpointConfigurationGetArgs()
         {
         }
+        public static new DomainNameEndpointConfigurationGetArgs Empty => new DomainNameEndpointConfigurationGetArgs();
     }
 }

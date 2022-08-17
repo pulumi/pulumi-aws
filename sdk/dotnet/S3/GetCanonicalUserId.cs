@@ -22,20 +22,19 @@ namespace Pulumi.Aws.S3
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.S3.GetCanonicalUserId.InvokeAsync());
-        ///         this.CanonicalUserId = current.Apply(current =&gt; current.Id);
-        ///     }
+        ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
         /// 
-        ///     [Output("canonicalUserId")]
-        ///     public Output&lt;string&gt; CanonicalUserId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["canonicalUserId"] = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

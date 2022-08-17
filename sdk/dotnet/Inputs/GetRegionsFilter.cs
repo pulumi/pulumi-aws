@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class GetRegionsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetRegionsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Inputs
         public GetRegionsFilterArgs()
         {
         }
+        public static new GetRegionsFilterArgs Empty => new GetRegionsFilterArgs();
     }
 }

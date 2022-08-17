@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewTagOption(ctx, "example", &servicecatalog.TagOptionArgs{
-// 			Key:   pulumi.String("nyckel"),
-// 			Value: pulumi.String("värde"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewTagOption(ctx, "example", &servicecatalog.TagOptionArgs{
+//				Key:   pulumi.String("nyckel"),
+//				Value: pulumi.String("värde"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+//
+//	$ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+//
 // ```
 type TagOption struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *TagOption) ToTagOptionOutputWithContext(ctx context.Context) TagOptionO
 // TagOptionArrayInput is an input type that accepts TagOptionArray and TagOptionArrayOutput values.
 // You can construct a concrete instance of `TagOptionArrayInput` via:
 //
-//          TagOptionArray{ TagOptionArgs{...} }
+//	TagOptionArray{ TagOptionArgs{...} }
 type TagOptionArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i TagOptionArray) ToTagOptionArrayOutputWithContext(ctx context.Context) T
 // TagOptionMapInput is an input type that accepts TagOptionMap and TagOptionMapOutput values.
 // You can construct a concrete instance of `TagOptionMapInput` via:
 //
-//          TagOptionMap{ "key": TagOptionArgs{...} }
+//	TagOptionMap{ "key": TagOptionArgs{...} }
 type TagOptionMapInput interface {
 	pulumi.Input
 

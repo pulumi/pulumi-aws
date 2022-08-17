@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.Fleet("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.Fleet("example", new Aws.Ec2.FleetArgs
+    ///         LaunchTemplateConfig = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
     ///         {
-    ///             LaunchTemplateConfig = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
+    ///             LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
     ///             {
-    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
-    ///                 {
-    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                     Version = aws_launch_template.Example.Latest_version,
-    ///                 },
+    ///                 LaunchTemplateId = aws_launch_template.Example.Id,
+    ///                 Version = aws_launch_template.Example.Latest_version,
     ///             },
-    ///             TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
-    ///             {
-    ///                 DefaultTargetCapacityType = "spot",
-    ///                 TotalTargetCapacity = 5,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
+    ///         {
+    ///             DefaultTargetCapacityType = "spot",
+    ///             TotalTargetCapacity = 5,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/fleet:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the fleet
@@ -176,7 +174,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reserved.
@@ -253,9 +251,10 @@ namespace Pulumi.Aws.Ec2
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 
-    public sealed class FleetState : Pulumi.ResourceArgs
+    public sealed class FleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the fleet
@@ -350,5 +349,6 @@ namespace Pulumi.Aws.Ec2
         public FleetState()
         {
         }
+        public static new FleetState Empty => new FleetState();
     }
 }

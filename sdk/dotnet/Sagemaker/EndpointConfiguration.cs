@@ -17,33 +17,31 @@ namespace Pulumi.Aws.Sagemaker
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new()
     ///     {
-    ///         var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new Aws.Sagemaker.EndpointConfigurationArgs
+    ///         ProductionVariants = new[]
     ///         {
-    ///             ProductionVariants = 
+    ///             new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
     ///             {
-    ///                 new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
-    ///                 {
-    ///                     VariantName = "variant-1",
-    ///                     ModelName = aws_sagemaker_model.M.Name,
-    ///                     InitialInstanceCount = 1,
-    ///                     InstanceType = "ml.t2.medium",
-    ///                 },
+    ///                 VariantName = "variant-1",
+    ///                 ModelName = aws_sagemaker_model.M.Name,
+    ///                 InitialInstanceCount = 1,
+    ///                 InstanceType = "ml.t2.medium",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foo" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "foo" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
-    public partial class EndpointConfiguration : Pulumi.CustomResource
+    public partial class EndpointConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
@@ -94,13 +92,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -149,7 +147,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class EndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies configuration for how an endpoint performs asynchronous inference.
@@ -191,7 +189,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,9 +200,10 @@ namespace Pulumi.Aws.Sagemaker
         public EndpointConfigurationArgs()
         {
         }
+        public static new EndpointConfigurationArgs Empty => new EndpointConfigurationArgs();
     }
 
-    public sealed class EndpointConfigurationState : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
@@ -252,7 +251,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,7 +263,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -275,5 +274,6 @@ namespace Pulumi.Aws.Sagemaker
         public EndpointConfigurationState()
         {
         }
+        public static new EndpointConfigurationState Empty => new EndpointConfigurationState();
     }
 }

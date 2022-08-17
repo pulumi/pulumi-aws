@@ -15,40 +15,37 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.ApiGateway.RestApi("test", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new Aws.ApiGateway.UsagePlanArgs
-    ///         {
-    ///             ApiStages = 
-    ///             {
-    ///                 new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
-    ///                 {
-    ///                     ApiId = test.Id,
-    ///                     Stage = aws_api_gateway_deployment.Foo.Stage_name,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var mykey = new Aws.ApiGateway.ApiKey("mykey", new Aws.ApiGateway.ApiKeyArgs
-    ///         {
-    ///         });
-    ///         var main = new Aws.ApiGateway.UsagePlanKey("main", new Aws.ApiGateway.UsagePlanKeyArgs
-    ///         {
-    ///             KeyId = mykey.Id,
-    ///             KeyType = "API_KEY",
-    ///             UsagePlanId = myusageplan.Id,
-    ///         });
-    ///     }
+    ///     var test = new Aws.ApiGateway.RestApi("test");
     /// 
-    /// }
+    ///     // ...
+    ///     var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new()
+    ///     {
+    ///         ApiStages = new[]
+    ///         {
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = test.Id,
+    ///                 Stage = aws_api_gateway_deployment.Foo.Stage_name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey");
+    /// 
+    ///     var main = new Aws.ApiGateway.UsagePlanKey("main", new()
+    ///     {
+    ///         KeyId = mykey.Id,
+    ///         KeyType = "API_KEY",
+    ///         UsagePlanId = myusageplan.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +57,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
-    public partial class UsagePlanKey : Pulumi.CustomResource
+    public partial class UsagePlanKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier of the API key resource.
@@ -136,7 +133,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class UsagePlanKeyArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the API key resource.
@@ -159,9 +156,10 @@ namespace Pulumi.Aws.ApiGateway
         public UsagePlanKeyArgs()
         {
         }
+        public static new UsagePlanKeyArgs Empty => new UsagePlanKeyArgs();
     }
 
-    public sealed class UsagePlanKeyState : Pulumi.ResourceArgs
+    public sealed class UsagePlanKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the API key resource.
@@ -196,5 +194,6 @@ namespace Pulumi.Aws.ApiGateway
         public UsagePlanKeyState()
         {
         }
+        public static new UsagePlanKeyState Empty => new UsagePlanKeyState();
     }
 }

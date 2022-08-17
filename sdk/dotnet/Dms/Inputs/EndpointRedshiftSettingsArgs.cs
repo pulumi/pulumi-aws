@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dms.Inputs
 {
 
-    public sealed class EndpointRedshiftSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointRedshiftSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// S3 object prefix.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public EndpointRedshiftSettingsArgs()
         {
         }
+        public static new EndpointRedshiftSettingsArgs Empty => new EndpointRedshiftSettingsArgs();
     }
 }

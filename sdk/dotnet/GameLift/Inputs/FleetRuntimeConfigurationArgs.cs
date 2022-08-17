@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class FleetRuntimeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FleetRuntimeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public FleetRuntimeConfigurationArgs()
         {
         }
+        public static new FleetRuntimeConfigurationArgs Empty => new FleetRuntimeConfigurationArgs();
     }
 }

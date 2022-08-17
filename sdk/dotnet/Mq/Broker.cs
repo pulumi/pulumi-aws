@@ -22,79 +22,75 @@ namespace Pulumi.Aws.Mq
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mq.Broker("example", new()
     ///     {
-    ///         var example = new Aws.Mq.Broker("example", new Aws.Mq.BrokerArgs
+    ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///         {
-    ///             Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
+    ///             Id = aws_mq_configuration.Test.Id,
+    ///             Revision = aws_mq_configuration.Test.Latest_revision,
+    ///         },
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.15.9",
+    ///         HostInstanceType = "mq.t2.micro",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             aws_security_group.Test.Id,
+    ///         },
+    ///         Users = new[]
+    ///         {
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
     ///             {
-    ///                 Id = aws_mq_configuration.Test.Id,
-    ///                 Revision = aws_mq_configuration.Test.Latest_revision,
+    ///                 Username = "ExampleUser",
+    ///                 Password = "MindTheGap",
     ///             },
-    ///             EngineType = "ActiveMQ",
-    ///             EngineVersion = "5.15.9",
-    ///             HostInstanceType = "mq.t2.micro",
-    ///             SecurityGroups = 
-    ///             {
-    ///                 aws_security_group.Test.Id,
-    ///             },
-    ///             Users = 
-    ///             {
-    ///                 new Aws.Mq.Inputs.BrokerUserArgs
-    ///                 {
-    ///                     Username = "ExampleUser",
-    ///                     Password = "MindTheGap",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### High-throughput Optimized Example
     /// 
     /// This example shows the use of EBS storage for high-throughput optimized performance.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mq.Broker("example", new()
     ///     {
-    ///         var example = new Aws.Mq.Broker("example", new Aws.Mq.BrokerArgs
+    ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///         {
-    ///             Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
+    ///             Id = aws_mq_configuration.Test.Id,
+    ///             Revision = aws_mq_configuration.Test.Latest_revision,
+    ///         },
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.15.9",
+    ///         StorageType = "ebs",
+    ///         HostInstanceType = "mq.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             aws_security_group.Test.Id,
+    ///         },
+    ///         Users = new[]
+    ///         {
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
     ///             {
-    ///                 Id = aws_mq_configuration.Test.Id,
-    ///                 Revision = aws_mq_configuration.Test.Latest_revision,
+    ///                 Username = "ExampleUser",
+    ///                 Password = "MindTheGap",
     ///             },
-    ///             EngineType = "ActiveMQ",
-    ///             EngineVersion = "5.15.9",
-    ///             StorageType = "ebs",
-    ///             HostInstanceType = "mq.m5.large",
-    ///             SecurityGroups = 
-    ///             {
-    ///                 aws_security_group.Test.Id,
-    ///             },
-    ///             Users = 
-    ///             {
-    ///                 new Aws.Mq.Inputs.BrokerUserArgs
-    ///                 {
-    ///                     Username = "ExampleUser",
-    ///                     Password = "MindTheGap",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +102,7 @@ namespace Pulumi.Aws.Mq
     /// ```
     /// </summary>
     [AwsResourceType("aws:mq/broker:Broker")]
-    public partial class Broker : Pulumi.CustomResource
+    public partial class Broker : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -234,13 +230,13 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the broker. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -295,7 +291,7 @@ namespace Pulumi.Aws.Mq
         }
     }
 
-    public sealed class BrokerArgs : Pulumi.ResourceArgs
+    public sealed class BrokerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -415,7 +411,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the broker. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -438,9 +434,10 @@ namespace Pulumi.Aws.Mq
         public BrokerArgs()
         {
         }
+        public static new BrokerArgs Empty => new BrokerArgs();
     }
 
-    public sealed class BrokerState : Pulumi.ResourceArgs
+    public sealed class BrokerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -589,7 +586,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the broker. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -601,7 +598,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -624,5 +621,6 @@ namespace Pulumi.Aws.Mq
         public BrokerState()
         {
         }
+        public static new BrokerState Empty => new BrokerState();
     }
 }

@@ -470,7 +470,6 @@ class TopicSubscription(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
         config = pulumi.Config()
         sns = config.get_object("sns")
@@ -552,23 +551,23 @@ class TopicSubscription(pulumi.CustomResource):
                 )],
             )])
         # provider to manage SNS topics
-        aws_sns = pulumi.providers.Aws("awsSns",
+        aws_sns = aws.Provider("awsSns",
             region=sns["region"],
-            assume_role=aws.config.AssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
-        aws_sqs = pulumi.providers.Aws("awsSqs",
+        aws_sqs = aws.Provider("awsSqs",
             region=sqs["region"],
-            assume_role=aws.config.AssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-        sns2sqs = pulumi.providers.Aws("sns2sqs",
+        sns2sqs = aws.Provider("sns2sqs",
             region=sns["region"],
-            assume_role=aws.config.AssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
             ))
@@ -658,7 +657,6 @@ class TopicSubscription(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
         config = pulumi.Config()
         sns = config.get_object("sns")
@@ -740,23 +738,23 @@ class TopicSubscription(pulumi.CustomResource):
                 )],
             )])
         # provider to manage SNS topics
-        aws_sns = pulumi.providers.Aws("awsSns",
+        aws_sns = aws.Provider("awsSns",
             region=sns["region"],
-            assume_role=aws.config.AssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
-        aws_sqs = pulumi.providers.Aws("awsSqs",
+        aws_sqs = aws.Provider("awsSqs",
             region=sqs["region"],
-            assume_role=aws.config.AssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-        sns2sqs = pulumi.providers.Aws("sns2sqs",
+        sns2sqs = aws.Provider("sns2sqs",
             region=sns["region"],
-            assume_role=aws.config.AssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
             ))

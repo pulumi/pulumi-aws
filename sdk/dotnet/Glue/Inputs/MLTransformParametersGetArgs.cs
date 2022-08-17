@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class MLTransformParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameters for the find matches algorithm. see Find Matches Parameters.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public MLTransformParametersGetArgs()
         {
         }
+        public static new MLTransformParametersGetArgs Empty => new MLTransformParametersGetArgs();
     }
 }

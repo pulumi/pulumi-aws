@@ -16,19 +16,15 @@ namespace Pulumi.Aws.SecretsManager
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.SecretsManager.Secret("example", new Aws.SecretsManager.SecretArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.SecretsManager.Secret("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Rotation Configuration
     /// 
@@ -39,24 +35,22 @@ namespace Pulumi.Aws.SecretsManager
     /// &gt; **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var rotation_example = new Aws.SecretsManager.Secret("rotation-example", new()
     ///     {
-    ///         var rotation_example = new Aws.SecretsManager.Secret("rotation-example", new Aws.SecretsManager.SecretArgs
+    ///         RotationLambdaArn = aws_lambda_function.Example.Arn,
+    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRulesArgs
     ///         {
-    ///             RotationLambdaArn = aws_lambda_function.Example.Arn,
-    ///             RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRulesArgs
-    ///             {
-    ///                 AutomaticallyAfterDays = 7,
-    ///             },
-    ///         });
-    ///     }
+    ///             AutomaticallyAfterDays = 7,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +62,7 @@ namespace Pulumi.Aws.SecretsManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secret:Secret")]
-    public partial class Secret : Pulumi.CustomResource
+    public partial class Secret : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the secret.
@@ -198,7 +192,7 @@ namespace Pulumi.Aws.SecretsManager
         }
     }
 
-    public sealed class SecretArgs : Pulumi.ResourceArgs
+    public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the secret.
@@ -281,9 +275,10 @@ namespace Pulumi.Aws.SecretsManager
         public SecretArgs()
         {
         }
+        public static new SecretArgs Empty => new SecretArgs();
     }
 
-    public sealed class SecretState : Pulumi.ResourceArgs
+    public sealed class SecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the secret.
@@ -390,5 +385,6 @@ namespace Pulumi.Aws.SecretsManager
         public SecretState()
         {
         }
+        public static new SecretState Empty => new SecretState();
     }
 }

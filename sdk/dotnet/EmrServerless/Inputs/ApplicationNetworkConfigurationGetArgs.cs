@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EmrServerless.Inputs
 {
 
-    public sealed class ApplicationNetworkConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         public ApplicationNetworkConfigurationGetArgs()
         {
         }
+        public static new ApplicationNetworkConfigurationGetArgs Empty => new ApplicationNetworkConfigurationGetArgs();
     }
 }

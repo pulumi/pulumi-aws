@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class IdentityPoolCognitoIdentityProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolCognitoIdentityProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID for the Amazon Cognito Identity User Pool.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public IdentityPoolCognitoIdentityProviderGetArgs()
         {
         }
+        public static new IdentityPoolCognitoIdentityProviderGetArgs Empty => new IdentityPoolCognitoIdentityProviderGetArgs();
     }
 }

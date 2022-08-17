@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.GetInstanceProfiles(ctx, &iam.GetInstanceProfilesArgs{
-// 			RoleName: "an_example_iam_role_name",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.GetInstanceProfiles(ctx, &iam.GetInstanceProfilesArgs{
+//				RoleName: "an_example_iam_role_name",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetInstanceProfiles(ctx *pulumi.Context, args *GetInstanceProfilesArgs, opts ...pulumi.InvokeOption) (*GetInstanceProfilesResult, error) {
 	var rv GetInstanceProfilesResult

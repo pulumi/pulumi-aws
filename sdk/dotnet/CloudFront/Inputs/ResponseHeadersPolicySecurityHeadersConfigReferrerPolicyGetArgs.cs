@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs()
         {
         }
+        public static new ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs Empty => new ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs();
     }
 }

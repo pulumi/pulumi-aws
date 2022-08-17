@@ -18,37 +18,37 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var web = new Aws.Ec2.Instance("web", new()
     ///     {
-    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         Ami = "ami-21f78e11",
+    ///         AvailabilityZone = "us-west-2a",
+    ///         InstanceType = "t2.micro",
+    ///         Tags = 
     ///         {
-    ///             Ami = "ami-21f78e11",
-    ///             AvailabilityZone = "us-west-2a",
-    ///             InstanceType = "t2.micro",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
-    ///         {
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Size = 1,
-    ///         });
-    ///         var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new Aws.Ec2.VolumeAttachmentArgs
-    ///         {
-    ///             DeviceName = "/dev/sdh",
-    ///             VolumeId = example.Id,
-    ///             InstanceId = web.Id,
-    ///         });
-    ///     }
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.Ebs.Volume("example", new()
+    ///     {
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Size = 1,
+    ///     });
+    /// 
+    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new()
+    ///     {
+    ///         DeviceName = "/dev/sdh",
+    ///         VolumeId = example.Id,
+    ///         InstanceId = web.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ec2
     ///  [1]https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names [2]https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names [3]https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html
     /// </summary>
     [AwsResourceType("aws:ec2/volumeAttachment:VolumeAttachment")]
-    public partial class VolumeAttachment : Pulumi.CustomResource
+    public partial class VolumeAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The device name to expose to the instance (for
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VolumeAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name to expose to the instance (for
@@ -203,9 +203,10 @@ namespace Pulumi.Aws.Ec2
         public VolumeAttachmentArgs()
         {
         }
+        public static new VolumeAttachmentArgs Empty => new VolumeAttachmentArgs();
     }
 
-    public sealed class VolumeAttachmentState : Pulumi.ResourceArgs
+    public sealed class VolumeAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name to expose to the instance (for
@@ -255,5 +256,6 @@ namespace Pulumi.Aws.Ec2
         public VolumeAttachmentState()
         {
         }
+        public static new VolumeAttachmentState Empty => new VolumeAttachmentState();
     }
 }

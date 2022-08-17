@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableCommentGetArgs : Pulumi.ResourceArgs
+    public sealed class TableCommentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the table.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableCommentGetArgs()
         {
         }
+        public static new TableCommentGetArgs Empty => new TableCommentGetArgs();
     }
 }

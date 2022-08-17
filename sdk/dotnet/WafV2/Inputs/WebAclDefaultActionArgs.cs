@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclDefaultActionArgs : Pulumi.ResourceArgs
+    public sealed class WebAclDefaultActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies that AWS WAF should allow requests by default. See Allow below for details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclDefaultActionArgs()
         {
         }
+        public static new WebAclDefaultActionArgs Empty => new WebAclDefaultActionArgs();
     }
 }

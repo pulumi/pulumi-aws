@@ -22,103 +22,106 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/alb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/alb"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-// 			IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-// 				&wafregional.IpSetIpSetDescriptorArgs{
-// 					Type:  pulumi.String("IPV4"),
-// 					Value: pulumi.String("192.0.7.0/24"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooRule, err := wafregional.NewRule(ctx, "fooRule", &wafregional.RuleArgs{
-// 			MetricName: pulumi.String("tfWAFRule"),
-// 			Predicates: wafregional.RulePredicateArray{
-// 				&wafregional.RulePredicateArgs{
-// 					DataId:  ipset.ID(),
-// 					Negated: pulumi.Bool(false),
-// 					Type:    pulumi.String("IPMatch"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
-// 			MetricName: pulumi.String("foo"),
-// 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
-// 				Type: pulumi.String("ALLOW"),
-// 			},
-// 			Rules: wafregional.WebAclRuleArray{
-// 				&wafregional.WebAclRuleArgs{
-// 					Action: &wafregional.WebAclRuleActionArgs{
-// 						Type: pulumi.String("BLOCK"),
-// 					},
-// 					Priority: pulumi.Int(1),
-// 					RuleId:   fooRule.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		available, err := aws.GetAvailabilityZones(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-// 			VpcId:            fooVpc.ID(),
-// 			CidrBlock:        pulumi.String("10.1.1.0/24"),
-// 			AvailabilityZone: pulumi.String(available.Names[0]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-// 			VpcId:            fooVpc.ID(),
-// 			CidrBlock:        pulumi.String("10.1.2.0/24"),
-// 			AvailabilityZone: pulumi.String(available.Names[1]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooLoadBalancer, err := alb.NewLoadBalancer(ctx, "fooLoadBalancer", &alb.LoadBalancerArgs{
-// 			Internal: pulumi.Bool(true),
-// 			Subnets: pulumi.StringArray{
-// 				fooSubnet.ID(),
-// 				bar.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = wafregional.NewWebAclAssociation(ctx, "fooWebAclAssociation", &wafregional.WebAclAssociationArgs{
-// 			ResourceArn: fooLoadBalancer.Arn,
-// 			WebAclId:    fooWebAcl.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
+//					&wafregional.IpSetIpSetDescriptorArgs{
+//						Type:  pulumi.String("IPV4"),
+//						Value: pulumi.String("192.0.7.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooRule, err := wafregional.NewRule(ctx, "fooRule", &wafregional.RuleArgs{
+//				MetricName: pulumi.String("tfWAFRule"),
+//				Predicates: wafregional.RulePredicateArray{
+//					&wafregional.RulePredicateArgs{
+//						DataId:  ipset.ID(),
+//						Negated: pulumi.Bool(false),
+//						Type:    pulumi.String("IPMatch"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
+//				MetricName: pulumi.String("foo"),
+//				DefaultAction: &wafregional.WebAclDefaultActionArgs{
+//					Type: pulumi.String("ALLOW"),
+//				},
+//				Rules: wafregional.WebAclRuleArray{
+//					&wafregional.WebAclRuleArgs{
+//						Action: &wafregional.WebAclRuleActionArgs{
+//							Type: pulumi.String("BLOCK"),
+//						},
+//						Priority: pulumi.Int(1),
+//						RuleId:   fooRule.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			available, err := aws.GetAvailabilityZones(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
+//				VpcId:            fooVpc.ID(),
+//				CidrBlock:        pulumi.String("10.1.1.0/24"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
+//				VpcId:            fooVpc.ID(),
+//				CidrBlock:        pulumi.String("10.1.2.0/24"),
+//				AvailabilityZone: pulumi.String(available.Names[1]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooLoadBalancer, err := alb.NewLoadBalancer(ctx, "fooLoadBalancer", &alb.LoadBalancerArgs{
+//				Internal: pulumi.Bool(true),
+//				Subnets: pulumi.StringArray{
+//					fooSubnet.ID(),
+//					bar.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafregional.NewWebAclAssociation(ctx, "fooWebAclAssociation", &wafregional.WebAclAssociationArgs{
+//				ResourceArn: fooLoadBalancer.Arn,
+//				WebAclId:    fooWebAcl.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### API Gateway Association
 //
@@ -126,130 +129,133 @@ import (
 // package main
 //
 // import (
-// 	"crypto/sha1"
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func sha1Hash(input string) string {
-// 	hash := sha1.Sum([]byte(input))
-// 	return hex.EncodeToString(hash[:])
-// }
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-// 			IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-// 				&wafregional.IpSetIpSetDescriptorArgs{
-// 					Type:  pulumi.String("IPV4"),
-// 					Value: pulumi.String("192.0.7.0/24"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooRule, err := wafregional.NewRule(ctx, "fooRule", &wafregional.RuleArgs{
-// 			MetricName: pulumi.String("tfWAFRule"),
-// 			Predicates: wafregional.RulePredicateArray{
-// 				&wafregional.RulePredicateArgs{
-// 					DataId:  ipset.ID(),
-// 					Negated: pulumi.Bool(false),
-// 					Type:    pulumi.String("IPMatch"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
-// 			MetricName: pulumi.String("foo"),
-// 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
-// 				Type: pulumi.String("ALLOW"),
-// 			},
-// 			Rules: wafregional.WebAclRuleArray{
-// 				&wafregional.WebAclRuleArgs{
-// 					Action: &wafregional.WebAclRuleActionArgs{
-// 						Type: pulumi.String("BLOCK"),
-// 					},
-// 					Priority: pulumi.Int(1),
-// 					RuleId:   fooRule.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"openapi": "3.0.1",
-// 			"info": map[string]interface{}{
-// 				"title":   "example",
-// 				"version": "1.0",
-// 			},
-// 			"paths": map[string]interface{}{
-// 				"/path1": map[string]interface{}{
-// 					"get": map[string]interface{}{
-// 						"x-amazon-apigateway-integration": map[string]interface{}{
-// 							"httpMethod":           "GET",
-// 							"payloadFormatVersion": "1.0",
-// 							"type":                 "HTTP_PROXY",
-// 							"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
-// 			Body: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-// 			RestApi: exampleRestApi.ID(),
-// 			Triggers: pulumi.StringMap{
-// 				"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
-// 					var _zero pulumi.String
-// 					tmpJSON1, err := json.Marshal(body)
-// 					if err != nil {
-// 						return _zero, err
-// 					}
-// 					json1 := string(tmpJSON1)
-// 					return json1, nil
-// 				}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-// 					return sha1Hash(toJSON), nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-// 			Deployment: exampleDeployment.ID(),
-// 			RestApi:    exampleRestApi.ID(),
-// 			StageName:  pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = wafregional.NewWebAclAssociation(ctx, "association", &wafregional.WebAclAssociationArgs{
-// 			ResourceArn: exampleStage.Arn,
-// 			WebAclId:    fooWebAcl.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
+//					&wafregional.IpSetIpSetDescriptorArgs{
+//						Type:  pulumi.String("IPV4"),
+//						Value: pulumi.String("192.0.7.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooRule, err := wafregional.NewRule(ctx, "fooRule", &wafregional.RuleArgs{
+//				MetricName: pulumi.String("tfWAFRule"),
+//				Predicates: wafregional.RulePredicateArray{
+//					&wafregional.RulePredicateArgs{
+//						DataId:  ipset.ID(),
+//						Negated: pulumi.Bool(false),
+//						Type:    pulumi.String("IPMatch"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
+//				MetricName: pulumi.String("foo"),
+//				DefaultAction: &wafregional.WebAclDefaultActionArgs{
+//					Type: pulumi.String("ALLOW"),
+//				},
+//				Rules: wafregional.WebAclRuleArray{
+//					&wafregional.WebAclRuleArgs{
+//						Action: &wafregional.WebAclRuleActionArgs{
+//							Type: pulumi.String("BLOCK"),
+//						},
+//						Priority: pulumi.Int(1),
+//						RuleId:   fooRule.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.1",
+//				"info": map[string]interface{}{
+//					"title":   "example",
+//					"version": "1.0",
+//				},
+//				"paths": map[string]interface{}{
+//					"/path1": map[string]interface{}{
+//						"get": map[string]interface{}{
+//							"x-amazon-apigateway-integration": map[string]interface{}{
+//								"httpMethod":           "GET",
+//								"payloadFormatVersion": "1.0",
+//								"type":                 "HTTP_PROXY",
+//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//				Body: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+//				RestApi: exampleRestApi.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(body)
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return json1, nil
+//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+//						return sha1Hash(toJSON), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafregional.NewWebAclAssociation(ctx, "association", &wafregional.WebAclAssociationArgs{
+//				ResourceArn: exampleStage.Arn,
+//				WebAclId:    fooWebAcl.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -257,7 +263,9 @@ import (
 // WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+//
+//	$ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+//
 // ```
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
@@ -361,7 +369,7 @@ func (i *WebAclAssociation) ToWebAclAssociationOutputWithContext(ctx context.Con
 // WebAclAssociationArrayInput is an input type that accepts WebAclAssociationArray and WebAclAssociationArrayOutput values.
 // You can construct a concrete instance of `WebAclAssociationArrayInput` via:
 //
-//          WebAclAssociationArray{ WebAclAssociationArgs{...} }
+//	WebAclAssociationArray{ WebAclAssociationArgs{...} }
 type WebAclAssociationArrayInput interface {
 	pulumi.Input
 
@@ -386,7 +394,7 @@ func (i WebAclAssociationArray) ToWebAclAssociationArrayOutputWithContext(ctx co
 // WebAclAssociationMapInput is an input type that accepts WebAclAssociationMap and WebAclAssociationMapOutput values.
 // You can construct a concrete instance of `WebAclAssociationMapInput` via:
 //
-//          WebAclAssociationMap{ "key": WebAclAssociationArgs{...} }
+//	WebAclAssociationMap{ "key": WebAclAssociationArgs{...} }
 type WebAclAssociationMapInput interface {
 	pulumi.Input
 

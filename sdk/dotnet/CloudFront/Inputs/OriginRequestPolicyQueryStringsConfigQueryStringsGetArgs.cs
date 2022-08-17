@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class OriginRequestPolicyQueryStringsConfigQueryStringsGetArgs : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyQueryStringsConfigQueryStringsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<string>? _items;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public OriginRequestPolicyQueryStringsConfigQueryStringsGetArgs()
         {
         }
+        public static new OriginRequestPolicyQueryStringsConfigQueryStringsGetArgs Empty => new OriginRequestPolicyQueryStringsConfigQueryStringsGetArgs();
     }
 }

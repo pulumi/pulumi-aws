@@ -18,208 +18,220 @@ import (
 //
 // ## Example Usage
 //
-// Basic usage using `approvedPatches` only
+// # Basic usage using `approvedPatches` only
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
-// 			ApprovedPatches: pulumi.StringArray{
-// 				pulumi.String("KB123456"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
+//				ApprovedPatches: pulumi.StringArray{
+//					pulumi.String("KB123456"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
-// Advanced usage, specifying patch filters
+// # Advanced usage, specifying patch filters
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
-// 			ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
-// 				&ssm.PatchBaselineApprovalRuleArgs{
-// 					ApproveAfterDays: pulumi.Int(7),
-// 					ComplianceLevel:  pulumi.String("HIGH"),
-// 					PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("PRODUCT"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("WindowsServer2016"),
-// 							},
-// 						},
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("CLASSIFICATION"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("CriticalUpdates"),
-// 								pulumi.String("SecurityUpdates"),
-// 								pulumi.String("Updates"),
-// 							},
-// 						},
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("MSRC_SEVERITY"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("Critical"),
-// 								pulumi.String("Important"),
-// 								pulumi.String("Moderate"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				&ssm.PatchBaselineApprovalRuleArgs{
-// 					ApproveAfterDays: pulumi.Int(7),
-// 					PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("PRODUCT"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("WindowsServer2012"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			ApprovedPatches: pulumi.StringArray{
-// 				pulumi.String("KB123456"),
-// 				pulumi.String("KB456789"),
-// 			},
-// 			Description: pulumi.String("Patch Baseline Description"),
-// 			GlobalFilters: ssm.PatchBaselineGlobalFilterArray{
-// 				&ssm.PatchBaselineGlobalFilterArgs{
-// 					Key: pulumi.String("PRODUCT"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("WindowsServer2008"),
-// 					},
-// 				},
-// 				&ssm.PatchBaselineGlobalFilterArgs{
-// 					Key: pulumi.String("CLASSIFICATION"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("ServicePacks"),
-// 					},
-// 				},
-// 				&ssm.PatchBaselineGlobalFilterArgs{
-// 					Key: pulumi.String("MSRC_SEVERITY"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("Low"),
-// 					},
-// 				},
-// 			},
-// 			RejectedPatches: pulumi.StringArray{
-// 				pulumi.String("KB987654"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
+//				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
+//					&ssm.PatchBaselineApprovalRuleArgs{
+//						ApproveAfterDays: pulumi.Int(7),
+//						ComplianceLevel:  pulumi.String("HIGH"),
+//						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("PRODUCT"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("WindowsServer2016"),
+//								},
+//							},
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("CLASSIFICATION"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("CriticalUpdates"),
+//									pulumi.String("SecurityUpdates"),
+//									pulumi.String("Updates"),
+//								},
+//							},
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("MSRC_SEVERITY"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Critical"),
+//									pulumi.String("Important"),
+//									pulumi.String("Moderate"),
+//								},
+//							},
+//						},
+//					},
+//					&ssm.PatchBaselineApprovalRuleArgs{
+//						ApproveAfterDays: pulumi.Int(7),
+//						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("PRODUCT"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("WindowsServer2012"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				ApprovedPatches: pulumi.StringArray{
+//					pulumi.String("KB123456"),
+//					pulumi.String("KB456789"),
+//				},
+//				Description: pulumi.String("Patch Baseline Description"),
+//				GlobalFilters: ssm.PatchBaselineGlobalFilterArray{
+//					&ssm.PatchBaselineGlobalFilterArgs{
+//						Key: pulumi.String("PRODUCT"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("WindowsServer2008"),
+//						},
+//					},
+//					&ssm.PatchBaselineGlobalFilterArgs{
+//						Key: pulumi.String("CLASSIFICATION"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("ServicePacks"),
+//						},
+//					},
+//					&ssm.PatchBaselineGlobalFilterArgs{
+//						Key: pulumi.String("MSRC_SEVERITY"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("Low"),
+//						},
+//					},
+//				},
+//				RejectedPatches: pulumi.StringArray{
+//					pulumi.String("KB987654"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
-// Advanced usage, specifying Microsoft application and Windows patch rules
+// # Advanced usage, specifying Microsoft application and Windows patch rules
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewPatchBaseline(ctx, "windowsOsApps", &ssm.PatchBaselineArgs{
-// 			ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
-// 				&ssm.PatchBaselineApprovalRuleArgs{
-// 					ApproveAfterDays: pulumi.Int(7),
-// 					PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("CLASSIFICATION"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("CriticalUpdates"),
-// 								pulumi.String("SecurityUpdates"),
-// 							},
-// 						},
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("MSRC_SEVERITY"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("Critical"),
-// 								pulumi.String("Important"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				&ssm.PatchBaselineApprovalRuleArgs{
-// 					ApproveAfterDays: pulumi.Int(7),
-// 					PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("PATCH_SET"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("APPLICATION"),
-// 							},
-// 						},
-// 						&ssm.PatchBaselineApprovalRulePatchFilterArgs{
-// 							Key: pulumi.String("PRODUCT"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("Office 2013"),
-// 								pulumi.String("Office 2016"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Description:     pulumi.String("Patch both Windows and Microsoft apps"),
-// 			OperatingSystem: pulumi.String("WINDOWS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewPatchBaseline(ctx, "windowsOsApps", &ssm.PatchBaselineArgs{
+//				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
+//					&ssm.PatchBaselineApprovalRuleArgs{
+//						ApproveAfterDays: pulumi.Int(7),
+//						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("CLASSIFICATION"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("CriticalUpdates"),
+//									pulumi.String("SecurityUpdates"),
+//								},
+//							},
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("MSRC_SEVERITY"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Critical"),
+//									pulumi.String("Important"),
+//								},
+//							},
+//						},
+//					},
+//					&ssm.PatchBaselineApprovalRuleArgs{
+//						ApproveAfterDays: pulumi.Int(7),
+//						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("PATCH_SET"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("APPLICATION"),
+//								},
+//							},
+//							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
+//								Key: pulumi.String("PRODUCT"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Office 2013"),
+//									pulumi.String("Office 2016"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Description:     pulumi.String("Patch both Windows and Microsoft apps"),
+//				OperatingSystem: pulumi.String("WINDOWS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
-// Advanced usage, specifying alternate patch source repository
+// # Advanced usage, specifying alternate patch source repository
 //
 // ```go
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewPatchBaseline(ctx, "al201709", &ssm.PatchBaselineArgs{
-// 			ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
-// 				nil,
-// 			},
-// 			Description:     pulumi.String("My patch repository for Amazon Linux 2017.09"),
-// 			OperatingSystem: pulumi.String("AMAZON_LINUX"),
-// 			Sources: ssm.PatchBaselineSourceArray{
-// 				&ssm.PatchBaselineSourceArgs{
-// 					Configuration: pulumi.String(fmt.Sprintf(`[amzn-main]
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewPatchBaseline(ctx, "al201709", &ssm.PatchBaselineArgs{
+//				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
+//					nil,
+//				},
+//				Description:     pulumi.String("My patch repository for Amazon Linux 2017.09"),
+//				OperatingSystem: pulumi.String("AMAZON_LINUX"),
+//				Sources: ssm.PatchBaselineSourceArray{
+//					&ssm.PatchBaselineSourceArgs{
+//						Configuration: pulumi.String(fmt.Sprintf(`[amzn-main]
+//
 // name=amzn-main-Base
 // mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
 // mirrorlist_expire=300
@@ -235,19 +247,21 @@ import (
 // report_instanceid=yes
 //
 // `)),
-// 					Name: pulumi.String("My-AL2017.09"),
-// 					Products: pulumi.StringArray{
-// 						pulumi.String("AmazonLinux2017.09"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//						Name: pulumi.String("My-AL2017.09"),
+//						Products: pulumi.StringArray{
+//							pulumi.String("AmazonLinux2017.09"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -255,7 +269,9 @@ import (
 // SSM Patch Baselines can be imported by their baseline ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+//
+//	$ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+//
 // ```
 type PatchBaseline struct {
 	pulumi.CustomResourceState
@@ -286,7 +302,7 @@ type PatchBaseline struct {
 	Sources PatchBaselineSourceArrayOutput `pulumi:"sources"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -345,7 +361,7 @@ type patchBaselineState struct {
 	Sources []PatchBaselineSource `pulumi:"sources"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -376,7 +392,7 @@ type PatchBaselineState struct {
 	Sources PatchBaselineSourceArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -465,7 +481,7 @@ func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) Pa
 // PatchBaselineArrayInput is an input type that accepts PatchBaselineArray and PatchBaselineArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineArrayInput` via:
 //
-//          PatchBaselineArray{ PatchBaselineArgs{...} }
+//	PatchBaselineArray{ PatchBaselineArgs{...} }
 type PatchBaselineArrayInput interface {
 	pulumi.Input
 
@@ -490,7 +506,7 @@ func (i PatchBaselineArray) ToPatchBaselineArrayOutputWithContext(ctx context.Co
 // PatchBaselineMapInput is an input type that accepts PatchBaselineMap and PatchBaselineMapOutput values.
 // You can construct a concrete instance of `PatchBaselineMapInput` via:
 //
-//          PatchBaselineMap{ "key": PatchBaselineArgs{...} }
+//	PatchBaselineMap{ "key": PatchBaselineArgs{...} }
 type PatchBaselineMapInput interface {
 	pulumi.Input
 
@@ -591,7 +607,7 @@ func (o PatchBaselineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PatchBaselineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

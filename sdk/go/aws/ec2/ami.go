@@ -25,29 +25,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewAmi(ctx, "example", &ec2.AmiArgs{
-// 			EbsBlockDevices: ec2.AmiEbsBlockDeviceArray{
-// 				&ec2.AmiEbsBlockDeviceArgs{
-// 					DeviceName: pulumi.String("/dev/xvda"),
-// 					SnapshotId: pulumi.String("snap-xxxxxxxx"),
-// 					VolumeSize: pulumi.Int(8),
-// 				},
-// 			},
-// 			RootDeviceName:     pulumi.String("/dev/xvda"),
-// 			VirtualizationType: pulumi.String("hvm"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewAmi(ctx, "example", &ec2.AmiArgs{
+//				EbsBlockDevices: ec2.AmiEbsBlockDeviceArray{
+//					&ec2.AmiEbsBlockDeviceArgs{
+//						DeviceName: pulumi.String("/dev/xvda"),
+//						SnapshotId: pulumi.String("snap-xxxxxxxx"),
+//						VolumeSize: pulumi.Int(8),
+//					},
+//				},
+//				RootDeviceName:     pulumi.String("/dev/xvda"),
+//				VirtualizationType: pulumi.String("hvm"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // `aws_ami` can be imported using the ID of the AMI, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+//
+//	$ pulumi import aws:ec2/ami:Ami example ami-12345678
+//
 // ```
 type Ami struct {
 	pulumi.CustomResourceState
@@ -113,7 +118,7 @@ type Ami struct {
 	SriovNetSupport pulumi.StringPtrOutput `pulumi:"sriovNetSupport"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrOutput `pulumi:"tpmSupport"`
@@ -207,7 +212,7 @@ type amiState struct {
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
@@ -273,7 +278,7 @@ type AmiState struct {
 	SriovNetSupport pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrInput
@@ -402,7 +407,7 @@ func (i *Ami) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 // AmiArrayInput is an input type that accepts AmiArray and AmiArrayOutput values.
 // You can construct a concrete instance of `AmiArrayInput` via:
 //
-//          AmiArray{ AmiArgs{...} }
+//	AmiArray{ AmiArgs{...} }
 type AmiArrayInput interface {
 	pulumi.Input
 
@@ -427,7 +432,7 @@ func (i AmiArray) ToAmiArrayOutputWithContext(ctx context.Context) AmiArrayOutpu
 // AmiMapInput is an input type that accepts AmiMap and AmiMapOutput values.
 // You can construct a concrete instance of `AmiMapInput` via:
 //
-//          AmiMap{ "key": AmiArgs{...} }
+//	AmiMap{ "key": AmiArgs{...} }
 type AmiMapInput interface {
 	pulumi.Input
 
@@ -588,7 +593,7 @@ func (o AmiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AmiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

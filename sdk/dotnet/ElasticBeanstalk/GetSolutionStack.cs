@@ -19,21 +19,19 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
         ///     {
-        ///         var multiDocker = Output.Create(Aws.ElasticBeanstalk.GetSolutionStack.InvokeAsync(new Aws.ElasticBeanstalk.GetSolutionStackArgs
-        ///         {
-        ///             MostRecent = true,
-        ///             NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///         }));
-        ///     }
+        ///         MostRecent = true,
+        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
         ///     {
-        ///         var multiDocker = Output.Create(Aws.ElasticBeanstalk.GetSolutionStack.InvokeAsync(new Aws.ElasticBeanstalk.GetSolutionStackArgs
-        ///         {
-        ///             MostRecent = true,
-        ///             NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///         }));
-        ///     }
+        ///         MostRecent = true,
+        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     }
 
 
-    public sealed class GetSolutionStackArgs : Pulumi.InvokeArgs
+    public sealed class GetSolutionStackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If more than one result is returned, use the most
@@ -93,9 +89,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public GetSolutionStackArgs()
         {
         }
+        public static new GetSolutionStackArgs Empty => new GetSolutionStackArgs();
     }
 
-    public sealed class GetSolutionStackInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSolutionStackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If more than one result is returned, use the most
@@ -115,6 +112,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public GetSolutionStackInvokeArgs()
         {
         }
+        public static new GetSolutionStackInvokeArgs Empty => new GetSolutionStackInvokeArgs();
     }
 
 

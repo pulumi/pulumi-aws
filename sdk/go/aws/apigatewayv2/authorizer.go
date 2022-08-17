@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-// 			ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			AuthorizerType: pulumi.String("REQUEST"),
-// 			AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
-// 			IdentitySources: pulumi.StringArray{
-// 				pulumi.String("route.request.header.Auth"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
+//				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				AuthorizerType: pulumi.String("REQUEST"),
+//				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
+//				IdentitySources: pulumi.StringArray{
+//					pulumi.String("route.request.header.Auth"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Basic HTTP API
 //
@@ -48,33 +51,36 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-// 			ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			AuthorizerType: pulumi.String("JWT"),
-// 			IdentitySources: pulumi.StringArray{
-// 				pulumi.String(fmt.Sprintf("$request.header.Authorization")),
-// 			},
-// 			JwtConfiguration: &apigatewayv2.AuthorizerJwtConfigurationArgs{
-// 				Audiences: pulumi.StringArray{
-// 					pulumi.String("example"),
-// 				},
-// 				Issuer: pulumi.String(fmt.Sprintf("https://%v", aws_cognito_user_pool.Example.Endpoint)),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
+//				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				AuthorizerType: pulumi.String("JWT"),
+//				IdentitySources: pulumi.StringArray{
+//					pulumi.String(fmt.Sprintf("$request.header.Authorization")),
+//				},
+//				JwtConfiguration: &apigatewayv2.AuthorizerJwtConfigurationArgs{
+//					Audiences: pulumi.StringArray{
+//						pulumi.String("example"),
+//					},
+//					Issuer: pulumi.String(fmt.Sprintf("https://%v", aws_cognito_user_pool.Example.Endpoint)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +88,9 @@ import (
 // `aws_apigatewayv2_authorizer` can be imported by using the API identifier and authorizer identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+//
+//	$ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+//
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState
@@ -326,7 +334,7 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 // AuthorizerArrayInput is an input type that accepts AuthorizerArray and AuthorizerArrayOutput values.
 // You can construct a concrete instance of `AuthorizerArrayInput` via:
 //
-//          AuthorizerArray{ AuthorizerArgs{...} }
+//	AuthorizerArray{ AuthorizerArgs{...} }
 type AuthorizerArrayInput interface {
 	pulumi.Input
 
@@ -351,7 +359,7 @@ func (i AuthorizerArray) ToAuthorizerArrayOutputWithContext(ctx context.Context)
 // AuthorizerMapInput is an input type that accepts AuthorizerMap and AuthorizerMapOutput values.
 // You can construct a concrete instance of `AuthorizerMapInput` via:
 //
-//          AuthorizerMap{ "key": AuthorizerArgs{...} }
+//	AuthorizerMap{ "key": AuthorizerArgs{...} }
 type AuthorizerMapInput interface {
 	pulumi.Input
 

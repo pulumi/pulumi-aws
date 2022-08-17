@@ -13,66 +13,68 @@ namespace Pulumi.Aws.RolesAnywhere
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
     ///     {
-    ///         var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new Aws.Acmpca.CertificateAuthorityArgs
+    ///         PermanentDeletionTimeInDays = 7,
+    ///         Type = "ROOT",
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             PermanentDeletionTimeInDays = 7,
-    ///             Type = "ROOT",
-    ///             CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///             {
-    ///                 KeyAlgorithm = "RSA_4096",
-    ///                 SigningAlgorithm = "SHA512WITHRSA",
-    ///                 Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///                 {
-    ///                     CommonName = "example.com",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var testCertificate = new Aws.Acmpca.Certificate("testCertificate", new Aws.Acmpca.CertificateArgs
-    ///         {
-    ///             CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///             CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///             KeyAlgorithm = "RSA_4096",
     ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             TemplateArn = current.Apply(current =&gt; $"arn:{current.Partition}:acm-pca:::template/RootCACertificate/V1"),
-    ///             Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
-    ///                 Type = "YEARS",
-    ///                 Value = "1",
+    ///                 CommonName = "example.com",
     ///             },
-    ///         });
-    ///         var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new Aws.Acmpca.CertificateAuthorityCertificateArgs
-    ///         {
-    ///             CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///             Certificate = aws_acmpca_certificate.Example.Certificate,
-    ///             CertificateChain = aws_acmpca_certificate.Example.Certificate_chain,
-    ///         });
-    ///         var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("testTrustAnchor", new Aws.RolesAnywhere.TrustAnchorArgs
-    ///         {
-    ///             Source = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceArgs
-    ///             {
-    ///                 SourceData = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceSourceDataArgs
-    ///                 {
-    ///                     AcmPcaArn = exampleCertificateAuthority.Arn,
-    ///                 },
-    ///                 SourceType = "AWS_ACM_PCA",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleCertificateAuthorityCertificate,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var testCertificate = new Aws.Acmpca.Certificate("testCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
+    ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
+    ///         {
+    ///             Type = "YEARS",
+    ///             Value = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         Certificate = aws_acmpca_certificate.Example.Certificate,
+    ///         CertificateChain = aws_acmpca_certificate.Example.Certificate_chain,
+    ///     });
+    /// 
+    ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("testTrustAnchor", new()
+    ///     {
+    ///         Source = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceArgs
+    ///         {
+    ///             SourceData = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceSourceDataArgs
+    ///             {
+    ///                 AcmPcaArn = exampleCertificateAuthority.Arn,
+    ///             },
+    ///             SourceType = "AWS_ACM_PCA",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleCertificateAuthorityCertificate,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +86,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// ```
     /// </summary>
     [AwsResourceType("aws:rolesanywhere/trustAnchor:TrustAnchor")]
-    public partial class TrustAnchor : Pulumi.CustomResource
+    public partial class TrustAnchor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Trust Anchor
@@ -110,15 +112,9 @@ namespace Pulumi.Aws.RolesAnywhere
         [Output("source")]
         public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -166,7 +162,7 @@ namespace Pulumi.Aws.RolesAnywhere
         }
     }
 
-    public sealed class TrustAnchorArgs : Pulumi.ResourceArgs
+    public sealed class TrustAnchorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not the Trust Anchor should be enabled.
@@ -188,34 +184,19 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public TrustAnchorArgs()
         {
         }
+        public static new TrustAnchorArgs Empty => new TrustAnchorArgs();
     }
 
-    public sealed class TrustAnchorState : Pulumi.ResourceArgs
+    public sealed class TrustAnchorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Trust Anchor
@@ -243,10 +224,6 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -255,10 +232,6 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -268,5 +241,6 @@ namespace Pulumi.Aws.RolesAnywhere
         public TrustAnchorState()
         {
         }
+        public static new TrustAnchorState Empty => new TrustAnchorState();
     }
 }

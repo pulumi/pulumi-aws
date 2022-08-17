@@ -19,34 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
-// 			Content: pulumi.String(fmt.Sprintf(`{
-//     "Version": "2018-11-08",
-//     "DestinationReferences": ["refs/heads/master"],
-//     "Statements": [{
-//         "Type": "Approvers",
-//         "NumberOfApprovalsNeeded": 2,
-//         "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
-//     }]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
+//				Content: pulumi.String(fmt.Sprintf(`{
+//	    "Version": "2018-11-08",
+//	    "DestinationReferences": ["refs/heads/master"],
+//	    "Statements": [{
+//	        "Type": "Approvers",
+//	        "NumberOfApprovalsNeeded": 2,
+//	        "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
+//	    }]
+//	}
 //
 // `)),
-// 			Description: pulumi.String("This is an example approval rule template"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				Description: pulumi.String("This is an example approval rule template"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +58,9 @@ import (
 // CodeCommit approval rule templates can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+//
+//	$ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+//
 // ```
 type ApprovalRuleTemplate struct {
 	pulumi.CustomResourceState
@@ -195,7 +201,7 @@ func (i *ApprovalRuleTemplate) ToApprovalRuleTemplateOutputWithContext(ctx conte
 // ApprovalRuleTemplateArrayInput is an input type that accepts ApprovalRuleTemplateArray and ApprovalRuleTemplateArrayOutput values.
 // You can construct a concrete instance of `ApprovalRuleTemplateArrayInput` via:
 //
-//          ApprovalRuleTemplateArray{ ApprovalRuleTemplateArgs{...} }
+//	ApprovalRuleTemplateArray{ ApprovalRuleTemplateArgs{...} }
 type ApprovalRuleTemplateArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +226,7 @@ func (i ApprovalRuleTemplateArray) ToApprovalRuleTemplateArrayOutputWithContext(
 // ApprovalRuleTemplateMapInput is an input type that accepts ApprovalRuleTemplateMap and ApprovalRuleTemplateMapOutput values.
 // You can construct a concrete instance of `ApprovalRuleTemplateMapInput` via:
 //
-//          ApprovalRuleTemplateMap{ "key": ApprovalRuleTemplateArgs{...} }
+//	ApprovalRuleTemplateMap{ "key": ApprovalRuleTemplateArgs{...} }
 type ApprovalRuleTemplateMapInput interface {
 	pulumi.Input
 

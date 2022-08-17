@@ -17,32 +17,32 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new Aws.Ec2.VpcIpamArgs
-    ///         {
-    ///             OperatingRegions = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///                 {
-    ///                     RegionName = current.Apply(current =&gt; current.Name),
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("exampleVpcIpamScope", new Aws.Ec2.VpcIpamScopeArgs
-    ///         {
-    ///             IpamId = exampleVpcIpam.Id,
-    ///             Description = "Another Scope",
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("exampleVpcIpamScope", new()
+    ///     {
+    ///         IpamId = exampleVpcIpam.Id,
+    ///         Description = "Another Scope",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
-    public partial class VpcIpamScope : Pulumi.CustomResource
+    public partial class VpcIpamScope : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpamScopeArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the scope you're creating.
@@ -167,9 +167,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamScopeArgs()
         {
         }
+        public static new VpcIpamScopeArgs Empty => new VpcIpamScopeArgs();
     }
 
-    public sealed class VpcIpamScopeState : Pulumi.ResourceArgs
+    public sealed class VpcIpamScopeState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -226,5 +227,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamScopeState()
         {
         }
+        public static new VpcIpamScopeState Empty => new VpcIpamScopeState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecHttpRouteActionRewriteArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecHttpRouteActionRewriteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The host name to rewrite.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecHttpRouteActionRewriteArgs()
         {
         }
+        public static new GatewayRouteSpecHttpRouteActionRewriteArgs Empty => new GatewayRouteSpecHttpRouteActionRewriteArgs();
     }
 }

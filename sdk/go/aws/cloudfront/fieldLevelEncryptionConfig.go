@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront.FieldLevelEncryptionConfigArgs{
-// 			Comment: pulumi.String("test comment"),
-// 			ContentTypeProfileConfig: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs{
-// 				ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
-// 				ContentTypeProfiles: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{
-// 					Items: cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{
-// 						&cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{
-// 							ContentType: pulumi.String("application/x-www-form-urlencoded"),
-// 							Format:      pulumi.String("URLEncoded"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			QueryArgProfileConfig: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs{
-// 				ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
-// 				QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
-// 					Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
-// 						&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
-// 							ProfileId: pulumi.Any(aws_cloudfront_field_level_encryption_profile.Test.Id),
-// 							QueryArg:  pulumi.String("Arg1"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront.FieldLevelEncryptionConfigArgs{
+//				Comment: pulumi.String("test comment"),
+//				ContentTypeProfileConfig: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs{
+//					ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
+//					ContentTypeProfiles: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{
+//						Items: cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{
+//							&cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{
+//								ContentType: pulumi.String("application/x-www-form-urlencoded"),
+//								Format:      pulumi.String("URLEncoded"),
+//							},
+//						},
+//					},
+//				},
+//				QueryArgProfileConfig: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs{
+//					ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
+//					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
+//						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
+//							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
+//								ProfileId: pulumi.Any(aws_cloudfront_field_level_encryption_profile.Test.Id),
+//								QueryArg:  pulumi.String("Arg1"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+//
+//	$ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+//
 // ```
 type FieldLevelEncryptionConfig struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *FieldLevelEncryptionConfig) ToFieldLevelEncryptionConfigOutputWithConte
 // FieldLevelEncryptionConfigArrayInput is an input type that accepts FieldLevelEncryptionConfigArray and FieldLevelEncryptionConfigArrayOutput values.
 // You can construct a concrete instance of `FieldLevelEncryptionConfigArrayInput` via:
 //
-//          FieldLevelEncryptionConfigArray{ FieldLevelEncryptionConfigArgs{...} }
+//	FieldLevelEncryptionConfigArray{ FieldLevelEncryptionConfigArgs{...} }
 type FieldLevelEncryptionConfigArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i FieldLevelEncryptionConfigArray) ToFieldLevelEncryptionConfigArrayOutput
 // FieldLevelEncryptionConfigMapInput is an input type that accepts FieldLevelEncryptionConfigMap and FieldLevelEncryptionConfigMapOutput values.
 // You can construct a concrete instance of `FieldLevelEncryptionConfigMapInput` via:
 //
-//          FieldLevelEncryptionConfigMap{ "key": FieldLevelEncryptionConfigArgs{...} }
+//	FieldLevelEncryptionConfigMap{ "key": FieldLevelEncryptionConfigArgs{...} }
 type FieldLevelEncryptionConfigMapInput interface {
 	pulumi.Input
 

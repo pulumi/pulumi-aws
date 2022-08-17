@@ -17,37 +17,35 @@ namespace Pulumi.Aws.Xray
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Xray.EncryptionConfig("example", new()
     ///     {
-    ///         var example = new Aws.Xray.EncryptionConfig("example", new Aws.Xray.EncryptionConfigArgs
-    ///         {
-    ///             Type = "NONE",
-    ///         });
-    ///     }
+    ///         Type = "NONE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With KMS Key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "Some Key",
-    ///             DeletionWindowInDays = 7,
-    ///             Policy = current.Apply(current =&gt; @$"{{
+    ///         Description = "Some Key",
+    ///         DeletionWindowInDays = 7,
+    ///         Policy = @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""kms-tf-1"",
     ///   ""Statement"": [
@@ -55,23 +53,23 @@ namespace Pulumi.Aws.Xray
     ///       ""Sid"": ""Enable IAM User Permissions"",
     ///       ""Effect"": ""Allow"",
     ///       ""Principal"": {{
-    ///         ""AWS"": ""arn:aws:iam::{current.AccountId}:root""
+    ///         ""AWS"": ""arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""
     ///       }},
     ///       ""Action"": ""kms:*"",
     ///       ""Resource"": ""*""
     ///     }}
     ///   ]
     /// }}
-    /// "),
-    ///         });
-    ///         var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new Aws.Xray.EncryptionConfigArgs
-    ///         {
-    ///             Type = "KMS",
-    ///             KeyId = exampleKey.Arn,
-    ///         });
-    ///     }
+    /// ",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new()
+    ///     {
+    ///         Type = "KMS",
+    ///         KeyId = exampleKey.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +81,7 @@ namespace Pulumi.Aws.Xray
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/encryptionConfig:EncryptionConfig")]
-    public partial class EncryptionConfig : Pulumi.CustomResource
+    public partial class EncryptionConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An AWS KMS customer master key (CMK) ARN.
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.Xray
         }
     }
 
-    public sealed class EncryptionConfigArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS KMS customer master key (CMK) ARN.
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.Xray
         public EncryptionConfigArgs()
         {
         }
+        public static new EncryptionConfigArgs Empty => new EncryptionConfigArgs();
     }
 
-    public sealed class EncryptionConfigState : Pulumi.ResourceArgs
+    public sealed class EncryptionConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS KMS customer master key (CMK) ARN.
@@ -177,5 +176,6 @@ namespace Pulumi.Aws.Xray
         public EncryptionConfigState()
         {
         }
+        public static new EncryptionConfigState Empty => new EncryptionConfigState();
     }
 }

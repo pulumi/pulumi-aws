@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentSlotValueElicitationPromptArgs : Pulumi.ResourceArgs
+    public sealed class IntentSlotValueElicitationPromptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -43,5 +43,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentSlotValueElicitationPromptArgs()
         {
         }
+        public static new IntentSlotValueElicitationPromptArgs Empty => new IntentSlotValueElicitationPromptArgs();
     }
 }

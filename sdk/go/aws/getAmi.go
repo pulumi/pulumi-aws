@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			ExecutableUsers: []string{
-// 				"self",
-// 			},
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"myami-*",
-// 					},
-// 				},
-// 				ec2.GetAmiFilter{
-// 					Name: "root-device-type",
-// 					Values: []string{
-// 						"ebs",
-// 					},
-// 				},
-// 				ec2.GetAmiFilter{
-// 					Name: "virtualization-type",
-// 					Values: []string{
-// 						"hvm",
-// 					},
-// 				},
-// 			},
-// 			MostRecent: pulumi.BoolRef(true),
-// 			NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
-// 			Owners: []string{
-// 				"self",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				ExecutableUsers: []string{
+//					"self",
+//				},
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"myami-*",
+//						},
+//					},
+//					ec2.GetAmiFilter{
+//						Name: "root-device-type",
+//						Values: []string{
+//							"ebs",
+//						},
+//					},
+//					ec2.GetAmiFilter{
+//						Name: "virtualization-type",
+//						Values: []string{
+//							"hvm",
+//						},
+//					},
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
+//				Owners: []string{
+//					"self",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: aws.getAmi has been deprecated in favor of aws.ec2.getAmi

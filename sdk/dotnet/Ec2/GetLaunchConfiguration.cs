@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ubuntu = Aws.Ec2.GetLaunchConfiguration.Invoke(new()
         ///     {
-        ///         var ubuntu = Output.Create(Aws.Ec2.GetLaunchConfiguration.InvokeAsync(new Aws.Ec2.GetLaunchConfigurationArgs
-        ///         {
-        ///             Name = "test-launch-config",
-        ///         }));
-        ///     }
+        ///         Name = "test-launch-config",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ubuntu = Aws.Ec2.GetLaunchConfiguration.Invoke(new()
         ///     {
-        ///         var ubuntu = Output.Create(Aws.Ec2.GetLaunchConfiguration.InvokeAsync(new Aws.Ec2.GetLaunchConfigurationArgs
-        ///         {
-        ///             Name = "test-launch-config",
-        ///         }));
-        ///     }
+        ///         Name = "test-launch-config",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLaunchConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the launch configuration.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Ec2
         public GetLaunchConfigurationArgs()
         {
         }
+        public static new GetLaunchConfigurationArgs Empty => new GetLaunchConfigurationArgs();
     }
 
-    public sealed class GetLaunchConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the launch configuration.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Ec2
         public GetLaunchConfigurationInvokeArgs()
         {
         }
+        public static new GetLaunchConfigurationInvokeArgs Empty => new GetLaunchConfigurationInvokeArgs();
     }
 
 

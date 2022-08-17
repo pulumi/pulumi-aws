@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Sagemaker
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.HumanTaskUI("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.HumanTaskUI("example", new Aws.Sagemaker.HumanTaskUIArgs
+    ///         HumanTaskUiName = "example",
+    ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
     ///         {
-    ///             HumanTaskUiName = "example",
-    ///             UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
-    ///             {
-    ///                 Content = File.ReadAllText("sagemaker-human-task-ui-template.html"),
-    ///             },
-    ///         });
-    ///     }
+    ///             Content = File.ReadAllText("sagemaker-human-task-ui-template.html"),
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/humanTaskUI:HumanTaskUI")]
-    public partial class HumanTaskUI : Pulumi.CustomResource
+    public partial class HumanTaskUI : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
@@ -121,7 +119,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class HumanTaskUIArgs : Pulumi.ResourceArgs
+    public sealed class HumanTaskUIArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Human Task UI.
@@ -150,9 +148,10 @@ namespace Pulumi.Aws.Sagemaker
         public HumanTaskUIArgs()
         {
         }
+        public static new HumanTaskUIArgs Empty => new HumanTaskUIArgs();
     }
 
-    public sealed class HumanTaskUIState : Pulumi.ResourceArgs
+    public sealed class HumanTaskUIState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
@@ -199,5 +198,6 @@ namespace Pulumi.Aws.Sagemaker
         public HumanTaskUIState()
         {
         }
+        public static new HumanTaskUIState Empty => new HumanTaskUIState();
     }
 }

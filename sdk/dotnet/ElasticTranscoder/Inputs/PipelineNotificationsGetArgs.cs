@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PipelineNotificationsGetArgs : Pulumi.ResourceArgs
+    public sealed class PipelineNotificationsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PipelineNotificationsGetArgs()
         {
         }
+        public static new PipelineNotificationsGetArgs Empty => new PipelineNotificationsGetArgs();
     }
 }

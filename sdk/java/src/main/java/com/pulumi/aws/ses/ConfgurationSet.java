@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ses.ConfgurationSetArgs;
 import com.pulumi.aws.ses.inputs.ConfgurationSetState;
 import com.pulumi.aws.ses.outputs.ConfgurationSetDeliveryOptions;
+import com.pulumi.aws.ses.outputs.ConfgurationSetTrackingOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -108,28 +109,28 @@ public class ConfgurationSet extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Configuration block. Detailed below.
+     * Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
     @Export(name="deliveryOptions", type=ConfgurationSetDeliveryOptions.class, parameters={})
     private Output</* @Nullable */ ConfgurationSetDeliveryOptions> deliveryOptions;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
     public Output<Optional<ConfgurationSetDeliveryOptions>> deliveryOptions() {
         return Codegen.optional(this.deliveryOptions);
     }
     /**
-     * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
     @Export(name="lastFreshStart", type=String.class, parameters={})
     private Output<String> lastFreshStart;
 
     /**
-     * @return The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     * @return Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
     public Output<String> lastFreshStart() {
@@ -176,6 +177,20 @@ public class ConfgurationSet extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> sendingEnabled() {
         return Codegen.optional(this.sendingEnabled);
+    }
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
+    @Export(name="trackingOptions", type=ConfgurationSetTrackingOptions.class, parameters={})
+    private Output</* @Nullable */ ConfgurationSetTrackingOptions> trackingOptions;
+
+    /**
+     * @return Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
+    public Output<Optional<ConfgurationSetTrackingOptions>> trackingOptions() {
+        return Codegen.optional(this.trackingOptions);
     }
 
     /**

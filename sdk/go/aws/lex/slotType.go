@@ -20,40 +20,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lex.NewSlotType(ctx, "flowerTypes", &lex.SlotTypeArgs{
-// 			CreateVersion: pulumi.Bool(true),
-// 			Description:   pulumi.String("Types of flowers to order"),
-// 			EnumerationValues: lex.SlotTypeEnumerationValueArray{
-// 				&lex.SlotTypeEnumerationValueArgs{
-// 					Synonyms: pulumi.StringArray{
-// 						pulumi.String("Lirium"),
-// 						pulumi.String("Martagon"),
-// 					},
-// 					Value: pulumi.String("lilies"),
-// 				},
-// 				&lex.SlotTypeEnumerationValueArgs{
-// 					Synonyms: pulumi.StringArray{
-// 						pulumi.String("Eduardoregelia"),
-// 						pulumi.String("Podonix"),
-// 					},
-// 					Value: pulumi.String("tulips"),
-// 				},
-// 			},
-// 			Name:                   pulumi.String("FlowerTypes"),
-// 			ValueSelectionStrategy: pulumi.String("ORIGINAL_VALUE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewSlotType(ctx, "flowerTypes", &lex.SlotTypeArgs{
+//				CreateVersion: pulumi.Bool(true),
+//				Description:   pulumi.String("Types of flowers to order"),
+//				EnumerationValues: lex.SlotTypeEnumerationValueArray{
+//					&lex.SlotTypeEnumerationValueArgs{
+//						Synonyms: pulumi.StringArray{
+//							pulumi.String("Lirium"),
+//							pulumi.String("Martagon"),
+//						},
+//						Value: pulumi.String("lilies"),
+//					},
+//					&lex.SlotTypeEnumerationValueArgs{
+//						Synonyms: pulumi.StringArray{
+//							pulumi.String("Eduardoregelia"),
+//							pulumi.String("Podonix"),
+//						},
+//						Value: pulumi.String("tulips"),
+//					},
+//				},
+//				Name:                   pulumi.String("FlowerTypes"),
+//				ValueSelectionStrategy: pulumi.String("ORIGINAL_VALUE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Slot types can be imported using their name.
 //
 // ```sh
-//  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+//
+//	$ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+//
 // ```
 type SlotType struct {
 	pulumi.CustomResourceState
@@ -254,7 +259,7 @@ func (i *SlotType) ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutp
 // SlotTypeArrayInput is an input type that accepts SlotTypeArray and SlotTypeArrayOutput values.
 // You can construct a concrete instance of `SlotTypeArrayInput` via:
 //
-//          SlotTypeArray{ SlotTypeArgs{...} }
+//	SlotTypeArray{ SlotTypeArgs{...} }
 type SlotTypeArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +284,7 @@ func (i SlotTypeArray) ToSlotTypeArrayOutputWithContext(ctx context.Context) Slo
 // SlotTypeMapInput is an input type that accepts SlotTypeMap and SlotTypeMapOutput values.
 // You can construct a concrete instance of `SlotTypeMapInput` via:
 //
-//          SlotTypeMap{ "key": SlotTypeArgs{...} }
+//	SlotTypeMap{ "key": SlotTypeArgs{...} }
 type SlotTypeMapInput interface {
 	pulumi.Input
 

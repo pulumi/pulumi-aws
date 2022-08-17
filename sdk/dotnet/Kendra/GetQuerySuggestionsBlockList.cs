@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetQuerySuggestionsBlockList.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetQuerySuggestionsBlockList.InvokeAsync(new Aws.Kendra.GetQuerySuggestionsBlockListArgs
-        ///         {
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///             QuerySuggestionsBlockListId = "87654321-1234-4321-4321-321987654321",
-        ///         }));
-        ///     }
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///         QuerySuggestionsBlockListId = "87654321-1234-4321-4321-321987654321",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetQuerySuggestionsBlockList.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetQuerySuggestionsBlockList.InvokeAsync(new Aws.Kendra.GetQuerySuggestionsBlockListArgs
-        ///         {
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///             QuerySuggestionsBlockListId = "87654321-1234-4321-4321-321987654321",
-        ///         }));
-        ///     }
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///         QuerySuggestionsBlockListId = "87654321-1234-4321-4321-321987654321",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Kendra
     }
 
 
-    public sealed class GetQuerySuggestionsBlockListArgs : Pulumi.InvokeArgs
+    public sealed class GetQuerySuggestionsBlockListArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the index that contains the block list.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.Kendra
         public GetQuerySuggestionsBlockListArgs()
         {
         }
+        public static new GetQuerySuggestionsBlockListArgs Empty => new GetQuerySuggestionsBlockListArgs();
     }
 
-    public sealed class GetQuerySuggestionsBlockListInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQuerySuggestionsBlockListInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the index that contains the block list.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.Kendra
         public GetQuerySuggestionsBlockListInvokeArgs()
         {
         }
+        public static new GetQuerySuggestionsBlockListInvokeArgs Empty => new GetQuerySuggestionsBlockListInvokeArgs();
     }
 
 

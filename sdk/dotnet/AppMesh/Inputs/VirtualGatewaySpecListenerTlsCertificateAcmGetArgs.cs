@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerTlsCertificateAcmGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerTlsCertificateAcmGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerTlsCertificateAcmGetArgs()
         {
         }
+        public static new VirtualGatewaySpecListenerTlsCertificateAcmGetArgs Empty => new VirtualGatewaySpecListenerTlsCertificateAcmGetArgs();
     }
 }

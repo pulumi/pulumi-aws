@@ -19,61 +19,60 @@ namespace Pulumi.Aws.Cfg
     /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var thisRule = new Aws.Cfg.Rule("thisRule", new()
     ///     {
-    ///         var thisRule = new Aws.Cfg.Rule("thisRule", new Aws.Cfg.RuleArgs
+    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
-    ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///             {
-    ///                 Owner = "AWS",
-    ///                 SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///             },
-    ///         });
-    ///         var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("thisRemediationConfiguration", new Aws.Cfg.RemediationConfigurationArgs
-    ///         {
-    ///             ConfigRuleName = thisRule.Name,
-    ///             ResourceType = "AWS::S3::Bucket",
-    ///             TargetType = "SSM_DOCUMENT",
-    ///             TargetId = "AWS-EnableS3BucketEncryption",
-    ///             TargetVersion = "1",
-    ///             Parameters = 
-    ///             {
-    ///                 new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
-    ///                 {
-    ///                     Name = "AutomationAssumeRole",
-    ///                     StaticValue = "arn:aws:iam::875924563244:role/security_config",
-    ///                 },
-    ///                 new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
-    ///                 {
-    ///                     Name = "BucketName",
-    ///                     ResourceValue = "RESOURCE_ID",
-    ///                 },
-    ///                 new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
-    ///                 {
-    ///                     Name = "SSEAlgorithm",
-    ///                     StaticValue = "AES256",
-    ///                 },
-    ///             },
-    ///             Automatic = true,
-    ///             MaximumAutomaticAttempts = 10,
-    ///             RetryAttemptSeconds = 600,
-    ///             ExecutionControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsArgs
-    ///             {
-    ///                 SsmControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs
-    ///                 {
-    ///                     ConcurrentExecutionRatePercentage = 25,
-    ///                     ErrorPercentage = 20,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             Owner = "AWS",
+    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("thisRemediationConfiguration", new()
+    ///     {
+    ///         ConfigRuleName = thisRule.Name,
+    ///         ResourceType = "AWS::S3::Bucket",
+    ///         TargetType = "SSM_DOCUMENT",
+    ///         TargetId = "AWS-EnableS3BucketEncryption",
+    ///         TargetVersion = "1",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
+    ///             {
+    ///                 Name = "AutomationAssumeRole",
+    ///                 StaticValue = "arn:aws:iam::875924563244:role/security_config",
+    ///             },
+    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
+    ///             {
+    ///                 Name = "BucketName",
+    ///                 ResourceValue = "RESOURCE_ID",
+    ///             },
+    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
+    ///             {
+    ///                 Name = "SSEAlgorithm",
+    ///                 StaticValue = "AES256",
+    ///             },
+    ///         },
+    ///         Automatic = true,
+    ///         MaximumAutomaticAttempts = 10,
+    ///         RetryAttemptSeconds = 600,
+    ///         ExecutionControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsArgs
+    ///         {
+    ///             SsmControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs
+    ///             {
+    ///                 ConcurrentExecutionRatePercentage = 25,
+    ///                 ErrorPercentage = 20,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +84,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
-    public partial class RemediationConfiguration : Pulumi.CustomResource
+    public partial class RemediationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Config Remediation Configuration.
@@ -197,7 +196,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class RemediationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Remediation is triggered automatically if `true`.
@@ -268,9 +267,10 @@ namespace Pulumi.Aws.Cfg
         public RemediationConfigurationArgs()
         {
         }
+        public static new RemediationConfigurationArgs Empty => new RemediationConfigurationArgs();
     }
 
-    public sealed class RemediationConfigurationState : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Config Remediation Configuration.
@@ -347,5 +347,6 @@ namespace Pulumi.Aws.Cfg
         public RemediationConfigurationState()
         {
         }
+        public static new RemediationConfigurationState Empty => new RemediationConfigurationState();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Acmpca
     /// `aws_acmpca_certificate` can not be imported at this time.
     /// </summary>
     [AwsResourceType("aws:acmpca/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Acmpca
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate authority.
@@ -148,9 +148,10 @@ namespace Pulumi.Aws.Acmpca
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate.
@@ -203,5 +204,6 @@ namespace Pulumi.Aws.Acmpca
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

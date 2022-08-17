@@ -15,19 +15,15 @@ namespace Pulumi.Aws.DataPipeline
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @default = new Aws.DataPipeline.Pipeline("default", new Aws.DataPipeline.PipelineArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var @default = new Aws.DataPipeline.Pipeline("default");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.DataPipeline
     /// ```
     /// </summary>
     [AwsResourceType("aws:datapipeline/pipeline:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of Pipeline.
@@ -60,7 +56,7 @@ namespace Pulumi.Aws.DataPipeline
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -109,7 +105,7 @@ namespace Pulumi.Aws.DataPipeline
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of Pipeline.
@@ -138,9 +134,10 @@ namespace Pulumi.Aws.DataPipeline
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 
-    public sealed class PipelineState : Pulumi.ResourceArgs
+    public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of Pipeline.
@@ -170,7 +167,7 @@ namespace Pulumi.Aws.DataPipeline
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -181,5 +178,6 @@ namespace Pulumi.Aws.DataPipeline
         public PipelineState()
         {
         }
+        public static new PipelineState Empty => new PipelineState();
     }
 }

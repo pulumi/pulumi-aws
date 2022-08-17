@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth 2.0 properties required for OAuth 2.0 authentication.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs();
     }
 }

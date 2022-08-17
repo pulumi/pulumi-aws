@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolAdminCreateUserConfigArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolAdminCreateUserConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolAdminCreateUserConfigArgs()
         {
         }
+        public static new UserPoolAdminCreateUserConfigArgs Empty => new UserPoolAdminCreateUserConfigArgs();
     }
 }

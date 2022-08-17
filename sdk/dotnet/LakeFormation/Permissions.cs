@@ -14,109 +14,103 @@ namespace Pulumi.Aws.LakeFormation
     /// ### Grant Permissions For A Lake Formation S3 Resource
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         var example = new Aws.LakeFormation.Permissions("example", new Aws.LakeFormation.PermissionsArgs
+    ///         Principal = aws_iam_role.Workflow_role.Arn,
+    ///         PermissionDetails = new[]
     ///         {
-    ///             Principal = aws_iam_role.Workflow_role.Arn,
-    ///             PermissionDetails = 
-    ///             {
-    ///                 "ALL",
-    ///             },
-    ///             DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
-    ///             {
-    ///                 Arn = aws_lakeformation_resource.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             "ALL",
+    ///         },
+    ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
+    ///         {
+    ///             Arn = aws_lakeformation_resource.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Grant Permissions For A Glue Catalog Database
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         var example = new Aws.LakeFormation.Permissions("example", new Aws.LakeFormation.PermissionsArgs
+    ///         Principal = aws_iam_role.Workflow_role.Arn,
+    ///         PermissionDetails = new[]
     ///         {
-    ///             Principal = aws_iam_role.Workflow_role.Arn,
-    ///             PermissionDetails = 
-    ///             {
-    ///                 "CREATE_TABLE",
-    ///                 "ALTER",
-    ///                 "DROP",
-    ///             },
-    ///             Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
-    ///             {
-    ///                 Name = aws_glue_catalog_database.Example.Name,
-    ///                 CatalogId = "110376042874",
-    ///             },
-    ///         });
-    ///     }
+    ///             "CREATE_TABLE",
+    ///             "ALTER",
+    ///             "DROP",
+    ///         },
+    ///         Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
+    ///         {
+    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             CatalogId = "110376042874",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Grant Permissions Using Tag-Based Access Control
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.LakeFormation.Permissions("test", new()
     ///     {
-    ///         var test = new Aws.LakeFormation.Permissions("test", new Aws.LakeFormation.PermissionsArgs
+    ///         Principal = aws_iam_role.Sales_role.Arn,
+    ///         PermissionDetails = new[]
     ///         {
-    ///             Principal = aws_iam_role.Sales_role.Arn,
-    ///             PermissionDetails = 
+    ///             "CREATE_TABLE",
+    ///             "ALTER",
+    ///             "DROP",
+    ///         },
+    ///         LfTagPolicy = new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyArgs
+    ///         {
+    ///             ResourceType = "DATABASE",
+    ///             Expressions = new[]
     ///             {
-    ///                 "CREATE_TABLE",
-    ///                 "ALTER",
-    ///                 "DROP",
-    ///             },
-    ///             LfTagPolicy = new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyArgs
-    ///             {
-    ///                 ResourceType = "DATABASE",
-    ///                 Expressions = 
+    ///                 new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
     ///                 {
-    ///                     new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                     Key = "Team",
+    ///                     Values = new[]
     ///                     {
-    ///                         Key = "Team",
-    ///                         Values = 
-    ///                         {
-    ///                             "Sales",
-    ///                         },
+    ///                         "Sales",
     ///                     },
-    ///                     new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                 },
+    ///                 new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                 {
+    ///                     Key = "Environment",
+    ///                     Values = new[]
     ///                     {
-    ///                         Key = "Environment",
-    ///                         Values = 
-    ///                         {
-    ///                             "Dev",
-    ///                             "Production",
-    ///                         },
+    ///                         "Dev",
+    ///                         "Production",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/permissions:Permissions")]
-    public partial class Permissions : Pulumi.CustomResource
+    public partial class Permissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -228,7 +222,7 @@ namespace Pulumi.Aws.LakeFormation
         }
     }
 
-    public sealed class PermissionsArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -311,9 +305,10 @@ namespace Pulumi.Aws.LakeFormation
         public PermissionsArgs()
         {
         }
+        public static new PermissionsArgs Empty => new PermissionsArgs();
     }
 
-    public sealed class PermissionsState : Pulumi.ResourceArgs
+    public sealed class PermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -396,5 +391,6 @@ namespace Pulumi.Aws.LakeFormation
         public PermissionsState()
         {
         }
+        public static new PermissionsState Empty => new PermissionsState();
     }
 }

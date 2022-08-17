@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-// 			Description: pulumi.String("tf-test-desc"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "tfTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
-// 			Application:       tftest.Name,
-// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Description: pulumi.String("tf-test-desc"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "tfTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
+//				Application:       tftest.Name,
+//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Option Settings
 //
@@ -206,7 +209,7 @@ func (i *ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx con
 // ConfigurationTemplateArrayInput is an input type that accepts ConfigurationTemplateArray and ConfigurationTemplateArrayOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateArrayInput` via:
 //
-//          ConfigurationTemplateArray{ ConfigurationTemplateArgs{...} }
+//	ConfigurationTemplateArray{ ConfigurationTemplateArgs{...} }
 type ConfigurationTemplateArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +234,7 @@ func (i ConfigurationTemplateArray) ToConfigurationTemplateArrayOutputWithContex
 // ConfigurationTemplateMapInput is an input type that accepts ConfigurationTemplateMap and ConfigurationTemplateMapOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateMapInput` via:
 //
-//          ConfigurationTemplateMap{ "key": ConfigurationTemplateArgs{...} }
+//	ConfigurationTemplateMap{ "key": ConfigurationTemplateArgs{...} }
 type ConfigurationTemplateMapInput interface {
 	pulumi.Input
 

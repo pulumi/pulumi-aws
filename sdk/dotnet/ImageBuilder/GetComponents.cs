@@ -19,31 +19,29 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetComponents.InvokeAsync(new Aws.ImageBuilder.GetComponentsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetComponentsFilterArgs
+        ///                 Name = "platform",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "platform",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -59,31 +57,29 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetComponents.InvokeAsync(new Aws.ImageBuilder.GetComponentsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetComponentsFilterArgs
+        ///                 Name = "platform",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "platform",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +89,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetComponentsArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetComponentsFilterArgs>? _filters;
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetComponentsArgs()
         {
         }
+        public static new GetComponentsArgs Empty => new GetComponentsArgs();
     }
 
-    public sealed class GetComponentsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetComponentsFilterInputArgs>? _filters;
@@ -141,6 +138,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetComponentsInvokeArgs()
         {
         }
+        public static new GetComponentsInvokeArgs Empty => new GetComponentsInvokeArgs();
     }
 
 

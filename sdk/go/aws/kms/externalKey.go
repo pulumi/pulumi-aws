@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kms.NewExternalKey(ctx, "example", &kms.ExternalKeyArgs{
-// 			Description: pulumi.String("KMS EXTERNAL for AMI encryption"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kms.NewExternalKey(ctx, "example", &kms.ExternalKeyArgs{
+//				Description: pulumi.String("KMS EXTERNAL for AMI encryption"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // KMS External Keys can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+//
+//	$ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+//
 // ```
 type ExternalKey struct {
 	pulumi.CustomResourceState
@@ -238,7 +243,7 @@ func (i *ExternalKey) ToExternalKeyOutputWithContext(ctx context.Context) Extern
 // ExternalKeyArrayInput is an input type that accepts ExternalKeyArray and ExternalKeyArrayOutput values.
 // You can construct a concrete instance of `ExternalKeyArrayInput` via:
 //
-//          ExternalKeyArray{ ExternalKeyArgs{...} }
+//	ExternalKeyArray{ ExternalKeyArgs{...} }
 type ExternalKeyArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +268,7 @@ func (i ExternalKeyArray) ToExternalKeyArrayOutputWithContext(ctx context.Contex
 // ExternalKeyMapInput is an input type that accepts ExternalKeyMap and ExternalKeyMapOutput values.
 // You can construct a concrete instance of `ExternalKeyMapInput` via:
 //
-//          ExternalKeyMap{ "key": ExternalKeyArgs{...} }
+//	ExternalKeyMap{ "key": ExternalKeyArgs{...} }
 type ExternalKeyMapInput interface {
 	pulumi.Input
 

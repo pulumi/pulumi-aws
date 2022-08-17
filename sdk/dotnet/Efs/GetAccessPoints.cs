@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Efs.GetAccessPoints.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Efs.GetAccessPoints.InvokeAsync(new Aws.Efs.GetAccessPointsArgs
-        ///         {
-        ///             FileSystemId = "fs-12345678",
-        ///         }));
-        ///     }
+        ///         FileSystemId = "fs-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Efs.GetAccessPoints.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Efs.GetAccessPoints.InvokeAsync(new Aws.Efs.GetAccessPointsArgs
-        ///         {
-        ///             FileSystemId = "fs-12345678",
-        ///         }));
-        ///     }
+        ///         FileSystemId = "fs-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Efs
     }
 
 
-    public sealed class GetAccessPointsArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// EFS File System identifier.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Efs
         public GetAccessPointsArgs()
         {
         }
+        public static new GetAccessPointsArgs Empty => new GetAccessPointsArgs();
     }
 
-    public sealed class GetAccessPointsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// EFS File System identifier.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Efs
         public GetAccessPointsInvokeArgs()
         {
         }
+        public static new GetAccessPointsInvokeArgs Empty => new GetAccessPointsInvokeArgs();
     }
 
 

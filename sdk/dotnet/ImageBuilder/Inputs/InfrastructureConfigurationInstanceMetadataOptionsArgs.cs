@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class InfrastructureConfigurationInstanceMetadataOptionsArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationInstanceMetadataOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of hops that an instance can traverse to reach its destonation.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public InfrastructureConfigurationInstanceMetadataOptionsArgs()
         {
         }
+        public static new InfrastructureConfigurationInstanceMetadataOptionsArgs Empty => new InfrastructureConfigurationInstanceMetadataOptionsArgs();
     }
 }

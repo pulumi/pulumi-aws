@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteCalculation{}
 	case "aws:location/tracker:Tracker":
 		r = &Tracker{}
+	case "aws:location/trackerAssociation:TrackerAssociation":
+		r = &TrackerAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"location/tracker",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"location/trackerAssociation",
 		&module{version},
 	)
 }

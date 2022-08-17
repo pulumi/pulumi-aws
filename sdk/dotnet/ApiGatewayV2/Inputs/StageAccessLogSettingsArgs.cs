@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class StageAccessLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StageAccessLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public StageAccessLogSettingsArgs()
         {
         }
+        public static new StageAccessLogSettingsArgs Empty => new StageAccessLogSettingsArgs();
     }
 }

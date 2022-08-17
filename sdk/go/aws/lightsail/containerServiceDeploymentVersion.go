@@ -18,46 +18,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lightsail.NewContainerServiceDeploymentVersion(ctx, "example", &lightsail.ContainerServiceDeploymentVersionArgs{
-// 			Containers: lightsail.ContainerServiceDeploymentVersionContainerArray{
-// 				&lightsail.ContainerServiceDeploymentVersionContainerArgs{
-// 					ContainerName: pulumi.String("hello-world"),
-// 					Image:         pulumi.String("amazon/amazon-lightsail:hello-world"),
-// 					Commands:      pulumi.StringArray{},
-// 					Environment: pulumi.StringMap{
-// 						"MY_ENVIRONMENT_VARIABLE": pulumi.String("my_value"),
-// 					},
-// 					Ports: pulumi.StringMap{
-// 						"80": pulumi.String("HTTP"),
-// 					},
-// 				},
-// 			},
-// 			PublicEndpoint: &lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs{
-// 				ContainerName: pulumi.String("hello-world"),
-// 				ContainerPort: pulumi.Int(80),
-// 				HealthCheck: &lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{
-// 					HealthyThreshold:   pulumi.Int(2),
-// 					UnhealthyThreshold: pulumi.Int(2),
-// 					TimeoutSeconds:     pulumi.Int(2),
-// 					IntervalSeconds:    pulumi.Int(5),
-// 					Path:               pulumi.String("/"),
-// 					SuccessCodes:       pulumi.String("200-499"),
-// 				},
-// 			},
-// 			ServiceName: pulumi.Any(aws_lightsail_container_service.Example.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewContainerServiceDeploymentVersion(ctx, "example", &lightsail.ContainerServiceDeploymentVersionArgs{
+//				Containers: lightsail.ContainerServiceDeploymentVersionContainerArray{
+//					&lightsail.ContainerServiceDeploymentVersionContainerArgs{
+//						ContainerName: pulumi.String("hello-world"),
+//						Image:         pulumi.String("amazon/amazon-lightsail:hello-world"),
+//						Commands:      pulumi.StringArray{},
+//						Environment: pulumi.StringMap{
+//							"MY_ENVIRONMENT_VARIABLE": pulumi.String("my_value"),
+//						},
+//						Ports: pulumi.StringMap{
+//							"80": pulumi.String("HTTP"),
+//						},
+//					},
+//				},
+//				PublicEndpoint: &lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs{
+//					ContainerName: pulumi.String("hello-world"),
+//					ContainerPort: pulumi.Int(80),
+//					HealthCheck: &lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{
+//						HealthyThreshold:   pulumi.Int(2),
+//						UnhealthyThreshold: pulumi.Int(2),
+//						TimeoutSeconds:     pulumi.Int(2),
+//						IntervalSeconds:    pulumi.Int(5),
+//						Path:               pulumi.String("/"),
+//						SuccessCodes:       pulumi.String("200-499"),
+//					},
+//				},
+//				ServiceName: pulumi.Any(aws_lightsail_container_service.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Lightsail Container Service Deployment Version can be imported using the `service_name` and `version` separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+//
+//	$ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+//
 // ```
 type ContainerServiceDeploymentVersion struct {
 	pulumi.CustomResourceState
@@ -197,7 +202,7 @@ func (i *ContainerServiceDeploymentVersion) ToContainerServiceDeploymentVersionO
 // ContainerServiceDeploymentVersionArrayInput is an input type that accepts ContainerServiceDeploymentVersionArray and ContainerServiceDeploymentVersionArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionArrayInput` via:
 //
-//          ContainerServiceDeploymentVersionArray{ ContainerServiceDeploymentVersionArgs{...} }
+//	ContainerServiceDeploymentVersionArray{ ContainerServiceDeploymentVersionArgs{...} }
 type ContainerServiceDeploymentVersionArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i ContainerServiceDeploymentVersionArray) ToContainerServiceDeploymentVers
 // ContainerServiceDeploymentVersionMapInput is an input type that accepts ContainerServiceDeploymentVersionMap and ContainerServiceDeploymentVersionMapOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionMapInput` via:
 //
-//          ContainerServiceDeploymentVersionMap{ "key": ContainerServiceDeploymentVersionArgs{...} }
+//	ContainerServiceDeploymentVersionMap{ "key": ContainerServiceDeploymentVersionArgs{...} }
 type ContainerServiceDeploymentVersionMapInput interface {
 	pulumi.Input
 

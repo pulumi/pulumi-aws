@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public CachePolicyParametersInCacheKeyAndForwardedToOriginArgs()
         {
         }
+        public static new CachePolicyParametersInCacheKeyAndForwardedToOriginArgs Empty => new CachePolicyParametersInCacheKeyAndForwardedToOriginArgs();
     }
 }

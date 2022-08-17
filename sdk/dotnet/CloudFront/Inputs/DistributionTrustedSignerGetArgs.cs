@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionTrustedSignerGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionTrustedSignerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag that specifies whether Origin Shield is enabled.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionTrustedSignerGetArgs()
         {
         }
+        public static new DistributionTrustedSignerGetArgs Empty => new DistributionTrustedSignerGetArgs();
     }
 }

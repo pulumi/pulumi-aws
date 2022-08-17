@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.TransitGatewayPeeringAttachmentAccepter("example", new Aws.Ec2.TransitGatewayPeeringAttachmentAccepterArgs
+    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
+    ///         Tags = 
     ///         {
-    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example cross-account attachment" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Example cross-account attachment" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,8 +41,9 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter example tgw-attach-12345678
     /// ```
     /// </summary>
+    [Obsolete(@"aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter")]
     [AwsResourceType("aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter")]
-    public partial class TransitGatewayPeeringAttachmentAccepter : Pulumi.CustomResource
+    public partial class TransitGatewayPeeringAttachmentAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 TGW peering.
@@ -129,7 +128,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class TransitGatewayPeeringAttachmentAccepterArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayPeeringAttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -152,9 +151,10 @@ namespace Pulumi.Aws.Ec2
         public TransitGatewayPeeringAttachmentAccepterArgs()
         {
         }
+        public static new TransitGatewayPeeringAttachmentAccepterArgs Empty => new TransitGatewayPeeringAttachmentAccepterArgs();
     }
 
-    public sealed class TransitGatewayPeeringAttachmentAccepterState : Pulumi.ResourceArgs
+    public sealed class TransitGatewayPeeringAttachmentAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 TGW peering.
@@ -210,5 +210,6 @@ namespace Pulumi.Aws.Ec2
         public TransitGatewayPeeringAttachmentAccepterState()
         {
         }
+        public static new TransitGatewayPeeringAttachmentAccepterState Empty => new TransitGatewayPeeringAttachmentAccepterState();
     }
 }

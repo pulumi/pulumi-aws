@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Ssm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
+    /// 
+    ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new()
     ///     {
-    ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new Aws.S3.BucketPolicyArgs
-    ///         {
-    ///             Bucket = hogeBucketV2.Bucket,
-    ///             Policy = @"{
+    ///         Bucket = hogeBucketV2.Bucket,
+    ///         Policy = @"{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {
@@ -57,18 +55,18 @@ namespace Pulumi.Aws.Ssm
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///         var foo = new Aws.Ssm.ResourceDataSync("foo", new Aws.Ssm.ResourceDataSyncArgs
-    ///         {
-    ///             S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
-    ///             {
-    ///                 BucketName = hogeBucketV2.Bucket,
-    ///                 Region = hogeBucketV2.Region,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Ssm.ResourceDataSync("foo", new()
+    ///     {
+    ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
+    ///         {
+    ///             BucketName = hogeBucketV2.Bucket,
+    ///             Region = hogeBucketV2.Region,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +78,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]
-    public partial class ResourceDataSync : Pulumi.CustomResource
+    public partial class ResourceDataSync : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name for the configuration.
@@ -138,7 +136,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class ResourceDataSyncArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDataSyncArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for the configuration.
@@ -155,9 +153,10 @@ namespace Pulumi.Aws.Ssm
         public ResourceDataSyncArgs()
         {
         }
+        public static new ResourceDataSyncArgs Empty => new ResourceDataSyncArgs();
     }
 
-    public sealed class ResourceDataSyncState : Pulumi.ResourceArgs
+    public sealed class ResourceDataSyncState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for the configuration.
@@ -174,5 +173,6 @@ namespace Pulumi.Aws.Ssm
         public ResourceDataSyncState()
         {
         }
+        public static new ResourceDataSyncState Empty => new ResourceDataSyncState();
     }
 }

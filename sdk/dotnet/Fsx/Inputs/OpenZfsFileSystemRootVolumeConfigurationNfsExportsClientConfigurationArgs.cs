@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs()
         {
         }
+        public static new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs Empty => new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs();
     }
 }

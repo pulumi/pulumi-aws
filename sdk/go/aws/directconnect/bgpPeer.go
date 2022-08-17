@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewBgpPeer(ctx, "peer", &directconnect.BgpPeerArgs{
-// 			VirtualInterfaceId: pulumi.Any(aws_dx_private_virtual_interface.Foo.Id),
-// 			AddressFamily:      pulumi.String("ipv6"),
-// 			BgpAsn:             pulumi.Int(65351),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewBgpPeer(ctx, "peer", &directconnect.BgpPeerArgs{
+//				VirtualInterfaceId: pulumi.Any(aws_dx_private_virtual_interface.Foo.Id),
+//				AddressFamily:      pulumi.String("ipv6"),
+//				BgpAsn:             pulumi.Int(65351),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type BgpPeer struct {
 	pulumi.CustomResourceState
@@ -210,7 +213,7 @@ func (i *BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput 
 // BgpPeerArrayInput is an input type that accepts BgpPeerArray and BgpPeerArrayOutput values.
 // You can construct a concrete instance of `BgpPeerArrayInput` via:
 //
-//          BgpPeerArray{ BgpPeerArgs{...} }
+//	BgpPeerArray{ BgpPeerArgs{...} }
 type BgpPeerArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +238,7 @@ func (i BgpPeerArray) ToBgpPeerArrayOutputWithContext(ctx context.Context) BgpPe
 // BgpPeerMapInput is an input type that accepts BgpPeerMap and BgpPeerMapOutput values.
 // You can construct a concrete instance of `BgpPeerMapInput` via:
 //
-//          BgpPeerMap{ "key": BgpPeerArgs{...} }
+//	BgpPeerMap{ "key": BgpPeerArgs{...} }
 type BgpPeerMapInput interface {
 	pulumi.Input
 

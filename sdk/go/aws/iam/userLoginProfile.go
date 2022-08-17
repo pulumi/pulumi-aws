@@ -21,30 +21,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUser, err := iam.NewUser(ctx, "exampleUser", &iam.UserArgs{
-// 			Path:         pulumi.String("/"),
-// 			ForceDestroy: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserLoginProfile, err := iam.NewUserLoginProfile(ctx, "exampleUserLoginProfile", &iam.UserLoginProfileArgs{
-// 			User:   exampleUser.Name,
-// 			PgpKey: pulumi.String("keybase:some_person_that_exists"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("password", exampleUserLoginProfile.EncryptedPassword)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := iam.NewUser(ctx, "exampleUser", &iam.UserArgs{
+//				Path:         pulumi.String("/"),
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserLoginProfile, err := iam.NewUserLoginProfile(ctx, "exampleUserLoginProfile", &iam.UserLoginProfileArgs{
+//				User:   exampleUser.Name,
+//				PgpKey: pulumi.String("keybase:some_person_that_exists"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("password", exampleUserLoginProfile.EncryptedPassword)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,26 +55,28 @@ import (
 // IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+//
+//	$ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+//
 // ```
 //
-//  Since this provider has no method to read the PGP or password information during import, use [`ignore_changes` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore them unless password recreation is desired. e.g. terraform resource "aws_iam_user_login_profile" "example" {
+//	Since this provider has no method to read the PGP or password information during import, use [`ignore_changes` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore them unless password recreation is desired. e.g. terraform resource "aws_iam_user_login_profile" "example" {
 //
 // # ... other configuration ...
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [
+//	ignore_changes = [
 //
-//  password_length,
+//	password_length,
 //
-//  password_reset_required,
+//	password_reset_required,
 //
-//  pgp_key,
+//	pgp_key,
 //
-//  ]
+//	]
 //
-//  } }
+//	} }
 type UserLoginProfile struct {
 	pulumi.CustomResourceState
 
@@ -206,7 +211,7 @@ func (i *UserLoginProfile) ToUserLoginProfileOutputWithContext(ctx context.Conte
 // UserLoginProfileArrayInput is an input type that accepts UserLoginProfileArray and UserLoginProfileArrayOutput values.
 // You can construct a concrete instance of `UserLoginProfileArrayInput` via:
 //
-//          UserLoginProfileArray{ UserLoginProfileArgs{...} }
+//	UserLoginProfileArray{ UserLoginProfileArgs{...} }
 type UserLoginProfileArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i UserLoginProfileArray) ToUserLoginProfileArrayOutputWithContext(ctx cont
 // UserLoginProfileMapInput is an input type that accepts UserLoginProfileMap and UserLoginProfileMapOutput values.
 // You can construct a concrete instance of `UserLoginProfileMapInput` via:
 //
-//          UserLoginProfileMap{ "key": UserLoginProfileArgs{...} }
+//	UserLoginProfileMap{ "key": UserLoginProfileArgs{...} }
 type UserLoginProfileMapInput interface {
 	pulumi.Input
 

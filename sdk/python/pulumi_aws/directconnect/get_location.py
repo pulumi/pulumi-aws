@@ -21,7 +21,10 @@ class GetLocationResult:
     """
     A collection of values returned by getLocation.
     """
-    def __init__(__self__, available_port_speeds=None, available_providers=None, id=None, location_code=None, location_name=None):
+    def __init__(__self__, available_macsec_port_speeds=None, available_port_speeds=None, available_providers=None, id=None, location_code=None, location_name=None):
+        if available_macsec_port_speeds and not isinstance(available_macsec_port_speeds, list):
+            raise TypeError("Expected argument 'available_macsec_port_speeds' to be a list")
+        pulumi.set(__self__, "available_macsec_port_speeds", available_macsec_port_speeds)
         if available_port_speeds and not isinstance(available_port_speeds, list):
             raise TypeError("Expected argument 'available_port_speeds' to be a list")
         pulumi.set(__self__, "available_port_speeds", available_port_speeds)
@@ -37,6 +40,14 @@ class GetLocationResult:
         if location_name and not isinstance(location_name, str):
             raise TypeError("Expected argument 'location_name' to be a str")
         pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="availableMacsecPortSpeeds")
+    def available_macsec_port_speeds(self) -> Sequence[str]:
+        """
+        The available MAC Security (MACsec) port speeds for the location.
+        """
+        return pulumi.get(self, "available_macsec_port_speeds")
 
     @property
     @pulumi.getter(name="availablePortSpeeds")
@@ -82,6 +93,7 @@ class AwaitableGetLocationResult(GetLocationResult):
         if False:
             yield self
         return GetLocationResult(
+            available_macsec_port_speeds=self.available_macsec_port_speeds,
             available_port_speeds=self.available_port_speeds,
             available_providers=self.available_providers,
             id=self.id,
@@ -115,6 +127,7 @@ def get_location(location_code: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult).value
 
     return AwaitableGetLocationResult(
+        available_macsec_port_speeds=__ret__.available_macsec_port_speeds,
         available_port_speeds=__ret__.available_port_speeds,
         available_providers=__ret__.available_providers,
         id=__ret__.id,

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Athena.Inputs
 {
 
-    public sealed class WorkgroupConfigurationResultConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkgroupConfigurationResultConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Athena.Inputs
         public WorkgroupConfigurationResultConfigurationGetArgs()
         {
         }
+        public static new WorkgroupConfigurationResultConfigurationGetArgs Empty => new WorkgroupConfigurationResultConfigurationGetArgs();
     }
 }

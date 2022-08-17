@@ -21,98 +21,103 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Sid": "",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": "codedeploy.amazonaws.com"
-//       },
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "codedeploy.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "aWSCodeDeployRole", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"),
-// 			Role:      exampleRole.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-// 			AppName:             exampleApplication.Name,
-// 			DeploymentGroupName: pulumi.String("example-group"),
-// 			ServiceRoleArn:      exampleRole.Arn,
-// 			Ec2TagSets: codedeploy.DeploymentGroupEc2TagSetArray{
-// 				&codedeploy.DeploymentGroupEc2TagSetArgs{
-// 					Ec2TagFilters: codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArray{
-// 						&codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs{
-// 							Key:   pulumi.String("filterkey1"),
-// 							Type:  pulumi.String("KEY_AND_VALUE"),
-// 							Value: pulumi.String("filtervalue"),
-// 						},
-// 						&codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs{
-// 							Key:   pulumi.String("filterkey2"),
-// 							Type:  pulumi.String("KEY_AND_VALUE"),
-// 							Value: pulumi.String("filtervalue"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			TriggerConfigurations: codedeploy.DeploymentGroupTriggerConfigurationArray{
-// 				&codedeploy.DeploymentGroupTriggerConfigurationArgs{
-// 					TriggerEvents: pulumi.StringArray{
-// 						pulumi.String("DeploymentFailure"),
-// 					},
-// 					TriggerName:      pulumi.String("example-trigger"),
-// 					TriggerTargetArn: exampleTopic.Arn,
-// 				},
-// 			},
-// 			AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-// 				Enabled: pulumi.Bool(true),
-// 				Events: pulumi.StringArray{
-// 					pulumi.String("DEPLOYMENT_FAILURE"),
-// 				},
-// 			},
-// 			AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-// 				Alarms: pulumi.StringArray{
-// 					pulumi.String("my-alarm-name"),
-// 				},
-// 				Enabled: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "aWSCodeDeployRole", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"),
+//				Role:      exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+//				AppName:             exampleApplication.Name,
+//				DeploymentGroupName: pulumi.String("example-group"),
+//				ServiceRoleArn:      exampleRole.Arn,
+//				Ec2TagSets: codedeploy.DeploymentGroupEc2TagSetArray{
+//					&codedeploy.DeploymentGroupEc2TagSetArgs{
+//						Ec2TagFilters: codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArray{
+//							&codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs{
+//								Key:   pulumi.String("filterkey1"),
+//								Type:  pulumi.String("KEY_AND_VALUE"),
+//								Value: pulumi.String("filtervalue"),
+//							},
+//							&codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs{
+//								Key:   pulumi.String("filterkey2"),
+//								Type:  pulumi.String("KEY_AND_VALUE"),
+//								Value: pulumi.String("filtervalue"),
+//							},
+//						},
+//					},
+//				},
+//				TriggerConfigurations: codedeploy.DeploymentGroupTriggerConfigurationArray{
+//					&codedeploy.DeploymentGroupTriggerConfigurationArgs{
+//						TriggerEvents: pulumi.StringArray{
+//							pulumi.String("DeploymentFailure"),
+//						},
+//						TriggerName:      pulumi.String("example-trigger"),
+//						TriggerTargetArn: exampleTopic.Arn,
+//					},
+//				},
+//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
+//					Enabled: pulumi.Bool(true),
+//					Events: pulumi.StringArray{
+//						pulumi.String("DEPLOYMENT_FAILURE"),
+//					},
+//				},
+//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
+//					Alarms: pulumi.StringArray{
+//						pulumi.String("my-alarm-name"),
+//					},
+//					Enabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Blue Green Deployments with ECS
 //
@@ -120,70 +125,73 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", &codedeploy.ApplicationArgs{
-// 			ComputePlatform: pulumi.String("ECS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-// 			AppName:              exampleApplication.Name,
-// 			DeploymentConfigName: pulumi.String("CodeDeployDefault.ECSAllAtOnce"),
-// 			DeploymentGroupName:  pulumi.String("example"),
-// 			ServiceRoleArn:       pulumi.Any(aws_iam_role.Example.Arn),
-// 			AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-// 				Enabled: pulumi.Bool(true),
-// 				Events: pulumi.StringArray{
-// 					pulumi.String("DEPLOYMENT_FAILURE"),
-// 				},
-// 			},
-// 			BlueGreenDeploymentConfig: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs{
-// 				DeploymentReadyOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{
-// 					ActionOnTimeout: pulumi.String("CONTINUE_DEPLOYMENT"),
-// 				},
-// 				TerminateBlueInstancesOnDeploymentSuccess: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{
-// 					Action:                       pulumi.String("TERMINATE"),
-// 					TerminationWaitTimeInMinutes: pulumi.Int(5),
-// 				},
-// 			},
-// 			DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
-// 				DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
-// 				DeploymentType:   pulumi.String("BLUE_GREEN"),
-// 			},
-// 			EcsService: &codedeploy.DeploymentGroupEcsServiceArgs{
-// 				ClusterName: pulumi.Any(aws_ecs_cluster.Example.Name),
-// 				ServiceName: pulumi.Any(aws_ecs_service.Example.Name),
-// 			},
-// 			LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
-// 				TargetGroupPairInfo: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{
-// 					ProdTrafficRoute: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{
-// 						ListenerArns: pulumi.StringArray{
-// 							pulumi.Any(aws_lb_listener.Example.Arn),
-// 						},
-// 					},
-// 					TargetGroups: codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{
-// 						&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
-// 							Name: pulumi.Any(aws_lb_target_group.Blue.Name),
-// 						},
-// 						&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
-// 							Name: pulumi.Any(aws_lb_target_group.Green.Name),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", &codedeploy.ApplicationArgs{
+//				ComputePlatform: pulumi.String("ECS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+//				AppName:              exampleApplication.Name,
+//				DeploymentConfigName: pulumi.String("CodeDeployDefault.ECSAllAtOnce"),
+//				DeploymentGroupName:  pulumi.String("example"),
+//				ServiceRoleArn:       pulumi.Any(aws_iam_role.Example.Arn),
+//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
+//					Enabled: pulumi.Bool(true),
+//					Events: pulumi.StringArray{
+//						pulumi.String("DEPLOYMENT_FAILURE"),
+//					},
+//				},
+//				BlueGreenDeploymentConfig: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs{
+//					DeploymentReadyOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{
+//						ActionOnTimeout: pulumi.String("CONTINUE_DEPLOYMENT"),
+//					},
+//					TerminateBlueInstancesOnDeploymentSuccess: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{
+//						Action:                       pulumi.String("TERMINATE"),
+//						TerminationWaitTimeInMinutes: pulumi.Int(5),
+//					},
+//				},
+//				DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
+//					DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
+//					DeploymentType:   pulumi.String("BLUE_GREEN"),
+//				},
+//				EcsService: &codedeploy.DeploymentGroupEcsServiceArgs{
+//					ClusterName: pulumi.Any(aws_ecs_cluster.Example.Name),
+//					ServiceName: pulumi.Any(aws_ecs_service.Example.Name),
+//				},
+//				LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
+//					TargetGroupPairInfo: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{
+//						ProdTrafficRoute: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{
+//							ListenerArns: pulumi.StringArray{
+//								pulumi.Any(aws_lb_listener.Example.Arn),
+//							},
+//						},
+//						TargetGroups: codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{
+//							&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
+//								Name: pulumi.Any(aws_lb_target_group.Blue.Name),
+//							},
+//							&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
+//								Name: pulumi.Any(aws_lb_target_group.Green.Name),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Blue Green Deployments with Servers and Classic ELB
 //
@@ -191,50 +199,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-// 			AppName:             exampleApplication.Name,
-// 			DeploymentGroupName: pulumi.String("example-group"),
-// 			ServiceRoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
-// 			DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
-// 				DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
-// 				DeploymentType:   pulumi.String("BLUE_GREEN"),
-// 			},
-// 			LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
-// 				ElbInfos: codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArray{
-// 					&codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs{
-// 						Name: pulumi.Any(aws_elb.Example.Name),
-// 					},
-// 				},
-// 			},
-// 			BlueGreenDeploymentConfig: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs{
-// 				DeploymentReadyOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{
-// 					ActionOnTimeout:   pulumi.String("STOP_DEPLOYMENT"),
-// 					WaitTimeInMinutes: pulumi.Int(60),
-// 				},
-// 				GreenFleetProvisioningOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{
-// 					Action: pulumi.String("DISCOVER_EXISTING"),
-// 				},
-// 				TerminateBlueInstancesOnDeploymentSuccess: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{
-// 					Action: pulumi.String("KEEP_ALIVE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+//				AppName:             exampleApplication.Name,
+//				DeploymentGroupName: pulumi.String("example-group"),
+//				ServiceRoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
+//					DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
+//					DeploymentType:   pulumi.String("BLUE_GREEN"),
+//				},
+//				LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
+//					ElbInfos: codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArray{
+//						&codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs{
+//							Name: pulumi.Any(aws_elb.Example.Name),
+//						},
+//					},
+//				},
+//				BlueGreenDeploymentConfig: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs{
+//					DeploymentReadyOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{
+//						ActionOnTimeout:   pulumi.String("STOP_DEPLOYMENT"),
+//						WaitTimeInMinutes: pulumi.Int(60),
+//					},
+//					GreenFleetProvisioningOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{
+//						Action: pulumi.String("DISCOVER_EXISTING"),
+//					},
+//					TerminateBlueInstancesOnDeploymentSuccess: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{
+//						Action: pulumi.String("KEEP_ALIVE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -242,10 +253,12 @@ import (
 // CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+//
+//	$ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+//
 // ```
 //
-//  [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+//	[1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
 
@@ -285,7 +298,7 @@ type DeploymentGroup struct {
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayOutput `pulumi:"triggerConfigurations"`
@@ -365,7 +378,7 @@ type deploymentGroupState struct {
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations []DeploymentGroupTriggerConfiguration `pulumi:"triggerConfigurations"`
@@ -408,7 +421,7 @@ type DeploymentGroupState struct {
 	ServiceRoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayInput
@@ -515,7 +528,7 @@ func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context
 // DeploymentGroupArrayInput is an input type that accepts DeploymentGroupArray and DeploymentGroupArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupArrayInput` via:
 //
-//          DeploymentGroupArray{ DeploymentGroupArgs{...} }
+//	DeploymentGroupArray{ DeploymentGroupArgs{...} }
 type DeploymentGroupArrayInput interface {
 	pulumi.Input
 
@@ -540,7 +553,7 @@ func (i DeploymentGroupArray) ToDeploymentGroupArrayOutputWithContext(ctx contex
 // DeploymentGroupMapInput is an input type that accepts DeploymentGroupMap and DeploymentGroupMapOutput values.
 // You can construct a concrete instance of `DeploymentGroupMapInput` via:
 //
-//          DeploymentGroupMap{ "key": DeploymentGroupArgs{...} }
+//	DeploymentGroupMap{ "key": DeploymentGroupArgs{...} }
 type DeploymentGroupMapInput interface {
 	pulumi.Input
 
@@ -672,7 +685,7 @@ func (o DeploymentGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DeploymentGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

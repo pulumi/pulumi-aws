@@ -20,7 +20,9 @@ import (
 // FSx Data Repository Associations can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+//
+//	$ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+//
 // ```
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
@@ -44,8 +46,7 @@ type DataRepositoryAssociation struct {
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3Output `pulumi:"s3"`
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -106,8 +107,7 @@ type dataRepositoryAssociationState struct {
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -131,8 +131,7 @@ type DataRepositoryAssociationState struct {
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrInput
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -207,7 +206,7 @@ func (i *DataRepositoryAssociation) ToDataRepositoryAssociationOutputWithContext
 // DataRepositoryAssociationArrayInput is an input type that accepts DataRepositoryAssociationArray and DataRepositoryAssociationArrayOutput values.
 // You can construct a concrete instance of `DataRepositoryAssociationArrayInput` via:
 //
-//          DataRepositoryAssociationArray{ DataRepositoryAssociationArgs{...} }
+//	DataRepositoryAssociationArray{ DataRepositoryAssociationArgs{...} }
 type DataRepositoryAssociationArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +231,7 @@ func (i DataRepositoryAssociationArray) ToDataRepositoryAssociationArrayOutputWi
 // DataRepositoryAssociationMapInput is an input type that accepts DataRepositoryAssociationMap and DataRepositoryAssociationMapOutput values.
 // You can construct a concrete instance of `DataRepositoryAssociationMapInput` via:
 //
-//          DataRepositoryAssociationMap{ "key": DataRepositoryAssociationArgs{...} }
+//	DataRepositoryAssociationMap{ "key": DataRepositoryAssociationArgs{...} }
 type DataRepositoryAssociationMapInput interface {
 	pulumi.Input
 
@@ -318,7 +317,6 @@ func (o DataRepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o DataRepositoryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

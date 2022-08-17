@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Dlm
     /// ```
     /// </summary>
     [AwsResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
-    public partial class LifecyclePolicy : Pulumi.CustomResource
+    public partial class LifecyclePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Dlm
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Dlm
         }
     }
 
-    public sealed class LifecyclePolicyArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the DLM lifecycle policy.
@@ -152,9 +152,10 @@ namespace Pulumi.Aws.Dlm
         public LifecyclePolicyArgs()
         {
         }
+        public static new LifecyclePolicyArgs Empty => new LifecyclePolicyArgs();
     }
 
-    public sealed class LifecyclePolicyState : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
@@ -202,7 +203,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -213,5 +214,6 @@ namespace Pulumi.Aws.Dlm
         public LifecyclePolicyState()
         {
         }
+        public static new LifecyclePolicyState Empty => new LifecyclePolicyState();
     }
 }

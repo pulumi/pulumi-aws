@@ -20,51 +20,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := glue.NewWorkflow(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
-// 			Type:         pulumi.String("ON_DEMAND"),
-// 			WorkflowName: example.Name,
-// 			Actions: glue.TriggerActionArray{
-// 				&glue.TriggerActionArgs{
-// 					JobName: pulumi.String("example-job"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
-// 			Type:         pulumi.String("CONDITIONAL"),
-// 			WorkflowName: example.Name,
-// 			Predicate: &glue.TriggerPredicateArgs{
-// 				Conditions: glue.TriggerPredicateConditionArray{
-// 					&glue.TriggerPredicateConditionArgs{
-// 						JobName: pulumi.String("example-job"),
-// 						State:   pulumi.String("SUCCEEDED"),
-// 					},
-// 				},
-// 			},
-// 			Actions: glue.TriggerActionArray{
-// 				&glue.TriggerActionArgs{
-// 					JobName: pulumi.String("another-example-job"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := glue.NewWorkflow(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
+//				Type:         pulumi.String("ON_DEMAND"),
+//				WorkflowName: example.Name,
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						JobName: pulumi.String("example-job"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
+//				Type:         pulumi.String("CONDITIONAL"),
+//				WorkflowName: example.Name,
+//				Predicate: &glue.TriggerPredicateArgs{
+//					Conditions: glue.TriggerPredicateConditionArray{
+//						&glue.TriggerPredicateConditionArgs{
+//							JobName: pulumi.String("example-job"),
+//							State:   pulumi.String("SUCCEEDED"),
+//						},
+//					},
+//				},
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						JobName: pulumi.String("another-example-job"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Glue Workflows can be imported using `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+//
+//	$ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+//
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 // WorkflowArrayInput is an input type that accepts WorkflowArray and WorkflowArrayOutput values.
 // You can construct a concrete instance of `WorkflowArrayInput` via:
 //
-//          WorkflowArray{ WorkflowArgs{...} }
+//	WorkflowArray{ WorkflowArgs{...} }
 type WorkflowArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i WorkflowArray) ToWorkflowArrayOutputWithContext(ctx context.Context) Wor
 // WorkflowMapInput is an input type that accepts WorkflowMap and WorkflowMapOutput values.
 // You can construct a concrete instance of `WorkflowMapInput` via:
 //
-//          WorkflowMap{ "key": WorkflowArgs{...} }
+//	WorkflowMap{ "key": WorkflowArgs{...} }
 type WorkflowMapInput interface {
 	pulumi.Input
 

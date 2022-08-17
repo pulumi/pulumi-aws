@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs : Pulumi.ResourceArgs
+    public sealed class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainAutoTuneOptionsMaintenanceScheduleDurationArgs()
         {
         }
+        public static new DomainAutoTuneOptionsMaintenanceScheduleDurationArgs Empty => new DomainAutoTuneOptionsMaintenanceScheduleDurationArgs();
     }
 }

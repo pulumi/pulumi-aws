@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dax.Inputs
 {
 
-    public sealed class ClusterServerSideEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class ClusterServerSideEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable encryption at rest. Defaults to `false`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Dax.Inputs
         public ClusterServerSideEncryptionArgs()
         {
         }
+        public static new ClusterServerSideEncryptionArgs Empty => new ClusterServerSideEncryptionArgs();
     }
 }

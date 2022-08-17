@@ -17,169 +17,174 @@ namespace Pulumi.Aws.Workspaces
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var workspaces = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var workspaces = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "workspaces.amazonaws.com",
-    ///                             },
+    ///                             "workspaces.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var workspacesDefault = new Aws.Iam.Role("workspacesDefault", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = workspaces.Apply(workspaces =&gt; workspaces.Json),
-    ///         });
-    ///         var workspacesDefaultServiceAccess = new Aws.Iam.RolePolicyAttachment("workspacesDefaultServiceAccess", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = workspacesDefault.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
-    ///         });
-    ///         var workspacesDefaultSelfServiceAccess = new Aws.Iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = workspacesDefault.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
-    ///         });
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleC = new Aws.Ec2.Subnet("exampleC", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             AvailabilityZone = "us-east-1c",
-    ///             CidrBlock = "10.0.2.0/24",
-    ///         });
-    ///         var exampleD = new Aws.Ec2.Subnet("exampleD", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             AvailabilityZone = "us-east-1d",
-    ///             CidrBlock = "10.0.3.0/24",
-    ///         });
-    ///         var exampleDirectory = new Aws.Workspaces.Directory("exampleDirectory", new Aws.Workspaces.DirectoryArgs
-    ///         {
-    ///             DirectoryId = exampleDirectoryservice / directoryDirectory.Id,
-    ///             SubnetIds = 
-    ///             {
-    ///                 exampleC.Id,
-    ///                 exampleD.Id,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Example", "true" },
-    ///             },
-    ///             SelfServicePermissions = new Aws.Workspaces.Inputs.DirectorySelfServicePermissionsArgs
-    ///             {
-    ///                 ChangeComputeType = true,
-    ///                 IncreaseVolumeSize = true,
-    ///                 RebuildWorkspace = true,
-    ///                 RestartWorkspace = true,
-    ///                 SwitchRunningMode = true,
-    ///             },
-    ///             WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
-    ///             {
-    ///                 DeviceTypeAndroid = "ALLOW",
-    ///                 DeviceTypeChromeos = "ALLOW",
-    ///                 DeviceTypeIos = "ALLOW",
-    ///                 DeviceTypeLinux = "DENY",
-    ///                 DeviceTypeOsx = "ALLOW",
-    ///                 DeviceTypeWeb = "DENY",
-    ///                 DeviceTypeWindows = "DENY",
-    ///                 DeviceTypeZeroclient = "DENY",
-    ///             },
-    ///             WorkspaceCreationProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceCreationPropertiesArgs
-    ///             {
-    ///                 CustomSecurityGroupId = aws_security_group.Example.Id,
-    ///                 DefaultOu = "OU=AWS,DC=Workgroup,DC=Example,DC=com",
-    ///                 EnableInternetAccess = true,
-    ///                 EnableMaintenanceMode = true,
-    ///                 UserEnabledAsLocalAdministrator = true,
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 workspacesDefaultServiceAccess,
-    ///                 workspacesDefaultSelfServiceAccess,
-    ///             },
-    ///         });
-    ///         var exampleA = new Aws.Ec2.Subnet("exampleA", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             AvailabilityZone = "us-east-1a",
-    ///             CidrBlock = "10.0.0.0/24",
-    ///         });
-    ///         var exampleB = new Aws.Ec2.Subnet("exampleB", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             AvailabilityZone = "us-east-1b",
-    ///             CidrBlock = "10.0.1.0/24",
-    ///         });
-    ///         var exampleDirectoryservice_directoryDirectory = new Aws.DirectoryService.Directory("exampleDirectoryservice/directoryDirectory", new Aws.DirectoryService.DirectoryArgs
-    ///         {
-    ///             Name = "corp.example.com",
-    ///             Password = "#S1ncerely",
-    ///             Size = "Small",
-    ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     exampleA.Id,
-    ///                     exampleB.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var workspacesDefault = new Aws.Iam.Role("workspacesDefault", new()
+    ///     {
+    ///         AssumeRolePolicy = workspaces.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var workspacesDefaultServiceAccess = new Aws.Iam.RolePolicyAttachment("workspacesDefaultServiceAccess", new()
+    ///     {
+    ///         Role = workspacesDefault.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
+    ///     });
+    /// 
+    ///     var workspacesDefaultSelfServiceAccess = new Aws.Iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess", new()
+    ///     {
+    ///         Role = workspacesDefault.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleC = new Aws.Ec2.Subnet("exampleC", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         AvailabilityZone = "us-east-1c",
+    ///         CidrBlock = "10.0.2.0/24",
+    ///     });
+    /// 
+    ///     var exampleD = new Aws.Ec2.Subnet("exampleD", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         AvailabilityZone = "us-east-1d",
+    ///         CidrBlock = "10.0.3.0/24",
+    ///     });
+    /// 
+    ///     var exampleDirectory = new Aws.Workspaces.Directory("exampleDirectory", new()
+    ///     {
+    ///         DirectoryId = exampleDirectoryservice / directoryDirectory.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleC.Id,
+    ///             exampleD.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Example", "true" },
+    ///         },
+    ///         SelfServicePermissions = new Aws.Workspaces.Inputs.DirectorySelfServicePermissionsArgs
+    ///         {
+    ///             ChangeComputeType = true,
+    ///             IncreaseVolumeSize = true,
+    ///             RebuildWorkspace = true,
+    ///             RestartWorkspace = true,
+    ///             SwitchRunningMode = true,
+    ///         },
+    ///         WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
+    ///         {
+    ///             DeviceTypeAndroid = "ALLOW",
+    ///             DeviceTypeChromeos = "ALLOW",
+    ///             DeviceTypeIos = "ALLOW",
+    ///             DeviceTypeLinux = "DENY",
+    ///             DeviceTypeOsx = "ALLOW",
+    ///             DeviceTypeWeb = "DENY",
+    ///             DeviceTypeWindows = "DENY",
+    ///             DeviceTypeZeroclient = "DENY",
+    ///         },
+    ///         WorkspaceCreationProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceCreationPropertiesArgs
+    ///         {
+    ///             CustomSecurityGroupId = aws_security_group.Example.Id,
+    ///             DefaultOu = "OU=AWS,DC=Workgroup,DC=Example,DC=com",
+    ///             EnableInternetAccess = true,
+    ///             EnableMaintenanceMode = true,
+    ///             UserEnabledAsLocalAdministrator = true,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             workspacesDefaultServiceAccess,
+    ///             workspacesDefaultSelfServiceAccess,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleA = new Aws.Ec2.Subnet("exampleA", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         AvailabilityZone = "us-east-1a",
+    ///         CidrBlock = "10.0.0.0/24",
+    ///     });
+    /// 
+    ///     var exampleB = new Aws.Ec2.Subnet("exampleB", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         AvailabilityZone = "us-east-1b",
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleDirectoryservice_directoryDirectory = new Aws.DirectoryService.Directory("exampleDirectoryservice/directoryDirectory", new()
+    ///     {
+    ///         Name = "corp.example.com",
+    ///         Password = "#S1ncerely",
+    ///         Size = "Small",
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 exampleA.Id,
+    ///                 exampleB.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### IP Groups
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleIpGroup = new Aws.Workspaces.IpGroup("exampleIpGroup", new Aws.Workspaces.IpGroupArgs
-    ///         {
-    ///         });
-    ///         var exampleDirectory = new Aws.Workspaces.Directory("exampleDirectory", new Aws.Workspaces.DirectoryArgs
-    ///         {
-    ///             DirectoryId = aws_directory_service_directory.Example.Id,
-    ///             IpGroupIds = 
-    ///             {
-    ///                 exampleIpGroup.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleIpGroup = new Aws.Workspaces.IpGroup("exampleIpGroup");
     /// 
-    /// }
+    ///     var exampleDirectory = new Aws.Workspaces.Directory("exampleDirectory", new()
+    ///     {
+    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///         IpGroupIds = new[]
+    ///         {
+    ///             exampleIpGroup.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -191,7 +196,7 @@ namespace Pulumi.Aws.Workspaces
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/directory:Directory")]
-    public partial class Directory : Pulumi.CustomResource
+    public partial class Directory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The directory alias.
@@ -260,13 +265,13 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -333,7 +338,7 @@ namespace Pulumi.Aws.Workspaces
         }
     }
 
-    public sealed class DirectoryArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
@@ -375,7 +380,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -398,9 +403,10 @@ namespace Pulumi.Aws.Workspaces
         public DirectoryArgs()
         {
         }
+        public static new DirectoryArgs Empty => new DirectoryArgs();
     }
 
-    public sealed class DirectoryState : Pulumi.ResourceArgs
+    public sealed class DirectoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The directory alias.
@@ -490,7 +496,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -502,7 +508,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -531,5 +537,6 @@ namespace Pulumi.Aws.Workspaces
         public DirectoryState()
         {
         }
+        public static new DirectoryState Empty => new DirectoryState();
     }
 }

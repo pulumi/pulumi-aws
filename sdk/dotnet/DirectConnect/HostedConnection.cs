@@ -15,27 +15,25 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var hosted = new Aws.DirectConnect.HostedConnection("hosted", new()
     ///     {
-    ///         var hosted = new Aws.DirectConnect.HostedConnection("hosted", new Aws.DirectConnect.HostedConnectionArgs
-    ///         {
-    ///             Bandwidth = "100Mbps",
-    ///             ConnectionId = "dxcon-ffabc123",
-    ///             OwnerAccountId = "123456789012",
-    ///             Vlan = 1,
-    ///         });
-    ///     }
+    ///         Bandwidth = "100Mbps",
+    ///         ConnectionId = "dxcon-ffabc123",
+    ///         OwnerAccountId = "123456789012",
+    ///         Vlan = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedConnection:HostedConnection")]
-    public partial class HostedConnection : Pulumi.CustomResource
+    public partial class HostedConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Direct Connect endpoint on which the physical connection terminates.
@@ -171,7 +169,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class HostedConnectionArgs : Pulumi.ResourceArgs
+    public sealed class HostedConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
@@ -206,9 +204,10 @@ namespace Pulumi.Aws.DirectConnect
         public HostedConnectionArgs()
         {
         }
+        public static new HostedConnectionArgs Empty => new HostedConnectionArgs();
     }
 
-    public sealed class HostedConnectionState : Pulumi.ResourceArgs
+    public sealed class HostedConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Direct Connect endpoint on which the physical connection terminates.
@@ -303,5 +302,6 @@ namespace Pulumi.Aws.DirectConnect
         public HostedConnectionState()
         {
         }
+        public static new HostedConnectionState Empty => new HostedConnectionState();
     }
 }

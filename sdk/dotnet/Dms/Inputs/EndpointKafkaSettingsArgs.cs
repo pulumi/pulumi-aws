@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dms.Inputs
 {
 
-    public sealed class EndpointKafkaSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointKafkaSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
@@ -123,5 +123,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public EndpointKafkaSettingsArgs()
         {
         }
+        public static new EndpointKafkaSettingsArgs Empty => new EndpointKafkaSettingsArgs();
     }
 }

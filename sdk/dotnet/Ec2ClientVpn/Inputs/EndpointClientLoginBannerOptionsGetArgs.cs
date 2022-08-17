@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 {
 
-    public sealed class EndpointClientLoginBannerOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointClientLoginBannerOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public EndpointClientLoginBannerOptionsGetArgs()
         {
         }
+        public static new EndpointClientLoginBannerOptionsGetArgs Empty => new EndpointClientLoginBannerOptionsGetArgs();
     }
 }

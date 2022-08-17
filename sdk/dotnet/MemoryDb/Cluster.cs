@@ -17,28 +17,26 @@ namespace Pulumi.Aws.MemoryDb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.MemoryDb.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.MemoryDb.Cluster("example", new Aws.MemoryDb.ClusterArgs
+    ///         AclName = "open-access",
+    ///         NodeType = "db.t4g.small",
+    ///         NumShards = 2,
+    ///         SecurityGroupIds = new[]
     ///         {
-    ///             AclName = "open-access",
-    ///             NodeType = "db.t4g.small",
-    ///             NumShards = 2,
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SnapshotRetentionLimit = 7,
-    ///             SubnetGroupName = aws_memorydb_subnet_group.Example.Id,
-    ///         });
-    ///     }
+    ///             aws_security_group.Example.Id,
+    ///         },
+    ///         SnapshotRetentionLimit = 7,
+    ///         SubnetGroupName = aws_memorydb_subnet_group.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.MemoryDb
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
@@ -204,9 +202,6 @@ namespace Pulumi.Aws.MemoryDb
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -260,7 +255,7 @@ namespace Pulumi.Aws.MemoryDb
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
@@ -413,9 +408,10 @@ namespace Pulumi.Aws.MemoryDb
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
@@ -594,10 +590,6 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -613,5 +605,6 @@ namespace Pulumi.Aws.MemoryDb
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

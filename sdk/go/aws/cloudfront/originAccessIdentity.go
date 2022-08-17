@@ -25,21 +25,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewOriginAccessIdentity(ctx, "example", &cloudfront.OriginAccessIdentityArgs{
-// 			Comment: pulumi.String("Some comment"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewOriginAccessIdentity(ctx, "example", &cloudfront.OriginAccessIdentityArgs{
+//				Comment: pulumi.String("Some comment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Using With CloudFront
 //
@@ -53,27 +56,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
-// 			Origins: cloudfront.DistributionOriginArray{
-// 				&cloudfront.DistributionOriginArgs{
-// 					S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-// 						OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +87,9 @@ import (
 // Cloudfront Origin Access Identities can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+//
+//	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+//
 // ```
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
@@ -220,7 +228,7 @@ func (i *OriginAccessIdentity) ToOriginAccessIdentityOutputWithContext(ctx conte
 // OriginAccessIdentityArrayInput is an input type that accepts OriginAccessIdentityArray and OriginAccessIdentityArrayOutput values.
 // You can construct a concrete instance of `OriginAccessIdentityArrayInput` via:
 //
-//          OriginAccessIdentityArray{ OriginAccessIdentityArgs{...} }
+//	OriginAccessIdentityArray{ OriginAccessIdentityArgs{...} }
 type OriginAccessIdentityArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +253,7 @@ func (i OriginAccessIdentityArray) ToOriginAccessIdentityArrayOutputWithContext(
 // OriginAccessIdentityMapInput is an input type that accepts OriginAccessIdentityMap and OriginAccessIdentityMapOutput values.
 // You can construct a concrete instance of `OriginAccessIdentityMapInput` via:
 //
-//          OriginAccessIdentityMap{ "key": OriginAccessIdentityArgs{...} }
+//	OriginAccessIdentityMap{ "key": OriginAccessIdentityArgs{...} }
 type OriginAccessIdentityMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class JobNotificationPropertyGetArgs : Pulumi.ResourceArgs
+    public sealed class JobNotificationPropertyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public JobNotificationPropertyGetArgs()
         {
         }
+        public static new JobNotificationPropertyGetArgs Empty => new JobNotificationPropertyGetArgs();
     }
 }

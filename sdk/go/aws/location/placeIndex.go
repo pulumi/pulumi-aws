@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := location.NewPlaceIndex(ctx, "example", &location.PlaceIndexArgs{
-// 			DataSource: pulumi.String("Here"),
-// 			IndexName:  pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := location.NewPlaceIndex(ctx, "example", &location.PlaceIndexArgs{
+//				DataSource: pulumi.String("Here"),
+//				IndexName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_location_place_index` resources can be imported using the place index name, e.g.
 //
 // ```sh
-//  $ pulumi import aws:location/placeIndex:PlaceIndex example example
+//
+//	$ pulumi import aws:location/placeIndex:PlaceIndex example example
+//
 // ```
 type PlaceIndex struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *PlaceIndex) ToPlaceIndexOutputWithContext(ctx context.Context) PlaceInd
 // PlaceIndexArrayInput is an input type that accepts PlaceIndexArray and PlaceIndexArrayOutput values.
 // You can construct a concrete instance of `PlaceIndexArrayInput` via:
 //
-//          PlaceIndexArray{ PlaceIndexArgs{...} }
+//	PlaceIndexArray{ PlaceIndexArgs{...} }
 type PlaceIndexArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i PlaceIndexArray) ToPlaceIndexArrayOutputWithContext(ctx context.Context)
 // PlaceIndexMapInput is an input type that accepts PlaceIndexMap and PlaceIndexMapOutput values.
 // You can construct a concrete instance of `PlaceIndexMapInput` via:
 //
-//          PlaceIndexMap{ "key": PlaceIndexArgs{...} }
+//	PlaceIndexMap{ "key": PlaceIndexArgs{...} }
 type PlaceIndexMapInput interface {
 	pulumi.Input
 

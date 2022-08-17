@@ -16,54 +16,52 @@ namespace Pulumi.Aws.S3
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
+    ///         Statements = new[]
     ///         {
-    ///         });
-    ///         var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Principals = new[]
     ///                 {
-    ///                     Principals = 
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "123456789012",
-    ///                             },
+    ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                     Actions = 
-    ///                     {
-    ///                         "s3:GetObject",
-    ///                         "s3:ListBucket",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         example.Arn,
-    ///                         example.Arn.Apply(arn =&gt; $"{arn}/*"),
-    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetObject",
+    ///                     "s3:ListBucket",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     example.Arn,
+    ///                     $"{example.Arn}/*",
     ///                 },
     ///             },
-    ///         });
-    ///         var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new Aws.S3.BucketPolicyArgs
-    ///         {
-    ///             Bucket = example.Id,
-    ///             Policy = allowAccessFromAnotherAccountPolicyDocument.Apply(allowAccessFromAnotherAccountPolicyDocument =&gt; allowAccessFromAnotherAccountPolicyDocument.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Policy = allowAccessFromAnotherAccountPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +73,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketPolicy:BucketPolicy")]
-    public partial class BucketPolicy : Pulumi.CustomResource
+    public partial class BucketPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket to which to apply the policy.
@@ -133,7 +131,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BucketPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket to which to apply the policy.
@@ -150,9 +148,10 @@ namespace Pulumi.Aws.S3
         public BucketPolicyArgs()
         {
         }
+        public static new BucketPolicyArgs Empty => new BucketPolicyArgs();
     }
 
-    public sealed class BucketPolicyState : Pulumi.ResourceArgs
+    public sealed class BucketPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket to which to apply the policy.
@@ -169,5 +168,6 @@ namespace Pulumi.Aws.S3
         public BucketPolicyState()
         {
         }
+        public static new BucketPolicyState Empty => new BucketPolicyState();
     }
 }

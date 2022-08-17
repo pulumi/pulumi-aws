@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator to use in the condition.
@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         public Input<string>? Comparator { get; set; }
 
         /// <summary>
-        /// The tag key to use in the condition.
+        /// The tag key to use in the condition. The only valid value is `TAG`.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         }
 
         /// <summary>
-        /// The type of object to apply the condition to.
+        /// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs Empty => new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs();
     }
 }

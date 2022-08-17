@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetParameterGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetParameterGroup.InvokeAsync(new Aws.MemoryDb.GetParameterGroupArgs
-        ///         {
-        ///             Name = "my-parameter-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-parameter-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetParameterGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetParameterGroup.InvokeAsync(new Aws.MemoryDb.GetParameterGroupArgs
-        ///         {
-        ///             Name = "my-parameter-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-parameter-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
     }
 
 
-    public sealed class GetParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the parameter group.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.MemoryDb
         public GetParameterGroupArgs()
         {
         }
+        public static new GetParameterGroupArgs Empty => new GetParameterGroupArgs();
     }
 
-    public sealed class GetParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the parameter group.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.MemoryDb
         public GetParameterGroupInvokeArgs()
         {
         }
+        public static new GetParameterGroupInvokeArgs Empty => new GetParameterGroupInvokeArgs();
     }
 
 

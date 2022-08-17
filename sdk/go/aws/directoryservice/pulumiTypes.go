@@ -27,7 +27,7 @@ type DirectoryConnectSettings struct {
 // DirectoryConnectSettingsInput is an input type that accepts DirectoryConnectSettingsArgs and DirectoryConnectSettingsOutput values.
 // You can construct a concrete instance of `DirectoryConnectSettingsInput` via:
 //
-//          DirectoryConnectSettingsArgs{...}
+//	DirectoryConnectSettingsArgs{...}
 type DirectoryConnectSettingsInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsPtrOutputWithCon
 // DirectoryConnectSettingsPtrInput is an input type that accepts DirectoryConnectSettingsArgs, DirectoryConnectSettingsPtr and DirectoryConnectSettingsPtrOutput values.
 // You can construct a concrete instance of `DirectoryConnectSettingsPtrInput` via:
 //
-//          DirectoryConnectSettingsArgs{...}
+//	        DirectoryConnectSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DirectoryConnectSettingsPtrInput interface {
 	pulumi.Input
 
@@ -249,7 +249,7 @@ type DirectoryVpcSettings struct {
 // DirectoryVpcSettingsInput is an input type that accepts DirectoryVpcSettingsArgs and DirectoryVpcSettingsOutput values.
 // You can construct a concrete instance of `DirectoryVpcSettingsInput` via:
 //
-//          DirectoryVpcSettingsArgs{...}
+//	DirectoryVpcSettingsArgs{...}
 type DirectoryVpcSettingsInput interface {
 	pulumi.Input
 
@@ -288,11 +288,11 @@ func (i DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsPtrOutputWithContext(ctx
 // DirectoryVpcSettingsPtrInput is an input type that accepts DirectoryVpcSettingsArgs, DirectoryVpcSettingsPtr and DirectoryVpcSettingsPtrOutput values.
 // You can construct a concrete instance of `DirectoryVpcSettingsPtrInput` via:
 //
-//          DirectoryVpcSettingsArgs{...}
+//	        DirectoryVpcSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DirectoryVpcSettingsPtrInput interface {
 	pulumi.Input
 
@@ -409,6 +409,162 @@ func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceRegionVpcSettings struct {
+	// The identifiers of the subnets for the directory servers.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The identifier of the VPC in which to create the directory.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// ServiceRegionVpcSettingsInput is an input type that accepts ServiceRegionVpcSettingsArgs and ServiceRegionVpcSettingsOutput values.
+// You can construct a concrete instance of `ServiceRegionVpcSettingsInput` via:
+//
+//	ServiceRegionVpcSettingsArgs{...}
+type ServiceRegionVpcSettingsInput interface {
+	pulumi.Input
+
+	ToServiceRegionVpcSettingsOutput() ServiceRegionVpcSettingsOutput
+	ToServiceRegionVpcSettingsOutputWithContext(context.Context) ServiceRegionVpcSettingsOutput
+}
+
+type ServiceRegionVpcSettingsArgs struct {
+	// The identifiers of the subnets for the directory servers.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The identifier of the VPC in which to create the directory.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (ServiceRegionVpcSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegionVpcSettings)(nil)).Elem()
+}
+
+func (i ServiceRegionVpcSettingsArgs) ToServiceRegionVpcSettingsOutput() ServiceRegionVpcSettingsOutput {
+	return i.ToServiceRegionVpcSettingsOutputWithContext(context.Background())
+}
+
+func (i ServiceRegionVpcSettingsArgs) ToServiceRegionVpcSettingsOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionVpcSettingsOutput)
+}
+
+func (i ServiceRegionVpcSettingsArgs) ToServiceRegionVpcSettingsPtrOutput() ServiceRegionVpcSettingsPtrOutput {
+	return i.ToServiceRegionVpcSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceRegionVpcSettingsArgs) ToServiceRegionVpcSettingsPtrOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionVpcSettingsOutput).ToServiceRegionVpcSettingsPtrOutputWithContext(ctx)
+}
+
+// ServiceRegionVpcSettingsPtrInput is an input type that accepts ServiceRegionVpcSettingsArgs, ServiceRegionVpcSettingsPtr and ServiceRegionVpcSettingsPtrOutput values.
+// You can construct a concrete instance of `ServiceRegionVpcSettingsPtrInput` via:
+//
+//	        ServiceRegionVpcSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceRegionVpcSettingsPtrInput interface {
+	pulumi.Input
+
+	ToServiceRegionVpcSettingsPtrOutput() ServiceRegionVpcSettingsPtrOutput
+	ToServiceRegionVpcSettingsPtrOutputWithContext(context.Context) ServiceRegionVpcSettingsPtrOutput
+}
+
+type serviceRegionVpcSettingsPtrType ServiceRegionVpcSettingsArgs
+
+func ServiceRegionVpcSettingsPtr(v *ServiceRegionVpcSettingsArgs) ServiceRegionVpcSettingsPtrInput {
+	return (*serviceRegionVpcSettingsPtrType)(v)
+}
+
+func (*serviceRegionVpcSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegionVpcSettings)(nil)).Elem()
+}
+
+func (i *serviceRegionVpcSettingsPtrType) ToServiceRegionVpcSettingsPtrOutput() ServiceRegionVpcSettingsPtrOutput {
+	return i.ToServiceRegionVpcSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceRegionVpcSettingsPtrType) ToServiceRegionVpcSettingsPtrOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionVpcSettingsPtrOutput)
+}
+
+type ServiceRegionVpcSettingsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegionVpcSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegionVpcSettings)(nil)).Elem()
+}
+
+func (o ServiceRegionVpcSettingsOutput) ToServiceRegionVpcSettingsOutput() ServiceRegionVpcSettingsOutput {
+	return o
+}
+
+func (o ServiceRegionVpcSettingsOutput) ToServiceRegionVpcSettingsOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsOutput {
+	return o
+}
+
+func (o ServiceRegionVpcSettingsOutput) ToServiceRegionVpcSettingsPtrOutput() ServiceRegionVpcSettingsPtrOutput {
+	return o.ToServiceRegionVpcSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegionVpcSettingsOutput) ToServiceRegionVpcSettingsPtrOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegionVpcSettings) *ServiceRegionVpcSettings {
+		return &v
+	}).(ServiceRegionVpcSettingsPtrOutput)
+}
+
+// The identifiers of the subnets for the directory servers.
+func (o ServiceRegionVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceRegionVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the VPC in which to create the directory.
+func (o ServiceRegionVpcSettingsOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegionVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type ServiceRegionVpcSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegionVpcSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegionVpcSettings)(nil)).Elem()
+}
+
+func (o ServiceRegionVpcSettingsPtrOutput) ToServiceRegionVpcSettingsPtrOutput() ServiceRegionVpcSettingsPtrOutput {
+	return o
+}
+
+func (o ServiceRegionVpcSettingsPtrOutput) ToServiceRegionVpcSettingsPtrOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsPtrOutput {
+	return o
+}
+
+func (o ServiceRegionVpcSettingsPtrOutput) Elem() ServiceRegionVpcSettingsOutput {
+	return o.ApplyT(func(v *ServiceRegionVpcSettings) ServiceRegionVpcSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegionVpcSettings
+		return ret
+	}).(ServiceRegionVpcSettingsOutput)
+}
+
+// The identifiers of the subnets for the directory servers.
+func (o ServiceRegionVpcSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceRegionVpcSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the VPC in which to create the directory.
+func (o ServiceRegionVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegionVpcSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 type SharedDirectoryTarget struct {
 	// Identifier of the directory consumer account.
 	Id string `pulumi:"id"`
@@ -419,7 +575,7 @@ type SharedDirectoryTarget struct {
 // SharedDirectoryTargetInput is an input type that accepts SharedDirectoryTargetArgs and SharedDirectoryTargetOutput values.
 // You can construct a concrete instance of `SharedDirectoryTargetInput` via:
 //
-//          SharedDirectoryTargetArgs{...}
+//	SharedDirectoryTargetArgs{...}
 type SharedDirectoryTargetInput interface {
 	pulumi.Input
 
@@ -457,11 +613,11 @@ func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetPtrOutputWithContext(c
 // SharedDirectoryTargetPtrInput is an input type that accepts SharedDirectoryTargetArgs, SharedDirectoryTargetPtr and SharedDirectoryTargetPtrOutput values.
 // You can construct a concrete instance of `SharedDirectoryTargetPtrInput` via:
 //
-//          SharedDirectoryTargetArgs{...}
+//	        SharedDirectoryTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SharedDirectoryTargetPtrInput interface {
 	pulumi.Input
 
@@ -582,7 +738,7 @@ type GetDirectoryConnectSetting struct {
 // GetDirectoryConnectSettingInput is an input type that accepts GetDirectoryConnectSettingArgs and GetDirectoryConnectSettingOutput values.
 // You can construct a concrete instance of `GetDirectoryConnectSettingInput` via:
 //
-//          GetDirectoryConnectSettingArgs{...}
+//	GetDirectoryConnectSettingArgs{...}
 type GetDirectoryConnectSettingInput interface {
 	pulumi.Input
 
@@ -619,7 +775,7 @@ func (i GetDirectoryConnectSettingArgs) ToGetDirectoryConnectSettingOutputWithCo
 // GetDirectoryConnectSettingArrayInput is an input type that accepts GetDirectoryConnectSettingArray and GetDirectoryConnectSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryConnectSettingArrayInput` via:
 //
-//          GetDirectoryConnectSettingArray{ GetDirectoryConnectSettingArgs{...} }
+//	GetDirectoryConnectSettingArray{ GetDirectoryConnectSettingArgs{...} }
 type GetDirectoryConnectSettingArrayInput interface {
 	pulumi.Input
 
@@ -704,6 +860,157 @@ func (o GetDirectoryConnectSettingArrayOutput) Index(i pulumi.IntInput) GetDirec
 	}).(GetDirectoryConnectSettingOutput)
 }
 
+type GetDirectoryRadiusSetting struct {
+	// The protocol specified for your RADIUS endpoints.
+	AuthenticationProtocol string `pulumi:"authenticationProtocol"`
+	// Display label.
+	DisplayLabel string `pulumi:"displayLabel"`
+	// The port that your RADIUS server is using for communications.
+	RadiusPort int `pulumi:"radiusPort"`
+	// The maximum number of times that communication with the RADIUS server is attempted.
+	RadiusRetries int `pulumi:"radiusRetries"`
+	// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+	RadiusServers []string `pulumi:"radiusServers"`
+	// The amount of time, in seconds, to wait for the RADIUS server to respond.
+	RadiusTimeout int `pulumi:"radiusTimeout"`
+	// Not currently used.
+	UseSameUsername bool `pulumi:"useSameUsername"`
+}
+
+// GetDirectoryRadiusSettingInput is an input type that accepts GetDirectoryRadiusSettingArgs and GetDirectoryRadiusSettingOutput values.
+// You can construct a concrete instance of `GetDirectoryRadiusSettingInput` via:
+//
+//	GetDirectoryRadiusSettingArgs{...}
+type GetDirectoryRadiusSettingInput interface {
+	pulumi.Input
+
+	ToGetDirectoryRadiusSettingOutput() GetDirectoryRadiusSettingOutput
+	ToGetDirectoryRadiusSettingOutputWithContext(context.Context) GetDirectoryRadiusSettingOutput
+}
+
+type GetDirectoryRadiusSettingArgs struct {
+	// The protocol specified for your RADIUS endpoints.
+	AuthenticationProtocol pulumi.StringInput `pulumi:"authenticationProtocol"`
+	// Display label.
+	DisplayLabel pulumi.StringInput `pulumi:"displayLabel"`
+	// The port that your RADIUS server is using for communications.
+	RadiusPort pulumi.IntInput `pulumi:"radiusPort"`
+	// The maximum number of times that communication with the RADIUS server is attempted.
+	RadiusRetries pulumi.IntInput `pulumi:"radiusRetries"`
+	// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+	RadiusServers pulumi.StringArrayInput `pulumi:"radiusServers"`
+	// The amount of time, in seconds, to wait for the RADIUS server to respond.
+	RadiusTimeout pulumi.IntInput `pulumi:"radiusTimeout"`
+	// Not currently used.
+	UseSameUsername pulumi.BoolInput `pulumi:"useSameUsername"`
+}
+
+func (GetDirectoryRadiusSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryRadiusSetting)(nil)).Elem()
+}
+
+func (i GetDirectoryRadiusSettingArgs) ToGetDirectoryRadiusSettingOutput() GetDirectoryRadiusSettingOutput {
+	return i.ToGetDirectoryRadiusSettingOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryRadiusSettingArgs) ToGetDirectoryRadiusSettingOutputWithContext(ctx context.Context) GetDirectoryRadiusSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryRadiusSettingOutput)
+}
+
+// GetDirectoryRadiusSettingArrayInput is an input type that accepts GetDirectoryRadiusSettingArray and GetDirectoryRadiusSettingArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryRadiusSettingArrayInput` via:
+//
+//	GetDirectoryRadiusSettingArray{ GetDirectoryRadiusSettingArgs{...} }
+type GetDirectoryRadiusSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectoryRadiusSettingArrayOutput() GetDirectoryRadiusSettingArrayOutput
+	ToGetDirectoryRadiusSettingArrayOutputWithContext(context.Context) GetDirectoryRadiusSettingArrayOutput
+}
+
+type GetDirectoryRadiusSettingArray []GetDirectoryRadiusSettingInput
+
+func (GetDirectoryRadiusSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryRadiusSetting)(nil)).Elem()
+}
+
+func (i GetDirectoryRadiusSettingArray) ToGetDirectoryRadiusSettingArrayOutput() GetDirectoryRadiusSettingArrayOutput {
+	return i.ToGetDirectoryRadiusSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryRadiusSettingArray) ToGetDirectoryRadiusSettingArrayOutputWithContext(ctx context.Context) GetDirectoryRadiusSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryRadiusSettingArrayOutput)
+}
+
+type GetDirectoryRadiusSettingOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryRadiusSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryRadiusSetting)(nil)).Elem()
+}
+
+func (o GetDirectoryRadiusSettingOutput) ToGetDirectoryRadiusSettingOutput() GetDirectoryRadiusSettingOutput {
+	return o
+}
+
+func (o GetDirectoryRadiusSettingOutput) ToGetDirectoryRadiusSettingOutputWithContext(ctx context.Context) GetDirectoryRadiusSettingOutput {
+	return o
+}
+
+// The protocol specified for your RADIUS endpoints.
+func (o GetDirectoryRadiusSettingOutput) AuthenticationProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) string { return v.AuthenticationProtocol }).(pulumi.StringOutput)
+}
+
+// Display label.
+func (o GetDirectoryRadiusSettingOutput) DisplayLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) string { return v.DisplayLabel }).(pulumi.StringOutput)
+}
+
+// The port that your RADIUS server is using for communications.
+func (o GetDirectoryRadiusSettingOutput) RadiusPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) int { return v.RadiusPort }).(pulumi.IntOutput)
+}
+
+// The maximum number of times that communication with the RADIUS server is attempted.
+func (o GetDirectoryRadiusSettingOutput) RadiusRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) int { return v.RadiusRetries }).(pulumi.IntOutput)
+}
+
+// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+func (o GetDirectoryRadiusSettingOutput) RadiusServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) []string { return v.RadiusServers }).(pulumi.StringArrayOutput)
+}
+
+// The amount of time, in seconds, to wait for the RADIUS server to respond.
+func (o GetDirectoryRadiusSettingOutput) RadiusTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) int { return v.RadiusTimeout }).(pulumi.IntOutput)
+}
+
+// Not currently used.
+func (o GetDirectoryRadiusSettingOutput) UseSameUsername() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryRadiusSetting) bool { return v.UseSameUsername }).(pulumi.BoolOutput)
+}
+
+type GetDirectoryRadiusSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryRadiusSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryRadiusSetting)(nil)).Elem()
+}
+
+func (o GetDirectoryRadiusSettingArrayOutput) ToGetDirectoryRadiusSettingArrayOutput() GetDirectoryRadiusSettingArrayOutput {
+	return o
+}
+
+func (o GetDirectoryRadiusSettingArrayOutput) ToGetDirectoryRadiusSettingArrayOutputWithContext(ctx context.Context) GetDirectoryRadiusSettingArrayOutput {
+	return o
+}
+
+func (o GetDirectoryRadiusSettingArrayOutput) Index(i pulumi.IntInput) GetDirectoryRadiusSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryRadiusSetting {
+		return vs[0].([]GetDirectoryRadiusSetting)[vs[1].(int)]
+	}).(GetDirectoryRadiusSettingOutput)
+}
+
 type GetDirectoryVpcSetting struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
@@ -715,7 +1022,7 @@ type GetDirectoryVpcSetting struct {
 // GetDirectoryVpcSettingInput is an input type that accepts GetDirectoryVpcSettingArgs and GetDirectoryVpcSettingOutput values.
 // You can construct a concrete instance of `GetDirectoryVpcSettingInput` via:
 //
-//          GetDirectoryVpcSettingArgs{...}
+//	GetDirectoryVpcSettingArgs{...}
 type GetDirectoryVpcSettingInput interface {
 	pulumi.Input
 
@@ -746,7 +1053,7 @@ func (i GetDirectoryVpcSettingArgs) ToGetDirectoryVpcSettingOutputWithContext(ct
 // GetDirectoryVpcSettingArrayInput is an input type that accepts GetDirectoryVpcSettingArray and GetDirectoryVpcSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryVpcSettingArrayInput` via:
 //
-//          GetDirectoryVpcSettingArray{ GetDirectoryVpcSettingArgs{...} }
+//	GetDirectoryVpcSettingArray{ GetDirectoryVpcSettingArgs{...} }
 type GetDirectoryVpcSettingArrayInput interface {
 	pulumi.Input
 
@@ -821,20 +1128,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsPtrInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsPtrInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRegionVpcSettingsInput)(nil)).Elem(), ServiceRegionVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRegionVpcSettingsPtrInput)(nil)).Elem(), ServiceRegionVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedDirectoryTargetInput)(nil)).Elem(), SharedDirectoryTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedDirectoryTargetPtrInput)(nil)).Elem(), SharedDirectoryTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingInput)(nil)).Elem(), GetDirectoryConnectSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingArrayInput)(nil)).Elem(), GetDirectoryConnectSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryRadiusSettingInput)(nil)).Elem(), GetDirectoryRadiusSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryRadiusSettingArrayInput)(nil)).Elem(), GetDirectoryRadiusSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingInput)(nil)).Elem(), GetDirectoryVpcSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingArrayInput)(nil)).Elem(), GetDirectoryVpcSettingArray{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegionVpcSettingsOutput{})
+	pulumi.RegisterOutputType(ServiceRegionVpcSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SharedDirectoryTargetOutput{})
 	pulumi.RegisterOutputType(SharedDirectoryTargetPtrOutput{})
 	pulumi.RegisterOutputType(GetDirectoryConnectSettingOutput{})
 	pulumi.RegisterOutputType(GetDirectoryConnectSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectoryRadiusSettingOutput{})
+	pulumi.RegisterOutputType(GetDirectoryRadiusSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryVpcSettingOutput{})
 	pulumi.RegisterOutputType(GetDirectoryVpcSettingArrayOutput{})
 }

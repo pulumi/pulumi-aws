@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecTcpRouteTimeoutArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecTcpRouteTimeoutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecTcpRouteTimeoutArgs()
         {
         }
+        public static new RouteSpecTcpRouteTimeoutArgs Empty => new RouteSpecTcpRouteTimeoutArgs();
     }
 }

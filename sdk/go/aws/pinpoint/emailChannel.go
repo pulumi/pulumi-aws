@@ -19,76 +19,83 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := pinpoint.NewApp(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "pinpoint.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "pinpoint.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pinpoint.NewEmailChannel(ctx, "email", &pinpoint.EmailChannelArgs{
-// 			ApplicationId: app.ApplicationId,
-// 			FromAddress:   pulumi.String("user@example.com"),
-// 			RoleArn:       role.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ses.NewDomainIdentity(ctx, "identity", &ses.DomainIdentityArgs{
-// 			Domain: pulumi.String("example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-// 			Role: role.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": {
-//     "Action": [
-//       "mobileanalytics:PutEvents",
-//       "mobileanalytics:PutItems"
-//     ],
-//     "Effect": "Allow",
-//     "Resource": [
-//       "*"
-//     ]
-//   }
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewEmailChannel(ctx, "email", &pinpoint.EmailChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				FromAddress:   pulumi.String("user@example.com"),
+//				RoleArn:       role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ses.NewDomainIdentity(ctx, "identity", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
+//				Role: role.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": {
+//	    "Action": [
+//	      "mobileanalytics:PutEvents",
+//	      "mobileanalytics:PutItems"
+//	    ],
+//	    "Effect": "Allow",
+//	    "Resource": [
+//	      "*"
+//	    ]
+//	  }
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -96,7 +103,9 @@ import (
 // Pinpoint Email Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+//
+//	$ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+//
 // ```
 type EmailChannel struct {
 	pulumi.CustomResourceState
@@ -249,7 +258,7 @@ func (i *EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) Emai
 // EmailChannelArrayInput is an input type that accepts EmailChannelArray and EmailChannelArrayOutput values.
 // You can construct a concrete instance of `EmailChannelArrayInput` via:
 //
-//          EmailChannelArray{ EmailChannelArgs{...} }
+//	EmailChannelArray{ EmailChannelArgs{...} }
 type EmailChannelArrayInput interface {
 	pulumi.Input
 
@@ -274,7 +283,7 @@ func (i EmailChannelArray) ToEmailChannelArrayOutputWithContext(ctx context.Cont
 // EmailChannelMapInput is an input type that accepts EmailChannelMap and EmailChannelMapOutput values.
 // You can construct a concrete instance of `EmailChannelMapInput` via:
 //
-//          EmailChannelMap{ "key": EmailChannelArgs{...} }
+//	EmailChannelMap{ "key": EmailChannelArgs{...} }
 type EmailChannelMapInput interface {
 	pulumi.Input
 

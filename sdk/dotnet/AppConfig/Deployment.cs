@@ -15,29 +15,27 @@ namespace Pulumi.Aws.AppConfig
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.Deployment("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.Deployment("example", new Aws.AppConfig.DeploymentArgs
+    ///         ApplicationId = aws_appconfig_application.Example.Id,
+    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         ConfigurationVersion = aws_appconfig_hosted_configuration_version.Example.Version_number,
+    ///         DeploymentStrategyId = aws_appconfig_deployment_strategy.Example.Id,
+    ///         Description = "My example deployment",
+    ///         EnvironmentId = aws_appconfig_environment.Example.Environment_id,
+    ///         Tags = 
     ///         {
-    ///             ApplicationId = aws_appconfig_application.Example.Id,
-    ///             ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///             ConfigurationVersion = aws_appconfig_hosted_configuration_version.Example.Version_number,
-    ///             DeploymentStrategyId = aws_appconfig_deployment_strategy.Example.Id,
-    ///             Description = "My example deployment",
-    ///             EnvironmentId = aws_appconfig_environment.Example.Environment_id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Type", "AppConfig Deployment" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Type", "AppConfig Deployment" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/deployment:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID. Must be between 4 and 7 characters in length.
@@ -161,7 +159,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID. Must be between 4 and 7 characters in length.
@@ -214,9 +212,10 @@ namespace Pulumi.Aws.AppConfig
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 
-    public sealed class DeploymentState : Pulumi.ResourceArgs
+    public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID. Must be between 4 and 7 characters in length.
@@ -299,5 +298,6 @@ namespace Pulumi.Aws.AppConfig
         public DeploymentState()
         {
         }
+        public static new DeploymentState Empty => new DeploymentState();
     }
 }

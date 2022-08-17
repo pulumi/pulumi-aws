@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetRunCommandTargetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetRunCommandTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can be either `tag:tag-key` or `InstanceIds`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetRunCommandTargetArgs()
         {
         }
+        public static new EventTargetRunCommandTargetArgs Empty => new EventTargetRunCommandTargetArgs();
     }
 }

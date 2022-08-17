@@ -22,28 +22,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewAlias(ctx, "testLambdaAlias", &lambda.AliasArgs{
-// 			Description:     pulumi.String("a sample description"),
-// 			FunctionName:    pulumi.Any(aws_lambda_function.Lambda_function_test.Arn),
-// 			FunctionVersion: pulumi.String("1"),
-// 			RoutingConfig: &lambda.AliasRoutingConfigArgs{
-// 				AdditionalVersionWeights: pulumi.Float64Map{
-// 					"2": pulumi.Float64(0.5),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewAlias(ctx, "testLambdaAlias", &lambda.AliasArgs{
+//				Description:     pulumi.String("a sample description"),
+//				FunctionName:    pulumi.Any(aws_lambda_function.Lambda_function_test.Arn),
+//				FunctionVersion: pulumi.String("1"),
+//				RoutingConfig: &lambda.AliasRoutingConfigArgs{
+//					AdditionalVersionWeights: pulumi.Float64Map{
+//						"2": pulumi.Float64(0.5),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+//
+//	$ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+//
 // ```
 type Alias struct {
 	pulumi.CustomResourceState
@@ -197,7 +202,7 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 // AliasArrayInput is an input type that accepts AliasArray and AliasArrayOutput values.
 // You can construct a concrete instance of `AliasArrayInput` via:
 //
-//          AliasArray{ AliasArgs{...} }
+//	AliasArray{ AliasArgs{...} }
 type AliasArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i AliasArray) ToAliasArrayOutputWithContext(ctx context.Context) AliasArra
 // AliasMapInput is an input type that accepts AliasMap and AliasMapOutput values.
 // You can construct a concrete instance of `AliasMapInput` via:
 //
-//          AliasMap{ "key": AliasArgs{...} }
+//	AliasMap{ "key": AliasArgs{...} }
 type AliasMapInput interface {
 	pulumi.Input
 

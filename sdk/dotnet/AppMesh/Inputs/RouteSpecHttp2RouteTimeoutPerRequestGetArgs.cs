@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecHttp2RouteTimeoutPerRequestGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecHttp2RouteTimeoutPerRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unit of time. Valid values: `ms`, `s`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecHttp2RouteTimeoutPerRequestGetArgs()
         {
         }
+        public static new RouteSpecHttp2RouteTimeoutPerRequestGetArgs Empty => new RouteSpecHttp2RouteTimeoutPerRequestGetArgs();
     }
 }

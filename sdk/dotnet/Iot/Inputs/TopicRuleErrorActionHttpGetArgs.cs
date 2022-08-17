@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionHttpGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionHttpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTPS URL used to verify ownership of `url`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionHttpGetArgs()
         {
         }
+        public static new TopicRuleErrorActionHttpGetArgs Empty => new TopicRuleErrorActionHttpGetArgs();
     }
 }

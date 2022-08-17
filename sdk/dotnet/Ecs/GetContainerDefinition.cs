@@ -20,21 +20,19 @@ namespace Pulumi.Aws.Ecs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
         ///     {
-        ///         var ecs_mongo = Output.Create(Aws.Ecs.GetContainerDefinition.InvokeAsync(new Aws.Ecs.GetContainerDefinitionArgs
-        ///         {
-        ///             TaskDefinition = aws_ecs_task_definition.Mongo.Id,
-        ///             ContainerName = "mongodb",
-        ///         }));
-        ///     }
+        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
+        ///         ContainerName = "mongodb",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.Aws.Ecs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
         ///     {
-        ///         var ecs_mongo = Output.Create(Aws.Ecs.GetContainerDefinition.InvokeAsync(new Aws.Ecs.GetContainerDefinitionArgs
-        ///         {
-        ///             TaskDefinition = aws_ecs_task_definition.Mongo.Id,
-        ///             ContainerName = "mongodb",
-        ///         }));
-        ///     }
+        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
+        ///         ContainerName = "mongodb",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Ecs
     }
 
 
-    public sealed class GetContainerDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container definition
@@ -92,9 +88,10 @@ namespace Pulumi.Aws.Ecs
         public GetContainerDefinitionArgs()
         {
         }
+        public static new GetContainerDefinitionArgs Empty => new GetContainerDefinitionArgs();
     }
 
-    public sealed class GetContainerDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container definition
@@ -111,6 +108,7 @@ namespace Pulumi.Aws.Ecs
         public GetContainerDefinitionInvokeArgs()
         {
         }
+        public static new GetContainerDefinitionInvokeArgs Empty => new GetContainerDefinitionInvokeArgs();
     }
 
 

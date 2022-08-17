@@ -21,37 +21,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
-// 			OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-// 				&ec2.VpcIpamOperatingRegionArgs{
-// 					RegionName: pulumi.String(current.Name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamScope(ctx, "exampleVpcIpamScope", &ec2.VpcIpamScopeArgs{
-// 			IpamId:      exampleVpcIpam.ID(),
-// 			Description: pulumi.String("Another Scope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamScope(ctx, "exampleVpcIpamScope", &ec2.VpcIpamScopeArgs{
+//				IpamId:      exampleVpcIpam.ID(),
+//				Description: pulumi.String("Another Scope"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // IPAMs can be imported using the `scope_id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+//
+//	$ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+//
 // ```
 type VpcIpamScope struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *VpcIpamScope) ToVpcIpamScopeOutputWithContext(ctx context.Context) VpcI
 // VpcIpamScopeArrayInput is an input type that accepts VpcIpamScopeArray and VpcIpamScopeArrayOutput values.
 // You can construct a concrete instance of `VpcIpamScopeArrayInput` via:
 //
-//          VpcIpamScopeArray{ VpcIpamScopeArgs{...} }
+//	VpcIpamScopeArray{ VpcIpamScopeArgs{...} }
 type VpcIpamScopeArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i VpcIpamScopeArray) ToVpcIpamScopeArrayOutputWithContext(ctx context.Cont
 // VpcIpamScopeMapInput is an input type that accepts VpcIpamScopeMap and VpcIpamScopeMapOutput values.
 // You can construct a concrete instance of `VpcIpamScopeMapInput` via:
 //
-//          VpcIpamScopeMap{ "key": VpcIpamScopeArgs{...} }
+//	VpcIpamScopeMap{ "key": VpcIpamScopeArgs{...} }
 type VpcIpamScopeMapInput interface {
 	pulumi.Input
 

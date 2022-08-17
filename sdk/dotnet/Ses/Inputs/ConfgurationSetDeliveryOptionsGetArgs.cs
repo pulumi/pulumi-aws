@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ConfgurationSetDeliveryOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfgurationSetDeliveryOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+        /// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         /// </summary>
         [Input("tlsPolicy")]
         public Input<string>? TlsPolicy { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ConfgurationSetDeliveryOptionsGetArgs()
         {
         }
+        public static new ConfgurationSetDeliveryOptionsGetArgs Empty => new ConfgurationSetDeliveryOptionsGetArgs();
     }
 }

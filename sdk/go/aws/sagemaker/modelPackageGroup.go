@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
-// 			ModelPackageGroupName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
+//				ModelPackageGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+//
+//	$ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+//
 // ```
 type ModelPackageGroup struct {
 	pulumi.CustomResourceState
@@ -55,7 +60,7 @@ type ModelPackageGroup struct {
 	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -99,7 +104,7 @@ type modelPackageGroupState struct {
 	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -112,7 +117,7 @@ type ModelPackageGroupState struct {
 	ModelPackageGroupName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -165,7 +170,7 @@ func (i *ModelPackageGroup) ToModelPackageGroupOutputWithContext(ctx context.Con
 // ModelPackageGroupArrayInput is an input type that accepts ModelPackageGroupArray and ModelPackageGroupArrayOutput values.
 // You can construct a concrete instance of `ModelPackageGroupArrayInput` via:
 //
-//          ModelPackageGroupArray{ ModelPackageGroupArgs{...} }
+//	ModelPackageGroupArray{ ModelPackageGroupArgs{...} }
 type ModelPackageGroupArrayInput interface {
 	pulumi.Input
 
@@ -190,7 +195,7 @@ func (i ModelPackageGroupArray) ToModelPackageGroupArrayOutputWithContext(ctx co
 // ModelPackageGroupMapInput is an input type that accepts ModelPackageGroupMap and ModelPackageGroupMapOutput values.
 // You can construct a concrete instance of `ModelPackageGroupMapInput` via:
 //
-//          ModelPackageGroupMap{ "key": ModelPackageGroupArgs{...} }
+//	ModelPackageGroupMap{ "key": ModelPackageGroupArgs{...} }
 type ModelPackageGroupMapInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (o ModelPackageGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ModelPackageGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

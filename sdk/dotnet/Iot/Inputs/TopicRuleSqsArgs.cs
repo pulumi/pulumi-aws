@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleSqsArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleSqsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the Amazon SQS queue.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleSqsArgs()
         {
         }
+        public static new TopicRuleSqsArgs Empty => new TopicRuleSqsArgs();
     }
 }

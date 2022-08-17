@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricDimensions")]
         private InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>? _metricDimensions;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs()
         {
         }
+        public static new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs Empty => new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs();
     }
 }

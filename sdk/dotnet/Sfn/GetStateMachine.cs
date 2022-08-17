@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Sfn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Sfn.GetStateMachine.InvokeAsync(new Aws.Sfn.GetStateMachineArgs
-        ///         {
-        ///             Name = "an_example_sfn_name",
-        ///         }));
-        ///     }
+        ///         Name = "an_example_sfn_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Sfn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Sfn.GetStateMachine.InvokeAsync(new Aws.Sfn.GetStateMachineArgs
-        ///         {
-        ///             Name = "an_example_sfn_name",
-        ///         }));
-        ///     }
+        ///         Name = "an_example_sfn_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Sfn
     }
 
 
-    public sealed class GetStateMachineArgs : Pulumi.InvokeArgs
+    public sealed class GetStateMachineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly name of the state machine to match.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Sfn
         public GetStateMachineArgs()
         {
         }
+        public static new GetStateMachineArgs Empty => new GetStateMachineArgs();
     }
 
-    public sealed class GetStateMachineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStateMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly name of the state machine to match.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Sfn
         public GetStateMachineInvokeArgs()
         {
         }
+        public static new GetStateMachineInvokeArgs Empty => new GetStateMachineInvokeArgs();
     }
 
 

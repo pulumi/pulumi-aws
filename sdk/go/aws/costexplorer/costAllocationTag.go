@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
-// 			Status: pulumi.String("Active"),
-// 			TagKey: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
+//				Status: pulumi.String("Active"),
+//				TagKey: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+//
+//	$ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+//
 // ```
 type CostAllocationTag struct {
 	pulumi.CustomResourceState
@@ -152,7 +157,7 @@ func (i *CostAllocationTag) ToCostAllocationTagOutputWithContext(ctx context.Con
 // CostAllocationTagArrayInput is an input type that accepts CostAllocationTagArray and CostAllocationTagArrayOutput values.
 // You can construct a concrete instance of `CostAllocationTagArrayInput` via:
 //
-//          CostAllocationTagArray{ CostAllocationTagArgs{...} }
+//	CostAllocationTagArray{ CostAllocationTagArgs{...} }
 type CostAllocationTagArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +182,7 @@ func (i CostAllocationTagArray) ToCostAllocationTagArrayOutputWithContext(ctx co
 // CostAllocationTagMapInput is an input type that accepts CostAllocationTagMap and CostAllocationTagMapOutput values.
 // You can construct a concrete instance of `CostAllocationTagMapInput` via:
 //
-//          CostAllocationTagMap{ "key": CostAllocationTagArgs{...} }
+//	CostAllocationTagMap{ "key": CostAllocationTagArgs{...} }
 type CostAllocationTagMapInput interface {
 	pulumi.Input
 

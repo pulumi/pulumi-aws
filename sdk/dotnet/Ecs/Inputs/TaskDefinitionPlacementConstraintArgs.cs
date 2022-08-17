@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionPlacementConstraintArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionPlacementConstraintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionPlacementConstraintArgs()
         {
         }
+        public static new TaskDefinitionPlacementConstraintArgs Empty => new TaskDefinitionPlacementConstraintArgs();
     }
 }

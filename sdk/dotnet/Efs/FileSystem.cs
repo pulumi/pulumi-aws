@@ -16,47 +16,43 @@ namespace Pulumi.Aws.Efs
     /// ### EFS File System w/ tags
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Efs.FileSystem("foo", new()
     ///     {
-    ///         var foo = new Aws.Efs.FileSystem("foo", new Aws.Efs.FileSystemArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "MyProduct" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "MyProduct" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using lifecycle policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new()
     ///     {
-    ///         var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new Aws.Efs.FileSystemArgs
+    ///         LifecyclePolicies = new[]
     ///         {
-    ///             LifecyclePolicies = 
+    ///             new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
     ///             {
-    ///                 new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
-    ///                 {
-    ///                     TransitionToIa = "AFTER_30_DAYS",
-    ///                 },
+    ///                 TransitionToIa = "AFTER_30_DAYS",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +64,7 @@ namespace Pulumi.Aws.Efs
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/fileSystem:FileSystem")]
-    public partial class FileSystem : Pulumi.CustomResource
+    public partial class FileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -213,7 +209,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
-    public sealed class FileSystemArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
@@ -287,9 +283,10 @@ namespace Pulumi.Aws.Efs
         public FileSystemArgs()
         {
         }
+        public static new FileSystemArgs Empty => new FileSystemArgs();
     }
 
-    public sealed class FileSystemState : Pulumi.ResourceArgs
+    public sealed class FileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -417,5 +414,6 @@ namespace Pulumi.Aws.Efs
         public FileSystemState()
         {
         }
+        public static new FileSystemState Empty => new FileSystemState();
     }
 }

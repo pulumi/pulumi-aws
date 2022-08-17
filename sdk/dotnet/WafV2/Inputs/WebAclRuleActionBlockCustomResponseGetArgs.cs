@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleActionBlockCustomResponseGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleActionBlockCustomResponseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleActionBlockCustomResponseGetArgs()
         {
         }
+        public static new WebAclRuleActionBlockCustomResponseGetArgs Empty => new WebAclRuleActionBlockCustomResponseGetArgs();
     }
 }

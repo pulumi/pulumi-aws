@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class NetworkInterfaceAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public NetworkInterfaceAttachmentArgs()
         {
         }
+        public static new NetworkInterfaceAttachmentArgs Empty => new NetworkInterfaceAttachmentArgs();
     }
 }

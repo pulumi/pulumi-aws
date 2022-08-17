@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCloudwatchLoggingOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudwatchLoggingOptionId")]
         public Input<string>? CloudwatchLoggingOptionId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationCloudwatchLoggingOptionsGetArgs()
         {
         }
+        public static new ApplicationCloudwatchLoggingOptionsGetArgs Empty => new ApplicationCloudwatchLoggingOptionsGetArgs();
     }
 }

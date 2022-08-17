@@ -24,7 +24,7 @@ type GroupInitialLifecycleHook struct {
 // GroupInitialLifecycleHookInput is an input type that accepts GroupInitialLifecycleHookArgs and GroupInitialLifecycleHookOutput values.
 // You can construct a concrete instance of `GroupInitialLifecycleHookInput` via:
 //
-//          GroupInitialLifecycleHookArgs{...}
+//	GroupInitialLifecycleHookArgs{...}
 type GroupInitialLifecycleHookInput interface {
 	pulumi.Input
 
@@ -58,7 +58,7 @@ func (i GroupInitialLifecycleHookArgs) ToGroupInitialLifecycleHookOutputWithCont
 // GroupInitialLifecycleHookArrayInput is an input type that accepts GroupInitialLifecycleHookArray and GroupInitialLifecycleHookArrayOutput values.
 // You can construct a concrete instance of `GroupInitialLifecycleHookArrayInput` via:
 //
-//          GroupInitialLifecycleHookArray{ GroupInitialLifecycleHookArgs{...} }
+//	GroupInitialLifecycleHookArray{ GroupInitialLifecycleHookArgs{...} }
 type GroupInitialLifecycleHookArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ type GroupInstanceRefresh struct {
 // GroupInstanceRefreshInput is an input type that accepts GroupInstanceRefreshArgs and GroupInstanceRefreshOutput values.
 // You can construct a concrete instance of `GroupInstanceRefreshInput` via:
 //
-//          GroupInstanceRefreshArgs{...}
+//	GroupInstanceRefreshArgs{...}
 type GroupInstanceRefreshInput interface {
 	pulumi.Input
 
@@ -195,11 +195,11 @@ func (i GroupInstanceRefreshArgs) ToGroupInstanceRefreshPtrOutputWithContext(ctx
 // GroupInstanceRefreshPtrInput is an input type that accepts GroupInstanceRefreshArgs, GroupInstanceRefreshPtr and GroupInstanceRefreshPtrOutput values.
 // You can construct a concrete instance of `GroupInstanceRefreshPtrInput` via:
 //
-//          GroupInstanceRefreshArgs{...}
+//	        GroupInstanceRefreshArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupInstanceRefreshPtrInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ type GroupInstanceRefreshPreferences struct {
 // GroupInstanceRefreshPreferencesInput is an input type that accepts GroupInstanceRefreshPreferencesArgs and GroupInstanceRefreshPreferencesOutput values.
 // You can construct a concrete instance of `GroupInstanceRefreshPreferencesInput` via:
 //
-//          GroupInstanceRefreshPreferencesArgs{...}
+//	GroupInstanceRefreshPreferencesArgs{...}
 type GroupInstanceRefreshPreferencesInput interface {
 	pulumi.Input
 
@@ -376,11 +376,11 @@ func (i GroupInstanceRefreshPreferencesArgs) ToGroupInstanceRefreshPreferencesPt
 // GroupInstanceRefreshPreferencesPtrInput is an input type that accepts GroupInstanceRefreshPreferencesArgs, GroupInstanceRefreshPreferencesPtr and GroupInstanceRefreshPreferencesPtrOutput values.
 // You can construct a concrete instance of `GroupInstanceRefreshPreferencesPtrInput` via:
 //
-//          GroupInstanceRefreshPreferencesArgs{...}
+//	        GroupInstanceRefreshPreferencesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupInstanceRefreshPreferencesPtrInput interface {
 	pulumi.Input
 
@@ -539,7 +539,7 @@ type GroupLaunchTemplate struct {
 // GroupLaunchTemplateInput is an input type that accepts GroupLaunchTemplateArgs and GroupLaunchTemplateOutput values.
 // You can construct a concrete instance of `GroupLaunchTemplateInput` via:
 //
-//          GroupLaunchTemplateArgs{...}
+//	GroupLaunchTemplateArgs{...}
 type GroupLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -579,11 +579,11 @@ func (i GroupLaunchTemplateArgs) ToGroupLaunchTemplatePtrOutputWithContext(ctx c
 // GroupLaunchTemplatePtrInput is an input type that accepts GroupLaunchTemplateArgs, GroupLaunchTemplatePtr and GroupLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `GroupLaunchTemplatePtrInput` via:
 //
-//          GroupLaunchTemplateArgs{...}
+//	        GroupLaunchTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -712,7 +712,7 @@ type GroupMixedInstancesPolicy struct {
 // GroupMixedInstancesPolicyInput is an input type that accepts GroupMixedInstancesPolicyArgs and GroupMixedInstancesPolicyOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyInput` via:
 //
-//          GroupMixedInstancesPolicyArgs{...}
+//	GroupMixedInstancesPolicyArgs{...}
 type GroupMixedInstancesPolicyInput interface {
 	pulumi.Input
 
@@ -750,11 +750,11 @@ func (i GroupMixedInstancesPolicyArgs) ToGroupMixedInstancesPolicyPtrOutputWithC
 // GroupMixedInstancesPolicyPtrInput is an input type that accepts GroupMixedInstancesPolicyArgs, GroupMixedInstancesPolicyPtr and GroupMixedInstancesPolicyPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyPtrInput` via:
 //
-//          GroupMixedInstancesPolicyArgs{...}
+//	        GroupMixedInstancesPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyPtrInput interface {
 	pulumi.Input
 
@@ -878,7 +878,7 @@ type GroupMixedInstancesPolicyInstancesDistribution struct {
 // GroupMixedInstancesPolicyInstancesDistributionInput is an input type that accepts GroupMixedInstancesPolicyInstancesDistributionArgs and GroupMixedInstancesPolicyInstancesDistributionOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyInstancesDistributionInput` via:
 //
-//          GroupMixedInstancesPolicyInstancesDistributionArgs{...}
+//	GroupMixedInstancesPolicyInstancesDistributionArgs{...}
 type GroupMixedInstancesPolicyInstancesDistributionInput interface {
 	pulumi.Input
 
@@ -924,11 +924,11 @@ func (i GroupMixedInstancesPolicyInstancesDistributionArgs) ToGroupMixedInstance
 // GroupMixedInstancesPolicyInstancesDistributionPtrInput is an input type that accepts GroupMixedInstancesPolicyInstancesDistributionArgs, GroupMixedInstancesPolicyInstancesDistributionPtr and GroupMixedInstancesPolicyInstancesDistributionPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyInstancesDistributionPtrInput` via:
 //
-//          GroupMixedInstancesPolicyInstancesDistributionArgs{...}
+//	        GroupMixedInstancesPolicyInstancesDistributionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyInstancesDistributionPtrInput interface {
 	pulumi.Input
 
@@ -1104,7 +1104,7 @@ type GroupMixedInstancesPolicyLaunchTemplate struct {
 // GroupMixedInstancesPolicyLaunchTemplateInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateArgs and GroupMixedInstancesPolicyLaunchTemplateOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -1142,11 +1142,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateArgs) ToGroupMixedInstancesPolicy
 // GroupMixedInstancesPolicyLaunchTemplatePtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateArgs, GroupMixedInstancesPolicyLaunchTemplatePtr and GroupMixedInstancesPolicyLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplatePtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -1266,7 +1266,7 @@ type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification struct {
 // GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs and GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -1306,11 +1306,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) 
 // GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs, GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtr and GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1447,7 +1447,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverride struct {
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInput interface {
 	pulumi.Input
 
@@ -1481,7 +1481,7 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ToGroupMixedInstanc
 // GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideArray and GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideArray{ GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...} }
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideArray{ GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...} }
 type GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput interface {
 	pulumi.Input
 
@@ -1609,7 +1609,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput interface {
 	pulumi.Input
 
@@ -1685,11 +1685,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs)
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput interface {
 	pulumi.Input
 
@@ -2130,7 +2130,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccelera
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput interface {
 	pulumi.Input
 
@@ -2168,11 +2168,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput interface {
 	pulumi.Input
 
@@ -2290,7 +2290,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccelera
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput interface {
 	pulumi.Input
 
@@ -2328,11 +2328,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput interface {
 	pulumi.Input
 
@@ -2450,7 +2450,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaseline
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
 	pulumi.Input
 
@@ -2488,11 +2488,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput interface {
 	pulumi.Input
 
@@ -2610,7 +2610,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGi
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput interface {
 	pulumi.Input
 
@@ -2648,11 +2648,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput interface {
 	pulumi.Input
 
@@ -2770,7 +2770,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMi
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput interface {
 	pulumi.Input
 
@@ -2808,11 +2808,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput interface {
 	pulumi.Input
 
@@ -2930,7 +2930,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkI
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput interface {
 	pulumi.Input
 
@@ -2968,11 +2968,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput interface {
 	pulumi.Input
 
@@ -3090,7 +3090,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLoc
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput interface {
 	pulumi.Input
 
@@ -3128,11 +3128,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput interface {
 	pulumi.Input
 
@@ -3250,7 +3250,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCoun
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput interface {
 	pulumi.Input
 
@@ -3288,11 +3288,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput interface {
 	pulumi.Input
 
@@ -3412,7 +3412,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification 
 // GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{...}
+//	GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{...}
 type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -3452,11 +3452,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 // GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrInput` via:
 //
-//          GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{...}
+//	        GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3594,7 +3594,7 @@ type GroupTag struct {
 // GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
 // You can construct a concrete instance of `GroupTagInput` via:
 //
-//          GroupTagArgs{...}
+//	GroupTagArgs{...}
 type GroupTagInput interface {
 	pulumi.Input
 
@@ -3627,7 +3627,7 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 // GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
 // You can construct a concrete instance of `GroupTagArrayInput` via:
 //
-//          GroupTagArray{ GroupTagArgs{...} }
+//	GroupTagArray{ GroupTagArgs{...} }
 type GroupTagArrayInput interface {
 	pulumi.Input
 
@@ -3713,7 +3713,7 @@ type GroupWarmPool struct {
 // GroupWarmPoolInput is an input type that accepts GroupWarmPoolArgs and GroupWarmPoolOutput values.
 // You can construct a concrete instance of `GroupWarmPoolInput` via:
 //
-//          GroupWarmPoolArgs{...}
+//	GroupWarmPoolArgs{...}
 type GroupWarmPoolInput interface {
 	pulumi.Input
 
@@ -3755,11 +3755,11 @@ func (i GroupWarmPoolArgs) ToGroupWarmPoolPtrOutputWithContext(ctx context.Conte
 // GroupWarmPoolPtrInput is an input type that accepts GroupWarmPoolArgs, GroupWarmPoolPtr and GroupWarmPoolPtrOutput values.
 // You can construct a concrete instance of `GroupWarmPoolPtrInput` via:
 //
-//          GroupWarmPoolArgs{...}
+//	        GroupWarmPoolArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupWarmPoolPtrInput interface {
 	pulumi.Input
 
@@ -3901,7 +3901,7 @@ type GroupWarmPoolInstanceReusePolicy struct {
 // GroupWarmPoolInstanceReusePolicyInput is an input type that accepts GroupWarmPoolInstanceReusePolicyArgs and GroupWarmPoolInstanceReusePolicyOutput values.
 // You can construct a concrete instance of `GroupWarmPoolInstanceReusePolicyInput` via:
 //
-//          GroupWarmPoolInstanceReusePolicyArgs{...}
+//	GroupWarmPoolInstanceReusePolicyArgs{...}
 type GroupWarmPoolInstanceReusePolicyInput interface {
 	pulumi.Input
 
@@ -3937,11 +3937,11 @@ func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicy
 // GroupWarmPoolInstanceReusePolicyPtrInput is an input type that accepts GroupWarmPoolInstanceReusePolicyArgs, GroupWarmPoolInstanceReusePolicyPtr and GroupWarmPoolInstanceReusePolicyPtrOutput values.
 // You can construct a concrete instance of `GroupWarmPoolInstanceReusePolicyPtrInput` via:
 //
-//          GroupWarmPoolInstanceReusePolicyArgs{...}
+//	        GroupWarmPoolInstanceReusePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupWarmPoolInstanceReusePolicyPtrInput interface {
 	pulumi.Input
 
@@ -4046,7 +4046,7 @@ type PolicyPredictiveScalingConfiguration struct {
 // PolicyPredictiveScalingConfigurationInput is an input type that accepts PolicyPredictiveScalingConfigurationArgs and PolicyPredictiveScalingConfigurationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationArgs{...}
+//	PolicyPredictiveScalingConfigurationArgs{...}
 type PolicyPredictiveScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -4090,11 +4090,11 @@ func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfi
 // PolicyPredictiveScalingConfigurationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationArgs, PolicyPredictiveScalingConfigurationPtr and PolicyPredictiveScalingConfigurationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationArgs{...}
+//	        PolicyPredictiveScalingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4265,7 +4265,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecification struct {
 // PolicyPredictiveScalingConfigurationMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -4313,11 +4313,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPre
 // PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -4516,7 +4516,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -4552,11 +4552,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -4663,7 +4663,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryInput interface {
 	pulumi.Input
 
@@ -4699,7 +4699,7 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{...} }
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{...} }
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayInput interface {
 	pulumi.Input
 
@@ -4802,7 +4802,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatInput interface {
 	pulumi.Input
 
@@ -4842,11 +4842,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrInput interface {
 	pulumi.Input
 
@@ -4983,7 +4983,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricInput interface {
 	pulumi.Input
 
@@ -5023,11 +5023,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrInput interface {
 	pulumi.Input
 
@@ -5162,7 +5162,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput interface {
 	pulumi.Input
 
@@ -5192,7 +5192,7 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...} }
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...} }
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -5270,7 +5270,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -5306,11 +5306,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -5417,7 +5417,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryInput interface {
 	pulumi.Input
 
@@ -5453,7 +5453,7 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs{...} }
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs{...} }
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayInput interface {
 	pulumi.Input
 
@@ -5556,7 +5556,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatInput interface {
 	pulumi.Input
 
@@ -5596,11 +5596,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrInput interface {
 	pulumi.Input
 
@@ -5737,7 +5737,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricInput interface {
 	pulumi.Input
 
@@ -5777,11 +5777,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrInput interface {
 	pulumi.Input
 
@@ -5916,7 +5916,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput interface {
 	pulumi.Input
 
@@ -5946,7 +5946,7 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...} }
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...} }
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -6024,7 +6024,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -6060,11 +6060,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -6171,7 +6171,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryInput interface {
 	pulumi.Input
 
@@ -6207,7 +6207,7 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{...} }
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{...} }
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayInput interface {
 	pulumi.Input
 
@@ -6310,7 +6310,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatInput interface {
 	pulumi.Input
 
@@ -6350,11 +6350,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrInput interface {
 	pulumi.Input
 
@@ -6491,7 +6491,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricInput interface {
 	pulumi.Input
 
@@ -6531,11 +6531,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs, PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtr and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrInput interface {
 	pulumi.Input
 
@@ -6670,7 +6670,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionInput interface {
 	pulumi.Input
 
@@ -6700,7 +6700,7 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...} }
+//	PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{ PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{...} }
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -6780,7 +6780,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetric
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -6818,11 +6818,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -6940,7 +6940,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPair
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput interface {
 	pulumi.Input
 
@@ -6978,11 +6978,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -7100,7 +7100,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMet
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs{...}
+//	PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs{...}
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -7138,11 +7138,11 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput` via:
 //
-//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs{...}
+//	        PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -7269,7 +7269,7 @@ type PolicyStepAdjustment struct {
 // PolicyStepAdjustmentInput is an input type that accepts PolicyStepAdjustmentArgs and PolicyStepAdjustmentOutput values.
 // You can construct a concrete instance of `PolicyStepAdjustmentInput` via:
 //
-//          PolicyStepAdjustmentArgs{...}
+//	PolicyStepAdjustmentArgs{...}
 type PolicyStepAdjustmentInput interface {
 	pulumi.Input
 
@@ -7308,7 +7308,7 @@ func (i PolicyStepAdjustmentArgs) ToPolicyStepAdjustmentOutputWithContext(ctx co
 // PolicyStepAdjustmentArrayInput is an input type that accepts PolicyStepAdjustmentArray and PolicyStepAdjustmentArrayOutput values.
 // You can construct a concrete instance of `PolicyStepAdjustmentArrayInput` via:
 //
-//          PolicyStepAdjustmentArray{ PolicyStepAdjustmentArgs{...} }
+//	PolicyStepAdjustmentArray{ PolicyStepAdjustmentArgs{...} }
 type PolicyStepAdjustmentArrayInput interface {
 	pulumi.Input
 
@@ -7400,7 +7400,7 @@ type PolicyTargetTrackingConfiguration struct {
 // PolicyTargetTrackingConfigurationInput is an input type that accepts PolicyTargetTrackingConfigurationArgs and PolicyTargetTrackingConfigurationOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationInput` via:
 //
-//          PolicyTargetTrackingConfigurationArgs{...}
+//	PolicyTargetTrackingConfigurationArgs{...}
 type PolicyTargetTrackingConfigurationInput interface {
 	pulumi.Input
 
@@ -7442,11 +7442,11 @@ func (i PolicyTargetTrackingConfigurationArgs) ToPolicyTargetTrackingConfigurati
 // PolicyTargetTrackingConfigurationPtrInput is an input type that accepts PolicyTargetTrackingConfigurationArgs, PolicyTargetTrackingConfigurationPtr and PolicyTargetTrackingConfigurationPtrOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationPtrInput` via:
 //
-//          PolicyTargetTrackingConfigurationArgs{...}
+//	        PolicyTargetTrackingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyTargetTrackingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7600,7 +7600,7 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecification struct {
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput` via:
 //
-//          PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
+//	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -7644,11 +7644,11 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs) ToPo
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs, PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtr and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput` via:
 //
-//          PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
+//	        PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -7809,7 +7809,7 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensi
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput` via:
 //
-//          PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...}
+//	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...}
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput interface {
 	pulumi.Input
 
@@ -7839,7 +7839,7 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput` via:
 //
-//          PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray{ PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...} }
+//	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray{ PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...} }
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -7919,7 +7919,7 @@ type PolicyTargetTrackingConfigurationPredefinedMetricSpecification struct {
 // PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs and PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput` via:
 //
-//          PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
+//	PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -7957,11 +7957,11 @@ func (i PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs) ToPo
 // PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput is an input type that accepts PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs, PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtr and PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput` via:
 //
-//          PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
+//	        PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -8079,7 +8079,7 @@ type TagTag struct {
 // TagTagInput is an input type that accepts TagTagArgs and TagTagOutput values.
 // You can construct a concrete instance of `TagTagInput` via:
 //
-//          TagTagArgs{...}
+//	TagTagArgs{...}
 type TagTagInput interface {
 	pulumi.Input
 
@@ -8119,11 +8119,11 @@ func (i TagTagArgs) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrO
 // TagTagPtrInput is an input type that accepts TagTagArgs, TagTagPtr and TagTagPtrOutput values.
 // You can construct a concrete instance of `TagTagPtrInput` via:
 //
-//          TagTagArgs{...}
+//	        TagTagArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TagTagPtrInput interface {
 	pulumi.Input
 
@@ -8252,7 +8252,7 @@ type GetAmiIdsFilter struct {
 // GetAmiIdsFilterInput is an input type that accepts GetAmiIdsFilterArgs and GetAmiIdsFilterOutput values.
 // You can construct a concrete instance of `GetAmiIdsFilterInput` via:
 //
-//          GetAmiIdsFilterArgs{...}
+//	GetAmiIdsFilterArgs{...}
 type GetAmiIdsFilterInput interface {
 	pulumi.Input
 
@@ -8282,7 +8282,7 @@ func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutputWithContext(ctx context.Cont
 // GetAmiIdsFilterArrayInput is an input type that accepts GetAmiIdsFilterArray and GetAmiIdsFilterArrayOutput values.
 // You can construct a concrete instance of `GetAmiIdsFilterArrayInput` via:
 //
-//          GetAmiIdsFilterArray{ GetAmiIdsFilterArgs{...} }
+//	GetAmiIdsFilterArray{ GetAmiIdsFilterArgs{...} }
 type GetAmiIdsFilterArrayInput interface {
 	pulumi.Input
 
@@ -8359,7 +8359,7 @@ type GetGroupLaunchTemplate struct {
 // GetGroupLaunchTemplateInput is an input type that accepts GetGroupLaunchTemplateArgs and GetGroupLaunchTemplateOutput values.
 // You can construct a concrete instance of `GetGroupLaunchTemplateInput` via:
 //
-//          GetGroupLaunchTemplateArgs{...}
+//	GetGroupLaunchTemplateArgs{...}
 type GetGroupLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -8390,7 +8390,7 @@ func (i GetGroupLaunchTemplateArgs) ToGetGroupLaunchTemplateOutputWithContext(ct
 // GetGroupLaunchTemplateArrayInput is an input type that accepts GetGroupLaunchTemplateArray and GetGroupLaunchTemplateArrayOutput values.
 // You can construct a concrete instance of `GetGroupLaunchTemplateArrayInput` via:
 //
-//          GetGroupLaunchTemplateArray{ GetGroupLaunchTemplateArgs{...} }
+//	GetGroupLaunchTemplateArray{ GetGroupLaunchTemplateArgs{...} }
 type GetGroupLaunchTemplateArrayInput interface {
 	pulumi.Input
 

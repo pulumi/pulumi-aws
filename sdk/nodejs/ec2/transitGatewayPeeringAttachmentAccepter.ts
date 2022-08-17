@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.TransitGatewayPeeringAttachmentAccepter("example", {
+ * const example = new aws.ec2transitgateway.PeeringAttachmentAccepter("example", {
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment.example.id,
  *     tags: {
  *         Name: "Example cross-account attachment",
@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter example tgw-attach-12345678
  * ```
+ *
+ * @deprecated aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter
  */
 export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResource {
     /**
@@ -40,6 +42,7 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TransitGatewayPeeringAttachmentAccepterState, opts?: pulumi.CustomResourceOptions): TransitGatewayPeeringAttachmentAccepter {
+        pulumi.log.warn("TransitGatewayPeeringAttachmentAccepter is deprecated: aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter")
         return new TransitGatewayPeeringAttachmentAccepter(name, <any>state, { ...opts, id: id });
     }
 
@@ -90,8 +93,11 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter */
     constructor(name: string, args: TransitGatewayPeeringAttachmentAccepterArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter */
     constructor(name: string, argsOrState?: TransitGatewayPeeringAttachmentAccepterArgs | TransitGatewayPeeringAttachmentAccepterState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TransitGatewayPeeringAttachmentAccepter is deprecated: aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

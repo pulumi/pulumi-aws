@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Synthetics.Inputs
 {
 
-    public sealed class CanaryArtifactConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class CanaryArtifactConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Synthetics.Inputs
         public CanaryArtifactConfigGetArgs()
         {
         }
+        public static new CanaryArtifactConfigGetArgs Empty => new CanaryArtifactConfigGetArgs();
     }
 }

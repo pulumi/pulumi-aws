@@ -4,6 +4,7 @@
 package com.pulumi.aws.directoryservice.outputs;
 
 import com.pulumi.aws.directoryservice.outputs.GetDirectoryConnectSetting;
+import com.pulumi.aws.directoryservice.outputs.GetDirectoryRadiusSetting;
 import com.pulumi.aws.directoryservice.outputs.GetDirectoryVpcSetting;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -11,7 +12,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectoryResult {
@@ -57,6 +57,7 @@ public final class GetDirectoryResult {
      * 
      */
     private final String name;
+    private final List<GetDirectoryRadiusSetting> radiusSettings;
     /**
      * @return The ID of the security group created by the directory/connector.
      * 
@@ -76,7 +77,7 @@ public final class GetDirectoryResult {
      * @return A map of tags assigned to the directory/connector.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private final Map<String,String> tags;
     /**
      * @return The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      * 
@@ -96,10 +97,11 @@ public final class GetDirectoryResult {
         @CustomType.Parameter("enableSso") Boolean enableSso,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("name") String name,
+        @CustomType.Parameter("radiusSettings") List<GetDirectoryRadiusSetting> radiusSettings,
         @CustomType.Parameter("securityGroupId") String securityGroupId,
         @CustomType.Parameter("shortName") String shortName,
         @CustomType.Parameter("size") String size,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
+        @CustomType.Parameter("tags") Map<String,String> tags,
         @CustomType.Parameter("type") String type,
         @CustomType.Parameter("vpcSettings") List<GetDirectoryVpcSetting> vpcSettings) {
         this.accessUrl = accessUrl;
@@ -112,6 +114,7 @@ public final class GetDirectoryResult {
         this.enableSso = enableSso;
         this.id = id;
         this.name = name;
+        this.radiusSettings = radiusSettings;
         this.securityGroupId = securityGroupId;
         this.shortName = shortName;
         this.size = size;
@@ -182,6 +185,9 @@ public final class GetDirectoryResult {
     public String name() {
         return this.name;
     }
+    public List<GetDirectoryRadiusSetting> radiusSettings() {
+        return this.radiusSettings;
+    }
     /**
      * @return The ID of the security group created by the directory/connector.
      * 
@@ -208,7 +214,7 @@ public final class GetDirectoryResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
@@ -240,10 +246,11 @@ public final class GetDirectoryResult {
         private Boolean enableSso;
         private String id;
         private String name;
+        private List<GetDirectoryRadiusSetting> radiusSettings;
         private String securityGroupId;
         private String shortName;
         private String size;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private String type;
         private List<GetDirectoryVpcSetting> vpcSettings;
 
@@ -263,6 +270,7 @@ public final class GetDirectoryResult {
     	      this.enableSso = defaults.enableSso;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.radiusSettings = defaults.radiusSettings;
     	      this.securityGroupId = defaults.securityGroupId;
     	      this.shortName = defaults.shortName;
     	      this.size = defaults.size;
@@ -317,6 +325,13 @@ public final class GetDirectoryResult {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        public Builder radiusSettings(List<GetDirectoryRadiusSetting> radiusSettings) {
+            this.radiusSettings = Objects.requireNonNull(radiusSettings);
+            return this;
+        }
+        public Builder radiusSettings(GetDirectoryRadiusSetting... radiusSettings) {
+            return radiusSettings(List.of(radiusSettings));
+        }
         public Builder securityGroupId(String securityGroupId) {
             this.securityGroupId = Objects.requireNonNull(securityGroupId);
             return this;
@@ -329,8 +344,8 @@ public final class GetDirectoryResult {
             this.size = Objects.requireNonNull(size);
             return this;
         }
-        public Builder tags(@Nullable Map<String,String> tags) {
-            this.tags = tags;
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public Builder type(String type) {
@@ -344,7 +359,7 @@ public final class GetDirectoryResult {
         public Builder vpcSettings(GetDirectoryVpcSetting... vpcSettings) {
             return vpcSettings(List.of(vpcSettings));
         }        public GetDirectoryResult build() {
-            return new GetDirectoryResult(accessUrl, alias, connectSettings, description, directoryId, dnsIpAddresses, edition, enableSso, id, name, securityGroupId, shortName, size, tags, type, vpcSettings);
+            return new GetDirectoryResult(accessUrl, alias, connectSettings, description, directoryId, dnsIpAddresses, edition, enableSso, id, name, radiusSettings, securityGroupId, shortName, size, tags, type, vpcSettings);
         }
     }
 }

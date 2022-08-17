@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImageOutputResourceArgs : Pulumi.ResourceArgs
+    public sealed class ImageOutputResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("amis")]
         private InputList<Inputs.ImageOutputResourceAmiArgs>? _amis;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImageOutputResourceArgs()
         {
         }
+        public static new ImageOutputResourceArgs Empty => new ImageOutputResourceArgs();
     }
 }

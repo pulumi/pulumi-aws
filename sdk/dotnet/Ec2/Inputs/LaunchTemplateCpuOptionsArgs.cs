@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateCpuOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateCpuOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of CPU cores for the instance.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateCpuOptionsArgs()
         {
         }
+        public static new LaunchTemplateCpuOptionsArgs Empty => new LaunchTemplateCpuOptionsArgs();
     }
 }

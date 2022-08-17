@@ -23,49 +23,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "alternate", &providers.awsArgs{
-// 			Profile: "profile1",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		senderShare, err := ram.NewResourceShare(ctx, "senderShare", &ram.ResourceShareArgs{
-// 			AllowExternalPrincipals: pulumi.Bool(true),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("tf-test-resource-share"),
-// 			},
-// 		}, pulumi.Provider(aws.Alternate))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		receiver, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
-// 			Principal:        pulumi.String(receiver.AccountId),
-// 			ResourceShareArn: senderShare.Arn,
-// 		}, pulumi.Provider(aws.Alternate))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ram.NewResourceShareAccepter(ctx, "receiverAccept", &ram.ResourceShareAccepterArgs{
-// 			ShareArn: senderInvite.ResourceShareArn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "alternate", &aws.ProviderArgs{
+//				Profile: pulumi.String("profile1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			senderShare, err := ram.NewResourceShare(ctx, "senderShare", &ram.ResourceShareArgs{
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("tf-test-resource-share"),
+//				},
+//			}, pulumi.Provider(aws.Alternate))
+//			if err != nil {
+//				return err
+//			}
+//			receiver, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
+//				Principal:        pulumi.String(receiver.AccountId),
+//				ResourceShareArn: senderShare.Arn,
+//			}, pulumi.Provider(aws.Alternate))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ram.NewResourceShareAccepter(ctx, "receiverAccept", &ram.ResourceShareAccepterArgs{
+//				ShareArn: senderInvite.ResourceShareArn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +75,9 @@ import (
 // Resource share accepters can be imported using the resource share ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+//
+//	$ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+//
 // ```
 type ResourceShareAccepter struct {
 	pulumi.CustomResourceState
@@ -206,7 +210,7 @@ func (i *ResourceShareAccepter) ToResourceShareAccepterOutputWithContext(ctx con
 // ResourceShareAccepterArrayInput is an input type that accepts ResourceShareAccepterArray and ResourceShareAccepterArrayOutput values.
 // You can construct a concrete instance of `ResourceShareAccepterArrayInput` via:
 //
-//          ResourceShareAccepterArray{ ResourceShareAccepterArgs{...} }
+//	ResourceShareAccepterArray{ ResourceShareAccepterArgs{...} }
 type ResourceShareAccepterArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +235,7 @@ func (i ResourceShareAccepterArray) ToResourceShareAccepterArrayOutputWithContex
 // ResourceShareAccepterMapInput is an input type that accepts ResourceShareAccepterMap and ResourceShareAccepterMapOutput values.
 // You can construct a concrete instance of `ResourceShareAccepterMapInput` via:
 //
-//          ResourceShareAccepterMap{ "key": ResourceShareAccepterArgs{...} }
+//	ResourceShareAccepterMap{ "key": ResourceShareAccepterArgs{...} }
 type ResourceShareAccepterMapInput interface {
 	pulumi.Input
 

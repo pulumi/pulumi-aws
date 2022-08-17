@@ -22,7 +22,7 @@ type ClusterClusterNode struct {
 // ClusterClusterNodeInput is an input type that accepts ClusterClusterNodeArgs and ClusterClusterNodeOutput values.
 // You can construct a concrete instance of `ClusterClusterNodeInput` via:
 //
-//          ClusterClusterNodeArgs{...}
+//	ClusterClusterNodeArgs{...}
 type ClusterClusterNodeInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i ClusterClusterNodeArgs) ToClusterClusterNodeOutputWithContext(ctx contex
 // ClusterClusterNodeArrayInput is an input type that accepts ClusterClusterNodeArray and ClusterClusterNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterNodeArrayInput` via:
 //
-//          ClusterClusterNodeArray{ ClusterClusterNodeArgs{...} }
+//	ClusterClusterNodeArray{ ClusterClusterNodeArgs{...} }
 type ClusterClusterNodeArrayInput interface {
 	pulumi.Input
 
@@ -142,7 +142,7 @@ type ClusterLogging struct {
 // ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
 // You can construct a concrete instance of `ClusterLoggingInput` via:
 //
-//          ClusterLoggingArgs{...}
+//	ClusterLoggingArgs{...}
 type ClusterLoggingInput interface {
 	pulumi.Input
 
@@ -187,11 +187,11 @@ func (i ClusterLoggingArgs) ToClusterLoggingPtrOutputWithContext(ctx context.Con
 // ClusterLoggingPtrInput is an input type that accepts ClusterLoggingArgs, ClusterLoggingPtr and ClusterLoggingPtrOutput values.
 // You can construct a concrete instance of `ClusterLoggingPtrInput` via:
 //
-//          ClusterLoggingArgs{...}
+//	        ClusterLoggingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterLoggingPtrInput interface {
 	pulumi.Input
 
@@ -354,7 +354,7 @@ type ClusterSnapshotCopy struct {
 // ClusterSnapshotCopyInput is an input type that accepts ClusterSnapshotCopyArgs and ClusterSnapshotCopyOutput values.
 // You can construct a concrete instance of `ClusterSnapshotCopyInput` via:
 //
-//          ClusterSnapshotCopyArgs{...}
+//	ClusterSnapshotCopyArgs{...}
 type ClusterSnapshotCopyInput interface {
 	pulumi.Input
 
@@ -394,11 +394,11 @@ func (i ClusterSnapshotCopyArgs) ToClusterSnapshotCopyPtrOutputWithContext(ctx c
 // ClusterSnapshotCopyPtrInput is an input type that accepts ClusterSnapshotCopyArgs, ClusterSnapshotCopyPtr and ClusterSnapshotCopyPtrOutput values.
 // You can construct a concrete instance of `ClusterSnapshotCopyPtrInput` via:
 //
-//          ClusterSnapshotCopyArgs{...}
+//	        ClusterSnapshotCopyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterSnapshotCopyPtrInput interface {
 	pulumi.Input
 
@@ -529,7 +529,7 @@ type EndpointAccessVpcEndpoint struct {
 // EndpointAccessVpcEndpointInput is an input type that accepts EndpointAccessVpcEndpointArgs and EndpointAccessVpcEndpointOutput values.
 // You can construct a concrete instance of `EndpointAccessVpcEndpointInput` via:
 //
-//          EndpointAccessVpcEndpointArgs{...}
+//	EndpointAccessVpcEndpointArgs{...}
 type EndpointAccessVpcEndpointInput interface {
 	pulumi.Input
 
@@ -561,7 +561,7 @@ func (i EndpointAccessVpcEndpointArgs) ToEndpointAccessVpcEndpointOutputWithCont
 // EndpointAccessVpcEndpointArrayInput is an input type that accepts EndpointAccessVpcEndpointArray and EndpointAccessVpcEndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointAccessVpcEndpointArrayInput` via:
 //
-//          EndpointAccessVpcEndpointArray{ EndpointAccessVpcEndpointArgs{...} }
+//	EndpointAccessVpcEndpointArray{ EndpointAccessVpcEndpointArgs{...} }
 type EndpointAccessVpcEndpointArrayInput interface {
 	pulumi.Input
 
@@ -648,7 +648,7 @@ type EndpointAccessVpcEndpointNetworkInterface struct {
 // EndpointAccessVpcEndpointNetworkInterfaceInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArgs and EndpointAccessVpcEndpointNetworkInterfaceOutput values.
 // You can construct a concrete instance of `EndpointAccessVpcEndpointNetworkInterfaceInput` via:
 //
-//          EndpointAccessVpcEndpointNetworkInterfaceArgs{...}
+//	EndpointAccessVpcEndpointNetworkInterfaceArgs{...}
 type EndpointAccessVpcEndpointNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -682,7 +682,7 @@ func (i EndpointAccessVpcEndpointNetworkInterfaceArgs) ToEndpointAccessVpcEndpoi
 // EndpointAccessVpcEndpointNetworkInterfaceArrayInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArray and EndpointAccessVpcEndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `EndpointAccessVpcEndpointNetworkInterfaceArrayInput` via:
 //
-//          EndpointAccessVpcEndpointNetworkInterfaceArray{ EndpointAccessVpcEndpointNetworkInterfaceArgs{...} }
+//	EndpointAccessVpcEndpointNetworkInterfaceArray{ EndpointAccessVpcEndpointNetworkInterfaceArgs{...} }
 type EndpointAccessVpcEndpointNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -768,7 +768,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-//          ParameterGroupParameterArgs{...}
+//	ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+//	ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -876,7 +876,7 @@ type ScheduledActionTargetAction struct {
 // ScheduledActionTargetActionInput is an input type that accepts ScheduledActionTargetActionArgs and ScheduledActionTargetActionOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionInput` via:
 //
-//          ScheduledActionTargetActionArgs{...}
+//	ScheduledActionTargetActionArgs{...}
 type ScheduledActionTargetActionInput interface {
 	pulumi.Input
 
@@ -916,11 +916,11 @@ func (i ScheduledActionTargetActionArgs) ToScheduledActionTargetActionPtrOutputW
 // ScheduledActionTargetActionPtrInput is an input type that accepts ScheduledActionTargetActionArgs, ScheduledActionTargetActionPtr and ScheduledActionTargetActionPtrOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionPtrInput` via:
 //
-//          ScheduledActionTargetActionArgs{...}
+//	        ScheduledActionTargetActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionTargetActionPtrInput interface {
 	pulumi.Input
 
@@ -1047,7 +1047,7 @@ type ScheduledActionTargetActionPauseCluster struct {
 // ScheduledActionTargetActionPauseClusterInput is an input type that accepts ScheduledActionTargetActionPauseClusterArgs and ScheduledActionTargetActionPauseClusterOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionPauseClusterInput` via:
 //
-//          ScheduledActionTargetActionPauseClusterArgs{...}
+//	ScheduledActionTargetActionPauseClusterArgs{...}
 type ScheduledActionTargetActionPauseClusterInput interface {
 	pulumi.Input
 
@@ -1083,11 +1083,11 @@ func (i ScheduledActionTargetActionPauseClusterArgs) ToScheduledActionTargetActi
 // ScheduledActionTargetActionPauseClusterPtrInput is an input type that accepts ScheduledActionTargetActionPauseClusterArgs, ScheduledActionTargetActionPauseClusterPtr and ScheduledActionTargetActionPauseClusterPtrOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionPauseClusterPtrInput` via:
 //
-//          ScheduledActionTargetActionPauseClusterArgs{...}
+//	        ScheduledActionTargetActionPauseClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionTargetActionPauseClusterPtrInput interface {
 	pulumi.Input
 
@@ -1192,7 +1192,7 @@ type ScheduledActionTargetActionResizeCluster struct {
 // ScheduledActionTargetActionResizeClusterInput is an input type that accepts ScheduledActionTargetActionResizeClusterArgs and ScheduledActionTargetActionResizeClusterOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionResizeClusterInput` via:
 //
-//          ScheduledActionTargetActionResizeClusterArgs{...}
+//	ScheduledActionTargetActionResizeClusterArgs{...}
 type ScheduledActionTargetActionResizeClusterInput interface {
 	pulumi.Input
 
@@ -1236,11 +1236,11 @@ func (i ScheduledActionTargetActionResizeClusterArgs) ToScheduledActionTargetAct
 // ScheduledActionTargetActionResizeClusterPtrInput is an input type that accepts ScheduledActionTargetActionResizeClusterArgs, ScheduledActionTargetActionResizeClusterPtr and ScheduledActionTargetActionResizeClusterPtrOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionResizeClusterPtrInput` via:
 //
-//          ScheduledActionTargetActionResizeClusterArgs{...}
+//	        ScheduledActionTargetActionResizeClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionTargetActionResizeClusterPtrInput interface {
 	pulumi.Input
 
@@ -1397,7 +1397,7 @@ type ScheduledActionTargetActionResumeCluster struct {
 // ScheduledActionTargetActionResumeClusterInput is an input type that accepts ScheduledActionTargetActionResumeClusterArgs and ScheduledActionTargetActionResumeClusterOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionResumeClusterInput` via:
 //
-//          ScheduledActionTargetActionResumeClusterArgs{...}
+//	ScheduledActionTargetActionResumeClusterArgs{...}
 type ScheduledActionTargetActionResumeClusterInput interface {
 	pulumi.Input
 
@@ -1433,11 +1433,11 @@ func (i ScheduledActionTargetActionResumeClusterArgs) ToScheduledActionTargetAct
 // ScheduledActionTargetActionResumeClusterPtrInput is an input type that accepts ScheduledActionTargetActionResumeClusterArgs, ScheduledActionTargetActionResumeClusterPtr and ScheduledActionTargetActionResumeClusterPtrOutput values.
 // You can construct a concrete instance of `ScheduledActionTargetActionResumeClusterPtrInput` via:
 //
-//          ScheduledActionTargetActionResumeClusterArgs{...}
+//	        ScheduledActionTargetActionResumeClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionTargetActionResumeClusterPtrInput interface {
 	pulumi.Input
 
@@ -1539,7 +1539,7 @@ type SecurityGroupIngress struct {
 // SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
 // You can construct a concrete instance of `SecurityGroupIngressInput` via:
 //
-//          SecurityGroupIngressArgs{...}
+//	SecurityGroupIngressArgs{...}
 type SecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -1572,7 +1572,7 @@ func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx co
 // SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
 //
-//          SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
+//	SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
 type SecurityGroupIngressArrayInput interface {
 	pulumi.Input
 
@@ -1656,7 +1656,7 @@ type GetClusterClusterNode struct {
 // GetClusterClusterNodeInput is an input type that accepts GetClusterClusterNodeArgs and GetClusterClusterNodeOutput values.
 // You can construct a concrete instance of `GetClusterClusterNodeInput` via:
 //
-//          GetClusterClusterNodeArgs{...}
+//	GetClusterClusterNodeArgs{...}
 type GetClusterClusterNodeInput interface {
 	pulumi.Input
 
@@ -1688,7 +1688,7 @@ func (i GetClusterClusterNodeArgs) ToGetClusterClusterNodeOutputWithContext(ctx 
 // GetClusterClusterNodeArrayInput is an input type that accepts GetClusterClusterNodeArray and GetClusterClusterNodeArrayOutput values.
 // You can construct a concrete instance of `GetClusterClusterNodeArrayInput` via:
 //
-//          GetClusterClusterNodeArray{ GetClusterClusterNodeArgs{...} }
+//	GetClusterClusterNodeArray{ GetClusterClusterNodeArgs{...} }
 type GetClusterClusterNodeArrayInput interface {
 	pulumi.Input
 

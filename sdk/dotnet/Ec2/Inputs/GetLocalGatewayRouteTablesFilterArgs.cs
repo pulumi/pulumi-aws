@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetLocalGatewayRouteTablesFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetLocalGatewayRouteTablesFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetLocalGatewayRouteTablesFilterInputArgs()
         {
         }
+        public static new GetLocalGatewayRouteTablesFilterInputArgs Empty => new GetLocalGatewayRouteTablesFilterInputArgs();
     }
 }

@@ -18,22 +18,20 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.ClusterRoleAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Rds.ClusterRoleAssociation("example", new Aws.Rds.ClusterRoleAssociationArgs
-    ///         {
-    ///             DbClusterIdentifier = aws_rds_cluster.Example.Id,
-    ///             FeatureName = "S3_INTEGRATION",
-    ///             RoleArn = aws_iam_role.Example.Id,
-    ///         });
-    ///     }
+    ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
+    ///         FeatureName = "S3_INTEGRATION",
+    ///         RoleArn = aws_iam_role.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterRoleAssociation:ClusterRoleAssociation")]
-    public partial class ClusterRoleAssociation : Pulumi.CustomResource
+    public partial class ClusterRoleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// DB Cluster Identifier to associate with the IAM Role.
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterRoleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterRoleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DB Cluster Identifier to associate with the IAM Role.
@@ -132,9 +130,10 @@ namespace Pulumi.Aws.Rds
         public ClusterRoleAssociationArgs()
         {
         }
+        public static new ClusterRoleAssociationArgs Empty => new ClusterRoleAssociationArgs();
     }
 
-    public sealed class ClusterRoleAssociationState : Pulumi.ResourceArgs
+    public sealed class ClusterRoleAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DB Cluster Identifier to associate with the IAM Role.
@@ -157,5 +156,6 @@ namespace Pulumi.Aws.Rds
         public ClusterRoleAssociationState()
         {
         }
+        public static new ClusterRoleAssociationState Empty => new ClusterRoleAssociationState();
     }
 }

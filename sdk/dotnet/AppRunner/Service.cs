@@ -16,142 +16,137 @@ namespace Pulumi.Aws.AppRunner
     /// ### Service with a Code Repository Source
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppRunner.Service("example", new()
     ///     {
-    ///         var example = new Aws.AppRunner.Service("example", new Aws.AppRunner.ServiceArgs
+    ///         ServiceName = "example",
+    ///         SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///         {
-    ///             ServiceName = "example",
-    ///             SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
+    ///             AuthenticationConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs
     ///             {
-    ///                 AuthenticationConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs
+    ///                 ConnectionArn = aws_apprunner_connection.Example.Arn,
+    ///             },
+    ///             CodeRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryArgs
+    ///             {
+    ///                 CodeConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
     ///                 {
-    ///                     ConnectionArn = aws_apprunner_connection.Example.Arn,
-    ///                 },
-    ///                 CodeRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryArgs
-    ///                 {
-    ///                     CodeConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
+    ///                     CodeConfigurationValues = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs
     ///                     {
-    ///                         CodeConfigurationValues = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs
-    ///                         {
-    ///                             BuildCommand = "python setup.py develop",
-    ///                             Port = "8000",
-    ///                             Runtime = "PYTHON_3",
-    ///                             StartCommand = "python runapp.py",
-    ///                         },
-    ///                         ConfigurationSource = "API",
+    ///                         BuildCommand = "python setup.py develop",
+    ///                         Port = "8000",
+    ///                         Runtime = "PYTHON_3",
+    ///                         StartCommand = "python runapp.py",
     ///                     },
-    ///                     RepositoryUrl = "https://github.com/example/my-example-python-app",
-    ///                     SourceCodeVersion = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
-    ///                     {
-    ///                         Type = "BRANCH",
-    ///                         Value = "main",
-    ///                     },
+    ///                     ConfigurationSource = "API",
     ///                 },
-    ///             },
-    ///             NetworkConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationArgs
-    ///             {
-    ///                 EgressConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationEgressConfigurationArgs
+    ///                 RepositoryUrl = "https://github.com/example/my-example-python-app",
+    ///                 SourceCodeVersion = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
     ///                 {
-    ///                     EgressType = "VPC",
-    ///                     VpcConnectorArn = aws_apprunner_vpc_connector.Connector.Arn,
+    ///                     Type = "BRANCH",
+    ///                     Value = "main",
     ///                 },
     ///             },
-    ///             Tags = 
+    ///         },
+    ///         NetworkConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationArgs
+    ///         {
+    ///             EgressConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationEgressConfigurationArgs
     ///             {
-    ///                 { "Name", "example-apprunner-service" },
+    ///                 EgressType = "VPC",
+    ///                 VpcConnectorArn = aws_apprunner_vpc_connector.Connector.Arn,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-apprunner-service" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Service with an Image Repository Source
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppRunner.Service("example", new()
     ///     {
-    ///         var example = new Aws.AppRunner.Service("example", new Aws.AppRunner.ServiceArgs
+    ///         ServiceName = "example",
+    ///         SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///         {
-    ///             ServiceName = "example",
-    ///             SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
+    ///             AutoDeploymentsEnabled = false,
+    ///             ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
     ///             {
-    ///                 AutoDeploymentsEnabled = false,
-    ///                 ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
+    ///                 ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
     ///                 {
-    ///                     ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
-    ///                     {
-    ///                         Port = "8000",
-    ///                     },
-    ///                     ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
-    ///                     ImageRepositoryType = "ECR_PUBLIC",
+    ///                     Port = "8000",
     ///                 },
+    ///                 ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
+    ///                 ImageRepositoryType = "ECR_PUBLIC",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-apprunner-service" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-apprunner-service" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Service with Observability Configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleObservabilityConfiguration = new Aws.AppRunner.ObservabilityConfiguration("exampleObservabilityConfiguration", new()
     ///     {
-    ///         var exampleObservabilityConfiguration = new Aws.AppRunner.ObservabilityConfiguration("exampleObservabilityConfiguration", new Aws.AppRunner.ObservabilityConfigurationArgs
+    ///         ObservabilityConfigurationName = "example",
+    ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
     ///         {
-    ///             ObservabilityConfigurationName = "example",
-    ///             TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
-    ///             {
-    ///                 Vendor = "AWSXRAY",
-    ///             },
-    ///         });
-    ///         var exampleService = new Aws.AppRunner.Service("exampleService", new Aws.AppRunner.ServiceArgs
-    ///         {
-    ///             ServiceName = "example",
-    ///             ObservabilityConfiguration = new Aws.AppRunner.Inputs.ServiceObservabilityConfigurationArgs
-    ///             {
-    ///                 ObservabilityConfigurationArn = exampleObservabilityConfiguration.Arn,
-    ///                 ObservabilityEnabled = true,
-    ///             },
-    ///             SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
-    ///             {
-    ///                 ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
-    ///                 {
-    ///                     ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
-    ///                     {
-    ///                         Port = "8000",
-    ///                     },
-    ///                     ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
-    ///                     ImageRepositoryType = "ECR_PUBLIC",
-    ///                 },
-    ///                 AutoDeploymentsEnabled = false,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-apprunner-service" },
-    ///             },
-    ///         });
-    ///     }
+    ///             Vendor = "AWSXRAY",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Aws.AppRunner.Service("exampleService", new()
+    ///     {
+    ///         ServiceName = "example",
+    ///         ObservabilityConfiguration = new Aws.AppRunner.Inputs.ServiceObservabilityConfigurationArgs
+    ///         {
+    ///             ObservabilityConfigurationArn = exampleObservabilityConfiguration.Arn,
+    ///             ObservabilityEnabled = true,
+    ///         },
+    ///         SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
+    ///         {
+    ///             ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
+    ///             {
+    ///                 ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
+    ///                 {
+    ///                     Port = "8000",
+    ///                 },
+    ///                 ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
+    ///                 ImageRepositoryType = "ECR_PUBLIC",
+    ///             },
+    ///             AutoDeploymentsEnabled = false,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-apprunner-service" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -163,7 +158,7 @@ namespace Pulumi.Aws.AppRunner
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the App Runner service.
@@ -293,7 +288,7 @@ namespace Pulumi.Aws.AppRunner
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
@@ -358,9 +353,10 @@ namespace Pulumi.Aws.AppRunner
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the App Runner service.
@@ -461,5 +457,6 @@ namespace Pulumi.Aws.AppRunner
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

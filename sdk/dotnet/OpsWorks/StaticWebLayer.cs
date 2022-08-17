@@ -15,20 +15,18 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var web = new Aws.OpsWorks.StaticWebLayer("web", new()
     ///     {
-    ///         var web = new Aws.OpsWorks.StaticWebLayer("web", new Aws.OpsWorks.StaticWebLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.OpsWorks
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/staticWebLayer:StaticWebLayer")]
-    public partial class StaticWebLayer : Pulumi.CustomResource
+    public partial class StaticWebLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -154,7 +152,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -209,7 +207,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class StaticWebLayerArgs : Pulumi.ResourceArgs
+    public sealed class StaticWebLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -374,9 +372,10 @@ namespace Pulumi.Aws.OpsWorks
         public StaticWebLayerArgs()
         {
         }
+        public static new StaticWebLayerArgs Empty => new StaticWebLayerArgs();
     }
 
-    public sealed class StaticWebLayerState : Pulumi.ResourceArgs
+    public sealed class StaticWebLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -542,7 +541,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -559,5 +558,6 @@ namespace Pulumi.Aws.OpsWorks
         public StaticWebLayerState()
         {
         }
+        public static new StaticWebLayerState Empty => new StaticWebLayerState();
     }
 }

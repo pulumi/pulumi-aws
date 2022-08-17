@@ -17,50 +17,49 @@ namespace Pulumi.Aws.Lambda
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testLatest = new Aws.Lambda.FunctionUrl("testLatest", new()
     ///     {
-    ///         var testLatest = new Aws.Lambda.FunctionUrl("testLatest", new Aws.Lambda.FunctionUrlArgs
-    ///         {
-    ///             FunctionName = aws_lambda_function.Test.Function_name,
-    ///             AuthorizationType = "NONE",
-    ///         });
-    ///         var testLive = new Aws.Lambda.FunctionUrl("testLive", new Aws.Lambda.FunctionUrlArgs
-    ///         {
-    ///             FunctionName = aws_lambda_function.Test.Function_name,
-    ///             Qualifier = "my_alias",
-    ///             AuthorizationType = "AWS_IAM",
-    ///             Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
-    ///             {
-    ///                 AllowCredentials = true,
-    ///                 AllowOrigins = 
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowMethods = 
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowHeaders = 
-    ///                 {
-    ///                     "date",
-    ///                     "keep-alive",
-    ///                 },
-    ///                 ExposeHeaders = 
-    ///                 {
-    ///                     "keep-alive",
-    ///                     "date",
-    ///                 },
-    ///                 MaxAge = 86400,
-    ///             },
-    ///         });
-    ///     }
+    ///         FunctionName = aws_lambda_function.Test.Function_name,
+    ///         AuthorizationType = "NONE",
+    ///     });
     /// 
-    /// }
+    ///     var testLive = new Aws.Lambda.FunctionUrl("testLive", new()
+    ///     {
+    ///         FunctionName = aws_lambda_function.Test.Function_name,
+    ///         Qualifier = "my_alias",
+    ///         AuthorizationType = "AWS_IAM",
+    ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
+    ///         {
+    ///             AllowCredentials = true,
+    ///             AllowOrigins = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             AllowMethods = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             AllowHeaders = new[]
+    ///             {
+    ///                 "date",
+    ///                 "keep-alive",
+    ///             },
+    ///             ExposeHeaders = new[]
+    ///             {
+    ///                 "keep-alive",
+    ///                 "date",
+    ///             },
+    ///             MaxAge = 86400,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +71,7 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/functionUrl:FunctionUrl")]
-    public partial class FunctionUrl : Pulumi.CustomResource
+    public partial class FunctionUrl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
@@ -160,7 +159,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class FunctionUrlArgs : Pulumi.ResourceArgs
+    public sealed class FunctionUrlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
@@ -189,9 +188,10 @@ namespace Pulumi.Aws.Lambda
         public FunctionUrlArgs()
         {
         }
+        public static new FunctionUrlArgs Empty => new FunctionUrlArgs();
     }
 
-    public sealed class FunctionUrlState : Pulumi.ResourceArgs
+    public sealed class FunctionUrlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
@@ -238,5 +238,6 @@ namespace Pulumi.Aws.Lambda
         public FunctionUrlState()
         {
         }
+        public static new FunctionUrlState Empty => new FunctionUrlState();
     }
 }

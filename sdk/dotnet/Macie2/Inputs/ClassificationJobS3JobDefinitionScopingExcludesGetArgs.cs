@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionScopingExcludesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionScopingExcludesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ands")]
         private InputList<Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndGetArgs>? _ands;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobS3JobDefinitionScopingExcludesGetArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionScopingExcludesGetArgs Empty => new ClassificationJobS3JobDefinitionScopingExcludesGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentConclusionStatementArgs : Pulumi.ResourceArgs
+    public sealed class IntentConclusionStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("messages", required: true)]
         private InputList<Inputs.IntentConclusionStatementMessageArgs>? _messages;
@@ -37,5 +37,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentConclusionStatementArgs()
         {
         }
+        public static new IntentConclusionStatementArgs Empty => new IntentConclusionStatementArgs();
     }
 }

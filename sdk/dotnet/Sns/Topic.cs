@@ -16,33 +16,28 @@ namespace Pulumi.Aws.Sns
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var userUpdates = new Aws.Sns.Topic("userUpdates");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with Delivery Policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
     ///     {
-    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
-    ///         {
-    ///             DeliveryPolicy = @"{
+    ///         DeliveryPolicy = @"{
     ///   ""http"": {
     ///     ""defaultHealthyRetryPolicy"": {
     ///       ""minDelayTarget"": 20,
@@ -61,47 +56,42 @@ namespace Pulumi.Aws.Sns
     /// }
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with Server-side encryption (SSE)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
     ///     {
-    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
-    ///         {
-    ///             KmsMasterKeyId = "alias/aws/sns",
-    ///         });
-    ///     }
+    ///         KmsMasterKeyId = "alias/aws/sns",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with First-In-First-Out (FIFO)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
     ///     {
-    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
-    ///         {
-    ///             ContentBasedDeduplication = true,
-    ///             FifoTopic = true,
-    ///         });
-    ///     }
+    ///         ContentBasedDeduplication = true,
+    ///         FifoTopic = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Message Delivery Status Arguments
     /// 
@@ -116,7 +106,7 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topic:Topic")]
-    public partial class Topic : Pulumi.CustomResource
+    public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IAM role for failure feedback
@@ -269,13 +259,13 @@ namespace Pulumi.Aws.Sns
         public Output<int?> SqsSuccessFeedbackSampleRate { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -324,7 +314,7 @@ namespace Pulumi.Aws.Sns
         }
     }
 
-    public sealed class TopicArgs : Pulumi.ResourceArgs
+    public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IAM role for failure feedback
@@ -468,7 +458,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -479,9 +469,10 @@ namespace Pulumi.Aws.Sns
         public TopicArgs()
         {
         }
+        public static new TopicArgs Empty => new TopicArgs();
     }
 
-    public sealed class TopicState : Pulumi.ResourceArgs
+    public sealed class TopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IAM role for failure feedback
@@ -637,7 +628,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -649,7 +640,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -660,5 +651,6 @@ namespace Pulumi.Aws.Sns
         public TopicState()
         {
         }
+        public static new TopicState Empty => new TopicState();
     }
 }

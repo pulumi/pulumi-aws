@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceCatalog.Inputs
 {
 
-    public sealed class ServiceActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public ServiceActionDefinitionArgs()
         {
         }
+        public static new ServiceActionDefinitionArgs Empty => new ServiceActionDefinitionArgs();
     }
 }

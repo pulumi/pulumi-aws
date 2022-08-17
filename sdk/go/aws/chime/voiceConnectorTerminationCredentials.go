@@ -21,50 +21,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-// 			RequireEncryption: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultVoiceConnectorTermination, err := chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
-// 			Disabled: pulumi.Bool(true),
-// 			CpsLimit: pulumi.Int(1),
-// 			CidrAllowLists: pulumi.StringArray{
-// 				pulumi.String("50.35.78.96/31"),
-// 			},
-// 			CallingRegions: pulumi.StringArray{
-// 				pulumi.String("US"),
-// 				pulumi.String("CA"),
-// 			},
-// 			VoiceConnectorId: defaultVoiceConnector.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "defaultVoiceConnectorTerminationCredentials", &chime.VoiceConnectorTerminationCredentialsArgs{
-// 			VoiceConnectorId: defaultVoiceConnector.ID(),
-// 			Credentials: chime.VoiceConnectorTerminationCredentialsCredentialArray{
-// 				&chime.VoiceConnectorTerminationCredentialsCredentialArgs{
-// 					Username: pulumi.String("test"),
-// 					Password: pulumi.String("test!"),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			defaultVoiceConnectorTermination,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultVoiceConnectorTermination, err := chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
+//				Disabled: pulumi.Bool(true),
+//				CpsLimit: pulumi.Int(1),
+//				CidrAllowLists: pulumi.StringArray{
+//					pulumi.String("50.35.78.96/31"),
+//				},
+//				CallingRegions: pulumi.StringArray{
+//					pulumi.String("US"),
+//					pulumi.String("CA"),
+//				},
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "defaultVoiceConnectorTerminationCredentials", &chime.VoiceConnectorTerminationCredentialsArgs{
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				Credentials: chime.VoiceConnectorTerminationCredentialsCredentialArray{
+//					&chime.VoiceConnectorTerminationCredentialsCredentialArgs{
+//						Username: pulumi.String("test"),
+//						Password: pulumi.String("test!"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				defaultVoiceConnectorTermination,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+//
+//	$ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+//
 // ```
 type VoiceConnectorTerminationCredentials struct {
 	pulumi.CustomResourceState
@@ -176,7 +181,7 @@ func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCreden
 // VoiceConnectorTerminationCredentialsArrayInput is an input type that accepts VoiceConnectorTerminationCredentialsArray and VoiceConnectorTerminationCredentialsArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationCredentialsArrayInput` via:
 //
-//          VoiceConnectorTerminationCredentialsArray{ VoiceConnectorTerminationCredentialsArgs{...} }
+//	VoiceConnectorTerminationCredentialsArray{ VoiceConnectorTerminationCredentialsArgs{...} }
 type VoiceConnectorTerminationCredentialsArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +206,7 @@ func (i VoiceConnectorTerminationCredentialsArray) ToVoiceConnectorTerminationCr
 // VoiceConnectorTerminationCredentialsMapInput is an input type that accepts VoiceConnectorTerminationCredentialsMap and VoiceConnectorTerminationCredentialsMapOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationCredentialsMapInput` via:
 //
-//          VoiceConnectorTerminationCredentialsMap{ "key": VoiceConnectorTerminationCredentialsArgs{...} }
+//	VoiceConnectorTerminationCredentialsMap{ "key": VoiceConnectorTerminationCredentialsArgs{...} }
 type VoiceConnectorTerminationCredentialsMapInput interface {
 	pulumi.Input
 

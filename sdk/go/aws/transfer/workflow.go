@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
-// 			Steps: transfer.WorkflowStepArray{
-// 				&transfer.WorkflowStepArgs{
-// 					DeleteStepDetails: &transfer.WorkflowStepDeleteStepDetailsArgs{
-// 						Name:               pulumi.String("example"),
-// 						SourceFileLocation: pulumi.Any(original.File),
-// 					},
-// 					Type: pulumi.String("DELETE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
+//				Steps: transfer.WorkflowStepArray{
+//					&transfer.WorkflowStepArgs{
+//						DeleteStepDetails: &transfer.WorkflowStepDeleteStepDetailsArgs{
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.Any(original.File),
+//						},
+//						Type: pulumi.String("DELETE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Transfer Workflows can be imported using the `worflow_id`.
 //
 // ```sh
-//  $ pulumi import aws:transfer/workflow:Workflow example example
+//
+//	$ pulumi import aws:transfer/workflow:Workflow example example
+//
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 // WorkflowArrayInput is an input type that accepts WorkflowArray and WorkflowArrayOutput values.
 // You can construct a concrete instance of `WorkflowArrayInput` via:
 //
-//          WorkflowArray{ WorkflowArgs{...} }
+//	WorkflowArray{ WorkflowArgs{...} }
 type WorkflowArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i WorkflowArray) ToWorkflowArrayOutputWithContext(ctx context.Context) Wor
 // WorkflowMapInput is an input type that accepts WorkflowMap and WorkflowMapOutput values.
 // You can construct a concrete instance of `WorkflowMapInput` via:
 //
-//          WorkflowMap{ "key": WorkflowArgs{...} }
+//	WorkflowMap{ "key": WorkflowArgs{...} }
 type WorkflowMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class LogMetricFilterMetricTransformationArgs : Pulumi.ResourceArgs
+    public sealed class LogMetricFilterMetricTransformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public LogMetricFilterMetricTransformationArgs()
         {
         }
+        public static new LogMetricFilterMetricTransformationArgs Empty => new LogMetricFilterMetricTransformationArgs();
     }
 }

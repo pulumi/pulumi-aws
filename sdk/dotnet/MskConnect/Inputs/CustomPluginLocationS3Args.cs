@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class CustomPluginLocationS3Args : Pulumi.ResourceArgs
+    public sealed class CustomPluginLocationS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of an S3 bucket.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public CustomPluginLocationS3Args()
         {
         }
+        public static new CustomPluginLocationS3Args Empty => new CustomPluginLocationS3Args();
     }
 }

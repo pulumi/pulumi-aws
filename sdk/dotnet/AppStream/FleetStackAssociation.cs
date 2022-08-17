@@ -15,33 +15,31 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
     ///     {
-    ///         var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new Aws.AppStream.FleetArgs
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         InstanceType = "stream.standard.small",
+    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {
-    ///             ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
-    ///             InstanceType = "stream.standard.small",
-    ///             ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
-    ///             {
-    ///                 DesiredInstances = 1,
-    ///             },
-    ///         });
-    ///         var exampleStack = new Aws.AppStream.Stack("exampleStack", new Aws.AppStream.StackArgs
-    ///         {
-    ///         });
-    ///         var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("exampleFleetStackAssociation", new Aws.AppStream.FleetStackAssociationArgs
-    ///         {
-    ///             FleetName = exampleFleet.Name,
-    ///             StackName = exampleStack.Name,
-    ///         });
-    ///     }
+    ///             DesiredInstances = 1,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleStack = new Aws.AppStream.Stack("exampleStack");
+    /// 
+    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("exampleFleetStackAssociation", new()
+    ///     {
+    ///         FleetName = exampleFleet.Name,
+    ///         StackName = exampleStack.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
-    public partial class FleetStackAssociation : Pulumi.CustomResource
+    public partial class FleetStackAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the fleet.
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class FleetStackAssociationArgs : Pulumi.ResourceArgs
+    public sealed class FleetStackAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the fleet.
@@ -128,9 +126,10 @@ namespace Pulumi.Aws.AppStream
         public FleetStackAssociationArgs()
         {
         }
+        public static new FleetStackAssociationArgs Empty => new FleetStackAssociationArgs();
     }
 
-    public sealed class FleetStackAssociationState : Pulumi.ResourceArgs
+    public sealed class FleetStackAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the fleet.
@@ -147,5 +146,6 @@ namespace Pulumi.Aws.AppStream
         public FleetStackAssociationState()
         {
         }
+        public static new FleetStackAssociationState Empty => new FleetStackAssociationState();
     }
 }

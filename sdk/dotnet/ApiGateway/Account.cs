@@ -17,16 +17,15 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatchRole", new()
     ///     {
-    ///         var cloudwatchRole = new Aws.Iam.Role("cloudwatchRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -40,15 +39,17 @@ namespace Pulumi.Aws.ApiGateway
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var demo = new Aws.ApiGateway.Account("demo", new Aws.ApiGateway.AccountArgs
-    ///         {
-    ///             CloudwatchRoleArn = cloudwatchRole.Arn,
-    ///         });
-    ///         var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = cloudwatchRole.Id,
-    ///             Policy = @"{
+    ///     });
+    /// 
+    ///     var demo = new Aws.ApiGateway.Account("demo", new()
+    ///     {
+    ///         CloudwatchRoleArn = cloudwatchRole.Arn,
+    ///     });
+    /// 
+    ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new()
+    ///     {
+    ///         Role = cloudwatchRole.Id,
+    ///         Policy = @"{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {
@@ -67,10 +68,9 @@ namespace Pulumi.Aws.ApiGateway
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
@@ -151,9 +151,10 @@ namespace Pulumi.Aws.ApiGateway
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
@@ -176,5 +177,6 @@ namespace Pulumi.Aws.ApiGateway
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

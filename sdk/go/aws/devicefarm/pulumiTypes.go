@@ -22,7 +22,7 @@ type DevicePoolRule struct {
 // DevicePoolRuleInput is an input type that accepts DevicePoolRuleArgs and DevicePoolRuleOutput values.
 // You can construct a concrete instance of `DevicePoolRuleInput` via:
 //
-//          DevicePoolRuleArgs{...}
+//	DevicePoolRuleArgs{...}
 type DevicePoolRuleInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i DevicePoolRuleArgs) ToDevicePoolRuleOutputWithContext(ctx context.Contex
 // DevicePoolRuleArrayInput is an input type that accepts DevicePoolRuleArray and DevicePoolRuleArrayOutput values.
 // You can construct a concrete instance of `DevicePoolRuleArrayInput` via:
 //
-//          DevicePoolRuleArray{ DevicePoolRuleArgs{...} }
+//	DevicePoolRuleArray{ DevicePoolRuleArgs{...} }
 type DevicePoolRuleArrayInput interface {
 	pulumi.Input
 
@@ -137,7 +137,7 @@ type TestGridProjectVpcConfig struct {
 // TestGridProjectVpcConfigInput is an input type that accepts TestGridProjectVpcConfigArgs and TestGridProjectVpcConfigOutput values.
 // You can construct a concrete instance of `TestGridProjectVpcConfigInput` via:
 //
-//          TestGridProjectVpcConfigArgs{...}
+//	TestGridProjectVpcConfigArgs{...}
 type TestGridProjectVpcConfigInput interface {
 	pulumi.Input
 
@@ -177,11 +177,11 @@ func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigPtrOutputWithCon
 // TestGridProjectVpcConfigPtrInput is an input type that accepts TestGridProjectVpcConfigArgs, TestGridProjectVpcConfigPtr and TestGridProjectVpcConfigPtrOutput values.
 // You can construct a concrete instance of `TestGridProjectVpcConfigPtrInput` via:
 //
-//          TestGridProjectVpcConfigArgs{...}
+//	        TestGridProjectVpcConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TestGridProjectVpcConfigPtrInput interface {
 	pulumi.Input
 

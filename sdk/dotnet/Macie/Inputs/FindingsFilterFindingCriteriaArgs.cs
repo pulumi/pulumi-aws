@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie.Inputs
 {
 
-    public sealed class FindingsFilterFindingCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class FindingsFilterFindingCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("criterions")]
         private InputList<Inputs.FindingsFilterFindingCriteriaCriterionArgs>? _criterions;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Macie.Inputs
         public FindingsFilterFindingCriteriaArgs()
         {
         }
+        public static new FindingsFilterFindingCriteriaArgs Empty => new FindingsFilterFindingCriteriaArgs();
     }
 }

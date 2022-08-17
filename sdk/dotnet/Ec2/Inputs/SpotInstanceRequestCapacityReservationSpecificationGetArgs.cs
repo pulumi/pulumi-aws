@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotInstanceRequestCapacityReservationSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class SpotInstanceRequestCapacityReservationSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotInstanceRequestCapacityReservationSpecificationGetArgs()
         {
         }
+        public static new SpotInstanceRequestCapacityReservationSpecificationGetArgs Empty => new SpotInstanceRequestCapacityReservationSpecificationGetArgs();
     }
 }

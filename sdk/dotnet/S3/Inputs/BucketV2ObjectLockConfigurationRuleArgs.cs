@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2ObjectLockConfigurationRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2ObjectLockConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultRetentions", required: true)]
         private InputList<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>? _defaultRetentions;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2ObjectLockConfigurationRuleArgs()
         {
         }
+        public static new BucketV2ObjectLockConfigurationRuleArgs Empty => new BucketV2ObjectLockConfigurationRuleArgs();
     }
 }

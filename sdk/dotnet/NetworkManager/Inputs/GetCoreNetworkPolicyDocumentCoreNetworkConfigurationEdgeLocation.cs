@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs()
         {
         }
+        public static new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs Empty => new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs();
     }
 }

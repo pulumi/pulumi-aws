@@ -27,80 +27,81 @@ namespace Pulumi.Aws.WafV2
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
     ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "openapi", "3.0.1" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "title", "example" },
-    ///                     { "version", "1.0" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "httpMethod", "GET" },
-    ///                                 { "payloadFormatVersion", "1.0" },
-    ///                                 { "type", "HTTP_PROXY" },
-    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///         var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new Aws.WafV2.WebAclArgs
-    ///         {
-    ///             Scope = "REGIONAL",
-    ///             DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
-    ///             {
-    ///                 Allow = ,
-    ///             },
-    ///             VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///             {
-    ///                 CloudwatchMetricsEnabled = false,
-    ///                 MetricName = "friendly-metric-name",
-    ///                 SampledRequestsEnabled = false,
-    ///             },
-    ///         });
-    ///         var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new Aws.WafV2.WebAclAssociationArgs
-    ///         {
-    ///             ResourceArn = exampleStage.Arn,
-    ///             WebAclArn = exampleWebAcl.Arn,
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new()
+    ///     {
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = ,
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new()
+    ///     {
+    ///         ResourceArn = exampleStage.Arn,
+    ///         WebAclArn = exampleWebAcl.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -112,7 +113,7 @@ namespace Pulumi.Aws.WafV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/webAclAssociation:WebAclAssociation")]
-    public partial class WebAclAssociation : Pulumi.CustomResource
+    public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
@@ -170,7 +171,7 @@ namespace Pulumi.Aws.WafV2
         }
     }
 
-    public sealed class WebAclAssociationArgs : Pulumi.ResourceArgs
+    public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
@@ -187,9 +188,10 @@ namespace Pulumi.Aws.WafV2
         public WebAclAssociationArgs()
         {
         }
+        public static new WebAclAssociationArgs Empty => new WebAclAssociationArgs();
     }
 
-    public sealed class WebAclAssociationState : Pulumi.ResourceArgs
+    public sealed class WebAclAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
@@ -206,5 +208,6 @@ namespace Pulumi.Aws.WafV2
         public WebAclAssociationState()
         {
         }
+        public static new WebAclAssociationState Empty => new WebAclAssociationState();
     }
 }

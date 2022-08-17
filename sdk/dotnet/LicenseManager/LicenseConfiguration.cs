@@ -17,31 +17,29 @@ namespace Pulumi.Aws.LicenseManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LicenseManager.LicenseConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.LicenseManager.LicenseConfiguration("example", new Aws.LicenseManager.LicenseConfigurationArgs
+    ///         Description = "Example",
+    ///         LicenseCount = 10,
+    ///         LicenseCountHardLimit = true,
+    ///         LicenseCountingType = "Socket",
+    ///         LicenseRules = new[]
     ///         {
-    ///             Description = "Example",
-    ///             LicenseCount = 10,
-    ///             LicenseCountHardLimit = true,
-    ///             LicenseCountingType = "Socket",
-    ///             LicenseRules = 
-    ///             {
-    ///                 "#minimumSockets=2",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "barr" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "#minimumSockets=2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "barr" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Rules
     /// 
@@ -64,7 +62,7 @@ namespace Pulumi.Aws.LicenseManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
-    public partial class LicenseConfiguration : Pulumi.CustomResource
+    public partial class LicenseConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The license configuration ARN.
@@ -121,7 +119,7 @@ namespace Pulumi.Aws.LicenseManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -170,7 +168,7 @@ namespace Pulumi.Aws.LicenseManager
         }
     }
 
-    public sealed class LicenseConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LicenseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the license configuration.
@@ -229,9 +227,10 @@ namespace Pulumi.Aws.LicenseManager
         public LicenseConfigurationArgs()
         {
         }
+        public static new LicenseConfigurationArgs Empty => new LicenseConfigurationArgs();
     }
 
-    public sealed class LicenseConfigurationState : Pulumi.ResourceArgs
+    public sealed class LicenseConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The license configuration ARN.
@@ -303,7 +302,7 @@ namespace Pulumi.Aws.LicenseManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -314,5 +313,6 @@ namespace Pulumi.Aws.LicenseManager
         public LicenseConfigurationState()
         {
         }
+        public static new LicenseConfigurationState Empty => new LicenseConfigurationState();
     }
 }

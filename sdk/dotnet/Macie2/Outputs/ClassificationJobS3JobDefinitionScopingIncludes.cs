@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Macie2.Outputs
     public sealed class ClassificationJobS3JobDefinitionScopingIncludes
     {
         /// <summary>
-        /// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+        /// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
         /// </summary>
         public readonly ImmutableArray<Outputs.ClassificationJobS3JobDefinitionScopingIncludesAnd> Ands;
 

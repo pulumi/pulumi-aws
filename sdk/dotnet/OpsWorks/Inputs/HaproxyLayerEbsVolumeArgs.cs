@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class HaproxyLayerEbsVolumeArgs : Pulumi.ResourceArgs
+    public sealed class HaproxyLayerEbsVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public HaproxyLayerEbsVolumeArgs()
         {
         }
+        public static new HaproxyLayerEbsVolumeArgs Empty => new HaproxyLayerEbsVolumeArgs();
     }
 }

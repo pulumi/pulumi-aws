@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowTriggerConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowTriggerConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowTriggerConfigArgs()
         {
         }
+        public static new FlowTriggerConfigArgs Empty => new FlowTriggerConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetActionDefinitionSsmActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetActionDefinitionSsmActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetActionDefinitionSsmActionDefinitionArgs()
         {
         }
+        public static new BudgetActionDefinitionSsmActionDefinitionArgs Empty => new BudgetActionDefinitionSsmActionDefinitionArgs();
     }
 }

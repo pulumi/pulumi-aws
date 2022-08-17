@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53recoveryreadiness.NewResourceSet(ctx, "example", &route53recoveryreadiness.ResourceSetArgs{
-// 			ResourceSetName: pulumi.Any(my_cw_alarm_set),
-// 			ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
-// 			Resources: route53recoveryreadiness.ResourceSetResourceArray{
-// 				&route53recoveryreadiness.ResourceSetResourceArgs{
-// 					ResourceArn: pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoveryreadiness.NewResourceSet(ctx, "example", &route53recoveryreadiness.ResourceSetArgs{
+//				ResourceSetName: pulumi.Any(my_cw_alarm_set),
+//				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
+//				Resources: route53recoveryreadiness.ResourceSetResourceArray{
+//					&route53recoveryreadiness.ResourceSetResourceArgs{
+//						ResourceArn: pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
+//
+//	$ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
+//
 // ```
 type ResourceSet struct {
 	pulumi.CustomResourceState
@@ -60,7 +65,7 @@ type ResourceSet struct {
 	ResourceSetType pulumi.StringOutput `pulumi:"resourceSetType"`
 	// List of resources to add to this resource set. See below.
 	Resources ResourceSetResourceArrayOutput `pulumi:"resources"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -112,7 +117,7 @@ type resourceSetState struct {
 	ResourceSetType *string `pulumi:"resourceSetType"`
 	// List of resources to add to this resource set. See below.
 	Resources []ResourceSetResource `pulumi:"resources"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -127,7 +132,7 @@ type ResourceSetState struct {
 	ResourceSetType pulumi.StringPtrInput
 	// List of resources to add to this resource set. See below.
 	Resources ResourceSetResourceArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -144,7 +149,7 @@ type resourceSetArgs struct {
 	ResourceSetType string `pulumi:"resourceSetType"`
 	// List of resources to add to this resource set. See below.
 	Resources []ResourceSetResource `pulumi:"resources"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -156,7 +161,7 @@ type ResourceSetArgs struct {
 	ResourceSetType pulumi.StringInput
 	// List of resources to add to this resource set. See below.
 	Resources ResourceSetResourceArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
 
@@ -186,7 +191,7 @@ func (i *ResourceSet) ToResourceSetOutputWithContext(ctx context.Context) Resour
 // ResourceSetArrayInput is an input type that accepts ResourceSetArray and ResourceSetArrayOutput values.
 // You can construct a concrete instance of `ResourceSetArrayInput` via:
 //
-//          ResourceSetArray{ ResourceSetArgs{...} }
+//	ResourceSetArray{ ResourceSetArgs{...} }
 type ResourceSetArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i ResourceSetArray) ToResourceSetArrayOutputWithContext(ctx context.Contex
 // ResourceSetMapInput is an input type that accepts ResourceSetMap and ResourceSetMapOutput values.
 // You can construct a concrete instance of `ResourceSetMapInput` via:
 //
-//          ResourceSetMap{ "key": ResourceSetArgs{...} }
+//	ResourceSetMap{ "key": ResourceSetArgs{...} }
 type ResourceSetMapInput interface {
 	pulumi.Input
 
@@ -267,7 +272,7 @@ func (o ResourceSetOutput) Resources() ResourceSetResourceArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) ResourceSetResourceArrayOutput { return v.Resources }).(ResourceSetResourceArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ResourceSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainSamlOptionsSamlOptionsIdpArgs : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsSamlOptionsIdpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique Entity ID of the application in SAML Identity Provider.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainSamlOptionsSamlOptionsIdpArgs()
         {
         }
+        public static new DomainSamlOptionsSamlOptionsIdpArgs Empty => new DomainSamlOptionsSamlOptionsIdpArgs();
     }
 }

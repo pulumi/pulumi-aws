@@ -141,7 +141,7 @@ func (o EngineModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // EngineModeInput is an input type that accepts EngineModeArgs and EngineModeOutput values.
 // You can construct a concrete instance of `EngineModeInput` via:
 //
-//          EngineModeArgs{...}
+//	EngineModeArgs{...}
 type EngineModeInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o EngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // EngineTypeInput is an input type that accepts EngineTypeArgs and EngineTypeOutput values.
 // You can construct a concrete instance of `EngineTypeInput` via:
 //
-//          EngineTypeArgs{...}
+//	EngineTypeArgs{...}
 type EngineTypeInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
 // You can construct a concrete instance of `InstanceTypeInput` via:
 //
-//          InstanceTypeArgs{...}
+//	InstanceTypeArgs{...}
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -712,7 +712,7 @@ func (o StorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // StorageTypeInput is an input type that accepts StorageTypeArgs and StorageTypeOutput values.
 // You can construct a concrete instance of `StorageTypeInput` via:
 //
-//          StorageTypeArgs{...}
+//	StorageTypeArgs{...}
 type StorageTypeInput interface {
 	pulumi.Input
 

@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.GetLocation(ctx, &directconnect.GetLocationArgs{
-// 			LocationCode: "CS32A-24FL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.GetLocation(ctx, &directconnect.GetLocationArgs{
+//				LocationCode: "CS32A-24FL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.InvokeOption) (*GetLocationResult, error) {
 	var rv GetLocationResult
@@ -54,6 +57,8 @@ type GetLocationArgs struct {
 
 // A collection of values returned by getLocation.
 type GetLocationResult struct {
+	// The available MAC Security (MACsec) port speeds for the location.
+	AvailableMacsecPortSpeeds []string `pulumi:"availableMacsecPortSpeeds"`
 	// The available port speeds for the location.
 	AvailablePortSpeeds []string `pulumi:"availablePortSpeeds"`
 	// The names of the service providers for the location.
@@ -101,6 +106,11 @@ func (o GetLocationResultOutput) ToGetLocationResultOutput() GetLocationResultOu
 
 func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx context.Context) GetLocationResultOutput {
 	return o
+}
+
+// The available MAC Security (MACsec) port speeds for the location.
+func (o GetLocationResultOutput) AvailableMacsecPortSpeeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailableMacsecPortSpeeds }).(pulumi.StringArrayOutput)
 }
 
 // The available port speeds for the location.

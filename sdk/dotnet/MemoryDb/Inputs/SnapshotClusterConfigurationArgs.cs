@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb.Inputs
 {
 
-    public sealed class SnapshotClusterConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotClusterConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the cluster.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public SnapshotClusterConfigurationArgs()
         {
         }
+        public static new SnapshotClusterConfigurationArgs Empty => new SnapshotClusterConfigurationArgs();
     }
 }

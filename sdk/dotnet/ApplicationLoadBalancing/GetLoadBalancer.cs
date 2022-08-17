@@ -26,24 +26,22 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var lbArn = config.Get("lbArn") ?? "";
+        ///     var lbName = config.Get("lbName") ?? "";
+        ///     var test = Aws.LB.GetLoadBalancer.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var lbArn = config.Get("lbArn") ?? "";
-        ///         var lbName = config.Get("lbName") ?? "";
-        ///         var test = Output.Create(Aws.LB.GetLoadBalancer.InvokeAsync(new Aws.LB.GetLoadBalancerArgs
-        ///         {
-        ///             Arn = lbArn,
-        ///             Name = lbName,
-        ///         }));
-        ///     }
+        ///         Arn = lbArn,
+        ///         Name = lbName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,24 +63,22 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var lbArn = config.Get("lbArn") ?? "";
+        ///     var lbName = config.Get("lbName") ?? "";
+        ///     var test = Aws.LB.GetLoadBalancer.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var lbArn = config.Get("lbArn") ?? "";
-        ///         var lbName = config.Get("lbName") ?? "";
-        ///         var test = Output.Create(Aws.LB.GetLoadBalancer.InvokeAsync(new Aws.LB.GetLoadBalancerArgs
-        ///         {
-        ///             Arn = lbArn,
-        ///             Name = lbName,
-        ///         }));
-        ///     }
+        ///         Arn = lbArn,
+        ///         Name = lbName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -92,7 +88,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     }
 
 
-    public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full ARN of the load balancer.
@@ -121,9 +117,10 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public GetLoadBalancerArgs()
         {
         }
+        public static new GetLoadBalancerArgs Empty => new GetLoadBalancerArgs();
     }
 
-    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full ARN of the load balancer.
@@ -152,6 +149,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public GetLoadBalancerInvokeArgs()
         {
         }
+        public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
     }
 
 
@@ -177,6 +175,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly string IpAddressType;
         public readonly string LoadBalancerType;
         public readonly string Name;
+        public readonly bool PreserveHostHeader;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> SubnetMappings;
         public readonly ImmutableArray<string> Subnets;
@@ -218,6 +217,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             string name,
 
+            bool preserveHostHeader,
+
             ImmutableArray<string> securityGroups,
 
             ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> subnetMappings,
@@ -246,6 +247,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             IpAddressType = ipAddressType;
             LoadBalancerType = loadBalancerType;
             Name = name;
+            PreserveHostHeader = preserveHostHeader;
             SecurityGroups = securityGroups;
             SubnetMappings = subnetMappings;
             Subnets = subnets;

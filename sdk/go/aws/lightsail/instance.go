@@ -23,27 +23,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
-// 			AvailabilityZone: pulumi.String("us-east-1b"),
-// 			BlueprintId:      pulumi.String("string"),
-// 			BundleId:         pulumi.String("string"),
-// 			KeyPairName:      pulumi.String("some_key_name"),
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
+//				AvailabilityZone: pulumi.String("us-east-1b"),
+//				BlueprintId:      pulumi.String("string"),
+//				BundleId:         pulumi.String("string"),
+//				KeyPairName:      pulumi.String("some_key_name"),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Availability Zones
 //
@@ -102,7 +105,9 @@ import (
 // Lightsail Instances can be imported using their name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+//
+//	$ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+//
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -341,7 +346,7 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
-//          InstanceArray{ InstanceArgs{...} }
+//	InstanceArray{ InstanceArgs{...} }
 type InstanceArrayInput interface {
 	pulumi.Input
 
@@ -366,7 +371,7 @@ func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) Ins
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
 // You can construct a concrete instance of `InstanceMapInput` via:
 //
-//          InstanceMap{ "key": InstanceArgs{...} }
+//	InstanceMap{ "key": InstanceArgs{...} }
 type InstanceMapInput interface {
 	pulumi.Input
 

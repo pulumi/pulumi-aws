@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class SizeConstraintSetSizeConstraintFieldToMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetSizeConstraintFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public SizeConstraintSetSizeConstraintFieldToMatchGetArgs()
         {
         }
+        public static new SizeConstraintSetSizeConstraintFieldToMatchGetArgs Empty => new SizeConstraintSetSizeConstraintFieldToMatchGetArgs();
     }
 }

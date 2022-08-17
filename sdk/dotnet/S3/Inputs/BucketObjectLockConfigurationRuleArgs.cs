@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketObjectLockConfigurationRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketObjectLockConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default retention period that you want to apply to new objects placed in this bucket.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketObjectLockConfigurationRuleArgs()
         {
         }
+        public static new BucketObjectLockConfigurationRuleArgs Empty => new BucketObjectLockConfigurationRuleArgs();
     }
 }

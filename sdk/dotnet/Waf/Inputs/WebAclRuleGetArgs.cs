@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class WebAclRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public WebAclRuleGetArgs()
         {
         }
+        public static new WebAclRuleGetArgs Empty => new WebAclRuleGetArgs();
     }
 }

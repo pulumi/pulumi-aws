@@ -15,21 +15,19 @@ namespace Pulumi.Aws.CodeCommit
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CodeCommit.Repository("test", new()
     ///     {
-    ///         var test = new Aws.CodeCommit.Repository("test", new Aws.CodeCommit.RepositoryArgs
-    ///         {
-    ///             Description = "This is the Sample App Repository",
-    ///             RepositoryName = "MyTestRepository",
-    ///         });
-    ///     }
+    ///         Description = "This is the Sample App Repository",
+    ///         RepositoryName = "MyTestRepository",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.CodeCommit
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/repository:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the repository
@@ -92,7 +90,7 @@ namespace Pulumi.Aws.CodeCommit
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.CodeCommit
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default branch of the repository. The branch specified here needs to exist.
@@ -176,9 +174,10 @@ namespace Pulumi.Aws.CodeCommit
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 
-    public sealed class RepositoryState : Pulumi.ResourceArgs
+    public sealed class RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the repository
@@ -238,7 +237,7 @@ namespace Pulumi.Aws.CodeCommit
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -249,5 +248,6 @@ namespace Pulumi.Aws.CodeCommit
         public RepositoryState()
         {
         }
+        public static new RepositoryState Empty => new RepositoryState();
     }
 }

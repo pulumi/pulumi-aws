@@ -179,9 +179,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        central = pulumi.providers.Aws("central", region="eu-central-1")
+        central = aws.Provider("central", region="eu-central-1")
         replication_role = aws.iam.Role("replicationRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -355,9 +354,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        central = pulumi.providers.Aws("central", region="eu-central-1")
+        central = aws.Provider("central", region="eu-central-1")
         replication_role = aws.iam.Role("replicationRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [

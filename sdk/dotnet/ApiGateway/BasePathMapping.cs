@@ -17,37 +17,37 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
     ///     {
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = aws_api_gateway_deployment.Example.Id,
-    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///             StageName = "example",
-    ///         });
-    ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
-    ///         {
-    ///             Domain = "example.com",
-    ///             CertificateName = "example-api",
-    ///             CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
-    ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///             CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
-    ///         });
-    ///         var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("exampleBasePathMapping", new Aws.ApiGateway.BasePathMappingArgs
-    ///         {
-    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///             StageName = exampleStage.StageName,
-    ///             DomainName = exampleDomainName.Domain,
-    ///         });
-    ///     }
+    ///         Deployment = aws_api_gateway_deployment.Example.Id,
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         StageName = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new()
+    ///     {
+    ///         Domain = "example.com",
+    ///         CertificateName = "example-api",
+    ///         CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
+    ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
+    ///         CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
+    ///     });
+    /// 
+    ///     var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("exampleBasePathMapping", new()
+    ///     {
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         StageName = exampleStage.StageName,
+    ///         DomainName = exampleDomainName.Domain,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
-    public partial class BasePathMapping : Pulumi.CustomResource
+    public partial class BasePathMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class BasePathMappingArgs : Pulumi.ResourceArgs
+    public sealed class BasePathMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -164,9 +164,10 @@ namespace Pulumi.Aws.ApiGateway
         public BasePathMappingArgs()
         {
         }
+        public static new BasePathMappingArgs Empty => new BasePathMappingArgs();
     }
 
-    public sealed class BasePathMappingState : Pulumi.ResourceArgs
+    public sealed class BasePathMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -195,5 +196,6 @@ namespace Pulumi.Aws.ApiGateway
         public BasePathMappingState()
         {
         }
+        public static new BasePathMappingState Empty => new BasePathMappingState();
     }
 }

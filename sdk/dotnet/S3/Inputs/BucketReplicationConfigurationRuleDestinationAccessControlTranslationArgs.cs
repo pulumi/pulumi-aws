@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The override value for the owner on replicated objects. Currently only `Destination` is supported.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs()
         {
         }
+        public static new BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs Empty => new BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs();
     }
 }

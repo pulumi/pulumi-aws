@@ -18,43 +18,44 @@ namespace Pulumi.Aws.RolesAnywhere
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         Path = "/",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Path = "/",
-    ///             AssumeRolePolicy = current.Apply(current =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", $"ec2.{current.DnsSuffix}" },
-    ///                             } },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Sid", "" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             })),
-    ///         });
-    ///         var testProfile = new Aws.RolesAnywhere.Profile("testProfile", new Aws.RolesAnywhere.ProfileArgs
-    ///         {
-    ///             RoleArns = 
-    ///             {
-    ///                 testRole.Arn,
+    ///                         "sts:AssumeRole",
+    ///                         "sts:TagSession",
+    ///                         "sts:SetSourceIdentity",
+    ///                     },
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "rolesanywhere.amazonaws.com",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var testProfile = new Aws.RolesAnywhere.Profile("testProfile", new()
+    ///     {
+    ///         RoleArns = new[]
+    ///         {
+    ///             testRole.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// ```
     /// </summary>
     [AwsResourceType("aws:rolesanywhere/profile:Profile")]
-    public partial class Profile : Pulumi.CustomResource
+    public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Profile
@@ -116,15 +117,9 @@ namespace Pulumi.Aws.RolesAnywhere
         [Output("sessionPolicy")]
         public Output<string?> SessionPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -172,7 +167,7 @@ namespace Pulumi.Aws.RolesAnywhere
         }
     }
 
-    public sealed class ProfileArgs : Pulumi.ResourceArgs
+    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
@@ -230,34 +225,19 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public ProfileArgs()
         {
         }
+        public static new ProfileArgs Empty => new ProfileArgs();
     }
 
-    public sealed class ProfileState : Pulumi.ResourceArgs
+    public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Profile
@@ -321,10 +301,6 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -333,10 +309,6 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -346,5 +318,6 @@ namespace Pulumi.Aws.RolesAnywhere
         public ProfileState()
         {
         }
+        public static new ProfileState Empty => new ProfileState();
     }
 }

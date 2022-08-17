@@ -17,99 +17,104 @@ namespace Pulumi.Aws.Dms
     /// Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dmsAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var dmsAssumeRole = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "dms.amazonaws.com",
-    ///                             },
-    ///                             Type = "Service",
+    ///                             "dms.amazonaws.com",
     ///                         },
+    ///                         Type = "Service",
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var dms_access_for_endpoint = new Aws.Iam.Role("dms-access-for-endpoint", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = dmsAssumeRole.Apply(dmsAssumeRole =&gt; dmsAssumeRole.Json),
-    ///         });
-    ///         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new Aws.Iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
-    ///             Role = dms_access_for_endpoint.Name,
-    ///         });
-    ///         var dms_cloudwatch_logs_role = new Aws.Iam.Role("dms-cloudwatch-logs-role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = dmsAssumeRole.Apply(dmsAssumeRole =&gt; dmsAssumeRole.Json),
-    ///         });
-    ///         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new Aws.Iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
-    ///             Role = dms_cloudwatch_logs_role.Name,
-    ///         });
-    ///         var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = dmsAssumeRole.Apply(dmsAssumeRole =&gt; dmsAssumeRole.Json),
-    ///         });
-    ///         var dms_vpc_role_AmazonDMSVPCManagementRole = new Aws.Iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
-    ///             Role = dms_vpc_role.Name,
-    ///         });
-    ///         // Create a new replication instance
-    ///         var test = new Aws.Dms.ReplicationInstance("test", new Aws.Dms.ReplicationInstanceArgs
-    ///         {
-    ///             AllocatedStorage = 20,
-    ///             ApplyImmediately = true,
-    ///             AutoMinorVersionUpgrade = true,
-    ///             AvailabilityZone = "us-west-2c",
-    ///             EngineVersion = "3.1.4",
-    ///             KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-    ///             MultiAz = false,
-    ///             PreferredMaintenanceWindow = "sun:10:30-sun:14:30",
-    ///             PubliclyAccessible = true,
-    ///             ReplicationInstanceClass = "dms.t2.micro",
-    ///             ReplicationInstanceId = "test-dms-replication-instance-tf",
-    ///             ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Test_dms_replication_subnet_group_tf.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "test" },
-    ///             },
-    ///             VpcSecurityGroupIds = 
-    ///             {
-    ///                 "sg-12345678",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
-    ///                 dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
-    ///                 dms_vpc_role_AmazonDMSVPCManagementRole,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var dms_access_for_endpoint = new Aws.Iam.Role("dms-access-for-endpoint", new()
+    ///     {
+    ///         AssumeRolePolicy = dmsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new Aws.Iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
+    ///         Role = dms_access_for_endpoint.Name,
+    ///     });
+    /// 
+    ///     var dms_cloudwatch_logs_role = new Aws.Iam.Role("dms-cloudwatch-logs-role", new()
+    ///     {
+    ///         AssumeRolePolicy = dmsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new Aws.Iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
+    ///         Role = dms_cloudwatch_logs_role.Name,
+    ///     });
+    /// 
+    ///     var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new()
+    ///     {
+    ///         AssumeRolePolicy = dmsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var dms_vpc_role_AmazonDMSVPCManagementRole = new Aws.Iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+    ///         Role = dms_vpc_role.Name,
+    ///     });
+    /// 
+    ///     // Create a new replication instance
+    ///     var test = new Aws.Dms.ReplicationInstance("test", new()
+    ///     {
+    ///         AllocatedStorage = 20,
+    ///         ApplyImmediately = true,
+    ///         AutoMinorVersionUpgrade = true,
+    ///         AvailabilityZone = "us-west-2c",
+    ///         EngineVersion = "3.1.4",
+    ///         KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+    ///         MultiAz = false,
+    ///         PreferredMaintenanceWindow = "sun:10:30-sun:14:30",
+    ///         PubliclyAccessible = true,
+    ///         ReplicationInstanceClass = "dms.t2.micro",
+    ///         ReplicationInstanceId = "test-dms-replication-instance-tf",
+    ///         ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Test_dms_replication_subnet_group_tf.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test" },
+    ///         },
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             "sg-12345678",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
+    ///             dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
+    ///             dms_vpc_role_AmazonDMSVPCManagementRole,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -121,7 +126,7 @@ namespace Pulumi.Aws.Dms
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationInstance:ReplicationInstance")]
-    public partial class ReplicationInstance : Pulumi.CustomResource
+    public partial class ReplicationInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -226,7 +231,7 @@ namespace Pulumi.Aws.Dms
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -281,7 +286,7 @@ namespace Pulumi.Aws.Dms
         }
     }
 
-    public sealed class ReplicationInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -388,9 +393,10 @@ namespace Pulumi.Aws.Dms
         public ReplicationInstanceArgs()
         {
         }
+        public static new ReplicationInstanceArgs Empty => new ReplicationInstanceArgs();
     }
 
-    public sealed class ReplicationInstanceState : Pulumi.ResourceArgs
+    public sealed class ReplicationInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -516,7 +522,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -539,5 +545,6 @@ namespace Pulumi.Aws.Dms
         public ReplicationInstanceState()
         {
         }
+        public static new ReplicationInstanceState Empty => new ReplicationInstanceState();
     }
 }

@@ -15,16 +15,15 @@ namespace Pulumi.Aws.Batch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
-    ///         var test = new Aws.Batch.JobDefinition("test", new Aws.Batch.JobDefinitionArgs
-    ///         {
-    ///             ContainerProperties = @"{
+    ///         ContainerProperties = @"{
     /// 	""command"": [""ls"", ""-la""],
     /// 	""image"": ""busybox"",
     /// 	""memory"": 1024,
@@ -57,63 +56,64 @@ namespace Pulumi.Aws.Batch
     /// }
     /// 
     /// ",
-    ///             Type = "container",
-    ///         });
-    ///     }
+    ///         Type = "container",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Fargate Platform Capability
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var assumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var assumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "ecs-tasks.amazonaws.com",
-    ///                             },
+    ///                             "ecs-tasks.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var ecsTaskExecutionRole = new Aws.Iam.Role("ecsTaskExecutionRole", new Aws.Iam.RoleArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var ecsTaskExecutionRole = new Aws.Iam.Role("ecsTaskExecutionRole", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", new()
+    ///     {
+    ///         Role = ecsTaskExecutionRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+    ///     });
+    /// 
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     {
+    ///         Type = "container",
+    ///         PlatformCapabilities = new[]
     ///         {
-    ///             AssumeRolePolicy = assumeRolePolicy.Apply(assumeRolePolicy =&gt; assumeRolePolicy.Json),
-    ///         });
-    ///         var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = ecsTaskExecutionRole.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
-    ///         });
-    ///         var test = new Aws.Batch.JobDefinition("test", new Aws.Batch.JobDefinitionArgs
-    ///         {
-    ///             Type = "container",
-    ///             PlatformCapabilities = 
-    ///             {
-    ///                 "FARGATE",
-    ///             },
-    ///             ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; @$"{{
+    ///             "FARGATE",
+    ///         },
+    ///         ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; @$"{{
     ///   ""command"": [""echo"", ""test""],
     ///   ""image"": ""busybox"",
     ///   ""fargatePlatformConfiguration"": {{
@@ -126,10 +126,9 @@ namespace Pulumi.Aws.Batch
     ///   ""executionRoleArn"": ""{arn}""
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -141,7 +140,7 @@ namespace Pulumi.Aws.Batch
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/jobDefinition:JobDefinition")]
-    public partial class JobDefinition : Pulumi.CustomResource
+    public partial class JobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of the job definition.
@@ -200,7 +199,7 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -261,7 +260,7 @@ namespace Pulumi.Aws.Batch
         }
     }
 
-    public sealed class JobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -340,9 +339,10 @@ namespace Pulumi.Aws.Batch
         public JobDefinitionArgs()
         {
         }
+        public static new JobDefinitionArgs Empty => new JobDefinitionArgs();
     }
 
-    public sealed class JobDefinitionState : Pulumi.ResourceArgs
+    public sealed class JobDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of the job definition.
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -445,5 +445,6 @@ namespace Pulumi.Aws.Batch
         public JobDefinitionState()
         {
         }
+        public static new JobDefinitionState Empty => new JobDefinitionState();
     }
 }

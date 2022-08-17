@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyServerTimingHeadersConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyServerTimingHeadersConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicyServerTimingHeadersConfigGetArgs()
         {
         }
+        public static new ResponseHeadersPolicyServerTimingHeadersConfigGetArgs Empty => new ResponseHeadersPolicyServerTimingHeadersConfigGetArgs();
     }
 }

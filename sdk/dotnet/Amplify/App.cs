@@ -13,16 +13,15 @@ namespace Pulumi.Aws.Amplify
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
-    ///         {
-    ///             BuildSpec = @"  version: 0.1
+    ///         BuildSpec = @"  version: 0.1
     ///   frontend:
     ///     phases:
     ///       preBuild:
@@ -40,106 +39,99 @@ namespace Pulumi.Aws.Amplify
     ///         - node_modules/**/*
     /// 
     /// ",
-    ///             CustomRules = 
+    ///         CustomRules = new[]
+    ///         {
+    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
     ///             {
-    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///                 {
-    ///                     Source = "/&lt;*&gt;",
-    ///                     Status = "404",
-    ///                     Target = "/index.html",
-    ///                 },
+    ///                 Source = "/&lt;*&gt;",
+    ///                 Status = "404",
+    ///                 Target = "/index.html",
     ///             },
-    ///             EnvironmentVariables = 
-    ///             {
-    ///                 { "ENV", "test" },
-    ///             },
-    ///             Repository = "https://github.com/example/app",
-    ///         });
-    ///     }
+    ///         },
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "ENV", "test" },
+    ///         },
+    ///         Repository = "https://github.com/example/app",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Repository with Tokens
     /// 
     /// If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
-    ///         {
-    ///             AccessToken = "...",
-    ///             Repository = "https://github.com/example/app",
-    ///         });
-    ///     }
+    ///         AccessToken = "...",
+    ///         Repository = "https://github.com/example/app",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
     /// ### Auto Branch Creation
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
     ///         {
-    ///             AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
-    ///             {
-    ///                 EnableAutoBuild = true,
-    ///             },
-    ///             AutoBranchCreationPatterns = 
-    ///             {
-    ///                 "*",
-    ///                 "*/**",
-    ///             },
-    ///             EnableAutoBranchCreation = true,
-    ///         });
-    ///     }
+    ///             EnableAutoBuild = true,
+    ///         },
+    ///         AutoBranchCreationPatterns = new[]
+    ///         {
+    ///             "*",
+    ///             "*/**",
+    ///         },
+    ///         EnableAutoBranchCreation = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Rewrites and Redirects
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         CustomRules = new[]
     ///         {
-    ///             CustomRules = 
+    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
     ///             {
-    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///                 {
-    ///                     Source = "/api/&lt;*&gt;",
-    ///                     Status = "200",
-    ///                     Target = "https://api.example.com/api/&lt;*&gt;",
-    ///                 },
-    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///                 {
-    ///                     Source = "&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;",
-    ///                     Status = "200",
-    ///                     Target = "/index.html",
-    ///                 },
+    ///                 Source = "/api/&lt;*&gt;",
+    ///                 Status = "200",
+    ///                 Target = "https://api.example.com/api/&lt;*&gt;",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             {
+    ///                 Source = "&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;",
+    ///                 Status = "200",
+    ///                 Target = "/index.html",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -153,7 +145,7 @@ namespace Pulumi.Aws.Amplify
     ///  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
     /// </summary>
     [AwsResourceType("aws:amplify/app:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
@@ -331,7 +323,7 @@ namespace Pulumi.Aws.Amplify
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
@@ -468,9 +460,10 @@ namespace Pulumi.Aws.Amplify
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 
-    public sealed class AppState : Pulumi.ResourceArgs
+    public sealed class AppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
@@ -643,5 +636,6 @@ namespace Pulumi.Aws.Amplify
         public AppState()
         {
         }
+        public static new AppState Empty => new AppState();
     }
 }

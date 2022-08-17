@@ -19,6 +19,11 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// </summary>
         public readonly Outputs.DetectorDatasourcesKubernetes? Kubernetes;
         /// <summary>
+        /// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+        /// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+        /// </summary>
+        public readonly Outputs.DetectorDatasourcesMalwareProtection? MalwareProtection;
+        /// <summary>
         /// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
         /// See S3 Logs below for more details.
         /// </summary>
@@ -28,9 +33,12 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         private DetectorDatasources(
             Outputs.DetectorDatasourcesKubernetes? kubernetes,
 
+            Outputs.DetectorDatasourcesMalwareProtection? malwareProtection,
+
             Outputs.DetectorDatasourcesS3Logs? s3Logs)
         {
             Kubernetes = kubernetes;
+            MalwareProtection = malwareProtection;
             S3Logs = s3Logs;
         }
     }

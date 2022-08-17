@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetActionActionThresholdArgs : Pulumi.ResourceArgs
+    public sealed class BudgetActionActionThresholdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetActionActionThresholdArgs()
         {
         }
+        public static new BudgetActionActionThresholdArgs Empty => new BudgetActionActionThresholdArgs();
     }
 }

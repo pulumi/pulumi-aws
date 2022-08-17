@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ServiceLoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the container to associate with the load balancer (as it appears in a container definition).
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ServiceLoadBalancerArgs()
         {
         }
+        public static new ServiceLoadBalancerArgs Empty => new ServiceLoadBalancerArgs();
     }
 }

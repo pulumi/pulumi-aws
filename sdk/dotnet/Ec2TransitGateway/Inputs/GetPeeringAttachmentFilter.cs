@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 {
 
-    public sealed class GetPeeringAttachmentFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringAttachmentFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
         public GetPeeringAttachmentFilterArgs()
         {
         }
+        public static new GetPeeringAttachmentFilterArgs Empty => new GetPeeringAttachmentFilterArgs();
     }
 }

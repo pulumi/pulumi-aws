@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainClusterConfigArgs : Pulumi.ResourceArgs
+    public sealed class DomainClusterConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block containing cold storage configuration. Detailed below.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainClusterConfigArgs()
         {
         }
+        public static new DomainClusterConfigArgs Empty => new DomainClusterConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationGetArgs Empty => new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationGetArgs();
     }
 }

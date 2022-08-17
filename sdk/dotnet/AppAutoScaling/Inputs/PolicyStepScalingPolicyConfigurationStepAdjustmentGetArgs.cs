@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppAutoScaling.Inputs
 {
 
-    public sealed class PolicyStepScalingPolicyConfigurationStepAdjustmentGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyStepScalingPolicyConfigurationStepAdjustmentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public PolicyStepScalingPolicyConfigurationStepAdjustmentGetArgs()
         {
         }
+        public static new PolicyStepScalingPolicyConfigurationStepAdjustmentGetArgs Empty => new PolicyStepScalingPolicyConfigurationStepAdjustmentGetArgs();
     }
 }

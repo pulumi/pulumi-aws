@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewRouteTablePropagation(ctx, "example", &ec2transitgateway.RouteTablePropagationArgs{
-// 			TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-// 			TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewRouteTablePropagation(ctx, "example", &ec2transitgateway.RouteTablePropagationArgs{
+//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_ec2_transit_gateway_route_table_propagation` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+//
+//	$ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+//
 // ```
 type RouteTablePropagation struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *RouteTablePropagation) ToRouteTablePropagationOutputWithContext(ctx con
 // RouteTablePropagationArrayInput is an input type that accepts RouteTablePropagationArray and RouteTablePropagationArrayOutput values.
 // You can construct a concrete instance of `RouteTablePropagationArrayInput` via:
 //
-//          RouteTablePropagationArray{ RouteTablePropagationArgs{...} }
+//	RouteTablePropagationArray{ RouteTablePropagationArgs{...} }
 type RouteTablePropagationArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i RouteTablePropagationArray) ToRouteTablePropagationArrayOutputWithContex
 // RouteTablePropagationMapInput is an input type that accepts RouteTablePropagationMap and RouteTablePropagationMapOutput values.
 // You can construct a concrete instance of `RouteTablePropagationMapInput` via:
 //
-//          RouteTablePropagationMap{ "key": RouteTablePropagationArgs{...} }
+//	RouteTablePropagationMap{ "key": RouteTablePropagationArgs{...} }
 type RouteTablePropagationMapInput interface {
 	pulumi.Input
 

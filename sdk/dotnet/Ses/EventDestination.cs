@@ -16,92 +16,86 @@ namespace Pulumi.Aws.Ses
     /// ### CloudWatch Destination
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new()
     ///     {
-    ///         var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new Aws.Ses.EventDestinationArgs
+    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Enabled = true,
+    ///         MatchingTypes = new[]
     ///         {
-    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
-    ///             Enabled = true,
-    ///             MatchingTypes = 
+    ///             "bounce",
+    ///             "send",
+    ///         },
+    ///         CloudwatchDestinations = new[]
+    ///         {
+    ///             new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
     ///             {
-    ///                 "bounce",
-    ///                 "send",
+    ///                 DefaultValue = "default",
+    ///                 DimensionName = "dimension",
+    ///                 ValueSource = "emailHeader",
     ///             },
-    ///             CloudwatchDestinations = 
-    ///             {
-    ///                 new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
-    ///                 {
-    ///                     DefaultValue = "default",
-    ///                     DimensionName = "dimension",
-    ///                     ValueSource = "emailHeader",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Kinesis Destination
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var kinesis = new Aws.Ses.EventDestination("kinesis", new()
     ///     {
-    ///         var kinesis = new Aws.Ses.EventDestination("kinesis", new Aws.Ses.EventDestinationArgs
+    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Enabled = true,
+    ///         MatchingTypes = new[]
     ///         {
-    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
-    ///             Enabled = true,
-    ///             MatchingTypes = 
-    ///             {
-    ///                 "bounce",
-    ///                 "send",
-    ///             },
-    ///             KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
-    ///             {
-    ///                 StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///                 RoleArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             "bounce",
+    ///             "send",
+    ///         },
+    ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
+    ///         {
+    ///             StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### SNS Destination
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sns = new Aws.Ses.EventDestination("sns", new()
     ///     {
-    ///         var sns = new Aws.Ses.EventDestination("sns", new Aws.Ses.EventDestinationArgs
+    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Enabled = true,
+    ///         MatchingTypes = new[]
     ///         {
-    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
-    ///             Enabled = true,
-    ///             MatchingTypes = 
-    ///             {
-    ///                 "bounce",
-    ///                 "send",
-    ///             },
-    ///             SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
-    ///             {
-    ///                 TopicArn = aws_sns_topic.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             "bounce",
+    ///             "send",
+    ///         },
+    ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
+    ///         {
+    ///             TopicArn = aws_sns_topic.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -113,7 +107,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/eventDestination:EventDestination")]
-    public partial class EventDestination : Pulumi.CustomResource
+    public partial class EventDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The SES event destination ARN.
@@ -207,7 +201,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class EventDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EventDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudwatchDestinations")]
         private InputList<Inputs.EventDestinationCloudwatchDestinationArgs>? _cloudwatchDestinations;
@@ -266,9 +260,10 @@ namespace Pulumi.Aws.Ses
         public EventDestinationArgs()
         {
         }
+        public static new EventDestinationArgs Empty => new EventDestinationArgs();
     }
 
-    public sealed class EventDestinationState : Pulumi.ResourceArgs
+    public sealed class EventDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SES event destination ARN.
@@ -333,5 +328,6 @@ namespace Pulumi.Aws.Ses
         public EventDestinationState()
         {
         }
+        public static new EventDestinationState Empty => new EventDestinationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupGetArgs Empty => new RuleGroupRuleGroupGetArgs();
     }
 }

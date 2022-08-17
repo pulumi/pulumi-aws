@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PipelineContentConfigPermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class PipelineContentConfigPermissionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("accesses")]
         private InputList<string>? _accesses;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PipelineContentConfigPermissionGetArgs()
         {
         }
+        public static new PipelineContentConfigPermissionGetArgs Empty => new PipelineContentConfigPermissionGetArgs();
     }
 }

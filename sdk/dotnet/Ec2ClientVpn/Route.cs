@@ -16,45 +16,45 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleEndpoint = new Aws.Ec2ClientVpn.Endpoint("exampleEndpoint", new()
     ///     {
-    ///         var exampleEndpoint = new Aws.Ec2ClientVpn.Endpoint("exampleEndpoint", new Aws.Ec2ClientVpn.EndpointArgs
+    ///         Description = "Example Client VPN endpoint",
+    ///         ServerCertificateArn = aws_acm_certificate.Example.Arn,
+    ///         ClientCidrBlock = "10.0.0.0/16",
+    ///         AuthenticationOptions = new[]
     ///         {
-    ///             Description = "Example Client VPN endpoint",
-    ///             ServerCertificateArn = aws_acm_certificate.Example.Arn,
-    ///             ClientCidrBlock = "10.0.0.0/16",
-    ///             AuthenticationOptions = 
+    ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
     ///             {
-    ///                 new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
-    ///                 {
-    ///                     Type = "certificate-authentication",
-    ///                     RootCertificateChainArn = aws_acm_certificate.Example.Arn,
-    ///                 },
+    ///                 Type = "certificate-authentication",
+    ///                 RootCertificateChainArn = aws_acm_certificate.Example.Arn,
     ///             },
-    ///             ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
-    ///             {
-    ///                 Enabled = false,
-    ///             },
-    ///         });
-    ///         var exampleNetworkAssociation = new Aws.Ec2ClientVpn.NetworkAssociation("exampleNetworkAssociation", new Aws.Ec2ClientVpn.NetworkAssociationArgs
+    ///         },
+    ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
     ///         {
-    ///             ClientVpnEndpointId = exampleEndpoint.Id,
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         });
-    ///         var exampleRoute = new Aws.Ec2ClientVpn.Route("exampleRoute", new Aws.Ec2ClientVpn.RouteArgs
-    ///         {
-    ///             ClientVpnEndpointId = exampleEndpoint.Id,
-    ///             DestinationCidrBlock = "0.0.0.0/0",
-    ///             TargetVpcSubnetId = exampleNetworkAssociation.SubnetId,
-    ///         });
-    ///     }
+    ///             Enabled = false,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkAssociation = new Aws.Ec2ClientVpn.NetworkAssociation("exampleNetworkAssociation", new()
+    ///     {
+    ///         ClientVpnEndpointId = exampleEndpoint.Id,
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleRoute = new Aws.Ec2ClientVpn.Route("exampleRoute", new()
+    ///     {
+    ///         ClientVpnEndpointId = exampleEndpoint.Id,
+    ///         DestinationCidrBlock = "0.0.0.0/0",
+    ///         TargetVpcSubnetId = exampleNetworkAssociation.SubnetId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -177,9 +177,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -220,5 +221,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

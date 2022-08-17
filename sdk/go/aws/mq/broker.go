@@ -26,36 +26,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-// 			Configuration: &mq.BrokerConfigurationArgs{
-// 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-// 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
-// 			},
-// 			EngineType:       pulumi.String("ActiveMQ"),
-// 			EngineVersion:    pulumi.String("5.15.9"),
-// 			HostInstanceType: pulumi.String("mq.t2.micro"),
-// 			SecurityGroups: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Test.Id),
-// 			},
-// 			Users: mq.BrokerUserArray{
-// 				&mq.BrokerUserArgs{
-// 					Username: pulumi.String("ExampleUser"),
-// 					Password: pulumi.String("MindTheGap"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+//				Configuration: &mq.BrokerConfigurationArgs{
+//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
+//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
+//				},
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.15.9"),
+//				HostInstanceType: pulumi.String("mq.t2.micro"),
+//				SecurityGroups: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Test.Id),
+//				},
+//				Users: mq.BrokerUserArray{
+//					&mq.BrokerUserArgs{
+//						Username: pulumi.String("ExampleUser"),
+//						Password: pulumi.String("MindTheGap"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### High-throughput Optimized Example
 //
@@ -65,37 +68,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-// 			Configuration: &mq.BrokerConfigurationArgs{
-// 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-// 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
-// 			},
-// 			EngineType:       pulumi.String("ActiveMQ"),
-// 			EngineVersion:    pulumi.String("5.15.9"),
-// 			StorageType:      pulumi.String("ebs"),
-// 			HostInstanceType: pulumi.String("mq.m5.large"),
-// 			SecurityGroups: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Test.Id),
-// 			},
-// 			Users: mq.BrokerUserArray{
-// 				&mq.BrokerUserArgs{
-// 					Username: pulumi.String("ExampleUser"),
-// 					Password: pulumi.String("MindTheGap"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+//				Configuration: &mq.BrokerConfigurationArgs{
+//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
+//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
+//				},
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.15.9"),
+//				StorageType:      pulumi.String("ebs"),
+//				HostInstanceType: pulumi.String("mq.m5.large"),
+//				SecurityGroups: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Test.Id),
+//				},
+//				Users: mq.BrokerUserArray{
+//					&mq.BrokerUserArgs{
+//						Username: pulumi.String("ExampleUser"),
+//						Password: pulumi.String("MindTheGap"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -103,7 +109,9 @@ import (
 // MQ Brokers can be imported using their broker id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type Broker struct {
 	pulumi.CustomResourceState
@@ -157,9 +165,9 @@ type Broker struct {
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Map of tags to assign to the broker. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	Users BrokerUserArrayOutput `pulumi:"users"`
@@ -255,9 +263,9 @@ type brokerState struct {
 	StorageType *string `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags to assign to the broker. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	Users []BrokerUser `pulumi:"users"`
@@ -313,9 +321,9 @@ type BrokerState struct {
 	StorageType pulumi.StringPtrInput
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayInput
-	// Map of tags to assign to the broker. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	Users BrokerUserArrayInput
@@ -360,7 +368,7 @@ type brokerArgs struct {
 	StorageType *string `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags to assign to the broker. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	Users []BrokerUser `pulumi:"users"`
@@ -402,7 +410,7 @@ type BrokerArgs struct {
 	StorageType pulumi.StringPtrInput
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayInput
-	// Map of tags to assign to the broker. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	Users BrokerUserArrayInput
@@ -434,7 +442,7 @@ func (i *Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 // BrokerArrayInput is an input type that accepts BrokerArray and BrokerArrayOutput values.
 // You can construct a concrete instance of `BrokerArrayInput` via:
 //
-//          BrokerArray{ BrokerArgs{...} }
+//	BrokerArray{ BrokerArgs{...} }
 type BrokerArrayInput interface {
 	pulumi.Input
 
@@ -459,7 +467,7 @@ func (i BrokerArray) ToBrokerArrayOutputWithContext(ctx context.Context) BrokerA
 // BrokerMapInput is an input type that accepts BrokerMap and BrokerMapOutput values.
 // You can construct a concrete instance of `BrokerMapInput` via:
 //
-//          BrokerMap{ "key": BrokerArgs{...} }
+//	BrokerMap{ "key": BrokerArgs{...} }
 type BrokerMapInput interface {
 	pulumi.Input
 
@@ -601,12 +609,12 @@ func (o BrokerOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags to assign to the broker. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BrokerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BrokerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

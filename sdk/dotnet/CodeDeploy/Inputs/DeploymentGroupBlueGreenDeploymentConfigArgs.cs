@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupBlueGreenDeploymentConfigArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupBlueGreenDeploymentConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupBlueGreenDeploymentConfigArgs()
         {
         }
+        public static new DeploymentGroupBlueGreenDeploymentConfigArgs Empty => new DeploymentGroupBlueGreenDeploymentConfigArgs();
     }
 }

@@ -20,61 +20,55 @@ namespace Pulumi.Aws.NetworkFirewall
         /// ### Find firewall policy by name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkFirewall.GetFirewallPolicy.InvokeAsync(new Aws.NetworkFirewall.GetFirewallPolicyArgs
-        ///         {
-        ///             Name = @var.Firewall_policy_name,
-        ///         }));
-        ///     }
+        ///         Name = @var.Firewall_policy_name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find firewall policy by Amazon Resource Name (ARN)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkFirewall.GetFirewallPolicy.InvokeAsync(new Aws.NetworkFirewall.GetFirewallPolicyArgs
-        ///         {
-        ///             Arn = @var.Firewall_policy_arn,
-        ///         }));
-        ///     }
+        ///         Arn = @var.Firewall_policy_arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find firewall policy by name and ARN
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkFirewall.GetFirewallPolicy.InvokeAsync(new Aws.NetworkFirewall.GetFirewallPolicyArgs
-        ///         {
-        ///             Arn = @var.Firewall_policy_arn,
-        ///             Name = @var.Firewall_policy_name,
-        ///         }));
-        ///     }
+        ///         Arn = @var.Firewall_policy_arn,
+        ///         Name = @var.Firewall_policy_name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
@@ -95,61 +89,55 @@ namespace Pulumi.Aws.NetworkFirewall
         /// ### Find firewall policy by name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkFirewall.GetFirewallPolicy.InvokeAsync(new Aws.NetworkFirewall.GetFirewallPolicyArgs
-        ///         {
-        ///             Name = @var.Firewall_policy_name,
-        ///         }));
-        ///     }
+        ///         Name = @var.Firewall_policy_name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find firewall policy by Amazon Resource Name (ARN)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkFirewall.GetFirewallPolicy.InvokeAsync(new Aws.NetworkFirewall.GetFirewallPolicyArgs
-        ///         {
-        ///             Arn = @var.Firewall_policy_arn,
-        ///         }));
-        ///     }
+        ///         Arn = @var.Firewall_policy_arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find firewall policy by name and ARN
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkFirewall.GetFirewallPolicy.InvokeAsync(new Aws.NetworkFirewall.GetFirewallPolicyArgs
-        ///         {
-        ///             Arn = @var.Firewall_policy_arn,
-        ///             Name = @var.Firewall_policy_name,
-        ///         }));
-        ///     }
+        ///         Arn = @var.Firewall_policy_arn,
+        ///         Name = @var.Firewall_policy_name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
@@ -163,7 +151,7 @@ namespace Pulumi.Aws.NetworkFirewall
     }
 
 
-    public sealed class GetFirewallPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the firewall policy.
@@ -192,9 +180,10 @@ namespace Pulumi.Aws.NetworkFirewall
         public GetFirewallPolicyArgs()
         {
         }
+        public static new GetFirewallPolicyArgs Empty => new GetFirewallPolicyArgs();
     }
 
-    public sealed class GetFirewallPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the firewall policy.
@@ -223,6 +212,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public GetFirewallPolicyInvokeArgs()
         {
         }
+        public static new GetFirewallPolicyInvokeArgs Empty => new GetFirewallPolicyInvokeArgs();
     }
 
 

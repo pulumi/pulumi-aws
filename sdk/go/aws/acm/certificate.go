@@ -32,25 +32,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-// 			DomainName: pulumi.String("example.com"),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("test"),
-// 			},
-// 			ValidationMethod: pulumi.String("DNS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
+//				DomainName: pulumi.String("example.com"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("test"),
+//				},
+//				ValidationMethod: pulumi.String("DNS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Domain Validation Options
 //
@@ -58,28 +61,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-// 			DomainName:       pulumi.String("testing.example.com"),
-// 			ValidationMethod: pulumi.String("EMAIL"),
-// 			ValidationOptions: acm.CertificateValidationOptionArray{
-// 				&acm.CertificateValidationOptionArgs{
-// 					DomainName:       pulumi.String("testing.example.com"),
-// 					ValidationDomain: pulumi.String("example.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
+//				DomainName:       pulumi.String("testing.example.com"),
+//				ValidationMethod: pulumi.String("EMAIL"),
+//				ValidationOptions: acm.CertificateValidationOptionArray{
+//					&acm.CertificateValidationOptionArgs{
+//						DomainName:       pulumi.String("testing.example.com"),
+//						ValidationDomain: pulumi.String("example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Existing Certificate Body Import
 //
@@ -87,48 +93,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-// 	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
-// 			Algorithm: pulumi.String("RSA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
-// 			KeyAlgorithm:  pulumi.String("RSA"),
-// 			PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
-// 			Subjects: SelfSignedCertSubjectArray{
-// 				&SelfSignedCertSubjectArgs{
-// 					CommonName:   pulumi.String("example.com"),
-// 					Organization: pulumi.String("ACME Examples, Inc"),
-// 				},
-// 			},
-// 			ValidityPeriodHours: pulumi.Int(12),
-// 			AllowedUses: pulumi.StringArray{
-// 				pulumi.String("key_encipherment"),
-// 				pulumi.String("digital_signature"),
-// 				pulumi.String("server_auth"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-// 			PrivateKey:      examplePrivateKey.PrivateKeyPem,
-// 			CertificateBody: exampleSelfSignedCert.CertPem,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
+//				Algorithm: pulumi.String("RSA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
+//				KeyAlgorithm:  pulumi.String("RSA"),
+//				PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
+//				Subjects: SelfSignedCertSubjectArray{
+//					&SelfSignedCertSubjectArgs{
+//						CommonName:   pulumi.String("example.com"),
+//						Organization: pulumi.String("ACME Examples, Inc"),
+//					},
+//				},
+//				ValidityPeriodHours: pulumi.Int(12),
+//				AllowedUses: pulumi.StringArray{
+//					pulumi.String("key_encipherment"),
+//					pulumi.String("digital_signature"),
+//					pulumi.String("server_auth"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
+//				PrivateKey:      examplePrivateKey.PrivateKeyPem,
+//				CertificateBody: exampleSelfSignedCert.CertPem,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -136,7 +145,9 @@ import (
 // Certificates can be imported using their ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+//
+//	$ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+//
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -162,9 +173,9 @@ type Certificate struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource..
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
@@ -225,9 +236,9 @@ type certificateState struct {
 	Status *string `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource..
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
@@ -260,9 +271,9 @@ type CertificateState struct {
 	Status pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource..
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayInput
@@ -293,7 +304,7 @@ type certificateArgs struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource..
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod *string `pulumi:"validationMethod"`
@@ -319,7 +330,7 @@ type CertificateArgs struct {
 	PrivateKey pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource..
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
@@ -354,7 +365,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
-//          CertificateArray{ CertificateArgs{...} }
+//	CertificateArray{ CertificateArgs{...} }
 type CertificateArrayInput interface {
 	pulumi.Input
 
@@ -379,7 +390,7 @@ func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Contex
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
 // You can construct a concrete instance of `CertificateMapInput` via:
 //
-//          CertificateMap{ "key": CertificateArgs{...} }
+//	CertificateMap{ "key": CertificateArgs{...} }
 type CertificateMapInput interface {
 	pulumi.Input
 
@@ -466,12 +477,12 @@ func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource..
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

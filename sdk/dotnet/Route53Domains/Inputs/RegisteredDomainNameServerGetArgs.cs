@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53Domains.Inputs
 {
 
-    public sealed class RegisteredDomainNameServerGetArgs : Pulumi.ResourceArgs
+    public sealed class RegisteredDomainNameServerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("glueIps")]
         private InputList<string>? _glueIps;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Route53Domains.Inputs
         public RegisteredDomainNameServerGetArgs()
         {
         }
+        public static new RegisteredDomainNameServerGetArgs Empty => new RegisteredDomainNameServerGetArgs();
     }
 }

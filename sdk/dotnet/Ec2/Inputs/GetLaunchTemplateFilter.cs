@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetLaunchTemplateFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchTemplateFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetLaunchTemplateFilterArgs()
         {
         }
+        public static new GetLaunchTemplateFilterArgs Empty => new GetLaunchTemplateFilterArgs();
     }
 }

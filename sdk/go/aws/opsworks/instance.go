@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewInstance(ctx, "my-instance", &opsworks.InstanceArgs{
-// 			StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-// 			LayerIds: pulumi.StringArray{
-// 				pulumi.Any(aws_opsworks_custom_layer.My - layer.Id),
-// 			},
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			Os:           pulumi.String("Amazon Linux 2015.09"),
-// 			State:        pulumi.String("stopped"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewInstance(ctx, "my-instance", &opsworks.InstanceArgs{
+//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//				LayerIds: pulumi.StringArray{
+//					pulumi.Any(aws_opsworks_custom_layer.My - layer.Id),
+//				},
+//				InstanceType: pulumi.String("t2.micro"),
+//				Os:           pulumi.String("Amazon Linux 2015.09"),
+//				State:        pulumi.String("stopped"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Block devices
 //
@@ -90,7 +93,9 @@ import (
 // Opsworks Instances can be imported using the `instance id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+//
+//	$ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+//
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -564,7 +569,7 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
-//          InstanceArray{ InstanceArgs{...} }
+//	InstanceArray{ InstanceArgs{...} }
 type InstanceArrayInput interface {
 	pulumi.Input
 
@@ -589,7 +594,7 @@ func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) Ins
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
 // You can construct a concrete instance of `InstanceMapInput` via:
 //
-//          InstanceMap{ "key": InstanceArgs{...} }
+//	InstanceMap{ "key": InstanceArgs{...} }
 type InstanceMapInput interface {
 	pulumi.Input
 

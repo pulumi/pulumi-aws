@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class StageRouteSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class StageRouteSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
@@ -53,5 +53,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public StageRouteSettingGetArgs()
         {
         }
+        public static new StageRouteSettingGetArgs Empty => new StageRouteSettingGetArgs();
     }
 }

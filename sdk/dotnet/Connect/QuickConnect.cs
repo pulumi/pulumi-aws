@@ -16,36 +16,34 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.QuickConnect("test", new()
     ///     {
-    ///         var test = new Aws.Connect.QuickConnect("test", new Aws.Connect.QuickConnectArgs
+    ///         Description = "quick connect phone number",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         QuickConnectConfig = new Aws.Connect.Inputs.QuickConnectQuickConnectConfigArgs
     ///         {
-    ///             Description = "quick connect phone number",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             QuickConnectConfig = new Aws.Connect.Inputs.QuickConnectQuickConnectConfigArgs
+    ///             PhoneConfigs = new[]
     ///             {
-    ///                 PhoneConfigs = 
+    ///                 new Aws.Connect.Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs
     ///                 {
-    ///                     new Aws.Connect.Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs
-    ///                     {
-    ///                         PhoneNumber = "+12345678912",
-    ///                     },
+    ///                     PhoneNumber = "+12345678912",
     ///                 },
-    ///                 QuickConnectType = "PHONE_NUMBER",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Quick Connect" },
-    ///             },
-    ///         });
-    ///     }
+    ///             QuickConnectType = "PHONE_NUMBER",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Quick Connect" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/quickConnect:QuickConnect")]
-    public partial class QuickConnect : Pulumi.CustomResource
+    public partial class QuickConnect : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Quick Connect.
@@ -101,9 +99,6 @@ namespace Pulumi.Aws.Connect
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -151,7 +146,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class QuickConnectArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the description of the Quick Connect.
@@ -192,9 +187,10 @@ namespace Pulumi.Aws.Connect
         public QuickConnectArgs()
         {
         }
+        public static new QuickConnectArgs Empty => new QuickConnectArgs();
     }
 
-    public sealed class QuickConnectState : Pulumi.ResourceArgs
+    public sealed class QuickConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Quick Connect.
@@ -246,10 +242,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -259,5 +251,6 @@ namespace Pulumi.Aws.Connect
         public QuickConnectState()
         {
         }
+        public static new QuickConnectState Empty => new QuickConnectState();
     }
 }

@@ -20,50 +20,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
-// 			Configs: connect.HoursOfOperationConfigArray{
-// 				&connect.HoursOfOperationConfigArgs{
-// 					Day: pulumi.String("MONDAY"),
-// 					EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
-// 						Hours:   pulumi.Int(23),
-// 						Minutes: pulumi.Int(8),
-// 					},
-// 					StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
-// 						Hours:   pulumi.Int(8),
-// 						Minutes: pulumi.Int(0),
-// 					},
-// 				},
-// 				&connect.HoursOfOperationConfigArgs{
-// 					Day: pulumi.String("TUESDAY"),
-// 					EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
-// 						Hours:   pulumi.Int(21),
-// 						Minutes: pulumi.Int(0),
-// 					},
-// 					StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
-// 						Hours:   pulumi.Int(9),
-// 						Minutes: pulumi.Int(0),
-// 					},
-// 				},
-// 			},
-// 			Description: pulumi.String("Monday office hours"),
-// 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Hours of Operation"),
-// 			},
-// 			TimeZone: pulumi.String("EST"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
+//				Configs: connect.HoursOfOperationConfigArray{
+//					&connect.HoursOfOperationConfigArgs{
+//						Day: pulumi.String("MONDAY"),
+//						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
+//							Hours:   pulumi.Int(23),
+//							Minutes: pulumi.Int(8),
+//						},
+//						StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
+//							Hours:   pulumi.Int(8),
+//							Minutes: pulumi.Int(0),
+//						},
+//					},
+//					&connect.HoursOfOperationConfigArgs{
+//						Day: pulumi.String("TUESDAY"),
+//						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
+//							Hours:   pulumi.Int(21),
+//							Minutes: pulumi.Int(0),
+//						},
+//						StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
+//							Hours:   pulumi.Int(9),
+//							Minutes: pulumi.Int(0),
+//						},
+//					},
+//				},
+//				Description: pulumi.String("Monday office hours"),
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Hours of Operation"),
+//				},
+//				TimeZone: pulumi.String("EST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
@@ -248,7 +253,7 @@ func (i *HoursOfOperation) ToHoursOfOperationOutputWithContext(ctx context.Conte
 // HoursOfOperationArrayInput is an input type that accepts HoursOfOperationArray and HoursOfOperationArrayOutput values.
 // You can construct a concrete instance of `HoursOfOperationArrayInput` via:
 //
-//          HoursOfOperationArray{ HoursOfOperationArgs{...} }
+//	HoursOfOperationArray{ HoursOfOperationArgs{...} }
 type HoursOfOperationArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +278,7 @@ func (i HoursOfOperationArray) ToHoursOfOperationArrayOutputWithContext(ctx cont
 // HoursOfOperationMapInput is an input type that accepts HoursOfOperationMap and HoursOfOperationMapOutput values.
 // You can construct a concrete instance of `HoursOfOperationMapInput` via:
 //
-//          HoursOfOperationMap{ "key": HoursOfOperationArgs{...} }
+//	HoursOfOperationMap{ "key": HoursOfOperationArgs{...} }
 type HoursOfOperationMapInput interface {
 	pulumi.Input
 

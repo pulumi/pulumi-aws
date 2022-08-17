@@ -25,27 +25,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
-// 			IsDisabled: pulumi.Bool(false),
-// 			Power:      pulumi.String("nano"),
-// 			Scale:      pulumi.Int(1),
-// 			Tags: pulumi.StringMap{
-// 				"foo1": pulumi.String("bar1"),
-// 				"foo2": pulumi.String(""),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
+//				IsDisabled: pulumi.Bool(false),
+//				Power:      pulumi.String("nano"),
+//				Scale:      pulumi.Int(1),
+//				Tags: pulumi.StringMap{
+//					"foo1": pulumi.String("bar1"),
+//					"foo2": pulumi.String(""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Public Domain Names
 //
@@ -53,30 +56,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
-// 			PublicDomainNames: &lightsail.ContainerServicePublicDomainNamesArgs{
-// 				Certificates: lightsail.ContainerServicePublicDomainNamesCertificateArray{
-// 					&lightsail.ContainerServicePublicDomainNamesCertificateArgs{
-// 						CertificateName: pulumi.String("example-certificate"),
-// 						DomainNames: pulumi.StringArray{
-// 							pulumi.String("www.example.com"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
+//				PublicDomainNames: &lightsail.ContainerServicePublicDomainNamesArgs{
+//					Certificates: lightsail.ContainerServicePublicDomainNamesCertificateArray{
+//						&lightsail.ContainerServicePublicDomainNamesCertificateArgs{
+//							CertificateName: pulumi.String("example-certificate"),
+//							DomainNames: pulumi.StringArray{
+//								pulumi.String("www.example.com"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +90,9 @@ import (
 // Lightsail Container Service can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+//
+//	$ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+//
 // ```
 type ContainerService struct {
 	pulumi.CustomResourceState
@@ -329,7 +337,7 @@ func (i *ContainerService) ToContainerServiceOutputWithContext(ctx context.Conte
 // ContainerServiceArrayInput is an input type that accepts ContainerServiceArray and ContainerServiceArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceArrayInput` via:
 //
-//          ContainerServiceArray{ ContainerServiceArgs{...} }
+//	ContainerServiceArray{ ContainerServiceArgs{...} }
 type ContainerServiceArrayInput interface {
 	pulumi.Input
 
@@ -354,7 +362,7 @@ func (i ContainerServiceArray) ToContainerServiceArrayOutputWithContext(ctx cont
 // ContainerServiceMapInput is an input type that accepts ContainerServiceMap and ContainerServiceMapOutput values.
 // You can construct a concrete instance of `ContainerServiceMapInput` via:
 //
-//          ContainerServiceMap{ "key": ContainerServiceArgs{...} }
+//	ContainerServiceMap{ "key": ContainerServiceArgs{...} }
 type ContainerServiceMapInput interface {
 	pulumi.Input
 
@@ -423,9 +431,9 @@ func (o ContainerServiceOutput) Power() pulumi.StringOutput {
 }
 
 // The ID of the power of the container service.
-// * `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-//   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-//   service permission to access resources in your standard AWS account.
+//   - `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
+//     relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+//     service permission to access resources in your standard AWS account.
 func (o ContainerServiceOutput) PowerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PowerId }).(pulumi.StringOutput)
 }

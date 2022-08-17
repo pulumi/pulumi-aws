@@ -22,30 +22,29 @@ namespace Pulumi.Aws.Kms
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var oauthConfig = new Aws.Kms.Key("oauthConfig", new()
         ///     {
-        ///         var oauthConfig = new Aws.Kms.Key("oauthConfig", new Aws.Kms.KeyArgs
-        ///         {
-        ///             Description = "oauth config",
-        ///             IsEnabled = true,
-        ///         });
-        ///         var oauth = Aws.Kms.GetCipherText.Invoke(new Aws.Kms.GetCipherTextInvokeArgs
-        ///         {
-        ///             KeyId = oauthConfig.KeyId,
-        ///             Plaintext = @"{
+        ///         Description = "oauth config",
+        ///         IsEnabled = true,
+        ///     });
+        /// 
+        ///     var oauth = Aws.Kms.GetCipherText.Invoke(new()
+        ///     {
+        ///         KeyId = oauthConfig.KeyId,
+        ///         Plaintext = @"{
         ///   ""client_id"": ""e587dbae22222f55da22"",
         ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
         /// }
         /// ",
-        ///         });
-        ///     }
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -64,30 +63,29 @@ namespace Pulumi.Aws.Kms
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var oauthConfig = new Aws.Kms.Key("oauthConfig", new()
         ///     {
-        ///         var oauthConfig = new Aws.Kms.Key("oauthConfig", new Aws.Kms.KeyArgs
-        ///         {
-        ///             Description = "oauth config",
-        ///             IsEnabled = true,
-        ///         });
-        ///         var oauth = Aws.Kms.GetCipherText.Invoke(new Aws.Kms.GetCipherTextInvokeArgs
-        ///         {
-        ///             KeyId = oauthConfig.KeyId,
-        ///             Plaintext = @"{
+        ///         Description = "oauth config",
+        ///         IsEnabled = true,
+        ///     });
+        /// 
+        ///     var oauth = Aws.Kms.GetCipherText.Invoke(new()
+        ///     {
+        ///         KeyId = oauthConfig.KeyId,
+        ///         Plaintext = @"{
         ///   ""client_id"": ""e587dbae22222f55da22"",
         ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
         /// }
         /// ",
-        ///         });
-        ///     }
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Kms
     }
 
 
-    public sealed class GetCipherTextArgs : Pulumi.InvokeArgs
+    public sealed class GetCipherTextArgs : global::Pulumi.InvokeArgs
     {
         [Input("context")]
         private Dictionary<string, string>? _context;
@@ -126,9 +124,10 @@ namespace Pulumi.Aws.Kms
         public GetCipherTextArgs()
         {
         }
+        public static new GetCipherTextArgs Empty => new GetCipherTextArgs();
     }
 
-    public sealed class GetCipherTextInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCipherTextInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("context")]
         private InputMap<string>? _context;
@@ -157,6 +156,7 @@ namespace Pulumi.Aws.Kms
         public GetCipherTextInvokeArgs()
         {
         }
+        public static new GetCipherTextInvokeArgs Empty => new GetCipherTextInvokeArgs();
     }
 
 

@@ -26,31 +26,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bootstrapScript, err := s3.LookupBucketObject(ctx, &s3.LookupBucketObjectArgs{
-// 			Bucket: "ourcorp-deploy-config",
-// 			Key:    "ec2-bootstrap-script.sh",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			Ami:          pulumi.String("ami-2757f631"),
-// 			UserData:     pulumi.String(bootstrapScript.Body),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bootstrapScript, err := s3.LookupBucketObject(ctx, &s3.LookupBucketObjectArgs{
+//				Bucket: "ourcorp-deploy-config",
+//				Key:    "ec2-bootstrap-script.sh",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				InstanceType: pulumi.String("t2.micro"),
+//				Ami:          pulumi.String("ami-2757f631"),
+//				UserData:     pulumi.String(bootstrapScript.Body),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // The following, more-complex example retrieves only the metadata for a zip
@@ -63,34 +66,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lambda, err := s3.LookupBucketObject(ctx, &s3.LookupBucketObjectArgs{
-// 			Bucket: "ourcorp-lambda-functions",
-// 			Key:    "hello-world.zip",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-// 			S3Bucket:        pulumi.String(lambda.Bucket),
-// 			S3Key:           pulumi.String(lambda.Key),
-// 			S3ObjectVersion: pulumi.String(lambda.VersionId),
-// 			Role:            pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
-// 			Handler:         pulumi.String("exports.test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lambda, err := s3.LookupBucketObject(ctx, &s3.LookupBucketObjectArgs{
+//				Bucket: "ourcorp-lambda-functions",
+//				Key:    "hello-world.zip",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//				S3Bucket:        pulumi.String(lambda.Bucket),
+//				S3Key:           pulumi.String(lambda.Key),
+//				S3ObjectVersion: pulumi.String(lambda.VersionId),
+//				Role:            pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
+//				Handler:         pulumi.String("exports.test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts ...pulumi.InvokeOption) (*LookupBucketObjectResult, error) {
 	var rv LookupBucketObjectResult

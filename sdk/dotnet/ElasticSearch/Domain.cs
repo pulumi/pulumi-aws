@@ -16,59 +16,58 @@ namespace Pulumi.Aws.ElasticSearch
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
-    ///         var example = new Aws.ElasticSearch.Domain("example", new Aws.ElasticSearch.DomainArgs
+    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
-    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///             {
-    ///                 InstanceType = "r4.large.elasticsearch",
-    ///             },
-    ///             ElasticsearchVersion = "7.10",
-    ///             Tags = 
-    ///             {
-    ///                 { "Domain", "TestDomain" },
-    ///             },
-    ///         });
-    ///     }
+    ///             InstanceType = "r4.large.elasticsearch",
+    ///         },
+    ///         ElasticsearchVersion = "7.10",
+    ///         Tags = 
+    ///         {
+    ///             { "Domain", "TestDomain" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Access Policy
     /// 
     /// &gt; See also: `aws.elasticsearch.DomainPolicy` resource
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var domain = config.Get("domain") ?? "tf-test";
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
-    ///         var config = new Config();
-    ///         var domain = config.Get("domain") ?? "tf-test";
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var example = new Aws.ElasticSearch.Domain("example", new Aws.ElasticSearch.DomainArgs
+    ///         AccessPolicies = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
     ///         {
-    ///             AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 return @$"{{
+    ///             var currentRegion = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
     ///       ""Action"": ""es:*"",
     ///       ""Principal"": ""*"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:es:{currentRegion.Name}:{currentCallerIdentity.AccountId}:domain/{domain}/*"",
+    ///       ""Resource"": ""arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
     ///       ""Condition"": {{
     ///         ""IpAddress"": {{""aws:SourceIp"": [""66.193.100.22/32""]}}
     ///       }}
@@ -76,29 +75,26 @@ namespace Pulumi.Aws.ElasticSearch
     ///   ]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Log Publishing to CloudWatch Logs
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    /// 
+    ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new()
     ///     {
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
-    ///         {
-    ///             PolicyName = "example",
-    ///             PolicyDocument = @"{
+    ///         PolicyName = "example",
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -116,130 +112,134 @@ namespace Pulumi.Aws.ElasticSearch
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         // .. other configuration ...
-    ///         var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new Aws.ElasticSearch.DomainArgs
-    ///         {
-    ///             LogPublishingOptions = 
-    ///             {
-    ///                 new Aws.ElasticSearch.Inputs.DomainLogPublishingOptionArgs
-    ///                 {
-    ///                     CloudwatchLogGroupArn = exampleLogGroup.Arn,
-    ///                     LogType = "INDEX_SLOW_LOGS",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     // .. other configuration ...
+    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
+    ///     {
+    ///         LogPublishingOptions = new[]
+    ///         {
+    ///             new Aws.ElasticSearch.Inputs.DomainLogPublishingOptionArgs
+    ///             {
+    ///                 CloudwatchLogGroupArn = exampleLogGroup.Arn,
+    ///                 LogType = "INDEX_SLOW_LOGS",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### VPC based ES
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var vpc = config.RequireObject&lt;dynamic&gt;("vpc");
+    ///     var domain = config.Get("domain") ?? "tf-test";
+    ///     var selectedVpc = Aws.Ec2.GetVpc.Invoke(new()
     ///     {
-    ///         var config = new Config();
-    ///         var vpc = config.RequireObject&lt;dynamic&gt;("vpc");
-    ///         var domain = config.Get("domain") ?? "tf-test";
-    ///         var selectedVpc = Output.Create(Aws.Ec2.GetVpc.InvokeAsync(new Aws.Ec2.GetVpcArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", vpc },
-    ///             },
-    ///         }));
-    ///         var selectedSubnetIds = selectedVpc.Apply(selectedVpc =&gt; Output.Create(Aws.Ec2.GetSubnetIds.InvokeAsync(new Aws.Ec2.GetSubnetIdsArgs
+    ///             { "Name", vpc },
+    ///         },
+    ///     });
+    /// 
+    ///     var selectedSubnetIds = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     {
+    ///         VpcId = selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         Tags = 
     ///         {
-    ///             VpcId = selectedVpc.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Tier", "private" },
-    ///             },
-    ///         })));
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var esSecurityGroup = new Aws.Ec2.SecurityGroup("esSecurityGroup", new Aws.Ec2.SecurityGroupArgs
+    ///             { "Tier", "private" },
+    ///         },
+    ///     });
+    /// 
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var esSecurityGroup = new Aws.Ec2.SecurityGroup("esSecurityGroup", new()
+    ///     {
+    ///         Description = "Managed by Pulumi",
+    ///         VpcId = selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         Ingress = new[]
     ///         {
-    ///             Description = "Managed by Pulumi",
-    ///             VpcId = selectedVpc.Apply(selectedVpc =&gt; selectedVpc.Id),
-    ///             Ingress = 
+    ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+    ///                 FromPort = 443,
+    ///                 ToPort = 443,
+    ///                 Protocol = "tcp",
+    ///                 CidrBlocks = new[]
     ///                 {
-    ///                     FromPort = 443,
-    ///                     ToPort = 443,
-    ///                     Protocol = "tcp",
-    ///                     CidrBlocks = 
-    ///                     {
-    ///                         selectedVpc.Apply(selectedVpc =&gt; selectedVpc.CidrBlock),
-    ///                     },
+    ///                     selectedVpc.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
     ///                 },
     ///             },
-    ///         });
-    ///         var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("esServiceLinkedRole", new Aws.Iam.ServiceLinkedRoleArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("esServiceLinkedRole", new()
+    ///     {
+    ///         AwsServiceName = "es.amazonaws.com",
+    ///     });
+    /// 
+    ///     var esDomain = new Aws.ElasticSearch.Domain("esDomain", new()
+    ///     {
+    ///         ElasticsearchVersion = "6.3",
+    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
-    ///             AwsServiceName = "es.amazonaws.com",
-    ///         });
-    ///         var esDomain = new Aws.ElasticSearch.Domain("esDomain", new Aws.ElasticSearch.DomainArgs
+    ///             InstanceType = "m4.large.elasticsearch",
+    ///             ZoneAwarenessEnabled = true,
+    ///         },
+    ///         VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
     ///         {
-    ///             ElasticsearchVersion = "6.3",
-    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
+    ///             SubnetIds = new[]
     ///             {
-    ///                 InstanceType = "m4.large.elasticsearch",
-    ///                 ZoneAwarenessEnabled = true,
+    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[0]),
+    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[1]),
     ///             },
-    ///             VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
+    ///             SecurityGroupIds = new[]
     ///             {
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids?[0]),
-    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids?[1]),
-    ///                 },
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     esSecurityGroup.Id,
-    ///                 },
+    ///                 esSecurityGroup.Id,
     ///             },
-    ///             AdvancedOptions = 
-    ///             {
-    ///                 { "rest.action.multi.allow_explicit_index", "true" },
-    ///             },
-    ///             AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 return @$"{{
+    ///         },
+    ///         AdvancedOptions = 
+    ///         {
+    ///             { "rest.action.multi.allow_explicit_index", "true" },
+    ///         },
+    ///         AccessPolicies = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         {
+    ///             var currentRegion = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             return @$"{{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
     /// 		{{
     /// 			""Action"": ""es:*"",
     /// 			""Principal"": ""*"",
     /// 			""Effect"": ""Allow"",
-    /// 			""Resource"": ""arn:aws:es:{currentRegion.Name}:{currentCallerIdentity.AccountId}:domain/{domain}/*""
+    /// 			""Resource"": ""arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
     /// 		}}
     /// 	]
     /// }}
     /// ";
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "Domain", "TestDomain" },
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///         }),
+    ///         Tags = 
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 esServiceLinkedRole,
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Domain", "TestDomain" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             esServiceLinkedRole,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain.
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.ElasticSearch
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain.
@@ -532,9 +532,10 @@ namespace Pulumi.Aws.ElasticSearch
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain.
@@ -681,5 +682,6 @@ namespace Pulumi.Aws.ElasticSearch
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PresetAudioCodecOptionsArgs : Pulumi.ResourceArgs
+    public sealed class PresetAudioCodecOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PresetAudioCodecOptionsArgs()
         {
         }
+        public static new PresetAudioCodecOptionsArgs Empty => new PresetAudioCodecOptionsArgs();
     }
 }

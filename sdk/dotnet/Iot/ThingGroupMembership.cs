@@ -15,22 +15,20 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iot.ThingGroupMembership("example", new()
     ///     {
-    ///         var example = new Aws.Iot.ThingGroupMembership("example", new Aws.Iot.ThingGroupMembershipArgs
-    ///         {
-    ///             OverrideDynamicGroup = true,
-    ///             ThingGroupName = "example-group",
-    ///             ThingName = "example-thing",
-    ///         });
-    ///     }
+    ///         OverrideDynamicGroup = true,
+    ///         ThingGroupName = "example-group",
+    ///         ThingName = "example-thing",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thingGroupMembership:ThingGroupMembership")]
-    public partial class ThingGroupMembership : Pulumi.CustomResource
+    public partial class ThingGroupMembership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
@@ -106,7 +104,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class ThingGroupMembershipArgs : Pulumi.ResourceArgs
+    public sealed class ThingGroupMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
@@ -129,9 +127,10 @@ namespace Pulumi.Aws.Iot
         public ThingGroupMembershipArgs()
         {
         }
+        public static new ThingGroupMembershipArgs Empty => new ThingGroupMembershipArgs();
     }
 
-    public sealed class ThingGroupMembershipState : Pulumi.ResourceArgs
+    public sealed class ThingGroupMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
@@ -154,5 +153,6 @@ namespace Pulumi.Aws.Iot
         public ThingGroupMembershipState()
         {
         }
+        public static new ThingGroupMembershipState Empty => new ThingGroupMembershipState();
     }
 }

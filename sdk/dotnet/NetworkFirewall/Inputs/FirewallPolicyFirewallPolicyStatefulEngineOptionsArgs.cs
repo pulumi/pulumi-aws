@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs()
         {
         }
+        public static new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs Empty => new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs();
     }
 }

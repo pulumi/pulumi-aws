@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
-// 			Key: pulumi.String("module"),
-// 			Values: pulumi.StringArray{
-// 				pulumi.String("Orders"),
-// 				pulumi.String("Sales"),
-// 				pulumi.String("Customers"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
+//				Key: pulumi.String("module"),
+//				Values: pulumi.StringArray{
+//					pulumi.String("Orders"),
+//					pulumi.String("Sales"),
+//					pulumi.String("Customers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
 //
 // ```sh
-//  $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+//
+//	$ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+//
 // ```
 type LfTag struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *LfTag) ToLfTagOutputWithContext(ctx context.Context) LfTagOutput {
 // LfTagArrayInput is an input type that accepts LfTagArray and LfTagArrayOutput values.
 // You can construct a concrete instance of `LfTagArrayInput` via:
 //
-//          LfTagArray{ LfTagArgs{...} }
+//	LfTagArray{ LfTagArgs{...} }
 type LfTagArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i LfTagArray) ToLfTagArrayOutputWithContext(ctx context.Context) LfTagArra
 // LfTagMapInput is an input type that accepts LfTagMap and LfTagMapOutput values.
 // You can construct a concrete instance of `LfTagMapInput` via:
 //
-//          LfTagMap{ "key": LfTagArgs{...} }
+//	LfTagMap{ "key": LfTagArgs{...} }
 type LfTagMapInput interface {
 	pulumi.Input
 

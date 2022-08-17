@@ -22,7 +22,7 @@ type AcceleratorAttributes struct {
 // AcceleratorAttributesInput is an input type that accepts AcceleratorAttributesArgs and AcceleratorAttributesOutput values.
 // You can construct a concrete instance of `AcceleratorAttributesInput` via:
 //
-//          AcceleratorAttributesArgs{...}
+//	AcceleratorAttributesArgs{...}
 type AcceleratorAttributesInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i AcceleratorAttributesArgs) ToAcceleratorAttributesPtrOutputWithContext(c
 // AcceleratorAttributesPtrInput is an input type that accepts AcceleratorAttributesArgs, AcceleratorAttributesPtr and AcceleratorAttributesPtrOutput values.
 // You can construct a concrete instance of `AcceleratorAttributesPtrInput` via:
 //
-//          AcceleratorAttributesArgs{...}
+//	        AcceleratorAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AcceleratorAttributesPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type AcceleratorIpSet struct {
 // AcceleratorIpSetInput is an input type that accepts AcceleratorIpSetArgs and AcceleratorIpSetOutput values.
 // You can construct a concrete instance of `AcceleratorIpSetInput` via:
 //
-//          AcceleratorIpSetArgs{...}
+//	AcceleratorIpSetArgs{...}
 type AcceleratorIpSetInput interface {
 	pulumi.Input
 
@@ -225,7 +225,7 @@ func (i AcceleratorIpSetArgs) ToAcceleratorIpSetOutputWithContext(ctx context.Co
 // AcceleratorIpSetArrayInput is an input type that accepts AcceleratorIpSetArray and AcceleratorIpSetArrayOutput values.
 // You can construct a concrete instance of `AcceleratorIpSetArrayInput` via:
 //
-//          AcceleratorIpSetArray{ AcceleratorIpSetArgs{...} }
+//	AcceleratorIpSetArray{ AcceleratorIpSetArgs{...} }
 type AcceleratorIpSetArrayInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ type EndpointGroupEndpointConfiguration struct {
 // EndpointGroupEndpointConfigurationInput is an input type that accepts EndpointGroupEndpointConfigurationArgs and EndpointGroupEndpointConfigurationOutput values.
 // You can construct a concrete instance of `EndpointGroupEndpointConfigurationInput` via:
 //
-//          EndpointGroupEndpointConfigurationArgs{...}
+//	EndpointGroupEndpointConfigurationArgs{...}
 type EndpointGroupEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -337,7 +337,7 @@ func (i EndpointGroupEndpointConfigurationArgs) ToEndpointGroupEndpointConfigura
 // EndpointGroupEndpointConfigurationArrayInput is an input type that accepts EndpointGroupEndpointConfigurationArray and EndpointGroupEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupEndpointConfigurationArrayInput` via:
 //
-//          EndpointGroupEndpointConfigurationArray{ EndpointGroupEndpointConfigurationArgs{...} }
+//	EndpointGroupEndpointConfigurationArray{ EndpointGroupEndpointConfigurationArgs{...} }
 type EndpointGroupEndpointConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -419,7 +419,7 @@ type EndpointGroupPortOverride struct {
 // EndpointGroupPortOverrideInput is an input type that accepts EndpointGroupPortOverrideArgs and EndpointGroupPortOverrideOutput values.
 // You can construct a concrete instance of `EndpointGroupPortOverrideInput` via:
 //
-//          EndpointGroupPortOverrideArgs{...}
+//	EndpointGroupPortOverrideArgs{...}
 type EndpointGroupPortOverrideInput interface {
 	pulumi.Input
 
@@ -449,7 +449,7 @@ func (i EndpointGroupPortOverrideArgs) ToEndpointGroupPortOverrideOutputWithCont
 // EndpointGroupPortOverrideArrayInput is an input type that accepts EndpointGroupPortOverrideArray and EndpointGroupPortOverrideArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupPortOverrideArrayInput` via:
 //
-//          EndpointGroupPortOverrideArray{ EndpointGroupPortOverrideArgs{...} }
+//	EndpointGroupPortOverrideArray{ EndpointGroupPortOverrideArgs{...} }
 type EndpointGroupPortOverrideArrayInput interface {
 	pulumi.Input
 
@@ -525,7 +525,7 @@ type ListenerPortRange struct {
 // ListenerPortRangeInput is an input type that accepts ListenerPortRangeArgs and ListenerPortRangeOutput values.
 // You can construct a concrete instance of `ListenerPortRangeInput` via:
 //
-//          ListenerPortRangeArgs{...}
+//	ListenerPortRangeArgs{...}
 type ListenerPortRangeInput interface {
 	pulumi.Input
 
@@ -555,7 +555,7 @@ func (i ListenerPortRangeArgs) ToListenerPortRangeOutputWithContext(ctx context.
 // ListenerPortRangeArrayInput is an input type that accepts ListenerPortRangeArray and ListenerPortRangeArrayOutput values.
 // You can construct a concrete instance of `ListenerPortRangeArrayInput` via:
 //
-//          ListenerPortRangeArray{ ListenerPortRangeArgs{...} }
+//	ListenerPortRangeArray{ ListenerPortRangeArgs{...} }
 type ListenerPortRangeArrayInput interface {
 	pulumi.Input
 
@@ -630,7 +630,7 @@ type GetAcceleratorAttribute struct {
 // GetAcceleratorAttributeInput is an input type that accepts GetAcceleratorAttributeArgs and GetAcceleratorAttributeOutput values.
 // You can construct a concrete instance of `GetAcceleratorAttributeInput` via:
 //
-//          GetAcceleratorAttributeArgs{...}
+//	GetAcceleratorAttributeArgs{...}
 type GetAcceleratorAttributeInput interface {
 	pulumi.Input
 
@@ -659,7 +659,7 @@ func (i GetAcceleratorAttributeArgs) ToGetAcceleratorAttributeOutputWithContext(
 // GetAcceleratorAttributeArrayInput is an input type that accepts GetAcceleratorAttributeArray and GetAcceleratorAttributeArrayOutput values.
 // You can construct a concrete instance of `GetAcceleratorAttributeArrayInput` via:
 //
-//          GetAcceleratorAttributeArray{ GetAcceleratorAttributeArgs{...} }
+//	GetAcceleratorAttributeArray{ GetAcceleratorAttributeArgs{...} }
 type GetAcceleratorAttributeArrayInput interface {
 	pulumi.Input
 
@@ -735,7 +735,7 @@ type GetAcceleratorIpSet struct {
 // GetAcceleratorIpSetInput is an input type that accepts GetAcceleratorIpSetArgs and GetAcceleratorIpSetOutput values.
 // You can construct a concrete instance of `GetAcceleratorIpSetInput` via:
 //
-//          GetAcceleratorIpSetArgs{...}
+//	GetAcceleratorIpSetArgs{...}
 type GetAcceleratorIpSetInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ func (i GetAcceleratorIpSetArgs) ToGetAcceleratorIpSetOutputWithContext(ctx cont
 // GetAcceleratorIpSetArrayInput is an input type that accepts GetAcceleratorIpSetArray and GetAcceleratorIpSetArrayOutput values.
 // You can construct a concrete instance of `GetAcceleratorIpSetArrayInput` via:
 //
-//          GetAcceleratorIpSetArray{ GetAcceleratorIpSetArgs{...} }
+//	GetAcceleratorIpSetArray{ GetAcceleratorIpSetArgs{...} }
 type GetAcceleratorIpSetArrayInput interface {
 	pulumi.Input
 

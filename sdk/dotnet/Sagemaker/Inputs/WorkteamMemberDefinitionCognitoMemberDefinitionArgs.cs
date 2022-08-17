@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkteamMemberDefinitionCognitoMemberDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamMemberDefinitionCognitoMemberDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier for an application client. You must create the app client ID using Amazon Cognito.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkteamMemberDefinitionCognitoMemberDefinitionArgs()
         {
         }
+        public static new WorkteamMemberDefinitionCognitoMemberDefinitionArgs Empty => new WorkteamMemberDefinitionCognitoMemberDefinitionArgs();
     }
 }

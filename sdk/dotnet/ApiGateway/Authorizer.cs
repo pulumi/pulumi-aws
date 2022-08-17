@@ -15,20 +15,18 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var demoRestApi = new Aws.ApiGateway.RestApi("demoRestApi");
+    /// 
+    ///     var invocationRole = new Aws.Iam.Role("invocationRole", new()
     ///     {
-    ///         var demoRestApi = new Aws.ApiGateway.RestApi("demoRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var invocationRole = new Aws.Iam.Role("invocationRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             Path = "/",
-    ///             AssumeRolePolicy = @"{
+    ///         Path = "/",
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -42,10 +40,11 @@ namespace Pulumi.Aws.ApiGateway
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var lambda = new Aws.Iam.Role("lambda", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///     });
+    /// 
+    ///     var lambda = new Aws.Iam.Role("lambda", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -59,23 +58,26 @@ namespace Pulumi.Aws.ApiGateway
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var authorizer = new Aws.Lambda.Function("authorizer", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Code = new FileArchive("lambda-function.zip"),
-    ///             Role = lambda.Arn,
-    ///             Handler = "exports.example",
-    ///         });
-    ///         var demoAuthorizer = new Aws.ApiGateway.Authorizer("demoAuthorizer", new Aws.ApiGateway.AuthorizerArgs
-    ///         {
-    ///             RestApi = demoRestApi.Id,
-    ///             AuthorizerUri = authorizer.InvokeArn,
-    ///             AuthorizerCredentials = invocationRole.Arn,
-    ///         });
-    ///         var invocationPolicy = new Aws.Iam.RolePolicy("invocationPolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = invocationRole.Id,
-    ///             Policy = authorizer.Arn.Apply(arn =&gt; @$"{{
+    ///     });
+    /// 
+    ///     var authorizer = new Aws.Lambda.Function("authorizer", new()
+    ///     {
+    ///         Code = new FileArchive("lambda-function.zip"),
+    ///         Role = lambda.Arn,
+    ///         Handler = "exports.example",
+    ///     });
+    /// 
+    ///     var demoAuthorizer = new Aws.ApiGateway.Authorizer("demoAuthorizer", new()
+    ///     {
+    ///         RestApi = demoRestApi.Id,
+    ///         AuthorizerUri = authorizer.InvokeArn,
+    ///         AuthorizerCredentials = invocationRole.Arn,
+    ///     });
+    /// 
+    ///     var invocationPolicy = new Aws.Iam.RolePolicy("invocationPolicy", new()
+    ///     {
+    ///         Role = invocationRole.Id,
+    ///         Policy = authorizer.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -86,10 +88,9 @@ namespace Pulumi.Aws.ApiGateway
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -101,7 +102,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/authorizer:Authorizer")]
-    public partial class Authorizer : Pulumi.CustomResource
+    public partial class Authorizer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the API Gateway Authorizer
@@ -208,7 +209,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class AuthorizerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
@@ -274,9 +275,10 @@ namespace Pulumi.Aws.ApiGateway
         public AuthorizerArgs()
         {
         }
+        public static new AuthorizerArgs Empty => new AuthorizerArgs();
     }
 
-    public sealed class AuthorizerState : Pulumi.ResourceArgs
+    public sealed class AuthorizerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the API Gateway Authorizer
@@ -348,5 +350,6 @@ namespace Pulumi.Aws.ApiGateway
         public AuthorizerState()
         {
         }
+        public static new AuthorizerState Empty => new AuthorizerState();
     }
 }

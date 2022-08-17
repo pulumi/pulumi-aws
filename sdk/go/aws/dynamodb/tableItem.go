@@ -14,7 +14,8 @@ import (
 // Provides a DynamoDB table item resource
 //
 // > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
-//   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
+//
+//	You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
 //
 // ## Example Usage
 //
@@ -22,46 +23,51 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-// 			ReadCapacity:  pulumi.Int(10),
-// 			WriteCapacity: pulumi.Int(10),
-// 			HashKey:       pulumi.String("exampleHashKey"),
-// 			Attributes: dynamodb.TableAttributeArray{
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("exampleHashKey"),
-// 					Type: pulumi.String("S"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dynamodb.NewTableItem(ctx, "exampleTableItem", &dynamodb.TableItemArgs{
-// 			TableName: exampleTable.Name,
-// 			HashKey:   exampleTable.HashKey,
-// 			Item: pulumi.String(fmt.Sprintf(`{
-//   "exampleHashKey": {"S": "something"},
-//   "one": {"N": "11111"},
-//   "two": {"N": "22222"},
-//   "three": {"N": "33333"},
-//   "four": {"N": "44444"}
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
+//				ReadCapacity:  pulumi.Int(10),
+//				WriteCapacity: pulumi.Int(10),
+//				HashKey:       pulumi.String("exampleHashKey"),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("exampleHashKey"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynamodb.NewTableItem(ctx, "exampleTableItem", &dynamodb.TableItemArgs{
+//				TableName: exampleTable.Name,
+//				HashKey:   exampleTable.HashKey,
+//				Item: pulumi.String(fmt.Sprintf(`{
+//	  "exampleHashKey": {"S": "something"},
+//	  "one": {"N": "11111"},
+//	  "two": {"N": "22222"},
+//	  "three": {"N": "33333"},
+//	  "four": {"N": "44444"}
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -192,7 +198,7 @@ func (i *TableItem) ToTableItemOutputWithContext(ctx context.Context) TableItemO
 // TableItemArrayInput is an input type that accepts TableItemArray and TableItemArrayOutput values.
 // You can construct a concrete instance of `TableItemArrayInput` via:
 //
-//          TableItemArray{ TableItemArgs{...} }
+//	TableItemArray{ TableItemArgs{...} }
 type TableItemArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +223,7 @@ func (i TableItemArray) ToTableItemArrayOutputWithContext(ctx context.Context) T
 // TableItemMapInput is an input type that accepts TableItemMap and TableItemMapOutput values.
 // You can construct a concrete instance of `TableItemMapInput` via:
 //
-//          TableItemMap{ "key": TableItemArgs{...} }
+//	TableItemMap{ "key": TableItemArgs{...} }
 type TableItemMapInput interface {
 	pulumi.Input
 

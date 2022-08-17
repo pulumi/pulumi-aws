@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetResponseHeadersPolicy.InvokeAsync(new Aws.CloudFront.GetResponseHeadersPolicyArgs
-        ///         {
-        ///             Name = "example-policy",
-        ///         }));
-        ///     }
+        ///         Name = "example-policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetResponseHeadersPolicy.InvokeAsync(new Aws.CloudFront.GetResponseHeadersPolicyArgs
-        ///         {
-        ///             Name = "example-policy",
-        ///         }));
-        ///     }
+        ///         Name = "example-policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetResponseHeadersPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetResponseHeadersPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the response headers policy.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.CloudFront
         public GetResponseHeadersPolicyArgs()
         {
         }
+        public static new GetResponseHeadersPolicyArgs Empty => new GetResponseHeadersPolicyArgs();
     }
 
-    public sealed class GetResponseHeadersPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResponseHeadersPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the response headers policy.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.CloudFront
         public GetResponseHeadersPolicyInvokeArgs()
         {
         }
+        public static new GetResponseHeadersPolicyInvokeArgs Empty => new GetResponseHeadersPolicyInvokeArgs();
     }
 
 

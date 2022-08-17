@@ -15,53 +15,52 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
-    ///         var lb = new Aws.Elb.LoadBalancer("lb", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 25,
-    ///                     InstanceProtocol = "tcp",
-    ///                     LbPort = 25,
-    ///                     LbProtocol = "tcp",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 587,
-    ///                     InstanceProtocol = "tcp",
-    ///                     LbPort = 587,
-    ///                     LbProtocol = "tcp",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var smtp = new Aws.Ec2.ProxyProtocolPolicy("smtp", new Aws.Ec2.ProxyProtocolPolicyArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             LoadBalancer = lb.Name,
-    ///             InstancePorts = 
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
     ///             {
-    ///                 "25",
-    ///                 "587",
+    ///                 InstancePort = 25,
+    ///                 InstanceProtocol = "tcp",
+    ///                 LbPort = 25,
+    ///                 LbProtocol = "tcp",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             {
+    ///                 InstancePort = 587,
+    ///                 InstanceProtocol = "tcp",
+    ///                 LbPort = 587,
+    ///                 LbProtocol = "tcp",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var smtp = new Aws.Ec2.ProxyProtocolPolicy("smtp", new()
+    ///     {
+    ///         LoadBalancer = lb.Name,
+    ///         InstancePorts = new[]
+    ///         {
+    ///             "25",
+    ///             "587",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")]
-    public partial class ProxyProtocolPolicy : Pulumi.CustomResource
+    public partial class ProxyProtocolPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of instance ports to which the policy
@@ -121,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class ProxyProtocolPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ProxyProtocolPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("instancePorts", required: true)]
         private InputList<string>? _instancePorts;
@@ -146,9 +145,10 @@ namespace Pulumi.Aws.Ec2
         public ProxyProtocolPolicyArgs()
         {
         }
+        public static new ProxyProtocolPolicyArgs Empty => new ProxyProtocolPolicyArgs();
     }
 
-    public sealed class ProxyProtocolPolicyState : Pulumi.ResourceArgs
+    public sealed class ProxyProtocolPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("instancePorts")]
         private InputList<string>? _instancePorts;
@@ -173,5 +173,6 @@ namespace Pulumi.Aws.Ec2
         public ProxyProtocolPolicyState()
         {
         }
+        public static new ProxyProtocolPolicyState Empty => new ProxyProtocolPolicyState();
     }
 }

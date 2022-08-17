@@ -15,24 +15,22 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafRegional.RegexPatternSet("example", new()
     ///     {
-    ///         var example = new Aws.WafRegional.RegexPatternSet("example", new Aws.WafRegional.RegexPatternSetArgs
+    ///         RegexPatternStrings = new[]
     ///         {
-    ///             RegexPatternStrings = 
-    ///             {
-    ///                 "one",
-    ///                 "two",
-    ///             },
-    ///         });
-    ///     }
+    ///             "one",
+    ///             "two",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/regexPatternSet:RegexPatternSet")]
-    public partial class RegexPatternSet : Pulumi.CustomResource
+    public partial class RegexPatternSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name or description of the Regex Pattern Set.
@@ -102,7 +100,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class RegexPatternSetArgs : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the Regex Pattern Set.
@@ -125,9 +123,10 @@ namespace Pulumi.Aws.WafRegional
         public RegexPatternSetArgs()
         {
         }
+        public static new RegexPatternSetArgs Empty => new RegexPatternSetArgs();
     }
 
-    public sealed class RegexPatternSetState : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the Regex Pattern Set.
@@ -150,5 +149,6 @@ namespace Pulumi.Aws.WafRegional
         public RegexPatternSetState()
         {
         }
+        public static new RegexPatternSetState Empty => new RegexPatternSetState();
     }
 }

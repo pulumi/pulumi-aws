@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class StreamStreamModeDetailsGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamStreamModeDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public StreamStreamModeDetailsGetArgs()
         {
         }
+        public static new StreamStreamModeDetailsGetArgs Empty => new StreamStreamModeDetailsGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class DeviceFleetOutputConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DeviceFleetOutputConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public DeviceFleetOutputConfigGetArgs()
         {
         }
+        public static new DeviceFleetOutputConfigGetArgs Empty => new DeviceFleetOutputConfigGetArgs();
     }
 }

@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
-// 			ProviderEndpoint: pulumi.String("https://example.com"),
-// 			ProviderType:     pulumi.String("GitHubEnterpriseServer"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
+//				ProviderEndpoint: pulumi.String("https://example.com"),
+//				ProviderType:     pulumi.String("GitHubEnterpriseServer"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // CodeStar Host can be imported using the ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+//
+//	$ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+//
 // ```
 type Host struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *Host) ToHostOutputWithContext(ctx context.Context) HostOutput {
 // HostArrayInput is an input type that accepts HostArray and HostArrayOutput values.
 // You can construct a concrete instance of `HostArrayInput` via:
 //
-//          HostArray{ HostArgs{...} }
+//	HostArray{ HostArgs{...} }
 type HostArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i HostArray) ToHostArrayOutputWithContext(ctx context.Context) HostArrayOu
 // HostMapInput is an input type that accepts HostMap and HostMapOutput values.
 // You can construct a concrete instance of `HostMapInput` via:
 //
-//          HostMap{ "key": HostArgs{...} }
+//	HostMap{ "key": HostArgs{...} }
 type HostMapInput interface {
 	pulumi.Input
 

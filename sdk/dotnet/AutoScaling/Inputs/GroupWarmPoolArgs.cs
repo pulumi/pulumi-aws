@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupWarmPoolArgs : Pulumi.ResourceArgs
+    public sealed class GroupWarmPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupWarmPoolArgs()
         {
         }
+        public static new GroupWarmPoolArgs Empty => new GroupWarmPoolArgs();
     }
 }

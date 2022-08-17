@@ -19,45 +19,41 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
-        ///         {
-        ///             SubnetId = aws_subnet.Public.Id,
-        ///         }));
-        ///     }
+        ///         SubnetId = aws_subnet.Public.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Usage with tags:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
+        ///         SubnetId = aws_subnet.Public.Id,
+        ///         Tags = 
         ///         {
-        ///             SubnetId = aws_subnet.Public.Id,
-        ///             Tags = 
-        ///             {
-        ///                 { "Name", "gw NAT" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Name", "gw NAT" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,45 +69,41 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
-        ///         {
-        ///             SubnetId = aws_subnet.Public.Id,
-        ///         }));
-        ///     }
+        ///         SubnetId = aws_subnet.Public.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// Usage with tags:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
+        ///         SubnetId = aws_subnet.Public.Id,
+        ///         Tags = 
         ///         {
-        ///             SubnetId = aws_subnet.Public.Id,
-        ///             Tags = 
-        ///             {
-        ///                 { "Name", "gw NAT" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Name", "gw NAT" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -121,7 +113,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetNatGatewayFilterArgs>? _filters;
@@ -175,9 +167,10 @@ namespace Pulumi.Aws.Ec2
         public GetNatGatewayArgs()
         {
         }
+        public static new GetNatGatewayArgs Empty => new GetNatGatewayArgs();
     }
 
-    public sealed class GetNatGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetNatGatewayFilterInputArgs>? _filters;
@@ -231,6 +224,7 @@ namespace Pulumi.Aws.Ec2
         public GetNatGatewayInvokeArgs()
         {
         }
+        public static new GetNatGatewayInvokeArgs Empty => new GetNatGatewayInvokeArgs();
     }
 
 

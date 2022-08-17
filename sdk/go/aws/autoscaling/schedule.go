@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 			},
-// 			MaxSize:                pulumi.Int(1),
-// 			MinSize:                pulumi.Int(1),
-// 			HealthCheckGracePeriod: pulumi.Int(300),
-// 			HealthCheckType:        pulumi.String("ELB"),
-// 			ForceDelete:            pulumi.Bool(true),
-// 			TerminationPolicies: pulumi.StringArray{
-// 				pulumi.String("OldestInstance"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
-// 			ScheduledActionName:  pulumi.String("foobar"),
-// 			MinSize:              pulumi.Int(0),
-// 			MaxSize:              pulumi.Int(1),
-// 			DesiredCapacity:      pulumi.Int(0),
-// 			StartTime:            pulumi.String("2016-12-11T18:00:00Z"),
-// 			EndTime:              pulumi.String("2016-12-12T06:00:00Z"),
-// 			AutoscalingGroupName: foobarGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//				},
+//				MaxSize:                pulumi.Int(1),
+//				MinSize:                pulumi.Int(1),
+//				HealthCheckGracePeriod: pulumi.Int(300),
+//				HealthCheckType:        pulumi.String("ELB"),
+//				ForceDelete:            pulumi.Bool(true),
+//				TerminationPolicies: pulumi.StringArray{
+//					pulumi.String("OldestInstance"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
+//				ScheduledActionName:  pulumi.String("foobar"),
+//				MinSize:              pulumi.Int(0),
+//				MaxSize:              pulumi.Int(1),
+//				DesiredCapacity:      pulumi.Int(0),
+//				StartTime:            pulumi.String("2016-12-11T18:00:00Z"),
+//				EndTime:              pulumi.String("2016-12-12T06:00:00Z"),
+//				AutoscalingGroupName: foobarGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+//
+//	$ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+//
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState
@@ -263,7 +268,7 @@ func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutp
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleArrayInput` via:
 //
-//          ScheduleArray{ ScheduleArgs{...} }
+//	ScheduleArray{ ScheduleArgs{...} }
 type ScheduleArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +293,7 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 // ScheduleMapInput is an input type that accepts ScheduleMap and ScheduleMapOutput values.
 // You can construct a concrete instance of `ScheduleMapInput` via:
 //
-//          ScheduleMap{ "key": ScheduleArgs{...} }
+//	ScheduleMap{ "key": ScheduleArgs{...} }
 type ScheduleMapInput interface {
 	pulumi.Input
 

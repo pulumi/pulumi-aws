@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewHsmClientCertificate(ctx, "example", &redshift.HsmClientCertificateArgs{
-// 			HsmClientCertificateIdentifier: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewHsmClientCertificate(ctx, "example", &redshift.HsmClientCertificateArgs{
+//				HsmClientCertificateIdentifier: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Redshift Hsm Client Certificates support import by `hsm_client_certificate_identifier`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+//
+//	$ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+//
 // ```
 type HsmClientCertificate struct {
 	pulumi.CustomResourceState
@@ -53,8 +58,7 @@ type HsmClientCertificate struct {
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey pulumi.StringOutput `pulumi:"hsmClientCertificatePublicKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -97,8 +101,7 @@ type hsmClientCertificateState struct {
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey *string `pulumi:"hsmClientCertificatePublicKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -110,8 +113,7 @@ type HsmClientCertificateState struct {
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -160,7 +162,7 @@ func (i *HsmClientCertificate) ToHsmClientCertificateOutputWithContext(ctx conte
 // HsmClientCertificateArrayInput is an input type that accepts HsmClientCertificateArray and HsmClientCertificateArrayOutput values.
 // You can construct a concrete instance of `HsmClientCertificateArrayInput` via:
 //
-//          HsmClientCertificateArray{ HsmClientCertificateArgs{...} }
+//	HsmClientCertificateArray{ HsmClientCertificateArgs{...} }
 type HsmClientCertificateArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +187,7 @@ func (i HsmClientCertificateArray) ToHsmClientCertificateArrayOutputWithContext(
 // HsmClientCertificateMapInput is an input type that accepts HsmClientCertificateMap and HsmClientCertificateMapOutput values.
 // You can construct a concrete instance of `HsmClientCertificateMapInput` via:
 //
-//          HsmClientCertificateMap{ "key": HsmClientCertificateArgs{...} }
+//	HsmClientCertificateMap{ "key": HsmClientCertificateArgs{...} }
 type HsmClientCertificateMapInput interface {
 	pulumi.Input
 
@@ -241,7 +243,6 @@ func (o HsmClientCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o HsmClientCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

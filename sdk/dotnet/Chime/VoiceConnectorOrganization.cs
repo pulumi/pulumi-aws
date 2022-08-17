@@ -15,44 +15,43 @@ namespace Pulumi.Aws.Chime
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
     ///     {
-    ///         var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             RequireEncryption = true,
-    ///         });
-    ///         var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", new Aws.Chime.VoiceConnectorOrganizationArgs
-    ///         {
-    ///             Disabled = false,
-    ///             VoiceConnectorId = defaultVoiceConnector.Id,
-    ///             Routes = 
-    ///             {
-    ///                 new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
-    ///                 {
-    ///                     Host = "127.0.0.1",
-    ///                     Port = 8081,
-    ///                     Protocol = "TCP",
-    ///                     Priority = 1,
-    ///                     Weight = 1,
-    ///                 },
-    ///                 new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
-    ///                 {
-    ///                     Host = "127.0.0.2",
-    ///                     Port = 8082,
-    ///                     Protocol = "TCP",
-    ///                     Priority = 2,
-    ///                     Weight = 10,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         RequireEncryption = true,
+    ///     });
     /// 
-    /// }
+    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", new()
+    ///     {
+    ///         Disabled = false,
+    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         Routes = new[]
+    ///         {
+    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
+    ///             {
+    ///                 Host = "127.0.0.1",
+    ///                 Port = 8081,
+    ///                 Protocol = "TCP",
+    ///                 Priority = 1,
+    ///                 Weight = 1,
+    ///             },
+    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
+    ///             {
+    ///                 Host = "127.0.0.2",
+    ///                 Port = 8082,
+    ///                 Protocol = "TCP",
+    ///                 Priority = 2,
+    ///                 Weight = 10,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +63,7 @@ namespace Pulumi.Aws.Chime
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")]
-    public partial class VoiceConnectorOrganization : Pulumi.CustomResource
+    public partial class VoiceConnectorOrganization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
@@ -128,7 +127,7 @@ namespace Pulumi.Aws.Chime
         }
     }
 
-    public sealed class VoiceConnectorOrganizationArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorOrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
@@ -157,9 +156,10 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorOrganizationArgs()
         {
         }
+        public static new VoiceConnectorOrganizationArgs Empty => new VoiceConnectorOrganizationArgs();
     }
 
-    public sealed class VoiceConnectorOrganizationState : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorOrganizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
@@ -188,5 +188,6 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorOrganizationState()
         {
         }
+        public static new VoiceConnectorOrganizationState Empty => new VoiceConnectorOrganizationState();
     }
 }

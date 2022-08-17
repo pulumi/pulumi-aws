@@ -18,7 +18,7 @@ type SigningJobDestination struct {
 // SigningJobDestinationInput is an input type that accepts SigningJobDestinationArgs and SigningJobDestinationOutput values.
 // You can construct a concrete instance of `SigningJobDestinationInput` via:
 //
-//          SigningJobDestinationArgs{...}
+//	SigningJobDestinationArgs{...}
 type SigningJobDestinationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i SigningJobDestinationArgs) ToSigningJobDestinationPtrOutputWithContext(c
 // SigningJobDestinationPtrInput is an input type that accepts SigningJobDestinationArgs, SigningJobDestinationPtr and SigningJobDestinationPtrOutput values.
 // You can construct a concrete instance of `SigningJobDestinationPtrInput` via:
 //
-//          SigningJobDestinationArgs{...}
+//	        SigningJobDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SigningJobDestinationPtrInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ type SigningJobDestinationS3 struct {
 // SigningJobDestinationS3Input is an input type that accepts SigningJobDestinationS3Args and SigningJobDestinationS3Output values.
 // You can construct a concrete instance of `SigningJobDestinationS3Input` via:
 //
-//          SigningJobDestinationS3Args{...}
+//	SigningJobDestinationS3Args{...}
 type SigningJobDestinationS3Input interface {
 	pulumi.Input
 
@@ -195,11 +195,11 @@ func (i SigningJobDestinationS3Args) ToSigningJobDestinationS3PtrOutputWithConte
 // SigningJobDestinationS3PtrInput is an input type that accepts SigningJobDestinationS3Args, SigningJobDestinationS3Ptr and SigningJobDestinationS3PtrOutput values.
 // You can construct a concrete instance of `SigningJobDestinationS3PtrInput` via:
 //
-//          SigningJobDestinationS3Args{...}
+//	        SigningJobDestinationS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SigningJobDestinationS3PtrInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ type SigningJobRevocationRecord struct {
 // SigningJobRevocationRecordInput is an input type that accepts SigningJobRevocationRecordArgs and SigningJobRevocationRecordOutput values.
 // You can construct a concrete instance of `SigningJobRevocationRecordInput` via:
 //
-//          SigningJobRevocationRecordArgs{...}
+//	SigningJobRevocationRecordArgs{...}
 type SigningJobRevocationRecordInput interface {
 	pulumi.Input
 
@@ -341,7 +341,7 @@ func (i SigningJobRevocationRecordArgs) ToSigningJobRevocationRecordOutputWithCo
 // SigningJobRevocationRecordArrayInput is an input type that accepts SigningJobRevocationRecordArray and SigningJobRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `SigningJobRevocationRecordArrayInput` via:
 //
-//          SigningJobRevocationRecordArray{ SigningJobRevocationRecordArgs{...} }
+//	SigningJobRevocationRecordArray{ SigningJobRevocationRecordArgs{...} }
 type SigningJobRevocationRecordArrayInput interface {
 	pulumi.Input
 
@@ -417,7 +417,7 @@ type SigningJobSignedObject struct {
 // SigningJobSignedObjectInput is an input type that accepts SigningJobSignedObjectArgs and SigningJobSignedObjectOutput values.
 // You can construct a concrete instance of `SigningJobSignedObjectInput` via:
 //
-//          SigningJobSignedObjectArgs{...}
+//	SigningJobSignedObjectArgs{...}
 type SigningJobSignedObjectInput interface {
 	pulumi.Input
 
@@ -445,7 +445,7 @@ func (i SigningJobSignedObjectArgs) ToSigningJobSignedObjectOutputWithContext(ct
 // SigningJobSignedObjectArrayInput is an input type that accepts SigningJobSignedObjectArray and SigningJobSignedObjectArrayOutput values.
 // You can construct a concrete instance of `SigningJobSignedObjectArrayInput` via:
 //
-//          SigningJobSignedObjectArray{ SigningJobSignedObjectArgs{...} }
+//	SigningJobSignedObjectArray{ SigningJobSignedObjectArgs{...} }
 type SigningJobSignedObjectArrayInput interface {
 	pulumi.Input
 
@@ -516,7 +516,7 @@ type SigningJobSignedObjectS3 struct {
 // SigningJobSignedObjectS3Input is an input type that accepts SigningJobSignedObjectS3Args and SigningJobSignedObjectS3Output values.
 // You can construct a concrete instance of `SigningJobSignedObjectS3Input` via:
 //
-//          SigningJobSignedObjectS3Args{...}
+//	SigningJobSignedObjectS3Args{...}
 type SigningJobSignedObjectS3Input interface {
 	pulumi.Input
 
@@ -546,7 +546,7 @@ func (i SigningJobSignedObjectS3Args) ToSigningJobSignedObjectS3OutputWithContex
 // SigningJobSignedObjectS3ArrayInput is an input type that accepts SigningJobSignedObjectS3Array and SigningJobSignedObjectS3ArrayOutput values.
 // You can construct a concrete instance of `SigningJobSignedObjectS3ArrayInput` via:
 //
-//          SigningJobSignedObjectS3Array{ SigningJobSignedObjectS3Args{...} }
+//	SigningJobSignedObjectS3Array{ SigningJobSignedObjectS3Args{...} }
 type SigningJobSignedObjectS3ArrayInput interface {
 	pulumi.Input
 
@@ -620,7 +620,7 @@ type SigningJobSource struct {
 // SigningJobSourceInput is an input type that accepts SigningJobSourceArgs and SigningJobSourceOutput values.
 // You can construct a concrete instance of `SigningJobSourceInput` via:
 //
-//          SigningJobSourceArgs{...}
+//	SigningJobSourceArgs{...}
 type SigningJobSourceInput interface {
 	pulumi.Input
 
@@ -656,11 +656,11 @@ func (i SigningJobSourceArgs) ToSigningJobSourcePtrOutputWithContext(ctx context
 // SigningJobSourcePtrInput is an input type that accepts SigningJobSourceArgs, SigningJobSourcePtr and SigningJobSourcePtrOutput values.
 // You can construct a concrete instance of `SigningJobSourcePtrInput` via:
 //
-//          SigningJobSourceArgs{...}
+//	        SigningJobSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SigningJobSourcePtrInput interface {
 	pulumi.Input
 
@@ -761,7 +761,7 @@ type SigningJobSourceS3 struct {
 // SigningJobSourceS3Input is an input type that accepts SigningJobSourceS3Args and SigningJobSourceS3Output values.
 // You can construct a concrete instance of `SigningJobSourceS3Input` via:
 //
-//          SigningJobSourceS3Args{...}
+//	SigningJobSourceS3Args{...}
 type SigningJobSourceS3Input interface {
 	pulumi.Input
 
@@ -801,11 +801,11 @@ func (i SigningJobSourceS3Args) ToSigningJobSourceS3PtrOutputWithContext(ctx con
 // SigningJobSourceS3PtrInput is an input type that accepts SigningJobSourceS3Args, SigningJobSourceS3Ptr and SigningJobSourceS3PtrOutput values.
 // You can construct a concrete instance of `SigningJobSourceS3PtrInput` via:
 //
-//          SigningJobSourceS3Args{...}
+//	        SigningJobSourceS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SigningJobSourceS3PtrInput interface {
 	pulumi.Input
 
@@ -933,7 +933,7 @@ type SigningProfileRevocationRecord struct {
 // SigningProfileRevocationRecordInput is an input type that accepts SigningProfileRevocationRecordArgs and SigningProfileRevocationRecordOutput values.
 // You can construct a concrete instance of `SigningProfileRevocationRecordInput` via:
 //
-//          SigningProfileRevocationRecordArgs{...}
+//	SigningProfileRevocationRecordArgs{...}
 type SigningProfileRevocationRecordInput interface {
 	pulumi.Input
 
@@ -962,7 +962,7 @@ func (i SigningProfileRevocationRecordArgs) ToSigningProfileRevocationRecordOutp
 // SigningProfileRevocationRecordArrayInput is an input type that accepts SigningProfileRevocationRecordArray and SigningProfileRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `SigningProfileRevocationRecordArrayInput` via:
 //
-//          SigningProfileRevocationRecordArray{ SigningProfileRevocationRecordArgs{...} }
+//	SigningProfileRevocationRecordArray{ SigningProfileRevocationRecordArgs{...} }
 type SigningProfileRevocationRecordArrayInput interface {
 	pulumi.Input
 
@@ -1038,7 +1038,7 @@ type SigningProfileSignatureValidityPeriod struct {
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
 // You can construct a concrete instance of `SigningProfileSignatureValidityPeriodInput` via:
 //
-//          SigningProfileSignatureValidityPeriodArgs{...}
+//	SigningProfileSignatureValidityPeriodArgs{...}
 type SigningProfileSignatureValidityPeriodInput interface {
 	pulumi.Input
 
@@ -1074,11 +1074,11 @@ func (i SigningProfileSignatureValidityPeriodArgs) ToSigningProfileSignatureVali
 // SigningProfileSignatureValidityPeriodPtrInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs, SigningProfileSignatureValidityPeriodPtr and SigningProfileSignatureValidityPeriodPtrOutput values.
 // You can construct a concrete instance of `SigningProfileSignatureValidityPeriodPtrInput` via:
 //
-//          SigningProfileSignatureValidityPeriodArgs{...}
+//	        SigningProfileSignatureValidityPeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SigningProfileSignatureValidityPeriodPtrInput interface {
 	pulumi.Input
 
@@ -1187,7 +1187,7 @@ type GetSigningJobRevocationRecord struct {
 // GetSigningJobRevocationRecordInput is an input type that accepts GetSigningJobRevocationRecordArgs and GetSigningJobRevocationRecordOutput values.
 // You can construct a concrete instance of `GetSigningJobRevocationRecordInput` via:
 //
-//          GetSigningJobRevocationRecordArgs{...}
+//	GetSigningJobRevocationRecordArgs{...}
 type GetSigningJobRevocationRecordInput interface {
 	pulumi.Input
 
@@ -1216,7 +1216,7 @@ func (i GetSigningJobRevocationRecordArgs) ToGetSigningJobRevocationRecordOutput
 // GetSigningJobRevocationRecordArrayInput is an input type that accepts GetSigningJobRevocationRecordArray and GetSigningJobRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobRevocationRecordArrayInput` via:
 //
-//          GetSigningJobRevocationRecordArray{ GetSigningJobRevocationRecordArgs{...} }
+//	GetSigningJobRevocationRecordArray{ GetSigningJobRevocationRecordArgs{...} }
 type GetSigningJobRevocationRecordArrayInput interface {
 	pulumi.Input
 
@@ -1291,7 +1291,7 @@ type GetSigningJobSignedObject struct {
 // GetSigningJobSignedObjectInput is an input type that accepts GetSigningJobSignedObjectArgs and GetSigningJobSignedObjectOutput values.
 // You can construct a concrete instance of `GetSigningJobSignedObjectInput` via:
 //
-//          GetSigningJobSignedObjectArgs{...}
+//	GetSigningJobSignedObjectArgs{...}
 type GetSigningJobSignedObjectInput interface {
 	pulumi.Input
 
@@ -1318,7 +1318,7 @@ func (i GetSigningJobSignedObjectArgs) ToGetSigningJobSignedObjectOutputWithCont
 // GetSigningJobSignedObjectArrayInput is an input type that accepts GetSigningJobSignedObjectArray and GetSigningJobSignedObjectArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSignedObjectArrayInput` via:
 //
-//          GetSigningJobSignedObjectArray{ GetSigningJobSignedObjectArgs{...} }
+//	GetSigningJobSignedObjectArray{ GetSigningJobSignedObjectArgs{...} }
 type GetSigningJobSignedObjectArrayInput interface {
 	pulumi.Input
 
@@ -1386,7 +1386,7 @@ type GetSigningJobSignedObjectS3 struct {
 // GetSigningJobSignedObjectS3Input is an input type that accepts GetSigningJobSignedObjectS3Args and GetSigningJobSignedObjectS3Output values.
 // You can construct a concrete instance of `GetSigningJobSignedObjectS3Input` via:
 //
-//          GetSigningJobSignedObjectS3Args{...}
+//	GetSigningJobSignedObjectS3Args{...}
 type GetSigningJobSignedObjectS3Input interface {
 	pulumi.Input
 
@@ -1414,7 +1414,7 @@ func (i GetSigningJobSignedObjectS3Args) ToGetSigningJobSignedObjectS3OutputWith
 // GetSigningJobSignedObjectS3ArrayInput is an input type that accepts GetSigningJobSignedObjectS3Array and GetSigningJobSignedObjectS3ArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSignedObjectS3ArrayInput` via:
 //
-//          GetSigningJobSignedObjectS3Array{ GetSigningJobSignedObjectS3Args{...} }
+//	GetSigningJobSignedObjectS3Array{ GetSigningJobSignedObjectS3Args{...} }
 type GetSigningJobSignedObjectS3ArrayInput interface {
 	pulumi.Input
 
@@ -1485,7 +1485,7 @@ type GetSigningJobSource struct {
 // GetSigningJobSourceInput is an input type that accepts GetSigningJobSourceArgs and GetSigningJobSourceOutput values.
 // You can construct a concrete instance of `GetSigningJobSourceInput` via:
 //
-//          GetSigningJobSourceArgs{...}
+//	GetSigningJobSourceArgs{...}
 type GetSigningJobSourceInput interface {
 	pulumi.Input
 
@@ -1512,7 +1512,7 @@ func (i GetSigningJobSourceArgs) ToGetSigningJobSourceOutputWithContext(ctx cont
 // GetSigningJobSourceArrayInput is an input type that accepts GetSigningJobSourceArray and GetSigningJobSourceArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSourceArrayInput` via:
 //
-//          GetSigningJobSourceArray{ GetSigningJobSourceArgs{...} }
+//	GetSigningJobSourceArray{ GetSigningJobSourceArgs{...} }
 type GetSigningJobSourceArrayInput interface {
 	pulumi.Input
 
@@ -1581,7 +1581,7 @@ type GetSigningJobSourceS3 struct {
 // GetSigningJobSourceS3Input is an input type that accepts GetSigningJobSourceS3Args and GetSigningJobSourceS3Output values.
 // You can construct a concrete instance of `GetSigningJobSourceS3Input` via:
 //
-//          GetSigningJobSourceS3Args{...}
+//	GetSigningJobSourceS3Args{...}
 type GetSigningJobSourceS3Input interface {
 	pulumi.Input
 
@@ -1610,7 +1610,7 @@ func (i GetSigningJobSourceS3Args) ToGetSigningJobSourceS3OutputWithContext(ctx 
 // GetSigningJobSourceS3ArrayInput is an input type that accepts GetSigningJobSourceS3Array and GetSigningJobSourceS3ArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSourceS3ArrayInput` via:
 //
-//          GetSigningJobSourceS3Array{ GetSigningJobSourceS3Args{...} }
+//	GetSigningJobSourceS3Array{ GetSigningJobSourceS3Args{...} }
 type GetSigningJobSourceS3ArrayInput interface {
 	pulumi.Input
 
@@ -1687,7 +1687,7 @@ type GetSigningProfileRevocationRecord struct {
 // GetSigningProfileRevocationRecordInput is an input type that accepts GetSigningProfileRevocationRecordArgs and GetSigningProfileRevocationRecordOutput values.
 // You can construct a concrete instance of `GetSigningProfileRevocationRecordInput` via:
 //
-//          GetSigningProfileRevocationRecordArgs{...}
+//	GetSigningProfileRevocationRecordArgs{...}
 type GetSigningProfileRevocationRecordInput interface {
 	pulumi.Input
 
@@ -1716,7 +1716,7 @@ func (i GetSigningProfileRevocationRecordArgs) ToGetSigningProfileRevocationReco
 // GetSigningProfileRevocationRecordArrayInput is an input type that accepts GetSigningProfileRevocationRecordArray and GetSigningProfileRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `GetSigningProfileRevocationRecordArrayInput` via:
 //
-//          GetSigningProfileRevocationRecordArray{ GetSigningProfileRevocationRecordArgs{...} }
+//	GetSigningProfileRevocationRecordArray{ GetSigningProfileRevocationRecordArgs{...} }
 type GetSigningProfileRevocationRecordArrayInput interface {
 	pulumi.Input
 
@@ -1792,7 +1792,7 @@ type GetSigningProfileSignatureValidityPeriod struct {
 // GetSigningProfileSignatureValidityPeriodInput is an input type that accepts GetSigningProfileSignatureValidityPeriodArgs and GetSigningProfileSignatureValidityPeriodOutput values.
 // You can construct a concrete instance of `GetSigningProfileSignatureValidityPeriodInput` via:
 //
-//          GetSigningProfileSignatureValidityPeriodArgs{...}
+//	GetSigningProfileSignatureValidityPeriodArgs{...}
 type GetSigningProfileSignatureValidityPeriodInput interface {
 	pulumi.Input
 
@@ -1820,7 +1820,7 @@ func (i GetSigningProfileSignatureValidityPeriodArgs) ToGetSigningProfileSignatu
 // GetSigningProfileSignatureValidityPeriodArrayInput is an input type that accepts GetSigningProfileSignatureValidityPeriodArray and GetSigningProfileSignatureValidityPeriodArrayOutput values.
 // You can construct a concrete instance of `GetSigningProfileSignatureValidityPeriodArrayInput` via:
 //
-//          GetSigningProfileSignatureValidityPeriodArray{ GetSigningProfileSignatureValidityPeriodArgs{...} }
+//	GetSigningProfileSignatureValidityPeriodArray{ GetSigningProfileSignatureValidityPeriodArgs{...} }
 type GetSigningProfileSignatureValidityPeriodArrayInput interface {
 	pulumi.Input
 

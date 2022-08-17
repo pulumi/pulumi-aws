@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetVpcAttachmentsArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpcAttachmentsFilterArgs>? _filters;
@@ -50,9 +50,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetVpcAttachmentsArgs()
         {
         }
+        public static new GetVpcAttachmentsArgs Empty => new GetVpcAttachmentsArgs();
     }
 
-    public sealed class GetVpcAttachmentsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcAttachmentsFilterInputArgs>? _filters;
@@ -69,6 +70,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetVpcAttachmentsInvokeArgs()
         {
         }
+        public static new GetVpcAttachmentsInvokeArgs Empty => new GetVpcAttachmentsInvokeArgs();
     }
 
 

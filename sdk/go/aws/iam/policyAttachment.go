@@ -25,79 +25,86 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		user, err := iam.NewUser(ctx, "user", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "ec2.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			user, err := iam.NewUser(ctx, "user", nil)
+//			if err != nil {
+//				return err
+//			}
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "ec2.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		group, err := iam.NewGroup(ctx, "group", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-// 			Description: pulumi.String("A test policy"),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "ec2:Describe*"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "*"
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			group, err := iam.NewGroup(ctx, "group", nil)
+//			if err != nil {
+//				return err
+//			}
+//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Description: pulumi.String("A test policy"),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "ec2:Describe*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewPolicyAttachment(ctx, "test-attach", &iam.PolicyAttachmentArgs{
-// 			Users: pulumi.AnyArray{
-// 				user.Name,
-// 			},
-// 			Roles: pulumi.AnyArray{
-// 				role.Name,
-// 			},
-// 			Groups: pulumi.AnyArray{
-// 				group.Name,
-// 			},
-// 			PolicyArn: policy.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewPolicyAttachment(ctx, "test-attach", &iam.PolicyAttachmentArgs{
+//				Users: pulumi.AnyArray{
+//					user.Name,
+//				},
+//				Roles: pulumi.AnyArray{
+//					role.Name,
+//				},
+//				Groups: pulumi.AnyArray{
+//					group.Name,
+//				},
+//				PolicyArn: policy.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -228,7 +235,7 @@ func (i *PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Conte
 // PolicyAttachmentArrayInput is an input type that accepts PolicyAttachmentArray and PolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `PolicyAttachmentArrayInput` via:
 //
-//          PolicyAttachmentArray{ PolicyAttachmentArgs{...} }
+//	PolicyAttachmentArray{ PolicyAttachmentArgs{...} }
 type PolicyAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +260,7 @@ func (i PolicyAttachmentArray) ToPolicyAttachmentArrayOutputWithContext(ctx cont
 // PolicyAttachmentMapInput is an input type that accepts PolicyAttachmentMap and PolicyAttachmentMapOutput values.
 // You can construct a concrete instance of `PolicyAttachmentMapInput` via:
 //
-//          PolicyAttachmentMap{ "key": PolicyAttachmentArgs{...} }
+//	PolicyAttachmentMap{ "key": PolicyAttachmentArgs{...} }
 type PolicyAttachmentMapInput interface {
 	pulumi.Input
 

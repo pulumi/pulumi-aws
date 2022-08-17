@@ -22,7 +22,7 @@ type FrameworkControl struct {
 // FrameworkControlInput is an input type that accepts FrameworkControlArgs and FrameworkControlOutput values.
 // You can construct a concrete instance of `FrameworkControlInput` via:
 //
-//          FrameworkControlArgs{...}
+//	FrameworkControlArgs{...}
 type FrameworkControlInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i FrameworkControlArgs) ToFrameworkControlOutputWithContext(ctx context.Co
 // FrameworkControlArrayInput is an input type that accepts FrameworkControlArray and FrameworkControlArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlArrayInput` via:
 //
-//          FrameworkControlArray{ FrameworkControlArgs{...} }
+//	FrameworkControlArray{ FrameworkControlArgs{...} }
 type FrameworkControlArrayInput interface {
 	pulumi.Input
 
@@ -135,7 +135,7 @@ type FrameworkControlInputParameter struct {
 // FrameworkControlInputParameterInput is an input type that accepts FrameworkControlInputParameterArgs and FrameworkControlInputParameterOutput values.
 // You can construct a concrete instance of `FrameworkControlInputParameterInput` via:
 //
-//          FrameworkControlInputParameterArgs{...}
+//	FrameworkControlInputParameterArgs{...}
 type FrameworkControlInputParameterInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ func (i FrameworkControlInputParameterArgs) ToFrameworkControlInputParameterOutp
 // FrameworkControlInputParameterArrayInput is an input type that accepts FrameworkControlInputParameterArray and FrameworkControlInputParameterArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlInputParameterArrayInput` via:
 //
-//          FrameworkControlInputParameterArray{ FrameworkControlInputParameterArgs{...} }
+//	FrameworkControlInputParameterArray{ FrameworkControlInputParameterArgs{...} }
 type FrameworkControlInputParameterArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +243,7 @@ type FrameworkControlScope struct {
 // FrameworkControlScopeInput is an input type that accepts FrameworkControlScopeArgs and FrameworkControlScopeOutput values.
 // You can construct a concrete instance of `FrameworkControlScopeInput` via:
 //
-//          FrameworkControlScopeArgs{...}
+//	FrameworkControlScopeArgs{...}
 type FrameworkControlScopeInput interface {
 	pulumi.Input
 
@@ -283,11 +283,11 @@ func (i FrameworkControlScopeArgs) ToFrameworkControlScopePtrOutputWithContext(c
 // FrameworkControlScopePtrInput is an input type that accepts FrameworkControlScopeArgs, FrameworkControlScopePtr and FrameworkControlScopePtrOutput values.
 // You can construct a concrete instance of `FrameworkControlScopePtrInput` via:
 //
-//          FrameworkControlScopeArgs{...}
+//	        FrameworkControlScopeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FrameworkControlScopePtrInput interface {
 	pulumi.Input
 
@@ -416,7 +416,7 @@ type PlanAdvancedBackupSetting struct {
 // PlanAdvancedBackupSettingInput is an input type that accepts PlanAdvancedBackupSettingArgs and PlanAdvancedBackupSettingOutput values.
 // You can construct a concrete instance of `PlanAdvancedBackupSettingInput` via:
 //
-//          PlanAdvancedBackupSettingArgs{...}
+//	PlanAdvancedBackupSettingArgs{...}
 type PlanAdvancedBackupSettingInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ func (i PlanAdvancedBackupSettingArgs) ToPlanAdvancedBackupSettingOutputWithCont
 // PlanAdvancedBackupSettingArrayInput is an input type that accepts PlanAdvancedBackupSettingArray and PlanAdvancedBackupSettingArrayOutput values.
 // You can construct a concrete instance of `PlanAdvancedBackupSettingArrayInput` via:
 //
-//          PlanAdvancedBackupSettingArray{ PlanAdvancedBackupSettingArgs{...} }
+//	PlanAdvancedBackupSettingArray{ PlanAdvancedBackupSettingArgs{...} }
 type PlanAdvancedBackupSettingArrayInput interface {
 	pulumi.Input
 
@@ -536,7 +536,7 @@ type PlanRule struct {
 // PlanRuleInput is an input type that accepts PlanRuleArgs and PlanRuleOutput values.
 // You can construct a concrete instance of `PlanRuleInput` via:
 //
-//          PlanRuleArgs{...}
+//	PlanRuleArgs{...}
 type PlanRuleInput interface {
 	pulumi.Input
 
@@ -580,7 +580,7 @@ func (i PlanRuleArgs) ToPlanRuleOutputWithContext(ctx context.Context) PlanRuleO
 // PlanRuleArrayInput is an input type that accepts PlanRuleArray and PlanRuleArrayOutput values.
 // You can construct a concrete instance of `PlanRuleArrayInput` via:
 //
-//          PlanRuleArray{ PlanRuleArgs{...} }
+//	PlanRuleArray{ PlanRuleArgs{...} }
 type PlanRuleArrayInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ type PlanRuleCopyAction struct {
 // PlanRuleCopyActionInput is an input type that accepts PlanRuleCopyActionArgs and PlanRuleCopyActionOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionInput` via:
 //
-//          PlanRuleCopyActionArgs{...}
+//	PlanRuleCopyActionArgs{...}
 type PlanRuleCopyActionInput interface {
 	pulumi.Input
 
@@ -721,7 +721,7 @@ func (i PlanRuleCopyActionArgs) ToPlanRuleCopyActionOutputWithContext(ctx contex
 // PlanRuleCopyActionArrayInput is an input type that accepts PlanRuleCopyActionArray and PlanRuleCopyActionArrayOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionArrayInput` via:
 //
-//          PlanRuleCopyActionArray{ PlanRuleCopyActionArgs{...} }
+//	PlanRuleCopyActionArray{ PlanRuleCopyActionArgs{...} }
 type PlanRuleCopyActionArrayInput interface {
 	pulumi.Input
 
@@ -797,7 +797,7 @@ type PlanRuleCopyActionLifecycle struct {
 // PlanRuleCopyActionLifecycleInput is an input type that accepts PlanRuleCopyActionLifecycleArgs and PlanRuleCopyActionLifecycleOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionLifecycleInput` via:
 //
-//          PlanRuleCopyActionLifecycleArgs{...}
+//	PlanRuleCopyActionLifecycleArgs{...}
 type PlanRuleCopyActionLifecycleInput interface {
 	pulumi.Input
 
@@ -835,11 +835,11 @@ func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecyclePtrOutputW
 // PlanRuleCopyActionLifecyclePtrInput is an input type that accepts PlanRuleCopyActionLifecycleArgs, PlanRuleCopyActionLifecyclePtr and PlanRuleCopyActionLifecyclePtrOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionLifecyclePtrInput` via:
 //
-//          PlanRuleCopyActionLifecycleArgs{...}
+//	        PlanRuleCopyActionLifecycleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanRuleCopyActionLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -953,7 +953,7 @@ type PlanRuleLifecycle struct {
 // PlanRuleLifecycleInput is an input type that accepts PlanRuleLifecycleArgs and PlanRuleLifecycleOutput values.
 // You can construct a concrete instance of `PlanRuleLifecycleInput` via:
 //
-//          PlanRuleLifecycleArgs{...}
+//	PlanRuleLifecycleArgs{...}
 type PlanRuleLifecycleInput interface {
 	pulumi.Input
 
@@ -991,11 +991,11 @@ func (i PlanRuleLifecycleArgs) ToPlanRuleLifecyclePtrOutputWithContext(ctx conte
 // PlanRuleLifecyclePtrInput is an input type that accepts PlanRuleLifecycleArgs, PlanRuleLifecyclePtr and PlanRuleLifecyclePtrOutput values.
 // You can construct a concrete instance of `PlanRuleLifecyclePtrInput` via:
 //
-//          PlanRuleLifecycleArgs{...}
+//	        PlanRuleLifecycleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanRuleLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -1111,7 +1111,7 @@ type ReportPlanReportDeliveryChannel struct {
 // ReportPlanReportDeliveryChannelInput is an input type that accepts ReportPlanReportDeliveryChannelArgs and ReportPlanReportDeliveryChannelOutput values.
 // You can construct a concrete instance of `ReportPlanReportDeliveryChannelInput` via:
 //
-//          ReportPlanReportDeliveryChannelArgs{...}
+//	ReportPlanReportDeliveryChannelArgs{...}
 type ReportPlanReportDeliveryChannelInput interface {
 	pulumi.Input
 
@@ -1151,11 +1151,11 @@ func (i ReportPlanReportDeliveryChannelArgs) ToReportPlanReportDeliveryChannelPt
 // ReportPlanReportDeliveryChannelPtrInput is an input type that accepts ReportPlanReportDeliveryChannelArgs, ReportPlanReportDeliveryChannelPtr and ReportPlanReportDeliveryChannelPtrOutput values.
 // You can construct a concrete instance of `ReportPlanReportDeliveryChannelPtrInput` via:
 //
-//          ReportPlanReportDeliveryChannelArgs{...}
+//	        ReportPlanReportDeliveryChannelArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportPlanReportDeliveryChannelPtrInput interface {
 	pulumi.Input
 
@@ -1286,7 +1286,7 @@ type ReportPlanReportSetting struct {
 // ReportPlanReportSettingInput is an input type that accepts ReportPlanReportSettingArgs and ReportPlanReportSettingOutput values.
 // You can construct a concrete instance of `ReportPlanReportSettingInput` via:
 //
-//          ReportPlanReportSettingArgs{...}
+//	ReportPlanReportSettingArgs{...}
 type ReportPlanReportSettingInput interface {
 	pulumi.Input
 
@@ -1326,11 +1326,11 @@ func (i ReportPlanReportSettingArgs) ToReportPlanReportSettingPtrOutputWithConte
 // ReportPlanReportSettingPtrInput is an input type that accepts ReportPlanReportSettingArgs, ReportPlanReportSettingPtr and ReportPlanReportSettingPtrOutput values.
 // You can construct a concrete instance of `ReportPlanReportSettingPtrInput` via:
 //
-//          ReportPlanReportSettingArgs{...}
+//	        ReportPlanReportSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportPlanReportSettingPtrInput interface {
 	pulumi.Input
 
@@ -1459,7 +1459,7 @@ type SelectionCondition struct {
 // SelectionConditionInput is an input type that accepts SelectionConditionArgs and SelectionConditionOutput values.
 // You can construct a concrete instance of `SelectionConditionInput` via:
 //
-//          SelectionConditionArgs{...}
+//	SelectionConditionArgs{...}
 type SelectionConditionInput interface {
 	pulumi.Input
 
@@ -1489,7 +1489,7 @@ func (i SelectionConditionArgs) ToSelectionConditionOutputWithContext(ctx contex
 // SelectionConditionArrayInput is an input type that accepts SelectionConditionArray and SelectionConditionArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionArrayInput` via:
 //
-//          SelectionConditionArray{ SelectionConditionArgs{...} }
+//	SelectionConditionArray{ SelectionConditionArgs{...} }
 type SelectionConditionArrayInput interface {
 	pulumi.Input
 
@@ -1571,7 +1571,7 @@ type SelectionConditionStringEqual struct {
 // SelectionConditionStringEqualInput is an input type that accepts SelectionConditionStringEqualArgs and SelectionConditionStringEqualOutput values.
 // You can construct a concrete instance of `SelectionConditionStringEqualInput` via:
 //
-//          SelectionConditionStringEqualArgs{...}
+//	SelectionConditionStringEqualArgs{...}
 type SelectionConditionStringEqualInput interface {
 	pulumi.Input
 
@@ -1601,7 +1601,7 @@ func (i SelectionConditionStringEqualArgs) ToSelectionConditionStringEqualOutput
 // SelectionConditionStringEqualArrayInput is an input type that accepts SelectionConditionStringEqualArray and SelectionConditionStringEqualArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringEqualArrayInput` via:
 //
-//          SelectionConditionStringEqualArray{ SelectionConditionStringEqualArgs{...} }
+//	SelectionConditionStringEqualArray{ SelectionConditionStringEqualArgs{...} }
 type SelectionConditionStringEqualArrayInput interface {
 	pulumi.Input
 
@@ -1677,7 +1677,7 @@ type SelectionConditionStringLike struct {
 // SelectionConditionStringLikeInput is an input type that accepts SelectionConditionStringLikeArgs and SelectionConditionStringLikeOutput values.
 // You can construct a concrete instance of `SelectionConditionStringLikeInput` via:
 //
-//          SelectionConditionStringLikeArgs{...}
+//	SelectionConditionStringLikeArgs{...}
 type SelectionConditionStringLikeInput interface {
 	pulumi.Input
 
@@ -1707,7 +1707,7 @@ func (i SelectionConditionStringLikeArgs) ToSelectionConditionStringLikeOutputWi
 // SelectionConditionStringLikeArrayInput is an input type that accepts SelectionConditionStringLikeArray and SelectionConditionStringLikeArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringLikeArrayInput` via:
 //
-//          SelectionConditionStringLikeArray{ SelectionConditionStringLikeArgs{...} }
+//	SelectionConditionStringLikeArray{ SelectionConditionStringLikeArgs{...} }
 type SelectionConditionStringLikeArrayInput interface {
 	pulumi.Input
 
@@ -1783,7 +1783,7 @@ type SelectionConditionStringNotEqual struct {
 // SelectionConditionStringNotEqualInput is an input type that accepts SelectionConditionStringNotEqualArgs and SelectionConditionStringNotEqualOutput values.
 // You can construct a concrete instance of `SelectionConditionStringNotEqualInput` via:
 //
-//          SelectionConditionStringNotEqualArgs{...}
+//	SelectionConditionStringNotEqualArgs{...}
 type SelectionConditionStringNotEqualInput interface {
 	pulumi.Input
 
@@ -1813,7 +1813,7 @@ func (i SelectionConditionStringNotEqualArgs) ToSelectionConditionStringNotEqual
 // SelectionConditionStringNotEqualArrayInput is an input type that accepts SelectionConditionStringNotEqualArray and SelectionConditionStringNotEqualArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringNotEqualArrayInput` via:
 //
-//          SelectionConditionStringNotEqualArray{ SelectionConditionStringNotEqualArgs{...} }
+//	SelectionConditionStringNotEqualArray{ SelectionConditionStringNotEqualArgs{...} }
 type SelectionConditionStringNotEqualArrayInput interface {
 	pulumi.Input
 
@@ -1889,7 +1889,7 @@ type SelectionConditionStringNotLike struct {
 // SelectionConditionStringNotLikeInput is an input type that accepts SelectionConditionStringNotLikeArgs and SelectionConditionStringNotLikeOutput values.
 // You can construct a concrete instance of `SelectionConditionStringNotLikeInput` via:
 //
-//          SelectionConditionStringNotLikeArgs{...}
+//	SelectionConditionStringNotLikeArgs{...}
 type SelectionConditionStringNotLikeInput interface {
 	pulumi.Input
 
@@ -1919,7 +1919,7 @@ func (i SelectionConditionStringNotLikeArgs) ToSelectionConditionStringNotLikeOu
 // SelectionConditionStringNotLikeArrayInput is an input type that accepts SelectionConditionStringNotLikeArray and SelectionConditionStringNotLikeArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringNotLikeArrayInput` via:
 //
-//          SelectionConditionStringNotLikeArray{ SelectionConditionStringNotLikeArgs{...} }
+//	SelectionConditionStringNotLikeArray{ SelectionConditionStringNotLikeArgs{...} }
 type SelectionConditionStringNotLikeArrayInput interface {
 	pulumi.Input
 
@@ -1997,7 +1997,7 @@ type SelectionSelectionTag struct {
 // SelectionSelectionTagInput is an input type that accepts SelectionSelectionTagArgs and SelectionSelectionTagOutput values.
 // You can construct a concrete instance of `SelectionSelectionTagInput` via:
 //
-//          SelectionSelectionTagArgs{...}
+//	SelectionSelectionTagArgs{...}
 type SelectionSelectionTagInput interface {
 	pulumi.Input
 
@@ -2029,7 +2029,7 @@ func (i SelectionSelectionTagArgs) ToSelectionSelectionTagOutputWithContext(ctx 
 // SelectionSelectionTagArrayInput is an input type that accepts SelectionSelectionTagArray and SelectionSelectionTagArrayOutput values.
 // You can construct a concrete instance of `SelectionSelectionTagArrayInput` via:
 //
-//          SelectionSelectionTagArray{ SelectionSelectionTagArgs{...} }
+//	SelectionSelectionTagArray{ SelectionSelectionTagArgs{...} }
 type SelectionSelectionTagArrayInput interface {
 	pulumi.Input
 
@@ -2112,7 +2112,7 @@ type GetFrameworkControl struct {
 // GetFrameworkControlInput is an input type that accepts GetFrameworkControlArgs and GetFrameworkControlOutput values.
 // You can construct a concrete instance of `GetFrameworkControlInput` via:
 //
-//          GetFrameworkControlArgs{...}
+//	GetFrameworkControlArgs{...}
 type GetFrameworkControlInput interface {
 	pulumi.Input
 
@@ -2144,7 +2144,7 @@ func (i GetFrameworkControlArgs) ToGetFrameworkControlOutputWithContext(ctx cont
 // GetFrameworkControlArrayInput is an input type that accepts GetFrameworkControlArray and GetFrameworkControlArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlArrayInput` via:
 //
-//          GetFrameworkControlArray{ GetFrameworkControlArgs{...} }
+//	GetFrameworkControlArray{ GetFrameworkControlArgs{...} }
 type GetFrameworkControlArrayInput interface {
 	pulumi.Input
 
@@ -2225,7 +2225,7 @@ type GetFrameworkControlInputParameter struct {
 // GetFrameworkControlInputParameterInput is an input type that accepts GetFrameworkControlInputParameterArgs and GetFrameworkControlInputParameterOutput values.
 // You can construct a concrete instance of `GetFrameworkControlInputParameterInput` via:
 //
-//          GetFrameworkControlInputParameterArgs{...}
+//	GetFrameworkControlInputParameterArgs{...}
 type GetFrameworkControlInputParameterInput interface {
 	pulumi.Input
 
@@ -2255,7 +2255,7 @@ func (i GetFrameworkControlInputParameterArgs) ToGetFrameworkControlInputParamet
 // GetFrameworkControlInputParameterArrayInput is an input type that accepts GetFrameworkControlInputParameterArray and GetFrameworkControlInputParameterArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlInputParameterArrayInput` via:
 //
-//          GetFrameworkControlInputParameterArray{ GetFrameworkControlInputParameterArgs{...} }
+//	GetFrameworkControlInputParameterArray{ GetFrameworkControlInputParameterArgs{...} }
 type GetFrameworkControlInputParameterArrayInput interface {
 	pulumi.Input
 
@@ -2333,7 +2333,7 @@ type GetFrameworkControlScope struct {
 // GetFrameworkControlScopeInput is an input type that accepts GetFrameworkControlScopeArgs and GetFrameworkControlScopeOutput values.
 // You can construct a concrete instance of `GetFrameworkControlScopeInput` via:
 //
-//          GetFrameworkControlScopeArgs{...}
+//	GetFrameworkControlScopeArgs{...}
 type GetFrameworkControlScopeInput interface {
 	pulumi.Input
 
@@ -2365,7 +2365,7 @@ func (i GetFrameworkControlScopeArgs) ToGetFrameworkControlScopeOutputWithContex
 // GetFrameworkControlScopeArrayInput is an input type that accepts GetFrameworkControlScopeArray and GetFrameworkControlScopeArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlScopeArrayInput` via:
 //
-//          GetFrameworkControlScopeArray{ GetFrameworkControlScopeArgs{...} }
+//	GetFrameworkControlScopeArray{ GetFrameworkControlScopeArgs{...} }
 type GetFrameworkControlScopeArrayInput interface {
 	pulumi.Input
 
@@ -2448,7 +2448,7 @@ type GetReportPlanReportDeliveryChannel struct {
 // GetReportPlanReportDeliveryChannelInput is an input type that accepts GetReportPlanReportDeliveryChannelArgs and GetReportPlanReportDeliveryChannelOutput values.
 // You can construct a concrete instance of `GetReportPlanReportDeliveryChannelInput` via:
 //
-//          GetReportPlanReportDeliveryChannelArgs{...}
+//	GetReportPlanReportDeliveryChannelArgs{...}
 type GetReportPlanReportDeliveryChannelInput interface {
 	pulumi.Input
 
@@ -2480,7 +2480,7 @@ func (i GetReportPlanReportDeliveryChannelArgs) ToGetReportPlanReportDeliveryCha
 // GetReportPlanReportDeliveryChannelArrayInput is an input type that accepts GetReportPlanReportDeliveryChannelArray and GetReportPlanReportDeliveryChannelArrayOutput values.
 // You can construct a concrete instance of `GetReportPlanReportDeliveryChannelArrayInput` via:
 //
-//          GetReportPlanReportDeliveryChannelArray{ GetReportPlanReportDeliveryChannelArgs{...} }
+//	GetReportPlanReportDeliveryChannelArray{ GetReportPlanReportDeliveryChannelArgs{...} }
 type GetReportPlanReportDeliveryChannelArrayInput interface {
 	pulumi.Input
 
@@ -2563,7 +2563,7 @@ type GetReportPlanReportSetting struct {
 // GetReportPlanReportSettingInput is an input type that accepts GetReportPlanReportSettingArgs and GetReportPlanReportSettingOutput values.
 // You can construct a concrete instance of `GetReportPlanReportSettingInput` via:
 //
-//          GetReportPlanReportSettingArgs{...}
+//	GetReportPlanReportSettingArgs{...}
 type GetReportPlanReportSettingInput interface {
 	pulumi.Input
 
@@ -2595,7 +2595,7 @@ func (i GetReportPlanReportSettingArgs) ToGetReportPlanReportSettingOutputWithCo
 // GetReportPlanReportSettingArrayInput is an input type that accepts GetReportPlanReportSettingArray and GetReportPlanReportSettingArrayOutput values.
 // You can construct a concrete instance of `GetReportPlanReportSettingArrayInput` via:
 //
-//          GetReportPlanReportSettingArray{ GetReportPlanReportSettingArgs{...} }
+//	GetReportPlanReportSettingArray{ GetReportPlanReportSettingArgs{...} }
 type GetReportPlanReportSettingArrayInput interface {
 	pulumi.Input
 

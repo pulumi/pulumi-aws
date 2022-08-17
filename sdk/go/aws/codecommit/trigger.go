@@ -17,36 +17,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
-// 			RepositoryName: pulumi.String("test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
-// 			RepositoryName: testRepository.RepositoryName,
-// 			Triggers: codecommit.TriggerTriggerArray{
-// 				&codecommit.TriggerTriggerArgs{
-// 					Name: pulumi.String("all"),
-// 					Events: pulumi.StringArray{
-// 						pulumi.String("all"),
-// 					},
-// 					DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
+//				RepositoryName: pulumi.String("test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
+//				RepositoryName: testRepository.RepositoryName,
+//				Triggers: codecommit.TriggerTriggerArray{
+//					&codecommit.TriggerTriggerArgs{
+//						Name: pulumi.String("all"),
+//						Events: pulumi.StringArray{
+//							pulumi.String("all"),
+//						},
+//						DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Trigger struct {
 	pulumi.CustomResourceState
@@ -151,7 +154,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 // TriggerArrayInput is an input type that accepts TriggerArray and TriggerArrayOutput values.
 // You can construct a concrete instance of `TriggerArrayInput` via:
 //
-//          TriggerArray{ TriggerArgs{...} }
+//	TriggerArray{ TriggerArgs{...} }
 type TriggerArrayInput interface {
 	pulumi.Input
 
@@ -176,7 +179,7 @@ func (i TriggerArray) ToTriggerArrayOutputWithContext(ctx context.Context) Trigg
 // TriggerMapInput is an input type that accepts TriggerMap and TriggerMapOutput values.
 // You can construct a concrete instance of `TriggerMapInput` via:
 //
-//          TriggerMap{ "key": TriggerArgs{...} }
+//	TriggerMap{ "key": TriggerArgs{...} }
 type TriggerMapInput interface {
 	pulumi.Input
 

@@ -28,7 +28,7 @@ type ProductProvisioningArtifactParameters struct {
 // ProductProvisioningArtifactParametersInput is an input type that accepts ProductProvisioningArtifactParametersArgs and ProductProvisioningArtifactParametersOutput values.
 // You can construct a concrete instance of `ProductProvisioningArtifactParametersInput` via:
 //
-//          ProductProvisioningArtifactParametersArgs{...}
+//	ProductProvisioningArtifactParametersArgs{...}
 type ProductProvisioningArtifactParametersInput interface {
 	pulumi.Input
 
@@ -74,11 +74,11 @@ func (i ProductProvisioningArtifactParametersArgs) ToProductProvisioningArtifact
 // ProductProvisioningArtifactParametersPtrInput is an input type that accepts ProductProvisioningArtifactParametersArgs, ProductProvisioningArtifactParametersPtr and ProductProvisioningArtifactParametersPtrOutput values.
 // You can construct a concrete instance of `ProductProvisioningArtifactParametersPtrInput` via:
 //
-//          ProductProvisioningArtifactParametersArgs{...}
+//	        ProductProvisioningArtifactParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProductProvisioningArtifactParametersPtrInput interface {
 	pulumi.Input
 
@@ -254,7 +254,7 @@ type ProvisionedProductOutputType struct {
 // ProvisionedProductOutputTypeInput is an input type that accepts ProvisionedProductOutputTypeArgs and ProvisionedProductOutputTypeOutput values.
 // You can construct a concrete instance of `ProvisionedProductOutputTypeInput` via:
 //
-//          ProvisionedProductOutputTypeArgs{...}
+//	ProvisionedProductOutputTypeArgs{...}
 type ProvisionedProductOutputTypeInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ func (i ProvisionedProductOutputTypeArgs) ToProvisionedProductOutputTypeOutputWi
 // ProvisionedProductOutputTypeArrayInput is an input type that accepts ProvisionedProductOutputTypeArray and ProvisionedProductOutputTypeArrayOutput values.
 // You can construct a concrete instance of `ProvisionedProductOutputTypeArrayInput` via:
 //
-//          ProvisionedProductOutputTypeArray{ ProvisionedProductOutputTypeArgs{...} }
+//	ProvisionedProductOutputTypeArray{ ProvisionedProductOutputTypeArgs{...} }
 type ProvisionedProductOutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -369,7 +369,7 @@ type ProvisionedProductProvisioningParameter struct {
 // ProvisionedProductProvisioningParameterInput is an input type that accepts ProvisionedProductProvisioningParameterArgs and ProvisionedProductProvisioningParameterOutput values.
 // You can construct a concrete instance of `ProvisionedProductProvisioningParameterInput` via:
 //
-//          ProvisionedProductProvisioningParameterArgs{...}
+//	ProvisionedProductProvisioningParameterArgs{...}
 type ProvisionedProductProvisioningParameterInput interface {
 	pulumi.Input
 
@@ -401,7 +401,7 @@ func (i ProvisionedProductProvisioningParameterArgs) ToProvisionedProductProvisi
 // ProvisionedProductProvisioningParameterArrayInput is an input type that accepts ProvisionedProductProvisioningParameterArray and ProvisionedProductProvisioningParameterArrayOutput values.
 // You can construct a concrete instance of `ProvisionedProductProvisioningParameterArrayInput` via:
 //
-//          ProvisionedProductProvisioningParameterArray{ ProvisionedProductProvisioningParameterArgs{...} }
+//	ProvisionedProductProvisioningParameterArray{ ProvisionedProductProvisioningParameterArgs{...} }
 type ProvisionedProductProvisioningParameterArrayInput interface {
 	pulumi.Input
 
@@ -490,7 +490,7 @@ type ProvisionedProductStackSetProvisioningPreferences struct {
 // ProvisionedProductStackSetProvisioningPreferencesInput is an input type that accepts ProvisionedProductStackSetProvisioningPreferencesArgs and ProvisionedProductStackSetProvisioningPreferencesOutput values.
 // You can construct a concrete instance of `ProvisionedProductStackSetProvisioningPreferencesInput` via:
 //
-//          ProvisionedProductStackSetProvisioningPreferencesArgs{...}
+//	ProvisionedProductStackSetProvisioningPreferencesArgs{...}
 type ProvisionedProductStackSetProvisioningPreferencesInput interface {
 	pulumi.Input
 
@@ -536,11 +536,11 @@ func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProd
 // ProvisionedProductStackSetProvisioningPreferencesPtrInput is an input type that accepts ProvisionedProductStackSetProvisioningPreferencesArgs, ProvisionedProductStackSetProvisioningPreferencesPtr and ProvisionedProductStackSetProvisioningPreferencesPtrOutput values.
 // You can construct a concrete instance of `ProvisionedProductStackSetProvisioningPreferencesPtrInput` via:
 //
-//          ProvisionedProductStackSetProvisioningPreferencesArgs{...}
+//	        ProvisionedProductStackSetProvisioningPreferencesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProvisionedProductStackSetProvisioningPreferencesPtrInput interface {
 	pulumi.Input
 
@@ -720,7 +720,7 @@ type ServiceActionDefinition struct {
 // ServiceActionDefinitionInput is an input type that accepts ServiceActionDefinitionArgs and ServiceActionDefinitionOutput values.
 // You can construct a concrete instance of `ServiceActionDefinitionInput` via:
 //
-//          ServiceActionDefinitionArgs{...}
+//	ServiceActionDefinitionArgs{...}
 type ServiceActionDefinitionInput interface {
 	pulumi.Input
 
@@ -764,11 +764,11 @@ func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionPtrOutputWithConte
 // ServiceActionDefinitionPtrInput is an input type that accepts ServiceActionDefinitionArgs, ServiceActionDefinitionPtr and ServiceActionDefinitionPtrOutput values.
 // You can construct a concrete instance of `ServiceActionDefinitionPtrInput` via:
 //
-//          ServiceActionDefinitionArgs{...}
+//	        ServiceActionDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceActionDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -931,7 +931,7 @@ type GetLaunchPathsSummary struct {
 // GetLaunchPathsSummaryInput is an input type that accepts GetLaunchPathsSummaryArgs and GetLaunchPathsSummaryOutput values.
 // You can construct a concrete instance of `GetLaunchPathsSummaryInput` via:
 //
-//          GetLaunchPathsSummaryArgs{...}
+//	GetLaunchPathsSummaryArgs{...}
 type GetLaunchPathsSummaryInput interface {
 	pulumi.Input
 
@@ -965,7 +965,7 @@ func (i GetLaunchPathsSummaryArgs) ToGetLaunchPathsSummaryOutputWithContext(ctx 
 // GetLaunchPathsSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryArray and GetLaunchPathsSummaryArrayOutput values.
 // You can construct a concrete instance of `GetLaunchPathsSummaryArrayInput` via:
 //
-//          GetLaunchPathsSummaryArray{ GetLaunchPathsSummaryArgs{...} }
+//	GetLaunchPathsSummaryArray{ GetLaunchPathsSummaryArgs{...} }
 type GetLaunchPathsSummaryArrayInput interface {
 	pulumi.Input
 
@@ -1051,7 +1051,7 @@ type GetLaunchPathsSummaryConstraintSummary struct {
 // GetLaunchPathsSummaryConstraintSummaryInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArgs and GetLaunchPathsSummaryConstraintSummaryOutput values.
 // You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryInput` via:
 //
-//          GetLaunchPathsSummaryConstraintSummaryArgs{...}
+//	GetLaunchPathsSummaryConstraintSummaryArgs{...}
 type GetLaunchPathsSummaryConstraintSummaryInput interface {
 	pulumi.Input
 
@@ -1081,7 +1081,7 @@ func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToGetLaunchPathsSummaryConst
 // GetLaunchPathsSummaryConstraintSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArray and GetLaunchPathsSummaryConstraintSummaryArrayOutput values.
 // You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryArrayInput` via:
 //
-//          GetLaunchPathsSummaryConstraintSummaryArray{ GetLaunchPathsSummaryConstraintSummaryArgs{...} }
+//	GetLaunchPathsSummaryConstraintSummaryArray{ GetLaunchPathsSummaryConstraintSummaryArgs{...} }
 type GetLaunchPathsSummaryConstraintSummaryArrayInput interface {
 	pulumi.Input
 
@@ -1164,7 +1164,7 @@ type GetPortfolioConstraintsDetail struct {
 // GetPortfolioConstraintsDetailInput is an input type that accepts GetPortfolioConstraintsDetailArgs and GetPortfolioConstraintsDetailOutput values.
 // You can construct a concrete instance of `GetPortfolioConstraintsDetailInput` via:
 //
-//          GetPortfolioConstraintsDetailArgs{...}
+//	GetPortfolioConstraintsDetailArgs{...}
 type GetPortfolioConstraintsDetailInput interface {
 	pulumi.Input
 
@@ -1201,7 +1201,7 @@ func (i GetPortfolioConstraintsDetailArgs) ToGetPortfolioConstraintsDetailOutput
 // GetPortfolioConstraintsDetailArrayInput is an input type that accepts GetPortfolioConstraintsDetailArray and GetPortfolioConstraintsDetailArrayOutput values.
 // You can construct a concrete instance of `GetPortfolioConstraintsDetailArrayInput` via:
 //
-//          GetPortfolioConstraintsDetailArray{ GetPortfolioConstraintsDetailArgs{...} }
+//	GetPortfolioConstraintsDetailArray{ GetPortfolioConstraintsDetailArgs{...} }
 type GetPortfolioConstraintsDetailArrayInput interface {
 	pulumi.Input
 

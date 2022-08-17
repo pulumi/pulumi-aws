@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class SchedulingPolicyFairSharePolicyShareDistributionArgs : Pulumi.ResourceArgs
+    public sealed class SchedulingPolicyFairSharePolicyShareDistributionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public SchedulingPolicyFairSharePolicyShareDistributionArgs()
         {
         }
+        public static new SchedulingPolicyFairSharePolicyShareDistributionArgs Empty => new SchedulingPolicyFairSharePolicyShareDistributionArgs();
     }
 }

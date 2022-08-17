@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersNetworkDestinationIpv4GetArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersNetworkDestinationIpv4GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A finding's CIDR value.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersNetworkDestinationIpv4GetArgs()
         {
         }
+        public static new InsightFiltersNetworkDestinationIpv4GetArgs Empty => new InsightFiltersNetworkDestinationIpv4GetArgs();
     }
 }

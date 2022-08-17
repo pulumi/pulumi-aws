@@ -16,152 +16,155 @@ namespace Pulumi.Aws.DirectoryService
     /// ### SimpleAD
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var foo = new Aws.Ec2.Subnet("foo", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             AvailabilityZone = "us-west-2a",
-    ///             CidrBlock = "10.0.1.0/24",
-    ///         });
-    ///         var barSubnet = new Aws.Ec2.Subnet("barSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             AvailabilityZone = "us-west-2b",
-    ///             CidrBlock = "10.0.2.0/24",
-    ///         });
-    ///         var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new Aws.DirectoryService.DirectoryArgs
-    ///         {
-    ///             Name = "corp.notexample.com",
-    ///             Password = "SuperSecretPassw0rd",
-    ///             Size = "Small",
-    ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///             {
-    ///                 VpcId = main.Id,
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     foo.Id,
-    ///                     barSubnet.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Project", "foo" },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Ec2.Subnet("foo", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         AvailabilityZone = "us-west-2a",
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         AvailabilityZone = "us-west-2b",
+    ///         CidrBlock = "10.0.2.0/24",
+    ///     });
+    /// 
+    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     {
+    ///         Name = "corp.notexample.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Size = "Small",
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         {
+    ///             VpcId = main.Id,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 foo.Id,
+    ///                 barSubnet.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Project", "foo" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Microsoft Active Directory (MicrosoftAD)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var foo = new Aws.Ec2.Subnet("foo", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             AvailabilityZone = "us-west-2a",
-    ///             CidrBlock = "10.0.1.0/24",
-    ///         });
-    ///         var barSubnet = new Aws.Ec2.Subnet("barSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             AvailabilityZone = "us-west-2b",
-    ///             CidrBlock = "10.0.2.0/24",
-    ///         });
-    ///         var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new Aws.DirectoryService.DirectoryArgs
-    ///         {
-    ///             Name = "corp.notexample.com",
-    ///             Password = "SuperSecretPassw0rd",
-    ///             Edition = "Standard",
-    ///             Type = "MicrosoftAD",
-    ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///             {
-    ///                 VpcId = main.Id,
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     foo.Id,
-    ///                     barSubnet.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Project", "foo" },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Ec2.Subnet("foo", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         AvailabilityZone = "us-west-2a",
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         AvailabilityZone = "us-west-2b",
+    ///         CidrBlock = "10.0.2.0/24",
+    ///     });
+    /// 
+    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     {
+    ///         Name = "corp.notexample.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Edition = "Standard",
+    ///         Type = "MicrosoftAD",
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         {
+    ///             VpcId = main.Id,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 foo.Id,
+    ///                 barSubnet.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Project", "foo" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Microsoft Active Directory Connector (ADConnector)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var foo = new Aws.Ec2.Subnet("foo", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             AvailabilityZone = "us-west-2a",
-    ///             CidrBlock = "10.0.1.0/24",
-    ///         });
-    ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             AvailabilityZone = "us-west-2b",
-    ///             CidrBlock = "10.0.2.0/24",
-    ///         });
-    ///         var connector = new Aws.DirectoryService.Directory("connector", new Aws.DirectoryService.DirectoryArgs
-    ///         {
-    ///             Name = "corp.notexample.com",
-    ///             Password = "SuperSecretPassw0rd",
-    ///             Size = "Small",
-    ///             Type = "ADConnector",
-    ///             ConnectSettings = new Aws.DirectoryService.Inputs.DirectoryConnectSettingsArgs
-    ///             {
-    ///                 CustomerDnsIps = 
-    ///                 {
-    ///                     "A.B.C.D",
-    ///                 },
-    ///                 CustomerUsername = "Admin",
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     foo.Id,
-    ///                     bar.Id,
-    ///                 },
-    ///                 VpcId = main.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Ec2.Subnet("foo", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         AvailabilityZone = "us-west-2a",
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var bar = new Aws.Ec2.Subnet("bar", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         AvailabilityZone = "us-west-2b",
+    ///         CidrBlock = "10.0.2.0/24",
+    ///     });
+    /// 
+    ///     var connector = new Aws.DirectoryService.Directory("connector", new()
+    ///     {
+    ///         Name = "corp.notexample.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Size = "Small",
+    ///         Type = "ADConnector",
+    ///         ConnectSettings = new Aws.DirectoryService.Inputs.DirectoryConnectSettingsArgs
+    ///         {
+    ///             CustomerDnsIps = new[]
+    ///             {
+    ///                 "A.B.C.D",
+    ///             },
+    ///             CustomerUsername = "Admin",
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 foo.Id,
+    ///                 bar.Id,
+    ///             },
+    ///             VpcId = main.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -173,7 +176,7 @@ namespace Pulumi.Aws.DirectoryService
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/directory:Directory")]
-    public partial class Directory : Pulumi.CustomResource
+    public partial class Directory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access URL for the directory, such as `http://alias.awsapps.com`.
@@ -198,6 +201,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        /// </summary>
+        [Output("desiredNumberOfDomainControllers")]
+        public Output<int> DesiredNumberOfDomainControllers { get; private set; } = null!;
 
         /// <summary>
         /// A list of IP addresses of the DNS servers for the directory or connector.
@@ -254,7 +263,7 @@ namespace Pulumi.Aws.DirectoryService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -315,7 +324,7 @@ namespace Pulumi.Aws.DirectoryService
         }
     }
 
-    public sealed class DirectoryArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
@@ -334,6 +343,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        /// </summary>
+        [Input("desiredNumberOfDomainControllers")]
+        public Input<int>? DesiredNumberOfDomainControllers { get; set; }
 
         /// <summary>
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
@@ -398,9 +413,10 @@ namespace Pulumi.Aws.DirectoryService
         public DirectoryArgs()
         {
         }
+        public static new DirectoryArgs Empty => new DirectoryArgs();
     }
 
-    public sealed class DirectoryState : Pulumi.ResourceArgs
+    public sealed class DirectoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access URL for the directory, such as `http://alias.awsapps.com`.
@@ -425,6 +441,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        /// </summary>
+        [Input("desiredNumberOfDomainControllers")]
+        public Input<int>? DesiredNumberOfDomainControllers { get; set; }
 
         [Input("dnsIpAddresses")]
         private InputList<string>? _dnsIpAddresses;
@@ -496,7 +518,7 @@ namespace Pulumi.Aws.DirectoryService
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -519,5 +541,6 @@ namespace Pulumi.Aws.DirectoryService
         public DirectoryState()
         {
         }
+        public static new DirectoryState Empty => new DirectoryState();
     }
 }

@@ -22,40 +22,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		subnetId := cfg.RequireObject("subnetId")
-// 		selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
-// 			Id: pulumi.StringRef(subnetId),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
-// 			VpcId: pulumi.String(selected.VpcId),
-// 			Ingress: ec2.SecurityGroupIngressArray{
-// 				&ec2.SecurityGroupIngressArgs{
-// 					CidrBlocks: pulumi.StringArray{
-// 						pulumi.String(selected.CidrBlock),
-// 					},
-// 					FromPort: pulumi.Int(80),
-// 					ToPort:   pulumi.Int(80),
-// 					Protocol: pulumi.String("tcp"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			subnetId := cfg.RequireObject("subnetId")
+//			selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+//				Id: pulumi.StringRef(subnetId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+//				VpcId: pulumi.String(selected.VpcId),
+//				Ingress: ec2.SecurityGroupIngressArray{
+//					&ec2.SecurityGroupIngressArgs{
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.String(selected.CidrBlock),
+//						},
+//						FromPort: pulumi.Int(80),
+//						ToPort:   pulumi.Int(80),
+//						Protocol: pulumi.String("tcp"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Filter Example
 //
@@ -65,28 +68,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
-// 			Filters: []ec2.GetSubnetFilter{
-// 				ec2.GetSubnetFilter{
-// 					Name: "tag:Name",
-// 					Values: []string{
-// 						"yakdriver",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+//				Filters: []ec2.GetSubnetFilter{
+//					ec2.GetSubnetFilter{
+//						Name: "tag:Name",
+//						Values: []string{
+//							"yakdriver",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult

@@ -15,30 +15,28 @@ namespace Pulumi.Aws.Amplify
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
-    ///         {
-    ///         });
-    ///         var masterBranch = new Aws.Amplify.Branch("masterBranch", new Aws.Amplify.BranchArgs
-    ///         {
-    ///             AppId = example.Id,
-    ///             BranchName = "master",
-    ///         });
-    ///         var masterWebhook = new Aws.Amplify.Webhook("masterWebhook", new Aws.Amplify.WebhookArgs
-    ///         {
-    ///             AppId = example.Id,
-    ///             BranchName = masterBranch.BranchName,
-    ///             Description = "triggermaster",
-    ///         });
-    ///     }
+    ///     var example = new Aws.Amplify.App("example");
     /// 
-    /// }
+    ///     var masterBranch = new Aws.Amplify.Branch("masterBranch", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = "master",
+    ///     });
+    /// 
+    ///     var masterWebhook = new Aws.Amplify.Webhook("masterWebhook", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = masterBranch.BranchName,
+    ///         Description = "triggermaster",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Amplify
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/webhook:Webhook")]
-    public partial class Webhook : Pulumi.CustomResource
+    public partial class Webhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.Amplify
         }
     }
 
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -149,9 +147,10 @@ namespace Pulumi.Aws.Amplify
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 
-    public sealed class WebhookState : Pulumi.ResourceArgs
+    public sealed class WebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -186,5 +185,6 @@ namespace Pulumi.Aws.Amplify
         public WebhookState()
         {
         }
+        public static new WebhookState Empty => new WebhookState();
     }
 }

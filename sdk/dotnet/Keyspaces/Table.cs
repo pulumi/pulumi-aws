@@ -17,39 +17,37 @@ namespace Pulumi.Aws.Keyspaces
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Keyspaces.Table("example", new()
     ///     {
-    ///         var example = new Aws.Keyspaces.Table("example", new Aws.Keyspaces.TableArgs
+    ///         KeyspaceName = aws_keyspaces_keyspace.Example.Name,
+    ///         TableName = "my_table",
+    ///         SchemaDefinition = new Aws.Keyspaces.Inputs.TableSchemaDefinitionArgs
     ///         {
-    ///             KeyspaceName = aws_keyspaces_keyspace.Example.Name,
-    ///             TableName = "my_table",
-    ///             SchemaDefinition = new Aws.Keyspaces.Inputs.TableSchemaDefinitionArgs
+    ///             Columns = new[]
     ///             {
-    ///                 Columns = 
+    ///                 new Aws.Keyspaces.Inputs.TableSchemaDefinitionColumnArgs
     ///                 {
-    ///                     new Aws.Keyspaces.Inputs.TableSchemaDefinitionColumnArgs
-    ///                     {
-    ///                         Name = "Message",
-    ///                         Type = "ASCII",
-    ///                     },
-    ///                 },
-    ///                 PartitionKeys = 
-    ///                 {
-    ///                     new Aws.Keyspaces.Inputs.TableSchemaDefinitionPartitionKeyArgs
-    ///                     {
-    ///                         Name = "Message",
-    ///                     },
+    ///                     Name = "Message",
+    ///                     Type = "ASCII",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             PartitionKeys = new[]
+    ///             {
+    ///                 new Aws.Keyspaces.Inputs.TableSchemaDefinitionPartitionKeyArgs
+    ///                 {
+    ///                     Name = "Message",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +59,7 @@ namespace Pulumi.Aws.Keyspaces
     /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/table:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the table.
@@ -123,9 +121,6 @@ namespace Pulumi.Aws.Keyspaces
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -179,7 +174,7 @@ namespace Pulumi.Aws.Keyspaces
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the read/write throughput capacity mode for the table.
@@ -250,9 +245,10 @@ namespace Pulumi.Aws.Keyspaces
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 
-    public sealed class TableState : Pulumi.ResourceArgs
+    public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the table.
@@ -322,10 +318,6 @@ namespace Pulumi.Aws.Keyspaces
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -341,5 +333,6 @@ namespace Pulumi.Aws.Keyspaces
         public TableState()
         {
         }
+        public static new TableState Empty => new TableState();
     }
 }

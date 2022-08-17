@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class GetCoreNetworkPolicyDocumentSegmentArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkPolicyDocumentSegmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("allowFilters")]
         private List<string>? _allowFilters;
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public GetCoreNetworkPolicyDocumentSegmentArgs()
         {
         }
+        public static new GetCoreNetworkPolicyDocumentSegmentArgs Empty => new GetCoreNetworkPolicyDocumentSegmentArgs();
     }
 }

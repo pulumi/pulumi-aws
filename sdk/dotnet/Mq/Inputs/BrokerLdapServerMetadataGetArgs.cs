@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerLdapServerMetadataGetArgs : Pulumi.ResourceArgs
+    public sealed class BrokerLdapServerMetadataGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("hosts")]
         private InputList<string>? _hosts;
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerLdapServerMetadataGetArgs()
         {
         }
+        public static new BrokerLdapServerMetadataGetArgs Empty => new BrokerLdapServerMetadataGetArgs();
     }
 }

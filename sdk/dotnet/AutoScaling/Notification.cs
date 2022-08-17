@@ -19,48 +19,43 @@ namespace Pulumi.Aws.AutoScaling
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Sns.Topic("example", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         // arn is an exported attribute
-    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var foo = new Aws.AutoScaling.Group("foo", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleNotifications = new Aws.AutoScaling.Notification("exampleNotifications", new Aws.AutoScaling.NotificationArgs
-    ///         {
-    ///             GroupNames = 
-    ///             {
-    ///                 bar.Name,
-    ///                 foo.Name,
-    ///             },
-    ///             Notifications = 
-    ///             {
-    ///                 "autoscaling:EC2_INSTANCE_LAUNCH",
-    ///                 "autoscaling:EC2_INSTANCE_TERMINATE",
-    ///                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-    ///                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
-    ///             },
-    ///             TopicArn = example.Arn,
-    ///         });
-    ///     }
+    ///     var example = new Aws.Sns.Topic("example");
     /// 
-    /// }
+    ///     // arn is an exported attribute
+    ///     var bar = new Aws.AutoScaling.Group("bar");
+    /// 
+    ///     // ...
+    ///     var foo = new Aws.AutoScaling.Group("foo");
+    /// 
+    ///     // ...
+    ///     var exampleNotifications = new Aws.AutoScaling.Notification("exampleNotifications", new()
+    ///     {
+    ///         GroupNames = new[]
+    ///         {
+    ///             bar.Name,
+    ///             foo.Name,
+    ///         },
+    ///         Notifications = new[]
+    ///         {
+    ///             "autoscaling:EC2_INSTANCE_LAUNCH",
+    ///             "autoscaling:EC2_INSTANCE_TERMINATE",
+    ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+    ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+    ///         },
+    ///         TopicArn = example.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/notification:Notification")]
-    public partial class Notification : Pulumi.CustomResource
+    public partial class Notification : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of AutoScaling Group Names
@@ -125,7 +120,7 @@ namespace Pulumi.Aws.AutoScaling
         }
     }
 
-    public sealed class NotificationArgs : Pulumi.ResourceArgs
+    public sealed class NotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupNames", required: true)]
         private InputList<string>? _groupNames;
@@ -161,9 +156,10 @@ namespace Pulumi.Aws.AutoScaling
         public NotificationArgs()
         {
         }
+        public static new NotificationArgs Empty => new NotificationArgs();
     }
 
-    public sealed class NotificationState : Pulumi.ResourceArgs
+    public sealed class NotificationState : global::Pulumi.ResourceArgs
     {
         [Input("groupNames")]
         private InputList<string>? _groupNames;
@@ -199,5 +195,6 @@ namespace Pulumi.Aws.AutoScaling
         public NotificationState()
         {
         }
+        public static new NotificationState Empty => new NotificationState();
     }
 }

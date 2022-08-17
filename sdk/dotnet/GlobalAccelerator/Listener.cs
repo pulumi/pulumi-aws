@@ -15,41 +15,40 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccelerator = new Aws.GlobalAccelerator.Accelerator("exampleAccelerator", new()
     ///     {
-    ///         var exampleAccelerator = new Aws.GlobalAccelerator.Accelerator("exampleAccelerator", new Aws.GlobalAccelerator.AcceleratorArgs
+    ///         IpAddressType = "IPV4",
+    ///         Enabled = true,
+    ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
     ///         {
-    ///             IpAddressType = "IPV4",
-    ///             Enabled = true,
-    ///             Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
-    ///             {
-    ///                 FlowLogsEnabled = true,
-    ///                 FlowLogsS3Bucket = "example-bucket",
-    ///                 FlowLogsS3Prefix = "flow-logs/",
-    ///             },
-    ///         });
-    ///         var exampleListener = new Aws.GlobalAccelerator.Listener("exampleListener", new Aws.GlobalAccelerator.ListenerArgs
-    ///         {
-    ///             AcceleratorArn = exampleAccelerator.Id,
-    ///             ClientAffinity = "SOURCE_IP",
-    ///             Protocol = "TCP",
-    ///             PortRanges = 
-    ///             {
-    ///                 new Aws.GlobalAccelerator.Inputs.ListenerPortRangeArgs
-    ///                 {
-    ///                     FromPort = 80,
-    ///                     ToPort = 80,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             FlowLogsEnabled = true,
+    ///             FlowLogsS3Bucket = "example-bucket",
+    ///             FlowLogsS3Prefix = "flow-logs/",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("exampleListener", new()
+    ///     {
+    ///         AcceleratorArn = exampleAccelerator.Id,
+    ///         ClientAffinity = "SOURCE_IP",
+    ///         Protocol = "TCP",
+    ///         PortRanges = new[]
+    ///         {
+    ///             new Aws.GlobalAccelerator.Inputs.ListenerPortRangeArgs
+    ///             {
+    ///                 FromPort = 80,
+    ///                 ToPort = 80,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +60,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/listener:Listener")]
-    public partial class Listener : Pulumi.CustomResource
+    public partial class Listener : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of your accelerator.
@@ -131,7 +130,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
     }
 
-    public sealed class ListenerArgs : Pulumi.ResourceArgs
+    public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of your accelerator.
@@ -166,9 +165,10 @@ namespace Pulumi.Aws.GlobalAccelerator
         public ListenerArgs()
         {
         }
+        public static new ListenerArgs Empty => new ListenerArgs();
     }
 
-    public sealed class ListenerState : Pulumi.ResourceArgs
+    public sealed class ListenerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of your accelerator.
@@ -203,5 +203,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         public ListenerState()
         {
         }
+        public static new ListenerState Empty => new ListenerState();
     }
 }

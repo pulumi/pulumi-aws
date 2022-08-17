@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecLoggingAccessLogGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecLoggingAccessLogGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The file object to send virtual gateway access logs to.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecLoggingAccessLogGetArgs()
         {
         }
+        public static new VirtualGatewaySpecLoggingAccessLogGetArgs Empty => new VirtualGatewaySpecLoggingAccessLogGetArgs();
     }
 }

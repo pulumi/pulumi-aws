@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class InstanceFleetInstanceTypeConfigConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetInstanceTypeConfigConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The classification within a configuration.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public InstanceFleetInstanceTypeConfigConfigurationGetArgs()
         {
         }
+        public static new InstanceFleetInstanceTypeConfigConfigurationGetArgs Empty => new InstanceFleetInstanceTypeConfigConfigurationGetArgs();
     }
 }

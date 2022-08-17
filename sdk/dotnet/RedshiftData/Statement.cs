@@ -15,23 +15,21 @@ namespace Pulumi.Aws.RedshiftData
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.RedshiftData.Statement("example", new()
     ///     {
-    ///         var example = new Aws.RedshiftData.Statement("example", new Aws.RedshiftData.StatementArgs
-    ///         {
-    ///             ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-    ///             Database = aws_redshift_cluster.Example.Database_name,
-    ///             DbUser = aws_redshift_cluster.Example.Master_username,
-    ///             Sql = "CREATE GROUP group_name;",
-    ///         });
-    ///     }
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         Database = aws_redshift_cluster.Example.Database_name,
+    ///         DbUser = aws_redshift_cluster.Example.Master_username,
+    ///         Sql = "CREATE GROUP group_name;",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.RedshiftData
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftdata/statement:Statement")]
-    public partial class Statement : Pulumi.CustomResource
+    public partial class Statement : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The cluster identifier.
@@ -134,7 +132,7 @@ namespace Pulumi.Aws.RedshiftData
         }
     }
 
-    public sealed class StatementArgs : Pulumi.ResourceArgs
+    public sealed class StatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster identifier.
@@ -189,9 +187,10 @@ namespace Pulumi.Aws.RedshiftData
         public StatementArgs()
         {
         }
+        public static new StatementArgs Empty => new StatementArgs();
     }
 
-    public sealed class StatementState : Pulumi.ResourceArgs
+    public sealed class StatementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster identifier.
@@ -246,5 +245,6 @@ namespace Pulumi.Aws.RedshiftData
         public StatementState()
         {
         }
+        public static new StatementState Empty => new StatementState();
     }
 }

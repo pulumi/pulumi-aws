@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterBrokerNodeGroupInfoArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoArgs Empty => new ClusterBrokerNodeGroupInfoArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionTimestreamTimestampGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionTimestreamTimestampGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionTimestreamTimestampGetArgs()
         {
         }
+        public static new TopicRuleErrorActionTimestreamTimestampGetArgs Empty => new TopicRuleErrorActionTimestreamTimestampGetArgs();
     }
 }

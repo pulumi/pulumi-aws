@@ -13,25 +13,23 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.NetworkAclAssociation("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.NetworkAclAssociation("main", new Aws.Ec2.NetworkAclAssociationArgs
-    ///         {
-    ///             NetworkAclId = aws_network_acl.Main.Id,
-    ///             SubnetId = aws_subnet.Main.Id,
-    ///         });
-    ///     }
+    ///         NetworkAclId = aws_network_acl.Main.Id,
+    ///         SubnetId = aws_subnet.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
-    public partial class NetworkAclAssociation : Pulumi.CustomResource
+    public partial class NetworkAclAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the network ACL.
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkAclAssociationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the network ACL.
@@ -106,9 +104,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclAssociationArgs()
         {
         }
+        public static new NetworkAclAssociationArgs Empty => new NetworkAclAssociationArgs();
     }
 
-    public sealed class NetworkAclAssociationState : Pulumi.ResourceArgs
+    public sealed class NetworkAclAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the network ACL.
@@ -125,5 +124,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclAssociationState()
         {
         }
+        public static new NetworkAclAssociationState Empty => new NetworkAclAssociationState();
     }
 }

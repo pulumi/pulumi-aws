@@ -15,20 +15,18 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var app = new Aws.OpsWorks.PhpAppLayer("app", new()
     ///     {
-    ///         var app = new Aws.OpsWorks.PhpAppLayer("app", new Aws.OpsWorks.PhpAppLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.OpsWorks
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/phpAppLayer:PhpAppLayer")]
-    public partial class PhpAppLayer : Pulumi.CustomResource
+    public partial class PhpAppLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -157,7 +155,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -212,7 +210,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class PhpAppLayerArgs : Pulumi.ResourceArgs
+    public sealed class PhpAppLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -380,9 +378,10 @@ namespace Pulumi.Aws.OpsWorks
         public PhpAppLayerArgs()
         {
         }
+        public static new PhpAppLayerArgs Empty => new PhpAppLayerArgs();
     }
 
-    public sealed class PhpAppLayerState : Pulumi.ResourceArgs
+    public sealed class PhpAppLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -551,7 +550,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -568,5 +567,6 @@ namespace Pulumi.Aws.OpsWorks
         public PhpAppLayerState()
         {
         }
+        public static new PhpAppLayerState Empty => new PhpAppLayerState();
     }
 }

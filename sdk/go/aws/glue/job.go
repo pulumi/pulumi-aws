@@ -22,26 +22,29 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			Command: &glue.JobCommandArgs{
-// 				ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", aws_s3_bucket.Example.Bucket)),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Command: &glue.JobCommandArgs{
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", aws_s3_bucket.Example.Bucket)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Scala Job
 //
@@ -49,29 +52,32 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			Command: &glue.JobCommandArgs{
-// 				ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.scala", aws_s3_bucket.Example.Bucket)),
-// 			},
-// 			DefaultArguments: pulumi.StringMap{
-// 				"--job-language": pulumi.String("scala"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Command: &glue.JobCommandArgs{
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.scala", aws_s3_bucket.Example.Bucket)),
+//				},
+//				DefaultArguments: pulumi.StringMap{
+//					"--job-language": pulumi.String("scala"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Streaming Job
 //
@@ -79,27 +85,30 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			Command: &glue.JobCommandArgs{
-// 				Name:           pulumi.String("gluestreaming"),
-// 				ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.script", aws_s3_bucket.Example.Bucket)),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Command: &glue.JobCommandArgs{
+//					Name:           pulumi.String("gluestreaming"),
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.script", aws_s3_bucket.Example.Bucket)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Enabling CloudWatch Logs and Metrics
 //
@@ -107,33 +116,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
-// 			RetentionInDays: pulumi.Int(14),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = glue.NewJob(ctx, "exampleJob", &glue.JobArgs{
-// 			DefaultArguments: pulumi.StringMap{
-// 				"--continuous-log-logGroup":          exampleLogGroup.Name,
-// 				"--enable-continuous-cloudwatch-log": pulumi.String("true"),
-// 				"--enable-continuous-log-filter":     pulumi.String("true"),
-// 				"--enable-metrics":                   pulumi.String(""),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+//				RetentionInDays: pulumi.Int(14),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewJob(ctx, "exampleJob", &glue.JobArgs{
+//				DefaultArguments: pulumi.StringMap{
+//					"--continuous-log-logGroup":          exampleLogGroup.Name,
+//					"--enable-continuous-cloudwatch-log": pulumi.String("true"),
+//					"--enable-continuous-log-filter":     pulumi.String("true"),
+//					"--enable-metrics":                   pulumi.String(""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -141,7 +153,9 @@ import (
 // Glue Jobs can be imported using `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/job:Job MyJob MyJob
+//
+//	$ pulumi import aws:glue/job:Job MyJob MyJob
+//
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -156,6 +170,8 @@ type Job struct {
 	DefaultArguments pulumi.StringMapOutput `pulumi:"defaultArguments"`
 	// Description of the job.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+	ExecutionClass pulumi.StringPtrOutput `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -231,6 +247,8 @@ type jobState struct {
 	DefaultArguments map[string]string `pulumi:"defaultArguments"`
 	// Description of the job.
 	Description *string `pulumi:"description"`
+	// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+	ExecutionClass *string `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -272,6 +290,8 @@ type JobState struct {
 	DefaultArguments pulumi.StringMapInput
 	// Description of the job.
 	Description pulumi.StringPtrInput
+	// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+	ExecutionClass pulumi.StringPtrInput
 	// Execution property of the job. Defined below.
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -315,6 +335,8 @@ type jobArgs struct {
 	DefaultArguments map[string]string `pulumi:"defaultArguments"`
 	// Description of the job.
 	Description *string `pulumi:"description"`
+	// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+	ExecutionClass *string `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -353,6 +375,8 @@ type JobArgs struct {
 	DefaultArguments pulumi.StringMapInput
 	// Description of the job.
 	Description pulumi.StringPtrInput
+	// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+	ExecutionClass pulumi.StringPtrInput
 	// Execution property of the job. Defined below.
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -407,7 +431,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 // JobArrayInput is an input type that accepts JobArray and JobArrayOutput values.
 // You can construct a concrete instance of `JobArrayInput` via:
 //
-//          JobArray{ JobArgs{...} }
+//	JobArray{ JobArgs{...} }
 type JobArrayInput interface {
 	pulumi.Input
 
@@ -432,7 +456,7 @@ func (i JobArray) ToJobArrayOutputWithContext(ctx context.Context) JobArrayOutpu
 // JobMapInput is an input type that accepts JobMap and JobMapOutput values.
 // You can construct a concrete instance of `JobMapInput` via:
 //
-//          JobMap{ "key": JobArgs{...} }
+//	JobMap{ "key": JobArgs{...} }
 type JobMapInput interface {
 	pulumi.Input
 
@@ -491,6 +515,11 @@ func (o JobOutput) DefaultArguments() pulumi.StringMapOutput {
 // Description of the job.
 func (o JobOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+func (o JobOutput) ExecutionClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.ExecutionClass }).(pulumi.StringPtrOutput)
 }
 
 // Execution property of the job. Defined below.

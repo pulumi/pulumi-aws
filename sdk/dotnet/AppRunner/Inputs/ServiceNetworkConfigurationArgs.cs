@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network configuration settings for outbound message traffic.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceNetworkConfigurationArgs()
         {
         }
+        public static new ServiceNetworkConfigurationArgs Empty => new ServiceNetworkConfigurationArgs();
     }
 }

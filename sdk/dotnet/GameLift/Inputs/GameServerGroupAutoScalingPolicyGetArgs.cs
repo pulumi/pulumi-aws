@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class GameServerGroupAutoScalingPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupAutoScalingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Length of time, in seconds, it takes for a new instance to start
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public GameServerGroupAutoScalingPolicyGetArgs()
         {
         }
+        public static new GameServerGroupAutoScalingPolicyGetArgs Empty => new GameServerGroupAutoScalingPolicyGetArgs();
     }
 }

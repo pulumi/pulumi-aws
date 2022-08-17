@@ -29,6 +29,71 @@ import javax.annotation.Nullable;
  * connection into management.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.ec2.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
+ * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
+ * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var peer = new Provider(&#34;peer&#34;, ProviderArgs.builder()        
+ *             .region(&#34;us-west-2&#34;)
+ *             .build());
+ * 
+ *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.peer())
+ *                 .build());
+ * 
+ *         final var peerCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
+ *             .vpcId(main.id())
+ *             .peerVpcId(peerVpc.id())
+ *             .peerOwnerId(peerCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .peerRegion(&#34;us-west-2&#34;)
+ *             .autoAccept(false)
+ *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
+ *             .build());
+ * 
+ *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter(&#34;peerVpcPeeringConnectionAccepter&#34;, VpcPeeringConnectionAccepterArgs.builder()        
+ *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
+ *             .autoAccept(true)
+ *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.peer())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -170,14 +235,14 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

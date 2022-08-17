@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class MysqlLayerCloudwatchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MysqlLayerCloudwatchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public MysqlLayerCloudwatchConfigurationArgs()
         {
         }
+        public static new MysqlLayerCloudwatchConfigurationArgs Empty => new MysqlLayerCloudwatchConfigurationArgs();
     }
 }

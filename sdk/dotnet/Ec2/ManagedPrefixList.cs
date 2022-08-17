@@ -15,38 +15,36 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.ManagedPrefixList("example", new Aws.Ec2.ManagedPrefixListArgs
+    ///         AddressFamily = "IPv4",
+    ///         MaxEntries = 5,
+    ///         Entries = new[]
     ///         {
-    ///             AddressFamily = "IPv4",
-    ///             MaxEntries = 5,
-    ///             Entries = 
+    ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
-    ///                 {
-    ///                     Cidr = aws_vpc.Example.Cidr_block,
-    ///                     Description = "Primary",
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
-    ///                 {
-    ///                     Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
-    ///                     Description = "Secondary",
-    ///                 },
+    ///                 Cidr = aws_vpc.Example.Cidr_block,
+    ///                 Description = "Primary",
     ///             },
-    ///             Tags = 
+    ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
     ///             {
-    ///                 { "Env", "live" },
+    ///                 Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
+    ///                 Description = "Secondary",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "live" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
-    public partial class ManagedPrefixList : Pulumi.CustomResource
+    public partial class ManagedPrefixList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
@@ -155,7 +153,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class ManagedPrefixListArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrefixListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
@@ -202,9 +200,10 @@ namespace Pulumi.Aws.Ec2
         public ManagedPrefixListArgs()
         {
         }
+        public static new ManagedPrefixListArgs Empty => new ManagedPrefixListArgs();
     }
 
-    public sealed class ManagedPrefixListState : Pulumi.ResourceArgs
+    public sealed class ManagedPrefixListState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
@@ -277,5 +276,6 @@ namespace Pulumi.Aws.Ec2
         public ManagedPrefixListState()
         {
         }
+        public static new ManagedPrefixListState Empty => new ManagedPrefixListState();
     }
 }

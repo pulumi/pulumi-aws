@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class MethodSettingsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class MethodSettingsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the cached responses are encrypted.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public MethodSettingsSettingsArgs()
         {
         }
+        public static new MethodSettingsSettingsArgs Empty => new MethodSettingsSettingsArgs();
     }
 }

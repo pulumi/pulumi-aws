@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class DocumentAttachmentsSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class DocumentAttachmentsSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public DocumentAttachmentsSourceGetArgs()
         {
         }
+        public static new DocumentAttachmentsSourceGetArgs Empty => new DocumentAttachmentsSourceGetArgs();
     }
 }

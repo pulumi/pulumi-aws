@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewAccountPublicAccessBlock(ctx, "example", &s3.AccountPublicAccessBlockArgs{
-// 			BlockPublicAcls:   pulumi.Bool(true),
-// 			BlockPublicPolicy: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewAccountPublicAccessBlock(ctx, "example", &s3.AccountPublicAccessBlockArgs{
+//				BlockPublicAcls:   pulumi.Bool(true),
+//				BlockPublicPolicy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+//
+//	$ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+//
 // ```
 type AccountPublicAccessBlock struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *AccountPublicAccessBlock) ToAccountPublicAccessBlockOutputWithContext(c
 // AccountPublicAccessBlockArrayInput is an input type that accepts AccountPublicAccessBlockArray and AccountPublicAccessBlockArrayOutput values.
 // You can construct a concrete instance of `AccountPublicAccessBlockArrayInput` via:
 //
-//          AccountPublicAccessBlockArray{ AccountPublicAccessBlockArgs{...} }
+//	AccountPublicAccessBlockArray{ AccountPublicAccessBlockArgs{...} }
 type AccountPublicAccessBlockArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i AccountPublicAccessBlockArray) ToAccountPublicAccessBlockArrayOutputWith
 // AccountPublicAccessBlockMapInput is an input type that accepts AccountPublicAccessBlockMap and AccountPublicAccessBlockMapOutput values.
 // You can construct a concrete instance of `AccountPublicAccessBlockMapInput` via:
 //
-//          AccountPublicAccessBlockMap{ "key": AccountPublicAccessBlockArgs{...} }
+//	AccountPublicAccessBlockMap{ "key": AccountPublicAccessBlockArgs{...} }
 type AccountPublicAccessBlockMapInput interface {
 	pulumi.Input
 

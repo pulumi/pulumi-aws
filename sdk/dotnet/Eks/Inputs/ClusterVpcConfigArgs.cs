@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class ClusterVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public ClusterVpcConfigArgs()
         {
         }
+        public static new ClusterVpcConfigArgs Empty => new ClusterVpcConfigArgs();
     }
 }

@@ -15,21 +15,19 @@ namespace Pulumi.Aws.CodeCommit
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplateAssociation("example", new()
     ///     {
-    ///         var example = new Aws.CodeCommit.ApprovalRuleTemplateAssociation("example", new Aws.CodeCommit.ApprovalRuleTemplateAssociationArgs
-    ///         {
-    ///             ApprovalRuleTemplateName = aws_codecommit_approval_rule_template.Example.Name,
-    ///             RepositoryName = aws_codecommit_repository.Example.Repository_name,
-    ///         });
-    ///     }
+    ///         ApprovalRuleTemplateName = aws_codecommit_approval_rule_template.Example.Name,
+    ///         RepositoryName = aws_codecommit_repository.Example.Repository_name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.CodeCommit
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]
-    public partial class ApprovalRuleTemplateAssociation : Pulumi.CustomResource
+    public partial class ApprovalRuleTemplateAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name for the approval rule template.
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.CodeCommit
         }
     }
 
-    public sealed class ApprovalRuleTemplateAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ApprovalRuleTemplateAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the approval rule template.
@@ -116,9 +114,10 @@ namespace Pulumi.Aws.CodeCommit
         public ApprovalRuleTemplateAssociationArgs()
         {
         }
+        public static new ApprovalRuleTemplateAssociationArgs Empty => new ApprovalRuleTemplateAssociationArgs();
     }
 
-    public sealed class ApprovalRuleTemplateAssociationState : Pulumi.ResourceArgs
+    public sealed class ApprovalRuleTemplateAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the approval rule template.
@@ -135,5 +134,6 @@ namespace Pulumi.Aws.CodeCommit
         public ApprovalRuleTemplateAssociationState()
         {
         }
+        public static new ApprovalRuleTemplateAssociationState Empty => new ApprovalRuleTemplateAssociationState();
     }
 }

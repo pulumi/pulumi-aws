@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterLoggingInfoBrokerLogsFirehoseArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingInfoBrokerLogsFirehoseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterLoggingInfoBrokerLogsFirehoseArgs()
         {
         }
+        public static new ClusterLoggingInfoBrokerLogsFirehoseArgs Empty => new ClusterLoggingInfoBrokerLogsFirehoseArgs();
     }
 }

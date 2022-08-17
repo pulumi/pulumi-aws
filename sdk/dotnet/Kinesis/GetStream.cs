@@ -22,20 +22,18 @@ namespace Pulumi.Aws.Kinesis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var stream = Aws.Kinesis.GetStream.Invoke(new()
         ///     {
-        ///         var stream = Output.Create(Aws.Kinesis.GetStream.InvokeAsync(new Aws.Kinesis.GetStreamArgs
-        ///         {
-        ///             Name = "stream-name",
-        ///         }));
-        ///     }
+        ///         Name = "stream-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Aws.Kinesis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var stream = Aws.Kinesis.GetStream.Invoke(new()
         ///     {
-        ///         var stream = Output.Create(Aws.Kinesis.GetStream.InvokeAsync(new Aws.Kinesis.GetStreamArgs
-        ///         {
-        ///             Name = "stream-name",
-        ///         }));
-        ///     }
+        ///         Name = "stream-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.Kinesis
     }
 
 
-    public sealed class GetStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis Stream.
@@ -100,9 +96,10 @@ namespace Pulumi.Aws.Kinesis
         public GetStreamArgs()
         {
         }
+        public static new GetStreamArgs Empty => new GetStreamArgs();
     }
 
-    public sealed class GetStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis Stream.
@@ -125,6 +122,7 @@ namespace Pulumi.Aws.Kinesis
         public GetStreamInvokeArgs()
         {
         }
+        public static new GetStreamInvokeArgs Empty => new GetStreamInvokeArgs();
     }
 
 

@@ -23,49 +23,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := ec2.NewVpc(ctx, "primary", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.6.0.0/16"),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		secondaryVpc, err := ec2.NewVpc(ctx, "secondaryVpc", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.7.0.0/16"),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
-// 			Vpcs: route53.ZoneVpcArray{
-// 				&route53.ZoneVpcArgs{
-// 					VpcId: primary.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewZoneAssociation(ctx, "secondaryZoneAssociation", &route53.ZoneAssociationArgs{
-// 			ZoneId: example.ZoneId,
-// 			VpcId:  secondaryVpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := ec2.NewVpc(ctx, "primary", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.6.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondaryVpc, err := ec2.NewVpc(ctx, "secondaryVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.7.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//				Vpcs: route53.ZoneVpcArray{
+//					&route53.ZoneVpcArgs{
+//						VpcId: primary.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewZoneAssociation(ctx, "secondaryZoneAssociation", &route53.ZoneAssociationArgs{
+//				ZoneId: example.ZoneId,
+//				VpcId:  secondaryVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,13 +76,17 @@ import (
 // Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+//
+//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+//
 // ```
 //
-//  If the VPC is in a different region than the provider region configuration, the VPC Region can be added to the end. e.g.
+//	If the VPC is in a different region than the provider region configuration, the VPC Region can be added to the end. e.g.
 //
 // ```sh
-//  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+//
+//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+//
 // ```
 type ZoneAssociation struct {
 	pulumi.CustomResourceState
@@ -199,7 +206,7 @@ func (i *ZoneAssociation) ToZoneAssociationOutputWithContext(ctx context.Context
 // ZoneAssociationArrayInput is an input type that accepts ZoneAssociationArray and ZoneAssociationArrayOutput values.
 // You can construct a concrete instance of `ZoneAssociationArrayInput` via:
 //
-//          ZoneAssociationArray{ ZoneAssociationArgs{...} }
+//	ZoneAssociationArray{ ZoneAssociationArgs{...} }
 type ZoneAssociationArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +231,7 @@ func (i ZoneAssociationArray) ToZoneAssociationArrayOutputWithContext(ctx contex
 // ZoneAssociationMapInput is an input type that accepts ZoneAssociationMap and ZoneAssociationMapOutput values.
 // You can construct a concrete instance of `ZoneAssociationMapInput` via:
 //
-//          ZoneAssociationMap{ "key": ZoneAssociationArgs{...} }
+//	ZoneAssociationMap{ "key": ZoneAssociationArgs{...} }
 type ZoneAssociationMapInput interface {
 	pulumi.Input
 

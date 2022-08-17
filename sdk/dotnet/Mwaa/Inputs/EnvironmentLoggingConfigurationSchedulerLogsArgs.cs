@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mwaa.Inputs
 {
 
-    public sealed class EnvironmentLoggingConfigurationSchedulerLogsArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentLoggingConfigurationSchedulerLogsArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogGroupArn")]
         public Input<string>? CloudWatchLogGroupArn { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
         public EnvironmentLoggingConfigurationSchedulerLogsArgs()
         {
         }
+        public static new EnvironmentLoggingConfigurationSchedulerLogsArgs Empty => new EnvironmentLoggingConfigurationSchedulerLogsArgs();
     }
 }

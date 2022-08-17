@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class IpSetIpSetDescriptorGetArgs : Pulumi.ResourceArgs
+    public sealed class IpSetIpSetDescriptorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the IP address - `IPV4` or `IPV6`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public IpSetIpSetDescriptorGetArgs()
         {
         }
+        public static new IpSetIpSetDescriptorGetArgs Empty => new IpSetIpSetDescriptorGetArgs();
     }
 }

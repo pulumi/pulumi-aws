@@ -18,47 +18,50 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var usEast1 = new Aws.Provider("usEast1", new()
     ///     {
-    ///         var usEast1 = new Aws.Provider("usEast1", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-east-1",
-    ///         });
-    ///         var foo = new Aws.EcrPublic.Repository("foo", new Aws.EcrPublic.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "bar",
-    ///             CatalogData = new Aws.EcrPublic.Inputs.RepositoryCatalogDataArgs
-    ///             {
-    ///                 AboutText = "About Text",
-    ///                 Architectures = 
-    ///                 {
-    ///                     "ARM",
-    ///                 },
-    ///                 Description = "Description",
-    ///                 LogoImageBlob = ReadFileBase64(image.Png),
-    ///                 OperatingSystems = 
-    ///                 {
-    ///                     "Linux",
-    ///                 },
-    ///                 UsageText = "Usage Text",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Us_east_1,
-    ///         });
-    ///     }
+    ///         Region = "us-east-1",
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.EcrPublic.Repository("foo", new()
+    ///     {
+    ///         RepositoryName = "bar",
+    ///         CatalogData = new Aws.EcrPublic.Inputs.RepositoryCatalogDataArgs
+    ///         {
+    ///             AboutText = "About Text",
+    ///             Architectures = new[]
+    ///             {
+    ///                 "ARM",
+    ///             },
+    ///             Description = "Description",
+    ///             LogoImageBlob = ReadFileBase64(image.Png),
+    ///             OperatingSystems = new[]
+    ///             {
+    ///                 "Linux",
+    ///             },
+    ///             UsageText = "Usage Text",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "env", "production" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Us_east_1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +73,7 @@ namespace Pulumi.Aws.EcrPublic
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecrpublic/repository:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Full ARN of the repository.
@@ -104,6 +107,12 @@ namespace Pulumi.Aws.EcrPublic
         /// </summary>
         [Output("repositoryUri")]
         public Output<string> RepositoryUri { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,7 +158,7 @@ namespace Pulumi.Aws.EcrPublic
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Catalog data configuration for the repository. See below for schema.
@@ -166,12 +175,21 @@ namespace Pulumi.Aws.EcrPublic
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 
-    public sealed class RepositoryState : Pulumi.ResourceArgs
+    public sealed class RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full ARN of the repository.
@@ -206,8 +224,25 @@ namespace Pulumi.Aws.EcrPublic
         [Input("repositoryUri")]
         public Input<string>? RepositoryUri { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public RepositoryState()
         {
         }
+        public static new RepositoryState Empty => new RepositoryState();
     }
 }

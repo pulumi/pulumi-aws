@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkteamNotificationConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamNotificationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for the SNS topic to which notifications should be published.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkteamNotificationConfigurationGetArgs()
         {
         }
+        public static new WorkteamNotificationConfigurationGetArgs Empty => new WorkteamNotificationConfigurationGetArgs();
     }
 }

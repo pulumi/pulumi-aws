@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewHostedTransitVirtualInterface(ctx, "example", &directconnect.HostedTransitVirtualInterfaceArgs{
-// 			ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
-// 			Vlan:          pulumi.Int(4094),
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			BgpAsn:        pulumi.Int(65352),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewHostedTransitVirtualInterface(ctx, "example", &directconnect.HostedTransitVirtualInterfaceArgs{
+//				ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
+//				Vlan:          pulumi.Int(4094),
+//				AddressFamily: pulumi.String("ipv4"),
+//				BgpAsn:        pulumi.Int(65352),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
+//
+//	$ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
+//
 // ```
 type HostedTransitVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -260,7 +265,7 @@ func (i *HostedTransitVirtualInterface) ToHostedTransitVirtualInterfaceOutputWit
 // HostedTransitVirtualInterfaceArrayInput is an input type that accepts HostedTransitVirtualInterfaceArray and HostedTransitVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `HostedTransitVirtualInterfaceArrayInput` via:
 //
-//          HostedTransitVirtualInterfaceArray{ HostedTransitVirtualInterfaceArgs{...} }
+//	HostedTransitVirtualInterfaceArray{ HostedTransitVirtualInterfaceArgs{...} }
 type HostedTransitVirtualInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -285,7 +290,7 @@ func (i HostedTransitVirtualInterfaceArray) ToHostedTransitVirtualInterfaceArray
 // HostedTransitVirtualInterfaceMapInput is an input type that accepts HostedTransitVirtualInterfaceMap and HostedTransitVirtualInterfaceMapOutput values.
 // You can construct a concrete instance of `HostedTransitVirtualInterfaceMapInput` via:
 //
-//          HostedTransitVirtualInterfaceMap{ "key": HostedTransitVirtualInterfaceArgs{...} }
+//	HostedTransitVirtualInterfaceMap{ "key": HostedTransitVirtualInterfaceArgs{...} }
 type HostedTransitVirtualInterfaceMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs.Inputs
 {
 
-    public sealed class AccessPointPosixUserGetArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointPosixUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// POSIX group ID used for all file system operations using this access point.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Efs.Inputs
         public AccessPointPosixUserGetArgs()
         {
         }
+        public static new AccessPointPosixUserGetArgs Empty => new AccessPointPosixUserGetArgs();
     }
 }

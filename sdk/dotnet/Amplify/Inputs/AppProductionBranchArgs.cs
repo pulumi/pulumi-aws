@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amplify.Inputs
 {
 
-    public sealed class AppProductionBranchArgs : Pulumi.ResourceArgs
+    public sealed class AppProductionBranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch name for the production branch.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Amplify.Inputs
         public AppProductionBranchArgs()
         {
         }
+        public static new AppProductionBranchArgs Empty => new AppProductionBranchArgs();
     }
 }

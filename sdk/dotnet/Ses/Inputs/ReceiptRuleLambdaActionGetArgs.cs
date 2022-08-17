@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleLambdaActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleLambdaActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lambda function to invoke
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleLambdaActionGetArgs()
         {
         }
+        public static new ReceiptRuleLambdaActionGetArgs Empty => new ReceiptRuleLambdaActionGetArgs();
     }
 }

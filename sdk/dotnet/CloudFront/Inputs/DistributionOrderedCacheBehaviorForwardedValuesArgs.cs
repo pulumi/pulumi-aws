@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOrderedCacheBehaviorForwardedValuesArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOrderedCacheBehaviorForwardedValuesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The forwarded values cookies
@@ -58,5 +58,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOrderedCacheBehaviorForwardedValuesArgs()
         {
         }
+        public static new DistributionOrderedCacheBehaviorForwardedValuesArgs Empty => new DistributionOrderedCacheBehaviorForwardedValuesArgs();
     }
 }

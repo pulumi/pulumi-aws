@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetEcsTargetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetEcsTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to enable Amazon ECS managed tags for the task.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetEcsTargetArgs()
         {
         }
+        public static new EventTargetEcsTargetArgs Empty => new EventTargetEcsTargetArgs();
     }
 }

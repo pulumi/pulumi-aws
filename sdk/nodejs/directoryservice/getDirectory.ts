@@ -83,6 +83,7 @@ export interface GetDirectoryResult {
      * The fully qualified name for the directory/connector.
      */
     readonly name: string;
+    readonly radiusSettings: outputs.directoryservice.GetDirectoryRadiusSetting[];
     /**
      * The ID of the security group created by the directory/connector.
      */
@@ -98,7 +99,7 @@ export interface GetDirectoryResult {
     /**
      * A map of tags assigned to the directory/connector.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      */

@@ -18,25 +18,22 @@ namespace Pulumi.Aws.DocDB
     /// ### New Global Cluster From Existing DB Cluster
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // ... other configuration ...
-    ///         var exampleCluster = new Aws.DocDB.Cluster("exampleCluster", new Aws.DocDB.ClusterArgs
-    ///         {
-    ///         });
-    ///         var exampleGlobalCluster = new Aws.DocDB.GlobalCluster("exampleGlobalCluster", new Aws.DocDB.GlobalClusterArgs
-    ///         {
-    ///             GlobalClusterIdentifier = "example",
-    ///             SourceDbClusterIdentifier = exampleCluster.Arn,
-    ///         });
-    ///     }
+    ///     // ... other configuration ...
+    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster");
     /// 
-    /// }
+    ///     var exampleGlobalCluster = new Aws.DocDB.GlobalCluster("exampleGlobalCluster", new()
+    ///     {
+    ///         GlobalClusterIdentifier = "example",
+    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +57,7 @@ namespace Pulumi.Aws.DocDB
     ///  } }
     /// </summary>
     [AwsResourceType("aws:docdb/globalCluster:GlobalCluster")]
-    public partial class GlobalCluster : Pulumi.CustomResource
+    public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Global Cluster Amazon Resource Name (ARN)
@@ -161,7 +158,7 @@ namespace Pulumi.Aws.DocDB
         }
     }
 
-    public sealed class GlobalClusterArgs : Pulumi.ResourceArgs
+    public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for an automatically created database on cluster creation.
@@ -200,9 +197,10 @@ namespace Pulumi.Aws.DocDB
         public GlobalClusterArgs()
         {
         }
+        public static new GlobalClusterArgs Empty => new GlobalClusterArgs();
     }
 
-    public sealed class GlobalClusterState : Pulumi.ResourceArgs
+    public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Global Cluster Amazon Resource Name (ARN)
@@ -268,5 +266,6 @@ namespace Pulumi.Aws.DocDB
         public GlobalClusterState()
         {
         }
+        public static new GlobalClusterState Empty => new GlobalClusterState();
     }
 }

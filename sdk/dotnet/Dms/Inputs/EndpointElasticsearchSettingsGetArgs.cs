@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dms.Inputs
 {
 
-    public sealed class EndpointElasticsearchSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointElasticsearchSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Endpoint for the OpenSearch cluster.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public EndpointElasticsearchSettingsGetArgs()
         {
         }
+        public static new EndpointElasticsearchSettingsGetArgs Empty => new EndpointElasticsearchSettingsGetArgs();
     }
 }

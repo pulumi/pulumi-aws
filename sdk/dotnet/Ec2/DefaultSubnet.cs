@@ -22,24 +22,22 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultAz1 = new Aws.Ec2.DefaultSubnet("defaultAz1", new()
     ///     {
-    ///         var defaultAz1 = new Aws.Ec2.DefaultSubnet("defaultAz1", new Aws.Ec2.DefaultSubnetArgs
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Tags = 
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Default subnet for us-west-2a" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Default subnet for us-west-2a" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
-    public partial class DefaultSubnet : Pulumi.CustomResource
+    public partial class DefaultSubnet : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -180,7 +178,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class DefaultSubnetArgs : Pulumi.ResourceArgs
+    public sealed class DefaultSubnetArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
@@ -237,9 +235,10 @@ namespace Pulumi.Aws.Ec2
         public DefaultSubnetArgs()
         {
         }
+        public static new DefaultSubnetArgs Empty => new DefaultSubnetArgs();
     }
 
-    public sealed class DefaultSubnetState : Pulumi.ResourceArgs
+    public sealed class DefaultSubnetState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -337,5 +336,6 @@ namespace Pulumi.Aws.Ec2
         public DefaultSubnetState()
         {
         }
+        public static new DefaultSubnetState Empty => new DefaultSubnetState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes an application's checkpointing configuration.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationFlinkApplicationConfigurationGetArgs Empty => new ApplicationApplicationConfigurationFlinkApplicationConfigurationGetArgs();
     }
 }

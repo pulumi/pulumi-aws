@@ -20,17 +20,15 @@ namespace Pulumi.Aws.Iam
         /// ### All users in an account
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var users = Output.Create(Aws.Iam.GetUsers.InvokeAsync());
-        ///     }
+        ///     var users = Aws.Iam.GetUsers.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -39,40 +37,36 @@ namespace Pulumi.Aws.Iam
         /// Users whose username contains `abc`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var users = Aws.Iam.GetUsers.Invoke(new()
         ///     {
-        ///         var users = Output.Create(Aws.Iam.GetUsers.InvokeAsync(new Aws.Iam.GetUsersArgs
-        ///         {
-        ///             NameRegex = ".*abc.*",
-        ///         }));
-        ///     }
+        ///         NameRegex = ".*abc.*",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Users filtered by path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var users = Aws.Iam.GetUsers.Invoke(new()
         ///     {
-        ///         var users = Output.Create(Aws.Iam.GetUsers.InvokeAsync(new Aws.Iam.GetUsersArgs
-        ///         {
-        ///             PathPrefix = "/custom-path",
-        ///         }));
-        ///     }
+        ///         PathPrefix = "/custom-path",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,17 +83,15 @@ namespace Pulumi.Aws.Iam
         /// ### All users in an account
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var users = Output.Create(Aws.Iam.GetUsers.InvokeAsync());
-        ///     }
+        ///     var users = Aws.Iam.GetUsers.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -108,40 +100,36 @@ namespace Pulumi.Aws.Iam
         /// Users whose username contains `abc`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var users = Aws.Iam.GetUsers.Invoke(new()
         ///     {
-        ///         var users = Output.Create(Aws.Iam.GetUsers.InvokeAsync(new Aws.Iam.GetUsersArgs
-        ///         {
-        ///             NameRegex = ".*abc.*",
-        ///         }));
-        ///     }
+        ///         NameRegex = ".*abc.*",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Users filtered by path prefix
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var users = Aws.Iam.GetUsers.Invoke(new()
         ///     {
-        ///         var users = Output.Create(Aws.Iam.GetUsers.InvokeAsync(new Aws.Iam.GetUsersArgs
-        ///         {
-        ///             PathPrefix = "/custom-path",
-        ///         }));
-        ///     }
+        ///         PathPrefix = "/custom-path",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -151,7 +139,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetUsersArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -168,9 +156,10 @@ namespace Pulumi.Aws.Iam
         public GetUsersArgs()
         {
         }
+        public static new GetUsersArgs Empty => new GetUsersArgs();
     }
 
-    public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -187,6 +176,7 @@ namespace Pulumi.Aws.Iam
         public GetUsersInvokeArgs()
         {
         }
+        public static new GetUsersInvokeArgs Empty => new GetUsersInvokeArgs();
     }
 
 

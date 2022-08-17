@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs Empty => new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs();
     }
 }

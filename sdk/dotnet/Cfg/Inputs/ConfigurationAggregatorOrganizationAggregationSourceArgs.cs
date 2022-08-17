@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class ConfigurationAggregatorOrganizationAggregationSourceArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationAggregatorOrganizationAggregationSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, aggregate existing AWS Config regions and future regions.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public ConfigurationAggregatorOrganizationAggregationSourceArgs()
         {
         }
+        public static new ConfigurationAggregatorOrganizationAggregationSourceArgs Empty => new ConfigurationAggregatorOrganizationAggregationSourceArgs();
     }
 }

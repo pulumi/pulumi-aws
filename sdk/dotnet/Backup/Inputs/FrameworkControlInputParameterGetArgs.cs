@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class FrameworkControlInputParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class FrameworkControlInputParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a parameter, for example, BackupPlanFrequency.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public FrameworkControlInputParameterGetArgs()
         {
         }
+        public static new FrameworkControlInputParameterGetArgs Empty => new FrameworkControlInputParameterGetArgs();
     }
 }

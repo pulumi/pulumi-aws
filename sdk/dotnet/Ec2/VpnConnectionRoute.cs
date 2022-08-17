@@ -15,46 +15,48 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
     ///     {
-    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new Aws.Ec2.VpnGatewayArgs
-    ///         {
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new Aws.Ec2.CustomerGatewayArgs
-    ///         {
-    ///             BgpAsn = "65000",
-    ///             IpAddress = "172.0.0.1",
-    ///             Type = "ipsec.1",
-    ///         });
-    ///         var main = new Aws.Ec2.VpnConnection("main", new Aws.Ec2.VpnConnectionArgs
-    ///         {
-    ///             VpnGatewayId = vpnGateway.Id,
-    ///             CustomerGatewayId = customerGateway.Id,
-    ///             Type = "ipsec.1",
-    ///             StaticRoutesOnly = true,
-    ///         });
-    ///         var office = new Aws.Ec2.VpnConnectionRoute("office", new Aws.Ec2.VpnConnectionRouteArgs
-    ///         {
-    ///             DestinationCidrBlock = "192.168.10.0/24",
-    ///             VpnConnectionId = main.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     {
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var main = new Aws.Ec2.VpnConnection("main", new()
+    ///     {
+    ///         VpnGatewayId = vpnGateway.Id,
+    ///         CustomerGatewayId = customerGateway.Id,
+    ///         Type = "ipsec.1",
+    ///         StaticRoutesOnly = true,
+    ///     });
+    /// 
+    ///     var office = new Aws.Ec2.VpnConnectionRoute("office", new()
+    ///     {
+    ///         DestinationCidrBlock = "192.168.10.0/24",
+    ///         VpnConnectionId = main.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
-    public partial class VpnConnectionRoute : Pulumi.CustomResource
+    public partial class VpnConnectionRoute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer network.
@@ -112,7 +114,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpnConnectionRouteArgs : Pulumi.ResourceArgs
+    public sealed class VpnConnectionRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer network.
@@ -129,9 +131,10 @@ namespace Pulumi.Aws.Ec2
         public VpnConnectionRouteArgs()
         {
         }
+        public static new VpnConnectionRouteArgs Empty => new VpnConnectionRouteArgs();
     }
 
-    public sealed class VpnConnectionRouteState : Pulumi.ResourceArgs
+    public sealed class VpnConnectionRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer network.
@@ -148,5 +151,6 @@ namespace Pulumi.Aws.Ec2
         public VpnConnectionRouteState()
         {
         }
+        public static new VpnConnectionRouteState Empty => new VpnConnectionRouteState();
     }
 }

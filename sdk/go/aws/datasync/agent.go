@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
-// 			IpAddress: pulumi.String("1.2.3.4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
+//				IpAddress: pulumi.String("1.2.3.4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+//
+//	$ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+//
 // ```
 type Agent struct {
 	pulumi.CustomResourceState
@@ -63,7 +68,7 @@ type Agent struct {
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
 	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
@@ -114,7 +119,7 @@ type agentState struct {
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
@@ -137,7 +142,7 @@ type AgentState struct {
 	SubnetArns pulumi.StringArrayInput
 	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
 	VpcEndpointId pulumi.StringPtrInput
@@ -212,7 +217,7 @@ func (i *Agent) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 // AgentArrayInput is an input type that accepts AgentArray and AgentArrayOutput values.
 // You can construct a concrete instance of `AgentArrayInput` via:
 //
-//          AgentArray{ AgentArgs{...} }
+//	AgentArray{ AgentArgs{...} }
 type AgentArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i AgentArray) ToAgentArrayOutputWithContext(ctx context.Context) AgentArra
 // AgentMapInput is an input type that accepts AgentMap and AgentMapOutput values.
 // You can construct a concrete instance of `AgentMapInput` via:
 //
-//          AgentMap{ "key": AgentArgs{...} }
+//	AgentMap{ "key": AgentArgs{...} }
 type AgentMapInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (o AgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

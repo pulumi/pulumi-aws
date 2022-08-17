@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetSnapshot.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetSnapshot.InvokeAsync(new Aws.MemoryDb.GetSnapshotArgs
-        ///         {
-        ///             Name = "my-snapshot",
-        ///         }));
-        ///     }
+        ///         Name = "my-snapshot",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetSnapshot.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetSnapshot.InvokeAsync(new Aws.MemoryDb.GetSnapshotArgs
-        ///         {
-        ///             Name = "my-snapshot",
-        ///         }));
-        ///     }
+        ///         Name = "my-snapshot",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
     }
 
 
-    public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the snapshot.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.MemoryDb
         public GetSnapshotArgs()
         {
         }
+        public static new GetSnapshotArgs Empty => new GetSnapshotArgs();
     }
 
-    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the snapshot.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.MemoryDb
         public GetSnapshotInvokeArgs()
         {
         }
+        public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glacier.Inputs
 {
 
-    public sealed class VaultNotificationArgs : Pulumi.ResourceArgs
+    public sealed class VaultNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("events", required: true)]
         private InputList<string>? _events;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glacier.Inputs
         public VaultNotificationArgs()
         {
         }
+        public static new VaultNotificationArgs Empty => new VaultNotificationArgs();
     }
 }

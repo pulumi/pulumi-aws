@@ -19,29 +19,28 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
+        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///         var byId = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
-        ///         {
-        ///             FileSystemId = fileSystemId,
-        ///         }));
-        ///         var byTag = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
-        ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Environment", "dev" },
-        ///             },
-        ///         }));
-        ///     }
+        ///         FileSystemId = fileSystemId,
+        ///     });
         /// 
-        /// }
+        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Environment", "dev" },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +56,28 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
+        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///         var byId = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
-        ///         {
-        ///             FileSystemId = fileSystemId,
-        ///         }));
-        ///         var byTag = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
-        ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Environment", "dev" },
-        ///             },
-        ///         }));
-        ///     }
+        ///         FileSystemId = fileSystemId,
+        ///     });
         /// 
-        /// }
+        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Environment", "dev" },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.Efs
     }
 
 
-    public sealed class GetFileSystemArgs : Pulumi.InvokeArgs
+    public sealed class GetFileSystemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Restricts the list to the file system with this creation token.
@@ -118,9 +116,10 @@ namespace Pulumi.Aws.Efs
         public GetFileSystemArgs()
         {
         }
+        public static new GetFileSystemArgs Empty => new GetFileSystemArgs();
     }
 
-    public sealed class GetFileSystemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFileSystemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Restricts the list to the file system with this creation token.
@@ -149,6 +148,7 @@ namespace Pulumi.Aws.Efs
         public GetFileSystemInvokeArgs()
         {
         }
+        public static new GetFileSystemInvokeArgs Empty => new GetFileSystemInvokeArgs();
     }
 
 

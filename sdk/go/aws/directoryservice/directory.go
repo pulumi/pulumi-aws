@@ -20,56 +20,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-// 			VpcId:            main.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
-// 			VpcId:            main.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2b"),
-// 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
-// 			Name:     pulumi.String("corp.notexample.com"),
-// 			Password: pulumi.String("SuperSecretPassw0rd"),
-// 			Size:     pulumi.String("Small"),
-// 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// 				VpcId: main.ID(),
-// 				SubnetIds: pulumi.StringArray{
-// 					foo.ID(),
-// 					barSubnet.ID(),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Project": pulumi.String("foo"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+//				VpcId:            main.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				CidrBlock:        pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
+//				VpcId:            main.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2b"),
+//				CidrBlock:        pulumi.String("10.0.2.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.notexample.com"),
+//				Password: pulumi.String("SuperSecretPassw0rd"),
+//				Size:     pulumi.String("Small"),
+//				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+//					VpcId: main.ID(),
+//					SubnetIds: pulumi.StringArray{
+//						foo.ID(),
+//						barSubnet.ID(),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Project": pulumi.String("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Microsoft Active Directory (MicrosoftAD)
 //
@@ -77,57 +80,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-// 			VpcId:            main.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
-// 			VpcId:            main.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2b"),
-// 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
-// 			Name:     pulumi.String("corp.notexample.com"),
-// 			Password: pulumi.String("SuperSecretPassw0rd"),
-// 			Edition:  pulumi.String("Standard"),
-// 			Type:     pulumi.String("MicrosoftAD"),
-// 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// 				VpcId: main.ID(),
-// 				SubnetIds: pulumi.StringArray{
-// 					foo.ID(),
-// 					barSubnet.ID(),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Project": pulumi.String("foo"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+//				VpcId:            main.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				CidrBlock:        pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
+//				VpcId:            main.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2b"),
+//				CidrBlock:        pulumi.String("10.0.2.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.notexample.com"),
+//				Password: pulumi.String("SuperSecretPassw0rd"),
+//				Edition:  pulumi.String("Standard"),
+//				Type:     pulumi.String("MicrosoftAD"),
+//				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+//					VpcId: main.ID(),
+//					SubnetIds: pulumi.StringArray{
+//						foo.ID(),
+//						barSubnet.ID(),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Project": pulumi.String("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Microsoft Active Directory Connector (ADConnector)
 //
@@ -135,58 +141,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-// 			VpcId:            main.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-// 			VpcId:            main.ID(),
-// 			AvailabilityZone: pulumi.String("us-west-2b"),
-// 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directoryservice.NewDirectory(ctx, "connector", &directoryservice.DirectoryArgs{
-// 			Name:     pulumi.String("corp.notexample.com"),
-// 			Password: pulumi.String("SuperSecretPassw0rd"),
-// 			Size:     pulumi.String("Small"),
-// 			Type:     pulumi.String("ADConnector"),
-// 			ConnectSettings: &directoryservice.DirectoryConnectSettingsArgs{
-// 				CustomerDnsIps: pulumi.StringArray{
-// 					pulumi.String("A.B.C.D"),
-// 				},
-// 				CustomerUsername: pulumi.String("Admin"),
-// 				SubnetIds: pulumi.StringArray{
-// 					foo.ID(),
-// 					bar.ID(),
-// 				},
-// 				VpcId: main.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+//				VpcId:            main.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				CidrBlock:        pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
+//				VpcId:            main.ID(),
+//				AvailabilityZone: pulumi.String("us-west-2b"),
+//				CidrBlock:        pulumi.String("10.0.2.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directoryservice.NewDirectory(ctx, "connector", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.notexample.com"),
+//				Password: pulumi.String("SuperSecretPassw0rd"),
+//				Size:     pulumi.String("Small"),
+//				Type:     pulumi.String("ADConnector"),
+//				ConnectSettings: &directoryservice.DirectoryConnectSettingsArgs{
+//					CustomerDnsIps: pulumi.StringArray{
+//						pulumi.String("A.B.C.D"),
+//					},
+//					CustomerUsername: pulumi.String("Admin"),
+//					SubnetIds: pulumi.StringArray{
+//						foo.ID(),
+//						bar.ID(),
+//					},
+//					VpcId: main.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -194,7 +203,9 @@ import (
 // DirectoryService directories can be imported using the directory `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+//
+//	$ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+//
 // ```
 type Directory struct {
 	pulumi.CustomResourceState
@@ -207,6 +218,8 @@ type Directory struct {
 	ConnectSettings DirectoryConnectSettingsPtrOutput `pulumi:"connectSettings"`
 	// A textual description for the directory.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses pulumi.StringArrayOutput `pulumi:"dnsIpAddresses"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
@@ -225,7 +238,7 @@ type Directory struct {
 	Size pulumi.StringOutput `pulumi:"size"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -276,6 +289,8 @@ type directoryState struct {
 	ConnectSettings *DirectoryConnectSettings `pulumi:"connectSettings"`
 	// A textual description for the directory.
 	Description *string `pulumi:"description"`
+	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
@@ -294,7 +309,7 @@ type directoryState struct {
 	Size *string `pulumi:"size"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type *string `pulumi:"type"`
@@ -311,6 +326,8 @@ type DirectoryState struct {
 	ConnectSettings DirectoryConnectSettingsPtrInput
 	// A textual description for the directory.
 	Description pulumi.StringPtrInput
+	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+	DesiredNumberOfDomainControllers pulumi.IntPtrInput
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses pulumi.StringArrayInput
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
@@ -329,7 +346,7 @@ type DirectoryState struct {
 	Size pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrInput
@@ -348,6 +365,8 @@ type directoryArgs struct {
 	ConnectSettings *DirectoryConnectSettings `pulumi:"connectSettings"`
 	// A textual description for the directory.
 	Description *string `pulumi:"description"`
+	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
 	Edition *string `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -376,6 +395,8 @@ type DirectoryArgs struct {
 	ConnectSettings DirectoryConnectSettingsPtrInput
 	// A textual description for the directory.
 	Description pulumi.StringPtrInput
+	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+	DesiredNumberOfDomainControllers pulumi.IntPtrInput
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
 	Edition pulumi.StringPtrInput
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -422,7 +443,7 @@ func (i *Directory) ToDirectoryOutputWithContext(ctx context.Context) DirectoryO
 // DirectoryArrayInput is an input type that accepts DirectoryArray and DirectoryArrayOutput values.
 // You can construct a concrete instance of `DirectoryArrayInput` via:
 //
-//          DirectoryArray{ DirectoryArgs{...} }
+//	DirectoryArray{ DirectoryArgs{...} }
 type DirectoryArrayInput interface {
 	pulumi.Input
 
@@ -447,7 +468,7 @@ func (i DirectoryArray) ToDirectoryArrayOutputWithContext(ctx context.Context) D
 // DirectoryMapInput is an input type that accepts DirectoryMap and DirectoryMapOutput values.
 // You can construct a concrete instance of `DirectoryMapInput` via:
 //
-//          DirectoryMap{ "key": DirectoryArgs{...} }
+//	DirectoryMap{ "key": DirectoryArgs{...} }
 type DirectoryMapInput interface {
 	pulumi.Input
 
@@ -503,6 +524,11 @@ func (o DirectoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+func (o DirectoryOutput) DesiredNumberOfDomainControllers() pulumi.IntOutput {
+	return o.ApplyT(func(v *Directory) pulumi.IntOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntOutput)
+}
+
 // A list of IP addresses of the DNS servers for the directory or connector.
 func (o DirectoryOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringArrayOutput { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
@@ -548,7 +574,7 @@ func (o DirectoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DirectoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

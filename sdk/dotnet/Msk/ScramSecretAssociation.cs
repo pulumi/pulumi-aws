@@ -18,55 +18,58 @@ namespace Pulumi.Aws.Msk
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCluster = new Aws.Msk.Cluster("exampleCluster", new()
     ///     {
-    ///         var exampleCluster = new Aws.Msk.Cluster("exampleCluster", new Aws.Msk.ClusterArgs
+    ///         ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
     ///         {
-    ///             ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
+    ///             Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
     ///             {
-    ///                 Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
-    ///                 {
-    ///                     Scram = true,
-    ///                 },
+    ///                 Scram = true,
     ///             },
-    ///         });
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         Description = "Example Key for MSK Cluster Scram Secret Association",
+    ///     });
+    /// 
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new()
+    ///     {
+    ///         KmsKeyId = exampleKey.KeyId,
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     {
+    ///         SecretId = exampleSecret.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Description = "Example Key for MSK Cluster Scram Secret Association",
-    ///         });
-    ///         var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new Aws.SecretsManager.SecretArgs
+    ///             ["username"] = "user",
+    ///             ["password"] = "pass",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("exampleScramSecretAssociation", new()
+    ///     {
+    ///         ClusterArn = exampleCluster.Arn,
+    ///         SecretArnLists = new[]
     ///         {
-    ///             KmsKeyId = exampleKey.KeyId,
-    ///         });
-    ///         var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new Aws.SecretsManager.SecretVersionArgs
+    ///             exampleSecret.Arn,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             SecretId = exampleSecret.Id,
-    ///             SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "username", "user" },
-    ///                 { "password", "pass" },
-    ///             }),
-    ///         });
-    ///         var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("exampleScramSecretAssociation", new Aws.Msk.ScramSecretAssociationArgs
-    ///         {
-    ///             ClusterArn = exampleCluster.Arn,
-    ///             SecretArnLists = 
-    ///             {
-    ///                 exampleSecret.Arn,
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleSecretVersion,
-    ///             },
-    ///         });
-    ///         var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new Aws.SecretsManager.SecretPolicyArgs
-    ///         {
-    ///             SecretArn = exampleSecret.Arn,
-    ///             Policy = exampleSecret.Arn.Apply(arn =&gt; @$"{{
+    ///             exampleSecretVersion,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
+    ///     {
+    ///         SecretArn = exampleSecret.Arn,
+    ///         Policy = exampleSecret.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"" : ""2012-10-17"",
     ///   ""Statement"" : [ {{
     ///     ""Sid"": ""AWSKafkaResourcePolicy"",
@@ -79,10 +82,9 @@ namespace Pulumi.Aws.Msk
     ///   }} ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +96,7 @@ namespace Pulumi.Aws.Msk
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/scramSecretAssociation:ScramSecretAssociation")]
-    public partial class ScramSecretAssociation : Pulumi.CustomResource
+    public partial class ScramSecretAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
@@ -152,7 +154,7 @@ namespace Pulumi.Aws.Msk
         }
     }
 
-    public sealed class ScramSecretAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ScramSecretAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
@@ -175,9 +177,10 @@ namespace Pulumi.Aws.Msk
         public ScramSecretAssociationArgs()
         {
         }
+        public static new ScramSecretAssociationArgs Empty => new ScramSecretAssociationArgs();
     }
 
-    public sealed class ScramSecretAssociationState : Pulumi.ResourceArgs
+    public sealed class ScramSecretAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
@@ -200,5 +203,6 @@ namespace Pulumi.Aws.Msk
         public ScramSecretAssociationState()
         {
         }
+        public static new ScramSecretAssociationState Empty => new ScramSecretAssociationState();
     }
 }

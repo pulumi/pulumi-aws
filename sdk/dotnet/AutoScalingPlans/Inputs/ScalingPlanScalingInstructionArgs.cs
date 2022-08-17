@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanScalingInstructionArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanScalingInstructionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
@@ -109,5 +109,6 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public ScalingPlanScalingInstructionArgs()
         {
         }
+        public static new ScalingPlanScalingInstructionArgs Empty => new ScalingPlanScalingInstructionArgs();
     }
 }

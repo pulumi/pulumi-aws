@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class GangliaLayerEbsVolumeGetArgs : Pulumi.ResourceArgs
+    public sealed class GangliaLayerEbsVolumeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public GangliaLayerEbsVolumeGetArgs()
         {
         }
+        public static new GangliaLayerEbsVolumeGetArgs Empty => new GangliaLayerEbsVolumeGetArgs();
     }
 }

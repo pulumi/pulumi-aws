@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class FargateProfileSelectorArgs : Pulumi.ResourceArgs
+    public sealed class FargateProfileSelectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputMap<string>? _labels;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public FargateProfileSelectorArgs()
         {
         }
+        public static new FargateProfileSelectorArgs Empty => new FargateProfileSelectorArgs();
     }
 }

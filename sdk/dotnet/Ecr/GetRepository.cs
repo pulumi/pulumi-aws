@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ecr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var service = Aws.Ecr.GetRepository.Invoke(new()
         ///     {
-        ///         var service = Output.Create(Aws.Ecr.GetRepository.InvokeAsync(new Aws.Ecr.GetRepositoryArgs
-        ///         {
-        ///             Name = "ecr-repository",
-        ///         }));
-        ///     }
+        ///         Name = "ecr-repository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Ecr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var service = Aws.Ecr.GetRepository.Invoke(new()
         ///     {
-        ///         var service = Output.Create(Aws.Ecr.GetRepository.InvokeAsync(new Aws.Ecr.GetRepositoryArgs
-        ///         {
-        ///             Name = "ecr-repository",
-        ///         }));
-        ///     }
+        ///         Name = "ecr-repository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ecr
     }
 
 
-    public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ECR Repository.
@@ -100,9 +96,10 @@ namespace Pulumi.Aws.Ecr
         public GetRepositoryArgs()
         {
         }
+        public static new GetRepositoryArgs Empty => new GetRepositoryArgs();
     }
 
-    public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ECR Repository.
@@ -131,6 +128,7 @@ namespace Pulumi.Aws.Ecr
         public GetRepositoryInvokeArgs()
         {
         }
+        public static new GetRepositoryInvokeArgs Empty => new GetRepositoryInvokeArgs();
     }
 
 

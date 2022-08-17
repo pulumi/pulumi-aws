@@ -15,34 +15,34 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.Volume("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
-    ///         {
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Size = 40,
-    ///         });
-    ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
-    ///         {
-    ///             VolumeId = example.Id,
-    ///         });
-    ///         var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("examplePerm", new Aws.Ec2.SnapshotCreateVolumePermissionArgs
-    ///         {
-    ///             SnapshotId = exampleSnapshot.Id,
-    ///             AccountId = "12345678",
-    ///         });
-    ///     }
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Size = 40,
+    ///     });
     /// 
-    /// }
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         VolumeId = example.Id,
+    ///     });
+    /// 
+    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("examplePerm", new()
+    ///     {
+    ///         SnapshotId = exampleSnapshot.Id,
+    ///         AccountId = "12345678",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
-    public partial class SnapshotCreateVolumePermission : Pulumi.CustomResource
+    public partial class SnapshotCreateVolumePermission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SnapshotCreateVolumePermissionArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotCreateVolumePermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
@@ -117,9 +117,10 @@ namespace Pulumi.Aws.Ec2
         public SnapshotCreateVolumePermissionArgs()
         {
         }
+        public static new SnapshotCreateVolumePermissionArgs Empty => new SnapshotCreateVolumePermissionArgs();
     }
 
-    public sealed class SnapshotCreateVolumePermissionState : Pulumi.ResourceArgs
+    public sealed class SnapshotCreateVolumePermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
@@ -136,5 +137,6 @@ namespace Pulumi.Aws.Ec2
         public SnapshotCreateVolumePermissionState()
         {
         }
+        public static new SnapshotCreateVolumePermissionState Empty => new SnapshotCreateVolumePermissionState();
     }
 }

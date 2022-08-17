@@ -16,31 +16,29 @@ namespace Pulumi.Aws.EmrContainers
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.EmrContainers.VirtualCluster("example", new()
     ///     {
-    ///         var example = new Aws.EmrContainers.VirtualCluster("example", new Aws.EmrContainers.VirtualClusterArgs
+    ///         ContainerProvider = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderArgs
     ///         {
-    ///             ContainerProvider = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderArgs
+    ///             Id = aws_eks_cluster.Example.Name,
+    ///             Type = "EKS",
+    ///             Info = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoArgs
     ///             {
-    ///                 Id = aws_eks_cluster.Example.Name,
-    ///                 Type = "EKS",
-    ///                 Info = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoArgs
+    ///                 EksInfo = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoEksInfoArgs
     ///                 {
-    ///                     EksInfo = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoEksInfoArgs
-    ///                     {
-    ///                         Namespace = "default",
-    ///                     },
+    ///                     Namespace = "default",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.EmrContainers
     /// ```
     /// </summary>
     [AwsResourceType("aws:emrcontainers/virtualCluster:VirtualCluster")]
-    public partial class VirtualCluster : Pulumi.CustomResource
+    public partial class VirtualCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the cluster.
@@ -73,14 +71,11 @@ namespace Pulumi.Aws.EmrContainers
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -128,7 +123,7 @@ namespace Pulumi.Aws.EmrContainers
         }
     }
 
-    public sealed class VirtualClusterArgs : Pulumi.ResourceArgs
+    public sealed class VirtualClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the container provider associated with your cluster.
@@ -146,7 +141,7 @@ namespace Pulumi.Aws.EmrContainers
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -157,9 +152,10 @@ namespace Pulumi.Aws.EmrContainers
         public VirtualClusterArgs()
         {
         }
+        public static new VirtualClusterArgs Empty => new VirtualClusterArgs();
     }
 
-    public sealed class VirtualClusterState : Pulumi.ResourceArgs
+    public sealed class VirtualClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cluster.
@@ -183,7 +179,7 @@ namespace Pulumi.Aws.EmrContainers
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -193,10 +189,6 @@ namespace Pulumi.Aws.EmrContainers
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -206,5 +198,6 @@ namespace Pulumi.Aws.EmrContainers
         public VirtualClusterState()
         {
         }
+        public static new VirtualClusterState Empty => new VirtualClusterState();
     }
 }

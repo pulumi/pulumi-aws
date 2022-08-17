@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Transport Layer Security (TLS) client policy.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecBackendVirtualServiceClientPolicyArgs()
         {
         }
+        public static new VirtualNodeSpecBackendVirtualServiceClientPolicyArgs Empty => new VirtualNodeSpecBackendVirtualServiceClientPolicyArgs();
     }
 }

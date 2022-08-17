@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableReplicaGetArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableReplicaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS region name of replica DynamoDB TableE.g., `us-east-1`
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public GlobalTableReplicaGetArgs()
         {
         }
+        public static new GlobalTableReplicaGetArgs Empty => new GlobalTableReplicaGetArgs();
     }
 }

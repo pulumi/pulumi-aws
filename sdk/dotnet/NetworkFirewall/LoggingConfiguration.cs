@@ -16,102 +16,96 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ### Logging to S3
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new Aws.NetworkFirewall.LoggingConfigurationArgs
+    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
-    ///             FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///             LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///             LogDestinationConfigs = new[]
     ///             {
-    ///                 LogDestinationConfigs = 
+    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
     ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                     LogDestination = 
     ///                     {
-    ///                         LogDestination = 
-    ///                         {
-    ///                             { "bucketName", aws_s3_bucket.Example.Bucket },
-    ///                             { "prefix", "/example" },
-    ///                         },
-    ///                         LogDestinationType = "S3",
-    ///                         LogType = "FLOW",
+    ///                         { "bucketName", aws_s3_bucket.Example.Bucket },
+    ///                         { "prefix", "/example" },
     ///                     },
+    ///                     LogDestinationType = "S3",
+    ///                     LogType = "FLOW",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Logging to CloudWatch
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new Aws.NetworkFirewall.LoggingConfigurationArgs
+    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
-    ///             FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///             LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///             LogDestinationConfigs = new[]
     ///             {
-    ///                 LogDestinationConfigs = 
+    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
     ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                     LogDestination = 
     ///                     {
-    ///                         LogDestination = 
-    ///                         {
-    ///                             { "logGroup", aws_cloudwatch_log_group.Example.Name },
-    ///                         },
-    ///                         LogDestinationType = "CloudWatchLogs",
-    ///                         LogType = "ALERT",
+    ///                         { "logGroup", aws_cloudwatch_log_group.Example.Name },
     ///                     },
+    ///                     LogDestinationType = "CloudWatchLogs",
+    ///                     LogType = "ALERT",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Logging to Kinesis Data Firehose
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new Aws.NetworkFirewall.LoggingConfigurationArgs
+    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
-    ///             FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///             LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///             LogDestinationConfigs = new[]
     ///             {
-    ///                 LogDestinationConfigs = 
+    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
     ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                     LogDestination = 
     ///                     {
-    ///                         LogDestination = 
-    ///                         {
-    ///                             { "deliveryStream", aws_kinesis_firehose_delivery_stream.Example.Name },
-    ///                         },
-    ///                         LogDestinationType = "KinesisDataFirehose",
-    ///                         LogType = "ALERT",
+    ///                         { "deliveryStream", aws_kinesis_firehose_delivery_stream.Example.Name },
     ///                     },
+    ///                     LogDestinationType = "KinesisDataFirehose",
+    ///                     LogType = "ALERT",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -123,7 +117,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]
-    public partial class LoggingConfiguration : Pulumi.CustomResource
+    public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
@@ -181,7 +175,7 @@ namespace Pulumi.Aws.NetworkFirewall
         }
     }
 
-    public sealed class LoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
@@ -198,9 +192,10 @@ namespace Pulumi.Aws.NetworkFirewall
         public LoggingConfigurationArgs()
         {
         }
+        public static new LoggingConfigurationArgs Empty => new LoggingConfigurationArgs();
     }
 
-    public sealed class LoggingConfigurationState : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
@@ -217,5 +212,6 @@ namespace Pulumi.Aws.NetworkFirewall
         public LoggingConfigurationState()
         {
         }
+        public static new LoggingConfigurationState Empty => new LoggingConfigurationState();
     }
 }

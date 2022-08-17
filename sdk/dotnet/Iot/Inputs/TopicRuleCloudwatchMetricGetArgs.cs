@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleCloudwatchMetricGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleCloudwatchMetricGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CloudWatch metric name.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleCloudwatchMetricGetArgs()
         {
         }
+        public static new TopicRuleCloudwatchMetricGetArgs Empty => new TopicRuleCloudwatchMetricGetArgs();
     }
 }

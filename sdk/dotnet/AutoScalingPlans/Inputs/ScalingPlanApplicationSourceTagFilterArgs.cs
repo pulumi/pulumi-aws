@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanApplicationSourceTagFilterArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanApplicationSourceTagFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag key.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public ScalingPlanApplicationSourceTagFilterArgs()
         {
         }
+        public static new ScalingPlanApplicationSourceTagFilterArgs Empty => new ScalingPlanApplicationSourceTagFilterArgs();
     }
 }

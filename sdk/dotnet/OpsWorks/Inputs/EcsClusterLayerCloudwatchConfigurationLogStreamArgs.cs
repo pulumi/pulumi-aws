@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class EcsClusterLayerCloudwatchConfigurationLogStreamArgs : Pulumi.ResourceArgs
+    public sealed class EcsClusterLayerCloudwatchConfigurationLogStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchCount")]
         public Input<int>? BatchCount { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public EcsClusterLayerCloudwatchConfigurationLogStreamArgs()
         {
         }
+        public static new EcsClusterLayerCloudwatchConfigurationLogStreamArgs Empty => new EcsClusterLayerCloudwatchConfigurationLogStreamArgs();
     }
 }

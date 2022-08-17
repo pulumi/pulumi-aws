@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class GetCertificateAuthorityRevocationConfigurationOcspConfigurationInputArgs : Pulumi.ResourceArgs
+    public sealed class GetCertificateAuthorityRevocationConfigurationOcspConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public GetCertificateAuthorityRevocationConfigurationOcspConfigurationInputArgs()
         {
         }
+        public static new GetCertificateAuthorityRevocationConfigurationOcspConfigurationInputArgs Empty => new GetCertificateAuthorityRevocationConfigurationOcspConfigurationInputArgs();
     }
 }

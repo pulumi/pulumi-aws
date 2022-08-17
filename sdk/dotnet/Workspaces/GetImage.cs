@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Workspaces
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetImage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetImage.InvokeAsync(new Aws.Workspaces.GetImageArgs
-        ///         {
-        ///             ImageId = "wsi-ten5h0y19",
-        ///         }));
-        ///     }
+        ///         ImageId = "wsi-ten5h0y19",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Workspaces
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetImage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetImage.InvokeAsync(new Aws.Workspaces.GetImageArgs
-        ///         {
-        ///             ImageId = "wsi-ten5h0y19",
-        ///         }));
-        ///     }
+        ///         ImageId = "wsi-ten5h0y19",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Workspaces
     }
 
 
-    public sealed class GetImageArgs : Pulumi.InvokeArgs
+    public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the image.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Workspaces
         public GetImageArgs()
         {
         }
+        public static new GetImageArgs Empty => new GetImageArgs();
     }
 
-    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the image.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Workspaces
         public GetImageInvokeArgs()
         {
         }
+        public static new GetImageInvokeArgs Empty => new GetImageInvokeArgs();
     }
 
 

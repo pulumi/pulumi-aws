@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := inspector.NewAssessmentTemplate(ctx, "example", &inspector.AssessmentTemplateArgs{
-// 			TargetArn: pulumi.Any(aws_inspector_assessment_target.Example.Arn),
-// 			Duration:  pulumi.Int(3600),
-// 			RulesPackageArns: pulumi.StringArray{
-// 				pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p"),
-// 				pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc"),
-// 				pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"),
-// 				pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := inspector.NewAssessmentTemplate(ctx, "example", &inspector.AssessmentTemplateArgs{
+//				TargetArn: pulumi.Any(aws_inspector_assessment_target.Example.Arn),
+//				Duration:  pulumi.Int(3600),
+//				RulesPackageArns: pulumi.StringArray{
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p"),
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc"),
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"),
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+//
+//	$ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+//
 // ```
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
@@ -61,9 +66,9 @@ type AssessmentTemplate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
-	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -115,9 +120,9 @@ type assessmentTemplateState struct {
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
-	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The assessment target ARN to attach the template to.
 	TargetArn *string `pulumi:"targetArn"`
@@ -132,9 +137,9 @@ type AssessmentTemplateState struct {
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
-	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringPtrInput
@@ -151,7 +156,7 @@ type assessmentTemplateArgs struct {
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
-	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The assessment target ARN to attach the template to.
 	TargetArn string `pulumi:"targetArn"`
@@ -165,7 +170,7 @@ type AssessmentTemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
-	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringInput
@@ -197,7 +202,7 @@ func (i *AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.C
 // AssessmentTemplateArrayInput is an input type that accepts AssessmentTemplateArray and AssessmentTemplateArrayOutput values.
 // You can construct a concrete instance of `AssessmentTemplateArrayInput` via:
 //
-//          AssessmentTemplateArray{ AssessmentTemplateArgs{...} }
+//	AssessmentTemplateArray{ AssessmentTemplateArgs{...} }
 type AssessmentTemplateArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i AssessmentTemplateArray) ToAssessmentTemplateArrayOutputWithContext(ctx 
 // AssessmentTemplateMapInput is an input type that accepts AssessmentTemplateMap and AssessmentTemplateMapOutput values.
 // You can construct a concrete instance of `AssessmentTemplateMapInput` via:
 //
-//          AssessmentTemplateMap{ "key": AssessmentTemplateArgs{...} }
+//	AssessmentTemplateMap{ "key": AssessmentTemplateArgs{...} }
 type AssessmentTemplateMapInput interface {
 	pulumi.Input
 
@@ -278,12 +283,12 @@ func (o AssessmentTemplateOutput) RulesPackageArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringArrayOutput { return v.RulesPackageArns }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AssessmentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AssessmentTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

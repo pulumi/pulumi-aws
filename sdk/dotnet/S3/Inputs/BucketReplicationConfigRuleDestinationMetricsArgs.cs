@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDestinationMetricsArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDestinationMetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDestinationMetricsArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDestinationMetricsArgs Empty => new BucketReplicationConfigRuleDestinationMetricsArgs();
     }
 }

@@ -15,25 +15,25 @@ namespace Pulumi.Aws.Cognito
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mainIdentityPool = new Aws.Cognito.IdentityPool("mainIdentityPool", new()
     ///     {
-    ///         var mainIdentityPool = new Aws.Cognito.IdentityPool("mainIdentityPool", new Aws.Cognito.IdentityPoolArgs
+    ///         IdentityPoolName = "identity pool",
+    ///         AllowUnauthenticatedIdentities = false,
+    ///         SupportedLoginProviders = 
     ///         {
-    ///             IdentityPoolName = "identity pool",
-    ///             AllowUnauthenticatedIdentities = false,
-    ///             SupportedLoginProviders = 
-    ///             {
-    ///                 { "graph.facebook.com", "7346241598935555" },
-    ///             },
-    ///         });
-    ///         var authenticatedRole = new Aws.Iam.Role("authenticatedRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = mainIdentityPool.Id.Apply(id =&gt; @$"{{
+    ///             { "graph.facebook.com", "7346241598935555" },
+    ///         },
+    ///     });
+    /// 
+    ///     var authenticatedRole = new Aws.Iam.Role("authenticatedRole", new()
+    ///     {
+    ///         AssumeRolePolicy = mainIdentityPool.Id.Apply(id =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -54,11 +54,12 @@ namespace Pulumi.Aws.Cognito
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///         var authenticatedRolePolicy = new Aws.Iam.RolePolicy("authenticatedRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = authenticatedRole.Id,
-    ///             Policy = @"{
+    ///     });
+    /// 
+    ///     var authenticatedRolePolicy = new Aws.Iam.RolePolicy("authenticatedRolePolicy", new()
+    ///     {
+    ///         Role = authenticatedRole.Id,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -75,37 +76,37 @@ namespace Pulumi.Aws.Cognito
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var mainIdentityPoolRoleAttachment = new Aws.Cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", new Aws.Cognito.IdentityPoolRoleAttachmentArgs
+    ///     });
+    /// 
+    ///     var mainIdentityPoolRoleAttachment = new Aws.Cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", new()
+    ///     {
+    ///         IdentityPoolId = mainIdentityPool.Id,
+    ///         RoleMappings = new[]
     ///         {
-    ///             IdentityPoolId = mainIdentityPool.Id,
-    ///             RoleMappings = 
+    ///             new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingArgs
     ///             {
-    ///                 new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingArgs
+    ///                 IdentityProvider = "graph.facebook.com",
+    ///                 AmbiguousRoleResolution = "AuthenticatedRole",
+    ///                 Type = "Rules",
+    ///                 MappingRules = new[]
     ///                 {
-    ///                     IdentityProvider = "graph.facebook.com",
-    ///                     AmbiguousRoleResolution = "AuthenticatedRole",
-    ///                     Type = "Rules",
-    ///                     MappingRules = 
+    ///                     new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs
     ///                     {
-    ///                         new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs
-    ///                         {
-    ///                             Claim = "isAdmin",
-    ///                             MatchType = "Equals",
-    ///                             RoleArn = authenticatedRole.Arn,
-    ///                             Value = "paid",
-    ///                         },
+    ///                         Claim = "isAdmin",
+    ///                         MatchType = "Equals",
+    ///                         RoleArn = authenticatedRole.Arn,
+    ///                         Value = "paid",
     ///                     },
     ///                 },
     ///             },
-    ///             Roles = 
-    ///             {
-    ///                 { "authenticated", authenticatedRole.Arn },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Roles = 
+    ///         {
+    ///             { "authenticated", authenticatedRole.Arn },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -113,11 +114,11 @@ namespace Pulumi.Aws.Cognito
     /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2_abc123
+    ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
-    public partial class IdentityPoolRoleAttachment : Pulumi.CustomResource
+    public partial class IdentityPoolRoleAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An identity pool ID in the format `REGION_GUID`.
@@ -181,7 +182,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class IdentityPoolRoleAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolRoleAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identity pool ID in the format `REGION_GUID`.
@@ -216,9 +217,10 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolRoleAttachmentArgs()
         {
         }
+        public static new IdentityPoolRoleAttachmentArgs Empty => new IdentityPoolRoleAttachmentArgs();
     }
 
-    public sealed class IdentityPoolRoleAttachmentState : Pulumi.ResourceArgs
+    public sealed class IdentityPoolRoleAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identity pool ID in the format `REGION_GUID`.
@@ -253,5 +255,6 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolRoleAttachmentState()
         {
         }
+        public static new IdentityPoolRoleAttachmentState Empty => new IdentityPoolRoleAttachmentState();
     }
 }

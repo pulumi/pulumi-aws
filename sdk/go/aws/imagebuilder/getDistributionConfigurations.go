@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.GetDistributionConfigurations(ctx, &imagebuilder.GetDistributionConfigurationsArgs{
-// 			Filters: []imagebuilder.GetDistributionConfigurationsFilter{
-// 				imagebuilder.GetDistributionConfigurationsFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"example",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.GetDistributionConfigurations(ctx, &imagebuilder.GetDistributionConfigurationsArgs{
+//				Filters: []imagebuilder.GetDistributionConfigurationsFilter{
+//					imagebuilder.GetDistributionConfigurationsFilter{
+//						Name: "name",
+//						Values: []string{
+//							"example",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetDistributionConfigurations(ctx *pulumi.Context, args *GetDistributionConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetDistributionConfigurationsResult, error) {
 	var rv GetDistributionConfigurationsResult

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImagePipelineScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ImagePipelineScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImagePipelineScheduleArgs()
         {
         }
+        public static new ImagePipelineScheduleArgs Empty => new ImagePipelineScheduleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecHttp2RouteActionTargetArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecHttp2RouteActionTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The virtual service gateway route target.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecHttp2RouteActionTargetArgs()
         {
         }
+        public static new GatewayRouteSpecHttp2RouteActionTargetArgs Empty => new GatewayRouteSpecHttp2RouteActionTargetArgs();
     }
 }

@@ -21,48 +21,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewFunctionUrl(ctx, "testLatest", &lambda.FunctionUrlArgs{
-// 			FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
-// 			AuthorizationType: pulumi.String("NONE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lambda.NewFunctionUrl(ctx, "testLive", &lambda.FunctionUrlArgs{
-// 			FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
-// 			Qualifier:         pulumi.String("my_alias"),
-// 			AuthorizationType: pulumi.String("AWS_IAM"),
-// 			Cors: &lambda.FunctionUrlCorsArgs{
-// 				AllowCredentials: pulumi.Bool(true),
-// 				AllowOrigins: pulumi.StringArray{
-// 					pulumi.String("*"),
-// 				},
-// 				AllowMethods: pulumi.StringArray{
-// 					pulumi.String("*"),
-// 				},
-// 				AllowHeaders: pulumi.StringArray{
-// 					pulumi.String("date"),
-// 					pulumi.String("keep-alive"),
-// 				},
-// 				ExposeHeaders: pulumi.StringArray{
-// 					pulumi.String("keep-alive"),
-// 					pulumi.String("date"),
-// 				},
-// 				MaxAge: pulumi.Int(86400),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunctionUrl(ctx, "testLatest", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
+//				AuthorizationType: pulumi.String("NONE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunctionUrl(ctx, "testLive", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
+//				Qualifier:         pulumi.String("my_alias"),
+//				AuthorizationType: pulumi.String("AWS_IAM"),
+//				Cors: &lambda.FunctionUrlCorsArgs{
+//					AllowCredentials: pulumi.Bool(true),
+//					AllowOrigins: pulumi.StringArray{
+//						pulumi.String("*"),
+//					},
+//					AllowMethods: pulumi.StringArray{
+//						pulumi.String("*"),
+//					},
+//					AllowHeaders: pulumi.StringArray{
+//						pulumi.String("date"),
+//						pulumi.String("keep-alive"),
+//					},
+//					ExposeHeaders: pulumi.StringArray{
+//						pulumi.String("keep-alive"),
+//						pulumi.String("date"),
+//					},
+//					MaxAge: pulumi.Int(86400),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Lambda function URLs can be imported using the `function_name` or `function_name/qualifier`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+//
+//	$ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+//
 // ```
 type FunctionUrl struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *FunctionUrl) ToFunctionUrlOutputWithContext(ctx context.Context) Functi
 // FunctionUrlArrayInput is an input type that accepts FunctionUrlArray and FunctionUrlArrayOutput values.
 // You can construct a concrete instance of `FunctionUrlArrayInput` via:
 //
-//          FunctionUrlArray{ FunctionUrlArgs{...} }
+//	FunctionUrlArray{ FunctionUrlArgs{...} }
 type FunctionUrlArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i FunctionUrlArray) ToFunctionUrlArrayOutputWithContext(ctx context.Contex
 // FunctionUrlMapInput is an input type that accepts FunctionUrlMap and FunctionUrlMapOutput values.
 // You can construct a concrete instance of `FunctionUrlMapInput` via:
 //
-//          FunctionUrlMap{ "key": FunctionUrlArgs{...} }
+//	FunctionUrlMap{ "key": FunctionUrlArgs{...} }
 type FunctionUrlMapInput interface {
 	pulumi.Input
 

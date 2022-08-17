@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupLoadBalancerInfoArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupLoadBalancerInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("elbInfos")]
         private InputList<Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs>? _elbInfos;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupLoadBalancerInfoArgs()
         {
         }
+        public static new DeploymentGroupLoadBalancerInfoArgs Empty => new DeploymentGroupLoadBalancerInfoArgs();
     }
 }

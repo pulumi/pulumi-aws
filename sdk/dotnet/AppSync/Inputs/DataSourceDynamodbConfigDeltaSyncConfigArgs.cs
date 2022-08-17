@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceDynamodbConfigDeltaSyncConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceDynamodbConfigDeltaSyncConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("baseTableTtl")]
         public Input<int>? BaseTableTtl { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceDynamodbConfigDeltaSyncConfigArgs()
         {
         }
+        public static new DataSourceDynamodbConfigDeltaSyncConfigArgs Empty => new DataSourceDynamodbConfigDeltaSyncConfigArgs();
     }
 }

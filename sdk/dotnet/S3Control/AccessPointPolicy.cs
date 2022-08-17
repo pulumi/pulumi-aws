@@ -18,49 +18,45 @@ namespace Pulumi.Aws.S3Control
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
-    ///             {
-    ///                 BlockPublicAcls = true,
-    ///                 BlockPublicPolicy = false,
-    ///                 IgnorePublicAcls = true,
-    ///                 RestrictPublicBuckets = false,
-    ///             },
-    ///         });
-    ///         var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new Aws.S3Control.AccessPointPolicyArgs
-    ///         {
-    ///             AccessPointArn = exampleAccessPoint.Arn,
-    ///             Policy = exampleAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2008-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Effect", "Allow" },
-    ///                             { "Action", "s3:GetObjectTagging" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "AWS", "*" },
-    ///                             } },
-    ///                             { "Resource", $"{arn}/object/*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             })),
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
+    ///         {
+    ///             BlockPublicAcls = true,
+    ///             BlockPublicPolicy = false,
+    ///             IgnorePublicAcls = true,
+    ///             RestrictPublicBuckets = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new()
+    ///     {
+    ///         AccessPointArn = exampleAccessPoint.Arn,
+    ///         Policy = exampleAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2008-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = "s3:GetObjectTagging",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = "*",
+    ///                     },
+    ///                     ["Resource"] = $"{arn}/object/*",
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +68,7 @@ namespace Pulumi.Aws.S3Control
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]
-    public partial class AccessPointPolicy : Pulumi.CustomResource
+    public partial class AccessPointPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the access point that you want to associate with the specified policy.
@@ -136,7 +132,7 @@ namespace Pulumi.Aws.S3Control
         }
     }
 
-    public sealed class AccessPointPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the access point that you want to associate with the specified policy.
@@ -153,9 +149,10 @@ namespace Pulumi.Aws.S3Control
         public AccessPointPolicyArgs()
         {
         }
+        public static new AccessPointPolicyArgs Empty => new AccessPointPolicyArgs();
     }
 
-    public sealed class AccessPointPolicyState : Pulumi.ResourceArgs
+    public sealed class AccessPointPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the access point that you want to associate with the specified policy.
@@ -178,5 +175,6 @@ namespace Pulumi.Aws.S3Control
         public AccessPointPolicyState()
         {
         }
+        public static new AccessPointPolicyState Empty => new AccessPointPolicyState();
     }
 }

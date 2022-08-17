@@ -196,6 +196,7 @@ export class Server extends pulumi.CustomResource {
     public readonly preAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
      * * `SFTP`: File transfer over SSH
      * * `FTPS`: File transfer with TLS encryption
      * * `FTP`: Unencrypted file transfer
@@ -357,6 +358,7 @@ export interface ServerState {
     preAuthenticationLoginBanner?: pulumi.Input<string>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
      * * `SFTP`: File transfer over SSH
      * * `FTPS`: File transfer with TLS encryption
      * * `FTP`: Unencrypted file transfer
@@ -442,6 +444,7 @@ export interface ServerArgs {
     preAuthenticationLoginBanner?: pulumi.Input<string>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
      * * `SFTP`: File transfer over SSH
      * * `FTPS`: File transfer with TLS encryption
      * * `FTP`: Unencrypted file transfer

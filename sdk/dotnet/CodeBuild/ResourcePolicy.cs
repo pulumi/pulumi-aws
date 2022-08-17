@@ -20,60 +20,58 @@ namespace Pulumi.Aws.CodeBuild
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new()
     ///     {
-    ///         var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new Aws.CodeBuild.ReportGroupArgs
+    ///         Type = "TEST",
+    ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
     ///         {
-    ///             Type = "TEST",
-    ///             ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
-    ///             {
-    ///                 Type = "NO_EXPORT",
-    ///             },
-    ///         });
-    ///         var currentPartition = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleResourcePolicy = new Aws.CodeBuild.ResourcePolicy("exampleResourcePolicy", new Aws.CodeBuild.ResourcePolicyArgs
-    ///         {
-    ///             ResourceArn = exampleReportGroup.Arn,
-    ///             Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleReportGroup.Arn).Apply(values =&gt;
-    ///             {
-    ///                 var currentPartition = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 var arn = values.Item3;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "Version", "2012-10-17" },
-    ///                     { "Id", "default" },
-    ///                     { "Statement", new[]
-    ///                         {
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Sid", "default" },
-    ///                                 { "Effect", "Allow" },
-    ///                                 { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "AWS", $"arn:{currentPartition.Partition}:iam::{currentCallerIdentity.AccountId}:root" },
-    ///                                 } },
-    ///                                 { "Action", new[]
-    ///                                     {
-    ///                                         "codebuild:BatchGetReportGroups",
-    ///                                         "codebuild:BatchGetReports",
-    ///                                         "codebuild:ListReportsForReportGroup",
-    ///                                         "codebuild:DescribeTestCases",
-    ///                                     }
-    ///                                  },
-    ///                                 { "Resource", arn },
-    ///                             },
-    ///                         }
-    ///                      },
-    ///                 });
-    ///             }),
-    ///         });
-    ///     }
+    ///             Type = "NO_EXPORT",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var currentPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleResourcePolicy = new Aws.CodeBuild.ResourcePolicy("exampleResourcePolicy", new()
+    ///     {
+    ///         ResourceArn = exampleReportGroup.Arn,
+    ///         Policy = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleReportGroup.Arn).Apply(values =&gt;
+    ///         {
+    ///             var currentPartition = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             var arn = values.Item3;
+    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Version"] = "2012-10-17",
+    ///                 ["Id"] = "default",
+    ///                 ["Statement"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Sid"] = "default",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                         },
+    ///                         ["Action"] = new[]
+    ///                         {
+    ///                             "codebuild:BatchGetReportGroups",
+    ///                             "codebuild:BatchGetReports",
+    ///                             "codebuild:ListReportsForReportGroup",
+    ///                             "codebuild:DescribeTestCases",
+    ///                         },
+    ///                         ["Resource"] = arn,
+    ///                     },
+    ///                 },
+    ///             });
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +83,7 @@ namespace Pulumi.Aws.CodeBuild
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/resourcePolicy:ResourcePolicy")]
-    public partial class ResourcePolicy : Pulumi.CustomResource
+    public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
@@ -143,7 +141,7 @@ namespace Pulumi.Aws.CodeBuild
         }
     }
 
-    public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
@@ -160,9 +158,10 @@ namespace Pulumi.Aws.CodeBuild
         public ResourcePolicyArgs()
         {
         }
+        public static new ResourcePolicyArgs Empty => new ResourcePolicyArgs();
     }
 
-    public sealed class ResourcePolicyState : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
@@ -179,5 +178,6 @@ namespace Pulumi.Aws.CodeBuild
         public ResourcePolicyState()
         {
         }
+        public static new ResourcePolicyState Empty => new ResourcePolicyState();
     }
 }

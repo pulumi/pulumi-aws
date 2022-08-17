@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables the logging. Defaults to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs Empty => new FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs();
     }
 }

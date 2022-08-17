@@ -17,19 +17,17 @@ namespace Pulumi.Aws.Ec2
     /// ### CloudWatch Logging
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -43,18 +41,20 @@ namespace Pulumi.Aws.Ec2
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
-    ///         {
-    ///             IamRoleArn = exampleRole.Arn,
-    ///             LogDestination = exampleLogGroup.Arn,
-    ///             TrafficType = "ALL",
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = exampleRole.Id,
-    ///             Policy = @"{
+    ///     });
+    /// 
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     {
+    ///         IamRoleArn = exampleRole.Arn,
+    ///         LogDestination = exampleLogGroup.Arn,
+    ///         TrafficType = "ALL",
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -71,63 +71,56 @@ namespace Pulumi.Aws.Ec2
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### S3 Logging
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
-    ///         {
-    ///             LogDestination = exampleBucketV2.Arn,
-    ///             LogDestinationType = "s3",
-    ///             TrafficType = "ALL",
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     {
+    ///         LogDestination = exampleBucketV2.Arn,
+    ///         LogDestinationType = "s3",
+    ///         TrafficType = "ALL",
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### S3 Logging in Apache Parquet format with per-hour partitions
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
-    ///         {
-    ///             LogDestination = exampleBucketV2.Arn,
-    ///             LogDestinationType = "s3",
-    ///             TrafficType = "ALL",
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
-    ///             {
-    ///                 FileFormat = "parquet",
-    ///                 PerHourPartition = true,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     {
+    ///         LogDestination = exampleBucketV2.Arn,
+    ///         LogDestinationType = "s3",
+    ///         TrafficType = "ALL",
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
+    ///         {
+    ///             FileFormat = "parquet",
+    ///             PerHourPartition = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -139,7 +132,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/flowLog:FlowLog")]
-    public partial class FlowLog : Pulumi.CustomResource
+    public partial class FlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Flow Log.
@@ -193,7 +186,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`.
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         /// </summary>
         [Output("maxAggregationInterval")]
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
@@ -211,7 +204,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -284,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class FlowLogArgs : Pulumi.ResourceArgs
+    public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the destination options for a flow log. More details below.
@@ -332,7 +325,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`.
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -382,9 +375,10 @@ namespace Pulumi.Aws.Ec2
         public FlowLogArgs()
         {
         }
+        public static new FlowLogArgs Empty => new FlowLogArgs();
     }
 
-    public sealed class FlowLogState : Pulumi.ResourceArgs
+    public sealed class FlowLogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Flow Log.
@@ -438,7 +432,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`.
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -465,7 +459,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -500,5 +494,6 @@ namespace Pulumi.Aws.Ec2
         public FlowLogState()
         {
         }
+        public static new FlowLogState Empty => new FlowLogState();
     }
 }

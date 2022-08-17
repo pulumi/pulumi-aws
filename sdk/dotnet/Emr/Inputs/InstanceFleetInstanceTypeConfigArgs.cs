@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class InstanceFleetInstanceTypeConfigArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetInstanceTypeConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public InstanceFleetInstanceTypeConfigArgs()
         {
         }
+        public static new InstanceFleetInstanceTypeConfigArgs Empty => new InstanceFleetInstanceTypeConfigArgs();
     }
 }

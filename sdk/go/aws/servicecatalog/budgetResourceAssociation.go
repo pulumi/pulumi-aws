@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewBudgetResourceAssociation(ctx, "example", &servicecatalog.BudgetResourceAssociationArgs{
-// 			BudgetName: pulumi.String("budget-pjtvyakdlyo3m"),
-// 			ResourceId: pulumi.String("prod-dnigbtea24ste"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewBudgetResourceAssociation(ctx, "example", &servicecatalog.BudgetResourceAssociationArgs{
+//				BudgetName: pulumi.String("budget-pjtvyakdlyo3m"),
+//				ResourceId: pulumi.String("prod-dnigbtea24ste"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+//
+//	$ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+//
 // ```
 type BudgetResourceAssociation struct {
 	pulumi.CustomResourceState
@@ -149,7 +154,7 @@ func (i *BudgetResourceAssociation) ToBudgetResourceAssociationOutputWithContext
 // BudgetResourceAssociationArrayInput is an input type that accepts BudgetResourceAssociationArray and BudgetResourceAssociationArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceAssociationArrayInput` via:
 //
-//          BudgetResourceAssociationArray{ BudgetResourceAssociationArgs{...} }
+//	BudgetResourceAssociationArray{ BudgetResourceAssociationArgs{...} }
 type BudgetResourceAssociationArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +179,7 @@ func (i BudgetResourceAssociationArray) ToBudgetResourceAssociationArrayOutputWi
 // BudgetResourceAssociationMapInput is an input type that accepts BudgetResourceAssociationMap and BudgetResourceAssociationMapOutput values.
 // You can construct a concrete instance of `BudgetResourceAssociationMapInput` via:
 //
-//          BudgetResourceAssociationMap{ "key": BudgetResourceAssociationArgs{...} }
+//	BudgetResourceAssociationMap{ "key": BudgetResourceAssociationArgs{...} }
 type BudgetResourceAssociationMapInput interface {
 	pulumi.Input
 

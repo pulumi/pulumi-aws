@@ -23,57 +23,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		thisRule, err := cfg.NewRule(ctx, "thisRule", &cfg.RuleArgs{
-// 			Source: &cfg.RuleSourceArgs{
-// 				Owner:            pulumi.String("AWS"),
-// 				SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewRemediationConfiguration(ctx, "thisRemediationConfiguration", &cfg.RemediationConfigurationArgs{
-// 			ConfigRuleName: thisRule.Name,
-// 			ResourceType:   pulumi.String("AWS::S3::Bucket"),
-// 			TargetType:     pulumi.String("SSM_DOCUMENT"),
-// 			TargetId:       pulumi.String("AWS-EnableS3BucketEncryption"),
-// 			TargetVersion:  pulumi.String("1"),
-// 			Parameters: cfg.RemediationConfigurationParameterArray{
-// 				&cfg.RemediationConfigurationParameterArgs{
-// 					Name:        pulumi.String("AutomationAssumeRole"),
-// 					StaticValue: pulumi.String("arn:aws:iam::875924563244:role/security_config"),
-// 				},
-// 				&cfg.RemediationConfigurationParameterArgs{
-// 					Name:          pulumi.String("BucketName"),
-// 					ResourceValue: pulumi.String("RESOURCE_ID"),
-// 				},
-// 				&cfg.RemediationConfigurationParameterArgs{
-// 					Name:        pulumi.String("SSEAlgorithm"),
-// 					StaticValue: pulumi.String("AES256"),
-// 				},
-// 			},
-// 			Automatic:                pulumi.Bool(true),
-// 			MaximumAutomaticAttempts: pulumi.Int(10),
-// 			RetryAttemptSeconds:      pulumi.Int(600),
-// 			ExecutionControls: &cfg.RemediationConfigurationExecutionControlsArgs{
-// 				SsmControls: &cfg.RemediationConfigurationExecutionControlsSsmControlsArgs{
-// 					ConcurrentExecutionRatePercentage: pulumi.Int(25),
-// 					ErrorPercentage:                   pulumi.Int(20),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisRule, err := cfg.NewRule(ctx, "thisRule", &cfg.RuleArgs{
+//				Source: &cfg.RuleSourceArgs{
+//					Owner:            pulumi.String("AWS"),
+//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRemediationConfiguration(ctx, "thisRemediationConfiguration", &cfg.RemediationConfigurationArgs{
+//				ConfigRuleName: thisRule.Name,
+//				ResourceType:   pulumi.String("AWS::S3::Bucket"),
+//				TargetType:     pulumi.String("SSM_DOCUMENT"),
+//				TargetId:       pulumi.String("AWS-EnableS3BucketEncryption"),
+//				TargetVersion:  pulumi.String("1"),
+//				Parameters: cfg.RemediationConfigurationParameterArray{
+//					&cfg.RemediationConfigurationParameterArgs{
+//						Name:        pulumi.String("AutomationAssumeRole"),
+//						StaticValue: pulumi.String("arn:aws:iam::875924563244:role/security_config"),
+//					},
+//					&cfg.RemediationConfigurationParameterArgs{
+//						Name:          pulumi.String("BucketName"),
+//						ResourceValue: pulumi.String("RESOURCE_ID"),
+//					},
+//					&cfg.RemediationConfigurationParameterArgs{
+//						Name:        pulumi.String("SSEAlgorithm"),
+//						StaticValue: pulumi.String("AES256"),
+//					},
+//				},
+//				Automatic:                pulumi.Bool(true),
+//				MaximumAutomaticAttempts: pulumi.Int(10),
+//				RetryAttemptSeconds:      pulumi.Int(600),
+//				ExecutionControls: &cfg.RemediationConfigurationExecutionControlsArgs{
+//					SsmControls: &cfg.RemediationConfigurationExecutionControlsSsmControlsArgs{
+//						ConcurrentExecutionRatePercentage: pulumi.Int(25),
+//						ErrorPercentage:                   pulumi.Int(20),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // Remediation Configurations can be imported using the name config_rule_name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+//
+//	$ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+//
 // ```
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState
@@ -274,7 +279,7 @@ func (i *RemediationConfiguration) ToRemediationConfigurationOutputWithContext(c
 // RemediationConfigurationArrayInput is an input type that accepts RemediationConfigurationArray and RemediationConfigurationArrayOutput values.
 // You can construct a concrete instance of `RemediationConfigurationArrayInput` via:
 //
-//          RemediationConfigurationArray{ RemediationConfigurationArgs{...} }
+//	RemediationConfigurationArray{ RemediationConfigurationArgs{...} }
 type RemediationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -299,7 +304,7 @@ func (i RemediationConfigurationArray) ToRemediationConfigurationArrayOutputWith
 // RemediationConfigurationMapInput is an input type that accepts RemediationConfigurationMap and RemediationConfigurationMapOutput values.
 // You can construct a concrete instance of `RemediationConfigurationMapInput` via:
 //
-//          RemediationConfigurationMap{ "key": RemediationConfigurationArgs{...} }
+//	RemediationConfigurationMap{ "key": RemediationConfigurationArgs{...} }
 type RemediationConfigurationMapInput interface {
 	pulumi.Input
 

@@ -20,34 +20,30 @@ namespace Pulumi.Aws.CloudControl
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudControl.Resource("example", new()
     ///     {
-    ///         var example = new Aws.CloudControl.Resource("example", new Aws.CloudControl.ResourceArgs
+    ///         TypeName = "AWS::ECS::Cluster",
+    ///         DesiredState = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             TypeName = "AWS::ECS::Cluster",
-    ///             DesiredState = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["ClusterName"] = "example",
+    ///             ["Tags"] = new[]
     ///             {
-    ///                 { "ClusterName", "example" },
-    ///                 { "Tags", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Key", "CostCenter" },
-    ///                             { "Value", "IT" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Key"] = "CostCenter",
+    ///                     ["Value"] = "IT",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudcontrol/resource:Resource")]
-    public partial class Resource : Pulumi.CustomResource
+    public partial class Resource : global::Pulumi.CustomResource
     {
         [Output("desiredState")]
         public Output<string> DesiredState { get; private set; } = null!;
@@ -123,7 +119,7 @@ namespace Pulumi.Aws.CloudControl
         }
     }
 
-    public sealed class ResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("desiredState", required: true)]
         public Input<string> DesiredState { get; set; } = null!;
@@ -155,9 +151,10 @@ namespace Pulumi.Aws.CloudControl
         public ResourceArgs()
         {
         }
+        public static new ResourceArgs Empty => new ResourceArgs();
     }
 
-    public sealed class ResourceState : Pulumi.ResourceArgs
+    public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
         [Input("desiredState")]
         public Input<string>? DesiredState { get; set; }
@@ -192,5 +189,6 @@ namespace Pulumi.Aws.CloudControl
         public ResourceState()
         {
         }
+        public static new ResourceState Empty => new ResourceState();
     }
 }

@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", &docdb.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("example"),
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
-// 				pulumi.Any(data.Aws_availability_zones.Available.Names[1]),
-// 				pulumi.Any(data.Aws_availability_zones.Available.Names[2]),
-// 			},
-// 			MasterUsername:    pulumi.String("foo"),
-// 			MasterPassword:    pulumi.String("mustbeeightcharaters"),
-// 			SkipFinalSnapshot: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = docdb.NewEventSubscription(ctx, "exampleEventSubscription", &docdb.EventSubscriptionArgs{
-// 			Enabled: pulumi.Bool(true),
-// 			EventCategories: pulumi.StringArray{
-// 				pulumi.String("creation"),
-// 				pulumi.String("failure"),
-// 			},
-// 			SourceType: pulumi.String("db-cluster"),
-// 			SourceIds: pulumi.StringArray{
-// 				exampleCluster.ID(),
-// 			},
-// 			SnsTopicArn: exampleTopic.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", &docdb.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("example"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
+//					pulumi.Any(data.Aws_availability_zones.Available.Names[1]),
+//					pulumi.Any(data.Aws_availability_zones.Available.Names[2]),
+//				},
+//				MasterUsername:    pulumi.String("foo"),
+//				MasterPassword:    pulumi.String("mustbeeightcharaters"),
+//				SkipFinalSnapshot: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = docdb.NewEventSubscription(ctx, "exampleEventSubscription", &docdb.EventSubscriptionArgs{
+//				Enabled: pulumi.Bool(true),
+//				EventCategories: pulumi.StringArray{
+//					pulumi.String("creation"),
+//					pulumi.String("failure"),
+//				},
+//				SourceType: pulumi.String("db-cluster"),
+//				SourceIds: pulumi.StringArray{
+//					exampleCluster.ID(),
+//				},
+//				SnsTopicArn: exampleTopic.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // DocDB Event Subscriptions can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+//
+//	$ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+//
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -91,8 +96,7 @@ type EventSubscription struct {
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -145,8 +149,7 @@ type eventSubscriptionState struct {
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -168,8 +171,7 @@ type EventSubscriptionState struct {
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -238,7 +240,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 // EventSubscriptionArrayInput is an input type that accepts EventSubscriptionArray and EventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionArrayInput` via:
 //
-//          EventSubscriptionArray{ EventSubscriptionArgs{...} }
+//	EventSubscriptionArray{ EventSubscriptionArgs{...} }
 type EventSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +265,7 @@ func (i EventSubscriptionArray) ToEventSubscriptionArrayOutputWithContext(ctx co
 // EventSubscriptionMapInput is an input type that accepts EventSubscriptionMap and EventSubscriptionMapOutput values.
 // You can construct a concrete instance of `EventSubscriptionMapInput` via:
 //
-//          EventSubscriptionMap{ "key": EventSubscriptionArgs{...} }
+//	EventSubscriptionMap{ "key": EventSubscriptionArgs{...} }
 type EventSubscriptionMapInput interface {
 	pulumi.Input
 
@@ -347,7 +349,6 @@ func (o EventSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o EventSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

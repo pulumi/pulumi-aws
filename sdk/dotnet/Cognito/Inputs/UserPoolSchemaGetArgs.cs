@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolSchemaGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolSchemaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolSchemaGetArgs()
         {
         }
+        public static new UserPoolSchemaGetArgs Empty => new UserPoolSchemaGetArgs();
     }
 }

@@ -16,23 +16,21 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.DirectConnect.HostedPrivateVirtualInterface("foo", new()
     ///     {
-    ///         var foo = new Aws.DirectConnect.HostedPrivateVirtualInterface("foo", new Aws.DirectConnect.HostedPrivateVirtualInterfaceArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             Vlan = 4094,
-    ///         });
-    ///     }
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
+    ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         Vlan = 4094,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface")]
-    public partial class HostedPrivateVirtualInterface : Pulumi.CustomResource
+    public partial class HostedPrivateVirtualInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -171,7 +169,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class HostedPrivateVirtualInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class HostedPrivateVirtualInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -236,9 +234,10 @@ namespace Pulumi.Aws.DirectConnect
         public HostedPrivateVirtualInterfaceArgs()
         {
         }
+        public static new HostedPrivateVirtualInterfaceArgs Empty => new HostedPrivateVirtualInterfaceArgs();
     }
 
-    public sealed class HostedPrivateVirtualInterfaceState : Pulumi.ResourceArgs
+    public sealed class HostedPrivateVirtualInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -324,5 +323,6 @@ namespace Pulumi.Aws.DirectConnect
         public HostedPrivateVirtualInterfaceState()
         {
         }
+        public static new HostedPrivateVirtualInterfaceState Empty => new HostedPrivateVirtualInterfaceState();
     }
 }

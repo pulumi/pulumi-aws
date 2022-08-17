@@ -19,21 +19,19 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetConnection.InvokeAsync(new Aws.NetworkManager.GetConnectionArgs
-        ///         {
-        ///             GlobalNetworkId = @var.Global_network_id,
-        ///             ConnectionId = @var.Connection_id,
-        ///         }));
-        ///     }
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///         ConnectionId = @var.Connection_id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetConnection.InvokeAsync(new Aws.NetworkManager.GetConnectionArgs
-        ///         {
-        ///             GlobalNetworkId = @var.Global_network_id,
-        ///             ConnectionId = @var.Connection_id,
-        ///         }));
-        ///     }
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///         ConnectionId = @var.Connection_id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.NetworkManager
     }
 
 
-    public sealed class GetConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the specific connection to retrieve.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.NetworkManager
         public GetConnectionArgs()
         {
         }
+        public static new GetConnectionArgs Empty => new GetConnectionArgs();
     }
 
-    public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the specific connection to retrieve.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.NetworkManager
         public GetConnectionInvokeArgs()
         {
         }
+        public static new GetConnectionInvokeArgs Empty => new GetConnectionInvokeArgs();
     }
 
 

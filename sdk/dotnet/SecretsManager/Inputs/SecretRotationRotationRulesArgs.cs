@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecretsManager.Inputs
 {
 
-    public sealed class SecretRotationRotationRulesArgs : Pulumi.ResourceArgs
+    public sealed class SecretRotationRotationRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days between automatic scheduled rotations of the secret.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.SecretsManager.Inputs
         public SecretRotationRotationRulesArgs()
         {
         }
+        public static new SecretRotationRotationRulesArgs Empty => new SecretRotationRotationRulesArgs();
     }
 }

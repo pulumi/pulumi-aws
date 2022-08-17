@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Synthetics.Inputs
 {
 
-    public sealed class CanaryArtifactConfigS3EncryptionGetArgs : Pulumi.ResourceArgs
+    public sealed class CanaryArtifactConfigS3EncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Synthetics.Inputs
         public CanaryArtifactConfigS3EncryptionGetArgs()
         {
         }
+        public static new CanaryArtifactConfigS3EncryptionGetArgs Empty => new CanaryArtifactConfigS3EncryptionGetArgs();
     }
 }

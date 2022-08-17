@@ -16,13 +16,17 @@ import (
 // S3 bucket lifecycle configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketLifecycleConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -136,7 +140,7 @@ func (i *BucketLifecycleConfigurationV2) ToBucketLifecycleConfigurationV2OutputW
 // BucketLifecycleConfigurationV2ArrayInput is an input type that accepts BucketLifecycleConfigurationV2Array and BucketLifecycleConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2ArrayInput` via:
 //
-//          BucketLifecycleConfigurationV2Array{ BucketLifecycleConfigurationV2Args{...} }
+//	BucketLifecycleConfigurationV2Array{ BucketLifecycleConfigurationV2Args{...} }
 type BucketLifecycleConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +165,7 @@ func (i BucketLifecycleConfigurationV2Array) ToBucketLifecycleConfigurationV2Arr
 // BucketLifecycleConfigurationV2MapInput is an input type that accepts BucketLifecycleConfigurationV2Map and BucketLifecycleConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2MapInput` via:
 //
-//          BucketLifecycleConfigurationV2Map{ "key": BucketLifecycleConfigurationV2Args{...} }
+//	BucketLifecycleConfigurationV2Map{ "key": BucketLifecycleConfigurationV2Args{...} }
 type BucketLifecycleConfigurationV2MapInput interface {
 	pulumi.Input
 

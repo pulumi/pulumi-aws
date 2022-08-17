@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecHttpRouteMatchHeaderMatchRangeArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecHttpRouteMatchHeaderMatchRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of the range.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecHttpRouteMatchHeaderMatchRangeArgs()
         {
         }
+        public static new RouteSpecHttpRouteMatchHeaderMatchRangeArgs Empty => new RouteSpecHttpRouteMatchHeaderMatchRangeArgs();
     }
 }

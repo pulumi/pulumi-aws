@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetRouteTablesArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTablesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetRouteTablesFilterArgs>? _filters;
@@ -61,9 +61,10 @@ namespace Pulumi.Aws.Ec2
         public GetRouteTablesArgs()
         {
         }
+        public static new GetRouteTablesArgs Empty => new GetRouteTablesArgs();
     }
 
-    public sealed class GetRouteTablesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTablesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetRouteTablesFilterInputArgs>? _filters;
@@ -99,6 +100,7 @@ namespace Pulumi.Aws.Ec2
         public GetRouteTablesInvokeArgs()
         {
         }
+        public static new GetRouteTablesInvokeArgs Empty => new GetRouteTablesInvokeArgs();
     }
 
 

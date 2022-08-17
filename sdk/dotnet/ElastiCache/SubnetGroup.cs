@@ -19,41 +19,41 @@ namespace Pulumi.Aws.ElastiCache
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
     ///     {
-    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         Tags = 
     ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-test" },
-    ///             },
-    ///         });
-    ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = fooVpc.Id,
-    ///             CidrBlock = "10.0.0.0/24",
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-test" },
-    ///             },
-    ///         });
-    ///         var bar = new Aws.ElastiCache.SubnetGroup("bar", new Aws.ElastiCache.SubnetGroupArgs
-    ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 fooSubnet.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "tf-test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     {
+    ///         VpcId = fooVpc.Id,
+    ///         CidrBlock = "10.0.0.0/24",
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Aws.ElastiCache.SubnetGroup("bar", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             fooSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/subnetGroup:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the cache subnet group. Defaults to "Managed by Pulumi".
@@ -186,9 +186,10 @@ namespace Pulumi.Aws.ElastiCache
         {
             Description = "Managed by Pulumi";
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 
-    public sealed class SubnetGroupState : Pulumi.ResourceArgs
+    public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -233,7 +234,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -245,5 +246,6 @@ namespace Pulumi.Aws.ElastiCache
         {
             Description = "Managed by Pulumi";
         }
+        public static new SubnetGroupState Empty => new SubnetGroupState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateMaintenanceOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateMaintenanceOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateMaintenanceOptionsGetArgs()
         {
         }
+        public static new LaunchTemplateMaintenanceOptionsGetArgs Empty => new LaunchTemplateMaintenanceOptionsGetArgs();
     }
 }

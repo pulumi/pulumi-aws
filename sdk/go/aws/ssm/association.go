@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-// 			Targets: ssm.AssociationTargetArray{
-// 				&ssm.AssociationTargetArgs{
-// 					Key: pulumi.String("InstanceIds"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.Any(aws_instance.Example.Id),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("InstanceIds"),
+//						Values: pulumi.StringArray{
+//							pulumi.Any(aws_instance.Example.Id),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create an association for all managed instances in an AWS account
 //
@@ -50,28 +53,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-// 			Targets: ssm.AssociationTargetArray{
-// 				&ssm.AssociationTargetArgs{
-// 					Key: pulumi.String("InstanceIds"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("*"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("InstanceIds"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create an association for a specific tag
 //
@@ -81,28 +87,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-// 			Targets: ssm.AssociationTargetArray{
-// 				&ssm.AssociationTargetArgs{
-// 					Key: pulumi.String("tag:Environment"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("Development"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("tag:Environment"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("Development"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -110,7 +119,9 @@ import (
 // SSM associations can be imported using the `association_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+//
+//	$ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+//
 // ```
 type Association struct {
 	pulumi.CustomResourceState
@@ -350,7 +361,7 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 // AssociationArrayInput is an input type that accepts AssociationArray and AssociationArrayOutput values.
 // You can construct a concrete instance of `AssociationArrayInput` via:
 //
-//          AssociationArray{ AssociationArgs{...} }
+//	AssociationArray{ AssociationArgs{...} }
 type AssociationArrayInput interface {
 	pulumi.Input
 
@@ -375,7 +386,7 @@ func (i AssociationArray) ToAssociationArrayOutputWithContext(ctx context.Contex
 // AssociationMapInput is an input type that accepts AssociationMap and AssociationMapOutput values.
 // You can construct a concrete instance of `AssociationMapInput` via:
 //
-//          AssociationMap{ "key": AssociationArgs{...} }
+//	AssociationMap{ "key": AssociationArgs{...} }
 type AssociationMapInput interface {
 	pulumi.Input
 

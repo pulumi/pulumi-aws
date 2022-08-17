@@ -50,6 +50,10 @@ __all__ = [
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag',
     'RuleGroupRuleGroupStatefulRuleOptions',
+    'GetFirewallEncryptionConfigurationResult',
+    'GetFirewallFirewallStatusResult',
+    'GetFirewallFirewallStatusSyncStateResult',
+    'GetFirewallFirewallStatusSyncStateAttachmentResult',
     'GetFirewallPolicyFirewallPolicyResult',
     'GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult',
     'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult',
@@ -58,6 +62,7 @@ __all__ = [
     'GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult',
     'GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult',
     'GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult',
+    'GetFirewallSubnetMappingResult',
 ]
 
 @pulumi.output_type
@@ -1857,6 +1862,111 @@ class RuleGroupRuleGroupStatefulRuleOptions(dict):
 
 
 @pulumi.output_type
+class GetFirewallEncryptionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 key_id: str,
+                 type: str):
+        """
+        :param str key_id: The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+        :param str type: The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusResult(dict):
+    def __init__(__self__, *,
+                 sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']):
+        """
+        :param Sequence['GetFirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
+        """
+        pulumi.set(__self__, "sync_states", sync_states)
+
+    @property
+    @pulumi.getter(name="syncStates")
+    def sync_states(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']:
+        """
+        Set of subnets configured for use by the firewall.
+        """
+        return pulumi.get(self, "sync_states")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusSyncStateResult(dict):
+    def __init__(__self__, *,
+                 attachments: Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult'],
+                 availability_zone: str):
+        """
+        :param Sequence['GetFirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        :param str availability_zone: The Availability Zone where the subnet is configured.
+        """
+        pulumi.set(__self__, "attachments", attachments)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+
+    @property
+    @pulumi.getter
+    def attachments(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult']:
+        """
+        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        """
+        return pulumi.get(self, "attachments")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> str:
+        """
+        The Availability Zone where the subnet is configured.
+        """
+        return pulumi.get(self, "availability_zone")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
+    def __init__(__self__, *,
+                 endpoint_id: str,
+                 subnet_id: str):
+        """
+        :param str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        :param str subnet_id: The unique identifier for the subnet.
+        """
+        pulumi.set(__self__, "endpoint_id", endpoint_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> str:
+        """
+        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
+        return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The unique identifier for the subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
 class GetFirewallPolicyFirewallPolicyResult(dict):
     def __init__(__self__, *,
                  stateful_default_actions: Sequence[str],
@@ -2013,5 +2123,23 @@ class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult(dict):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
+
+
+@pulumi.output_type
+class GetFirewallSubnetMappingResult(dict):
+    def __init__(__self__, *,
+                 subnet_id: str):
+        """
+        :param str subnet_id: The unique identifier for the subnet.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The unique identifier for the subnet.
+        """
+        return pulumi.get(self, "subnet_id")
 
 

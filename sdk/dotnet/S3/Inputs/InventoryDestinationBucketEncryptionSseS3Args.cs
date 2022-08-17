@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryDestinationBucketEncryptionSseS3Args : Pulumi.ResourceArgs
+    public sealed class InventoryDestinationBucketEncryptionSseS3Args : global::Pulumi.ResourceArgs
     {
         public InventoryDestinationBucketEncryptionSseS3Args()
         {
         }
+        public static new InventoryDestinationBucketEncryptionSseS3Args Empty => new InventoryDestinationBucketEncryptionSseS3Args();
     }
 }

@@ -15,25 +15,23 @@ namespace Pulumi.Aws.GameLift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GameLift.Alias("example", new()
     ///     {
-    ///         var example = new Aws.GameLift.Alias("example", new Aws.GameLift.AliasArgs
+    ///         Description = "Example Description",
+    ///         RoutingStrategy = new Aws.GameLift.Inputs.AliasRoutingStrategyArgs
     ///         {
-    ///             Description = "Example Description",
-    ///             RoutingStrategy = new Aws.GameLift.Inputs.AliasRoutingStrategyArgs
-    ///             {
-    ///                 Message = "Example Message",
-    ///                 Type = "TERMINAL",
-    ///             },
-    ///         });
-    ///     }
+    ///             Message = "Example Message",
+    ///             Type = "TERMINAL",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/alias:Alias")]
-    public partial class Alias : Pulumi.CustomResource
+    public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Alias ARN.
@@ -78,7 +76,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.GameLift
         }
     }
 
-    public sealed class AliasArgs : Pulumi.ResourceArgs
+    public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the alias.
@@ -162,9 +160,10 @@ namespace Pulumi.Aws.GameLift
         public AliasArgs()
         {
         }
+        public static new AliasArgs Empty => new AliasArgs();
     }
 
-    public sealed class AliasState : Pulumi.ResourceArgs
+    public sealed class AliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alias ARN.
@@ -206,7 +205,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -217,5 +216,6 @@ namespace Pulumi.Aws.GameLift
         public AliasState()
         {
         }
+        public static new AliasState Empty => new AliasState();
     }
 }

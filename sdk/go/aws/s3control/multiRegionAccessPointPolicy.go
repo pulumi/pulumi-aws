@@ -20,7 +20,9 @@ import (
 // Multi-Region Access Point Policies can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
 //
 // ```sh
-//  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+//
+//	$ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+//
 // ```
 type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState
@@ -128,7 +130,7 @@ func (i *MultiRegionAccessPointPolicy) ToMultiRegionAccessPointPolicyOutputWithC
 // MultiRegionAccessPointPolicyArrayInput is an input type that accepts MultiRegionAccessPointPolicyArray and MultiRegionAccessPointPolicyArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointPolicyArrayInput` via:
 //
-//          MultiRegionAccessPointPolicyArray{ MultiRegionAccessPointPolicyArgs{...} }
+//	MultiRegionAccessPointPolicyArray{ MultiRegionAccessPointPolicyArgs{...} }
 type MultiRegionAccessPointPolicyArrayInput interface {
 	pulumi.Input
 
@@ -153,7 +155,7 @@ func (i MultiRegionAccessPointPolicyArray) ToMultiRegionAccessPointPolicyArrayOu
 // MultiRegionAccessPointPolicyMapInput is an input type that accepts MultiRegionAccessPointPolicyMap and MultiRegionAccessPointPolicyMapOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointPolicyMapInput` via:
 //
-//          MultiRegionAccessPointPolicyMap{ "key": MultiRegionAccessPointPolicyArgs{...} }
+//	MultiRegionAccessPointPolicyMap{ "key": MultiRegionAccessPointPolicyArgs{...} }
 type MultiRegionAccessPointPolicyMapInput interface {
 	pulumi.Input
 

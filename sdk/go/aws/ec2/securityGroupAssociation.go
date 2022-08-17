@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2.SecurityGroupAssociationArgs{
-// 			VpcEndpointId:   pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-// 			SecurityGroupId: pulumi.Any(aws_security_group.Sg.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2.SecurityGroupAssociationArgs{
+//				VpcEndpointId:   pulumi.Any(aws_vpc_endpoint.Ec2.Id),
+//				SecurityGroupId: pulumi.Any(aws_security_group.Sg.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SecurityGroupAssociation struct {
 	pulumi.CustomResourceState
@@ -148,7 +151,7 @@ func (i *SecurityGroupAssociation) ToSecurityGroupAssociationOutputWithContext(c
 // SecurityGroupAssociationArrayInput is an input type that accepts SecurityGroupAssociationArray and SecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupAssociationArrayInput` via:
 //
-//          SecurityGroupAssociationArray{ SecurityGroupAssociationArgs{...} }
+//	SecurityGroupAssociationArray{ SecurityGroupAssociationArgs{...} }
 type SecurityGroupAssociationArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +176,7 @@ func (i SecurityGroupAssociationArray) ToSecurityGroupAssociationArrayOutputWith
 // SecurityGroupAssociationMapInput is an input type that accepts SecurityGroupAssociationMap and SecurityGroupAssociationMapOutput values.
 // You can construct a concrete instance of `SecurityGroupAssociationMapInput` via:
 //
-//          SecurityGroupAssociationMap{ "key": SecurityGroupAssociationArgs{...} }
+//	SecurityGroupAssociationMap{ "key": SecurityGroupAssociationArgs{...} }
 type SecurityGroupAssociationMapInput interface {
 	pulumi.Input
 

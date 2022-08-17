@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ses
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ses.GetEmailIdentity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ses.GetEmailIdentity.InvokeAsync(new Aws.Ses.GetEmailIdentityArgs
-        ///         {
-        ///             Email = "awesome@example.com",
-        ///         }));
-        ///     }
+        ///         Email = "awesome@example.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Ses
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ses.GetEmailIdentity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ses.GetEmailIdentity.InvokeAsync(new Aws.Ses.GetEmailIdentityArgs
-        ///         {
-        ///             Email = "awesome@example.com",
-        ///         }));
-        ///     }
+        ///         Email = "awesome@example.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ses
     }
 
 
-    public sealed class GetEmailIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The email identity.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Ses
         public GetEmailIdentityArgs()
         {
         }
+        public static new GetEmailIdentityArgs Empty => new GetEmailIdentityArgs();
     }
 
-    public sealed class GetEmailIdentityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The email identity.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Ses
         public GetEmailIdentityInvokeArgs()
         {
         }
+        public static new GetEmailIdentityInvokeArgs Empty => new GetEmailIdentityInvokeArgs();
     }
 
 

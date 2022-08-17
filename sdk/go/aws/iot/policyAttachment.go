@@ -19,59 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pubsub, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
-// 			Policy: pulumi.String(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "iot:*"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "*"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pubsub, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "iot:*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-// 			Csr:    readFileOrPanic("csr.pem"),
-// 			Active: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewPolicyAttachment(ctx, "att", &iot.PolicyAttachmentArgs{
-// 			Policy: pubsub.Name,
-// 			Target: cert.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
+//				Csr:    readFileOrPanic("csr.pem"),
+//				Active: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewPolicyAttachment(ctx, "att", &iot.PolicyAttachmentArgs{
+//				Policy: pubsub.Name,
+//				Target: cert.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Conte
 // PolicyAttachmentArrayInput is an input type that accepts PolicyAttachmentArray and PolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `PolicyAttachmentArrayInput` via:
 //
-//          PolicyAttachmentArray{ PolicyAttachmentArgs{...} }
+//	PolicyAttachmentArray{ PolicyAttachmentArgs{...} }
 type PolicyAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i PolicyAttachmentArray) ToPolicyAttachmentArrayOutputWithContext(ctx cont
 // PolicyAttachmentMapInput is an input type that accepts PolicyAttachmentMap and PolicyAttachmentMapOutput values.
 // You can construct a concrete instance of `PolicyAttachmentMapInput` via:
 //
-//          PolicyAttachmentMap{ "key": PolicyAttachmentArgs{...} }
+//	PolicyAttachmentMap{ "key": PolicyAttachmentArgs{...} }
 type PolicyAttachmentMapInput interface {
 	pulumi.Input
 

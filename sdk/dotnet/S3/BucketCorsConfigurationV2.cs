@@ -17,58 +17,55 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+    ///         Bucket = exampleBucketV2.Id,
+    ///         CorsRules = new[]
     ///         {
-    ///         });
-    ///         var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new Aws.S3.BucketCorsConfigurationV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             CorsRules = 
+    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
     ///             {
-    ///                 new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///                 AllowedHeaders = new[]
     ///                 {
-    ///                     AllowedHeaders = 
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     AllowedMethods = 
-    ///                     {
-    ///                         "PUT",
-    ///                         "POST",
-    ///                     },
-    ///                     AllowedOrigins = 
-    ///                     {
-    ///                         "https://s3-website-test.hashicorp.com",
-    ///                     },
-    ///                     ExposeHeaders = 
-    ///                     {
-    ///                         "ETag",
-    ///                     },
-    ///                     MaxAgeSeconds = 3000,
+    ///                     "*",
     ///                 },
-    ///                 new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///                 AllowedMethods = new[]
     ///                 {
-    ///                     AllowedMethods = 
-    ///                     {
-    ///                         "GET",
-    ///                     },
-    ///                     AllowedOrigins = 
-    ///                     {
-    ///                         "*",
-    ///                     },
+    ///                     "PUT",
+    ///                     "POST",
+    ///                 },
+    ///                 AllowedOrigins = new[]
+    ///                 {
+    ///                     "https://s3-website-test.hashicorp.com",
+    ///                 },
+    ///                 ExposeHeaders = new[]
+    ///                 {
+    ///                     "ETag",
+    ///                 },
+    ///                 MaxAgeSeconds = 3000,
+    ///             },
+    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///             {
+    ///                 AllowedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                 },
+    ///                 AllowedOrigins = new[]
+    ///                 {
+    ///                     "*",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -86,7 +83,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
-    public partial class BucketCorsConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketCorsConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -150,7 +147,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketCorsConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketCorsConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -179,9 +176,10 @@ namespace Pulumi.Aws.S3
         public BucketCorsConfigurationV2Args()
         {
         }
+        public static new BucketCorsConfigurationV2Args Empty => new BucketCorsConfigurationV2Args();
     }
 
-    public sealed class BucketCorsConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketCorsConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -210,5 +208,6 @@ namespace Pulumi.Aws.S3
         public BucketCorsConfigurationV2State()
         {
         }
+        public static new BucketCorsConfigurationV2State Empty => new BucketCorsConfigurationV2State();
     }
 }

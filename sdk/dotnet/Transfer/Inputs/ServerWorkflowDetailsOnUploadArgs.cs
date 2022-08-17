@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class ServerWorkflowDetailsOnUploadArgs : Pulumi.ResourceArgs
+    public sealed class ServerWorkflowDetailsOnUploadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public ServerWorkflowDetailsOnUploadArgs()
         {
         }
+        public static new ServerWorkflowDetailsOnUploadArgs Empty => new ServerWorkflowDetailsOnUploadArgs();
     }
 }

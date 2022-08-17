@@ -21,21 +21,19 @@ namespace Pulumi.Aws.Route53
         /// The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRule.InvokeAsync(new Aws.Route53.GetResolverRuleArgs
-        ///         {
-        ///             DomainName = "subdomain.example.com",
-        ///             RuleType = "SYSTEM",
-        ///         }));
-        ///     }
+        ///         DomainName = "subdomain.example.com",
+        ///         RuleType = "SYSTEM",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,21 +51,19 @@ namespace Pulumi.Aws.Route53
         /// The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverRule.InvokeAsync(new Aws.Route53.GetResolverRuleArgs
-        ///         {
-        ///             DomainName = "subdomain.example.com",
-        ///             RuleType = "SYSTEM",
-        ///         }));
-        ///     }
+        ///         DomainName = "subdomain.example.com",
+        ///         RuleType = "SYSTEM",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.Route53
     }
 
 
-    public sealed class GetResolverRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
@@ -124,9 +120,10 @@ namespace Pulumi.Aws.Route53
         public GetResolverRuleArgs()
         {
         }
+        public static new GetResolverRuleArgs Empty => new GetResolverRuleArgs();
     }
 
-    public sealed class GetResolverRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
@@ -173,6 +170,7 @@ namespace Pulumi.Aws.Route53
         public GetResolverRuleInvokeArgs()
         {
         }
+        public static new GetResolverRuleInvokeArgs Empty => new GetResolverRuleInvokeArgs();
     }
 
 

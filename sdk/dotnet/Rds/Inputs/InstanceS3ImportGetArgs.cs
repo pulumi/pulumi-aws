@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class InstanceS3ImportGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceS3ImportGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bucket name where your backup is stored
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public InstanceS3ImportGetArgs()
         {
         }
+        public static new InstanceS3ImportGetArgs Empty => new InstanceS3ImportGetArgs();
     }
 }

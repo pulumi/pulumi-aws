@@ -22,32 +22,33 @@ namespace Pulumi.Aws.Kms
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byAlias = Aws.Kms.GetKey.Invoke(new()
         ///     {
-        ///         var byAlias = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "alias/my-key",
-        ///         }));
-        ///         var byId = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///         }));
-        ///         var byAliasArn = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///         }));
-        ///         var byKeyArn = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///         }));
-        ///     }
+        ///         KeyId = "alias/my-key",
+        ///     });
         /// 
-        /// }
+        ///     var byId = Aws.Kms.GetKey.Invoke(new()
+        ///     {
+        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+        ///     });
+        /// 
+        ///     var byAliasArn = Aws.Kms.GetKey.Invoke(new()
+        ///     {
+        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
+        ///     });
+        /// 
+        ///     var byKeyArn = Aws.Kms.GetKey.Invoke(new()
+        ///     {
+        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -66,32 +67,33 @@ namespace Pulumi.Aws.Kms
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byAlias = Aws.Kms.GetKey.Invoke(new()
         ///     {
-        ///         var byAlias = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "alias/my-key",
-        ///         }));
-        ///         var byId = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///         }));
-        ///         var byAliasArn = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///         }));
-        ///         var byKeyArn = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
-        ///         {
-        ///             KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///         }));
-        ///     }
+        ///         KeyId = "alias/my-key",
+        ///     });
         /// 
-        /// }
+        ///     var byId = Aws.Kms.GetKey.Invoke(new()
+        ///     {
+        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+        ///     });
+        /// 
+        ///     var byAliasArn = Aws.Kms.GetKey.Invoke(new()
+        ///     {
+        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
+        ///     });
+        /// 
+        ///     var byKeyArn = Aws.Kms.GetKey.Invoke(new()
+        ///     {
+        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,7 +103,7 @@ namespace Pulumi.Aws.Kms
     }
 
 
-    public sealed class GetKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
     {
         [Input("grantTokens")]
         private List<string>? _grantTokens;
@@ -128,9 +130,10 @@ namespace Pulumi.Aws.Kms
         public GetKeyArgs()
         {
         }
+        public static new GetKeyArgs Empty => new GetKeyArgs();
     }
 
-    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("grantTokens")]
         private InputList<string>? _grantTokens;
@@ -157,6 +160,7 @@ namespace Pulumi.Aws.Kms
         public GetKeyInvokeArgs()
         {
         }
+        public static new GetKeyInvokeArgs Empty => new GetKeyInvokeArgs();
     }
 
 

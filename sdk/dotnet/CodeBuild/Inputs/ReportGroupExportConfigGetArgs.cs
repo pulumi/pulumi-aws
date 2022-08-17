@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ReportGroupExportConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ReportGroupExportConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ReportGroupExportConfigGetArgs()
         {
         }
+        public static new ReportGroupExportConfigGetArgs Empty => new ReportGroupExportConfigGetArgs();
     }
 }

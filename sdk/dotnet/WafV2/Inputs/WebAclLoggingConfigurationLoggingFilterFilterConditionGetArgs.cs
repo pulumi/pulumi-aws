@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A single action condition. See Action Condition below for more details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclLoggingConfigurationLoggingFilterFilterConditionGetArgs()
         {
         }
+        public static new WebAclLoggingConfigurationLoggingFilterFilterConditionGetArgs Empty => new WebAclLoggingConfigurationLoggingFilterFilterConditionGetArgs();
     }
 }

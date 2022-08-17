@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The gRPC routing information for the route.
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGetArgs()
         {
         }
+        public static new RouteSpecGetArgs Empty => new RouteSpecGetArgs();
     }
 }

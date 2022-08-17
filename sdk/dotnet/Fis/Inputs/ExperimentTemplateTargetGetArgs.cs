@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fis.Inputs
 {
 
-    public sealed class ExperimentTemplateTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateTargetGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("filters")]
         private InputList<Inputs.ExperimentTemplateTargetFilterGetArgs>? _filters;
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.Fis.Inputs
         public ExperimentTemplateTargetGetArgs()
         {
         }
+        public static new ExperimentTemplateTargetGetArgs Empty => new ExperimentTemplateTargetGetArgs();
     }
 }

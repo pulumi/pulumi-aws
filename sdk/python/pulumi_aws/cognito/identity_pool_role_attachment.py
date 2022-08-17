@@ -210,7 +210,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2_abc123
+         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,7 +303,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2_abc123
+         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
         ```
 
         :param str resource_name: The name of the resource.

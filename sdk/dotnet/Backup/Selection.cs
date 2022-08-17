@@ -20,16 +20,15 @@ namespace Pulumi.Aws.Backup
     /// The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -42,159 +41,152 @@ namespace Pulumi.Aws.Backup
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-    ///             Role = exampleRole.Name,
-    ///         });
-    ///         // ... other configuration ...
-    ///         var exampleSelection = new Aws.Backup.Selection("exampleSelection", new Aws.Backup.SelectionArgs
-    ///         {
-    ///             IamRoleArn = exampleRole.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    ///     var exampleSelection = new Aws.Backup.Selection("exampleSelection", new()
+    ///     {
+    ///         IamRoleArn = exampleRole.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Selecting Backups By Tag
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         IamRoleArn = aws_iam_role.Example.Arn,
+    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         SelectionTags = new[]
     ///         {
-    ///             IamRoleArn = aws_iam_role.Example.Arn,
-    ///             PlanId = aws_backup_plan.Example.Id,
-    ///             SelectionTags = 
+    ///             new Aws.Backup.Inputs.SelectionSelectionTagArgs
     ///             {
-    ///                 new Aws.Backup.Inputs.SelectionSelectionTagArgs
-    ///                 {
-    ///                     Type = "STRINGEQUALS",
-    ///                     Key = "foo",
-    ///                     Value = "bar",
-    ///                 },
+    ///                 Type = "STRINGEQUALS",
+    ///                 Key = "foo",
+    ///                 Value = "bar",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Selecting Backups By Conditions
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         IamRoleArn = aws_iam_role.Example.Arn,
+    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         Resources = new[]
     ///         {
-    ///             IamRoleArn = aws_iam_role.Example.Arn,
-    ///             PlanId = aws_backup_plan.Example.Id,
-    ///             Resources = 
+    ///             "*",
+    ///         },
+    ///         Conditions = new[]
+    ///         {
+    ///             new Aws.Backup.Inputs.SelectionConditionArgs
     ///             {
-    ///                 "*",
-    ///             },
-    ///             Conditions = 
-    ///             {
-    ///                 new Aws.Backup.Inputs.SelectionConditionArgs
+    ///                 StringEquals = new[]
     ///                 {
-    ///                     StringEquals = 
+    ///                     new Aws.Backup.Inputs.SelectionConditionStringEqualArgs
     ///                     {
-    ///                         new Aws.Backup.Inputs.SelectionConditionStringEqualArgs
-    ///                         {
-    ///                             Key = "aws:ResourceTag/Component",
-    ///                             Value = "rds",
-    ///                         },
+    ///                         Key = "aws:ResourceTag/Component",
+    ///                         Value = "rds",
     ///                     },
-    ///                     StringLikes = 
+    ///                 },
+    ///                 StringLikes = new[]
+    ///                 {
+    ///                     new Aws.Backup.Inputs.SelectionConditionStringLikeArgs
     ///                     {
-    ///                         new Aws.Backup.Inputs.SelectionConditionStringLikeArgs
-    ///                         {
-    ///                             Key = "aws:ResourceTag/Application",
-    ///                             Value = "app*",
-    ///                         },
+    ///                         Key = "aws:ResourceTag/Application",
+    ///                         Value = "app*",
     ///                     },
-    ///                     StringNotEquals = 
+    ///                 },
+    ///                 StringNotEquals = new[]
+    ///                 {
+    ///                     new Aws.Backup.Inputs.SelectionConditionStringNotEqualArgs
     ///                     {
-    ///                         new Aws.Backup.Inputs.SelectionConditionStringNotEqualArgs
-    ///                         {
-    ///                             Key = "aws:ResourceTag/Backup",
-    ///                             Value = "false",
-    ///                         },
+    ///                         Key = "aws:ResourceTag/Backup",
+    ///                         Value = "false",
     ///                     },
-    ///                     StringNotLikes = 
+    ///                 },
+    ///                 StringNotLikes = new[]
+    ///                 {
+    ///                     new Aws.Backup.Inputs.SelectionConditionStringNotLikeArgs
     ///                     {
-    ///                         new Aws.Backup.Inputs.SelectionConditionStringNotLikeArgs
-    ///                         {
-    ///                             Key = "aws:ResourceTag/Environment",
-    ///                             Value = "test*",
-    ///                         },
+    ///                         Key = "aws:ResourceTag/Environment",
+    ///                         Value = "test*",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Selecting Backups By Resource
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         IamRoleArn = aws_iam_role.Example.Arn,
+    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         Resources = new[]
     ///         {
-    ///             IamRoleArn = aws_iam_role.Example.Arn,
-    ///             PlanId = aws_backup_plan.Example.Id,
-    ///             Resources = 
-    ///             {
-    ///                 aws_db_instance.Example.Arn,
-    ///                 aws_ebs_volume.Example.Arn,
-    ///                 aws_efs_file_system.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_db_instance.Example.Arn,
+    ///             aws_ebs_volume.Example.Arn,
+    ///             aws_efs_file_system.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Selecting Backups By Not Resource
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         IamRoleArn = aws_iam_role.Example.Arn,
+    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         NotResources = new[]
     ///         {
-    ///             IamRoleArn = aws_iam_role.Example.Arn,
-    ///             PlanId = aws_backup_plan.Example.Id,
-    ///             NotResources = 
-    ///             {
-    ///                 aws_db_instance.Example.Arn,
-    ///                 aws_ebs_volume.Example.Arn,
-    ///                 aws_efs_file_system.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_db_instance.Example.Arn,
+    ///             aws_ebs_volume.Example.Arn,
+    ///             aws_efs_file_system.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -206,7 +198,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/selection:Selection")]
-    public partial class Selection : Pulumi.CustomResource
+    public partial class Selection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of conditions that you define to assign resources to your backup plans using tags.
@@ -294,7 +286,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class SelectionArgs : Pulumi.ResourceArgs
+    public sealed class SelectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.SelectionConditionArgs>? _conditions;
@@ -365,9 +357,10 @@ namespace Pulumi.Aws.Backup
         public SelectionArgs()
         {
         }
+        public static new SelectionArgs Empty => new SelectionArgs();
     }
 
-    public sealed class SelectionState : Pulumi.ResourceArgs
+    public sealed class SelectionState : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.SelectionConditionGetArgs>? _conditions;
@@ -438,5 +431,6 @@ namespace Pulumi.Aws.Backup
         public SelectionState()
         {
         }
+        public static new SelectionState Empty => new SelectionState();
     }
 }

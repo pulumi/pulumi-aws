@@ -10,19 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DynamoDB table resource
-//
-// > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's `autoscaling policy` attached to the table.
-//
-// ## DynamoDB Table attributes
-//
-// Only define attributes on the table object that are going to be used as:
-//
-// * Table hash key or range key
-// * LSI or GSI hash key or range key
-//
-// The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
-//
 // ## Example Usage
 // ### Basic Example
 //
@@ -32,101 +19,109 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
-// 			Attributes: dynamodb.TableAttributeArray{
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("UserId"),
-// 					Type: pulumi.String("S"),
-// 				},
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("GameTitle"),
-// 					Type: pulumi.String("S"),
-// 				},
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("TopScore"),
-// 					Type: pulumi.String("N"),
-// 				},
-// 			},
-// 			BillingMode: pulumi.String("PROVISIONED"),
-// 			GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
-// 				&dynamodb.TableGlobalSecondaryIndexArgs{
-// 					HashKey: pulumi.String("GameTitle"),
-// 					Name:    pulumi.String("GameTitleIndex"),
-// 					NonKeyAttributes: pulumi.StringArray{
-// 						pulumi.String("UserId"),
-// 					},
-// 					ProjectionType: pulumi.String("INCLUDE"),
-// 					RangeKey:       pulumi.String("TopScore"),
-// 					ReadCapacity:   pulumi.Int(10),
-// 					WriteCapacity:  pulumi.Int(10),
-// 				},
-// 			},
-// 			HashKey:      pulumi.String("UserId"),
-// 			RangeKey:     pulumi.String("GameTitle"),
-// 			ReadCapacity: pulumi.Int(20),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("production"),
-// 				"Name":        pulumi.String("dynamodb-table-1"),
-// 			},
-// 			Ttl: &dynamodb.TableTtlArgs{
-// 				AttributeName: pulumi.String("TimeToExist"),
-// 				Enabled:       pulumi.Bool(false),
-// 			},
-// 			WriteCapacity: pulumi.Int(20),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("UserId"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("GameTitle"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("TopScore"),
+//						Type: pulumi.String("N"),
+//					},
+//				},
+//				BillingMode: pulumi.String("PROVISIONED"),
+//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						HashKey: pulumi.String("GameTitle"),
+//						Name:    pulumi.String("GameTitleIndex"),
+//						NonKeyAttributes: pulumi.StringArray{
+//							pulumi.String("UserId"),
+//						},
+//						ProjectionType: pulumi.String("INCLUDE"),
+//						RangeKey:       pulumi.String("TopScore"),
+//						ReadCapacity:   pulumi.Int(10),
+//						WriteCapacity:  pulumi.Int(10),
+//					},
+//				},
+//				HashKey:      pulumi.String("UserId"),
+//				RangeKey:     pulumi.String("GameTitle"),
+//				ReadCapacity: pulumi.Int(20),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Name":        pulumi.String("dynamodb-table-1"),
+//				},
+//				Ttl: &dynamodb.TableTtlArgs{
+//					AttributeName: pulumi.String("TimeToExist"),
+//					Enabled:       pulumi.Bool(false),
+//				},
+//				WriteCapacity: pulumi.Int(20),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Global Tables
 //
 // This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
 //
+// > **Note:** [dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html) is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with [dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html).
+//
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-// 			Attributes: dynamodb.TableAttributeArray{
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("TestTableHashKey"),
-// 					Type: pulumi.String("S"),
-// 				},
-// 			},
-// 			BillingMode: pulumi.String("PAY_PER_REQUEST"),
-// 			HashKey:     pulumi.String("TestTableHashKey"),
-// 			Replicas: dynamodb.TableReplicaArray{
-// 				&dynamodb.TableReplicaArgs{
-// 					RegionName: pulumi.String("us-east-2"),
-// 				},
-// 				&dynamodb.TableReplicaArgs{
-// 					RegionName: pulumi.String("us-west-2"),
-// 				},
-// 			},
-// 			StreamEnabled:  pulumi.Bool(true),
-// 			StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("TestTableHashKey"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
+//				BillingMode: pulumi.String("PAY_PER_REQUEST"),
+//				HashKey:     pulumi.String("TestTableHashKey"),
+//				Replicas: dynamodb.TableReplicaTypeArray{
+//					&dynamodb.TableReplicaTypeArgs{
+//						RegionName: pulumi.String("us-east-2"),
+//					},
+//					&dynamodb.TableReplicaTypeArgs{
+//						RegionName: pulumi.String("us-west-2"),
+//					},
+//				},
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -134,7 +129,9 @@ import (
 // DynamoDB tables can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
+//
+//	$ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
+//
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -160,7 +157,7 @@ type Table struct {
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntOutput `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
-	Replicas TableReplicaArrayOutput `pulumi:"replicas"`
+	Replicas TableReplicaTypeArrayOutput `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime pulumi.StringPtrOutput `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
@@ -239,7 +236,7 @@ type tableState struct {
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
-	Replicas []TableReplica `pulumi:"replicas"`
+	Replicas []TableReplicaType `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime *string `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
@@ -290,7 +287,7 @@ type TableState struct {
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
-	Replicas TableReplicaArrayInput
+	Replicas TableReplicaTypeArrayInput
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime pulumi.StringPtrInput
 	// Name of the table to restore. Must match the name of an existing table.
@@ -343,7 +340,7 @@ type tableArgs struct {
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
-	Replicas []TableReplica `pulumi:"replicas"`
+	Replicas []TableReplicaType `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime *string `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
@@ -387,7 +384,7 @@ type TableArgs struct {
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
-	Replicas TableReplicaArrayInput
+	Replicas TableReplicaTypeArrayInput
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime pulumi.StringPtrInput
 	// Name of the table to restore. Must match the name of an existing table.
@@ -436,7 +433,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 // TableArrayInput is an input type that accepts TableArray and TableArrayOutput values.
 // You can construct a concrete instance of `TableArrayInput` via:
 //
-//          TableArray{ TableArgs{...} }
+//	TableArray{ TableArgs{...} }
 type TableArrayInput interface {
 	pulumi.Input
 
@@ -461,7 +458,7 @@ func (i TableArray) ToTableArrayOutputWithContext(ctx context.Context) TableArra
 // TableMapInput is an input type that accepts TableMap and TableMapOutput values.
 // You can construct a concrete instance of `TableMapInput` via:
 //
-//          TableMap{ "key": TableArgs{...} }
+//	TableMap{ "key": TableArgs{...} }
 type TableMapInput interface {
 	pulumi.Input
 
@@ -548,8 +545,8 @@ func (o TableOutput) ReadCapacity() pulumi.IntOutput {
 }
 
 // Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
-func (o TableOutput) Replicas() TableReplicaArrayOutput {
-	return o.ApplyT(func(v *Table) TableReplicaArrayOutput { return v.Replicas }).(TableReplicaArrayOutput)
+func (o TableOutput) Replicas() TableReplicaTypeArrayOutput {
+	return o.ApplyT(func(v *Table) TableReplicaTypeArrayOutput { return v.Replicas }).(TableReplicaTypeArrayOutput)
 }
 
 // Time of the point-in-time recovery point to restore.

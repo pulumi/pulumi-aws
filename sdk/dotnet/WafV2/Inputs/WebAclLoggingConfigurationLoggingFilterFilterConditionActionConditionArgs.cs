@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs()
         {
         }
+        public static new WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs Empty => new WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecLoggingAccessLogFileGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecLoggingAccessLogFileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecLoggingAccessLogFileGetArgs()
         {
         }
+        public static new VirtualGatewaySpecLoggingAccessLogFileGetArgs Empty => new VirtualGatewaySpecLoggingAccessLogFileGetArgs();
     }
 }

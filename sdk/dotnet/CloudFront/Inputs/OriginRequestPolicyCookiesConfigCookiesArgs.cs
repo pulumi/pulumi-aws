@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class OriginRequestPolicyCookiesConfigCookiesArgs : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyCookiesConfigCookiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<string>? _items;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public OriginRequestPolicyCookiesConfigCookiesArgs()
         {
         }
+        public static new OriginRequestPolicyCookiesConfigCookiesArgs Empty => new OriginRequestPolicyCookiesConfigCookiesArgs();
     }
 }

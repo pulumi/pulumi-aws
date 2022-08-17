@@ -149,7 +149,7 @@ func (o RecordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // RecordTypeInput is an input type that accepts RecordTypeArgs and RecordTypeOutput values.
 // You can construct a concrete instance of `RecordTypeInput` via:
 //
-//          RecordTypeArgs{...}
+//	RecordTypeArgs{...}
 type RecordTypeInput interface {
 	pulumi.Input
 

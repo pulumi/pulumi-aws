@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionScopingArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionScopingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobS3JobDefinitionScopingArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionScopingArgs Empty => new ClassificationJobS3JobDefinitionScopingArgs();
     }
 }

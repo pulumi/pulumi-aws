@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class ProxyDefaultTargetGroupConnectionPoolConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ProxyDefaultTargetGroupConnectionPoolConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public ProxyDefaultTargetGroupConnectionPoolConfigGetArgs()
         {
         }
+        public static new ProxyDefaultTargetGroupConnectionPoolConfigGetArgs Empty => new ProxyDefaultTargetGroupConnectionPoolConfigGetArgs();
     }
 }

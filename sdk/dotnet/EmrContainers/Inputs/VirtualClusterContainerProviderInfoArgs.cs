@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EmrContainers.Inputs
 {
 
-    public sealed class VirtualClusterContainerProviderInfoArgs : Pulumi.ResourceArgs
+    public sealed class VirtualClusterContainerProviderInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.EmrContainers.Inputs
         public VirtualClusterContainerProviderInfoArgs()
         {
         }
+        public static new VirtualClusterContainerProviderInfoArgs Empty => new VirtualClusterContainerProviderInfoArgs();
     }
 }

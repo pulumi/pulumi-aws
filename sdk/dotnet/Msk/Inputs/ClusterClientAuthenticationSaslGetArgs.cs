@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterClientAuthenticationSaslGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClientAuthenticationSaslGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables IAM client authentication. Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterClientAuthenticationSaslGetArgs()
         {
         }
+        public static new ClusterClientAuthenticationSaslGetArgs Empty => new ClusterClientAuthenticationSaslGetArgs();
     }
 }

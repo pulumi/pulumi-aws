@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class StaticWebLayerEbsVolumeArgs : Pulumi.ResourceArgs
+    public sealed class StaticWebLayerEbsVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public StaticWebLayerEbsVolumeArgs()
         {
         }
+        public static new StaticWebLayerEbsVolumeArgs Empty => new StaticWebLayerEbsVolumeArgs();
     }
 }

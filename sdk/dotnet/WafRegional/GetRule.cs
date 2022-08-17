@@ -19,20 +19,18 @@ namespace Pulumi.Aws.WafRegional
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafRegional.GetRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafRegional.GetRule.InvokeAsync(new Aws.WafRegional.GetRuleArgs
-        ///         {
-        ///             Name = "tfWAFRegionalRule",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRegionalRule",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.WafRegional
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafRegional.GetRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafRegional.GetRule.InvokeAsync(new Aws.WafRegional.GetRuleArgs
-        ///         {
-        ///             Name = "tfWAFRegionalRule",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRegionalRule",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.WafRegional
     }
 
 
-    public sealed class GetRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF Regional rule.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.WafRegional
         public GetRuleArgs()
         {
         }
+        public static new GetRuleArgs Empty => new GetRuleArgs();
     }
 
-    public sealed class GetRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF Regional rule.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.WafRegional
         public GetRuleInvokeArgs()
         {
         }
+        public static new GetRuleInvokeArgs Empty => new GetRuleInvokeArgs();
     }
 
 

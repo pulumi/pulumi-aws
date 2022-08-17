@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableSchemaDefinitionColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaDefinitionColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableSchemaDefinitionColumnGetArgs()
         {
         }
+        public static new TableSchemaDefinitionColumnGetArgs Empty => new TableSchemaDefinitionColumnGetArgs();
     }
 }

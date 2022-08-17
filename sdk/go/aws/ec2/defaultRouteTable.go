@@ -25,34 +25,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-// 			DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
-// 			Routes: ec2.DefaultRouteTableRouteArray{
-// 				&ec2.DefaultRouteTableRouteArgs{
-// 					CidrBlock: pulumi.String("10.0.1.0/24"),
-// 					GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
-// 				},
-// 				&ec2.DefaultRouteTableRouteArgs{
-// 					Ipv6CidrBlock:       pulumi.String("::/0"),
-// 					EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
+//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
+//				Routes: ec2.DefaultRouteTableRouteArray{
+//					&ec2.DefaultRouteTableRouteArgs{
+//						CidrBlock: pulumi.String("10.0.1.0/24"),
+//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
+//					},
+//					&ec2.DefaultRouteTableRouteArgs{
+//						Ipv6CidrBlock:       pulumi.String("::/0"),
+//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // To subsequently remove all managed routes:
@@ -61,25 +64,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-// 			DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
-// 			Routes:              ec2.DefaultRouteTableRouteArray{},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
+//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
+//				Routes:              ec2.DefaultRouteTableRouteArray{},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,10 +93,12 @@ import (
 // Default VPC route tables can be imported using the `vpc_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+//
+//	$ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+//
 // ```
 //
-//  [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
+//	[aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 
@@ -106,7 +114,7 @@ type DefaultRouteTable struct {
 	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -156,7 +164,7 @@ type defaultRouteTableState struct {
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -175,7 +183,7 @@ type DefaultRouteTableState struct {
 	Routes DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// ID of the VPC.
 	VpcId pulumi.StringPtrInput
@@ -234,7 +242,7 @@ func (i *DefaultRouteTable) ToDefaultRouteTableOutputWithContext(ctx context.Con
 // DefaultRouteTableArrayInput is an input type that accepts DefaultRouteTableArray and DefaultRouteTableArrayOutput values.
 // You can construct a concrete instance of `DefaultRouteTableArrayInput` via:
 //
-//          DefaultRouteTableArray{ DefaultRouteTableArgs{...} }
+//	DefaultRouteTableArray{ DefaultRouteTableArgs{...} }
 type DefaultRouteTableArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +267,7 @@ func (i DefaultRouteTableArray) ToDefaultRouteTableArrayOutputWithContext(ctx co
 // DefaultRouteTableMapInput is an input type that accepts DefaultRouteTableMap and DefaultRouteTableMapOutput values.
 // You can construct a concrete instance of `DefaultRouteTableMapInput` via:
 //
-//          DefaultRouteTableMap{ "key": DefaultRouteTableArgs{...} }
+//	DefaultRouteTableMap{ "key": DefaultRouteTableArgs{...} }
 type DefaultRouteTableMapInput interface {
 	pulumi.Input
 
@@ -325,7 +333,7 @@ func (o DefaultRouteTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DefaultRouteTableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

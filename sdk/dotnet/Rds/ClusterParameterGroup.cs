@@ -18,34 +18,32 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.ClusterParameterGroup("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.ClusterParameterGroup("default", new Aws.Rds.ClusterParameterGroupArgs
+    ///         Description = "RDS default cluster parameter group",
+    ///         Family = "aurora5.6",
+    ///         Parameters = new[]
     ///         {
-    ///             Description = "RDS default cluster parameter group",
-    ///             Family = "aurora5.6",
-    ///             Parameters = 
+    ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "character_set_server",
-    ///                     Value = "utf8",
-    ///                 },
-    ///                 new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "character_set_client",
-    ///                     Value = "utf8",
-    ///                 },
+    ///                 Name = "character_set_server",
+    ///                 Value = "utf8",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "character_set_client",
+    ///                 Value = "utf8",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterParameterGroup:ClusterParameterGroup")]
-    public partial class ClusterParameterGroup : Pulumi.CustomResource
+    public partial class ClusterParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the db cluster parameter group.
@@ -102,7 +100,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -151,7 +149,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
@@ -205,9 +203,10 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
+        public static new ClusterParameterGroupArgs Empty => new ClusterParameterGroupArgs();
     }
 
-    public sealed class ClusterParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the db cluster parameter group.
@@ -267,7 +266,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -279,5 +278,6 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
+        public static new ClusterParameterGroupState Empty => new ClusterParameterGroupState();
     }
 }

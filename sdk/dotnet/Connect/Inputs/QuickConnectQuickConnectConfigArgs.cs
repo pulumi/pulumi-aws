@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class QuickConnectQuickConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectQuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("phoneConfigs")]
         private InputList<Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs>? _phoneConfigs;
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public QuickConnectQuickConnectConfigArgs()
         {
         }
+        public static new QuickConnectQuickConnectConfigArgs Empty => new QuickConnectQuickConnectConfigArgs();
     }
 }

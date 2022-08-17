@@ -163,6 +163,10 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+     */
+    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number>;
+    /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      */
     public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
@@ -199,7 +203,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -228,6 +232,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["connectSettings"] = state ? state.connectSettings : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["desiredNumberOfDomainControllers"] = state ? state.desiredNumberOfDomainControllers : undefined;
             resourceInputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["enableSso"] = state ? state.enableSso : undefined;
@@ -251,6 +256,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["connectSettings"] = args ? args.connectSettings : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["desiredNumberOfDomainControllers"] = args ? args.desiredNumberOfDomainControllers : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["enableSso"] = args ? args.enableSso : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -291,6 +297,10 @@ export interface DirectoryState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+     */
+    desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      */
     dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
@@ -327,7 +337,7 @@ export interface DirectoryState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -356,6 +366,10 @@ export interface DirectoryArgs {
      * A textual description for the directory.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+     */
+    desiredNumberOfDomainControllers?: pulumi.Input<number>;
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
      */

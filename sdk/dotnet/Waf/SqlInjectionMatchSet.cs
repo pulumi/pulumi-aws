@@ -15,30 +15,28 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sqlInjectionMatchSet = new Aws.Waf.SqlInjectionMatchSet("sqlInjectionMatchSet", new()
     ///     {
-    ///         var sqlInjectionMatchSet = new Aws.Waf.SqlInjectionMatchSet("sqlInjectionMatchSet", new Aws.Waf.SqlInjectionMatchSetArgs
+    ///         SqlInjectionMatchTuples = new[]
     ///         {
-    ///             SqlInjectionMatchTuples = 
+    ///             new Aws.Waf.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs
+    ///                 FieldToMatch = new Aws.Waf.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs
     ///                 {
-    ///                     FieldToMatch = new Aws.Waf.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs
-    ///                     {
-    ///                         Type = "QUERY_STRING",
-    ///                     },
-    ///                     TextTransformation = "URL_DECODE",
+    ///                     Type = "QUERY_STRING",
     ///                 },
+    ///                 TextTransformation = "URL_DECODE",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")]
-    public partial class SqlInjectionMatchSet : Pulumi.CustomResource
+    public partial class SqlInjectionMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name or description of the SQL Injection Match Set.
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class SqlInjectionMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class SqlInjectionMatchSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the SQL Injection Match Set.
@@ -131,9 +129,10 @@ namespace Pulumi.Aws.Waf
         public SqlInjectionMatchSetArgs()
         {
         }
+        public static new SqlInjectionMatchSetArgs Empty => new SqlInjectionMatchSetArgs();
     }
 
-    public sealed class SqlInjectionMatchSetState : Pulumi.ResourceArgs
+    public sealed class SqlInjectionMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the SQL Injection Match Set.
@@ -156,5 +155,6 @@ namespace Pulumi.Aws.Waf
         public SqlInjectionMatchSetState()
         {
         }
+        public static new SqlInjectionMatchSetState Empty => new SqlInjectionMatchSetState();
     }
 }

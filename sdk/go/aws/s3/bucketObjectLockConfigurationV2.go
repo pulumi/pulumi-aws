@@ -24,101 +24,110 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			ObjectLockEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketObjectLockConfigurationV2(ctx, "exampleBucketObjectLockConfigurationV2", &s3.BucketObjectLockConfigurationV2Args{
-// 			Bucket: exampleBucketV2.Bucket,
-// 			Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
-// 				DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
-// 					Mode: pulumi.String("COMPLIANCE"),
-// 					Days: pulumi.Int(5),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ObjectLockEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectLockConfigurationV2(ctx, "exampleBucketObjectLockConfigurationV2", &s3.BucketObjectLockConfigurationV2Args{
+//				Bucket: exampleBucketV2.Bucket,
+//				Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
+//					DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
+//						Mode: pulumi.String("COMPLIANCE"),
+//						Days: pulumi.Int(5),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Object Lock configuration for an existing bucket
 //
 // This is a multistep process that requires AWS Support intervention.
 //
-// 1. Enable versioning on your S3 bucket, if you have not already done so.
-//    Doing so will generate an "Object Lock token" in the back-end.
+//  1. Enable versioning on your S3 bucket, if you have not already done so.
+//     Doing so will generate an "Object Lock token" in the back-end.
 //
 // <!-- markdownlint-disable MD029 -->
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-// 			Bucket: exampleBucketV2.Bucket,
-// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-// 				Status: pulumi.String("Enabled"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
+//				Bucket: exampleBucketV2.Bucket,
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // <!-- markdownlint-disable MD029 -->
 //
-// 2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-//    Notice the `objectLockEnabled` argument does not need to be specified as it defaults to `Enabled`.
+//  2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
+//     Notice the `objectLockEnabled` argument does not need to be specified as it defaults to `Enabled`.
 //
 // <!-- markdownlint-disable MD029 -->
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketObjectLockConfigurationV2(ctx, "example", &s3.BucketObjectLockConfigurationV2Args{
-// 			Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 			Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
-// 				DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
-// 					Mode: pulumi.String("COMPLIANCE"),
-// 					Days: pulumi.Int(5),
-// 				},
-// 			},
-// 			Token: pulumi.String("NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w=="),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketObjectLockConfigurationV2(ctx, "example", &s3.BucketObjectLockConfigurationV2Args{
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//				Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
+//					DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
+//						Mode: pulumi.String("COMPLIANCE"),
+//						Days: pulumi.Int(5),
+//					},
+//				},
+//				Token: pulumi.String("NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w=="),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // <!-- markdownlint-disable MD029 -->
 //
@@ -127,13 +136,17 @@ import (
 // S3 bucket Object Lock configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketObjectLockConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -272,7 +285,7 @@ func (i *BucketObjectLockConfigurationV2) ToBucketObjectLockConfigurationV2Outpu
 // BucketObjectLockConfigurationV2ArrayInput is an input type that accepts BucketObjectLockConfigurationV2Array and BucketObjectLockConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2ArrayInput` via:
 //
-//          BucketObjectLockConfigurationV2Array{ BucketObjectLockConfigurationV2Args{...} }
+//	BucketObjectLockConfigurationV2Array{ BucketObjectLockConfigurationV2Args{...} }
 type BucketObjectLockConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -297,7 +310,7 @@ func (i BucketObjectLockConfigurationV2Array) ToBucketObjectLockConfigurationV2A
 // BucketObjectLockConfigurationV2MapInput is an input type that accepts BucketObjectLockConfigurationV2Map and BucketObjectLockConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2MapInput` via:
 //
-//          BucketObjectLockConfigurationV2Map{ "key": BucketObjectLockConfigurationV2Args{...} }
+//	BucketObjectLockConfigurationV2Map{ "key": BucketObjectLockConfigurationV2Args{...} }
 type BucketObjectLockConfigurationV2MapInput interface {
 	pulumi.Input
 

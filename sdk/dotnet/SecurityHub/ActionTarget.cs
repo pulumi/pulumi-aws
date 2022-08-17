@@ -15,30 +15,27 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleActionTarget = new Aws.SecurityHub.ActionTarget("exampleActionTarget", new Aws.SecurityHub.ActionTargetArgs
-    ///         {
-    ///             Identifier = "SendToChat",
-    ///             Description = "This is custom action sends selected findings to chat",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleActionTarget = new Aws.SecurityHub.ActionTarget("exampleActionTarget", new()
+    ///     {
+    ///         Identifier = "SendToChat",
+    ///         Description = "This is custom action sends selected findings to chat",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +47,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/actionTarget:ActionTarget")]
-    public partial class ActionTarget : Pulumi.CustomResource
+    public partial class ActionTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Security Hub custom action target.
@@ -120,7 +117,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class ActionTargetArgs : Pulumi.ResourceArgs
+    public sealed class ActionTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the custom action target.
@@ -143,9 +140,10 @@ namespace Pulumi.Aws.SecurityHub
         public ActionTargetArgs()
         {
         }
+        public static new ActionTargetArgs Empty => new ActionTargetArgs();
     }
 
-    public sealed class ActionTargetState : Pulumi.ResourceArgs
+    public sealed class ActionTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Security Hub custom action target.
@@ -174,5 +172,6 @@ namespace Pulumi.Aws.SecurityHub
         public ActionTargetState()
         {
         }
+        public static new ActionTargetState Empty => new ActionTargetState();
     }
 }

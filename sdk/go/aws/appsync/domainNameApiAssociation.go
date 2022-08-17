@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appsync.NewDomainNameApiAssociation(ctx, "example", &appsync.DomainNameApiAssociationArgs{
-// 			ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
-// 			DomainName: pulumi.Any(aws_appsync_domain_name.Example.Domain_name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewDomainNameApiAssociation(ctx, "example", &appsync.DomainNameApiAssociationArgs{
+//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
+//				DomainName: pulumi.Any(aws_appsync_domain_name.Example.Domain_name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+//
+//	$ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+//
 // ```
 type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState
@@ -146,7 +151,7 @@ func (i *DomainNameApiAssociation) ToDomainNameApiAssociationOutputWithContext(c
 // DomainNameApiAssociationArrayInput is an input type that accepts DomainNameApiAssociationArray and DomainNameApiAssociationArrayOutput values.
 // You can construct a concrete instance of `DomainNameApiAssociationArrayInput` via:
 //
-//          DomainNameApiAssociationArray{ DomainNameApiAssociationArgs{...} }
+//	DomainNameApiAssociationArray{ DomainNameApiAssociationArgs{...} }
 type DomainNameApiAssociationArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +176,7 @@ func (i DomainNameApiAssociationArray) ToDomainNameApiAssociationArrayOutputWith
 // DomainNameApiAssociationMapInput is an input type that accepts DomainNameApiAssociationMap and DomainNameApiAssociationMapOutput values.
 // You can construct a concrete instance of `DomainNameApiAssociationMapInput` via:
 //
-//          DomainNameApiAssociationMap{ "key": DomainNameApiAssociationArgs{...} }
+//	DomainNameApiAssociationMap{ "key": DomainNameApiAssociationArgs{...} }
 type DomainNameApiAssociationMapInput interface {
 	pulumi.Input
 

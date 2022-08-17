@@ -23,28 +23,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-// 			Description: pulumi.String("Example Athena data catalog"),
-// 			Parameters: pulumi.StringMap{
-// 				"function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-athena-data-catalog"),
-// 			},
-// 			Type: pulumi.String("LAMBDA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Description: pulumi.String("Example Athena data catalog"),
+//				Parameters: pulumi.StringMap{
+//					"function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-athena-data-catalog"),
+//				},
+//				Type: pulumi.String("LAMBDA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Hive based Data Catalog
 //
@@ -52,25 +55,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-// 			Description: pulumi.String("Hive based Data Catalog"),
-// 			Parameters: pulumi.StringMap{
-// 				"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
-// 			},
-// 			Type: pulumi.String("HIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Description: pulumi.String("Hive based Data Catalog"),
+//				Parameters: pulumi.StringMap{
+//					"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
+//				},
+//				Type: pulumi.String("HIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Glue based Data Catalog
 //
@@ -78,25 +84,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-// 			Description: pulumi.String("Glue based Data Catalog"),
-// 			Parameters: pulumi.StringMap{
-// 				"catalog-id": pulumi.String("123456789012"),
-// 			},
-// 			Type: pulumi.String("GLUE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Description: pulumi.String("Glue based Data Catalog"),
+//				Parameters: pulumi.StringMap{
+//					"catalog-id": pulumi.String("123456789012"),
+//				},
+//				Type: pulumi.String("GLUE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Lambda based Data Catalog
 //
@@ -104,26 +113,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-// 			Description: pulumi.String("Lambda based Data Catalog"),
-// 			Parameters: pulumi.StringMap{
-// 				"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1"),
-// 				"record-function":   pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2"),
-// 			},
-// 			Type: pulumi.String("LAMBDA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Description: pulumi.String("Lambda based Data Catalog"),
+//				Parameters: pulumi.StringMap{
+//					"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1"),
+//					"record-function":   pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2"),
+//				},
+//				Type: pulumi.String("LAMBDA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -131,7 +143,9 @@ import (
 // Data catalogs can be imported using their `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+//
+//	$ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+//
 // ```
 type DataCatalog struct {
 	pulumi.CustomResourceState
@@ -145,8 +159,7 @@ type DataCatalog struct {
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -199,8 +212,7 @@ type dataCatalogState struct {
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 	Type *string `pulumi:"type"`
@@ -216,8 +228,7 @@ type DataCatalogState struct {
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 	Type pulumi.StringPtrInput
@@ -280,7 +291,7 @@ func (i *DataCatalog) ToDataCatalogOutputWithContext(ctx context.Context) DataCa
 // DataCatalogArrayInput is an input type that accepts DataCatalogArray and DataCatalogArrayOutput values.
 // You can construct a concrete instance of `DataCatalogArrayInput` via:
 //
-//          DataCatalogArray{ DataCatalogArgs{...} }
+//	DataCatalogArray{ DataCatalogArgs{...} }
 type DataCatalogArrayInput interface {
 	pulumi.Input
 
@@ -305,7 +316,7 @@ func (i DataCatalogArray) ToDataCatalogArrayOutputWithContext(ctx context.Contex
 // DataCatalogMapInput is an input type that accepts DataCatalogMap and DataCatalogMapOutput values.
 // You can construct a concrete instance of `DataCatalogMapInput` via:
 //
-//          DataCatalogMap{ "key": DataCatalogArgs{...} }
+//	DataCatalogMap{ "key": DataCatalogArgs{...} }
 type DataCatalogMapInput interface {
 	pulumi.Input
 
@@ -366,7 +377,6 @@ func (o DataCatalogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o DataCatalogOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

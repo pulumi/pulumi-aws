@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ServiceNetworkConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ServiceNetworkConfigurationGetArgs()
         {
         }
+        public static new ServiceNetworkConfigurationGetArgs Empty => new ServiceNetworkConfigurationGetArgs();
     }
 }

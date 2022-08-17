@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class TablePointInTimeRecoveryArgs : Pulumi.ResourceArgs
+    public sealed class TablePointInTimeRecoveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether TTL is enabled.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public TablePointInTimeRecoveryArgs()
         {
         }
+        public static new TablePointInTimeRecoveryArgs Empty => new TablePointInTimeRecoveryArgs();
     }
 }

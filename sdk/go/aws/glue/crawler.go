@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
-// 			DynamodbTargets: glue.CrawlerDynamodbTargetArray{
-// 				&glue.CrawlerDynamodbTargetArgs{
-// 					Path: pulumi.String("table-name"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DynamodbTargets: glue.CrawlerDynamodbTargetArray{
+//					&glue.CrawlerDynamodbTargetArgs{
+//						Path: pulumi.String("table-name"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### JDBC Target Example
 //
@@ -48,30 +51,33 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
-// 			JdbcTargets: glue.CrawlerJdbcTargetArray{
-// 				&glue.CrawlerJdbcTargetArgs{
-// 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
-// 					Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				JdbcTargets: glue.CrawlerJdbcTargetArray{
+//					&glue.CrawlerJdbcTargetArgs{
+//						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+//						Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### S3 Target Example
 //
@@ -79,29 +85,32 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
-// 			S3Targets: glue.CrawlerS3TargetArray{
-// 				&glue.CrawlerS3TargetArgs{
-// 					Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				S3Targets: glue.CrawlerS3TargetArray{
+//					&glue.CrawlerS3TargetArgs{
+//						Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Catalog Target Example
 //
@@ -109,42 +118,47 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
-// 			CatalogTargets: glue.CrawlerCatalogTargetArray{
-// 				&glue.CrawlerCatalogTargetArgs{
-// 					DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 					Tables: pulumi.StringArray{
-// 						pulumi.Any(aws_glue_catalog_table.Example.Name),
-// 					},
-// 				},
-// 			},
-// 			SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
-// 				DeleteBehavior: pulumi.String("LOG"),
-// 			},
-// 			Configuration: pulumi.String(fmt.Sprintf(`{
-//   "Version":1.0,
-//   "Grouping": {
-//     "TableGroupingPolicy": "CombineCompatibleSchemas"
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				CatalogTargets: glue.CrawlerCatalogTargetArray{
+//					&glue.CrawlerCatalogTargetArgs{
+//						DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//						Tables: pulumi.StringArray{
+//							pulumi.Any(aws_glue_catalog_table.Example.Name),
+//						},
+//					},
+//				},
+//				SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
+//					DeleteBehavior: pulumi.String("LOG"),
+//				},
+//				Configuration: pulumi.String(fmt.Sprintf(`{
+//	  "Version":1.0,
+//	  "Grouping": {
+//	    "TableGroupingPolicy": "CombineCompatibleSchemas"
+//	  }
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### MongoDB Target Example
 //
@@ -152,30 +166,33 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
-// 			MongodbTargets: glue.CrawlerMongodbTargetArray{
-// 				&glue.CrawlerMongodbTargetArgs{
-// 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
-// 					Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				MongodbTargets: glue.CrawlerMongodbTargetArray{
+//					&glue.CrawlerMongodbTargetArgs{
+//						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+//						Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Configuration Settings Example
 //
@@ -183,48 +200,51 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Grouping": map[string]interface{}{
-// 				"TableGroupingPolicy": "CombineCompatibleSchemas",
-// 			},
-// 			"CrawlerOutput": map[string]interface{}{
-// 				"Partitions": map[string]interface{}{
-// 					"AddOrUpdateBehavior": "InheritFromTable",
-// 				},
-// 			},
-// 			"Version": 1,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = glue.NewCrawler(ctx, "eventsCrawler", &glue.CrawlerArgs{
-// 			DatabaseName:  pulumi.Any(aws_glue_catalog_database.Glue_database.Name),
-// 			Schedule:      pulumi.String("cron(0 1 * * ? *)"),
-// 			Role:          pulumi.Any(aws_iam_role.Glue_role.Arn),
-// 			Tags:          pulumi.Any(_var.Tags),
-// 			Configuration: pulumi.String(json0),
-// 			S3Targets: glue.CrawlerS3TargetArray{
-// 				&glue.CrawlerS3TargetArgs{
-// 					Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Data_lake_bucket.Bucket)),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Grouping": map[string]interface{}{
+//					"TableGroupingPolicy": "CombineCompatibleSchemas",
+//				},
+//				"CrawlerOutput": map[string]interface{}{
+//					"Partitions": map[string]interface{}{
+//						"AddOrUpdateBehavior": "InheritFromTable",
+//					},
+//				},
+//				"Version": 1,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = glue.NewCrawler(ctx, "eventsCrawler", &glue.CrawlerArgs{
+//				DatabaseName:  pulumi.Any(aws_glue_catalog_database.Glue_database.Name),
+//				Schedule:      pulumi.String("cron(0 1 * * ? *)"),
+//				Role:          pulumi.Any(aws_iam_role.Glue_role.Arn),
+//				Tags:          pulumi.Any(_var.Tags),
+//				Configuration: pulumi.String(json0),
+//				S3Targets: glue.CrawlerS3TargetArray{
+//					&glue.CrawlerS3TargetArgs{
+//						Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Data_lake_bucket.Bucket)),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -232,7 +252,9 @@ import (
 // Glue Crawlers can be imported using `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+//
+//	$ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+//
 // ```
 type Crawler struct {
 	pulumi.CustomResourceState
@@ -275,7 +297,7 @@ type Crawler struct {
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -352,7 +374,7 @@ type crawlerState struct {
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -395,7 +417,7 @@ type CrawlerState struct {
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -508,7 +530,7 @@ func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput 
 // CrawlerArrayInput is an input type that accepts CrawlerArray and CrawlerArrayOutput values.
 // You can construct a concrete instance of `CrawlerArrayInput` via:
 //
-//          CrawlerArray{ CrawlerArgs{...} }
+//	CrawlerArray{ CrawlerArgs{...} }
 type CrawlerArrayInput interface {
 	pulumi.Input
 
@@ -533,7 +555,7 @@ func (i CrawlerArray) ToCrawlerArrayOutputWithContext(ctx context.Context) Crawl
 // CrawlerMapInput is an input type that accepts CrawlerMap and CrawlerMapOutput values.
 // You can construct a concrete instance of `CrawlerMapInput` via:
 //
-//          CrawlerMap{ "key": CrawlerArgs{...} }
+//	CrawlerMap{ "key": CrawlerArgs{...} }
 type CrawlerMapInput interface {
 	pulumi.Input
 
@@ -667,7 +689,7 @@ func (o CrawlerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CrawlerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

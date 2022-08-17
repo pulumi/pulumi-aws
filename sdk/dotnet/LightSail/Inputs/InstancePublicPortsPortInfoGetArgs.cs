@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail.Inputs
 {
 
-    public sealed class InstancePublicPortsPortInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class InstancePublicPortsPortInfoGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.LightSail.Inputs
         public InstancePublicPortsPortInfoGetArgs()
         {
         }
+        public static new InstancePublicPortsPortInfoGetArgs Empty => new InstancePublicPortsPortInfoGetArgs();
     }
 }

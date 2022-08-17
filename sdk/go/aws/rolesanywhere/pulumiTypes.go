@@ -20,7 +20,7 @@ type TrustAnchorSource struct {
 // TrustAnchorSourceInput is an input type that accepts TrustAnchorSourceArgs and TrustAnchorSourceOutput values.
 // You can construct a concrete instance of `TrustAnchorSourceInput` via:
 //
-//          TrustAnchorSourceArgs{...}
+//	TrustAnchorSourceArgs{...}
 type TrustAnchorSourceInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i TrustAnchorSourceArgs) ToTrustAnchorSourcePtrOutputWithContext(ctx conte
 // TrustAnchorSourcePtrInput is an input type that accepts TrustAnchorSourceArgs, TrustAnchorSourcePtr and TrustAnchorSourcePtrOutput values.
 // You can construct a concrete instance of `TrustAnchorSourcePtrInput` via:
 //
-//          TrustAnchorSourceArgs{...}
+//	        TrustAnchorSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TrustAnchorSourcePtrInput interface {
 	pulumi.Input
 
@@ -175,7 +175,7 @@ type TrustAnchorSourceSourceData struct {
 // TrustAnchorSourceSourceDataInput is an input type that accepts TrustAnchorSourceSourceDataArgs and TrustAnchorSourceSourceDataOutput values.
 // You can construct a concrete instance of `TrustAnchorSourceSourceDataInput` via:
 //
-//          TrustAnchorSourceSourceDataArgs{...}
+//	TrustAnchorSourceSourceDataArgs{...}
 type TrustAnchorSourceSourceDataInput interface {
 	pulumi.Input
 
@@ -212,11 +212,11 @@ func (i TrustAnchorSourceSourceDataArgs) ToTrustAnchorSourceSourceDataPtrOutputW
 // TrustAnchorSourceSourceDataPtrInput is an input type that accepts TrustAnchorSourceSourceDataArgs, TrustAnchorSourceSourceDataPtr and TrustAnchorSourceSourceDataPtrOutput values.
 // You can construct a concrete instance of `TrustAnchorSourceSourceDataPtrInput` via:
 //
-//          TrustAnchorSourceSourceDataArgs{...}
+//	        TrustAnchorSourceSourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TrustAnchorSourceSourceDataPtrInput interface {
 	pulumi.Input
 

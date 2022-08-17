@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class NetworkAclIngressArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclIngressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take.
@@ -71,5 +71,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public NetworkAclIngressArgs()
         {
         }
+        public static new NetworkAclIngressArgs Empty => new NetworkAclIngressArgs();
     }
 }

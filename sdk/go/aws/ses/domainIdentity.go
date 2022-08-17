@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-// 			Domain: pulumi.String("example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-// 			ZoneId: pulumi.String("ABCDEFGHIJ123"),
-// 			Name:   pulumi.String("_amazonses.example.com"),
-// 			Type:   pulumi.String("TXT"),
-// 			Ttl:    pulumi.Int(600),
-// 			Records: pulumi.StringArray{
-// 				example.VerificationToken,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+//				ZoneId: pulumi.String("ABCDEFGHIJ123"),
+//				Name:   pulumi.String("_amazonses.example.com"),
+//				Type:   pulumi.String("TXT"),
+//				Ttl:    pulumi.Int(600),
+//				Records: pulumi.StringArray{
+//					example.VerificationToken,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // SES domain identities can be imported using the domain name.
 //
 // ```sh
-//  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+//
+//	$ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+//
 // ```
 type DomainIdentity struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *DomainIdentity) ToDomainIdentityOutputWithContext(ctx context.Context) 
 // DomainIdentityArrayInput is an input type that accepts DomainIdentityArray and DomainIdentityArrayOutput values.
 // You can construct a concrete instance of `DomainIdentityArrayInput` via:
 //
-//          DomainIdentityArray{ DomainIdentityArgs{...} }
+//	DomainIdentityArray{ DomainIdentityArgs{...} }
 type DomainIdentityArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i DomainIdentityArray) ToDomainIdentityArrayOutputWithContext(ctx context.
 // DomainIdentityMapInput is an input type that accepts DomainIdentityMap and DomainIdentityMapOutput values.
 // You can construct a concrete instance of `DomainIdentityMapInput` via:
 //
-//          DomainIdentityMap{ "key": DomainIdentityArgs{...} }
+//	DomainIdentityMap{ "key": DomainIdentityArgs{...} }
 type DomainIdentityMapInput interface {
 	pulumi.Input
 

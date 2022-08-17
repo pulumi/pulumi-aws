@@ -20,43 +20,40 @@ namespace Pulumi.Aws.Iam
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lbUser = new Aws.Iam.User("lbUser", new()
     ///     {
-    ///         var lbUser = new Aws.Iam.User("lbUser", new Aws.Iam.UserArgs
-    ///         {
-    ///             Path = "/system/",
-    ///         });
-    ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
-    ///         {
-    ///             User = lbUser.Name,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "ec2:Describe*",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
-    ///         {
-    ///             User = lbUser.Name,
-    ///         });
-    ///     }
+    ///         Path = "/system/",
+    ///     });
     /// 
-    /// }
+    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     {
+    ///         User = lbUser.Name,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "ec2:Describe*",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     {
+    ///         User = lbUser.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +65,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userPolicy:UserPolicy")]
-    public partial class UserPolicy : Pulumi.CustomResource
+    public partial class UserPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the policy. If omitted, this provider will assign a random, unique name.
@@ -138,7 +135,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class UserPolicyArgs : Pulumi.ResourceArgs
+    public sealed class UserPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy. If omitted, this provider will assign a random, unique name.
@@ -167,9 +164,10 @@ namespace Pulumi.Aws.Iam
         public UserPolicyArgs()
         {
         }
+        public static new UserPolicyArgs Empty => new UserPolicyArgs();
     }
 
-    public sealed class UserPolicyState : Pulumi.ResourceArgs
+    public sealed class UserPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy. If omitted, this provider will assign a random, unique name.
@@ -198,5 +196,6 @@ namespace Pulumi.Aws.Iam
         public UserPolicyState()
         {
         }
+        public static new UserPolicyState Empty => new UserPolicyState();
     }
 }

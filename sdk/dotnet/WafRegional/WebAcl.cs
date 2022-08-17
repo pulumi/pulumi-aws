@@ -16,135 +16,131 @@ namespace Pulumi.Aws.WafRegional
     /// ### Regular Rule
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.WafRegional.IpSet("ipset", new Aws.WafRegional.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///         var wafrule = new Aws.WafRegional.Rule("wafrule", new Aws.WafRegional.RuleArgs
-    ///         {
-    ///             MetricName = "tfWAFRule",
-    ///             Predicates = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.RulePredicateArgs
-    ///                 {
-    ///                     DataId = ipset.Id,
-    ///                     Negated = false,
-    ///                     Type = "IPMatch",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var wafacl = new Aws.WafRegional.WebAcl("wafacl", new Aws.WafRegional.WebAclArgs
-    ///         {
-    ///             MetricName = "tfWebACL",
-    ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
-    ///             {
-    ///                 Type = "ALLOW",
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
-    ///                 {
-    ///                     Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
-    ///                     {
-    ///                         Type = "BLOCK",
-    ///                     },
-    ///                     Priority = 1,
-    ///                     RuleId = wafrule.Id,
-    ///                     Type = "REGULAR",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var wafacl = new Aws.WafRegional.WebAcl("wafacl", new()
+    ///     {
+    ///         MetricName = "tfWebACL",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Type = "BLOCK",
+    ///                 },
+    ///                 Priority = 1,
+    ///                 RuleId = wafrule.Id,
+    ///                 Type = "REGULAR",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Group Rule
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
-    ///         var example = new Aws.WafRegional.WebAcl("example", new Aws.WafRegional.WebAclArgs
+    ///         MetricName = "example",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
-    ///             MetricName = "example",
-    ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
     ///             {
-    ///                 Type = "ALLOW",
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///                 Priority = 1,
+    ///                 RuleId = aws_wafregional_rule_group.Example.Id,
+    ///                 Type = "GROUP",
+    ///                 OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
     ///                 {
-    ///                     Priority = 1,
-    ///                     RuleId = aws_wafregional_rule_group.Example.Id,
-    ///                     Type = "GROUP",
-    ///                     OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
-    ///                     {
-    ///                         Type = "NONE",
-    ///                     },
+    ///                     Type = "NONE",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Logging
     /// 
     /// &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ... other configuration ...
+    ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
-    ///         // ... other configuration ...
-    ///         var example = new Aws.WafRegional.WebAcl("example", new Aws.WafRegional.WebAclArgs
+    ///         LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
     ///         {
-    ///             LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
+    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
-    ///                 LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///                 RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
+    ///                 FieldToMatches = new[]
     ///                 {
-    ///                     FieldToMatches = 
+    ///                     new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
     ///                     {
-    ///                         new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
-    ///                         {
-    ///                             Type = "URI",
-    ///                         },
-    ///                         new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
-    ///                         {
-    ///                             Data = "referer",
-    ///                             Type = "HEADER",
-    ///                         },
+    ///                         Type = "URI",
+    ///                     },
+    ///                     new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
+    ///                     {
+    ///                         Data = "referer",
+    ///                         Type = "HEADER",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -156,7 +152,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/webAcl:WebAcl")]
-    public partial class WebAcl : Pulumi.CustomResource
+    public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
@@ -201,7 +197,7 @@ namespace Pulumi.Aws.WafRegional
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -250,7 +246,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class WebAclArgs : Pulumi.ResourceArgs
+    public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
@@ -303,9 +299,10 @@ namespace Pulumi.Aws.WafRegional
         public WebAclArgs()
         {
         }
+        public static new WebAclArgs Empty => new WebAclArgs();
     }
 
-    public sealed class WebAclState : Pulumi.ResourceArgs
+    public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
@@ -365,7 +362,7 @@ namespace Pulumi.Aws.WafRegional
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -376,5 +373,6 @@ namespace Pulumi.Aws.WafRegional
         public WebAclState()
         {
         }
+        public static new WebAclState Empty => new WebAclState();
     }
 }

@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Route53.TrafficPolicyInstance("test", new()
     ///     {
-    ///         var test = new Aws.Route53.TrafficPolicyInstance("test", new Aws.Route53.TrafficPolicyInstanceArgs
-    ///         {
-    ///             HostedZoneId = "Z033120931TAQO548OGJC",
-    ///             TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
-    ///             TrafficPolicyVersion = 1,
-    ///             Ttl = 360,
-    ///         });
-    ///     }
+    ///         HostedZoneId = "Z033120931TAQO548OGJC",
+    ///         TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
+    ///         TrafficPolicyVersion = 1,
+    ///         Ttl = 360,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/trafficPolicyInstance:TrafficPolicyInstance")]
-    public partial class TrafficPolicyInstance : Pulumi.CustomResource
+    public partial class TrafficPolicyInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class TrafficPolicyInstanceArgs : Pulumi.ResourceArgs
+    public sealed class TrafficPolicyInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
@@ -154,9 +152,10 @@ namespace Pulumi.Aws.Route53
         public TrafficPolicyInstanceArgs()
         {
         }
+        public static new TrafficPolicyInstanceArgs Empty => new TrafficPolicyInstanceArgs();
     }
 
-    public sealed class TrafficPolicyInstanceState : Pulumi.ResourceArgs
+    public sealed class TrafficPolicyInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
@@ -191,5 +190,6 @@ namespace Pulumi.Aws.Route53
         public TrafficPolicyInstanceState()
         {
         }
+        public static new TrafficPolicyInstanceState Empty => new TrafficPolicyInstanceState();
     }
 }

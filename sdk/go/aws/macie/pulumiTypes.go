@@ -18,7 +18,7 @@ type FindingsFilterFindingCriteria struct {
 // FindingsFilterFindingCriteriaInput is an input type that accepts FindingsFilterFindingCriteriaArgs and FindingsFilterFindingCriteriaOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaInput` via:
 //
-//          FindingsFilterFindingCriteriaArgs{...}
+//	FindingsFilterFindingCriteriaArgs{...}
 type FindingsFilterFindingCriteriaInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOut
 // FindingsFilterFindingCriteriaPtrInput is an input type that accepts FindingsFilterFindingCriteriaArgs, FindingsFilterFindingCriteriaPtr and FindingsFilterFindingCriteriaPtrOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaPtrInput` via:
 //
-//          FindingsFilterFindingCriteriaArgs{...}
+//	        FindingsFilterFindingCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FindingsFilterFindingCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -169,7 +169,7 @@ type FindingsFilterFindingCriteriaCriterion struct {
 // FindingsFilterFindingCriteriaCriterionInput is an input type that accepts FindingsFilterFindingCriteriaCriterionArgs and FindingsFilterFindingCriteriaCriterionOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaCriterionInput` via:
 //
-//          FindingsFilterFindingCriteriaCriterionArgs{...}
+//	FindingsFilterFindingCriteriaCriterionArgs{...}
 type FindingsFilterFindingCriteriaCriterionInput interface {
 	pulumi.Input
 
@@ -211,7 +211,7 @@ func (i FindingsFilterFindingCriteriaCriterionArgs) ToFindingsFilterFindingCrite
 // FindingsFilterFindingCriteriaCriterionArrayInput is an input type that accepts FindingsFilterFindingCriteriaCriterionArray and FindingsFilterFindingCriteriaCriterionArrayOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaCriterionArrayInput` via:
 //
-//          FindingsFilterFindingCriteriaCriterionArray{ FindingsFilterFindingCriteriaCriterionArgs{...} }
+//	FindingsFilterFindingCriteriaCriterionArray{ FindingsFilterFindingCriteriaCriterionArgs{...} }
 type FindingsFilterFindingCriteriaCriterionArrayInput interface {
 	pulumi.Input
 
@@ -319,7 +319,7 @@ type S3BucketAssociationClassificationType struct {
 // S3BucketAssociationClassificationTypeInput is an input type that accepts S3BucketAssociationClassificationTypeArgs and S3BucketAssociationClassificationTypeOutput values.
 // You can construct a concrete instance of `S3BucketAssociationClassificationTypeInput` via:
 //
-//          S3BucketAssociationClassificationTypeArgs{...}
+//	S3BucketAssociationClassificationTypeArgs{...}
 type S3BucketAssociationClassificationTypeInput interface {
 	pulumi.Input
 
@@ -359,11 +359,11 @@ func (i S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassifi
 // S3BucketAssociationClassificationTypePtrInput is an input type that accepts S3BucketAssociationClassificationTypeArgs, S3BucketAssociationClassificationTypePtr and S3BucketAssociationClassificationTypePtrOutput values.
 // You can construct a concrete instance of `S3BucketAssociationClassificationTypePtrInput` via:
 //
-//          S3BucketAssociationClassificationTypeArgs{...}
+//	        S3BucketAssociationClassificationTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type S3BucketAssociationClassificationTypePtrInput interface {
 	pulumi.Input
 

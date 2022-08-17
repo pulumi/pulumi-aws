@@ -16,23 +16,21 @@ namespace Pulumi.Aws.MskConnect
     /// ### Basic configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.MskConnect.WorkerConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.MskConnect.WorkerConfiguration("example", new Aws.MskConnect.WorkerConfigurationArgs
-    ///         {
-    ///             PropertiesFileContent = @"key.converter=org.apache.kafka.connect.storage.StringConverter
+    ///         PropertiesFileContent = @"key.converter=org.apache.kafka.connect.storage.StringConverter
     /// value.converter=org.apache.kafka.connect.storage.StringConverter
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.MskConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]
-    public partial class WorkerConfiguration : Pulumi.CustomResource
+    public partial class WorkerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the Amazon Resource Name (ARN) of the worker configuration.
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.MskConnect
         }
     }
 
-    public sealed class WorkerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A summary description of the worker configuration.
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.MskConnect
         public WorkerConfigurationArgs()
         {
         }
+        public static new WorkerConfigurationArgs Empty => new WorkerConfigurationArgs();
     }
 
-    public sealed class WorkerConfigurationState : Pulumi.ResourceArgs
+    public sealed class WorkerConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the Amazon Resource Name (ARN) of the worker configuration.
@@ -180,5 +179,6 @@ namespace Pulumi.Aws.MskConnect
         public WorkerConfigurationState()
         {
         }
+        public static new WorkerConfigurationState Empty => new WorkerConfigurationState();
     }
 }

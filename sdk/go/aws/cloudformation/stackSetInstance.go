@@ -23,23 +23,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
-// 			AccountId:    pulumi.String("123456789012"),
-// 			Region:       pulumi.String("us-east-1"),
-// 			StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
+//				AccountId:    pulumi.String("123456789012"),
+//				Region:       pulumi.String("us-east-1"),
+//				StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example Deployment across Organizations account
 //
@@ -47,27 +50,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
-// 			DeploymentTargets: &cloudformation.StackSetInstanceDeploymentTargetsArgs{
-// 				OrganizationalUnitIds: pulumi.StringArray{
-// 					pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
-// 				},
-// 			},
-// 			Region:       pulumi.String("us-east-1"),
-// 			StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
+//				DeploymentTargets: &cloudformation.StackSetInstanceDeploymentTargetsArgs{
+//					OrganizationalUnitIds: pulumi.StringArray{
+//						pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
+//					},
+//				},
+//				Region:       pulumi.String("us-east-1"),
+//				StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,13 +81,17 @@ import (
 // CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
 //
 // ```sh
-//  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+//
+//	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+//
 // ```
 //
-//  CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+//	CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
 //
 // ```sh
-//  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+//
+//	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+//
 // ```
 type StackSetInstance struct {
 	pulumi.CustomResourceState
@@ -254,7 +264,7 @@ func (i *StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Conte
 // StackSetInstanceArrayInput is an input type that accepts StackSetInstanceArray and StackSetInstanceArrayOutput values.
 // You can construct a concrete instance of `StackSetInstanceArrayInput` via:
 //
-//          StackSetInstanceArray{ StackSetInstanceArgs{...} }
+//	StackSetInstanceArray{ StackSetInstanceArgs{...} }
 type StackSetInstanceArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +289,7 @@ func (i StackSetInstanceArray) ToStackSetInstanceArrayOutputWithContext(ctx cont
 // StackSetInstanceMapInput is an input type that accepts StackSetInstanceMap and StackSetInstanceMapOutput values.
 // You can construct a concrete instance of `StackSetInstanceMapInput` via:
 //
-//          StackSetInstanceMap{ "key": StackSetInstanceArgs{...} }
+//	StackSetInstanceMap{ "key": StackSetInstanceArgs{...} }
 type StackSetInstanceMapInput interface {
 	pulumi.Input
 

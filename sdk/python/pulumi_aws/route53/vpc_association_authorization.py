@@ -138,9 +138,8 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        alternate = pulumi.providers.Aws("alternate")
+        alternate = aws.Provider("alternate")
         example_vpc = aws.ec2.Vpc("exampleVpc",
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,
@@ -190,9 +189,8 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        alternate = pulumi.providers.Aws("alternate")
+        alternate = aws.Provider("alternate")
         example_vpc = aws.ec2.Vpc("exampleVpc",
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,

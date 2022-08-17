@@ -20,6 +20,63 @@ import javax.annotation.Nullable;
  * This resource accepts ownership of a private virtual interface created by another AWS account.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.ec2.VpnGateway;
+ * import com.pulumi.aws.ec2.VpnGatewayArgs;
+ * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterface;
+ * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceArgs;
+ * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepter;
+ * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var accepter = new Provider(&#34;accepter&#34;);
+ * 
+ *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;, VpnGatewayArgs.Empty, CustomResourceOptions.builder()
+ *             .provider(aws.accepter())
+ *             .build());
+ * 
+ *         var creator = new HostedPrivateVirtualInterface(&#34;creator&#34;, HostedPrivateVirtualInterfaceArgs.builder()        
+ *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
+ *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .vlan(4094)
+ *             .addressFamily(&#34;ipv4&#34;)
+ *             .bgpAsn(65352)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(vpnGw)
+ *                 .build());
+ * 
+ *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter(&#34;accepterHostedPrivateVirtualInterfaceAccepter&#34;, HostedPrivateVirtualInterfaceAccepterArgs.builder()        
+ *             .virtualInterfaceId(creator.id())
+ *             .vpnGatewayId(vpnGw.id())
+ *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.accepter())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -75,14 +132,14 @@ public class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.resources.
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

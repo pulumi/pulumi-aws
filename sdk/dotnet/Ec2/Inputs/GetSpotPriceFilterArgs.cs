@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetSpotPriceFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetSpotPriceFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetSpotPriceFilterInputArgs()
         {
         }
+        public static new GetSpotPriceFilterInputArgs Empty => new GetSpotPriceFilterInputArgs();
     }
 }

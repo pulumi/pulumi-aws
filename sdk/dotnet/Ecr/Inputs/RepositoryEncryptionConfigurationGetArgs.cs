@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecr.Inputs
 {
 
-    public sealed class RepositoryEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecr.Inputs
         public RepositoryEncryptionConfigurationGetArgs()
         {
         }
+        public static new RepositoryEncryptionConfigurationGetArgs Empty => new RepositoryEncryptionConfigurationGetArgs();
     }
 }

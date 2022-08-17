@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskSetNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskSetNetworkConfigurationArgs()
         {
         }
+        public static new TaskSetNetworkConfigurationArgs Empty => new TaskSetNetworkConfigurationArgs();
     }
 }

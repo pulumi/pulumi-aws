@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emr.GetReleaseLabels(ctx, &emr.GetReleaseLabelsArgs{
-// 			Filters: emr.GetReleaseLabelsFilters{
-// 				Application: pulumi.StringRef("spark@2.1.0"),
-// 				Prefix:      pulumi.StringRef("emr-5"),
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.GetReleaseLabels(ctx, &emr.GetReleaseLabelsArgs{
+//				Filters: emr.GetReleaseLabelsFilters{
+//					Application: pulumi.StringRef("spark@2.1.0"),
+//					Prefix:      pulumi.StringRef("emr-5"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...pulumi.InvokeOption) (*GetReleaseLabelsResult, error) {
 	var rv GetReleaseLabelsResult

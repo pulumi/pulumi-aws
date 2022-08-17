@@ -15,25 +15,24 @@ namespace Pulumi.Aws.Chime
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
     ///     {
-    ///         var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             RequireEncryption = true,
-    ///         });
-    ///         var defaultVoiceConnectorLogging = new Aws.Chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", new Aws.Chime.VoiceConnectorLoggingArgs
-    ///         {
-    ///             EnableSipLogs = true,
-    ///             VoiceConnectorId = defaultVoiceConnector.Id,
-    ///         });
-    ///     }
+    ///         RequireEncryption = true,
+    ///     });
     /// 
-    /// }
+    ///     var defaultVoiceConnectorLogging = new Aws.Chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", new()
+    ///     {
+    ///         EnableSipLogs = true,
+    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Aws.Chime
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorLogging:VoiceConnectorLogging")]
-    public partial class VoiceConnectorLogging : Pulumi.CustomResource
+    public partial class VoiceConnectorLogging : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
@@ -103,7 +102,7 @@ namespace Pulumi.Aws.Chime
         }
     }
 
-    public sealed class VoiceConnectorLoggingArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
@@ -120,9 +119,10 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorLoggingArgs()
         {
         }
+        public static new VoiceConnectorLoggingArgs Empty => new VoiceConnectorLoggingArgs();
     }
 
-    public sealed class VoiceConnectorLoggingState : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorLoggingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
@@ -139,5 +139,6 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorLoggingState()
         {
         }
+        public static new VoiceConnectorLoggingState Empty => new VoiceConnectorLoggingState();
     }
 }

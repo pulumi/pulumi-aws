@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class RuleGroupActivatedRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupActivatedRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public RuleGroupActivatedRuleGetArgs()
         {
         }
+        public static new RuleGroupActivatedRuleGetArgs Empty => new RuleGroupActivatedRuleGetArgs();
     }
 }

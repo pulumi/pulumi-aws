@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LakeFormation.Inputs
 {
 
-    public sealed class GetPermissionsTableWithColumnsArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionsTableWithColumnsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public GetPermissionsTableWithColumnsArgs()
         {
         }
+        public static new GetPermissionsTableWithColumnsArgs Empty => new GetPermissionsTableWithColumnsArgs();
     }
 }

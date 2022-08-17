@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class EventSourceMappingSelfManagedEventSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingSelfManagedEventSourceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpoints", required: true)]
         private InputMap<string>? _endpoints;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public EventSourceMappingSelfManagedEventSourceGetArgs()
         {
         }
+        public static new EventSourceMappingSelfManagedEventSourceGetArgs Empty => new EventSourceMappingSelfManagedEventSourceGetArgs();
     }
 }

@@ -15,30 +15,27 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var dada = new Aws.CloudWatch.LogGroup("dada", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var yada = new Aws.CloudWatch.LogMetricFilter("yada", new Aws.CloudWatch.LogMetricFilterArgs
-    ///         {
-    ///             Pattern = "",
-    ///             LogGroupName = dada.Name,
-    ///             MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
-    ///             {
-    ///                 Name = "EventCount",
-    ///                 Namespace = "YourNamespace",
-    ///                 Value = "1",
-    ///             },
-    ///         });
-    ///     }
+    ///     var dada = new Aws.CloudWatch.LogGroup("dada");
     /// 
-    /// }
+    ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
+    ///     {
+    ///         Pattern = "",
+    ///         LogGroupName = dada.Name,
+    ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
+    ///         {
+    ///             Name = "EventCount",
+    ///             Namespace = "YourNamespace",
+    ///             Value = "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +47,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]
-    public partial class LogMetricFilter : Pulumi.CustomResource
+    public partial class LogMetricFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the log group to associate the metric filter with.
@@ -121,7 +118,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogMetricFilterArgs : Pulumi.ResourceArgs
+    public sealed class LogMetricFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the log group to associate the metric filter with.
@@ -151,9 +148,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogMetricFilterArgs()
         {
         }
+        public static new LogMetricFilterArgs Empty => new LogMetricFilterArgs();
     }
 
-    public sealed class LogMetricFilterState : Pulumi.ResourceArgs
+    public sealed class LogMetricFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the log group to associate the metric filter with.
@@ -183,5 +181,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogMetricFilterState()
         {
         }
+        public static new LogMetricFilterState Empty => new LogMetricFilterState();
     }
 }

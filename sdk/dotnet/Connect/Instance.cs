@@ -18,66 +18,60 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.Instance("test", new()
     ///     {
-    ///         var test = new Aws.Connect.Instance("test", new Aws.Connect.InstanceArgs
-    ///         {
-    ///             IdentityManagementType = "CONNECT_MANAGED",
-    ///             InboundCallsEnabled = true,
-    ///             InstanceAlias = "friendly-name-connect",
-    ///             OutboundCallsEnabled = true,
-    ///         });
-    ///     }
+    ///         IdentityManagementType = "CONNECT_MANAGED",
+    ///         InboundCallsEnabled = true,
+    ///         InstanceAlias = "friendly-name-connect",
+    ///         OutboundCallsEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Existing Active Directory
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.Instance("test", new()
     ///     {
-    ///         var test = new Aws.Connect.Instance("test", new Aws.Connect.InstanceArgs
-    ///         {
-    ///             DirectoryId = aws_directory_service_directory.Test.Id,
-    ///             IdentityManagementType = "EXISTING_DIRECTORY",
-    ///             InboundCallsEnabled = true,
-    ///             InstanceAlias = "friendly-name-connect",
-    ///             OutboundCallsEnabled = true,
-    ///         });
-    ///     }
+    ///         DirectoryId = aws_directory_service_directory.Test.Id,
+    ///         IdentityManagementType = "EXISTING_DIRECTORY",
+    ///         InboundCallsEnabled = true,
+    ///         InstanceAlias = "friendly-name-connect",
+    ///         OutboundCallsEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With SAML
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.Instance("test", new()
     ///     {
-    ///         var test = new Aws.Connect.Instance("test", new Aws.Connect.InstanceArgs
-    ///         {
-    ///             IdentityManagementType = "SAML",
-    ///             InboundCallsEnabled = true,
-    ///             InstanceAlias = "friendly-name-connect",
-    ///             OutboundCallsEnabled = true,
-    ///         });
-    ///     }
+    ///         IdentityManagementType = "SAML",
+    ///         InboundCallsEnabled = true,
+    ///         InstanceAlias = "friendly-name-connect",
+    ///         OutboundCallsEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +83,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the instance.
@@ -214,7 +208,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
@@ -274,9 +268,10 @@ namespace Pulumi.Aws.Connect
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the instance.
@@ -360,5 +355,6 @@ namespace Pulumi.Aws.Connect
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyPredictiveScalingConfigurationMetricSpecificationArgs()
         {
         }
+        public static new PolicyPredictiveScalingConfigurationMetricSpecificationArgs Empty => new PolicyPredictiveScalingConfigurationMetricSpecificationArgs();
     }
 }

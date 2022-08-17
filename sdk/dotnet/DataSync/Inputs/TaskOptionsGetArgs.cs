@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class TaskOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class TaskOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public TaskOptionsGetArgs()
         {
         }
+        public static new TaskOptionsGetArgs Empty => new TaskOptionsGetArgs();
     }
 }

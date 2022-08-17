@@ -15,16 +15,15 @@ namespace Pulumi.Aws.CodeCommit
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplate("example", new()
     ///     {
-    ///         var example = new Aws.CodeCommit.ApprovalRuleTemplate("example", new Aws.CodeCommit.ApprovalRuleTemplateArgs
-    ///         {
-    ///             Content = @"{
+    ///         Content = @"{
     ///     ""Version"": ""2018-11-08"",
     ///     ""DestinationReferences"": [""refs/heads/master""],
     ///     ""Statements"": [{
@@ -35,11 +34,10 @@ namespace Pulumi.Aws.CodeCommit
     /// }
     /// 
     /// ",
-    ///             Description = "This is an example approval rule template",
-    ///         });
-    ///     }
+    ///         Description = "This is an example approval rule template",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.CodeCommit
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")]
-    public partial class ApprovalRuleTemplate : Pulumi.CustomResource
+    public partial class ApprovalRuleTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the approval rule template
@@ -145,7 +143,7 @@ namespace Pulumi.Aws.CodeCommit
         }
     }
 
-    public sealed class ApprovalRuleTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ApprovalRuleTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the approval rule template. Maximum of 3000 characters.
@@ -168,9 +166,10 @@ namespace Pulumi.Aws.CodeCommit
         public ApprovalRuleTemplateArgs()
         {
         }
+        public static new ApprovalRuleTemplateArgs Empty => new ApprovalRuleTemplateArgs();
     }
 
-    public sealed class ApprovalRuleTemplateState : Pulumi.ResourceArgs
+    public sealed class ApprovalRuleTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the approval rule template
@@ -223,5 +222,6 @@ namespace Pulumi.Aws.CodeCommit
         public ApprovalRuleTemplateState()
         {
         }
+        public static new ApprovalRuleTemplateState Empty => new ApprovalRuleTemplateState();
     }
 }

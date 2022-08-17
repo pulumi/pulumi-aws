@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class InventoryDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 bucket configuration where inventory results are published (documented below).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public InventoryDestinationGetArgs()
         {
         }
+        public static new InventoryDestinationGetArgs Empty => new InventoryDestinationGetArgs();
     }
 }

@@ -39,26 +39,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
-// 			Ami:          pulumi.String("ami-1234"),
-// 			InstanceType: pulumi.String("c4.xlarge"),
-// 			SpotPrice:    pulumi.String("0.03"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("CheapWorker"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
+//				Ami:          pulumi.String("ami-1234"),
+//				InstanceType: pulumi.String("c4.xlarge"),
+//				SpotPrice:    pulumi.String("0.03"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("CheapWorker"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
@@ -175,9 +178,9 @@ type SpotInstanceRequest struct {
 	SpotType pulumi.StringPtrOutput `pulumi:"spotType"`
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
@@ -342,9 +345,9 @@ type spotInstanceRequestState struct {
 	SpotType *string `pulumi:"spotType"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
@@ -481,9 +484,9 @@ type SpotInstanceRequestState struct {
 	SpotType pulumi.StringPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
@@ -599,7 +602,7 @@ type spotInstanceRequestArgs struct {
 	SpotType *string `pulumi:"spotType"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
@@ -712,7 +715,7 @@ type SpotInstanceRequestArgs struct {
 	SpotType pulumi.StringPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
@@ -762,7 +765,7 @@ func (i *SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context
 // SpotInstanceRequestArrayInput is an input type that accepts SpotInstanceRequestArray and SpotInstanceRequestArrayOutput values.
 // You can construct a concrete instance of `SpotInstanceRequestArrayInput` via:
 //
-//          SpotInstanceRequestArray{ SpotInstanceRequestArgs{...} }
+//	SpotInstanceRequestArray{ SpotInstanceRequestArgs{...} }
 type SpotInstanceRequestArrayInput interface {
 	pulumi.Input
 
@@ -787,7 +790,7 @@ func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutputWithContext(ct
 // SpotInstanceRequestMapInput is an input type that accepts SpotInstanceRequestMap and SpotInstanceRequestMapOutput values.
 // You can construct a concrete instance of `SpotInstanceRequestMapInput` via:
 //
-//          SpotInstanceRequestMap{ "key": SpotInstanceRequestArgs{...} }
+//	SpotInstanceRequestMap{ "key": SpotInstanceRequestArgs{...} }
 type SpotInstanceRequestMapInput interface {
 	pulumi.Input
 
@@ -1068,9 +1071,9 @@ func (o SpotInstanceRequestOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 // The current [bid
 // status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 // of the Spot Instance Request.
-// * `spotRequestState` The current [request
-//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-//   of the Spot Instance Request.
+//   - `spotRequestState` The current [request
+//     state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+//     of the Spot Instance Request.
 func (o SpotInstanceRequestOutput) SpotBidStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotBidStatus }).(pulumi.StringOutput)
 }
@@ -1101,12 +1104,12 @@ func (o SpotInstanceRequestOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SpotInstanceRequestOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SpotInstanceRequestOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

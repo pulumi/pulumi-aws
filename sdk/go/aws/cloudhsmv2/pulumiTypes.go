@@ -21,7 +21,7 @@ type ClusterClusterCertificate struct {
 // ClusterClusterCertificateInput is an input type that accepts ClusterClusterCertificateArgs and ClusterClusterCertificateOutput values.
 // You can construct a concrete instance of `ClusterClusterCertificateInput` via:
 //
-//          ClusterClusterCertificateArgs{...}
+//	ClusterClusterCertificateArgs{...}
 type ClusterClusterCertificateInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutputWithCont
 // ClusterClusterCertificateArrayInput is an input type that accepts ClusterClusterCertificateArray and ClusterClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterCertificateArrayInput` via:
 //
-//          ClusterClusterCertificateArray{ ClusterClusterCertificateArgs{...} }
+//	ClusterClusterCertificateArray{ ClusterClusterCertificateArgs{...} }
 type ClusterClusterCertificateArrayInput interface {
 	pulumi.Input
 
@@ -139,7 +139,7 @@ type GetClusterClusterCertificate struct {
 // GetClusterClusterCertificateInput is an input type that accepts GetClusterClusterCertificateArgs and GetClusterClusterCertificateOutput values.
 // You can construct a concrete instance of `GetClusterClusterCertificateInput` via:
 //
-//          GetClusterClusterCertificateArgs{...}
+//	GetClusterClusterCertificateArgs{...}
 type GetClusterClusterCertificateInput interface {
 	pulumi.Input
 
@@ -170,7 +170,7 @@ func (i GetClusterClusterCertificateArgs) ToGetClusterClusterCertificateOutputWi
 // GetClusterClusterCertificateArrayInput is an input type that accepts GetClusterClusterCertificateArray and GetClusterClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `GetClusterClusterCertificateArrayInput` via:
 //
-//          GetClusterClusterCertificateArray{ GetClusterClusterCertificateArgs{...} }
+//	GetClusterClusterCertificateArray{ GetClusterClusterCertificateArgs{...} }
 type GetClusterClusterCertificateArrayInput interface {
 	pulumi.Input
 

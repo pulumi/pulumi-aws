@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigArgs Empty => new ConnectorProfileConnectorProfileConfigArgs();
     }
 }

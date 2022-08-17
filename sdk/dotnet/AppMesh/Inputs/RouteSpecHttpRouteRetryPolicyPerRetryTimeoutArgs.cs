@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Retry unit. Valid values: `ms`, `s`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs()
         {
         }
+        public static new RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs Empty => new RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetInstanceTypeOfferingsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetInstanceTypeOfferingsFilterArgs()
         {
         }
+        public static new GetInstanceTypeOfferingsFilterArgs Empty => new GetInstanceTypeOfferingsFilterArgs();
     }
 }

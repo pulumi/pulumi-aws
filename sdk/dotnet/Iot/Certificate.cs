@@ -16,64 +16,58 @@ namespace Pulumi.Aws.Iot
     /// ### With CSR
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
-    ///         {
-    ///             Csr = File.ReadAllText("/my/csr.pem"),
-    ///             Active = true,
-    ///         });
-    ///     }
+    ///         Csr = File.ReadAllText("/my/csr.pem"),
+    ///         Active = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Without CSR
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
-    ///         {
-    ///             Active = true,
-    ///         });
-    ///     }
+    ///         Active = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### From existing certificate without a CA
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
-    ///         {
-    ///             CertificatePem = File.ReadAllText("/my/cert.pem"),
-    ///             Active = true,
-    ///         });
-    ///     }
+    ///         CertificatePem = File.ReadAllText("/my/cert.pem"),
+    ///         Active = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active
@@ -169,7 +163,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active
@@ -206,9 +200,10 @@ namespace Pulumi.Aws.Iot
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active
@@ -263,5 +258,6 @@ namespace Pulumi.Aws.Iot
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

@@ -26,24 +26,22 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
+        ///     var lbTgName = config.Get("lbTgName") ?? "";
+        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var lbTgArn = config.Get("lbTgArn") ?? "";
-        ///         var lbTgName = config.Get("lbTgName") ?? "";
-        ///         var test = Output.Create(Aws.LB.GetTargetGroup.InvokeAsync(new Aws.LB.GetTargetGroupArgs
-        ///         {
-        ///             Arn = lbTgArn,
-        ///             Name = lbTgName,
-        ///         }));
-        ///     }
+        ///         Arn = lbTgArn,
+        ///         Name = lbTgName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,24 +63,22 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
+        ///     var lbTgName = config.Get("lbTgName") ?? "";
+        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var lbTgArn = config.Get("lbTgArn") ?? "";
-        ///         var lbTgName = config.Get("lbTgName") ?? "";
-        ///         var test = Output.Create(Aws.LB.GetTargetGroup.InvokeAsync(new Aws.LB.GetTargetGroupArgs
-        ///         {
-        ///             Arn = lbTgArn,
-        ///             Name = lbTgName,
-        ///         }));
-        ///     }
+        ///         Arn = lbTgArn,
+        ///         Name = lbTgName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -92,7 +88,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     }
 
 
-    public sealed class GetTargetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetTargetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full ARN of the target group.
@@ -117,9 +113,10 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public GetTargetGroupArgs()
         {
         }
+        public static new GetTargetGroupArgs Empty => new GetTargetGroupArgs();
     }
 
-    public sealed class GetTargetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full ARN of the target group.
@@ -144,6 +141,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public GetTargetGroupInvokeArgs()
         {
         }
+        public static new GetTargetGroupInvokeArgs Empty => new GetTargetGroupInvokeArgs();
     }
 
 

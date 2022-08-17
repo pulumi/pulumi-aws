@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnect.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetConnectFilterArgs
+        ///                 Name = "transport-transit-gateway-attachment-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transport-transit-gateway-attachment-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-attach-12345678",
-        ///                     },
+        ///                     "tgw-attach-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnect.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectArgs
-        ///         {
-        ///             TransitGatewayConnectId = "tgw-attach-12345678",
-        ///         }));
-        ///     }
+        ///         TransitGatewayConnectId = "tgw-attach-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnect.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetConnectFilterArgs
+        ///                 Name = "transport-transit-gateway-attachment-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transport-transit-gateway-attachment-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-attach-12345678",
-        ///                     },
+        ///                     "tgw-attach-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnect.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectArgs
-        ///         {
-        ///             TransitGatewayConnectId = "tgw-attach-12345678",
-        ///         }));
-        ///     }
+        ///         TransitGatewayConnectId = "tgw-attach-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetConnectArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetConnectFilterArgs>? _filters;
@@ -168,9 +160,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetConnectArgs()
         {
         }
+        public static new GetConnectArgs Empty => new GetConnectArgs();
     }
 
-    public sealed class GetConnectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetConnectFilterInputArgs>? _filters;
@@ -205,6 +198,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetConnectInvokeArgs()
         {
         }
+        public static new GetConnectInvokeArgs Empty => new GetConnectInvokeArgs();
     }
 
 

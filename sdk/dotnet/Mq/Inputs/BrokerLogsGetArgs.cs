@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerLogsGetArgs : Pulumi.ResourceArgs
+    public sealed class BrokerLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerLogsGetArgs()
         {
         }
+        public static new BrokerLogsGetArgs Empty => new BrokerLogsGetArgs();
     }
 }

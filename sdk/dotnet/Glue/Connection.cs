@@ -16,59 +16,55 @@ namespace Pulumi.Aws.Glue
     /// ### Non-VPC Connection
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Connection("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Connection("example", new Aws.Glue.ConnectionArgs
+    ///         ConnectionProperties = 
     ///         {
-    ///             ConnectionProperties = 
-    ///             {
-    ///                 { "JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase" },
-    ///                 { "PASSWORD", "examplepassword" },
-    ///                 { "USERNAME", "exampleusername" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase" },
+    ///             { "PASSWORD", "examplepassword" },
+    ///             { "USERNAME", "exampleusername" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### VPC Connection
     /// 
     /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Connection("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Connection("example", new Aws.Glue.ConnectionArgs
+    ///         ConnectionProperties = 
     ///         {
-    ///             ConnectionProperties = 
+    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{aws_rds_cluster.Example.Endpoint}/exampledatabase" },
+    ///             { "PASSWORD", "examplepassword" },
+    ///             { "USERNAME", "exampleusername" },
+    ///         },
+    ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
+    ///         {
+    ///             AvailabilityZone = aws_subnet.Example.Availability_zone,
+    ///             SecurityGroupIdLists = new[]
     ///             {
-    ///                 { "JDBC_CONNECTION_URL", $"jdbc:mysql://{aws_rds_cluster.Example.Endpoint}/exampledatabase" },
-    ///                 { "PASSWORD", "examplepassword" },
-    ///                 { "USERNAME", "exampleusername" },
+    ///                 aws_security_group.Example.Id,
     ///             },
-    ///             PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
-    ///             {
-    ///                 AvailabilityZone = aws_subnet.Example.Availability_zone,
-    ///                 SecurityGroupIdLists = 
-    ///                 {
-    ///                     aws_security_group.Example.Id,
-    ///                 },
-    ///                 SubnetId = aws_subnet.Example.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             SubnetId = aws_subnet.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +76,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/connection:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Glue Connection.
@@ -101,7 +97,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
         /// </summary>
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
@@ -186,7 +182,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
@@ -207,7 +203,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -257,9 +253,10 @@ namespace Pulumi.Aws.Glue
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 
-    public sealed class ConnectionState : Pulumi.ResourceArgs
+    public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Glue Connection.
@@ -286,7 +283,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -348,5 +345,6 @@ namespace Pulumi.Aws.Glue
         public ConnectionState()
         {
         }
+        public static new ConnectionState Empty => new ConnectionState();
     }
 }

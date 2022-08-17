@@ -15,80 +15,78 @@ namespace Pulumi.Aws.CostExplorer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CostExplorer.CostCategory("test", new()
     ///     {
-    ///         var test = new Aws.CostExplorer.CostCategory("test", new Aws.CostExplorer.CostCategoryArgs
+    ///         Rules = new[]
     ///         {
-    ///             Rules = 
+    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
-    ///                 new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
+    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
-    ///                     Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
+    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
     ///                     {
-    ///                         Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
+    ///                         Key = "LINKED_ACCOUNT_NAME",
+    ///                         MatchOptions = new[]
     ///                         {
-    ///                             Key = "LINKED_ACCOUNT_NAME",
-    ///                             MatchOptions = 
-    ///                             {
-    ///                                 "ENDS_WITH",
-    ///                             },
-    ///                             Values = 
-    ///                             {
-    ///                                 "-prod",
-    ///                             },
+    ///                             "ENDS_WITH",
+    ///                         },
+    ///                         Values = new[]
+    ///                         {
+    ///                             "-prod",
     ///                         },
     ///                     },
-    ///                     Value = "production",
     ///                 },
-    ///                 new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
-    ///                 {
-    ///                     Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
-    ///                     {
-    ///                         Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
-    ///                         {
-    ///                             Key = "LINKED_ACCOUNT_NAME",
-    ///                             MatchOptions = 
-    ///                             {
-    ///                                 "ENDS_WITH",
-    ///                             },
-    ///                             Values = 
-    ///                             {
-    ///                                 "-stg",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Value = "staging",
-    ///                 },
-    ///                 new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
-    ///                 {
-    ///                     Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
-    ///                     {
-    ///                         Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
-    ///                         {
-    ///                             Key = "LINKED_ACCOUNT_NAME",
-    ///                             MatchOptions = 
-    ///                             {
-    ///                                 "ENDS_WITH",
-    ///                             },
-    ///                             Values = 
-    ///                             {
-    ///                                 "-dev",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Value = "testing",
-    ///                 },
+    ///                 Value = "production",
     ///             },
-    ///             RuleVersion = "CostCategoryExpression.v1",
-    ///         });
-    ///     }
+    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
+    ///             {
+    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
+    ///                 {
+    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
+    ///                     {
+    ///                         Key = "LINKED_ACCOUNT_NAME",
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "ENDS_WITH",
+    ///                         },
+    ///                         Values = new[]
+    ///                         {
+    ///                             "-stg",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Value = "staging",
+    ///             },
+    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
+    ///             {
+    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
+    ///                 {
+    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
+    ///                     {
+    ///                         Key = "LINKED_ACCOUNT_NAME",
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "ENDS_WITH",
+    ///                         },
+    ///                         Values = new[]
+    ///                         {
+    ///                             "-dev",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Value = "testing",
+    ///             },
+    ///         },
+    ///         RuleVersion = "CostCategoryExpression.v1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +98,7 @@ namespace Pulumi.Aws.CostExplorer
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costCategory:CostCategory")]
-    public partial class CostCategory : Pulumi.CustomResource
+    public partial class CostCategory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the cost category.
@@ -150,15 +148,9 @@ namespace Pulumi.Aws.CostExplorer
         [Output("splitChargeRules")]
         public Output<ImmutableArray<Outputs.CostCategorySplitChargeRule>> SplitChargeRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -206,7 +198,7 @@ namespace Pulumi.Aws.CostExplorer
         }
     }
 
-    public sealed class CostCategoryArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default value for the cost category.
@@ -252,34 +244,19 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public CostCategoryArgs()
         {
         }
+        public static new CostCategoryArgs Empty => new CostCategoryArgs();
     }
 
-    public sealed class CostCategoryState : Pulumi.ResourceArgs
+    public sealed class CostCategoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cost category.
@@ -343,10 +320,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -355,10 +328,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -368,5 +337,6 @@ namespace Pulumi.Aws.CostExplorer
         public CostCategoryState()
         {
         }
+        public static new CostCategoryState Empty => new CostCategoryState();
     }
 }

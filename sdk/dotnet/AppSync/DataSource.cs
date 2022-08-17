@@ -10,35 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync
 {
     /// <summary>
-    /// Provides an AppSync DataSource.
+    /// Provides an AppSync Data Source.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
     ///     {
-    ///         var exampleTable = new Aws.DynamoDB.Table("exampleTable", new Aws.DynamoDB.TableArgs
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
+    ///         HashKey = "UserId",
+    ///         Attributes = new[]
     ///         {
-    ///             ReadCapacity = 1,
-    ///             WriteCapacity = 1,
-    ///             HashKey = "UserId",
-    ///             Attributes = 
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "UserId",
-    ///                     Type = "S",
-    ///                 },
+    ///                 Name = "UserId",
+    ///                 Type = "S",
     ///             },
-    ///         });
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -51,11 +51,12 @@ namespace Pulumi.Aws.AppSync
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = exampleRole.Id,
-    ///             Policy = exampleTable.Arn.Apply(arn =&gt; @$"{{
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = exampleTable.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -70,25 +71,26 @@ namespace Pulumi.Aws.AppSync
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "API_KEY",
-    ///         });
-    ///         var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new Aws.AppSync.DataSourceArgs
-    ///         {
-    ///             ApiId = exampleGraphQLApi.Id,
-    ///             Name = "tf_appsync_example",
-    ///             ServiceRoleArn = exampleRole.Arn,
-    ///             Type = "AMAZON_DYNAMODB",
-    ///             DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs
-    ///             {
-    ///                 TableName = exampleTable.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     {
+    ///         AuthenticationType = "API_KEY",
+    ///     });
+    /// 
+    ///     var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new()
+    ///     {
+    ///         ApiId = exampleGraphQLApi.Id,
+    ///         Name = "tf_appsync_example",
+    ///         ServiceRoleArn = exampleRole.Arn,
+    ///         Type = "AMAZON_DYNAMODB",
+    ///         DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs
+    ///         {
+    ///             TableName = exampleTable.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,10 +102,10 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/dataSource:DataSource")]
-    public partial class DataSource : Pulumi.CustomResource
+    public partial class DataSource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API ID for the GraphQL API for the DataSource.
+        /// The API ID for the GraphQL API for the data source.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -115,7 +117,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the DataSource.
+        /// A description of the data source.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -145,7 +147,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.DataSourceLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A user-supplied name for the DataSource.
+        /// A user-supplied name for the data source.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -163,7 +165,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -212,16 +214,16 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class DataSourceArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API ID for the GraphQL API for the DataSource.
+        /// The API ID for the GraphQL API for the data source.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// A description of the DataSource.
+        /// A description of the data source.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -251,7 +253,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceLambdaConfigArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// A user-supplied name for the DataSource.
+        /// A user-supplied name for the data source.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -269,7 +271,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -277,12 +279,13 @@ namespace Pulumi.Aws.AppSync
         public DataSourceArgs()
         {
         }
+        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 
-    public sealed class DataSourceState : Pulumi.ResourceArgs
+    public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API ID for the GraphQL API for the DataSource.
+        /// The API ID for the GraphQL API for the data source.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -294,7 +297,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description of the DataSource.
+        /// A description of the data source.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -324,7 +327,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceLambdaConfigGetArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// A user-supplied name for the DataSource.
+        /// A user-supplied name for the data source.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -342,7 +345,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -350,5 +353,6 @@ namespace Pulumi.Aws.AppSync
         public DataSourceState()
         {
         }
+        public static new DataSourceState Empty => new DataSourceState();
     }
 }

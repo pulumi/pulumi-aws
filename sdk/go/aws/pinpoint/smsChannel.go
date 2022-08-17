@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := pinpoint.NewApp(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pinpoint.NewSmsChannel(ctx, "sms", &pinpoint.SmsChannelArgs{
-// 			ApplicationId: app.ApplicationId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewSmsChannel(ctx, "sms", &pinpoint.SmsChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+//
+//	$ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+//
 // ```
 type SmsChannel struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *SmsChannel) ToSmsChannelOutputWithContext(ctx context.Context) SmsChann
 // SmsChannelArrayInput is an input type that accepts SmsChannelArray and SmsChannelArrayOutput values.
 // You can construct a concrete instance of `SmsChannelArrayInput` via:
 //
-//          SmsChannelArray{ SmsChannelArgs{...} }
+//	SmsChannelArray{ SmsChannelArgs{...} }
 type SmsChannelArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i SmsChannelArray) ToSmsChannelArrayOutputWithContext(ctx context.Context)
 // SmsChannelMapInput is an input type that accepts SmsChannelMap and SmsChannelMapOutput values.
 // You can construct a concrete instance of `SmsChannelMapInput` via:
 //
-//          SmsChannelMap{ "key": SmsChannelArgs{...} }
+//	SmsChannelMap{ "key": SmsChannelArgs{...} }
 type SmsChannelMapInput interface {
 	pulumi.Input
 

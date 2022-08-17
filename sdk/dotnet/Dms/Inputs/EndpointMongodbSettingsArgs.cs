@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dms.Inputs
 {
 
-    public sealed class EndpointMongodbSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointMongodbSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public EndpointMongodbSettingsArgs()
         {
         }
+        public static new EndpointMongodbSettingsArgs Empty => new EndpointMongodbSettingsArgs();
     }
 }

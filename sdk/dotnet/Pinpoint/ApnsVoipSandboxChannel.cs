@@ -15,26 +15,23 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var apnsVoipSandbox = new Aws.Pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox", new Aws.Pinpoint.ApnsVoipSandboxChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             Certificate = File.ReadAllText("./certificate.pem"),
-    ///             PrivateKey = File.ReadAllText("./private_key.key"),
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var apnsVoipSandbox = new Aws.Pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         Certificate = File.ReadAllText("./certificate.pem"),
+    ///         PrivateKey = File.ReadAllText("./private_key.key"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")]
-    public partial class ApnsVoipSandboxChannel : Pulumi.CustomResource
+    public partial class ApnsVoipSandboxChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -149,7 +146,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class ApnsVoipSandboxChannelArgs : Pulumi.ResourceArgs
+    public sealed class ApnsVoipSandboxChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -211,9 +208,10 @@ namespace Pulumi.Aws.Pinpoint
         public ApnsVoipSandboxChannelArgs()
         {
         }
+        public static new ApnsVoipSandboxChannelArgs Empty => new ApnsVoipSandboxChannelArgs();
     }
 
-    public sealed class ApnsVoipSandboxChannelState : Pulumi.ResourceArgs
+    public sealed class ApnsVoipSandboxChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -275,5 +273,6 @@ namespace Pulumi.Aws.Pinpoint
         public ApnsVoipSandboxChannelState()
         {
         }
+        public static new ApnsVoipSandboxChannelState Empty => new ApnsVoipSandboxChannelState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupAlarmConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupAlarmConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarms")]
         private InputList<string>? _alarms;
@@ -41,5 +41,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupAlarmConfigurationArgs()
         {
         }
+        public static new DeploymentGroupAlarmConfigurationArgs Empty => new DeploymentGroupAlarmConfigurationArgs();
     }
 }

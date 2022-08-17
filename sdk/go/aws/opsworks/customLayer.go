@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewCustomLayer(ctx, "custlayer", &opsworks.CustomLayerArgs{
-// 			ShortName: pulumi.String("awesome"),
-// 			StackId:   pulumi.Any(aws_opsworks_stack.Main.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewCustomLayer(ctx, "custlayer", &opsworks.CustomLayerArgs{
+//				ShortName: pulumi.String("awesome"),
+//				StackId:   pulumi.Any(aws_opsworks_stack.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // OpsWorks Custom Layers can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
+//
 // ```
 type CustomLayer struct {
 	pulumi.CustomResourceState
@@ -88,7 +93,7 @@ type CustomLayer struct {
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -170,7 +175,7 @@ type customLayerState struct {
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -218,7 +223,7 @@ type CustomLayerState struct {
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -343,7 +348,7 @@ func (i *CustomLayer) ToCustomLayerOutputWithContext(ctx context.Context) Custom
 // CustomLayerArrayInput is an input type that accepts CustomLayerArray and CustomLayerArrayOutput values.
 // You can construct a concrete instance of `CustomLayerArrayInput` via:
 //
-//          CustomLayerArray{ CustomLayerArgs{...} }
+//	CustomLayerArray{ CustomLayerArgs{...} }
 type CustomLayerArrayInput interface {
 	pulumi.Input
 
@@ -368,7 +373,7 @@ func (i CustomLayerArray) ToCustomLayerArrayOutputWithContext(ctx context.Contex
 // CustomLayerMapInput is an input type that accepts CustomLayerMap and CustomLayerMapOutput values.
 // You can construct a concrete instance of `CustomLayerMapInput` via:
 //
-//          CustomLayerMap{ "key": CustomLayerArgs{...} }
+//	CustomLayerMap{ "key": CustomLayerArgs{...} }
 type CustomLayerMapInput interface {
 	pulumi.Input
 
@@ -514,7 +519,7 @@ func (o CustomLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

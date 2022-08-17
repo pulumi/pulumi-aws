@@ -24,7 +24,7 @@ type BotAbortStatement struct {
 // BotAbortStatementInput is an input type that accepts BotAbortStatementArgs and BotAbortStatementOutput values.
 // You can construct a concrete instance of `BotAbortStatementInput` via:
 //
-//          BotAbortStatementArgs{...}
+//	BotAbortStatementArgs{...}
 type BotAbortStatementInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i BotAbortStatementArgs) ToBotAbortStatementPtrOutputWithContext(ctx conte
 // BotAbortStatementPtrInput is an input type that accepts BotAbortStatementArgs, BotAbortStatementPtr and BotAbortStatementPtrOutput values.
 // You can construct a concrete instance of `BotAbortStatementPtrInput` via:
 //
-//          BotAbortStatementArgs{...}
+//	        BotAbortStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotAbortStatementPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type BotAbortStatementMessage struct {
 // BotAbortStatementMessageInput is an input type that accepts BotAbortStatementMessageArgs and BotAbortStatementMessageOutput values.
 // You can construct a concrete instance of `BotAbortStatementMessageInput` via:
 //
-//          BotAbortStatementMessageArgs{...}
+//	BotAbortStatementMessageArgs{...}
 type BotAbortStatementMessageInput interface {
 	pulumi.Input
 
@@ -228,7 +228,7 @@ func (i BotAbortStatementMessageArgs) ToBotAbortStatementMessageOutputWithContex
 // BotAbortStatementMessageArrayInput is an input type that accepts BotAbortStatementMessageArray and BotAbortStatementMessageArrayOutput values.
 // You can construct a concrete instance of `BotAbortStatementMessageArrayInput` via:
 //
-//          BotAbortStatementMessageArray{ BotAbortStatementMessageArgs{...} }
+//	BotAbortStatementMessageArray{ BotAbortStatementMessageArgs{...} }
 type BotAbortStatementMessageArrayInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ type BotAliasConversationLogs struct {
 // BotAliasConversationLogsInput is an input type that accepts BotAliasConversationLogsArgs and BotAliasConversationLogsOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogsInput` via:
 //
-//          BotAliasConversationLogsArgs{...}
+//	BotAliasConversationLogsArgs{...}
 type BotAliasConversationLogsInput interface {
 	pulumi.Input
 
@@ -348,11 +348,11 @@ func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsPtrOutputWithCon
 // BotAliasConversationLogsPtrInput is an input type that accepts BotAliasConversationLogsArgs, BotAliasConversationLogsPtr and BotAliasConversationLogsPtrOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogsPtrInput` via:
 //
-//          BotAliasConversationLogsArgs{...}
+//	        BotAliasConversationLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotAliasConversationLogsPtrInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ type BotAliasConversationLogsLogSetting struct {
 // BotAliasConversationLogsLogSettingInput is an input type that accepts BotAliasConversationLogsLogSettingArgs and BotAliasConversationLogsLogSettingOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogsLogSettingInput` via:
 //
-//          BotAliasConversationLogsLogSettingArgs{...}
+//	BotAliasConversationLogsLogSettingArgs{...}
 type BotAliasConversationLogsLogSettingInput interface {
 	pulumi.Input
 
@@ -508,7 +508,7 @@ func (i BotAliasConversationLogsLogSettingArgs) ToBotAliasConversationLogsLogSet
 // BotAliasConversationLogsLogSettingArrayInput is an input type that accepts BotAliasConversationLogsLogSettingArray and BotAliasConversationLogsLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogsLogSettingArrayInput` via:
 //
-//          BotAliasConversationLogsLogSettingArray{ BotAliasConversationLogsLogSettingArgs{...} }
+//	BotAliasConversationLogsLogSettingArray{ BotAliasConversationLogsLogSettingArgs{...} }
 type BotAliasConversationLogsLogSettingArrayInput interface {
 	pulumi.Input
 
@@ -605,7 +605,7 @@ type BotClarificationPrompt struct {
 // BotClarificationPromptInput is an input type that accepts BotClarificationPromptArgs and BotClarificationPromptOutput values.
 // You can construct a concrete instance of `BotClarificationPromptInput` via:
 //
-//          BotClarificationPromptArgs{...}
+//	BotClarificationPromptArgs{...}
 type BotClarificationPromptInput interface {
 	pulumi.Input
 
@@ -649,11 +649,11 @@ func (i BotClarificationPromptArgs) ToBotClarificationPromptPtrOutputWithContext
 // BotClarificationPromptPtrInput is an input type that accepts BotClarificationPromptArgs, BotClarificationPromptPtr and BotClarificationPromptPtrOutput values.
 // You can construct a concrete instance of `BotClarificationPromptPtrInput` via:
 //
-//          BotClarificationPromptArgs{...}
+//	        BotClarificationPromptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotClarificationPromptPtrInput interface {
 	pulumi.Input
 
@@ -793,7 +793,7 @@ type BotClarificationPromptMessage struct {
 // BotClarificationPromptMessageInput is an input type that accepts BotClarificationPromptMessageArgs and BotClarificationPromptMessageOutput values.
 // You can construct a concrete instance of `BotClarificationPromptMessageInput` via:
 //
-//          BotClarificationPromptMessageArgs{...}
+//	BotClarificationPromptMessageArgs{...}
 type BotClarificationPromptMessageInput interface {
 	pulumi.Input
 
@@ -826,7 +826,7 @@ func (i BotClarificationPromptMessageArgs) ToBotClarificationPromptMessageOutput
 // BotClarificationPromptMessageArrayInput is an input type that accepts BotClarificationPromptMessageArray and BotClarificationPromptMessageArrayOutput values.
 // You can construct a concrete instance of `BotClarificationPromptMessageArrayInput` via:
 //
-//          BotClarificationPromptMessageArray{ BotClarificationPromptMessageArgs{...} }
+//	BotClarificationPromptMessageArray{ BotClarificationPromptMessageArgs{...} }
 type BotClarificationPromptMessageArrayInput interface {
 	pulumi.Input
 
@@ -908,7 +908,7 @@ type BotIntent struct {
 // BotIntentInput is an input type that accepts BotIntentArgs and BotIntentOutput values.
 // You can construct a concrete instance of `BotIntentInput` via:
 //
-//          BotIntentArgs{...}
+//	BotIntentArgs{...}
 type BotIntentInput interface {
 	pulumi.Input
 
@@ -938,7 +938,7 @@ func (i BotIntentArgs) ToBotIntentOutputWithContext(ctx context.Context) BotInte
 // BotIntentArrayInput is an input type that accepts BotIntentArray and BotIntentArrayOutput values.
 // You can construct a concrete instance of `BotIntentArrayInput` via:
 //
-//          BotIntentArray{ BotIntentArgs{...} }
+//	BotIntentArray{ BotIntentArgs{...} }
 type BotIntentArrayInput interface {
 	pulumi.Input
 
@@ -1018,7 +1018,7 @@ type IntentConclusionStatement struct {
 // IntentConclusionStatementInput is an input type that accepts IntentConclusionStatementArgs and IntentConclusionStatementOutput values.
 // You can construct a concrete instance of `IntentConclusionStatementInput` via:
 //
-//          IntentConclusionStatementArgs{...}
+//	IntentConclusionStatementArgs{...}
 type IntentConclusionStatementInput interface {
 	pulumi.Input
 
@@ -1060,11 +1060,11 @@ func (i IntentConclusionStatementArgs) ToIntentConclusionStatementPtrOutputWithC
 // IntentConclusionStatementPtrInput is an input type that accepts IntentConclusionStatementArgs, IntentConclusionStatementPtr and IntentConclusionStatementPtrOutput values.
 // You can construct a concrete instance of `IntentConclusionStatementPtrInput` via:
 //
-//          IntentConclusionStatementArgs{...}
+//	        IntentConclusionStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentConclusionStatementPtrInput interface {
 	pulumi.Input
 
@@ -1189,7 +1189,7 @@ type IntentConclusionStatementMessage struct {
 // IntentConclusionStatementMessageInput is an input type that accepts IntentConclusionStatementMessageArgs and IntentConclusionStatementMessageOutput values.
 // You can construct a concrete instance of `IntentConclusionStatementMessageInput` via:
 //
-//          IntentConclusionStatementMessageArgs{...}
+//	IntentConclusionStatementMessageArgs{...}
 type IntentConclusionStatementMessageInput interface {
 	pulumi.Input
 
@@ -1222,7 +1222,7 @@ func (i IntentConclusionStatementMessageArgs) ToIntentConclusionStatementMessage
 // IntentConclusionStatementMessageArrayInput is an input type that accepts IntentConclusionStatementMessageArray and IntentConclusionStatementMessageArrayOutput values.
 // You can construct a concrete instance of `IntentConclusionStatementMessageArrayInput` via:
 //
-//          IntentConclusionStatementMessageArray{ IntentConclusionStatementMessageArgs{...} }
+//	IntentConclusionStatementMessageArray{ IntentConclusionStatementMessageArgs{...} }
 type IntentConclusionStatementMessageArrayInput interface {
 	pulumi.Input
 
@@ -1310,7 +1310,7 @@ type IntentConfirmationPrompt struct {
 // IntentConfirmationPromptInput is an input type that accepts IntentConfirmationPromptArgs and IntentConfirmationPromptOutput values.
 // You can construct a concrete instance of `IntentConfirmationPromptInput` via:
 //
-//          IntentConfirmationPromptArgs{...}
+//	IntentConfirmationPromptArgs{...}
 type IntentConfirmationPromptInput interface {
 	pulumi.Input
 
@@ -1354,11 +1354,11 @@ func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptPtrOutputWithCon
 // IntentConfirmationPromptPtrInput is an input type that accepts IntentConfirmationPromptArgs, IntentConfirmationPromptPtr and IntentConfirmationPromptPtrOutput values.
 // You can construct a concrete instance of `IntentConfirmationPromptPtrInput` via:
 //
-//          IntentConfirmationPromptArgs{...}
+//	        IntentConfirmationPromptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentConfirmationPromptPtrInput interface {
 	pulumi.Input
 
@@ -1498,7 +1498,7 @@ type IntentConfirmationPromptMessage struct {
 // IntentConfirmationPromptMessageInput is an input type that accepts IntentConfirmationPromptMessageArgs and IntentConfirmationPromptMessageOutput values.
 // You can construct a concrete instance of `IntentConfirmationPromptMessageInput` via:
 //
-//          IntentConfirmationPromptMessageArgs{...}
+//	IntentConfirmationPromptMessageArgs{...}
 type IntentConfirmationPromptMessageInput interface {
 	pulumi.Input
 
@@ -1531,7 +1531,7 @@ func (i IntentConfirmationPromptMessageArgs) ToIntentConfirmationPromptMessageOu
 // IntentConfirmationPromptMessageArrayInput is an input type that accepts IntentConfirmationPromptMessageArray and IntentConfirmationPromptMessageArrayOutput values.
 // You can construct a concrete instance of `IntentConfirmationPromptMessageArrayInput` via:
 //
-//          IntentConfirmationPromptMessageArray{ IntentConfirmationPromptMessageArgs{...} }
+//	IntentConfirmationPromptMessageArray{ IntentConfirmationPromptMessageArgs{...} }
 type IntentConfirmationPromptMessageArrayInput interface {
 	pulumi.Input
 
@@ -1615,7 +1615,7 @@ type IntentDialogCodeHook struct {
 // IntentDialogCodeHookInput is an input type that accepts IntentDialogCodeHookArgs and IntentDialogCodeHookOutput values.
 // You can construct a concrete instance of `IntentDialogCodeHookInput` via:
 //
-//          IntentDialogCodeHookArgs{...}
+//	IntentDialogCodeHookArgs{...}
 type IntentDialogCodeHookInput interface {
 	pulumi.Input
 
@@ -1655,11 +1655,11 @@ func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookPtrOutputWithContext(ctx
 // IntentDialogCodeHookPtrInput is an input type that accepts IntentDialogCodeHookArgs, IntentDialogCodeHookPtr and IntentDialogCodeHookPtrOutput values.
 // You can construct a concrete instance of `IntentDialogCodeHookPtrInput` via:
 //
-//          IntentDialogCodeHookArgs{...}
+//	        IntentDialogCodeHookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentDialogCodeHookPtrInput interface {
 	pulumi.Input
 
@@ -1779,7 +1779,7 @@ type IntentFollowUpPrompt struct {
 // IntentFollowUpPromptInput is an input type that accepts IntentFollowUpPromptArgs and IntentFollowUpPromptOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptInput` via:
 //
-//          IntentFollowUpPromptArgs{...}
+//	IntentFollowUpPromptArgs{...}
 type IntentFollowUpPromptInput interface {
 	pulumi.Input
 
@@ -1819,11 +1819,11 @@ func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptPtrOutputWithContext(ctx
 // IntentFollowUpPromptPtrInput is an input type that accepts IntentFollowUpPromptArgs, IntentFollowUpPromptPtr and IntentFollowUpPromptPtrOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptPtrInput` via:
 //
-//          IntentFollowUpPromptArgs{...}
+//	        IntentFollowUpPromptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentFollowUpPromptPtrInput interface {
 	pulumi.Input
 
@@ -1947,7 +1947,7 @@ type IntentFollowUpPromptPrompt struct {
 // IntentFollowUpPromptPromptInput is an input type that accepts IntentFollowUpPromptPromptArgs and IntentFollowUpPromptPromptOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptPromptInput` via:
 //
-//          IntentFollowUpPromptPromptArgs{...}
+//	IntentFollowUpPromptPromptArgs{...}
 type IntentFollowUpPromptPromptInput interface {
 	pulumi.Input
 
@@ -1991,11 +1991,11 @@ func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptPtrOutputWit
 // IntentFollowUpPromptPromptPtrInput is an input type that accepts IntentFollowUpPromptPromptArgs, IntentFollowUpPromptPromptPtr and IntentFollowUpPromptPromptPtrOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptPromptPtrInput` via:
 //
-//          IntentFollowUpPromptPromptArgs{...}
+//	        IntentFollowUpPromptPromptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentFollowUpPromptPromptPtrInput interface {
 	pulumi.Input
 
@@ -2135,7 +2135,7 @@ type IntentFollowUpPromptPromptMessage struct {
 // IntentFollowUpPromptPromptMessageInput is an input type that accepts IntentFollowUpPromptPromptMessageArgs and IntentFollowUpPromptPromptMessageOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptPromptMessageInput` via:
 //
-//          IntentFollowUpPromptPromptMessageArgs{...}
+//	IntentFollowUpPromptPromptMessageArgs{...}
 type IntentFollowUpPromptPromptMessageInput interface {
 	pulumi.Input
 
@@ -2168,7 +2168,7 @@ func (i IntentFollowUpPromptPromptMessageArgs) ToIntentFollowUpPromptPromptMessa
 // IntentFollowUpPromptPromptMessageArrayInput is an input type that accepts IntentFollowUpPromptPromptMessageArray and IntentFollowUpPromptPromptMessageArrayOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptPromptMessageArrayInput` via:
 //
-//          IntentFollowUpPromptPromptMessageArray{ IntentFollowUpPromptPromptMessageArgs{...} }
+//	IntentFollowUpPromptPromptMessageArray{ IntentFollowUpPromptPromptMessageArgs{...} }
 type IntentFollowUpPromptPromptMessageArrayInput interface {
 	pulumi.Input
 
@@ -2254,7 +2254,7 @@ type IntentFollowUpPromptRejectionStatement struct {
 // IntentFollowUpPromptRejectionStatementInput is an input type that accepts IntentFollowUpPromptRejectionStatementArgs and IntentFollowUpPromptRejectionStatementOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementInput` via:
 //
-//          IntentFollowUpPromptRejectionStatementArgs{...}
+//	IntentFollowUpPromptRejectionStatementArgs{...}
 type IntentFollowUpPromptRejectionStatementInput interface {
 	pulumi.Input
 
@@ -2296,11 +2296,11 @@ func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptReject
 // IntentFollowUpPromptRejectionStatementPtrInput is an input type that accepts IntentFollowUpPromptRejectionStatementArgs, IntentFollowUpPromptRejectionStatementPtr and IntentFollowUpPromptRejectionStatementPtrOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementPtrInput` via:
 //
-//          IntentFollowUpPromptRejectionStatementArgs{...}
+//	        IntentFollowUpPromptRejectionStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentFollowUpPromptRejectionStatementPtrInput interface {
 	pulumi.Input
 
@@ -2427,7 +2427,7 @@ type IntentFollowUpPromptRejectionStatementMessage struct {
 // IntentFollowUpPromptRejectionStatementMessageInput is an input type that accepts IntentFollowUpPromptRejectionStatementMessageArgs and IntentFollowUpPromptRejectionStatementMessageOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementMessageInput` via:
 //
-//          IntentFollowUpPromptRejectionStatementMessageArgs{...}
+//	IntentFollowUpPromptRejectionStatementMessageArgs{...}
 type IntentFollowUpPromptRejectionStatementMessageInput interface {
 	pulumi.Input
 
@@ -2460,7 +2460,7 @@ func (i IntentFollowUpPromptRejectionStatementMessageArgs) ToIntentFollowUpPromp
 // IntentFollowUpPromptRejectionStatementMessageArrayInput is an input type that accepts IntentFollowUpPromptRejectionStatementMessageArray and IntentFollowUpPromptRejectionStatementMessageArrayOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementMessageArrayInput` via:
 //
-//          IntentFollowUpPromptRejectionStatementMessageArray{ IntentFollowUpPromptRejectionStatementMessageArgs{...} }
+//	IntentFollowUpPromptRejectionStatementMessageArray{ IntentFollowUpPromptRejectionStatementMessageArgs{...} }
 type IntentFollowUpPromptRejectionStatementMessageArrayInput interface {
 	pulumi.Input
 
@@ -2544,7 +2544,7 @@ type IntentFulfillmentActivity struct {
 // IntentFulfillmentActivityInput is an input type that accepts IntentFulfillmentActivityArgs and IntentFulfillmentActivityOutput values.
 // You can construct a concrete instance of `IntentFulfillmentActivityInput` via:
 //
-//          IntentFulfillmentActivityArgs{...}
+//	IntentFulfillmentActivityArgs{...}
 type IntentFulfillmentActivityInput interface {
 	pulumi.Input
 
@@ -2584,11 +2584,11 @@ func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityPtrOutputWithC
 // IntentFulfillmentActivityPtrInput is an input type that accepts IntentFulfillmentActivityArgs, IntentFulfillmentActivityPtr and IntentFulfillmentActivityPtrOutput values.
 // You can construct a concrete instance of `IntentFulfillmentActivityPtrInput` via:
 //
-//          IntentFulfillmentActivityArgs{...}
+//	        IntentFulfillmentActivityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentFulfillmentActivityPtrInput interface {
 	pulumi.Input
 
@@ -2708,7 +2708,7 @@ type IntentFulfillmentActivityCodeHook struct {
 // IntentFulfillmentActivityCodeHookInput is an input type that accepts IntentFulfillmentActivityCodeHookArgs and IntentFulfillmentActivityCodeHookOutput values.
 // You can construct a concrete instance of `IntentFulfillmentActivityCodeHookInput` via:
 //
-//          IntentFulfillmentActivityCodeHookArgs{...}
+//	IntentFulfillmentActivityCodeHookArgs{...}
 type IntentFulfillmentActivityCodeHookInput interface {
 	pulumi.Input
 
@@ -2748,11 +2748,11 @@ func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHo
 // IntentFulfillmentActivityCodeHookPtrInput is an input type that accepts IntentFulfillmentActivityCodeHookArgs, IntentFulfillmentActivityCodeHookPtr and IntentFulfillmentActivityCodeHookPtrOutput values.
 // You can construct a concrete instance of `IntentFulfillmentActivityCodeHookPtrInput` via:
 //
-//          IntentFulfillmentActivityCodeHookArgs{...}
+//	        IntentFulfillmentActivityCodeHookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentFulfillmentActivityCodeHookPtrInput interface {
 	pulumi.Input
 
@@ -2874,7 +2874,7 @@ type IntentRejectionStatement struct {
 // IntentRejectionStatementInput is an input type that accepts IntentRejectionStatementArgs and IntentRejectionStatementOutput values.
 // You can construct a concrete instance of `IntentRejectionStatementInput` via:
 //
-//          IntentRejectionStatementArgs{...}
+//	IntentRejectionStatementArgs{...}
 type IntentRejectionStatementInput interface {
 	pulumi.Input
 
@@ -2916,11 +2916,11 @@ func (i IntentRejectionStatementArgs) ToIntentRejectionStatementPtrOutputWithCon
 // IntentRejectionStatementPtrInput is an input type that accepts IntentRejectionStatementArgs, IntentRejectionStatementPtr and IntentRejectionStatementPtrOutput values.
 // You can construct a concrete instance of `IntentRejectionStatementPtrInput` via:
 //
-//          IntentRejectionStatementArgs{...}
+//	        IntentRejectionStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentRejectionStatementPtrInput interface {
 	pulumi.Input
 
@@ -3045,7 +3045,7 @@ type IntentRejectionStatementMessage struct {
 // IntentRejectionStatementMessageInput is an input type that accepts IntentRejectionStatementMessageArgs and IntentRejectionStatementMessageOutput values.
 // You can construct a concrete instance of `IntentRejectionStatementMessageInput` via:
 //
-//          IntentRejectionStatementMessageArgs{...}
+//	IntentRejectionStatementMessageArgs{...}
 type IntentRejectionStatementMessageInput interface {
 	pulumi.Input
 
@@ -3078,7 +3078,7 @@ func (i IntentRejectionStatementMessageArgs) ToIntentRejectionStatementMessageOu
 // IntentRejectionStatementMessageArrayInput is an input type that accepts IntentRejectionStatementMessageArray and IntentRejectionStatementMessageArrayOutput values.
 // You can construct a concrete instance of `IntentRejectionStatementMessageArrayInput` via:
 //
-//          IntentRejectionStatementMessageArray{ IntentRejectionStatementMessageArgs{...} }
+//	IntentRejectionStatementMessageArray{ IntentRejectionStatementMessageArgs{...} }
 type IntentRejectionStatementMessageArrayInput interface {
 	pulumi.Input
 
@@ -3183,7 +3183,7 @@ type IntentSlot struct {
 // IntentSlotInput is an input type that accepts IntentSlotArgs and IntentSlotOutput values.
 // You can construct a concrete instance of `IntentSlotInput` via:
 //
-//          IntentSlotArgs{...}
+//	IntentSlotArgs{...}
 type IntentSlotInput interface {
 	pulumi.Input
 
@@ -3236,7 +3236,7 @@ func (i IntentSlotArgs) ToIntentSlotOutputWithContext(ctx context.Context) Inten
 // IntentSlotArrayInput is an input type that accepts IntentSlotArray and IntentSlotArrayOutput values.
 // You can construct a concrete instance of `IntentSlotArrayInput` via:
 //
-//          IntentSlotArray{ IntentSlotArgs{...} }
+//	IntentSlotArray{ IntentSlotArgs{...} }
 type IntentSlotArrayInput interface {
 	pulumi.Input
 
@@ -3362,7 +3362,7 @@ type IntentSlotValueElicitationPrompt struct {
 // IntentSlotValueElicitationPromptInput is an input type that accepts IntentSlotValueElicitationPromptArgs and IntentSlotValueElicitationPromptOutput values.
 // You can construct a concrete instance of `IntentSlotValueElicitationPromptInput` via:
 //
-//          IntentSlotValueElicitationPromptArgs{...}
+//	IntentSlotValueElicitationPromptArgs{...}
 type IntentSlotValueElicitationPromptInput interface {
 	pulumi.Input
 
@@ -3406,11 +3406,11 @@ func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPrompt
 // IntentSlotValueElicitationPromptPtrInput is an input type that accepts IntentSlotValueElicitationPromptArgs, IntentSlotValueElicitationPromptPtr and IntentSlotValueElicitationPromptPtrOutput values.
 // You can construct a concrete instance of `IntentSlotValueElicitationPromptPtrInput` via:
 //
-//          IntentSlotValueElicitationPromptArgs{...}
+//	        IntentSlotValueElicitationPromptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntentSlotValueElicitationPromptPtrInput interface {
 	pulumi.Input
 
@@ -3550,7 +3550,7 @@ type IntentSlotValueElicitationPromptMessage struct {
 // IntentSlotValueElicitationPromptMessageInput is an input type that accepts IntentSlotValueElicitationPromptMessageArgs and IntentSlotValueElicitationPromptMessageOutput values.
 // You can construct a concrete instance of `IntentSlotValueElicitationPromptMessageInput` via:
 //
-//          IntentSlotValueElicitationPromptMessageArgs{...}
+//	IntentSlotValueElicitationPromptMessageArgs{...}
 type IntentSlotValueElicitationPromptMessageInput interface {
 	pulumi.Input
 
@@ -3583,7 +3583,7 @@ func (i IntentSlotValueElicitationPromptMessageArgs) ToIntentSlotValueElicitatio
 // IntentSlotValueElicitationPromptMessageArrayInput is an input type that accepts IntentSlotValueElicitationPromptMessageArray and IntentSlotValueElicitationPromptMessageArrayOutput values.
 // You can construct a concrete instance of `IntentSlotValueElicitationPromptMessageArrayInput` via:
 //
-//          IntentSlotValueElicitationPromptMessageArray{ IntentSlotValueElicitationPromptMessageArgs{...} }
+//	IntentSlotValueElicitationPromptMessageArray{ IntentSlotValueElicitationPromptMessageArgs{...} }
 type IntentSlotValueElicitationPromptMessageArrayInput interface {
 	pulumi.Input
 
@@ -3665,7 +3665,7 @@ type SlotTypeEnumerationValue struct {
 // SlotTypeEnumerationValueInput is an input type that accepts SlotTypeEnumerationValueArgs and SlotTypeEnumerationValueOutput values.
 // You can construct a concrete instance of `SlotTypeEnumerationValueInput` via:
 //
-//          SlotTypeEnumerationValueArgs{...}
+//	SlotTypeEnumerationValueArgs{...}
 type SlotTypeEnumerationValueInput interface {
 	pulumi.Input
 
@@ -3695,7 +3695,7 @@ func (i SlotTypeEnumerationValueArgs) ToSlotTypeEnumerationValueOutputWithContex
 // SlotTypeEnumerationValueArrayInput is an input type that accepts SlotTypeEnumerationValueArray and SlotTypeEnumerationValueArrayOutput values.
 // You can construct a concrete instance of `SlotTypeEnumerationValueArrayInput` via:
 //
-//          SlotTypeEnumerationValueArray{ SlotTypeEnumerationValueArgs{...} }
+//	SlotTypeEnumerationValueArray{ SlotTypeEnumerationValueArgs{...} }
 type SlotTypeEnumerationValueArrayInput interface {
 	pulumi.Input
 
@@ -3769,7 +3769,7 @@ type GetSlotTypeEnumerationValue struct {
 // GetSlotTypeEnumerationValueInput is an input type that accepts GetSlotTypeEnumerationValueArgs and GetSlotTypeEnumerationValueOutput values.
 // You can construct a concrete instance of `GetSlotTypeEnumerationValueInput` via:
 //
-//          GetSlotTypeEnumerationValueArgs{...}
+//	GetSlotTypeEnumerationValueArgs{...}
 type GetSlotTypeEnumerationValueInput interface {
 	pulumi.Input
 
@@ -3797,7 +3797,7 @@ func (i GetSlotTypeEnumerationValueArgs) ToGetSlotTypeEnumerationValueOutputWith
 // GetSlotTypeEnumerationValueArrayInput is an input type that accepts GetSlotTypeEnumerationValueArray and GetSlotTypeEnumerationValueArrayOutput values.
 // You can construct a concrete instance of `GetSlotTypeEnumerationValueArrayInput` via:
 //
-//          GetSlotTypeEnumerationValueArray{ GetSlotTypeEnumerationValueArgs{...} }
+//	GetSlotTypeEnumerationValueArray{ GetSlotTypeEnumerationValueArgs{...} }
 type GetSlotTypeEnumerationValueArrayInput interface {
 	pulumi.Input
 

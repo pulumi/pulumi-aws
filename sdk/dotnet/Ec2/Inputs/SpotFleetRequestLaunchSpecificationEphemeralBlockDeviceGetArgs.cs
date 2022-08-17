@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceGetArgs()
         {
         }
+        public static new SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceGetArgs Empty => new SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceGetArgs();
     }
 }

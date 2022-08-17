@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs()
         {
         }
+        public static new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs Empty => new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs();
     }
 }

@@ -15,16 +15,15 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.CloudWatch.Dashboard("main", new()
     ///     {
-    ///         var main = new Aws.CloudWatch.Dashboard("main", new Aws.CloudWatch.DashboardArgs
-    ///         {
-    ///             DashboardBody = @"{
+    ///         DashboardBody = @"{
     ///   ""widgets"": [
     ///     {
     ///       ""type"": ""metric"",
@@ -61,11 +60,10 @@ namespace Pulumi.Aws.CloudWatch
     /// }
     /// 
     /// ",
-    ///             DashboardName = "my-dashboard",
-    ///         });
-    ///     }
+    ///         DashboardName = "my-dashboard",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +75,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/dashboard:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dashboard.
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.CloudWatch
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 
-    public sealed class DashboardState : Pulumi.ResourceArgs
+    public sealed class DashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dashboard.
@@ -183,5 +182,6 @@ namespace Pulumi.Aws.CloudWatch
         public DashboardState()
         {
         }
+        public static new DashboardState Empty => new DashboardState();
     }
 }

@@ -23,28 +23,27 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///         var selected = Output.Create(Aws.Ec2.GetRouteTable.InvokeAsync(new Aws.Ec2.GetRouteTableArgs
-        ///         {
-        ///             SubnetId = subnetId,
-        ///         }));
-        ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-        ///         {
-        ///             RouteTableId = selected.Apply(selected =&gt; selected.Id),
-        ///             DestinationCidrBlock = "10.0.1.0/22",
-        ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
-        ///         });
-        ///     }
+        ///         SubnetId = subnetId,
+        ///     });
         /// 
-        /// }
+        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     {
+        ///         RouteTableId = selected.Apply(getRouteTableResult =&gt; getRouteTableResult.Id),
+        ///         DestinationCidrBlock = "10.0.1.0/22",
+        ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -64,28 +63,27 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///         var selected = Output.Create(Aws.Ec2.GetRouteTable.InvokeAsync(new Aws.Ec2.GetRouteTableArgs
-        ///         {
-        ///             SubnetId = subnetId,
-        ///         }));
-        ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-        ///         {
-        ///             RouteTableId = selected.Apply(selected =&gt; selected.Id),
-        ///             DestinationCidrBlock = "10.0.1.0/22",
-        ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
-        ///         });
-        ///     }
+        ///         SubnetId = subnetId,
+        ///     });
         /// 
-        /// }
+        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     {
+        ///         RouteTableId = selected.Apply(getRouteTableResult =&gt; getRouteTableResult.Id),
+        ///         DestinationCidrBlock = "10.0.1.0/22",
+        ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -95,7 +93,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetRouteTableFilterArgs>? _filters;
@@ -148,9 +146,10 @@ namespace Pulumi.Aws.Ec2
         public GetRouteTableArgs()
         {
         }
+        public static new GetRouteTableArgs Empty => new GetRouteTableArgs();
     }
 
-    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetRouteTableFilterInputArgs>? _filters;
@@ -203,6 +202,7 @@ namespace Pulumi.Aws.Ec2
         public GetRouteTableInvokeArgs()
         {
         }
+        public static new GetRouteTableInvokeArgs Empty => new GetRouteTableInvokeArgs();
     }
 
 

@@ -19,88 +19,85 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new Aws.Rds.InstanceAutomatedBackupsReplicationArgs
-    ///         {
-    ///             RetentionPeriod = 14,
-    ///             SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
-    ///         });
-    ///     }
+    ///         RetentionPeriod = 14,
+    ///         SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Encrypting the automated backup with KMS
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new Aws.Rds.InstanceAutomatedBackupsReplicationArgs
-    ///         {
-    ///             KmsKeyId = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-    ///             SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
-    ///         });
-    ///     }
+    ///         KmsKeyId = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+    ///         SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Example including a RDS DB instance
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var replica = new Aws.Provider("replica", new()
     ///     {
-    ///         var replica = new Aws.Provider("replica", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-west-2",
-    ///         });
-    ///         var defaultInstance = new Aws.Rds.Instance("defaultInstance", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 10,
-    ///             Identifier = "mydb",
-    ///             Engine = "postgres",
-    ///             EngineVersion = "13.4",
-    ///             InstanceClass = "db.t3.micro",
-    ///             Name = "mydb",
-    ///             Username = "masterusername",
-    ///             Password = "mustbeeightcharacters",
-    ///             BackupRetentionPeriod = 7,
-    ///             StorageEncrypted = true,
-    ///             SkipFinalSnapshot = true,
-    ///         });
-    ///         var defaultKey = new Aws.Kms.Key("defaultKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "Encryption key for automated backups",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "aws.replica",
-    ///         });
-    ///         var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", new Aws.Rds.InstanceAutomatedBackupsReplicationArgs
-    ///         {
-    ///             SourceDbInstanceArn = defaultInstance.Arn,
-    ///             KmsKeyId = defaultKey.Arn,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "aws.replica",
-    ///         });
-    ///     }
+    ///         Region = "us-west-2",
+    ///     });
     /// 
-    /// }
+    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
+    ///     {
+    ///         AllocatedStorage = 10,
+    ///         Identifier = "mydb",
+    ///         Engine = "postgres",
+    ///         EngineVersion = "13.4",
+    ///         InstanceClass = "db.t3.micro",
+    ///         Name = "mydb",
+    ///         Username = "masterusername",
+    ///         Password = "mustbeeightcharacters",
+    ///         BackupRetentionPeriod = 7,
+    ///         StorageEncrypted = true,
+    ///         SkipFinalSnapshot = true,
+    ///     });
+    /// 
+    ///     var defaultKey = new Aws.Kms.Key("defaultKey", new()
+    ///     {
+    ///         Description = "Encryption key for automated backups",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "aws.replica",
+    ///     });
+    /// 
+    ///     var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", new()
+    ///     {
+    ///         SourceDbInstanceArn = defaultInstance.Arn,
+    ///         KmsKeyId = defaultKey.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "aws.replica",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -112,7 +109,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")]
-    public partial class InstanceAutomatedBackupsReplication : Pulumi.CustomResource
+    public partial class InstanceAutomatedBackupsReplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
@@ -182,7 +179,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class InstanceAutomatedBackupsReplicationArgs : Pulumi.ResourceArgs
+    public sealed class InstanceAutomatedBackupsReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
@@ -211,9 +208,10 @@ namespace Pulumi.Aws.Rds
         public InstanceAutomatedBackupsReplicationArgs()
         {
         }
+        public static new InstanceAutomatedBackupsReplicationArgs Empty => new InstanceAutomatedBackupsReplicationArgs();
     }
 
-    public sealed class InstanceAutomatedBackupsReplicationState : Pulumi.ResourceArgs
+    public sealed class InstanceAutomatedBackupsReplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
@@ -242,5 +240,6 @@ namespace Pulumi.Aws.Rds
         public InstanceAutomatedBackupsReplicationState()
         {
         }
+        public static new InstanceAutomatedBackupsReplicationState Empty => new InstanceAutomatedBackupsReplicationState();
     }
 }

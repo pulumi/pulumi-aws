@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ClusterConfigurationExecuteCommandConfigurationLogConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConfigurationExecuteCommandConfigurationLogConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ClusterConfigurationExecuteCommandConfigurationLogConfigurationGetArgs()
         {
         }
+        public static new ClusterConfigurationExecuteCommandConfigurationLogConfigurationGetArgs Empty => new ClusterConfigurationExecuteCommandConfigurationLogConfigurationGetArgs();
     }
 }

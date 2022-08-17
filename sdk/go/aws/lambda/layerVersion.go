@@ -18,25 +18,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
-// 			CompatibleRuntimes: pulumi.StringArray{
-// 				pulumi.String("nodejs12.x"),
-// 			},
-// 			Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
-// 			LayerName: pulumi.String("lambda_layer_name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
+//				CompatibleRuntimes: pulumi.StringArray{
+//					pulumi.String("nodejs12.x"),
+//				},
+//				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
+//				LayerName: pulumi.String("lambda_layer_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Lambda Layer with Compatible Architectures
 //
@@ -44,29 +47,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
-// 			CompatibleArchitectures: pulumi.StringArray{
-// 				pulumi.String("arm64"),
-// 				pulumi.String("x86_64"),
-// 			},
-// 			CompatibleRuntimes: pulumi.StringArray{
-// 				pulumi.String("nodejs12.x"),
-// 			},
-// 			Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
-// 			LayerName: pulumi.String("lambda_layer_name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
+//				CompatibleArchitectures: pulumi.StringArray{
+//					pulumi.String("arm64"),
+//					pulumi.String("x86_64"),
+//				},
+//				CompatibleRuntimes: pulumi.StringArray{
+//					pulumi.String("nodejs12.x"),
+//				},
+//				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
+//				LayerName: pulumi.String("lambda_layer_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Specifying the Deployment Package
 //
@@ -84,12 +90,14 @@ import (
 // Lambda Layers can be imported using `arn`.
 //
 // ```sh
-//  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+//
+//	$ pulumi import aws:lambda/layerVersion:LayerVersion \
+//
 // ```
 //
-//  aws_lambda_layer_version.test_layer \
+//	aws_lambda_layer_version.test_layer \
 //
-//  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+//	arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
 type LayerVersion struct {
 	pulumi.CustomResourceState
 
@@ -316,7 +324,7 @@ func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) Laye
 // LayerVersionArrayInput is an input type that accepts LayerVersionArray and LayerVersionArrayOutput values.
 // You can construct a concrete instance of `LayerVersionArrayInput` via:
 //
-//          LayerVersionArray{ LayerVersionArgs{...} }
+//	LayerVersionArray{ LayerVersionArgs{...} }
 type LayerVersionArrayInput interface {
 	pulumi.Input
 
@@ -341,7 +349,7 @@ func (i LayerVersionArray) ToLayerVersionArrayOutputWithContext(ctx context.Cont
 // LayerVersionMapInput is an input type that accepts LayerVersionMap and LayerVersionMapOutput values.
 // You can construct a concrete instance of `LayerVersionMapInput` via:
 //
-//          LayerVersionMap{ "key": LayerVersionArgs{...} }
+//	LayerVersionMap{ "key": LayerVersionArgs{...} }
 type LayerVersionMapInput interface {
 	pulumi.Input
 

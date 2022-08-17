@@ -16,23 +16,31 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
     public static final ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs Empty = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs();
 
     /**
-     * The object property to use in the condition.
+     * The tag key.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The object property to use in the condition.
+     * @return The tag key.
      * 
      */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * The tag value.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return The tag value.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -63,7 +71,7 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
         }
 
         /**
-         * @param key The object property to use in the condition.
+         * @param key The tag key.
          * 
          * @return builder
          * 
@@ -74,7 +82,7 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
         }
 
         /**
-         * @param key The object property to use in the condition.
+         * @param key The tag key.
          * 
          * @return builder
          * 
@@ -83,11 +91,23 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
             return key(Output.of(key));
         }
 
+        /**
+         * @param value The tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

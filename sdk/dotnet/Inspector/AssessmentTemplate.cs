@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Inspector
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Inspector.AssessmentTemplate("example", new()
     ///     {
-    ///         var example = new Aws.Inspector.AssessmentTemplate("example", new Aws.Inspector.AssessmentTemplateArgs
+    ///         TargetArn = aws_inspector_assessment_target.Example.Arn,
+    ///         Duration = 3600,
+    ///         RulesPackageArns = new[]
     ///         {
-    ///             TargetArn = aws_inspector_assessment_target.Example.Arn,
-    ///             Duration = 3600,
-    ///             RulesPackageArns = 
-    ///             {
-    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
-    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
-    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
-    ///                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-    ///             },
-    ///         });
-    ///     }
+    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Inspector
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]
-    public partial class AssessmentTemplate : Pulumi.CustomResource
+    public partial class AssessmentTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The template assessment ARN.
@@ -75,13 +73,13 @@ namespace Pulumi.Aws.Inspector
         public Output<ImmutableArray<string>> RulesPackageArns { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags for the Inspector assessment template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.Inspector
         }
     }
 
-    public sealed class AssessmentTemplateArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration of the inspector run.
@@ -166,7 +164,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags for the Inspector assessment template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -183,9 +181,10 @@ namespace Pulumi.Aws.Inspector
         public AssessmentTemplateArgs()
         {
         }
+        public static new AssessmentTemplateArgs Empty => new AssessmentTemplateArgs();
     }
 
-    public sealed class AssessmentTemplateState : Pulumi.ResourceArgs
+    public sealed class AssessmentTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The template assessment ARN.
@@ -221,7 +220,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags for the Inspector assessment template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -233,7 +232,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -250,5 +249,6 @@ namespace Pulumi.Aws.Inspector
         public AssessmentTemplateState()
         {
         }
+        public static new AssessmentTemplateState Empty => new AssessmentTemplateState();
     }
 }

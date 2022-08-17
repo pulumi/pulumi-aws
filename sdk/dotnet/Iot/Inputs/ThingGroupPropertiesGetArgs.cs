@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class ThingGroupPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class ThingGroupPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Thing Group attributes. Defined below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public ThingGroupPropertiesGetArgs()
         {
         }
+        public static new ThingGroupPropertiesGetArgs Empty => new ThingGroupPropertiesGetArgs();
     }
 }

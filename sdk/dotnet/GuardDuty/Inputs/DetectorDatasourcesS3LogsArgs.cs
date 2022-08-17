@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty.Inputs
 {
 
-    public sealed class DetectorDatasourcesS3LogsArgs : Pulumi.ResourceArgs
+    public sealed class DetectorDatasourcesS3LogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
@@ -22,5 +22,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public DetectorDatasourcesS3LogsArgs()
         {
         }
+        public static new DetectorDatasourcesS3LogsArgs Empty => new DetectorDatasourcesS3LogsArgs();
     }
 }

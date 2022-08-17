@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupAutoRollbackConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupAutoRollbackConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupAutoRollbackConfigurationArgs()
         {
         }
+        public static new DeploymentGroupAutoRollbackConfigurationArgs Empty => new DeploymentGroupAutoRollbackConfigurationArgs();
     }
 }

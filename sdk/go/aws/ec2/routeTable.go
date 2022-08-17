@@ -38,34 +38,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-// 			VpcId: pulumi.Any(aws_vpc.Example.Id),
-// 			Routes: ec2.RouteTableRouteArray{
-// 				&ec2.RouteTableRouteArgs{
-// 					CidrBlock: pulumi.String("10.0.1.0/24"),
-// 					GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
-// 				},
-// 				&ec2.RouteTableRouteArgs{
-// 					Ipv6CidrBlock:       pulumi.String("::/0"),
-// 					EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
+//				VpcId: pulumi.Any(aws_vpc.Example.Id),
+//				Routes: ec2.RouteTableRouteArray{
+//					&ec2.RouteTableRouteArgs{
+//						CidrBlock: pulumi.String("10.0.1.0/24"),
+//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
+//					},
+//					&ec2.RouteTableRouteArgs{
+//						Ipv6CidrBlock:       pulumi.String("::/0"),
+//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // To subsequently remove all managed routes:
@@ -74,25 +77,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-// 			VpcId:  pulumi.Any(aws_vpc.Example.Id),
-// 			Routes: ec2.RouteTableRouteArray{},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
+//				VpcId:  pulumi.Any(aws_vpc.Example.Id),
+//				Routes: ec2.RouteTableRouteArray{},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,7 +106,9 @@ import (
 // Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
 //
 // ```sh
-//  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+//
+//	$ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+//
 // ```
 type RouteTable struct {
 	pulumi.CustomResourceState
@@ -113,9 +121,9 @@ type RouteTable struct {
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -161,9 +169,9 @@ type routeTableState struct {
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
@@ -178,9 +186,9 @@ type RouteTableState struct {
 	PropagatingVgws pulumi.StringArrayInput
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
@@ -195,7 +203,7 @@ type routeTableArgs struct {
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId string `pulumi:"vpcId"`
@@ -207,7 +215,7 @@ type RouteTableArgs struct {
 	PropagatingVgws pulumi.StringArrayInput
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringInput
@@ -239,7 +247,7 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 // RouteTableArrayInput is an input type that accepts RouteTableArray and RouteTableArrayOutput values.
 // You can construct a concrete instance of `RouteTableArrayInput` via:
 //
-//          RouteTableArray{ RouteTableArgs{...} }
+//	RouteTableArray{ RouteTableArgs{...} }
 type RouteTableArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +272,7 @@ func (i RouteTableArray) ToRouteTableArrayOutputWithContext(ctx context.Context)
 // RouteTableMapInput is an input type that accepts RouteTableMap and RouteTableMapOutput values.
 // You can construct a concrete instance of `RouteTableMapInput` via:
 //
-//          RouteTableMap{ "key": RouteTableArgs{...} }
+//	RouteTableMap{ "key": RouteTableArgs{...} }
 type RouteTableMapInput interface {
 	pulumi.Input
 
@@ -320,12 +328,12 @@ func (o RouteTableOutput) Routes() RouteTableRouteArrayOutput {
 	return o.ApplyT(func(v *RouteTable) RouteTableRouteArrayOutput { return v.Routes }).(RouteTableRouteArrayOutput)
 }
 
-// A map of tags to assign to the resource.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteTableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

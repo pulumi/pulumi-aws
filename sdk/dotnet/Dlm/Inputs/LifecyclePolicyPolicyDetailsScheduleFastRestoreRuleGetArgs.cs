@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones", required: true)]
         private InputList<string>? _availabilityZones;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs Empty => new LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs();
     }
 }

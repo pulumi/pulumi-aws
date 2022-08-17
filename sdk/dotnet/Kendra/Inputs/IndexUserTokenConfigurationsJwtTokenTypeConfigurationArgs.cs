@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs()
         {
         }
+        public static new IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs Empty => new IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs();
     }
 }

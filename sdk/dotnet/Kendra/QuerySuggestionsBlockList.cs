@@ -14,30 +14,28 @@ namespace Pulumi.Aws.Kendra
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.QuerySuggestionsBlockList("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.QuerySuggestionsBlockList("example", new Aws.Kendra.QuerySuggestionsBlockListArgs
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         SourceS3Path = new Aws.Kendra.Inputs.QuerySuggestionsBlockListSourceS3PathArgs
     ///         {
-    ///             IndexId = aws_kendra_index.Example.Id,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             SourceS3Path = new Aws.Kendra.Inputs.QuerySuggestionsBlockListSourceS3PathArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Example.Id,
-    ///                 Key = "example/suggestions.txt",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Kendra Index" },
-    ///             },
-    ///         });
-    ///     }
+    ///             Bucket = aws_s3_bucket.Example.Id,
+    ///             Key = "example/suggestions.txt",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Kendra Index" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")]
-    public partial class QuerySuggestionsBlockList : Pulumi.CustomResource
+    public partial class QuerySuggestionsBlockList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the block list.
@@ -99,9 +97,6 @@ namespace Pulumi.Aws.Kendra
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -149,7 +144,7 @@ namespace Pulumi.Aws.Kendra
         }
     }
 
-    public sealed class QuerySuggestionsBlockListArgs : Pulumi.ResourceArgs
+    public sealed class QuerySuggestionsBlockListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for a block list.
@@ -189,24 +184,13 @@ namespace Pulumi.Aws.Kendra
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public QuerySuggestionsBlockListArgs()
         {
         }
+        public static new QuerySuggestionsBlockListArgs Empty => new QuerySuggestionsBlockListArgs();
     }
 
-    public sealed class QuerySuggestionsBlockListState : Pulumi.ResourceArgs
+    public sealed class QuerySuggestionsBlockListState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the block list.
@@ -263,10 +247,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -276,5 +256,6 @@ namespace Pulumi.Aws.Kendra
         public QuerySuggestionsBlockListState()
         {
         }
+        public static new QuerySuggestionsBlockListState Empty => new QuerySuggestionsBlockListState();
     }
 }

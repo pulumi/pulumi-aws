@@ -15,35 +15,34 @@ namespace Pulumi.Aws.Chime
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
     ///     {
-    ///         var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             RequireEncryption = true,
-    ///         });
-    ///         var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new Aws.Chime.VoiceConnectorTerminationArgs
-    ///         {
-    ///             Disabled = false,
-    ///             CpsLimit = 1,
-    ///             CidrAllowLists = 
-    ///             {
-    ///                 "50.35.78.96/31",
-    ///             },
-    ///             CallingRegions = 
-    ///             {
-    ///                 "US",
-    ///                 "CA",
-    ///             },
-    ///             VoiceConnectorId = defaultVoiceConnector.Id,
-    ///         });
-    ///     }
+    ///         RequireEncryption = true,
+    ///     });
     /// 
-    /// }
+    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
+    ///     {
+    ///         Disabled = false,
+    ///         CpsLimit = 1,
+    ///         CidrAllowLists = new[]
+    ///         {
+    ///             "50.35.78.96/31",
+    ///         },
+    ///         CallingRegions = new[]
+    ///         {
+    ///             "US",
+    ///             "CA",
+    ///         },
+    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +54,7 @@ namespace Pulumi.Aws.Chime
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")]
-    public partial class VoiceConnectorTermination : Pulumi.CustomResource
+    public partial class VoiceConnectorTermination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
@@ -137,7 +136,7 @@ namespace Pulumi.Aws.Chime
         }
     }
 
-    public sealed class VoiceConnectorTerminationArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorTerminationArgs : global::Pulumi.ResourceArgs
     {
         [Input("callingRegions", required: true)]
         private InputList<string>? _callingRegions;
@@ -190,9 +189,10 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorTerminationArgs()
         {
         }
+        public static new VoiceConnectorTerminationArgs Empty => new VoiceConnectorTerminationArgs();
     }
 
-    public sealed class VoiceConnectorTerminationState : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorTerminationState : global::Pulumi.ResourceArgs
     {
         [Input("callingRegions")]
         private InputList<string>? _callingRegions;
@@ -245,5 +245,6 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorTerminationState()
         {
         }
+        public static new VoiceConnectorTerminationState Empty => new VoiceConnectorTerminationState();
     }
 }

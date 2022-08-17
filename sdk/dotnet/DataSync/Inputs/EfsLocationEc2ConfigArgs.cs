@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class EfsLocationEc2ConfigArgs : Pulumi.ResourceArgs
+    public sealed class EfsLocationEc2ConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public EfsLocationEc2ConfigArgs()
         {
         }
+        public static new EfsLocationEc2ConfigArgs Empty => new EfsLocationEc2ConfigArgs();
     }
 }

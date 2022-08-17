@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class BrokerConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Configuration ID.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerConfigurationGetArgs()
         {
         }
+        public static new BrokerConfigurationGetArgs Empty => new BrokerConfigurationGetArgs();
     }
 }

@@ -24,7 +24,7 @@ type EventConnectionAuthParameters struct {
 // EventConnectionAuthParametersInput is an input type that accepts EventConnectionAuthParametersArgs and EventConnectionAuthParametersOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInput` via:
 //
-//          EventConnectionAuthParametersArgs{...}
+//	EventConnectionAuthParametersArgs{...}
 type EventConnectionAuthParametersInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersPtrOut
 // EventConnectionAuthParametersPtrInput is an input type that accepts EventConnectionAuthParametersArgs, EventConnectionAuthParametersPtr and EventConnectionAuthParametersPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersPtrInput` via:
 //
-//          EventConnectionAuthParametersArgs{...}
+//	        EventConnectionAuthParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersPtrInput interface {
 	pulumi.Input
 
@@ -216,7 +216,7 @@ type EventConnectionAuthParametersApiKey struct {
 // EventConnectionAuthParametersApiKeyInput is an input type that accepts EventConnectionAuthParametersApiKeyArgs and EventConnectionAuthParametersApiKeyOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersApiKeyInput` via:
 //
-//          EventConnectionAuthParametersApiKeyArgs{...}
+//	EventConnectionAuthParametersApiKeyArgs{...}
 type EventConnectionAuthParametersApiKeyInput interface {
 	pulumi.Input
 
@@ -254,11 +254,11 @@ func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParameters
 // EventConnectionAuthParametersApiKeyPtrInput is an input type that accepts EventConnectionAuthParametersApiKeyArgs, EventConnectionAuthParametersApiKeyPtr and EventConnectionAuthParametersApiKeyPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersApiKeyPtrInput` via:
 //
-//          EventConnectionAuthParametersApiKeyArgs{...}
+//	        EventConnectionAuthParametersApiKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersApiKeyPtrInput interface {
 	pulumi.Input
 
@@ -372,7 +372,7 @@ type EventConnectionAuthParametersBasic struct {
 // EventConnectionAuthParametersBasicInput is an input type that accepts EventConnectionAuthParametersBasicArgs and EventConnectionAuthParametersBasicOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersBasicInput` via:
 //
-//          EventConnectionAuthParametersBasicArgs{...}
+//	EventConnectionAuthParametersBasicArgs{...}
 type EventConnectionAuthParametersBasicInput interface {
 	pulumi.Input
 
@@ -410,11 +410,11 @@ func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersB
 // EventConnectionAuthParametersBasicPtrInput is an input type that accepts EventConnectionAuthParametersBasicArgs, EventConnectionAuthParametersBasicPtr and EventConnectionAuthParametersBasicPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersBasicPtrInput` via:
 //
-//          EventConnectionAuthParametersBasicArgs{...}
+//	        EventConnectionAuthParametersBasicArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersBasicPtrInput interface {
 	pulumi.Input
 
@@ -530,7 +530,7 @@ type EventConnectionAuthParametersInvocationHttpParameters struct {
 // EventConnectionAuthParametersInvocationHttpParametersInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersArgs and EventConnectionAuthParametersInvocationHttpParametersOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersArgs{...}
+//	EventConnectionAuthParametersInvocationHttpParametersArgs{...}
 type EventConnectionAuthParametersInvocationHttpParametersInput interface {
 	pulumi.Input
 
@@ -570,11 +570,11 @@ func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnec
 // EventConnectionAuthParametersInvocationHttpParametersPtrInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersArgs, EventConnectionAuthParametersInvocationHttpParametersPtr and EventConnectionAuthParametersInvocationHttpParametersPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersPtrInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersArgs{...}
+//	        EventConnectionAuthParametersInvocationHttpParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersInvocationHttpParametersPtrInput interface {
 	pulumi.Input
 
@@ -711,7 +711,7 @@ type EventConnectionAuthParametersInvocationHttpParametersBody struct {
 // EventConnectionAuthParametersInvocationHttpParametersBodyInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersBodyArgs and EventConnectionAuthParametersInvocationHttpParametersBodyOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersBodyInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersBodyArgs{...}
+//	EventConnectionAuthParametersInvocationHttpParametersBodyArgs{...}
 type EventConnectionAuthParametersInvocationHttpParametersBodyInput interface {
 	pulumi.Input
 
@@ -743,7 +743,7 @@ func (i EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ToEventCo
 // EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersBodyArray and EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersBodyArray{ EventConnectionAuthParametersInvocationHttpParametersBodyArgs{...} }
+//	EventConnectionAuthParametersInvocationHttpParametersBodyArray{ EventConnectionAuthParametersInvocationHttpParametersBodyArgs{...} }
 type EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput interface {
 	pulumi.Input
 
@@ -826,7 +826,7 @@ type EventConnectionAuthParametersInvocationHttpParametersHeader struct {
 // EventConnectionAuthParametersInvocationHttpParametersHeaderInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersHeaderArgs and EventConnectionAuthParametersInvocationHttpParametersHeaderOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersHeaderInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{...}
+//	EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{...}
 type EventConnectionAuthParametersInvocationHttpParametersHeaderInput interface {
 	pulumi.Input
 
@@ -858,7 +858,7 @@ func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ToEvent
 // EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersHeaderArray and EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersHeaderArray{ EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{...} }
+//	EventConnectionAuthParametersInvocationHttpParametersHeaderArray{ EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{...} }
 type EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput interface {
 	pulumi.Input
 
@@ -941,7 +941,7 @@ type EventConnectionAuthParametersInvocationHttpParametersQueryString struct {
 // EventConnectionAuthParametersInvocationHttpParametersQueryStringInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs and EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersQueryStringInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{...}
+//	EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{...}
 type EventConnectionAuthParametersInvocationHttpParametersQueryStringInput interface {
 	pulumi.Input
 
@@ -973,7 +973,7 @@ func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) To
 // EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersQueryStringArray and EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput` via:
 //
-//          EventConnectionAuthParametersInvocationHttpParametersQueryStringArray{ EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{...} }
+//	EventConnectionAuthParametersInvocationHttpParametersQueryStringArray{ EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{...} }
 type EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput interface {
 	pulumi.Input
 
@@ -1058,7 +1058,7 @@ type EventConnectionAuthParametersOauth struct {
 // EventConnectionAuthParametersOauthInput is an input type that accepts EventConnectionAuthParametersOauthArgs and EventConnectionAuthParametersOauthOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthInput` via:
 //
-//          EventConnectionAuthParametersOauthArgs{...}
+//	EventConnectionAuthParametersOauthArgs{...}
 type EventConnectionAuthParametersOauthInput interface {
 	pulumi.Input
 
@@ -1100,11 +1100,11 @@ func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersO
 // EventConnectionAuthParametersOauthPtrInput is an input type that accepts EventConnectionAuthParametersOauthArgs, EventConnectionAuthParametersOauthPtr and EventConnectionAuthParametersOauthPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthPtrInput` via:
 //
-//          EventConnectionAuthParametersOauthArgs{...}
+//	        EventConnectionAuthParametersOauthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersOauthPtrInput interface {
 	pulumi.Input
 
@@ -1252,7 +1252,7 @@ type EventConnectionAuthParametersOauthClientParameters struct {
 // EventConnectionAuthParametersOauthClientParametersInput is an input type that accepts EventConnectionAuthParametersOauthClientParametersArgs and EventConnectionAuthParametersOauthClientParametersOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthClientParametersInput` via:
 //
-//          EventConnectionAuthParametersOauthClientParametersArgs{...}
+//	EventConnectionAuthParametersOauthClientParametersArgs{...}
 type EventConnectionAuthParametersOauthClientParametersInput interface {
 	pulumi.Input
 
@@ -1290,11 +1290,11 @@ func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectio
 // EventConnectionAuthParametersOauthClientParametersPtrInput is an input type that accepts EventConnectionAuthParametersOauthClientParametersArgs, EventConnectionAuthParametersOauthClientParametersPtr and EventConnectionAuthParametersOauthClientParametersPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthClientParametersPtrInput` via:
 //
-//          EventConnectionAuthParametersOauthClientParametersArgs{...}
+//	        EventConnectionAuthParametersOauthClientParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersOauthClientParametersPtrInput interface {
 	pulumi.Input
 
@@ -1410,7 +1410,7 @@ type EventConnectionAuthParametersOauthOauthHttpParameters struct {
 // EventConnectionAuthParametersOauthOauthHttpParametersInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersArgs and EventConnectionAuthParametersOauthOauthHttpParametersOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersArgs{...}
+//	EventConnectionAuthParametersOauthOauthHttpParametersArgs{...}
 type EventConnectionAuthParametersOauthOauthHttpParametersInput interface {
 	pulumi.Input
 
@@ -1450,11 +1450,11 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnec
 // EventConnectionAuthParametersOauthOauthHttpParametersPtrInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersArgs, EventConnectionAuthParametersOauthOauthHttpParametersPtr and EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersPtrInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersArgs{...}
+//	        EventConnectionAuthParametersOauthOauthHttpParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventConnectionAuthParametersOauthOauthHttpParametersPtrInput interface {
 	pulumi.Input
 
@@ -1591,7 +1591,7 @@ type EventConnectionAuthParametersOauthOauthHttpParametersBody struct {
 // EventConnectionAuthParametersOauthOauthHttpParametersBodyInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs and EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersBodyInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{...}
+//	EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{...}
 type EventConnectionAuthParametersOauthOauthHttpParametersBodyInput interface {
 	pulumi.Input
 
@@ -1623,7 +1623,7 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ToEventCo
 // EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersBodyArray and EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersBodyArray{ EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{...} }
+//	EventConnectionAuthParametersOauthOauthHttpParametersBodyArray{ EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{...} }
 type EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput interface {
 	pulumi.Input
 
@@ -1706,7 +1706,7 @@ type EventConnectionAuthParametersOauthOauthHttpParametersHeader struct {
 // EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs and EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{...}
+//	EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{...}
 type EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput interface {
 	pulumi.Input
 
@@ -1738,7 +1738,7 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ToEvent
 // EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray and EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{ EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{...} }
+//	EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{ EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{...} }
 type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput interface {
 	pulumi.Input
 
@@ -1821,7 +1821,7 @@ type EventConnectionAuthParametersOauthOauthHttpParametersQueryString struct {
 // EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs and EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{...}
+//	EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{...}
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput interface {
 	pulumi.Input
 
@@ -1853,7 +1853,7 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) To
 // EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray and EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput` via:
 //
-//          EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{ EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{...} }
+//	EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{ EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{...} }
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput interface {
 	pulumi.Input
 
@@ -1936,7 +1936,7 @@ type EventPermissionCondition struct {
 // EventPermissionConditionInput is an input type that accepts EventPermissionConditionArgs and EventPermissionConditionOutput values.
 // You can construct a concrete instance of `EventPermissionConditionInput` via:
 //
-//          EventPermissionConditionArgs{...}
+//	EventPermissionConditionArgs{...}
 type EventPermissionConditionInput interface {
 	pulumi.Input
 
@@ -1976,11 +1976,11 @@ func (i EventPermissionConditionArgs) ToEventPermissionConditionPtrOutputWithCon
 // EventPermissionConditionPtrInput is an input type that accepts EventPermissionConditionArgs, EventPermissionConditionPtr and EventPermissionConditionPtrOutput values.
 // You can construct a concrete instance of `EventPermissionConditionPtrInput` via:
 //
-//          EventPermissionConditionArgs{...}
+//	        EventPermissionConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventPermissionConditionPtrInput interface {
 	pulumi.Input
 
@@ -2113,7 +2113,7 @@ type EventTargetBatchTarget struct {
 // EventTargetBatchTargetInput is an input type that accepts EventTargetBatchTargetArgs and EventTargetBatchTargetOutput values.
 // You can construct a concrete instance of `EventTargetBatchTargetInput` via:
 //
-//          EventTargetBatchTargetArgs{...}
+//	EventTargetBatchTargetArgs{...}
 type EventTargetBatchTargetInput interface {
 	pulumi.Input
 
@@ -2155,11 +2155,11 @@ func (i EventTargetBatchTargetArgs) ToEventTargetBatchTargetPtrOutputWithContext
 // EventTargetBatchTargetPtrInput is an input type that accepts EventTargetBatchTargetArgs, EventTargetBatchTargetPtr and EventTargetBatchTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetBatchTargetPtrInput` via:
 //
-//          EventTargetBatchTargetArgs{...}
+//	        EventTargetBatchTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetBatchTargetPtrInput interface {
 	pulumi.Input
 
@@ -2301,7 +2301,7 @@ type EventTargetDeadLetterConfig struct {
 // EventTargetDeadLetterConfigInput is an input type that accepts EventTargetDeadLetterConfigArgs and EventTargetDeadLetterConfigOutput values.
 // You can construct a concrete instance of `EventTargetDeadLetterConfigInput` via:
 //
-//          EventTargetDeadLetterConfigArgs{...}
+//	EventTargetDeadLetterConfigArgs{...}
 type EventTargetDeadLetterConfigInput interface {
 	pulumi.Input
 
@@ -2337,11 +2337,11 @@ func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigPtrOutputW
 // EventTargetDeadLetterConfigPtrInput is an input type that accepts EventTargetDeadLetterConfigArgs, EventTargetDeadLetterConfigPtr and EventTargetDeadLetterConfigPtrOutput values.
 // You can construct a concrete instance of `EventTargetDeadLetterConfigPtrInput` via:
 //
-//          EventTargetDeadLetterConfigArgs{...}
+//	        EventTargetDeadLetterConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetDeadLetterConfigPtrInput interface {
 	pulumi.Input
 
@@ -2458,7 +2458,7 @@ type EventTargetEcsTarget struct {
 // EventTargetEcsTargetInput is an input type that accepts EventTargetEcsTargetArgs and EventTargetEcsTargetOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetInput` via:
 //
-//          EventTargetEcsTargetArgs{...}
+//	EventTargetEcsTargetArgs{...}
 type EventTargetEcsTargetInput interface {
 	pulumi.Input
 
@@ -2514,11 +2514,11 @@ func (i EventTargetEcsTargetArgs) ToEventTargetEcsTargetPtrOutputWithContext(ctx
 // EventTargetEcsTargetPtrInput is an input type that accepts EventTargetEcsTargetArgs, EventTargetEcsTargetPtr and EventTargetEcsTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetPtrInput` via:
 //
-//          EventTargetEcsTargetArgs{...}
+//	        EventTargetEcsTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetEcsTargetPtrInput interface {
 	pulumi.Input
 
@@ -2769,7 +2769,7 @@ type EventTargetEcsTargetNetworkConfiguration struct {
 // EventTargetEcsTargetNetworkConfigurationInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs and EventTargetEcsTargetNetworkConfigurationOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetNetworkConfigurationInput` via:
 //
-//          EventTargetEcsTargetNetworkConfigurationArgs{...}
+//	EventTargetEcsTargetNetworkConfigurationArgs{...}
 type EventTargetEcsTargetNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -2809,11 +2809,11 @@ func (i EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetw
 // EventTargetEcsTargetNetworkConfigurationPtrInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs, EventTargetEcsTargetNetworkConfigurationPtr and EventTargetEcsTargetNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetNetworkConfigurationPtrInput` via:
 //
-//          EventTargetEcsTargetNetworkConfigurationArgs{...}
+//	        EventTargetEcsTargetNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetEcsTargetNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2942,7 +2942,7 @@ type EventTargetEcsTargetPlacementConstraint struct {
 // EventTargetEcsTargetPlacementConstraintInput is an input type that accepts EventTargetEcsTargetPlacementConstraintArgs and EventTargetEcsTargetPlacementConstraintOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetPlacementConstraintInput` via:
 //
-//          EventTargetEcsTargetPlacementConstraintArgs{...}
+//	EventTargetEcsTargetPlacementConstraintArgs{...}
 type EventTargetEcsTargetPlacementConstraintInput interface {
 	pulumi.Input
 
@@ -2972,7 +2972,7 @@ func (i EventTargetEcsTargetPlacementConstraintArgs) ToEventTargetEcsTargetPlace
 // EventTargetEcsTargetPlacementConstraintArrayInput is an input type that accepts EventTargetEcsTargetPlacementConstraintArray and EventTargetEcsTargetPlacementConstraintArrayOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetPlacementConstraintArrayInput` via:
 //
-//          EventTargetEcsTargetPlacementConstraintArray{ EventTargetEcsTargetPlacementConstraintArgs{...} }
+//	EventTargetEcsTargetPlacementConstraintArray{ EventTargetEcsTargetPlacementConstraintArgs{...} }
 type EventTargetEcsTargetPlacementConstraintArrayInput interface {
 	pulumi.Input
 
@@ -3050,7 +3050,7 @@ type EventTargetHttpTarget struct {
 // EventTargetHttpTargetInput is an input type that accepts EventTargetHttpTargetArgs and EventTargetHttpTargetOutput values.
 // You can construct a concrete instance of `EventTargetHttpTargetInput` via:
 //
-//          EventTargetHttpTargetArgs{...}
+//	EventTargetHttpTargetArgs{...}
 type EventTargetHttpTargetInput interface {
 	pulumi.Input
 
@@ -3090,11 +3090,11 @@ func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetPtrOutputWithContext(c
 // EventTargetHttpTargetPtrInput is an input type that accepts EventTargetHttpTargetArgs, EventTargetHttpTargetPtr and EventTargetHttpTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetHttpTargetPtrInput` via:
 //
-//          EventTargetHttpTargetArgs{...}
+//	        EventTargetHttpTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetHttpTargetPtrInput interface {
 	pulumi.Input
 
@@ -3226,7 +3226,7 @@ type EventTargetInputTransformer struct {
 // EventTargetInputTransformerInput is an input type that accepts EventTargetInputTransformerArgs and EventTargetInputTransformerOutput values.
 // You can construct a concrete instance of `EventTargetInputTransformerInput` via:
 //
-//          EventTargetInputTransformerArgs{...}
+//	EventTargetInputTransformerArgs{...}
 type EventTargetInputTransformerInput interface {
 	pulumi.Input
 
@@ -3267,11 +3267,11 @@ func (i EventTargetInputTransformerArgs) ToEventTargetInputTransformerPtrOutputW
 // EventTargetInputTransformerPtrInput is an input type that accepts EventTargetInputTransformerArgs, EventTargetInputTransformerPtr and EventTargetInputTransformerPtrOutput values.
 // You can construct a concrete instance of `EventTargetInputTransformerPtrInput` via:
 //
-//          EventTargetInputTransformerArgs{...}
+//	        EventTargetInputTransformerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetInputTransformerPtrInput interface {
 	pulumi.Input
 
@@ -3389,7 +3389,7 @@ type EventTargetKinesisTarget struct {
 // EventTargetKinesisTargetInput is an input type that accepts EventTargetKinesisTargetArgs and EventTargetKinesisTargetOutput values.
 // You can construct a concrete instance of `EventTargetKinesisTargetInput` via:
 //
-//          EventTargetKinesisTargetArgs{...}
+//	EventTargetKinesisTargetArgs{...}
 type EventTargetKinesisTargetInput interface {
 	pulumi.Input
 
@@ -3425,11 +3425,11 @@ func (i EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetPtrOutputWithCon
 // EventTargetKinesisTargetPtrInput is an input type that accepts EventTargetKinesisTargetArgs, EventTargetKinesisTargetPtr and EventTargetKinesisTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetKinesisTargetPtrInput` via:
 //
-//          EventTargetKinesisTargetArgs{...}
+//	        EventTargetKinesisTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetKinesisTargetPtrInput interface {
 	pulumi.Input
 
@@ -3536,7 +3536,7 @@ type EventTargetRedshiftTarget struct {
 // EventTargetRedshiftTargetInput is an input type that accepts EventTargetRedshiftTargetArgs and EventTargetRedshiftTargetOutput values.
 // You can construct a concrete instance of `EventTargetRedshiftTargetInput` via:
 //
-//          EventTargetRedshiftTargetArgs{...}
+//	EventTargetRedshiftTargetArgs{...}
 type EventTargetRedshiftTargetInput interface {
 	pulumi.Input
 
@@ -3582,11 +3582,11 @@ func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetPtrOutputWithC
 // EventTargetRedshiftTargetPtrInput is an input type that accepts EventTargetRedshiftTargetArgs, EventTargetRedshiftTargetPtr and EventTargetRedshiftTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetRedshiftTargetPtrInput` via:
 //
-//          EventTargetRedshiftTargetArgs{...}
+//	        EventTargetRedshiftTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetRedshiftTargetPtrInput interface {
 	pulumi.Input
 
@@ -3760,7 +3760,7 @@ type EventTargetRetryPolicy struct {
 // EventTargetRetryPolicyInput is an input type that accepts EventTargetRetryPolicyArgs and EventTargetRetryPolicyOutput values.
 // You can construct a concrete instance of `EventTargetRetryPolicyInput` via:
 //
-//          EventTargetRetryPolicyArgs{...}
+//	EventTargetRetryPolicyArgs{...}
 type EventTargetRetryPolicyInput interface {
 	pulumi.Input
 
@@ -3798,11 +3798,11 @@ func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyPtrOutputWithContext
 // EventTargetRetryPolicyPtrInput is an input type that accepts EventTargetRetryPolicyArgs, EventTargetRetryPolicyPtr and EventTargetRetryPolicyPtrOutput values.
 // You can construct a concrete instance of `EventTargetRetryPolicyPtrInput` via:
 //
-//          EventTargetRetryPolicyArgs{...}
+//	        EventTargetRetryPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetRetryPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3916,7 +3916,7 @@ type EventTargetRunCommandTarget struct {
 // EventTargetRunCommandTargetInput is an input type that accepts EventTargetRunCommandTargetArgs and EventTargetRunCommandTargetOutput values.
 // You can construct a concrete instance of `EventTargetRunCommandTargetInput` via:
 //
-//          EventTargetRunCommandTargetArgs{...}
+//	EventTargetRunCommandTargetArgs{...}
 type EventTargetRunCommandTargetInput interface {
 	pulumi.Input
 
@@ -3946,7 +3946,7 @@ func (i EventTargetRunCommandTargetArgs) ToEventTargetRunCommandTargetOutputWith
 // EventTargetRunCommandTargetArrayInput is an input type that accepts EventTargetRunCommandTargetArray and EventTargetRunCommandTargetArrayOutput values.
 // You can construct a concrete instance of `EventTargetRunCommandTargetArrayInput` via:
 //
-//          EventTargetRunCommandTargetArray{ EventTargetRunCommandTargetArgs{...} }
+//	EventTargetRunCommandTargetArray{ EventTargetRunCommandTargetArgs{...} }
 type EventTargetRunCommandTargetArrayInput interface {
 	pulumi.Input
 
@@ -4020,7 +4020,7 @@ type EventTargetSqsTarget struct {
 // EventTargetSqsTargetInput is an input type that accepts EventTargetSqsTargetArgs and EventTargetSqsTargetOutput values.
 // You can construct a concrete instance of `EventTargetSqsTargetInput` via:
 //
-//          EventTargetSqsTargetArgs{...}
+//	EventTargetSqsTargetArgs{...}
 type EventTargetSqsTargetInput interface {
 	pulumi.Input
 
@@ -4056,11 +4056,11 @@ func (i EventTargetSqsTargetArgs) ToEventTargetSqsTargetPtrOutputWithContext(ctx
 // EventTargetSqsTargetPtrInput is an input type that accepts EventTargetSqsTargetArgs, EventTargetSqsTargetPtr and EventTargetSqsTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetSqsTargetPtrInput` via:
 //
-//          EventTargetSqsTargetArgs{...}
+//	        EventTargetSqsTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventTargetSqsTargetPtrInput interface {
 	pulumi.Input
 
@@ -4167,7 +4167,7 @@ type LogMetricFilterMetricTransformation struct {
 // LogMetricFilterMetricTransformationInput is an input type that accepts LogMetricFilterMetricTransformationArgs and LogMetricFilterMetricTransformationOutput values.
 // You can construct a concrete instance of `LogMetricFilterMetricTransformationInput` via:
 //
-//          LogMetricFilterMetricTransformationArgs{...}
+//	LogMetricFilterMetricTransformationArgs{...}
 type LogMetricFilterMetricTransformationInput interface {
 	pulumi.Input
 
@@ -4213,11 +4213,11 @@ func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransfor
 // LogMetricFilterMetricTransformationPtrInput is an input type that accepts LogMetricFilterMetricTransformationArgs, LogMetricFilterMetricTransformationPtr and LogMetricFilterMetricTransformationPtrOutput values.
 // You can construct a concrete instance of `LogMetricFilterMetricTransformationPtrInput` via:
 //
-//          LogMetricFilterMetricTransformationArgs{...}
+//	        LogMetricFilterMetricTransformationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LogMetricFilterMetricTransformationPtrInput interface {
 	pulumi.Input
 
@@ -4399,7 +4399,7 @@ type MetricAlarmMetricQuery struct {
 // MetricAlarmMetricQueryInput is an input type that accepts MetricAlarmMetricQueryArgs and MetricAlarmMetricQueryOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryInput` via:
 //
-//          MetricAlarmMetricQueryArgs{...}
+//	MetricAlarmMetricQueryArgs{...}
 type MetricAlarmMetricQueryInput interface {
 	pulumi.Input
 
@@ -4437,7 +4437,7 @@ func (i MetricAlarmMetricQueryArgs) ToMetricAlarmMetricQueryOutputWithContext(ct
 // MetricAlarmMetricQueryArrayInput is an input type that accepts MetricAlarmMetricQueryArray and MetricAlarmMetricQueryArrayOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryArrayInput` via:
 //
-//          MetricAlarmMetricQueryArray{ MetricAlarmMetricQueryArgs{...} }
+//	MetricAlarmMetricQueryArray{ MetricAlarmMetricQueryArgs{...} }
 type MetricAlarmMetricQueryArrayInput interface {
 	pulumi.Input
 
@@ -4544,7 +4544,7 @@ type MetricAlarmMetricQueryMetric struct {
 // MetricAlarmMetricQueryMetricInput is an input type that accepts MetricAlarmMetricQueryMetricArgs and MetricAlarmMetricQueryMetricOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryMetricInput` via:
 //
-//          MetricAlarmMetricQueryMetricArgs{...}
+//	MetricAlarmMetricQueryMetricArgs{...}
 type MetricAlarmMetricQueryMetricInput interface {
 	pulumi.Input
 
@@ -4593,11 +4593,11 @@ func (i MetricAlarmMetricQueryMetricArgs) ToMetricAlarmMetricQueryMetricPtrOutpu
 // MetricAlarmMetricQueryMetricPtrInput is an input type that accepts MetricAlarmMetricQueryMetricArgs, MetricAlarmMetricQueryMetricPtr and MetricAlarmMetricQueryMetricPtrOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryMetricPtrInput` via:
 //
-//          MetricAlarmMetricQueryMetricArgs{...}
+//	        MetricAlarmMetricQueryMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MetricAlarmMetricQueryMetricPtrInput interface {
 	pulumi.Input
 
@@ -4775,7 +4775,7 @@ type MetricStreamExcludeFilter struct {
 // MetricStreamExcludeFilterInput is an input type that accepts MetricStreamExcludeFilterArgs and MetricStreamExcludeFilterOutput values.
 // You can construct a concrete instance of `MetricStreamExcludeFilterInput` via:
 //
-//          MetricStreamExcludeFilterArgs{...}
+//	MetricStreamExcludeFilterArgs{...}
 type MetricStreamExcludeFilterInput interface {
 	pulumi.Input
 
@@ -4803,7 +4803,7 @@ func (i MetricStreamExcludeFilterArgs) ToMetricStreamExcludeFilterOutputWithCont
 // MetricStreamExcludeFilterArrayInput is an input type that accepts MetricStreamExcludeFilterArray and MetricStreamExcludeFilterArrayOutput values.
 // You can construct a concrete instance of `MetricStreamExcludeFilterArrayInput` via:
 //
-//          MetricStreamExcludeFilterArray{ MetricStreamExcludeFilterArgs{...} }
+//	MetricStreamExcludeFilterArray{ MetricStreamExcludeFilterArgs{...} }
 type MetricStreamExcludeFilterArrayInput interface {
 	pulumi.Input
 
@@ -4872,7 +4872,7 @@ type MetricStreamIncludeFilter struct {
 // MetricStreamIncludeFilterInput is an input type that accepts MetricStreamIncludeFilterArgs and MetricStreamIncludeFilterOutput values.
 // You can construct a concrete instance of `MetricStreamIncludeFilterInput` via:
 //
-//          MetricStreamIncludeFilterArgs{...}
+//	MetricStreamIncludeFilterArgs{...}
 type MetricStreamIncludeFilterInput interface {
 	pulumi.Input
 
@@ -4900,7 +4900,7 @@ func (i MetricStreamIncludeFilterArgs) ToMetricStreamIncludeFilterOutputWithCont
 // MetricStreamIncludeFilterArrayInput is an input type that accepts MetricStreamIncludeFilterArray and MetricStreamIncludeFilterArrayOutput values.
 // You can construct a concrete instance of `MetricStreamIncludeFilterArrayInput` via:
 //
-//          MetricStreamIncludeFilterArray{ MetricStreamIncludeFilterArgs{...} }
+//	MetricStreamIncludeFilterArray{ MetricStreamIncludeFilterArgs{...} }
 type MetricStreamIncludeFilterArrayInput interface {
 	pulumi.Input
 
@@ -4971,7 +4971,7 @@ type MetricStreamStatisticsConfiguration struct {
 // MetricStreamStatisticsConfigurationInput is an input type that accepts MetricStreamStatisticsConfigurationArgs and MetricStreamStatisticsConfigurationOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationInput` via:
 //
-//          MetricStreamStatisticsConfigurationArgs{...}
+//	MetricStreamStatisticsConfigurationArgs{...}
 type MetricStreamStatisticsConfigurationInput interface {
 	pulumi.Input
 
@@ -5001,7 +5001,7 @@ func (i MetricStreamStatisticsConfigurationArgs) ToMetricStreamStatisticsConfigu
 // MetricStreamStatisticsConfigurationArrayInput is an input type that accepts MetricStreamStatisticsConfigurationArray and MetricStreamStatisticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationArrayInput` via:
 //
-//          MetricStreamStatisticsConfigurationArray{ MetricStreamStatisticsConfigurationArgs{...} }
+//	MetricStreamStatisticsConfigurationArray{ MetricStreamStatisticsConfigurationArgs{...} }
 type MetricStreamStatisticsConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5079,7 +5079,7 @@ type MetricStreamStatisticsConfigurationIncludeMetric struct {
 // MetricStreamStatisticsConfigurationIncludeMetricInput is an input type that accepts MetricStreamStatisticsConfigurationIncludeMetricArgs and MetricStreamStatisticsConfigurationIncludeMetricOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationIncludeMetricInput` via:
 //
-//          MetricStreamStatisticsConfigurationIncludeMetricArgs{...}
+//	MetricStreamStatisticsConfigurationIncludeMetricArgs{...}
 type MetricStreamStatisticsConfigurationIncludeMetricInput interface {
 	pulumi.Input
 
@@ -5109,7 +5109,7 @@ func (i MetricStreamStatisticsConfigurationIncludeMetricArgs) ToMetricStreamStat
 // MetricStreamStatisticsConfigurationIncludeMetricArrayInput is an input type that accepts MetricStreamStatisticsConfigurationIncludeMetricArray and MetricStreamStatisticsConfigurationIncludeMetricArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationIncludeMetricArrayInput` via:
 //
-//          MetricStreamStatisticsConfigurationIncludeMetricArray{ MetricStreamStatisticsConfigurationIncludeMetricArgs{...} }
+//	MetricStreamStatisticsConfigurationIncludeMetricArray{ MetricStreamStatisticsConfigurationIncludeMetricArgs{...} }
 type MetricStreamStatisticsConfigurationIncludeMetricArrayInput interface {
 	pulumi.Input
 

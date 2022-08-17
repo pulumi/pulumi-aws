@@ -140,7 +140,7 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
 // You can construct a concrete instance of `ParameterTypeInput` via:
 //
-//          ParameterTypeArgs{...}
+//	ParameterTypeArgs{...}
 type ParameterTypeInput interface {
 	pulumi.Input
 

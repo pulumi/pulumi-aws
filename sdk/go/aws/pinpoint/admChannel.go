@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := pinpoint.NewApp(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
-// 			ApplicationId: app.ApplicationId,
-// 			ClientId:      pulumi.String(""),
-// 			ClientSecret:  pulumi.String(""),
-// 			Enabled:       pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				ClientId:      pulumi.String(""),
+//				ClientSecret:  pulumi.String(""),
+//				Enabled:       pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
+//
+//	$ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
+//
 // ```
 type AdmChannel struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChann
 // AdmChannelArrayInput is an input type that accepts AdmChannelArray and AdmChannelArrayOutput values.
 // You can construct a concrete instance of `AdmChannelArrayInput` via:
 //
-//          AdmChannelArray{ AdmChannelArgs{...} }
+//	AdmChannelArray{ AdmChannelArgs{...} }
 type AdmChannelArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i AdmChannelArray) ToAdmChannelArrayOutputWithContext(ctx context.Context)
 // AdmChannelMapInput is an input type that accepts AdmChannelMap and AdmChannelMapOutput values.
 // You can construct a concrete instance of `AdmChannelMapInput` via:
 //
-//          AdmChannelMap{ "key": AdmChannelArgs{...} }
+//	AdmChannelMap{ "key": AdmChannelArgs{...} }
 type AdmChannelMapInput interface {
 	pulumi.Input
 

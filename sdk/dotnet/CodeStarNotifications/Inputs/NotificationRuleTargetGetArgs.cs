@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeStarNotifications.Inputs
 {
 
-    public sealed class NotificationRuleTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of notification rule target. For example, a SNS Topic ARN.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeStarNotifications.Inputs
         public NotificationRuleTargetGetArgs()
         {
         }
+        public static new NotificationRuleTargetGetArgs Empty => new NotificationRuleTargetGetArgs();
     }
 }

@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Event Archive can be imported using their name, for example bash
+ * Event Archive can be imported using their name, for example console
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive

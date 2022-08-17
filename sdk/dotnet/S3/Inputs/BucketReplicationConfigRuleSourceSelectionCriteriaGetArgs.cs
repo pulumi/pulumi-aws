@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleSourceSelectionCriteriaGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleSourceSelectionCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleSourceSelectionCriteriaGetArgs()
         {
         }
+        public static new BucketReplicationConfigRuleSourceSelectionCriteriaGetArgs Empty => new BucketReplicationConfigRuleSourceSelectionCriteriaGetArgs();
     }
 }

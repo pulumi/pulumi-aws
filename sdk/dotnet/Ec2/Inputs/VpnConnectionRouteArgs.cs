@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpnConnectionRouteArgs : Pulumi.ResourceArgs
+    public sealed class VpnConnectionRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer data center.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpnConnectionRouteArgs()
         {
         }
+        public static new VpnConnectionRouteArgs Empty => new VpnConnectionRouteArgs();
     }
 }

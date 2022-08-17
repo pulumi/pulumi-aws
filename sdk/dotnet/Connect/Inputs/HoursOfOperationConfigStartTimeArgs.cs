@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class HoursOfOperationConfigStartTimeArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationConfigStartTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the hour of opening.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public HoursOfOperationConfigStartTimeArgs()
         {
         }
+        public static new HoursOfOperationConfigStartTimeArgs Empty => new HoursOfOperationConfigStartTimeArgs();
     }
 }

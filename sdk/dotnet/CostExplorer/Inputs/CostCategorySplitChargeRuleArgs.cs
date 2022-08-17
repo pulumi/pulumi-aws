@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategorySplitChargeRuleArgs : Pulumi.ResourceArgs
+    public sealed class CostCategorySplitChargeRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public CostCategorySplitChargeRuleArgs()
         {
         }
+        public static new CostCategorySplitChargeRuleArgs Empty => new CostCategorySplitChargeRuleArgs();
     }
 }

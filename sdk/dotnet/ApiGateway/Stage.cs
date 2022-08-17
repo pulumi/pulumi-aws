@@ -22,72 +22,72 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
     ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "openapi", "3.0.1" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "title", "example" },
-    ///                     { "version", "1.0" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "httpMethod", "GET" },
-    ///                                 { "payloadFormatVersion", "1.0" },
-    ///                                 { "type", "HTTP_PROXY" },
-    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///         var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("exampleMethodSettings", new Aws.ApiGateway.MethodSettingsArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = exampleStage.StageName,
-    ///             MethodPath = "*/*",
-    ///             Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///             {
-    ///                 MetricsEnabled = true,
-    ///                 LoggingLevel = "INFO",
-    ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    ///     var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("exampleMethodSettings", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = exampleStage.StageName,
+    ///         MethodPath = "*/*",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             MetricsEnabled = true,
+    ///             LoggingLevel = "INFO",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Managing the API Logging CloudWatch Log Group
     /// 
@@ -96,38 +96,36 @@ namespace Pulumi.Aws.ApiGateway
     /// &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var config = new Config();
-    ///         var stageName = config.Get("stageName") ?? "example";
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         // ... other configuration ...
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 7,
-    ///         });
-    ///         // ... potentially other configuration ...
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             StageName = stageName,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleLogGroup,
-    ///             },
-    ///         });
-    ///         // ... other configuration ...
-    ///     }
+    ///     var config = new Config();
+    ///     var stageName = config.Get("stageName") ?? "example";
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
     /// 
-    /// }
+    ///     // ... other configuration ...
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     {
+    ///         RetentionInDays = 7,
+    ///     });
+    /// 
+    ///     // ... potentially other configuration ...
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         StageName = stageName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleLogGroup,
+    ///         },
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -139,7 +137,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/stage:Stage")]
-    public partial class Stage : Pulumi.CustomResource
+    public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enables access logs for the API stage. See Access Log Settings below.
@@ -228,9 +226,6 @@ namespace Pulumi.Aws.ApiGateway
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -296,7 +291,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class StageArgs : Pulumi.ResourceArgs
+    public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables access logs for the API stage. See Access Log Settings below.
@@ -391,9 +386,10 @@ namespace Pulumi.Aws.ApiGateway
         public StageArgs()
         {
         }
+        public static new StageArgs Empty => new StageArgs();
     }
 
-    public sealed class StageState : Pulumi.ResourceArgs
+    public sealed class StageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables access logs for the API stage. See Access Log Settings below.
@@ -490,10 +486,6 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -527,5 +519,6 @@ namespace Pulumi.Aws.ApiGateway
         public StageState()
         {
         }
+        public static new StageState Empty => new StageState();
     }
 }

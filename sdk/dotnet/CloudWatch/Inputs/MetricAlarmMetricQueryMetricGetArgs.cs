@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class MetricAlarmMetricQueryMetricGetArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlarmMetricQueryMetricGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputMap<string>? _dimensions;
@@ -60,5 +60,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public MetricAlarmMetricQueryMetricGetArgs()
         {
         }
+        public static new MetricAlarmMetricQueryMetricGetArgs Empty => new MetricAlarmMetricQueryMetricGetArgs();
     }
 }

@@ -36,31 +36,29 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Request a spot instance at $0.03
+    ///     var cheapWorker = new Aws.Ec2.SpotInstanceRequest("cheapWorker", new()
     ///     {
-    ///         // Request a spot instance at $0.03
-    ///         var cheapWorker = new Aws.Ec2.SpotInstanceRequest("cheapWorker", new Aws.Ec2.SpotInstanceRequestArgs
+    ///         Ami = "ami-1234",
+    ///         InstanceType = "c4.xlarge",
+    ///         SpotPrice = "0.03",
+    ///         Tags = 
     ///         {
-    ///             Ami = "ami-1234",
-    ///             InstanceType = "c4.xlarge",
-    ///             SpotPrice = "0.03",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "CheapWorker" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "CheapWorker" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/spotInstanceRequest:SpotInstanceRequest")]
-    public partial class SpotInstanceRequest : Pulumi.CustomResource
+    public partial class SpotInstanceRequest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -371,13 +369,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -482,7 +480,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SpotInstanceRequestArgs : Pulumi.ResourceArgs
+    public sealed class SpotInstanceRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -775,7 +773,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -854,9 +852,10 @@ namespace Pulumi.Aws.Ec2
         public SpotInstanceRequestArgs()
         {
         }
+        public static new SpotInstanceRequestArgs Empty => new SpotInstanceRequestArgs();
     }
 
-    public sealed class SpotInstanceRequestState : Pulumi.ResourceArgs
+    public sealed class SpotInstanceRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -1206,7 +1205,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1218,7 +1217,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1297,5 +1296,6 @@ namespace Pulumi.Aws.Ec2
         public SpotInstanceRequestState()
         {
         }
+        public static new SpotInstanceRequestState Empty => new SpotInstanceRequestState();
     }
 }

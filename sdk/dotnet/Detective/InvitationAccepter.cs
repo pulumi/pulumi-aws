@@ -15,37 +15,35 @@ namespace Pulumi.Aws.Detective
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primaryGraph = new Aws.Detective.Graph("primaryGraph", new Aws.Detective.GraphArgs
-    ///         {
-    ///         });
-    ///         var primaryMember = new Aws.Detective.Member("primaryMember", new Aws.Detective.MemberArgs
-    ///         {
-    ///             AccountId = "ACCOUNT ID",
-    ///             EmailAddress = "EMAIL",
-    ///             GraphArn = primaryGraph.Id,
-    ///             Message = "Message of the invite",
-    ///         });
-    ///         var member = new Aws.Detective.InvitationAccepter("member", new Aws.Detective.InvitationAccepterArgs
-    ///         {
-    ///             GraphArn = primaryGraph.GraphArn,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "awsalternate",
-    ///             DependsOn = 
-    ///             {
-    ///                 primaryMember,
-    ///             },
-    ///         });
-    ///     }
+    ///     var primaryGraph = new Aws.Detective.Graph("primaryGraph");
     /// 
-    /// }
+    ///     var primaryMember = new Aws.Detective.Member("primaryMember", new()
+    ///     {
+    ///         AccountId = "ACCOUNT ID",
+    ///         EmailAddress = "EMAIL",
+    ///         GraphArn = primaryGraph.Id,
+    ///         Message = "Message of the invite",
+    ///     });
+    /// 
+    ///     var member = new Aws.Detective.InvitationAccepter("member", new()
+    ///     {
+    ///         GraphArn = primaryGraph.GraphArn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "awsalternate",
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryMember,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.Detective
     /// ```
     /// </summary>
     [AwsResourceType("aws:detective/invitationAccepter:InvitationAccepter")]
-    public partial class InvitationAccepter : Pulumi.CustomResource
+    public partial class InvitationAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the behavior graph that the member account is accepting the invitation for.
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.Detective
         }
     }
 
-    public sealed class InvitationAccepterArgs : Pulumi.ResourceArgs
+    public sealed class InvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the behavior graph that the member account is accepting the invitation for.
@@ -120,9 +118,10 @@ namespace Pulumi.Aws.Detective
         public InvitationAccepterArgs()
         {
         }
+        public static new InvitationAccepterArgs Empty => new InvitationAccepterArgs();
     }
 
-    public sealed class InvitationAccepterState : Pulumi.ResourceArgs
+    public sealed class InvitationAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the behavior graph that the member account is accepting the invitation for.
@@ -133,5 +132,6 @@ namespace Pulumi.Aws.Detective
         public InvitationAccepterState()
         {
         }
+        public static new InvitationAccepterState Empty => new InvitationAccepterState();
     }
 }

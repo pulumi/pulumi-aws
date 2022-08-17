@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ModelVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ModelVpcConfigArgs()
         {
         }
+        public static new ModelVpcConfigArgs Empty => new ModelVpcConfigArgs();
     }
 }

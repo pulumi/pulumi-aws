@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class PartitionStorageDescriptorSortColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class PartitionStorageDescriptorSortColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public PartitionStorageDescriptorSortColumnGetArgs()
         {
         }
+        public static new PartitionStorageDescriptorSortColumnGetArgs Empty => new PartitionStorageDescriptorSortColumnGetArgs();
     }
 }

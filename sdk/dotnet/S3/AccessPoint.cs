@@ -20,53 +20,50 @@ namespace Pulumi.Aws.S3
     /// ### AWS Partition Bucket
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### S3 on Outposts Bucket
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new()
     ///     {
-    ///         var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new Aws.S3Control.BucketArgs
-    ///         {
-    ///             BucketName = "example",
-    ///         });
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
-    ///         {
-    ///             Bucket = exampleBucket.Arn,
-    ///             VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         BucketName = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     {
+    ///         Bucket = exampleBucket.Arn,
+    ///         VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +81,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/accessPoint:AccessPoint")]
-    public partial class AccessPoint : Pulumi.CustomResource
+    public partial class AccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
@@ -203,7 +200,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class AccessPointArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
@@ -244,9 +241,10 @@ namespace Pulumi.Aws.S3
         public AccessPointArgs()
         {
         }
+        public static new AccessPointArgs Empty => new AccessPointArgs();
     }
 
-    public sealed class AccessPointState : Pulumi.ResourceArgs
+    public sealed class AccessPointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
@@ -330,5 +328,6 @@ namespace Pulumi.Aws.S3
         public AccessPointState()
         {
         }
+        public static new AccessPointState Empty => new AccessPointState();
     }
 }

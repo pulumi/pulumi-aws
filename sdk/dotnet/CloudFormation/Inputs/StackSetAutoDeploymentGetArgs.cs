@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation.Inputs
 {
 
-    public sealed class StackSetAutoDeploymentGetArgs : Pulumi.ResourceArgs
+    public sealed class StackSetAutoDeploymentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not auto-deployment is enabled.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public StackSetAutoDeploymentGetArgs()
         {
         }
+        public static new StackSetAutoDeploymentGetArgs Empty => new StackSetAutoDeploymentGetArgs();
     }
 }

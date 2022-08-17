@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexIndexStatisticTextDocumentStatisticArgs : Pulumi.ResourceArgs
+    public sealed class IndexIndexStatisticTextDocumentStatisticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total size, in bytes, of the indexed documents.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexIndexStatisticTextDocumentStatisticArgs()
         {
         }
+        public static new IndexIndexStatisticTextDocumentStatisticArgs Empty => new IndexIndexStatisticTextDocumentStatisticArgs();
     }
 }

@@ -21,42 +21,37 @@ namespace Pulumi.Aws.NetworkFirewall
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.ResourcePolicy("example", new Aws.NetworkFirewall.ResourcePolicyArgs
+    ///         ResourceArn = aws_networkfirewall_firewall_policy.Example.Arn,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ResourceArn = aws_networkfirewall_firewall_policy.Example.Arn,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "network-firewall:ListFirewallPolicies",
-    ///                                     "network-firewall:CreateFirewall",
-    ///                                     "network-firewall:UpdateFirewall",
-    ///                                     "network-firewall:AssociateFirewallPolicy",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", aws_networkfirewall_firewall_policy.Example.Arn },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "AWS", "arn:aws:iam::123456789012:root" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "Version", "2012-10-17" },
-    ///             }),
-    ///         });
-    ///     }
+    ///                         "network-firewall:ListFirewallPolicies",
+    ///                         "network-firewall:CreateFirewall",
+    ///                         "network-firewall:UpdateFirewall",
+    ///                         "network-firewall:AssociateFirewallPolicy",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = aws_networkfirewall_firewall_policy.Example.Arn,
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### For a Rule Group resource
     /// 
@@ -66,41 +61,36 @@ namespace Pulumi.Aws.NetworkFirewall
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.ResourcePolicy("example", new Aws.NetworkFirewall.ResourcePolicyArgs
+    ///         ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "network-firewall:ListRuleGroups",
-    ///                                     "network-firewall:CreateFirewallPolicy",
-    ///                                     "network-firewall:UpdateFirewallPolicy",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", aws_networkfirewall_rule_group.Example.Arn },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "AWS", "arn:aws:iam::123456789012:root" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "Version", "2012-10-17" },
-    ///             }),
-    ///         });
-    ///     }
+    ///                         "network-firewall:ListRuleGroups",
+    ///                         "network-firewall:CreateFirewallPolicy",
+    ///                         "network-firewall:UpdateFirewallPolicy",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -112,7 +102,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/resourcePolicy:ResourcePolicy")]
-    public partial class ResourcePolicy : Pulumi.CustomResource
+    public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -167,7 +157,7 @@ namespace Pulumi.Aws.NetworkFirewall
         }
     }
 
-    public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -181,9 +171,10 @@ namespace Pulumi.Aws.NetworkFirewall
         public ResourcePolicyArgs()
         {
         }
+        public static new ResourcePolicyArgs Empty => new ResourcePolicyArgs();
     }
 
-    public sealed class ResourcePolicyState : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -197,5 +188,6 @@ namespace Pulumi.Aws.NetworkFirewall
         public ResourcePolicyState()
         {
         }
+        public static new ResourcePolicyState Empty => new ResourcePolicyState();
     }
 }

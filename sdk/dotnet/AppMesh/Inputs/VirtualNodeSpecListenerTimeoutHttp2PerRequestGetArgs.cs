@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTimeoutHttp2PerRequestGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTimeoutHttp2PerRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unit of time. Valid values: `ms`, `s`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTimeoutHttp2PerRequestGetArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTimeoutHttp2PerRequestGetArgs Empty => new VirtualNodeSpecListenerTimeoutHttp2PerRequestGetArgs();
     }
 }

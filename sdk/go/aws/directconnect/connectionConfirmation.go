@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewConnectionConfirmation(ctx, "confirmation", &directconnect.ConnectionConfirmationArgs{
-// 			ConnectionId: pulumi.String("dxcon-ffabc123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewConnectionConfirmation(ctx, "confirmation", &directconnect.ConnectionConfirmationArgs{
+//				ConnectionId: pulumi.String("dxcon-ffabc123"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ConnectionConfirmation struct {
 	pulumi.CustomResourceState
@@ -124,7 +127,7 @@ func (i *ConnectionConfirmation) ToConnectionConfirmationOutputWithContext(ctx c
 // ConnectionConfirmationArrayInput is an input type that accepts ConnectionConfirmationArray and ConnectionConfirmationArrayOutput values.
 // You can construct a concrete instance of `ConnectionConfirmationArrayInput` via:
 //
-//          ConnectionConfirmationArray{ ConnectionConfirmationArgs{...} }
+//	ConnectionConfirmationArray{ ConnectionConfirmationArgs{...} }
 type ConnectionConfirmationArrayInput interface {
 	pulumi.Input
 
@@ -149,7 +152,7 @@ func (i ConnectionConfirmationArray) ToConnectionConfirmationArrayOutputWithCont
 // ConnectionConfirmationMapInput is an input type that accepts ConnectionConfirmationMap and ConnectionConfirmationMapOutput values.
 // You can construct a concrete instance of `ConnectionConfirmationMapInput` via:
 //
-//          ConnectionConfirmationMap{ "key": ConnectionConfirmationArgs{...} }
+//	ConnectionConfirmationMap{ "key": ConnectionConfirmationArgs{...} }
 type ConnectionConfirmationMapInput interface {
 	pulumi.Input
 

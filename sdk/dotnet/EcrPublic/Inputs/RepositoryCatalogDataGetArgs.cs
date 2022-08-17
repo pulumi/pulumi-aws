@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EcrPublic.Inputs
 {
 
-    public sealed class RepositoryCatalogDataGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryCatalogDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.EcrPublic.Inputs
         public RepositoryCatalogDataGetArgs()
         {
         }
+        public static new RepositoryCatalogDataGetArgs Empty => new RepositoryCatalogDataGetArgs();
     }
 }

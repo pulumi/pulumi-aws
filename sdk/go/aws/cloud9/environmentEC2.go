@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Get the URL of the Cloud9 environment after creation:
@@ -44,37 +47,40 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_ = ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
-// 			Filters: ec2.GetInstanceFilterArray{
-// 				&ec2.GetInstanceFilterArgs{
-// 					Name: pulumi.String("tag:aws:cloud9:environment"),
-// 					Values: pulumi.StringArray{
-// 						example.ID(),
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
-// 			return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", _var.Region, id), nil
-// 		}).(pulumi.StringOutput))
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
+//				Filters: ec2.GetInstanceFilterArray{
+//					&ec2.GetInstanceFilterArgs{
+//						Name: pulumi.String("tag:aws:cloud9:environment"),
+//						Values: pulumi.StringArray{
+//							example.ID(),
+//						},
+//					},
+//				},
+//			}, nil)
+//			ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
+//				return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", _var.Region, id), nil
+//			}).(pulumi.StringOutput))
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Allocate a static IP to the Cloud9 environment:
@@ -83,42 +89,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		cloud9Instance := ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
-// 			Filters: ec2.GetInstanceFilterArray{
-// 				&ec2.GetInstanceFilterArgs{
-// 					Name: pulumi.String("tag:aws:cloud9:environment"),
-// 					Values: pulumi.StringArray{
-// 						example.ID(),
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
-// 			Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (string, error) {
-// 				return cloud9Instance.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Vpc: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("cloud9PublicIp", cloud9Eip.PublicIp)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cloud9Instance := ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
+//				Filters: ec2.GetInstanceFilterArray{
+//					&ec2.GetInstanceFilterArgs{
+//						Name: pulumi.String("tag:aws:cloud9:environment"),
+//						Values: pulumi.StringArray{
+//							example.ID(),
+//						},
+//					},
+//				},
+//			}, nil)
+//			cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
+//				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (string, error) {
+//					return cloud9Instance.Id, nil
+//				}).(pulumi.StringOutput),
+//				Vpc: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("cloud9PublicIp", cloud9Eip.PublicIp)
+//			return nil
+//		})
+//	}
+//
 // ```
 type EnvironmentEC2 struct {
 	pulumi.CustomResourceState
@@ -337,7 +346,7 @@ func (i *EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) 
 // EnvironmentEC2ArrayInput is an input type that accepts EnvironmentEC2Array and EnvironmentEC2ArrayOutput values.
 // You can construct a concrete instance of `EnvironmentEC2ArrayInput` via:
 //
-//          EnvironmentEC2Array{ EnvironmentEC2Args{...} }
+//	EnvironmentEC2Array{ EnvironmentEC2Args{...} }
 type EnvironmentEC2ArrayInput interface {
 	pulumi.Input
 
@@ -362,7 +371,7 @@ func (i EnvironmentEC2Array) ToEnvironmentEC2ArrayOutputWithContext(ctx context.
 // EnvironmentEC2MapInput is an input type that accepts EnvironmentEC2Map and EnvironmentEC2MapOutput values.
 // You can construct a concrete instance of `EnvironmentEC2MapInput` via:
 //
-//          EnvironmentEC2Map{ "key": EnvironmentEC2Args{...} }
+//	EnvironmentEC2Map{ "key": EnvironmentEC2Args{...} }
 type EnvironmentEC2MapInput interface {
 	pulumi.Input
 

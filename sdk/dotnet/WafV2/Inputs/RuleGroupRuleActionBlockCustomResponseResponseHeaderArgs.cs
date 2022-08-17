@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The label string.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs()
         {
         }
+        public static new RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs Empty => new RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs();
     }
 }

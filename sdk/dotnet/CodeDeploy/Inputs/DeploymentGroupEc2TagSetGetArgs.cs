@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupEc2TagSetGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupEc2TagSetGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ec2TagFilters")]
         private InputList<Inputs.DeploymentGroupEc2TagSetEc2TagFilterGetArgs>? _ec2TagFilters;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupEc2TagSetGetArgs()
         {
         }
+        public static new DeploymentGroupEc2TagSetGetArgs Empty => new DeploymentGroupEc2TagSetGetArgs();
     }
 }

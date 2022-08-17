@@ -20,20 +20,18 @@ namespace Pulumi.Aws.SecretsManager
         /// ### Retrieve Secret Rotation Configuration
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.SecretsManager.GetSecretRotation.InvokeAsync(new Aws.SecretsManager.GetSecretRotationArgs
-        ///         {
-        ///             SecretId = data.Aws_secretsmanager_secret.Example.Id,
-        ///         }));
-        ///     }
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.SecretsManager
         /// ### Retrieve Secret Rotation Configuration
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.SecretsManager.GetSecretRotation.InvokeAsync(new Aws.SecretsManager.GetSecretRotationArgs
-        ///         {
-        ///             SecretId = data.Aws_secretsmanager_secret.Example.Id,
-        ///         }));
-        ///     }
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.SecretsManager
     }
 
 
-    public sealed class GetSecretRotationArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretRotationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
@@ -84,9 +80,10 @@ namespace Pulumi.Aws.SecretsManager
         public GetSecretRotationArgs()
         {
         }
+        public static new GetSecretRotationArgs Empty => new GetSecretRotationArgs();
     }
 
-    public sealed class GetSecretRotationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretRotationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
@@ -97,6 +94,7 @@ namespace Pulumi.Aws.SecretsManager
         public GetSecretRotationInvokeArgs()
         {
         }
+        public static new GetSecretRotationInvokeArgs Empty => new GetSecretRotationInvokeArgs();
     }
 
 

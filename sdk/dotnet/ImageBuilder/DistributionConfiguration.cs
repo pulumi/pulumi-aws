@@ -15,48 +15,46 @@ namespace Pulumi.Aws.ImageBuilder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.ImageBuilder.DistributionConfiguration("example", new Aws.ImageBuilder.DistributionConfigurationArgs
+    ///         Distributions = new[]
     ///         {
-    ///             Distributions = 
+    ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
     ///             {
-    ///                 new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
+    ///                 AmiDistributionConfiguration = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs
     ///                 {
-    ///                     AmiDistributionConfiguration = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs
+    ///                     AmiTags = 
     ///                     {
-    ///                         AmiTags = 
-    ///                         {
-    ///                             { "CostCenter", "IT" },
-    ///                         },
-    ///                         LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
-    ///                         {
-    ///                             UserIds = 
-    ///                             {
-    ///                                 "123456789012",
-    ///                             },
-    ///                         },
-    ///                         Name = "example-{{ imagebuilder:buildDate }}",
+    ///                         { "CostCenter", "IT" },
     ///                     },
-    ///                     LaunchTemplateConfigurations = 
+    ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
     ///                     {
-    ///                         new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs
+    ///                         UserIds = new[]
     ///                         {
-    ///                             LaunchTemplateId = "lt-0aaa1bcde2ff3456",
+    ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                     Region = "us-east-1",
+    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                 },
+    ///                 LaunchTemplateConfigurations = new[]
+    ///                 {
+    ///                     new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs
+    ///                     {
+    ///                         LaunchTemplateId = "lt-0aaa1bcde2ff3456",
+    ///                     },
+    ///                 },
+    ///                 Region = "us-east-1",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +66,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")]
-    public partial class DistributionConfiguration : Pulumi.CustomResource
+    public partial class DistributionConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the distribution configuration.
@@ -107,13 +105,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,7 +160,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
     }
 
-    public sealed class DistributionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the container distribution configuration.
@@ -192,7 +190,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -203,9 +201,10 @@ namespace Pulumi.Aws.ImageBuilder
         public DistributionConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationArgs Empty => new DistributionConfigurationArgs();
     }
 
-    public sealed class DistributionConfigurationState : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the distribution configuration.
@@ -253,7 +252,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -265,7 +264,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -276,5 +275,6 @@ namespace Pulumi.Aws.ImageBuilder
         public DistributionConfigurationState()
         {
         }
+        public static new DistributionConfigurationState Empty => new DistributionConfigurationState();
     }
 }

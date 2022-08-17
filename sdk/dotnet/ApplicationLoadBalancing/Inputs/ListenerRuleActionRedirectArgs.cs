@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerRuleActionRedirectArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionRedirectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerRuleActionRedirectArgs()
         {
         }
+        public static new ListenerRuleActionRedirectArgs Empty => new ListenerRuleActionRedirectArgs();
     }
 }

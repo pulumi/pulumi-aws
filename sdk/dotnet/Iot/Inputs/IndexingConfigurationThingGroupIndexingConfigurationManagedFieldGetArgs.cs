@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public IndexingConfigurationThingGroupIndexingConfigurationManagedFieldGetArgs()
         {
         }
+        public static new IndexingConfigurationThingGroupIndexingConfigurationManagedFieldGetArgs Empty => new IndexingConfigurationThingGroupIndexingConfigurationManagedFieldGetArgs();
     }
 }

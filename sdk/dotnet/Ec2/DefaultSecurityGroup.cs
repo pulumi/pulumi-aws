@@ -27,81 +27,79 @@ namespace Pulumi.Aws.Ec2
     /// The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
     ///     {
-    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
-    ///         {
-    ///             VpcId = mainvpc.Id,
-    ///             Ingress = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
-    ///                 {
-    ///                     Protocol = "-1",
-    ///                     Self = true,
-    ///                     FromPort = 0,
-    ///                     ToPort = 0,
-    ///                 },
-    ///             },
-    ///             Egress = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
-    ///                 {
-    ///                     FromPort = 0,
-    ///                     ToPort = 0,
-    ///                     Protocol = "-1",
-    ///                     CidrBlocks = 
-    ///                     {
-    ///                         "0.0.0.0/0",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
+    ///     {
+    ///         VpcId = mainvpc.Id,
+    ///         Ingress = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///             {
+    ///                 Protocol = "-1",
+    ///                 Self = true,
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///             },
+    ///         },
+    ///         Egress = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
+    ///             {
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///                 Protocol = "-1",
+    ///                 CidrBlocks = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Example Config To Deny All Egress Traffic, Allowing Ingress
     /// 
     /// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
     ///     {
-    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
-    ///         {
-    ///             VpcId = mainvpc.Id,
-    ///             Ingress = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
-    ///                 {
-    ///                     Protocol = "-1",
-    ///                     Self = true,
-    ///                     FromPort = 0,
-    ///                     ToPort = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
+    ///     {
+    ///         VpcId = mainvpc.Id,
+    ///         Ingress = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///             {
+    ///                 Protocol = "-1",
+    ///                 Self = true,
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
     /// 
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
-    public partial class DefaultSecurityGroup : Pulumi.CustomResource
+    public partial class DefaultSecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the security group.
@@ -148,6 +146,9 @@ namespace Pulumi.Aws.Ec2
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
+
         /// <summary>
         /// Owner ID.
         /// </summary>
@@ -158,13 +159,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> RevokeRulesOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -219,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class DefaultSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class DefaultSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("egress")]
         private InputList<Inputs.DefaultSecurityGroupEgressArgs>? _egress;
@@ -252,7 +253,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -269,9 +270,10 @@ namespace Pulumi.Aws.Ec2
         public DefaultSecurityGroupArgs()
         {
         }
+        public static new DefaultSecurityGroupArgs Empty => new DefaultSecurityGroupArgs();
     }
 
-    public sealed class DefaultSecurityGroupState : Pulumi.ResourceArgs
+    public sealed class DefaultSecurityGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the security group.
@@ -315,6 +317,9 @@ namespace Pulumi.Aws.Ec2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
         /// <summary>
         /// Owner ID.
         /// </summary>
@@ -328,7 +333,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -340,7 +345,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -357,5 +362,6 @@ namespace Pulumi.Aws.Ec2
         public DefaultSecurityGroupState()
         {
         }
+        public static new DefaultSecurityGroupState Empty => new DefaultSecurityGroupState();
     }
 }

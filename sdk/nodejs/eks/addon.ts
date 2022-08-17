@@ -110,7 +110,7 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -217,7 +217,7 @@ export interface AddonState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

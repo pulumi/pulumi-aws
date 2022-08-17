@@ -22,59 +22,62 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var peer = new Aws.Provider("peer", new()
     ///     {
-    ///         var peer = new Aws.Provider("peer", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-west-2",
-    ///         });
-    ///         // Accepter's credentials.
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var peerVpc = new Aws.Ec2.Vpc("peerVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Peer,
-    ///         });
-    ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Requester's side of the connection.
-    ///         var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             PeerVpcId = peerVpc.Id,
-    ///             PeerOwnerId = peerCallerIdentity.Apply(peerCallerIdentity =&gt; peerCallerIdentity.AccountId),
-    ///             PeerRegion = "us-west-2",
-    ///             AutoAccept = false,
-    ///             Tags = 
-    ///             {
-    ///                 { "Side", "Requester" },
-    ///             },
-    ///         });
-    ///         // Accepter's side of the connection.
-    ///         var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new Aws.Ec2.VpcPeeringConnectionAccepterArgs
-    ///         {
-    ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
-    ///             AutoAccept = true,
-    ///             Tags = 
-    ///             {
-    ///                 { "Side", "Accepter" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Peer,
-    ///         });
-    ///     }
+    ///         Region = "us-west-2",
+    ///     });
     /// 
-    /// }
+    ///     // Accepter's credentials.
+    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var peerVpc = new Aws.Ec2.Vpc("peerVpc", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Peer,
+    ///     });
+    /// 
+    ///     var peerCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     // Requester's side of the connection.
+    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         PeerVpcId = peerVpc.Id,
+    ///         PeerOwnerId = peerCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         PeerRegion = "us-west-2",
+    ///         AutoAccept = false,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Requester" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Accepter's side of the connection.
+    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new()
+    ///     {
+    ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
+    ///         AutoAccept = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Accepter" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Peer,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -98,7 +101,7 @@ namespace Pulumi.Aws.Ec2
     ///  } }
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
-    public partial class VpcPeeringConnectionAccepter : Pulumi.CustomResource
+    public partial class VpcPeeringConnectionAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The status of the VPC Peering Connection request.
@@ -151,7 +154,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -212,7 +215,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcPeeringConnectionAccepterArgs : Pulumi.ResourceArgs
+    public sealed class VpcPeeringConnectionAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
@@ -255,9 +258,10 @@ namespace Pulumi.Aws.Ec2
         public VpcPeeringConnectionAccepterArgs()
         {
         }
+        public static new VpcPeeringConnectionAccepterArgs Empty => new VpcPeeringConnectionAccepterArgs();
     }
 
-    public sealed class VpcPeeringConnectionAccepterState : Pulumi.ResourceArgs
+    public sealed class VpcPeeringConnectionAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of the VPC Peering Connection request.
@@ -319,7 +323,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -342,5 +346,6 @@ namespace Pulumi.Aws.Ec2
         public VpcPeeringConnectionAccepterState()
         {
         }
+        public static new VpcPeeringConnectionAccepterState Empty => new VpcPeeringConnectionAccepterState();
     }
 }

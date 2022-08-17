@@ -15,56 +15,54 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myFilter = new Aws.GuardDuty.Filter("myFilter", new()
     ///     {
-    ///         var myFilter = new Aws.GuardDuty.Filter("myFilter", new Aws.GuardDuty.FilterArgs
+    ///         Action = "ARCHIVE",
+    ///         DetectorId = aws_guardduty_detector.Example.Id,
+    ///         Rank = 1,
+    ///         FindingCriteria = new Aws.GuardDuty.Inputs.FilterFindingCriteriaArgs
     ///         {
-    ///             Action = "ARCHIVE",
-    ///             DetectorId = aws_guardduty_detector.Example.Id,
-    ///             Rank = 1,
-    ///             FindingCriteria = new Aws.GuardDuty.Inputs.FilterFindingCriteriaArgs
+    ///             Criterions = new[]
     ///             {
-    ///                 Criterions = 
+    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
     ///                 {
-    ///                     new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                     Field = "region",
+    ///                     Equals = new[]
     ///                     {
-    ///                         Field = "region",
-    ///                         Equals = 
-    ///                         {
-    ///                             "eu-west-1",
-    ///                         },
-    ///                     },
-    ///                     new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
-    ///                     {
-    ///                         Field = "service.additionalInfo.threatListName",
-    ///                         NotEquals = 
-    ///                         {
-    ///                             "some-threat",
-    ///                             "another-threat",
-    ///                         },
-    ///                     },
-    ///                     new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
-    ///                     {
-    ///                         Field = "updatedAt",
-    ///                         GreaterThan = "2020-01-01T00:00:00Z",
-    ///                         LessThan = "2020-02-01T00:00:00Z",
-    ///                     },
-    ///                     new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
-    ///                     {
-    ///                         Field = "severity",
-    ///                         GreaterThanOrEqual = "4",
+    ///                         "eu-west-1",
     ///                     },
     ///                 },
+    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 {
+    ///                     Field = "service.additionalInfo.threatListName",
+    ///                     NotEquals = new[]
+    ///                     {
+    ///                         "some-threat",
+    ///                         "another-threat",
+    ///                     },
+    ///                 },
+    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 {
+    ///                     Field = "updatedAt",
+    ///                     GreaterThan = "2020-01-01T00:00:00Z",
+    ///                     LessThan = "2020-02-01T00:00:00Z",
+    ///                 },
+    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 {
+    ///                     Field = "severity",
+    ///                     GreaterThanOrEqual = "4",
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +74,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/filter:Filter")]
-    public partial class Filter : Pulumi.CustomResource
+    public partial class Filter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -176,7 +174,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class FilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
@@ -229,9 +227,10 @@ namespace Pulumi.Aws.GuardDuty
         public FilterArgs()
         {
         }
+        public static new FilterArgs Empty => new FilterArgs();
     }
 
-    public sealed class FilterState : Pulumi.ResourceArgs
+    public sealed class FilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
@@ -291,7 +290,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -302,5 +301,6 @@ namespace Pulumi.Aws.GuardDuty
         public FilterState()
         {
         }
+        public static new FilterState Empty => new FilterState();
     }
 }

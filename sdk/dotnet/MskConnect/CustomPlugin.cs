@@ -16,37 +16,35 @@ namespace Pulumi.Aws.MskConnect
     /// ### Basic configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Key = "debezium.zip",
-    ///             Source = new FileAsset("debezium.zip"),
-    ///         });
-    ///         var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new Aws.MskConnect.CustomPluginArgs
-    ///         {
-    ///             ContentType = "ZIP",
-    ///             Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
-    ///             {
-    ///                 S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
-    ///                 {
-    ///                     BucketArn = exampleBucketV2.Arn,
-    ///                     FileKey = exampleBucketObjectv2.Key,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "debezium.zip",
+    ///         Source = new FileAsset("debezium.zip"),
+    ///     });
+    /// 
+    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new()
+    ///     {
+    ///         ContentType = "ZIP",
+    ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
+    ///         {
+    ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
+    ///             {
+    ///                 BucketArn = exampleBucketV2.Arn,
+    ///                 FileKey = exampleBucketObjectv2.Key,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.MskConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/customPlugin:CustomPlugin")]
-    public partial class CustomPlugin : Pulumi.CustomResource
+    public partial class CustomPlugin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the Amazon Resource Name (ARN) of the custom plugin.
@@ -146,7 +144,7 @@ namespace Pulumi.Aws.MskConnect
         }
     }
 
-    public sealed class CustomPluginArgs : Pulumi.ResourceArgs
+    public sealed class CustomPluginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
@@ -175,9 +173,10 @@ namespace Pulumi.Aws.MskConnect
         public CustomPluginArgs()
         {
         }
+        public static new CustomPluginArgs Empty => new CustomPluginArgs();
     }
 
-    public sealed class CustomPluginState : Pulumi.ResourceArgs
+    public sealed class CustomPluginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the Amazon Resource Name (ARN) of the custom plugin.
@@ -224,5 +223,6 @@ namespace Pulumi.Aws.MskConnect
         public CustomPluginState()
         {
         }
+        public static new CustomPluginState Empty => new CustomPluginState();
     }
 }

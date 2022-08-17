@@ -15,27 +15,25 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.MonitoringSubscription("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.MonitoringSubscription("example", new Aws.CloudFront.MonitoringSubscriptionArgs
+    ///         DistributionId = aws_cloudfront_distribution.Example.Id,
+    ///         MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
     ///         {
-    ///             DistributionId = aws_cloudfront_distribution.Example.Id,
-    ///             MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
+    ///             RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
     ///             {
-    ///                 RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
-    ///                 {
-    ///                     RealtimeMetricsSubscriptionStatus = "Enabled",
-    ///                 },
+    ///                 RealtimeMetricsSubscriptionStatus = "Enabled",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/monitoringSubscription:MonitoringSubscription")]
-    public partial class MonitoringSubscription : Pulumi.CustomResource
+    public partial class MonitoringSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the distribution that you are enabling metrics for.
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class MonitoringSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the distribution that you are enabling metrics for.
@@ -122,9 +120,10 @@ namespace Pulumi.Aws.CloudFront
         public MonitoringSubscriptionArgs()
         {
         }
+        public static new MonitoringSubscriptionArgs Empty => new MonitoringSubscriptionArgs();
     }
 
-    public sealed class MonitoringSubscriptionState : Pulumi.ResourceArgs
+    public sealed class MonitoringSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the distribution that you are enabling metrics for.
@@ -141,5 +140,6 @@ namespace Pulumi.Aws.CloudFront
         public MonitoringSubscriptionState()
         {
         }
+        public static new MonitoringSubscriptionState Empty => new MonitoringSubscriptionState();
     }
 }

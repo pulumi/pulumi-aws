@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorCapacityAutoscalingScaleInPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorCapacityAutoscalingScaleInPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorCapacityAutoscalingScaleInPolicyGetArgs()
         {
         }
+        public static new ConnectorCapacityAutoscalingScaleInPolicyGetArgs Empty => new ConnectorCapacityAutoscalingScaleInPolicyGetArgs();
     }
 }

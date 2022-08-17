@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iot.Thing("example", new()
     ///     {
-    ///         var example = new Aws.Iot.Thing("example", new Aws.Iot.ThingArgs
+    ///         Attributes = 
     ///         {
-    ///             Attributes = 
-    ///             {
-    ///                 { "First", "examplevalue" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "First", "examplevalue" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thing:Thing")]
-    public partial class Thing : Pulumi.CustomResource
+    public partial class Thing : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the thing.
@@ -125,7 +123,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class ThingArgs : Pulumi.ResourceArgs
+    public sealed class ThingArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
@@ -154,9 +152,10 @@ namespace Pulumi.Aws.Iot
         public ThingArgs()
         {
         }
+        public static new ThingArgs Empty => new ThingArgs();
     }
 
-    public sealed class ThingState : Pulumi.ResourceArgs
+    public sealed class ThingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the thing.
@@ -203,5 +202,6 @@ namespace Pulumi.Aws.Iot
         public ThingState()
         {
         }
+        public static new ThingState Empty => new ThingState();
     }
 }

@@ -19,96 +19,103 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
-// 			AuthenticationType: pulumi.String("API_KEY"),
-// 			Schema: pulumi.String(fmt.Sprintf(`type Mutation {
-// 	putPost(id: ID!, title: String!): Post
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("API_KEY"),
+//				Schema: pulumi.String(fmt.Sprintf(`type Mutation {
+//		putPost(id: ID!, title: String!): Post
+//	}
 //
-// type Post {
-// 	id: ID!
-// 	title: String!
-// }
+//	type Post {
+//		id: ID!
+//		title: String!
+//	}
 //
-// type Query {
-// 	singlePost(id: ID!): Post
-// }
+//	type Query {
+//		singlePost(id: ID!): Post
+//	}
 //
-// schema {
-// 	query: Query
-// 	mutation: Mutation
-// }
+//	schema {
+//		query: Query
+//		mutation: Mutation
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testDataSource, err := appsync.NewDataSource(ctx, "testDataSource", &appsync.DataSourceArgs{
-// 			ApiId: testGraphQLApi.ID(),
-// 			Name:  pulumi.String("tf_example"),
-// 			Type:  pulumi.String("HTTP"),
-// 			HttpConfig: &appsync.DataSourceHttpConfigArgs{
-// 				Endpoint: pulumi.String("http://example.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
-// 			ApiId:      testGraphQLApi.ID(),
-// 			Field:      pulumi.String("singlePost"),
-// 			Type:       pulumi.String("Query"),
-// 			DataSource: testDataSource.Name,
-// 			RequestTemplate: pulumi.String(fmt.Sprintf(`{
-//     "version": "2018-05-29",
-//     "method": "GET",
-//     "resourcePath": "/",
-//     "params":{
-//         "headers": $utils.http.copyheaders($ctx.request.headers)
-//     }
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testDataSource, err := appsync.NewDataSource(ctx, "testDataSource", &appsync.DataSourceArgs{
+//				ApiId: testGraphQLApi.ID(),
+//				Name:  pulumi.String("tf_example"),
+//				Type:  pulumi.String("HTTP"),
+//				HttpConfig: &appsync.DataSourceHttpConfigArgs{
+//					Endpoint: pulumi.String("http://example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
+//				ApiId:      testGraphQLApi.ID(),
+//				Field:      pulumi.String("singlePost"),
+//				Type:       pulumi.String("Query"),
+//				DataSource: testDataSource.Name,
+//				RequestTemplate: pulumi.String(fmt.Sprintf(`{
+//	    "version": "2018-05-29",
+//	    "method": "GET",
+//	    "resourcePath": "/",
+//	    "params":{
+//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    }
+//	}
+//
 // `)),
-// 			ResponseTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
-// 			CachingConfig: &appsync.ResolverCachingConfigArgs{
-// 				CachingKeys: pulumi.StringArray{
-// 					pulumi.String(fmt.Sprintf("$context.identity.sub")),
-// 					pulumi.String(fmt.Sprintf("$context.arguments.id")),
-// 				},
-// 				Ttl: pulumi.Int(60),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appsync.NewResolver(ctx, "mutationPipelineTest", &appsync.ResolverArgs{
-// 			Type:             pulumi.String("Mutation"),
-// 			ApiId:            testGraphQLApi.ID(),
-// 			Field:            pulumi.String("pipelineTest"),
-// 			RequestTemplate:  pulumi.String("{}"),
-// 			ResponseTemplate: pulumi.String(fmt.Sprintf("$util.toJson($ctx.result)")),
-// 			Kind:             pulumi.String("PIPELINE"),
-// 			PipelineConfig: &appsync.ResolverPipelineConfigArgs{
-// 				Functions: pulumi.StringArray{
-// 					pulumi.Any(aws_appsync_function.Test1.Function_id),
-// 					pulumi.Any(aws_appsync_function.Test2.Function_id),
-// 					pulumi.Any(aws_appsync_function.Test3.Function_id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				ResponseTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
+//				CachingConfig: &appsync.ResolverCachingConfigArgs{
+//					CachingKeys: pulumi.StringArray{
+//						pulumi.String(fmt.Sprintf("$context.identity.sub")),
+//						pulumi.String(fmt.Sprintf("$context.arguments.id")),
+//					},
+//					Ttl: pulumi.Int(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewResolver(ctx, "mutationPipelineTest", &appsync.ResolverArgs{
+//				Type:             pulumi.String("Mutation"),
+//				ApiId:            testGraphQLApi.ID(),
+//				Field:            pulumi.String("pipelineTest"),
+//				RequestTemplate:  pulumi.String("{}"),
+//				ResponseTemplate: pulumi.String(fmt.Sprintf("$util.toJson($ctx.result)")),
+//				Kind:             pulumi.String("PIPELINE"),
+//				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
+//					Functions: pulumi.StringArray{
+//						pulumi.Any(aws_appsync_function.Test1.Function_id),
+//						pulumi.Any(aws_appsync_function.Test2.Function_id),
+//						pulumi.Any(aws_appsync_function.Test3.Function_id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -116,7 +123,9 @@ import (
 // `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+//
+//	$ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+//
 // ```
 type Resolver struct {
 	pulumi.CustomResourceState
@@ -127,7 +136,7 @@ type Resolver struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The CachingConfig.
 	CachingConfig ResolverCachingConfigPtrOutput `pulumi:"cachingConfig"`
-	// The DataSource name.
+	// The data source name.
 	DataSource pulumi.StringPtrOutput `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
 	Field pulumi.StringOutput `pulumi:"field"`
@@ -191,7 +200,7 @@ type resolverState struct {
 	Arn *string `pulumi:"arn"`
 	// The CachingConfig.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
-	// The DataSource name.
+	// The data source name.
 	DataSource *string `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
 	Field *string `pulumi:"field"`
@@ -218,7 +227,7 @@ type ResolverState struct {
 	Arn pulumi.StringPtrInput
 	// The CachingConfig.
 	CachingConfig ResolverCachingConfigPtrInput
-	// The DataSource name.
+	// The data source name.
 	DataSource pulumi.StringPtrInput
 	// The field name from the schema defined in the GraphQL API.
 	Field pulumi.StringPtrInput
@@ -247,7 +256,7 @@ type resolverArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// The CachingConfig.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
-	// The DataSource name.
+	// The data source name.
 	DataSource *string `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
 	Field string `pulumi:"field"`
@@ -273,7 +282,7 @@ type ResolverArgs struct {
 	ApiId pulumi.StringInput
 	// The CachingConfig.
 	CachingConfig ResolverCachingConfigPtrInput
-	// The DataSource name.
+	// The data source name.
 	DataSource pulumi.StringPtrInput
 	// The field name from the schema defined in the GraphQL API.
 	Field pulumi.StringInput
@@ -319,7 +328,7 @@ func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutp
 // ResolverArrayInput is an input type that accepts ResolverArray and ResolverArrayOutput values.
 // You can construct a concrete instance of `ResolverArrayInput` via:
 //
-//          ResolverArray{ ResolverArgs{...} }
+//	ResolverArray{ ResolverArgs{...} }
 type ResolverArrayInput interface {
 	pulumi.Input
 
@@ -344,7 +353,7 @@ func (i ResolverArray) ToResolverArrayOutputWithContext(ctx context.Context) Res
 // ResolverMapInput is an input type that accepts ResolverMap and ResolverMapOutput values.
 // You can construct a concrete instance of `ResolverMapInput` via:
 //
-//          ResolverMap{ "key": ResolverArgs{...} }
+//	ResolverMap{ "key": ResolverArgs{...} }
 type ResolverMapInput interface {
 	pulumi.Input
 
@@ -395,7 +404,7 @@ func (o ResolverOutput) CachingConfig() ResolverCachingConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverCachingConfigPtrOutput { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
-// The DataSource name.
+// The data source name.
 func (o ResolverOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.DataSource }).(pulumi.StringPtrOutput)
 }

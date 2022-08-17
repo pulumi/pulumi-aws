@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch.Inputs
 {
 
-    public sealed class DomainIndexFieldArgs : Pulumi.ResourceArgs
+    public sealed class DomainIndexFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.CloudSearch.Inputs
         public DomainIndexFieldArgs()
         {
         }
+        public static new DomainIndexFieldArgs Empty => new DomainIndexFieldArgs();
     }
 }

@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewQueryDefinition(ctx, "example", &cloudwatch.QueryDefinitionArgs{
-// 			LogGroupNames: pulumi.StringArray{
-// 				pulumi.String("/aws/logGroup1"),
-// 				pulumi.String("/aws/logGroup2"),
-// 			},
-// 			QueryString: pulumi.String(fmt.Sprintf("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewQueryDefinition(ctx, "example", &cloudwatch.QueryDefinitionArgs{
+//				LogGroupNames: pulumi.StringArray{
+//					pulumi.String("/aws/logGroup1"),
+//					pulumi.String("/aws/logGroup2"),
+//				},
+//				QueryString: pulumi.String(fmt.Sprintf("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // CloudWatch query definitions can be imported using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console.
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
+//
+//	$ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
+//
 // ```
 type QueryDefinition struct {
 	pulumi.CustomResourceState
@@ -164,7 +169,7 @@ func (i *QueryDefinition) ToQueryDefinitionOutputWithContext(ctx context.Context
 // QueryDefinitionArrayInput is an input type that accepts QueryDefinitionArray and QueryDefinitionArrayOutput values.
 // You can construct a concrete instance of `QueryDefinitionArrayInput` via:
 //
-//          QueryDefinitionArray{ QueryDefinitionArgs{...} }
+//	QueryDefinitionArray{ QueryDefinitionArgs{...} }
 type QueryDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i QueryDefinitionArray) ToQueryDefinitionArrayOutputWithContext(ctx contex
 // QueryDefinitionMapInput is an input type that accepts QueryDefinitionMap and QueryDefinitionMapOutput values.
 // You can construct a concrete instance of `QueryDefinitionMapInput` via:
 //
-//          QueryDefinitionMap{ "key": QueryDefinitionArgs{...} }
+//	QueryDefinitionMap{ "key": QueryDefinitionArgs{...} }
 type QueryDefinitionMapInput interface {
 	pulumi.Input
 

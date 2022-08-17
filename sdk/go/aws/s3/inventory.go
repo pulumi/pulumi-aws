@@ -20,39 +20,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
-// 			Bucket:                 testBucketV2.ID(),
-// 			IncludedObjectVersions: pulumi.String("All"),
-// 			Schedule: &s3.InventoryScheduleArgs{
-// 				Frequency: pulumi.String("Daily"),
-// 			},
-// 			Destination: &s3.InventoryDestinationArgs{
-// 				Bucket: &s3.InventoryDestinationBucketArgs{
-// 					Format:    pulumi.String("ORC"),
-// 					BucketArn: inventory.Arn,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
+//				Bucket:                 testBucketV2.ID(),
+//				IncludedObjectVersions: pulumi.String("All"),
+//				Schedule: &s3.InventoryScheduleArgs{
+//					Frequency: pulumi.String("Daily"),
+//				},
+//				Destination: &s3.InventoryDestinationArgs{
+//					Bucket: &s3.InventoryDestinationBucketArgs{
+//						Format:    pulumi.String("ORC"),
+//						BucketArn: inventory.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Add inventory configuration with S3 object prefix
 //
@@ -60,43 +63,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := s3.NewBucketV2(ctx, "test", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
-// 			Bucket:                 test.ID(),
-// 			IncludedObjectVersions: pulumi.String("All"),
-// 			Schedule: &s3.InventoryScheduleArgs{
-// 				Frequency: pulumi.String("Daily"),
-// 			},
-// 			Filter: &s3.InventoryFilterArgs{
-// 				Prefix: pulumi.String("documents/"),
-// 			},
-// 			Destination: &s3.InventoryDestinationArgs{
-// 				Bucket: &s3.InventoryDestinationBucketArgs{
-// 					Format:    pulumi.String("ORC"),
-// 					BucketArn: inventory.Arn,
-// 					Prefix:    pulumi.String("inventory"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := s3.NewBucketV2(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
+//				Bucket:                 test.ID(),
+//				IncludedObjectVersions: pulumi.String("All"),
+//				Schedule: &s3.InventoryScheduleArgs{
+//					Frequency: pulumi.String("Daily"),
+//				},
+//				Filter: &s3.InventoryFilterArgs{
+//					Prefix: pulumi.String("documents/"),
+//				},
+//				Destination: &s3.InventoryDestinationArgs{
+//					Bucket: &s3.InventoryDestinationBucketArgs{
+//						Format:    pulumi.String("ORC"),
+//						BucketArn: inventory.Arn,
+//						Prefix:    pulumi.String("inventory"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -104,7 +110,9 @@ import (
 // S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+//
+//	$ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+//
 // ```
 type Inventory struct {
 	pulumi.CustomResourceState
@@ -274,7 +282,7 @@ func (i *Inventory) ToInventoryOutputWithContext(ctx context.Context) InventoryO
 // InventoryArrayInput is an input type that accepts InventoryArray and InventoryArrayOutput values.
 // You can construct a concrete instance of `InventoryArrayInput` via:
 //
-//          InventoryArray{ InventoryArgs{...} }
+//	InventoryArray{ InventoryArgs{...} }
 type InventoryArrayInput interface {
 	pulumi.Input
 
@@ -299,7 +307,7 @@ func (i InventoryArray) ToInventoryArrayOutputWithContext(ctx context.Context) I
 // InventoryMapInput is an input type that accepts InventoryMap and InventoryMapOutput values.
 // You can construct a concrete instance of `InventoryMapInput` via:
 //
-//          InventoryMap{ "key": InventoryArgs{...} }
+//	InventoryMap{ "key": InventoryArgs{...} }
 type InventoryMapInput interface {
 	pulumi.Input
 

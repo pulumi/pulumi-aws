@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class SelectionSelectionTagArgs : Pulumi.ResourceArgs
+    public sealed class SelectionSelectionTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key in a key-value pair.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public SelectionSelectionTagArgs()
         {
         }
+        public static new SelectionSelectionTagArgs Empty => new SelectionSelectionTagArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mwaa.Inputs
 {
 
-    public sealed class EnvironmentLoggingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
         public EnvironmentLoggingConfigurationGetArgs()
         {
         }
+        public static new EnvironmentLoggingConfigurationGetArgs Empty => new EnvironmentLoggingConfigurationGetArgs();
     }
 }

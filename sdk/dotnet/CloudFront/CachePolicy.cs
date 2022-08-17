@@ -15,59 +15,57 @@ namespace Pulumi.Aws.CloudFront
     /// The following example below creates a CloudFront cache policy.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.CachePolicy("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.CachePolicy("example", new Aws.CloudFront.CachePolicyArgs
+    ///         Comment = "test comment",
+    ///         DefaultTtl = 50,
+    ///         MaxTtl = 100,
+    ///         MinTtl = 1,
+    ///         ParametersInCacheKeyAndForwardedToOrigin = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
     ///         {
-    ///             Comment = "test comment",
-    ///             DefaultTtl = 50,
-    ///             MaxTtl = 100,
-    ///             MinTtl = 1,
-    ///             ParametersInCacheKeyAndForwardedToOrigin = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
+    ///             CookiesConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs
     ///             {
-    ///                 CookiesConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs
+    ///                 CookieBehavior = "whitelist",
+    ///                 Cookies = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs
     ///                 {
-    ///                     CookieBehavior = "whitelist",
-    ///                     Cookies = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs
+    ///                     Items = new[]
     ///                     {
-    ///                         Items = 
-    ///                         {
-    ///                             "example",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 HeadersConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs
-    ///                 {
-    ///                     HeaderBehavior = "whitelist",
-    ///                     Headers = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs
-    ///                     {
-    ///                         Items = 
-    ///                         {
-    ///                             "example",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 QueryStringsConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs
-    ///                 {
-    ///                     QueryStringBehavior = "whitelist",
-    ///                     QueryStrings = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs
-    ///                     {
-    ///                         Items = 
-    ///                         {
-    ///                             "example",
-    ///                         },
+    ///                         "example",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             HeadersConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs
+    ///             {
+    ///                 HeaderBehavior = "whitelist",
+    ///                 Headers = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs
+    ///                 {
+    ///                     Items = new[]
+    ///                     {
+    ///                         "example",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             QueryStringsConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs
+    ///             {
+    ///                 QueryStringBehavior = "whitelist",
+    ///                 QueryStrings = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs
+    ///                 {
+    ///                     Items = new[]
+    ///                     {
+    ///                         "example",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
-    public partial class CachePolicy : Pulumi.CustomResource
+    public partial class CachePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A comment to describe the cache policy.
@@ -167,7 +165,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class CachePolicyArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment to describe the cache policy.
@@ -208,9 +206,10 @@ namespace Pulumi.Aws.CloudFront
         public CachePolicyArgs()
         {
         }
+        public static new CachePolicyArgs Empty => new CachePolicyArgs();
     }
 
-    public sealed class CachePolicyState : Pulumi.ResourceArgs
+    public sealed class CachePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment to describe the cache policy.
@@ -257,5 +256,6 @@ namespace Pulumi.Aws.CloudFront
         public CachePolicyState()
         {
         }
+        public static new CachePolicyState Empty => new CachePolicyState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorCapacityGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorCapacityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the auto scaling parameters for the connector. See below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorCapacityGetArgs()
         {
         }
+        public static new ConnectorCapacityGetArgs Empty => new ConnectorCapacityGetArgs();
     }
 }

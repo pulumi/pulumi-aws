@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The inputs for the STEP_FUNCTION task.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs()
         {
         }
+        public static new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs Empty => new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs();
     }
 }

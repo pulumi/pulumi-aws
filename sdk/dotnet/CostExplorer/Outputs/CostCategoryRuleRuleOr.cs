@@ -21,9 +21,6 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
         /// </summary>
         public readonly Outputs.CostCategoryRuleRuleOrDimension? Dimension;
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleOrTags? Tags;
 
         [OutputConstructor]

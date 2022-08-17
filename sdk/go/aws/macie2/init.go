@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:macie2/account:Account":
 		r = &Account{}
+	case "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration":
+		r = &ClassificationExportConfiguration{}
 	case "aws:macie2/classificationJob:ClassificationJob":
 		r = &ClassificationJob{}
 	case "aws:macie2/invitationAccepter:InvitationAccepter":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"macie2/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"macie2/classificationExportConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

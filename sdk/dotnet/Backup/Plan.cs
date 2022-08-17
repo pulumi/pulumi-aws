@@ -15,43 +15,41 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Plan("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Plan("example", new Aws.Backup.PlanArgs
+    ///         Rules = new[]
     ///         {
-    ///             Rules = 
+    ///             new Aws.Backup.Inputs.PlanRuleArgs
     ///             {
-    ///                 new Aws.Backup.Inputs.PlanRuleArgs
+    ///                 RuleName = "tf_example_backup_rule",
+    ///                 TargetVaultName = aws_backup_vault.Test.Name,
+    ///                 Schedule = "cron(0 12 * * ? *)",
+    ///                 Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
     ///                 {
-    ///                     RuleName = "tf_example_backup_rule",
-    ///                     TargetVaultName = aws_backup_vault.Test.Name,
-    ///                     Schedule = "cron(0 12 * * ? *)",
-    ///                     Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
-    ///                     {
-    ///                         DeleteAfter = 14,
-    ///                     },
+    ///                     DeleteAfter = 14,
     ///                 },
     ///             },
-    ///             AdvancedBackupSettings = 
+    ///         },
+    ///         AdvancedBackupSettings = new[]
+    ///         {
+    ///             new Aws.Backup.Inputs.PlanAdvancedBackupSettingArgs
     ///             {
-    ///                 new Aws.Backup.Inputs.PlanAdvancedBackupSettingArgs
+    ///                 BackupOptions = 
     ///                 {
-    ///                     BackupOptions = 
-    ///                     {
-    ///                         { "WindowsVSS", "enabled" },
-    ///                     },
-    ///                     ResourceType = "EC2",
+    ///                     { "WindowsVSS", "enabled" },
     ///                 },
+    ///                 ResourceType = "EC2",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +61,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/plan:Plan")]
-    public partial class Plan : Pulumi.CustomResource
+    public partial class Plan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An object that specifies backup options for each resource type.
@@ -96,7 +94,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -151,7 +149,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class PlanArgs : Pulumi.ResourceArgs
+    public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("advancedBackupSettings")]
         private InputList<Inputs.PlanAdvancedBackupSettingArgs>? _advancedBackupSettings;
@@ -198,9 +196,10 @@ namespace Pulumi.Aws.Backup
         public PlanArgs()
         {
         }
+        public static new PlanArgs Empty => new PlanArgs();
     }
 
-    public sealed class PlanState : Pulumi.ResourceArgs
+    public sealed class PlanState : global::Pulumi.ResourceArgs
     {
         [Input("advancedBackupSettings")]
         private InputList<Inputs.PlanAdvancedBackupSettingGetArgs>? _advancedBackupSettings;
@@ -254,7 +253,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -271,5 +270,6 @@ namespace Pulumi.Aws.Backup
         public PlanState()
         {
         }
+        public static new PlanState Empty => new PlanState();
     }
 }

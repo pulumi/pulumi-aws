@@ -17,36 +17,39 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := worklink.NewFleet(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = worklink.NewWebsiteCertificateAuthorityAssociation(ctx, "test", &worklink.WebsiteCertificateAuthorityAssociationArgs{
-// 			FleetArn:    pulumi.Any(aws_worklink_fleet.Test.Arn),
-// 			Certificate: readFileOrPanic("certificate.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := worklink.NewFleet(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = worklink.NewWebsiteCertificateAuthorityAssociation(ctx, "test", &worklink.WebsiteCertificateAuthorityAssociationArgs{
+//				FleetArn:    pulumi.Any(aws_worklink_fleet.Test.Arn),
+//				Certificate: readFileOrPanic("certificate.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+//
+//	$ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+//
 // ```
 type WebsiteCertificateAuthorityAssociation struct {
 	pulumi.CustomResourceState
@@ -174,7 +179,7 @@ func (i *WebsiteCertificateAuthorityAssociation) ToWebsiteCertificateAuthorityAs
 // WebsiteCertificateAuthorityAssociationArrayInput is an input type that accepts WebsiteCertificateAuthorityAssociationArray and WebsiteCertificateAuthorityAssociationArrayOutput values.
 // You can construct a concrete instance of `WebsiteCertificateAuthorityAssociationArrayInput` via:
 //
-//          WebsiteCertificateAuthorityAssociationArray{ WebsiteCertificateAuthorityAssociationArgs{...} }
+//	WebsiteCertificateAuthorityAssociationArray{ WebsiteCertificateAuthorityAssociationArgs{...} }
 type WebsiteCertificateAuthorityAssociationArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i WebsiteCertificateAuthorityAssociationArray) ToWebsiteCertificateAuthori
 // WebsiteCertificateAuthorityAssociationMapInput is an input type that accepts WebsiteCertificateAuthorityAssociationMap and WebsiteCertificateAuthorityAssociationMapOutput values.
 // You can construct a concrete instance of `WebsiteCertificateAuthorityAssociationMapInput` via:
 //
-//          WebsiteCertificateAuthorityAssociationMap{ "key": WebsiteCertificateAuthorityAssociationArgs{...} }
+//	WebsiteCertificateAuthorityAssociationMap{ "key": WebsiteCertificateAuthorityAssociationArgs{...} }
 type WebsiteCertificateAuthorityAssociationMapInput interface {
 	pulumi.Input
 

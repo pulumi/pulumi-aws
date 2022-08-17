@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewNetworkInterfaceAttachment(ctx, "test", &ec2.NetworkInterfaceAttachmentArgs{
-// 			InstanceId:         pulumi.Any(aws_instance.Test.Id),
-// 			NetworkInterfaceId: pulumi.Any(aws_network_interface.Test.Id),
-// 			DeviceIndex:        pulumi.Int(0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkInterfaceAttachment(ctx, "test", &ec2.NetworkInterfaceAttachmentArgs{
+//				InstanceId:         pulumi.Any(aws_instance.Test.Id),
+//				NetworkInterfaceId: pulumi.Any(aws_network_interface.Test.Id),
+//				DeviceIndex:        pulumi.Int(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
@@ -164,7 +167,7 @@ func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithConte
 // NetworkInterfaceAttachmentArrayInput is an input type that accepts NetworkInterfaceAttachmentArray and NetworkInterfaceAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceAttachmentArrayInput` via:
 //
-//          NetworkInterfaceAttachmentArray{ NetworkInterfaceAttachmentArgs{...} }
+//	NetworkInterfaceAttachmentArray{ NetworkInterfaceAttachmentArgs{...} }
 type NetworkInterfaceAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +192,7 @@ func (i NetworkInterfaceAttachmentArray) ToNetworkInterfaceAttachmentArrayOutput
 // NetworkInterfaceAttachmentMapInput is an input type that accepts NetworkInterfaceAttachmentMap and NetworkInterfaceAttachmentMapOutput values.
 // You can construct a concrete instance of `NetworkInterfaceAttachmentMapInput` via:
 //
-//          NetworkInterfaceAttachmentMap{ "key": NetworkInterfaceAttachmentArgs{...} }
+//	NetworkInterfaceAttachmentMap{ "key": NetworkInterfaceAttachmentArgs{...} }
 type NetworkInterfaceAttachmentMapInput interface {
 	pulumi.Input
 

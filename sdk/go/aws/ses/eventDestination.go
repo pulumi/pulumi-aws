@@ -20,33 +20,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
-// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
-// 			Enabled:              pulumi.Bool(true),
-// 			MatchingTypes: pulumi.StringArray{
-// 				pulumi.String("bounce"),
-// 				pulumi.String("send"),
-// 			},
-// 			CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
-// 				&ses.EventDestinationCloudwatchDestinationArgs{
-// 					DefaultValue:  pulumi.String("default"),
-// 					DimensionName: pulumi.String("dimension"),
-// 					ValueSource:   pulumi.String("emailHeader"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
+//				},
+//				CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
+//					&ses.EventDestinationCloudwatchDestinationArgs{
+//						DefaultValue:  pulumi.String("default"),
+//						DimensionName: pulumi.String("dimension"),
+//						ValueSource:   pulumi.String("emailHeader"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Kinesis Destination
 //
@@ -54,30 +57,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
-// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
-// 			Enabled:              pulumi.Bool(true),
-// 			MatchingTypes: pulumi.StringArray{
-// 				pulumi.String("bounce"),
-// 				pulumi.String("send"),
-// 			},
-// 			KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
-// 				StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
+//				},
+//				KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
+//					StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### SNS Destination
 //
@@ -85,29 +91,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
-// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
-// 			Enabled:              pulumi.Bool(true),
-// 			MatchingTypes: pulumi.StringArray{
-// 				pulumi.String("bounce"),
-// 				pulumi.String("send"),
-// 			},
-// 			SnsDestination: &ses.EventDestinationSnsDestinationArgs{
-// 				TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
+//				},
+//				SnsDestination: &ses.EventDestinationSnsDestinationArgs{
+//					TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -115,7 +124,9 @@ import (
 // SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+//
+//	$ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+//
 // ```
 type EventDestination struct {
 	pulumi.CustomResourceState
@@ -275,7 +286,7 @@ func (i *EventDestination) ToEventDestinationOutputWithContext(ctx context.Conte
 // EventDestinationArrayInput is an input type that accepts EventDestinationArray and EventDestinationArrayOutput values.
 // You can construct a concrete instance of `EventDestinationArrayInput` via:
 //
-//          EventDestinationArray{ EventDestinationArgs{...} }
+//	EventDestinationArray{ EventDestinationArgs{...} }
 type EventDestinationArrayInput interface {
 	pulumi.Input
 
@@ -300,7 +311,7 @@ func (i EventDestinationArray) ToEventDestinationArrayOutputWithContext(ctx cont
 // EventDestinationMapInput is an input type that accepts EventDestinationMap and EventDestinationMapOutput values.
 // You can construct a concrete instance of `EventDestinationMapInput` via:
 //
-//          EventDestinationMap{ "key": EventDestinationArgs{...} }
+//	EventDestinationMap{ "key": EventDestinationArgs{...} }
 type EventDestinationMapInput interface {
 	pulumi.Input
 

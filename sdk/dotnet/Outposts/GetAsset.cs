@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetAssetArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost ARN.
@@ -42,9 +42,10 @@ namespace Pulumi.Aws.Outposts
         public GetAssetArgs()
         {
         }
+        public static new GetAssetArgs Empty => new GetAssetArgs();
     }
 
-    public sealed class GetAssetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost ARN.
@@ -61,6 +62,7 @@ namespace Pulumi.Aws.Outposts
         public GetAssetInvokeArgs()
         {
         }
+        public static new GetAssetInvokeArgs Empty => new GetAssetInvokeArgs();
     }
 
 

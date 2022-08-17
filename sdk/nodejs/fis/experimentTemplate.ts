@@ -96,11 +96,8 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      * When an ongoing experiment should be stopped. See below.
      */
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
-    /**
-     * Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Action's target, if applicable. See below.
      */
@@ -145,8 +142,8 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
@@ -173,9 +170,6 @@ export interface ExperimentTemplateState {
      * When an ongoing experiment should be stopped. See below.
      */
     stopConditions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
-    /**
-     * Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -204,11 +198,7 @@ export interface ExperimentTemplateArgs {
      * When an ongoing experiment should be stopped. See below.
      */
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
-    /**
-     * Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Action's target, if applicable. See below.
      */

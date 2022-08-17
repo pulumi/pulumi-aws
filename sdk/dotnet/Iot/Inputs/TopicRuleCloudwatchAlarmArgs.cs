@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleCloudwatchAlarmArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleCloudwatchAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CloudWatch alarm name.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleCloudwatchAlarmArgs()
         {
         }
+        public static new TopicRuleCloudwatchAlarmArgs Empty => new TopicRuleCloudwatchAlarmArgs();
     }
 }

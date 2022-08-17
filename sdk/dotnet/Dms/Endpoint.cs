@@ -15,36 +15,34 @@ namespace Pulumi.Aws.Dms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new endpoint
+    ///     var test = new Aws.Dms.Endpoint("test", new()
     ///     {
-    ///         // Create a new endpoint
-    ///         var test = new Aws.Dms.Endpoint("test", new Aws.Dms.EndpointArgs
+    ///         CertificateArn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
+    ///         DatabaseName = "test",
+    ///         EndpointId = "test-dms-endpoint-tf",
+    ///         EndpointType = "source",
+    ///         EngineName = "aurora",
+    ///         ExtraConnectionAttributes = "",
+    ///         KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+    ///         Password = "test",
+    ///         Port = 3306,
+    ///         ServerName = "test",
+    ///         SslMode = "none",
+    ///         Tags = 
     ///         {
-    ///             CertificateArn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
-    ///             DatabaseName = "test",
-    ///             EndpointId = "test-dms-endpoint-tf",
-    ///             EndpointType = "source",
-    ///             EngineName = "aurora",
-    ///             ExtraConnectionAttributes = "",
-    ///             KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-    ///             Password = "test",
-    ///             Port = 3306,
-    ///             ServerName = "test",
-    ///             SslMode = "none",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "test" },
-    ///             },
-    ///             Username = "test",
-    ///         });
-    ///     }
+    ///             { "Name", "test" },
+    ///         },
+    ///         Username = "test",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Aws.Dms
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/endpoint:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN for the certificate.
@@ -246,7 +244,7 @@ namespace Pulumi.Aws.Dms
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN for the certificate.
@@ -389,9 +387,10 @@ namespace Pulumi.Aws.Dms
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 
-    public sealed class EndpointState : Pulumi.ResourceArgs
+    public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN for the certificate.
@@ -552,5 +551,6 @@ namespace Pulumi.Aws.Dms
         public EndpointState()
         {
         }
+        public static new EndpointState Empty => new EndpointState();
     }
 }

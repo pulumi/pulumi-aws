@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<string>? _items;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs()
         {
         }
+        public static new FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs Empty => new FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs();
     }
 }

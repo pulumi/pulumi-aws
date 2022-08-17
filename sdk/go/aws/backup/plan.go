@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
-// 			Rules: backup.PlanRuleArray{
-// 				&backup.PlanRuleArgs{
-// 					RuleName:        pulumi.String("tf_example_backup_rule"),
-// 					TargetVaultName: pulumi.Any(aws_backup_vault.Test.Name),
-// 					Schedule:        pulumi.String("cron(0 12 * * ? *)"),
-// 					Lifecycle: &backup.PlanRuleLifecycleArgs{
-// 						DeleteAfter: pulumi.Int(14),
-// 					},
-// 				},
-// 			},
-// 			AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{
-// 				&backup.PlanAdvancedBackupSettingArgs{
-// 					BackupOptions: pulumi.StringMap{
-// 						"WindowsVSS": pulumi.String("enabled"),
-// 					},
-// 					ResourceType: pulumi.String("EC2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
+//				Rules: backup.PlanRuleArray{
+//					&backup.PlanRuleArgs{
+//						RuleName:        pulumi.String("tf_example_backup_rule"),
+//						TargetVaultName: pulumi.Any(aws_backup_vault.Test.Name),
+//						Schedule:        pulumi.String("cron(0 12 * * ? *)"),
+//						Lifecycle: &backup.PlanRuleLifecycleArgs{
+//							DeleteAfter: pulumi.Int(14),
+//						},
+//					},
+//				},
+//				AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{
+//					&backup.PlanAdvancedBackupSettingArgs{
+//						BackupOptions: pulumi.StringMap{
+//							"WindowsVSS": pulumi.String("enabled"),
+//						},
+//						ResourceType: pulumi.String("EC2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Backup Plan can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/plan:Plan test <id>
+//
+//	$ pulumi import aws:backup/plan:Plan test <id>
+//
 // ```
 type Plan struct {
 	pulumi.CustomResourceState
@@ -73,7 +78,7 @@ type Plan struct {
 	Rules PlanRuleArrayOutput `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -121,7 +126,7 @@ type planState struct {
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version *string `pulumi:"version"`
@@ -138,7 +143,7 @@ type PlanState struct {
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version pulumi.StringPtrInput
@@ -197,7 +202,7 @@ func (i *Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 // PlanArrayInput is an input type that accepts PlanArray and PlanArrayOutput values.
 // You can construct a concrete instance of `PlanArrayInput` via:
 //
-//          PlanArray{ PlanArgs{...} }
+//	PlanArray{ PlanArgs{...} }
 type PlanArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i PlanArray) ToPlanArrayOutputWithContext(ctx context.Context) PlanArrayOu
 // PlanMapInput is an input type that accepts PlanMap and PlanMapOutput values.
 // You can construct a concrete instance of `PlanMapInput` via:
 //
-//          PlanMap{ "key": PlanArgs{...} }
+//	PlanMap{ "key": PlanArgs{...} }
 type PlanMapInput interface {
 	pulumi.Input
 
@@ -283,7 +288,7 @@ func (o PlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

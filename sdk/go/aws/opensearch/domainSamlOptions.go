@@ -20,53 +20,56 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
-// 			EngineVersion: pulumi.String("OpenSearch_1.1"),
-// 			ClusterConfig: &opensearch.DomainClusterConfigArgs{
-// 				InstanceType: pulumi.String("r4.large.search"),
-// 			},
-// 			SnapshotOptions: &opensearch.DomainSnapshotOptionsArgs{
-// 				AutomatedSnapshotStartHour: pulumi.Int(23),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Domain": pulumi.String("TestDomain"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opensearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &opensearch.DomainSamlOptionsArgs{
-// 			DomainName: exampleDomain.DomainName,
-// 			SamlOptions: &opensearch.DomainSamlOptionsSamlOptionsArgs{
-// 				Enabled: pulumi.Bool(true),
-// 				Idp: &opensearch.DomainSamlOptionsSamlOptionsIdpArgs{
-// 					EntityId:        pulumi.String("https://example.com"),
-// 					MetadataContent: readFileOrPanic("./saml-metadata.xml"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+//				EngineVersion: pulumi.String("OpenSearch_1.1"),
+//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
+//					InstanceType: pulumi.String("r4.large.search"),
+//				},
+//				SnapshotOptions: &opensearch.DomainSnapshotOptionsArgs{
+//					AutomatedSnapshotStartHour: pulumi.Int(23),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Domain": pulumi.String("TestDomain"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &opensearch.DomainSamlOptionsArgs{
+//				DomainName: exampleDomain.DomainName,
+//				SamlOptions: &opensearch.DomainSamlOptionsSamlOptionsArgs{
+//					Enabled: pulumi.Bool(true),
+//					Idp: &opensearch.DomainSamlOptionsSamlOptionsIdpArgs{
+//						EntityId:        pulumi.String("https://example.com"),
+//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // OpenSearch domains can be imported using the `domain_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+//
+//	$ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+//
 // ```
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *DomainSamlOptions) ToDomainSamlOptionsOutputWithContext(ctx context.Con
 // DomainSamlOptionsArrayInput is an input type that accepts DomainSamlOptionsArray and DomainSamlOptionsArrayOutput values.
 // You can construct a concrete instance of `DomainSamlOptionsArrayInput` via:
 //
-//          DomainSamlOptionsArray{ DomainSamlOptionsArgs{...} }
+//	DomainSamlOptionsArray{ DomainSamlOptionsArgs{...} }
 type DomainSamlOptionsArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i DomainSamlOptionsArray) ToDomainSamlOptionsArrayOutputWithContext(ctx co
 // DomainSamlOptionsMapInput is an input type that accepts DomainSamlOptionsMap and DomainSamlOptionsMapOutput values.
 // You can construct a concrete instance of `DomainSamlOptionsMapInput` via:
 //
-//          DomainSamlOptionsMap{ "key": DomainSamlOptionsArgs{...} }
+//	DomainSamlOptionsMap{ "key": DomainSamlOptionsArgs{...} }
 type DomainSamlOptionsMapInput interface {
 	pulumi.Input
 

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := efs.NewAccessPoint(ctx, "test", &efs.AccessPointArgs{
-// 			FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := efs.NewAccessPoint(ctx, "test", &efs.AccessPointArgs{
+//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // The EFS access points can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+//
+//	$ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+//
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
@@ -57,7 +62,7 @@ type AccessPoint struct {
 	PosixUser AccessPointPosixUserPtrOutput `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -105,7 +110,7 @@ type accessPointState struct {
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -122,7 +127,7 @@ type AccessPointState struct {
 	PosixUser AccessPointPosixUserPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -138,7 +143,7 @@ type accessPointArgs struct {
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -150,7 +155,7 @@ type AccessPointArgs struct {
 	PosixUser AccessPointPosixUserPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
 
@@ -180,7 +185,7 @@ func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) Access
 // AccessPointArrayInput is an input type that accepts AccessPointArray and AccessPointArrayOutput values.
 // You can construct a concrete instance of `AccessPointArrayInput` via:
 //
-//          AccessPointArray{ AccessPointArgs{...} }
+//	AccessPointArray{ AccessPointArgs{...} }
 type AccessPointArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i AccessPointArray) ToAccessPointArrayOutputWithContext(ctx context.Contex
 // AccessPointMapInput is an input type that accepts AccessPointMap and AccessPointMapOutput values.
 // You can construct a concrete instance of `AccessPointMapInput` via:
 //
-//          AccessPointMap{ "key": AccessPointArgs{...} }
+//	AccessPointMap{ "key": AccessPointArgs{...} }
 type AccessPointMapInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (o AccessPointOutput) RootDirectory() AccessPointRootDirectoryOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointRootDirectoryOutput { return v.RootDirectory }).(AccessPointRootDirectoryOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o AccessPointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

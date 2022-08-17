@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of days after which Amazon S3 aborts an incomplete multipart upload.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs()
         {
         }
+        public static new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs Empty => new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs();
     }
 }

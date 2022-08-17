@@ -19,26 +19,24 @@ namespace Pulumi.Aws.Neptune
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Neptune.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Neptune.GetOrderableDbInstance.InvokeAsync(new Aws.Neptune.GetOrderableDbInstanceArgs
+        ///         EngineVersion = "1.0.3.0",
+        ///         PreferredInstanceClasses = new[]
         ///         {
-        ///             EngineVersion = "1.0.3.0",
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.r5.large",
-        ///                 "db.r4.large",
-        ///                 "db.t3.medium",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "db.r5.large",
+        ///             "db.r4.large",
+        ///             "db.t3.medium",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +52,24 @@ namespace Pulumi.Aws.Neptune
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Neptune.GetOrderableDbInstance.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Neptune.GetOrderableDbInstance.InvokeAsync(new Aws.Neptune.GetOrderableDbInstanceArgs
+        ///         EngineVersion = "1.0.3.0",
+        ///         PreferredInstanceClasses = new[]
         ///         {
-        ///             EngineVersion = "1.0.3.0",
-        ///             PreferredInstanceClasses = 
-        ///             {
-        ///                 "db.r5.large",
-        ///                 "db.r4.large",
-        ///                 "db.t3.medium",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "db.r5.large",
+        ///             "db.r4.large",
+        ///             "db.t3.medium",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +79,7 @@ namespace Pulumi.Aws.Neptune
     }
 
 
-    public sealed class GetOrderableDbInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableDbInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. (Default: `neptune`)
@@ -130,9 +126,10 @@ namespace Pulumi.Aws.Neptune
         public GetOrderableDbInstanceArgs()
         {
         }
+        public static new GetOrderableDbInstanceArgs Empty => new GetOrderableDbInstanceArgs();
     }
 
-    public sealed class GetOrderableDbInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableDbInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. (Default: `neptune`)
@@ -179,6 +176,7 @@ namespace Pulumi.Aws.Neptune
         public GetOrderableDbInstanceInvokeArgs()
         {
         }
+        public static new GetOrderableDbInstanceInvokeArgs Empty => new GetOrderableDbInstanceInvokeArgs();
     }
 
 

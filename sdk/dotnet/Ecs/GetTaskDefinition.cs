@@ -21,24 +21,23 @@ namespace Pulumi.Aws.Ecs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var mongoTaskDefinition = Aws.Ecs.GetTaskDefinition.Invoke(new()
         ///     {
-        ///         var mongoTaskDefinition = Output.Create(Aws.Ecs.GetTaskDefinition.InvokeAsync(new Aws.Ecs.GetTaskDefinitionArgs
-        ///         {
-        ///             TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Family,
-        ///         }));
-        ///         var foo = new Aws.Ecs.Cluster("foo", new Aws.Ecs.ClusterArgs
-        ///         {
-        ///         });
-        ///         var mongoEcs_taskDefinitionTaskDefinition = new Aws.Ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", new Aws.Ecs.TaskDefinitionArgs
-        ///         {
-        ///             Family = "mongodb",
-        ///             ContainerDefinitions = @"[
+        ///         TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Family,
+        ///     });
+        /// 
+        ///     var foo = new Aws.Ecs.Cluster("foo");
+        /// 
+        ///     var mongoEcs_taskDefinitionTaskDefinition = new Aws.Ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", new()
+        ///     {
+        ///         Family = "mongodb",
+        ///         ContainerDefinitions = @"[
         ///   {
         ///     ""cpu"": 128,
         ///     ""environment"": [{
@@ -53,16 +52,16 @@ namespace Pulumi.Aws.Ecs
         ///   }
         /// ]
         /// ",
-        ///         });
-        ///         var mongoService = new Aws.Ecs.Service("mongoService", new Aws.Ecs.ServiceArgs
-        ///         {
-        ///             Cluster = foo.Id,
-        ///             DesiredCount = 2,
-        ///             TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Arn,
-        ///         });
-        ///     }
+        ///     });
         /// 
-        /// }
+        ///     var mongoService = new Aws.Ecs.Service("mongoService", new()
+        ///     {
+        ///         Cluster = foo.Id,
+        ///         DesiredCount = 2,
+        ///         TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Arn,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,24 +79,23 @@ namespace Pulumi.Aws.Ecs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var mongoTaskDefinition = Aws.Ecs.GetTaskDefinition.Invoke(new()
         ///     {
-        ///         var mongoTaskDefinition = Output.Create(Aws.Ecs.GetTaskDefinition.InvokeAsync(new Aws.Ecs.GetTaskDefinitionArgs
-        ///         {
-        ///             TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Family,
-        ///         }));
-        ///         var foo = new Aws.Ecs.Cluster("foo", new Aws.Ecs.ClusterArgs
-        ///         {
-        ///         });
-        ///         var mongoEcs_taskDefinitionTaskDefinition = new Aws.Ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", new Aws.Ecs.TaskDefinitionArgs
-        ///         {
-        ///             Family = "mongodb",
-        ///             ContainerDefinitions = @"[
+        ///         TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Family,
+        ///     });
+        /// 
+        ///     var foo = new Aws.Ecs.Cluster("foo");
+        /// 
+        ///     var mongoEcs_taskDefinitionTaskDefinition = new Aws.Ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", new()
+        ///     {
+        ///         Family = "mongodb",
+        ///         ContainerDefinitions = @"[
         ///   {
         ///     ""cpu"": 128,
         ///     ""environment"": [{
@@ -112,16 +110,16 @@ namespace Pulumi.Aws.Ecs
         ///   }
         /// ]
         /// ",
-        ///         });
-        ///         var mongoService = new Aws.Ecs.Service("mongoService", new Aws.Ecs.ServiceArgs
-        ///         {
-        ///             Cluster = foo.Id,
-        ///             DesiredCount = 2,
-        ///             TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Arn,
-        ///         });
-        ///     }
+        ///     });
         /// 
-        /// }
+        ///     var mongoService = new Aws.Ecs.Service("mongoService", new()
+        ///     {
+        ///         Cluster = foo.Id,
+        ///         DesiredCount = 2,
+        ///         TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Arn,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -131,7 +129,7 @@ namespace Pulumi.Aws.Ecs
     }
 
 
-    public sealed class GetTaskDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
@@ -142,9 +140,10 @@ namespace Pulumi.Aws.Ecs
         public GetTaskDefinitionArgs()
         {
         }
+        public static new GetTaskDefinitionArgs Empty => new GetTaskDefinitionArgs();
     }
 
-    public sealed class GetTaskDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
@@ -155,6 +154,7 @@ namespace Pulumi.Aws.Ecs
         public GetTaskDefinitionInvokeArgs()
         {
         }
+        public static new GetTaskDefinitionInvokeArgs Empty => new GetTaskDefinitionInvokeArgs();
     }
 
 

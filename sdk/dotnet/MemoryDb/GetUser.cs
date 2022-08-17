@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetUser.InvokeAsync(new Aws.MemoryDb.GetUserArgs
-        ///         {
-        ///             UserName = "my-user",
-        ///         }));
-        ///     }
+        ///         UserName = "my-user",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetUser.InvokeAsync(new Aws.MemoryDb.GetUserArgs
-        ///         {
-        ///             UserName = "my-user",
-        ///         }));
-        ///     }
+        ///         UserName = "my-user",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.MemoryDb
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.MemoryDb
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

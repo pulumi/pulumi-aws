@@ -22,28 +22,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-// 			CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-// 				KeyAlgorithm:     pulumi.String("RSA_4096"),
-// 				SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-// 				Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-// 					CommonName: pulumi.String("example.com"),
-// 				},
-// 			},
-// 			PermanentDeletionTimeInDays: pulumi.Int(7),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("example.com"),
+//					},
+//				},
+//				PermanentDeletionTimeInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Enable Certificate Revocation List
 //
@@ -51,80 +54,83 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		acmpcaBucketAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// 			Statements: iam.GetPolicyDocumentStatementArray{
-// 				&iam.GetPolicyDocumentStatementArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("s3:GetBucketAcl"),
-// 						pulumi.String("s3:GetBucketLocation"),
-// 						pulumi.String("s3:PutObject"),
-// 						pulumi.String("s3:PutObjectAcl"),
-// 					},
-// 					Resources: pulumi.StringArray{
-// 						exampleBucketV2.Arn,
-// 						exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-// 							return fmt.Sprintf("%v/*", arn), nil
-// 						}).(pulumi.StringOutput),
-// 					},
-// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
-// 							Identifiers: pulumi.StringArray{
-// 								pulumi.String("acm-pca.amazonaws.com"),
-// 							},
-// 							Type: pulumi.String("Service"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (string, error) {
-// 				return acmpcaBucketAccess.Json, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-// 			CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-// 				KeyAlgorithm:     pulumi.String("RSA_4096"),
-// 				SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-// 				Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-// 					CommonName: pulumi.String("example.com"),
-// 				},
-// 			},
-// 			RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
-// 				CrlConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{
-// 					CustomCname:      pulumi.String("crl.example.com"),
-// 					Enabled:          pulumi.Bool(true),
-// 					ExpirationInDays: pulumi.Int(7),
-// 					S3BucketName:     exampleBucketV2.ID(),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleBucketPolicy,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			acmpcaBucketAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetBucketAcl"),
+//							pulumi.String("s3:GetBucketLocation"),
+//							pulumi.String("s3:PutObject"),
+//							pulumi.String("s3:PutObjectAcl"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleBucketV2.Arn,
+//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("acm-pca.amazonaws.com"),
+//								},
+//								Type: pulumi.String("Service"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (string, error) {
+//					return acmpcaBucketAccess.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("example.com"),
+//					},
+//				},
+//				RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
+//					CrlConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{
+//						CustomCname:      pulumi.String("crl.example.com"),
+//						Enabled:          pulumi.Bool(true),
+//						ExpirationInDays: pulumi.Int(7),
+//						S3BucketName:     exampleBucketV2.ID(),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -132,7 +138,9 @@ import (
 // `aws_acmpca_certificate_authority` can be imported by using the certificate authority Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+//
+//	$ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+//
 // ```
 type CertificateAuthority struct {
 	pulumi.CustomResourceState
@@ -333,7 +341,7 @@ func (i *CertificateAuthority) ToCertificateAuthorityOutputWithContext(ctx conte
 // CertificateAuthorityArrayInput is an input type that accepts CertificateAuthorityArray and CertificateAuthorityArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityArrayInput` via:
 //
-//          CertificateAuthorityArray{ CertificateAuthorityArgs{...} }
+//	CertificateAuthorityArray{ CertificateAuthorityArgs{...} }
 type CertificateAuthorityArrayInput interface {
 	pulumi.Input
 
@@ -358,7 +366,7 @@ func (i CertificateAuthorityArray) ToCertificateAuthorityArrayOutputWithContext(
 // CertificateAuthorityMapInput is an input type that accepts CertificateAuthorityMap and CertificateAuthorityMapOutput values.
 // You can construct a concrete instance of `CertificateAuthorityMapInput` via:
 //
-//          CertificateAuthorityMap{ "key": CertificateAuthorityArgs{...} }
+//	CertificateAuthorityMap{ "key": CertificateAuthorityArgs{...} }
 type CertificateAuthorityMapInput interface {
 	pulumi.Input
 

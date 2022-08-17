@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetRouteCalculator.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetRouteCalculator.InvokeAsync(new Aws.Location.GetRouteCalculatorArgs
-        ///         {
-        ///             CalculatorName = "example",
-        ///         }));
-        ///     }
+        ///         CalculatorName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetRouteCalculator.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetRouteCalculator.InvokeAsync(new Aws.Location.GetRouteCalculatorArgs
-        ///         {
-        ///             CalculatorName = "example",
-        ///         }));
-        ///     }
+        ///         CalculatorName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Location
     }
 
 
-    public sealed class GetRouteCalculatorArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteCalculatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the route calculator resource.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Location
         public GetRouteCalculatorArgs()
         {
         }
+        public static new GetRouteCalculatorArgs Empty => new GetRouteCalculatorArgs();
     }
 
-    public sealed class GetRouteCalculatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteCalculatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the route calculator resource.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Location
         public GetRouteCalculatorInvokeArgs()
         {
         }
+        public static new GetRouteCalculatorInvokeArgs Empty => new GetRouteCalculatorInvokeArgs();
     }
 
 

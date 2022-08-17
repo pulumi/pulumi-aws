@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ModelInferenceExecutionConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelInferenceExecutionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ModelInferenceExecutionConfigArgs()
         {
         }
+        public static new ModelInferenceExecutionConfigArgs Empty => new ModelInferenceExecutionConfigArgs();
     }
 }

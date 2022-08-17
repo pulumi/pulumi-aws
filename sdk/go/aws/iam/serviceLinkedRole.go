@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewServiceLinkedRole(ctx, "elasticbeanstalk", &iam.ServiceLinkedRoleArgs{
-// 			AwsServiceName: pulumi.String("elasticbeanstalk.amazonaws.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewServiceLinkedRole(ctx, "elasticbeanstalk", &iam.ServiceLinkedRoleArgs{
+//				AwsServiceName: pulumi.String("elasticbeanstalk.amazonaws.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // IAM service-linked roles can be imported using role ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
+//
+//	$ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
+//
 // ```
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Con
 // ServiceLinkedRoleArrayInput is an input type that accepts ServiceLinkedRoleArray and ServiceLinkedRoleArrayOutput values.
 // You can construct a concrete instance of `ServiceLinkedRoleArrayInput` via:
 //
-//          ServiceLinkedRoleArray{ ServiceLinkedRoleArgs{...} }
+//	ServiceLinkedRoleArray{ ServiceLinkedRoleArgs{...} }
 type ServiceLinkedRoleArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i ServiceLinkedRoleArray) ToServiceLinkedRoleArrayOutputWithContext(ctx co
 // ServiceLinkedRoleMapInput is an input type that accepts ServiceLinkedRoleMap and ServiceLinkedRoleMapOutput values.
 // You can construct a concrete instance of `ServiceLinkedRoleMapInput` via:
 //
-//          ServiceLinkedRoleMap{ "key": ServiceLinkedRoleArgs{...} }
+//	ServiceLinkedRoleMap{ "key": ServiceLinkedRoleArgs{...} }
 type ServiceLinkedRoleMapInput interface {
 	pulumi.Input
 

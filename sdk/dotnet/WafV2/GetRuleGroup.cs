@@ -19,21 +19,19 @@ namespace Pulumi.Aws.WafV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafV2.GetRuleGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafV2.GetRuleGroup.InvokeAsync(new Aws.WafV2.GetRuleGroupArgs
-        ///         {
-        ///             Name = "some-rule-group",
-        ///             Scope = "REGIONAL",
-        ///         }));
-        ///     }
+        ///         Name = "some-rule-group",
+        ///         Scope = "REGIONAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.WafV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafV2.GetRuleGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafV2.GetRuleGroup.InvokeAsync(new Aws.WafV2.GetRuleGroupArgs
-        ///         {
-        ///             Name = "some-rule-group",
-        ///             Scope = "REGIONAL",
-        ///         }));
-        ///     }
+        ///         Name = "some-rule-group",
+        ///         Scope = "REGIONAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.WafV2
     }
 
 
-    public sealed class GetRuleGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAFv2 Rule Group.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.WafV2
         public GetRuleGroupArgs()
         {
         }
+        public static new GetRuleGroupArgs Empty => new GetRuleGroupArgs();
     }
 
-    public sealed class GetRuleGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAFv2 Rule Group.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.WafV2
         public GetRuleGroupInvokeArgs()
         {
         }
+        public static new GetRuleGroupInvokeArgs Empty => new GetRuleGroupInvokeArgs();
     }
 
 

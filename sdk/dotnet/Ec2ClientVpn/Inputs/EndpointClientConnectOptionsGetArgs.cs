@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 {
 
-    public sealed class EndpointClientConnectOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointClientConnectOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether connection logging is enabled.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public EndpointClientConnectOptionsGetArgs()
         {
         }
+        public static new EndpointClientConnectOptionsGetArgs Empty => new EndpointClientConnectOptionsGetArgs();
     }
 }

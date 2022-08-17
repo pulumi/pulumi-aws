@@ -15,26 +15,24 @@ namespace Pulumi.Aws.GameLift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.GameLift.Build("test", new()
     ///     {
-    ///         var test = new Aws.GameLift.Build("test", new Aws.GameLift.BuildArgs
+    ///         OperatingSystem = "WINDOWS_2012",
+    ///         StorageLocation = new Aws.GameLift.Inputs.BuildStorageLocationArgs
     ///         {
-    ///             OperatingSystem = "WINDOWS_2012",
-    ///             StorageLocation = new Aws.GameLift.Inputs.BuildStorageLocationArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Test.Bucket,
-    ///                 Key = aws_s3_object.Test.Key,
-    ///                 RoleArn = aws_iam_role.Test.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             Bucket = aws_s3_bucket.Test.Bucket,
+    ///             Key = aws_s3_object.Test.Key,
+    ///             RoleArn = aws_iam_role.Test.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/build:Build")]
-    public partial class Build : Pulumi.CustomResource
+    public partial class Build : global::Pulumi.CustomResource
     {
         /// <summary>
         /// GameLift Build ARN.
@@ -134,7 +132,7 @@ namespace Pulumi.Aws.GameLift
         }
     }
 
-    public sealed class BuildArgs : Pulumi.ResourceArgs
+    public sealed class BuildArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the build
@@ -175,9 +173,10 @@ namespace Pulumi.Aws.GameLift
         public BuildArgs()
         {
         }
+        public static new BuildArgs Empty => new BuildArgs();
     }
 
-    public sealed class BuildState : Pulumi.ResourceArgs
+    public sealed class BuildState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// GameLift Build ARN.
@@ -236,5 +235,6 @@ namespace Pulumi.Aws.GameLift
         public BuildState()
         {
         }
+        public static new BuildState Empty => new BuildState();
     }
 }

@@ -21,20 +21,18 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudWatch.GetEventBus.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudWatch.GetEventBus.InvokeAsync(new Aws.CloudWatch.GetEventBusArgs
-        ///         {
-        ///             Name = "example-bus-name",
-        ///         }));
-        ///     }
+        ///         Name = "example-bus-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudWatch.GetEventBus.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudWatch.GetEventBus.InvokeAsync(new Aws.CloudWatch.GetEventBusArgs
-        ///         {
-        ///             Name = "example-bus-name",
-        ///         }));
-        ///     }
+        ///         Name = "example-bus-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.CloudWatch
     }
 
 
-    public sealed class GetEventBusArgs : Pulumi.InvokeArgs
+    public sealed class GetEventBusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly EventBridge event bus name.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.CloudWatch
         public GetEventBusArgs()
         {
         }
+        public static new GetEventBusArgs Empty => new GetEventBusArgs();
     }
 
-    public sealed class GetEventBusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventBusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly EventBridge event bus name.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.CloudWatch
         public GetEventBusInvokeArgs()
         {
         }
+        public static new GetEventBusInvokeArgs Empty => new GetEventBusInvokeArgs();
     }
 
 

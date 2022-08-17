@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The command App Runner runs to build your application.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs()
         {
         }
+        public static new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs Empty => new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs();
     }
 }

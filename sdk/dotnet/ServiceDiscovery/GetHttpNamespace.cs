@@ -17,20 +17,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceDiscovery.GetHttpNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceDiscovery.GetHttpNamespace.InvokeAsync(new Aws.ServiceDiscovery.GetHttpNamespaceArgs
-        ///         {
-        ///             Name = "development",
-        ///         }));
-        ///     }
+        ///         Name = "development",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceDiscovery.GetHttpNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceDiscovery.GetHttpNamespace.InvokeAsync(new Aws.ServiceDiscovery.GetHttpNamespaceArgs
-        ///         {
-        ///             Name = "development",
-        ///         }));
-        ///     }
+        ///         Name = "development",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,7 +63,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     }
 
 
-    public sealed class GetHttpNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetHttpNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the http namespace.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.ServiceDiscovery
         public GetHttpNamespaceArgs()
         {
         }
+        public static new GetHttpNamespaceArgs Empty => new GetHttpNamespaceArgs();
     }
 
-    public sealed class GetHttpNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHttpNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the http namespace.
@@ -115,6 +112,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public GetHttpNamespaceInvokeArgs()
         {
         }
+        public static new GetHttpNamespaceInvokeArgs Empty => new GetHttpNamespaceInvokeArgs();
     }
 
 

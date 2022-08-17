@@ -19,58 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mainUserPool, err := cognito.NewUserPool(ctx, "mainUserPool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		groupRole, err := iam.NewRole(ctx, "groupRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Sid": "",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Federated": "cognito-identity.amazonaws.com"
-//       },
-//       "Action": "sts:AssumeRoleWithWebIdentity",
-//       "Condition": {
-//         "StringEquals": {
-//           "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
-//         },
-//         "ForAnyValue:StringLike": {
-//           "cognito-identity.amazonaws.com:amr": "authenticated"
-//         }
-//       }
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainUserPool, err := cognito.NewUserPool(ctx, "mainUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			groupRole, err := iam.NewRole(ctx, "groupRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Federated": "cognito-identity.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRoleWithWebIdentity",
+//	      "Condition": {
+//	        "StringEquals": {
+//	          "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
+//	        },
+//	        "ForAnyValue:StringLike": {
+//	          "cognito-identity.amazonaws.com:amr": "authenticated"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserGroup(ctx, "mainUserGroup", &cognito.UserGroupArgs{
-// 			UserPoolId:  mainUserPool.ID(),
-// 			Description: pulumi.String("Managed by Pulumi"),
-// 			Precedence:  pulumi.Int(42),
-// 			RoleArn:     groupRole.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserGroup(ctx, "mainUserGroup", &cognito.UserGroupArgs{
+//				UserPoolId:  mainUserPool.ID(),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				Precedence:  pulumi.Int(42),
+//				RoleArn:     groupRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +83,9 @@ import (
 // Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+//
+//	$ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+//
 // ```
 type UserGroup struct {
 	pulumi.CustomResourceState
@@ -209,7 +216,7 @@ func (i *UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupO
 // UserGroupArrayInput is an input type that accepts UserGroupArray and UserGroupArrayOutput values.
 // You can construct a concrete instance of `UserGroupArrayInput` via:
 //
-//          UserGroupArray{ UserGroupArgs{...} }
+//	UserGroupArray{ UserGroupArgs{...} }
 type UserGroupArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +241,7 @@ func (i UserGroupArray) ToUserGroupArrayOutputWithContext(ctx context.Context) U
 // UserGroupMapInput is an input type that accepts UserGroupMap and UserGroupMapOutput values.
 // You can construct a concrete instance of `UserGroupMapInput` via:
 //
-//          UserGroupMap{ "key": UserGroupArgs{...} }
+//	UserGroupMap{ "key": UserGroupArgs{...} }
 type UserGroupMapInput interface {
 	pulumi.Input
 

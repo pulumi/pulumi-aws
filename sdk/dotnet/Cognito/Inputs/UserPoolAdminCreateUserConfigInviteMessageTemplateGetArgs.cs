@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs()
         {
         }
+        public static new UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs Empty => new UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs();
     }
 }

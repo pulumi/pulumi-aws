@@ -14,37 +14,35 @@ namespace Pulumi.Aws.Kendra
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.Experience("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.Experience("example", new Aws.Kendra.ExperienceArgs
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         Description = "My Kendra Experience",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
     ///         {
-    ///             IndexId = aws_kendra_index.Example.Id,
-    ///             Description = "My Kendra Experience",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
+    ///             ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
     ///             {
-    ///                 ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
+    ///                 DirectPutContent = true,
+    ///                 FaqIds = new[]
     ///                 {
-    ///                     DirectPutContent = true,
-    ///                     FaqIds = 
-    ///                     {
-    ///                         aws_kendra_faq.Example.Faq_id,
-    ///                     },
-    ///                 },
-    ///                 UserIdentityConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationUserIdentityConfigurationArgs
-    ///                 {
-    ///                     IdentityAttributeName = "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+    ///                     aws_kendra_faq.Example.Faq_id,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             UserIdentityConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationUserIdentityConfigurationArgs
+    ///             {
+    ///                 IdentityAttributeName = "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/experience:Experience")]
-    public partial class Experience : Pulumi.CustomResource
+    public partial class Experience : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Experience.
@@ -153,7 +151,7 @@ namespace Pulumi.Aws.Kendra
         }
     }
 
-    public sealed class ExperienceArgs : Pulumi.ResourceArgs
+    public sealed class ExperienceArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationArgs>? Configuration { get; set; }
@@ -185,9 +183,10 @@ namespace Pulumi.Aws.Kendra
         public ExperienceArgs()
         {
         }
+        public static new ExperienceArgs Empty => new ExperienceArgs();
     }
 
-    public sealed class ExperienceState : Pulumi.ResourceArgs
+    public sealed class ExperienceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Experience.
@@ -249,5 +248,6 @@ namespace Pulumi.Aws.Kendra
         public ExperienceState()
         {
         }
+        public static new ExperienceState Empty => new ExperienceState();
     }
 }

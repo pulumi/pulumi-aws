@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetSessionContextArgs : Pulumi.InvokeArgs
+    public sealed class GetSessionContextArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN for an assumed role.
@@ -30,9 +30,10 @@ namespace Pulumi.Aws.Iam
         public GetSessionContextArgs()
         {
         }
+        public static new GetSessionContextArgs Empty => new GetSessionContextArgs();
     }
 
-    public sealed class GetSessionContextInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSessionContextInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN for an assumed role.
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.Iam
         public GetSessionContextInvokeArgs()
         {
         }
+        public static new GetSessionContextInvokeArgs Empty => new GetSessionContextInvokeArgs();
     }
 
 

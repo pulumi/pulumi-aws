@@ -24,22 +24,20 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.PortfolioShare("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.PortfolioShare("example", new Aws.ServiceCatalog.PortfolioShareArgs
-    ///         {
-    ///             PrincipalId = "012128675309",
-    ///             PortfolioId = aws_servicecatalog_portfolio.Example.Id,
-    ///             Type = "ACCOUNT",
-    ///         });
-    ///     }
+    ///         PrincipalId = "012128675309",
+    ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,
+    ///         Type = "ACCOUNT",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/portfolioShare:PortfolioShare")]
-    public partial class PortfolioShare : Pulumi.CustomResource
+    public partial class PortfolioShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -139,7 +137,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class PortfolioShareArgs : Pulumi.ResourceArgs
+    public sealed class PortfolioShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -180,9 +178,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public PortfolioShareArgs()
         {
         }
+        public static new PortfolioShareArgs Empty => new PortfolioShareArgs();
     }
 
-    public sealed class PortfolioShareState : Pulumi.ResourceArgs
+    public sealed class PortfolioShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -229,5 +228,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public PortfolioShareState()
         {
         }
+        public static new PortfolioShareState Empty => new PortfolioShareState();
     }
 }

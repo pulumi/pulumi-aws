@@ -26,7 +26,7 @@ type ContainerServiceDeploymentVersionContainer struct {
 // ContainerServiceDeploymentVersionContainerInput is an input type that accepts ContainerServiceDeploymentVersionContainerArgs and ContainerServiceDeploymentVersionContainerOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionContainerInput` via:
 //
-//          ContainerServiceDeploymentVersionContainerArgs{...}
+//	ContainerServiceDeploymentVersionContainerArgs{...}
 type ContainerServiceDeploymentVersionContainerInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i ContainerServiceDeploymentVersionContainerArgs) ToContainerServiceDeploy
 // ContainerServiceDeploymentVersionContainerArrayInput is an input type that accepts ContainerServiceDeploymentVersionContainerArray and ContainerServiceDeploymentVersionContainerArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionContainerArrayInput` via:
 //
-//          ContainerServiceDeploymentVersionContainerArray{ ContainerServiceDeploymentVersionContainerArgs{...} }
+//	ContainerServiceDeploymentVersionContainerArray{ ContainerServiceDeploymentVersionContainerArgs{...} }
 type ContainerServiceDeploymentVersionContainerArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ type ContainerServiceDeploymentVersionPublicEndpoint struct {
 // ContainerServiceDeploymentVersionPublicEndpointInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointArgs and ContainerServiceDeploymentVersionPublicEndpointOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointInput` via:
 //
-//          ContainerServiceDeploymentVersionPublicEndpointArgs{...}
+//	ContainerServiceDeploymentVersionPublicEndpointArgs{...}
 type ContainerServiceDeploymentVersionPublicEndpointInput interface {
 	pulumi.Input
 
@@ -195,11 +195,11 @@ func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceD
 // ContainerServiceDeploymentVersionPublicEndpointPtrInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointArgs, ContainerServiceDeploymentVersionPublicEndpointPtr and ContainerServiceDeploymentVersionPublicEndpointPtrOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointPtrInput` via:
 //
-//          ContainerServiceDeploymentVersionPublicEndpointArgs{...}
+//	        ContainerServiceDeploymentVersionPublicEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceDeploymentVersionPublicEndpointPtrInput interface {
 	pulumi.Input
 
@@ -338,7 +338,7 @@ type ContainerServiceDeploymentVersionPublicEndpointHealthCheck struct {
 // ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs and ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput` via:
 //
-//          ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{...}
+//	ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{...}
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput interface {
 	pulumi.Input
 
@@ -384,11 +384,11 @@ func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContai
 // ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs, ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtr and ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput` via:
 //
-//          ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{...}
+//	        ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput interface {
 	pulumi.Input
 
@@ -559,7 +559,7 @@ type ContainerServicePublicDomainNames struct {
 // ContainerServicePublicDomainNamesInput is an input type that accepts ContainerServicePublicDomainNamesArgs and ContainerServicePublicDomainNamesOutput values.
 // You can construct a concrete instance of `ContainerServicePublicDomainNamesInput` via:
 //
-//          ContainerServicePublicDomainNamesArgs{...}
+//	ContainerServicePublicDomainNamesArgs{...}
 type ContainerServicePublicDomainNamesInput interface {
 	pulumi.Input
 
@@ -594,11 +594,11 @@ func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNam
 // ContainerServicePublicDomainNamesPtrInput is an input type that accepts ContainerServicePublicDomainNamesArgs, ContainerServicePublicDomainNamesPtr and ContainerServicePublicDomainNamesPtrOutput values.
 // You can construct a concrete instance of `ContainerServicePublicDomainNamesPtrInput` via:
 //
-//          ContainerServicePublicDomainNamesArgs{...}
+//	        ContainerServicePublicDomainNamesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServicePublicDomainNamesPtrInput interface {
 	pulumi.Input
 
@@ -695,7 +695,7 @@ type ContainerServicePublicDomainNamesCertificate struct {
 // ContainerServicePublicDomainNamesCertificateInput is an input type that accepts ContainerServicePublicDomainNamesCertificateArgs and ContainerServicePublicDomainNamesCertificateOutput values.
 // You can construct a concrete instance of `ContainerServicePublicDomainNamesCertificateInput` via:
 //
-//          ContainerServicePublicDomainNamesCertificateArgs{...}
+//	ContainerServicePublicDomainNamesCertificateArgs{...}
 type ContainerServicePublicDomainNamesCertificateInput interface {
 	pulumi.Input
 
@@ -723,7 +723,7 @@ func (i ContainerServicePublicDomainNamesCertificateArgs) ToContainerServicePubl
 // ContainerServicePublicDomainNamesCertificateArrayInput is an input type that accepts ContainerServicePublicDomainNamesCertificateArray and ContainerServicePublicDomainNamesCertificateArrayOutput values.
 // You can construct a concrete instance of `ContainerServicePublicDomainNamesCertificateArrayInput` via:
 //
-//          ContainerServicePublicDomainNamesCertificateArray{ ContainerServicePublicDomainNamesCertificateArgs{...} }
+//	ContainerServicePublicDomainNamesCertificateArray{ ContainerServicePublicDomainNamesCertificateArgs{...} }
 type ContainerServicePublicDomainNamesCertificateArrayInput interface {
 	pulumi.Input
 
@@ -801,7 +801,7 @@ type InstancePublicPortsPortInfo struct {
 // InstancePublicPortsPortInfoInput is an input type that accepts InstancePublicPortsPortInfoArgs and InstancePublicPortsPortInfoOutput values.
 // You can construct a concrete instance of `InstancePublicPortsPortInfoInput` via:
 //
-//          InstancePublicPortsPortInfoArgs{...}
+//	InstancePublicPortsPortInfoArgs{...}
 type InstancePublicPortsPortInfoInput interface {
 	pulumi.Input
 
@@ -835,7 +835,7 @@ func (i InstancePublicPortsPortInfoArgs) ToInstancePublicPortsPortInfoOutputWith
 // InstancePublicPortsPortInfoArrayInput is an input type that accepts InstancePublicPortsPortInfoArray and InstancePublicPortsPortInfoArrayOutput values.
 // You can construct a concrete instance of `InstancePublicPortsPortInfoArrayInput` via:
 //
-//          InstancePublicPortsPortInfoArray{ InstancePublicPortsPortInfoArgs{...} }
+//	InstancePublicPortsPortInfoArray{ InstancePublicPortsPortInfoArgs{...} }
 type InstancePublicPortsPortInfoArrayInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RemediationConfigurationExecutionControlsGetArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationExecutionControlsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for SSM controls. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RemediationConfigurationExecutionControlsGetArgs()
         {
         }
+        public static new RemediationConfigurationExecutionControlsGetArgs Empty => new RemediationConfigurationExecutionControlsGetArgs();
     }
 }

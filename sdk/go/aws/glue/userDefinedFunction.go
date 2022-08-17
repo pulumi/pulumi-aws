@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
-// 			Name: pulumi.String("my_database"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = glue.NewUserDefinedFunction(ctx, "exampleUserDefinedFunction", &glue.UserDefinedFunctionArgs{
-// 			CatalogId:    exampleCatalogDatabase.CatalogId,
-// 			DatabaseName: exampleCatalogDatabase.Name,
-// 			ClassName:    pulumi.String("class"),
-// 			OwnerName:    pulumi.String("owner"),
-// 			OwnerType:    pulumi.String("GROUP"),
-// 			ResourceUris: glue.UserDefinedFunctionResourceUriArray{
-// 				&glue.UserDefinedFunctionResourceUriArgs{
-// 					ResourceType: pulumi.String("ARCHIVE"),
-// 					Uri:          pulumi.String("uri"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//				Name: pulumi.String("my_database"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewUserDefinedFunction(ctx, "exampleUserDefinedFunction", &glue.UserDefinedFunctionArgs{
+//				CatalogId:    exampleCatalogDatabase.CatalogId,
+//				DatabaseName: exampleCatalogDatabase.Name,
+//				ClassName:    pulumi.String("class"),
+//				OwnerName:    pulumi.String("owner"),
+//				OwnerType:    pulumi.String("GROUP"),
+//				ResourceUris: glue.UserDefinedFunctionResourceUriArray{
+//					&glue.UserDefinedFunctionResourceUriArgs{
+//						ResourceType: pulumi.String("ARCHIVE"),
+//						Uri:          pulumi.String("uri"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Glue User Defined Functions can be imported using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+//
+//	$ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+//
 // ```
 type UserDefinedFunction struct {
 	pulumi.CustomResourceState
@@ -223,7 +228,7 @@ func (i *UserDefinedFunction) ToUserDefinedFunctionOutputWithContext(ctx context
 // UserDefinedFunctionArrayInput is an input type that accepts UserDefinedFunctionArray and UserDefinedFunctionArrayOutput values.
 // You can construct a concrete instance of `UserDefinedFunctionArrayInput` via:
 //
-//          UserDefinedFunctionArray{ UserDefinedFunctionArgs{...} }
+//	UserDefinedFunctionArray{ UserDefinedFunctionArgs{...} }
 type UserDefinedFunctionArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +253,7 @@ func (i UserDefinedFunctionArray) ToUserDefinedFunctionArrayOutputWithContext(ct
 // UserDefinedFunctionMapInput is an input type that accepts UserDefinedFunctionMap and UserDefinedFunctionMapOutput values.
 // You can construct a concrete instance of `UserDefinedFunctionMapInput` via:
 //
-//          UserDefinedFunctionMap{ "key": UserDefinedFunctionArgs{...} }
+//	UserDefinedFunctionMap{ "key": UserDefinedFunctionArgs{...} }
 type UserDefinedFunctionMapInput interface {
 	pulumi.Input
 

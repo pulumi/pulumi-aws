@@ -21,35 +21,35 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var web = new Aws.Ec2.Instance("web", new()
     ///     {
-    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         Ami = "ami-21f78e11",
+    ///         AvailabilityZone = "us-west-2a",
+    ///         InstanceType = "t2.micro",
+    ///         Tags = 
     ///         {
-    ///             Ami = "ami-21f78e11",
-    ///             AvailabilityZone = "us-west-2a",
-    ///             InstanceType = "t2.micro",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///         var example = new Aws.Ec2.Eip("example", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Vpc = true,
-    ///         });
-    ///         var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new Aws.Ec2.EipAssociationArgs
-    ///         {
-    ///             InstanceId = web.Id,
-    ///             AllocationId = example.Id,
-    ///         });
-    ///     }
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.Ec2.Eip("example", new()
+    ///     {
+    ///         Vpc = true,
+    ///     });
+    /// 
+    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new()
+    ///     {
+    ///         InstanceId = web.Id,
+    ///         AllocationId = example.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/eipAssociation:EipAssociation")]
-    public partial class EipAssociation : Pulumi.CustomResource
+    public partial class EipAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allocation ID. This is required for EC2-VPC.
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class EipAssociationArgs : Pulumi.ResourceArgs
+    public sealed class EipAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocation ID. This is required for EC2-VPC.
@@ -202,9 +202,10 @@ namespace Pulumi.Aws.Ec2
         public EipAssociationArgs()
         {
         }
+        public static new EipAssociationArgs Empty => new EipAssociationArgs();
     }
 
-    public sealed class EipAssociationState : Pulumi.ResourceArgs
+    public sealed class EipAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocation ID. This is required for EC2-VPC.
@@ -254,5 +255,6 @@ namespace Pulumi.Aws.Ec2
         public EipAssociationState()
         {
         }
+        public static new EipAssociationState Empty => new EipAssociationState();
     }
 }

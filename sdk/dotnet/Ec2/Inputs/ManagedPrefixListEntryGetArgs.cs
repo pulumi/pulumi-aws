@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class ManagedPrefixListEntryGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrefixListEntryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CIDR block of this entry.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public ManagedPrefixListEntryGetArgs()
         {
         }
+        public static new ManagedPrefixListEntryGetArgs Empty => new ManagedPrefixListEntryGetArgs();
     }
 }

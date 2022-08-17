@@ -15,24 +15,22 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var confirmation = new Aws.DirectConnect.ConnectionConfirmation("confirmation", new()
     ///     {
-    ///         var confirmation = new Aws.DirectConnect.ConnectionConfirmation("confirmation", new Aws.DirectConnect.ConnectionConfirmationArgs
-    ///         {
-    ///             ConnectionId = "dxcon-ffabc123",
-    ///         });
-    ///     }
+    ///         ConnectionId = "dxcon-ffabc123",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
-    public partial class ConnectionConfirmation : Pulumi.CustomResource
+    public partial class ConnectionConfirmation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the hosted connection.
@@ -84,7 +82,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class ConnectionConfirmationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionConfirmationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the hosted connection.
@@ -95,9 +93,10 @@ namespace Pulumi.Aws.DirectConnect
         public ConnectionConfirmationArgs()
         {
         }
+        public static new ConnectionConfirmationArgs Empty => new ConnectionConfirmationArgs();
     }
 
-    public sealed class ConnectionConfirmationState : Pulumi.ResourceArgs
+    public sealed class ConnectionConfirmationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the hosted connection.
@@ -108,5 +107,6 @@ namespace Pulumi.Aws.DirectConnect
         public ConnectionConfirmationState()
         {
         }
+        public static new ConnectionConfirmationState Empty => new ConnectionConfirmationState();
     }
 }

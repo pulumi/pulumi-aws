@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
@@ -85,5 +85,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOriginArgs()
         {
         }
+        public static new DistributionOriginArgs Empty => new DistributionOriginArgs();
     }
 }

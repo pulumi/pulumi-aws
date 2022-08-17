@@ -18,30 +18,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bar, err := inspector.NewResourceGroup(ctx, "bar", &inspector.ResourceGroupArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("foo"),
-// 				"Env":  pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = inspector.NewAssessmentTarget(ctx, "foo", &inspector.AssessmentTargetArgs{
-// 			ResourceGroupArn: bar.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bar, err := inspector.NewResourceGroup(ctx, "bar", &inspector.ResourceGroupArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("foo"),
+//					"Env":  pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = inspector.NewAssessmentTarget(ctx, "foo", &inspector.AssessmentTargetArgs{
+//				ResourceGroupArn: bar.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+//
+//	$ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+//
 // ```
 type AssessmentTarget struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ func (i *AssessmentTarget) ToAssessmentTargetOutputWithContext(ctx context.Conte
 // AssessmentTargetArrayInput is an input type that accepts AssessmentTargetArray and AssessmentTargetArrayOutput values.
 // You can construct a concrete instance of `AssessmentTargetArrayInput` via:
 //
-//          AssessmentTargetArray{ AssessmentTargetArgs{...} }
+//	AssessmentTargetArray{ AssessmentTargetArgs{...} }
 type AssessmentTargetArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +183,7 @@ func (i AssessmentTargetArray) ToAssessmentTargetArrayOutputWithContext(ctx cont
 // AssessmentTargetMapInput is an input type that accepts AssessmentTargetMap and AssessmentTargetMapOutput values.
 // You can construct a concrete instance of `AssessmentTargetMapInput` via:
 //
-//          AssessmentTargetMap{ "key": AssessmentTargetArgs{...} }
+//	AssessmentTargetMap{ "key": AssessmentTargetArgs{...} }
 type AssessmentTargetMapInput interface {
 	pulumi.Input
 

@@ -15,27 +15,25 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_instance = new Aws.OpsWorks.Instance("my-instance", new()
     ///     {
-    ///         var my_instance = new Aws.OpsWorks.Instance("my-instance", new Aws.OpsWorks.InstanceArgs
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         LayerIds = new[]
     ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///             LayerIds = 
-    ///             {
-    ///                 aws_opsworks_custom_layer.My_layer.Id,
-    ///             },
-    ///             InstanceType = "t2.micro",
-    ///             Os = "Amazon Linux 2015.09",
-    ///             State = "stopped",
-    ///         });
-    ///     }
+    ///             aws_opsworks_custom_layer.My_layer.Id,
+    ///         },
+    ///         InstanceType = "t2.micro",
+    ///         Os = "Amazon Linux 2015.09",
+    ///         State = "stopped",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Block devices
     /// 
@@ -90,7 +88,7 @@ namespace Pulumi.Aws.OpsWorks
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// OpsWorks agent to install. Default is `INHERIT`.
@@ -406,7 +404,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OpsWorks agent to install. Default is `INHERIT`.
@@ -621,9 +619,10 @@ namespace Pulumi.Aws.OpsWorks
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OpsWorks agent to install. Default is `INHERIT`.
@@ -928,5 +927,6 @@ namespace Pulumi.Aws.OpsWorks
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

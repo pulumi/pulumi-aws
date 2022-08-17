@@ -19,30 +19,28 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetImagePipelines.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetImagePipelines.InvokeAsync(new Aws.ImageBuilder.GetImagePipelinesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetImagePipelinesFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetImagePipelinesFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +56,28 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetImagePipelines.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetImagePipelines.InvokeAsync(new Aws.ImageBuilder.GetImagePipelinesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetImagePipelinesFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetImagePipelinesFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetImagePipelinesArgs : Pulumi.InvokeArgs
+    public sealed class GetImagePipelinesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetImagePipelinesFilterArgs>? _filters;
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetImagePipelinesArgs()
         {
         }
+        public static new GetImagePipelinesArgs Empty => new GetImagePipelinesArgs();
     }
 
-    public sealed class GetImagePipelinesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImagePipelinesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetImagePipelinesFilterInputArgs>? _filters;
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetImagePipelinesInvokeArgs()
         {
         }
+        public static new GetImagePipelinesInvokeArgs Empty => new GetImagePipelinesInvokeArgs();
     }
 
 

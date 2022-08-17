@@ -145,14 +145,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The Function DataSource name.
+     * The Function data source name.
      * 
      */
     @Export(name="dataSource", type=String.class, parameters={})
     private Output<String> dataSource;
 
     /**
-     * @return The Function DataSource name.
+     * @return The Function data source name.
      * 
      */
     public Output<String> dataSource() {

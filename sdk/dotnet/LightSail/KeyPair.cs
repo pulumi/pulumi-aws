@@ -20,57 +20,49 @@ namespace Pulumi.Aws.LightSail
     /// ### Create New Key Pair
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new Lightsail Key Pair
-    ///         var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new Aws.LightSail.KeyPairArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     // Create a new Lightsail Key Pair
+    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create New Key Pair with PGP Encrypted Private Key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
     ///     {
-    ///         var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new Aws.LightSail.KeyPairArgs
-    ///         {
-    ///             PgpKey = "keybase:keybaseusername",
-    ///         });
-    ///     }
+    ///         PgpKey = "keybase:keybaseusername",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Existing Public Key Import
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
     ///     {
-    ///         var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new Aws.LightSail.KeyPairArgs
-    ///         {
-    ///             PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///         });
-    ///     }
+    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +70,7 @@ namespace Pulumi.Aws.LightSail
     /// Lightsail Key Pairs cannot be imported, because the private and public key are only available on initial creation.
     /// </summary>
     [AwsResourceType("aws:lightsail/keyPair:KeyPair")]
-    public partial class KeyPair : Pulumi.CustomResource
+    public partial class KeyPair : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Lightsail key pair
@@ -182,7 +174,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class KeyPairArgs : Pulumi.ResourceArgs
+    public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Lightsail Key Pair. If omitted, a unique
@@ -211,9 +203,10 @@ namespace Pulumi.Aws.LightSail
         public KeyPairArgs()
         {
         }
+        public static new KeyPairArgs Empty => new KeyPairArgs();
     }
 
-    public sealed class KeyPairState : Pulumi.ResourceArgs
+    public sealed class KeyPairState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lightsail key pair
@@ -276,5 +269,6 @@ namespace Pulumi.Aws.LightSail
         public KeyPairState()
         {
         }
+        public static new KeyPairState Empty => new KeyPairState();
     }
 }

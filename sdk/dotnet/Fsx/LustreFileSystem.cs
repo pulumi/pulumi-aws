@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Fsx
     ///  } }
     /// </summary>
     [AwsResourceType("aws:fsx/lustreFileSystem:LustreFileSystem")]
-    public partial class LustreFileSystem : Pulumi.CustomResource
+    public partial class LustreFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class LustreFileSystemArgs : Pulumi.ResourceArgs
+    public sealed class LustreFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
@@ -394,9 +394,10 @@ namespace Pulumi.Aws.Fsx
         public LustreFileSystemArgs()
         {
         }
+        public static new LustreFileSystemArgs Empty => new LustreFileSystemArgs();
     }
 
-    public sealed class LustreFileSystemState : Pulumi.ResourceArgs
+    public sealed class LustreFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -570,7 +571,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -593,5 +594,6 @@ namespace Pulumi.Aws.Fsx
         public LustreFileSystemState()
         {
         }
+        public static new LustreFileSystemState Empty => new LustreFileSystemState();
     }
 }

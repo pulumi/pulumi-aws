@@ -22,19 +22,15 @@ namespace Pulumi.Aws.CloudTrail
     /// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.CloudTrail.EventDataStore("example", new Aws.CloudTrail.EventDataStoreArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.CloudTrail.EventDataStore("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Data Event Logging
     /// 
@@ -44,66 +40,65 @@ namespace Pulumi.Aws.CloudTrail
     /// ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var table = Aws.DynamoDB.GetTable.Invoke(new()
     ///     {
-    ///         var table = Output.Create(Aws.DynamoDB.GetTable.InvokeAsync(new Aws.DynamoDB.GetTableArgs
+    ///         Name = "not-important-dynamodb-table",
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    ///     var example = new Aws.CloudTrail.EventDataStore("example", new()
+    ///     {
+    ///         AdvancedEventSelectors = new[]
     ///         {
-    ///             Name = "not-important-dynamodb-table",
-    ///         }));
-    ///         // ... other configuration ...
-    ///         var example = new Aws.CloudTrail.EventDataStore("example", new Aws.CloudTrail.EventDataStoreArgs
-    ///         {
-    ///             AdvancedEventSelectors = 
+    ///             new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorArgs
     ///             {
-    ///                 new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorArgs
+    ///                 Name = "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
+    ///                 FieldSelectors = new[]
     ///                 {
-    ///                     Name = "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
-    ///                     FieldSelectors = 
+    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
     ///                     {
-    ///                         new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                         Field = "eventCategory",
+    ///                         Equals = new[]
     ///                         {
-    ///                             Field = "eventCategory",
-    ///                             Equals = 
-    ///                             {
-    ///                                 "Data",
-    ///                             },
+    ///                             "Data",
     ///                         },
-    ///                         new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.type",
+    ///                         Equals = new[]
     ///                         {
-    ///                             Field = "resources.type",
-    ///                             Equals = 
-    ///                             {
-    ///                                 "AWS::DynamoDB::Table",
-    ///                             },
+    ///                             "AWS::DynamoDB::Table",
     ///                         },
-    ///                         new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "eventName",
+    ///                         Equals = new[]
     ///                         {
-    ///                             Field = "eventName",
-    ///                             Equals = 
-    ///                             {
-    ///                                 "PutItem",
-    ///                             },
+    ///                             "PutItem",
     ///                         },
-    ///                         new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                     },
+    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
+    ///                     {
+    ///                         Field = "resources.ARN",
+    ///                         Equals = new[]
     ///                         {
-    ///                             Field = "resources.ARN",
-    ///                             Equals = 
-    ///                             {
-    ///                                 table.Apply(table =&gt; table.Arn),
-    ///                             },
+    ///                             table.Apply(getTableResult =&gt; getTableResult.Arn),
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +110,7 @@ namespace Pulumi.Aws.CloudTrail
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudtrail/eventDataStore:EventDataStore")]
-    public partial class EventDataStore : Pulumi.CustomResource
+    public partial class EventDataStore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
@@ -159,9 +154,6 @@ namespace Pulumi.Aws.CloudTrail
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -215,7 +207,7 @@ namespace Pulumi.Aws.CloudTrail
         }
     }
 
-    public sealed class EventDataStoreArgs : Pulumi.ResourceArgs
+    public sealed class EventDataStoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("advancedEventSelectors")]
         private InputList<Inputs.EventDataStoreAdvancedEventSelectorArgs>? _advancedEventSelectors;
@@ -274,9 +266,10 @@ namespace Pulumi.Aws.CloudTrail
         public EventDataStoreArgs()
         {
         }
+        public static new EventDataStoreArgs Empty => new EventDataStoreArgs();
     }
 
-    public sealed class EventDataStoreState : Pulumi.ResourceArgs
+    public sealed class EventDataStoreState : global::Pulumi.ResourceArgs
     {
         [Input("advancedEventSelectors")]
         private InputList<Inputs.EventDataStoreAdvancedEventSelectorGetArgs>? _advancedEventSelectors;
@@ -334,10 +327,6 @@ namespace Pulumi.Aws.CloudTrail
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -353,5 +342,6 @@ namespace Pulumi.Aws.CloudTrail
         public EventDataStoreState()
         {
         }
+        public static new EventDataStoreState Empty => new EventDataStoreState();
     }
 }

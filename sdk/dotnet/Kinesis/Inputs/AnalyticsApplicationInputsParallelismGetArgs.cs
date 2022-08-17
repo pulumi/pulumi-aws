@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationInputsParallelismGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationInputsParallelismGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Count of streams.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationInputsParallelismGetArgs()
         {
         }
+        public static new AnalyticsApplicationInputsParallelismGetArgs Empty => new AnalyticsApplicationInputsParallelismGetArgs();
     }
 }

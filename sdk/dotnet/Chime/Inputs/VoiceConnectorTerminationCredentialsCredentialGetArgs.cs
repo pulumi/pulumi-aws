@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Chime.Inputs
 {
 
-    public sealed class VoiceConnectorTerminationCredentialsCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorTerminationCredentialsCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RFC2617 compliant password associated with the SIP credentials.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Chime.Inputs
         public VoiceConnectorTerminationCredentialsCredentialGetArgs()
         {
         }
+        public static new VoiceConnectorTerminationCredentialsCredentialGetArgs Empty => new VoiceConnectorTerminationCredentialsCredentialGetArgs();
     }
 }

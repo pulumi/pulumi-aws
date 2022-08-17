@@ -20,25 +20,24 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         var myRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
-        ///         {
-        ///             Name = "my-rest-api",
-        ///         }));
-        ///         var myResource = myRestApi.Apply(myRestApi =&gt; Output.Create(Aws.ApiGateway.GetResource.InvokeAsync(new Aws.ApiGateway.GetResourceArgs
-        ///         {
-        ///             RestApiId = myRestApi.Id,
-        ///             Path = "/endpoint/path",
-        ///         })));
-        ///     }
+        ///         Name = "my-rest-api",
+        ///     });
         /// 
-        /// }
+        ///     var myResource = Aws.ApiGateway.GetResource.Invoke(new()
+        ///     {
+        ///         RestApiId = myRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         Path = "/endpoint/path",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,25 +54,24 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         var myRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
-        ///         {
-        ///             Name = "my-rest-api",
-        ///         }));
-        ///         var myResource = myRestApi.Apply(myRestApi =&gt; Output.Create(Aws.ApiGateway.GetResource.InvokeAsync(new Aws.ApiGateway.GetResourceArgs
-        ///         {
-        ///             RestApiId = myRestApi.Id,
-        ///             Path = "/endpoint/path",
-        ///         })));
-        ///     }
+        ///         Name = "my-rest-api",
+        ///     });
         /// 
-        /// }
+        ///     var myResource = Aws.ApiGateway.GetResource.Invoke(new()
+        ///     {
+        ///         RestApiId = myRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         Path = "/endpoint/path",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full path of the resource.  If no path is found, an error will be returned.
@@ -100,9 +98,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetResourceArgs()
         {
         }
+        public static new GetResourceArgs Empty => new GetResourceArgs();
     }
 
-    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full path of the resource.  If no path is found, an error will be returned.
@@ -119,6 +118,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetResourceInvokeArgs()
         {
         }
+        public static new GetResourceInvokeArgs Empty => new GetResourceInvokeArgs();
     }
 
 

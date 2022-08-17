@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class GlobalClusterGlobalClusterMemberGetArgs : Pulumi.ResourceArgs
+    public sealed class GlobalClusterGlobalClusterMemberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of member DB Cluster
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public GlobalClusterGlobalClusterMemberGetArgs()
         {
         }
+        public static new GlobalClusterGlobalClusterMemberGetArgs Empty => new GlobalClusterGlobalClusterMemberGetArgs();
     }
 }

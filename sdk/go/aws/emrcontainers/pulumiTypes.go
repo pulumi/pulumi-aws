@@ -22,7 +22,7 @@ type VirtualClusterContainerProvider struct {
 // VirtualClusterContainerProviderInput is an input type that accepts VirtualClusterContainerProviderArgs and VirtualClusterContainerProviderOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderInput` via:
 //
-//          VirtualClusterContainerProviderArgs{...}
+//	VirtualClusterContainerProviderArgs{...}
 type VirtualClusterContainerProviderInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderPt
 // VirtualClusterContainerProviderPtrInput is an input type that accepts VirtualClusterContainerProviderArgs, VirtualClusterContainerProviderPtr and VirtualClusterContainerProviderPtrOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderPtrInput` via:
 //
-//          VirtualClusterContainerProviderArgs{...}
+//	        VirtualClusterContainerProviderArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualClusterContainerProviderPtrInput interface {
 	pulumi.Input
 
@@ -193,7 +193,7 @@ type VirtualClusterContainerProviderInfo struct {
 // VirtualClusterContainerProviderInfoInput is an input type that accepts VirtualClusterContainerProviderInfoArgs and VirtualClusterContainerProviderInfoOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderInfoInput` via:
 //
-//          VirtualClusterContainerProviderInfoArgs{...}
+//	VirtualClusterContainerProviderInfoArgs{...}
 type VirtualClusterContainerProviderInfoInput interface {
 	pulumi.Input
 
@@ -229,11 +229,11 @@ func (i VirtualClusterContainerProviderInfoArgs) ToVirtualClusterContainerProvid
 // VirtualClusterContainerProviderInfoPtrInput is an input type that accepts VirtualClusterContainerProviderInfoArgs, VirtualClusterContainerProviderInfoPtr and VirtualClusterContainerProviderInfoPtrOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderInfoPtrInput` via:
 //
-//          VirtualClusterContainerProviderInfoArgs{...}
+//	        VirtualClusterContainerProviderInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualClusterContainerProviderInfoPtrInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ type VirtualClusterContainerProviderInfoEksInfo struct {
 // VirtualClusterContainerProviderInfoEksInfoInput is an input type that accepts VirtualClusterContainerProviderInfoEksInfoArgs and VirtualClusterContainerProviderInfoEksInfoOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderInfoEksInfoInput` via:
 //
-//          VirtualClusterContainerProviderInfoEksInfoArgs{...}
+//	VirtualClusterContainerProviderInfoEksInfoArgs{...}
 type VirtualClusterContainerProviderInfoEksInfoInput interface {
 	pulumi.Input
 
@@ -368,11 +368,11 @@ func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToVirtualClusterContaine
 // VirtualClusterContainerProviderInfoEksInfoPtrInput is an input type that accepts VirtualClusterContainerProviderInfoEksInfoArgs, VirtualClusterContainerProviderInfoEksInfoPtr and VirtualClusterContainerProviderInfoEksInfoPtrOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderInfoEksInfoPtrInput` via:
 //
-//          VirtualClusterContainerProviderInfoEksInfoArgs{...}
+//	        VirtualClusterContainerProviderInfoEksInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualClusterContainerProviderInfoEksInfoPtrInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ type GetVirtualClusterContainerProvider struct {
 // GetVirtualClusterContainerProviderInput is an input type that accepts GetVirtualClusterContainerProviderArgs and GetVirtualClusterContainerProviderOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInput` via:
 //
-//          GetVirtualClusterContainerProviderArgs{...}
+//	GetVirtualClusterContainerProviderArgs{...}
 type GetVirtualClusterContainerProviderInput interface {
 	pulumi.Input
 
@@ -505,7 +505,7 @@ func (i GetVirtualClusterContainerProviderArgs) ToGetVirtualClusterContainerProv
 // GetVirtualClusterContainerProviderArrayInput is an input type that accepts GetVirtualClusterContainerProviderArray and GetVirtualClusterContainerProviderArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderArrayInput` via:
 //
-//          GetVirtualClusterContainerProviderArray{ GetVirtualClusterContainerProviderArgs{...} }
+//	GetVirtualClusterContainerProviderArray{ GetVirtualClusterContainerProviderArgs{...} }
 type GetVirtualClusterContainerProviderArrayInput interface {
 	pulumi.Input
 
@@ -584,7 +584,7 @@ type GetVirtualClusterContainerProviderInfo struct {
 // GetVirtualClusterContainerProviderInfoInput is an input type that accepts GetVirtualClusterContainerProviderInfoArgs and GetVirtualClusterContainerProviderInfoOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoInput` via:
 //
-//          GetVirtualClusterContainerProviderInfoArgs{...}
+//	GetVirtualClusterContainerProviderInfoArgs{...}
 type GetVirtualClusterContainerProviderInfoInput interface {
 	pulumi.Input
 
@@ -612,7 +612,7 @@ func (i GetVirtualClusterContainerProviderInfoArgs) ToGetVirtualClusterContainer
 // GetVirtualClusterContainerProviderInfoArrayInput is an input type that accepts GetVirtualClusterContainerProviderInfoArray and GetVirtualClusterContainerProviderInfoArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoArrayInput` via:
 //
-//          GetVirtualClusterContainerProviderInfoArray{ GetVirtualClusterContainerProviderInfoArgs{...} }
+//	GetVirtualClusterContainerProviderInfoArray{ GetVirtualClusterContainerProviderInfoArgs{...} }
 type GetVirtualClusterContainerProviderInfoArrayInput interface {
 	pulumi.Input
 
@@ -683,7 +683,7 @@ type GetVirtualClusterContainerProviderInfoEksInfo struct {
 // GetVirtualClusterContainerProviderInfoEksInfoInput is an input type that accepts GetVirtualClusterContainerProviderInfoEksInfoArgs and GetVirtualClusterContainerProviderInfoEksInfoOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoEksInfoInput` via:
 //
-//          GetVirtualClusterContainerProviderInfoEksInfoArgs{...}
+//	GetVirtualClusterContainerProviderInfoEksInfoArgs{...}
 type GetVirtualClusterContainerProviderInfoEksInfoInput interface {
 	pulumi.Input
 
@@ -711,7 +711,7 @@ func (i GetVirtualClusterContainerProviderInfoEksInfoArgs) ToGetVirtualClusterCo
 // GetVirtualClusterContainerProviderInfoEksInfoArrayInput is an input type that accepts GetVirtualClusterContainerProviderInfoEksInfoArray and GetVirtualClusterContainerProviderInfoEksInfoArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoEksInfoArrayInput` via:
 //
-//          GetVirtualClusterContainerProviderInfoEksInfoArray{ GetVirtualClusterContainerProviderInfoEksInfoArgs{...} }
+//	GetVirtualClusterContainerProviderInfoEksInfoArray{ GetVirtualClusterContainerProviderInfoEksInfoArgs{...} }
 type GetVirtualClusterContainerProviderInfoEksInfoArrayInput interface {
 	pulumi.Input
 

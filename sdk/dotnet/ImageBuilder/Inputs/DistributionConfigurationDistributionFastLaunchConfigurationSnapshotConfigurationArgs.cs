@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs Empty => new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs();
     }
 }

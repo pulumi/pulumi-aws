@@ -18,158 +18,150 @@ namespace Pulumi.Aws.Mwaa
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         var example = new Aws.Mwaa.Environment("example", new Aws.Mwaa.EnvironmentArgs
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
-    ///             DagS3Path = "dags/",
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///             SecurityGroupIds = new[]
     ///             {
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Example.Id,
-    ///                 },
-    ///                 SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///                 aws_security_group.Example.Id,
     ///             },
-    ///             SourceBucketArn = aws_s3_bucket.Example.Arn,
-    ///         });
-    ///     }
+    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with Airflow configuration options
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         var example = new Aws.Mwaa.Environment("example", new Aws.Mwaa.EnvironmentArgs
+    ///         AirflowConfigurationOptions = 
     ///         {
-    ///             AirflowConfigurationOptions = 
+    ///             { "core.default_task_retries", "16" },
+    ///             { "core.parallelism", "1" },
+    ///         },
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///         {
+    ///             SecurityGroupIds = new[]
     ///             {
-    ///                 { "core.default_task_retries", "16" },
-    ///                 { "core.parallelism", "1" },
+    ///                 aws_security_group.Example.Id,
     ///             },
-    ///             DagS3Path = "dags/",
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
-    ///             {
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Example.Id,
-    ///                 },
-    ///                 SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
-    ///             },
-    ///             SourceBucketArn = aws_s3_bucket.Example.Arn,
-    ///         });
-    ///     }
+    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with logging configurations
     /// 
     /// Note that Airflow task logs are enabled by default with the `INFO` log level.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         var example = new Aws.Mwaa.Environment("example", new Aws.Mwaa.EnvironmentArgs
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         LoggingConfiguration = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationArgs
     ///         {
-    ///             DagS3Path = "dags/",
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             LoggingConfiguration = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationArgs
+    ///             DagProcessingLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs
     ///             {
-    ///                 DagProcessingLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogLevel = "DEBUG",
-    ///                 },
-    ///                 SchedulerLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogLevel = "INFO",
-    ///                 },
-    ///                 TaskLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationTaskLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogLevel = "WARNING",
-    ///                 },
-    ///                 WebserverLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogLevel = "ERROR",
-    ///                 },
-    ///                 WorkerLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogLevel = "CRITICAL",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 LogLevel = "DEBUG",
     ///             },
-    ///             NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///             SchedulerLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs
     ///             {
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Example.Id,
-    ///                 },
-    ///                 SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///                 Enabled = true,
+    ///                 LogLevel = "INFO",
     ///             },
-    ///             SourceBucketArn = aws_s3_bucket.Example.Arn,
-    ///         });
-    ///     }
+    ///             TaskLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationTaskLogsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 LogLevel = "WARNING",
+    ///             },
+    ///             WebserverLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 LogLevel = "ERROR",
+    ///             },
+    ///             WorkerLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 LogLevel = "CRITICAL",
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///         {
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 aws_security_group.Example.Id,
+    ///             },
+    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with tags
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         var example = new Aws.Mwaa.Environment("example", new Aws.Mwaa.EnvironmentArgs
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
-    ///             DagS3Path = "dags/",
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///             SecurityGroupIds = new[]
     ///             {
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Example.Id,
-    ///                 },
-    ///                 SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///                 aws_security_group.Example.Id,
     ///             },
-    ///             SourceBucketArn = aws_s3_bucket.Example.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///                 { "Environment", "production" },
-    ///             },
-    ///         });
-    ///     }
+    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -181,7 +173,7 @@ namespace Pulumi.Aws.Mwaa
     /// ```
     /// </summary>
     [AwsResourceType("aws:mwaa/environment:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
@@ -314,13 +306,13 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -387,7 +379,7 @@ namespace Pulumi.Aws.Mwaa
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("airflowConfigurationOptions")]
         private InputMap<string>? _airflowConfigurationOptions;
@@ -501,7 +493,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -524,9 +516,10 @@ namespace Pulumi.Aws.Mwaa
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 
-    public sealed class EnvironmentState : Pulumi.ResourceArgs
+    public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         [Input("airflowConfigurationOptions")]
         private InputMap<string>? _airflowConfigurationOptions;
@@ -673,7 +666,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -685,7 +678,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -714,5 +707,6 @@ namespace Pulumi.Aws.Mwaa
         public EnvironmentState()
         {
         }
+        public static new EnvironmentState Empty => new EnvironmentState();
     }
 }

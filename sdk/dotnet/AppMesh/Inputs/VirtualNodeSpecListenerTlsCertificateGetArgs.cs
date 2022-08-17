@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTlsCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTlsCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS Certificate Manager (ACM) certificate.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTlsCertificateGetArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTlsCertificateGetArgs Empty => new VirtualNodeSpecListenerTlsCertificateGetArgs();
     }
 }

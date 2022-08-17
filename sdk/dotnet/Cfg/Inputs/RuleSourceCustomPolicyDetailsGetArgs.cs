@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RuleSourceCustomPolicyDetailsGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleSourceCustomPolicyDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RuleSourceCustomPolicyDetailsGetArgs()
         {
         }
+        public static new RuleSourceCustomPolicyDetailsGetArgs Empty => new RuleSourceCustomPolicyDetailsGetArgs();
     }
 }

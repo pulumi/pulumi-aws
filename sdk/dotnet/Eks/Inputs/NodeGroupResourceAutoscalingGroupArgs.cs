@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupResourceAutoscalingGroupArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupResourceAutoscalingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the EC2 Launch Template. Conflicts with `id`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupResourceAutoscalingGroupArgs()
         {
         }
+        public static new NodeGroupResourceAutoscalingGroupArgs Empty => new NodeGroupResourceAutoscalingGroupArgs();
     }
 }

@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage with tags:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Ec2.DefaultVpc("default", new()
     ///     {
-    ///         var @default = new Aws.Ec2.DefaultVpc("default", new Aws.Ec2.DefaultVpcArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Default VPC" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Default VPC" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultVpc:DefaultVpc")]
-    public partial class DefaultVpc : Pulumi.CustomResource
+    public partial class DefaultVpc : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -167,7 +165,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class DefaultVpcArgs : Pulumi.ResourceArgs
+    public sealed class DefaultVpcArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
@@ -213,9 +211,10 @@ namespace Pulumi.Aws.Ec2
         public DefaultVpcArgs()
         {
         }
+        public static new DefaultVpcArgs Empty => new DefaultVpcArgs();
     }
 
-    public sealed class DefaultVpcState : Pulumi.ResourceArgs
+    public sealed class DefaultVpcState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -308,5 +307,6 @@ namespace Pulumi.Aws.Ec2
         public DefaultVpcState()
         {
         }
+        public static new DefaultVpcState Empty => new DefaultVpcState();
     }
 }

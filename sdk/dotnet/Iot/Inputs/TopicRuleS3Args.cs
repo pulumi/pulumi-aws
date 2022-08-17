@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleS3Args : Pulumi.ResourceArgs
+    public sealed class TopicRuleS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket name.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleS3Args()
         {
         }
+        public static new TopicRuleS3Args Empty => new TopicRuleS3Args();
     }
 }

@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gamelift.NewFleet(ctx, "example", &gamelift.FleetArgs{
-// 			BuildId:         pulumi.Any(aws_gamelift_build.Example.Id),
-// 			Ec2InstanceType: pulumi.String("t2.micro"),
-// 			FleetType:       pulumi.String("ON_DEMAND"),
-// 			RuntimeConfiguration: &gamelift.FleetRuntimeConfigurationArgs{
-// 				ServerProcesses: gamelift.FleetRuntimeConfigurationServerProcessArray{
-// 					&gamelift.FleetRuntimeConfigurationServerProcessArgs{
-// 						ConcurrentExecutions: pulumi.Int(1),
-// 						LaunchPath:           pulumi.String("C:\\game\\GomokuServer.exe"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewFleet(ctx, "example", &gamelift.FleetArgs{
+//				BuildId:         pulumi.Any(aws_gamelift_build.Example.Id),
+//				Ec2InstanceType: pulumi.String("t2.micro"),
+//				FleetType:       pulumi.String("ON_DEMAND"),
+//				RuntimeConfiguration: &gamelift.FleetRuntimeConfigurationArgs{
+//					ServerProcesses: gamelift.FleetRuntimeConfigurationServerProcessArray{
+//						&gamelift.FleetRuntimeConfigurationServerProcessArgs{
+//							ConcurrentExecutions: pulumi.Int(1),
+//							LaunchPath:           pulumi.String("C:\\game\\GomokuServer.exe"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // GameLift Fleets can be imported using the ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+//
+//	$ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+//
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -305,7 +310,7 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 // FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
 // You can construct a concrete instance of `FleetArrayInput` via:
 //
-//          FleetArray{ FleetArgs{...} }
+//	FleetArray{ FleetArgs{...} }
 type FleetArrayInput interface {
 	pulumi.Input
 
@@ -330,7 +335,7 @@ func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArra
 // FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
 // You can construct a concrete instance of `FleetMapInput` via:
 //
-//          FleetMap{ "key": FleetArgs{...} }
+//	FleetMap{ "key": FleetArgs{...} }
 type FleetMapInput interface {
 	pulumi.Input
 

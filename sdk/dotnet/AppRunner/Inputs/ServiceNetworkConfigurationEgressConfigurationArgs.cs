@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceNetworkConfigurationEgressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkConfigurationEgressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceNetworkConfigurationEgressConfigurationArgs()
         {
         }
+        public static new ServiceNetworkConfigurationEgressConfigurationArgs Empty => new ServiceNetworkConfigurationEgressConfigurationArgs();
     }
 }

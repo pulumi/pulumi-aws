@@ -19,21 +19,19 @@ namespace Pulumi.Aws.StorageGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
-        ///         {
-        ///             DiskPath = aws_volume_attachment.Test.Device_name,
-        ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-        ///         }));
-        ///     }
+        ///         DiskPath = aws_volume_attachment.Test.Device_name,
+        ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.StorageGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
-        ///         {
-        ///             DiskPath = aws_volume_attachment.Test.Device_name,
-        ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
-        ///         }));
-        ///     }
+        ///         DiskPath = aws_volume_attachment.Test.Device_name,
+        ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.StorageGateway
     }
 
 
-    public sealed class GetLocalDiskArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalDiskArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device node of the local disk to retrieve. For example, `/dev/sdb`.
@@ -96,9 +92,10 @@ namespace Pulumi.Aws.StorageGateway
         public GetLocalDiskArgs()
         {
         }
+        public static new GetLocalDiskArgs Empty => new GetLocalDiskArgs();
     }
 
-    public sealed class GetLocalDiskInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalDiskInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device node of the local disk to retrieve. For example, `/dev/sdb`.
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.StorageGateway
         public GetLocalDiskInvokeArgs()
         {
         }
+        public static new GetLocalDiskInvokeArgs Empty => new GetLocalDiskInvokeArgs();
     }
 
 

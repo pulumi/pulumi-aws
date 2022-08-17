@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs()
         {
         }
+        public static new UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs Empty => new UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs();
     }
 }

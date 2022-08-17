@@ -84,6 +84,7 @@ export interface GetLoadBalancerResult {
     readonly ipAddressType: string;
     readonly loadBalancerType: string;
     readonly name: string;
+    readonly preserveHostHeader: boolean;
     readonly securityGroups: string[];
     readonly subnetMappings: outputs.alb.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];

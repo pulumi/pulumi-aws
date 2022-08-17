@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Inspector
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Inspector.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Aws.Inspector.ResourceGroup("example", new Aws.Inspector.ResourceGroupArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Env", "bar" },
-    ///                 { "Name", "foo" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Env", "bar" },
+    ///             { "Name", "foo" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/resourceGroup:ResourceGroup")]
-    public partial class ResourceGroup : Pulumi.CustomResource
+    public partial class ResourceGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource group ARN.
@@ -94,7 +92,7 @@ namespace Pulumi.Aws.Inspector
         }
     }
 
-    public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags", required: true)]
         private InputMap<string>? _tags;
@@ -111,9 +109,10 @@ namespace Pulumi.Aws.Inspector
         public ResourceGroupArgs()
         {
         }
+        public static new ResourceGroupArgs Empty => new ResourceGroupArgs();
     }
 
-    public sealed class ResourceGroupState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource group ARN.
@@ -136,5 +135,6 @@ namespace Pulumi.Aws.Inspector
         public ResourceGroupState()
         {
         }
+        public static new ResourceGroupState Empty => new ResourceGroupState();
     }
 }

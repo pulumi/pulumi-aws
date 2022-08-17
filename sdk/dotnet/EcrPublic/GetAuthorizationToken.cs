@@ -19,17 +19,15 @@ namespace Pulumi.Aws.EcrPublic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var token = Output.Create(Aws.EcrPublic.GetAuthorizationToken.InvokeAsync());
-        ///     }
+        ///     var token = Aws.EcrPublic.GetAuthorizationToken.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

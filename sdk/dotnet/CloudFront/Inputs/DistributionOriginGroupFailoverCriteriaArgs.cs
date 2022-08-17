@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginGroupFailoverCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginGroupFailoverCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("statusCodes", required: true)]
         private InputList<int>? _statusCodes;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOriginGroupFailoverCriteriaArgs()
         {
         }
+        public static new DistributionOriginGroupFailoverCriteriaArgs Empty => new DistributionOriginGroupFailoverCriteriaArgs();
     }
 }

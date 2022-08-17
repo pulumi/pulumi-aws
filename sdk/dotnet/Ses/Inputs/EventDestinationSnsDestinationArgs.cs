@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class EventDestinationSnsDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EventDestinationSnsDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SNS topic
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public EventDestinationSnsDestinationArgs()
         {
         }
+        public static new EventDestinationSnsDestinationArgs Empty => new EventDestinationSnsDestinationArgs();
     }
 }

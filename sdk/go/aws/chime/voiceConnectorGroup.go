@@ -20,44 +20,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		vc1, err := chime.NewVoiceConnector(ctx, "vc1", &chime.VoiceConnectorArgs{
-// 			RequireEncryption: pulumi.Bool(true),
-// 			AwsRegion:         pulumi.String("us-east-1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vc2, err := chime.NewVoiceConnector(ctx, "vc2", &chime.VoiceConnectorArgs{
-// 			RequireEncryption: pulumi.Bool(true),
-// 			AwsRegion:         pulumi.String("us-west-2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
-// 			Connectors: chime.VoiceConnectorGroupConnectorArray{
-// 				&chime.VoiceConnectorGroupConnectorArgs{
-// 					VoiceConnectorId: vc1.ID(),
-// 					Priority:         pulumi.Int(1),
-// 				},
-// 				&chime.VoiceConnectorGroupConnectorArgs{
-// 					VoiceConnectorId: vc2.ID(),
-// 					Priority:         pulumi.Int(3),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vc1, err := chime.NewVoiceConnector(ctx, "vc1", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//				AwsRegion:         pulumi.String("us-east-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vc2, err := chime.NewVoiceConnector(ctx, "vc2", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//				AwsRegion:         pulumi.String("us-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
+//				Connectors: chime.VoiceConnectorGroupConnectorArray{
+//					&chime.VoiceConnectorGroupConnectorArgs{
+//						VoiceConnectorId: vc1.ID(),
+//						Priority:         pulumi.Int(1),
+//					},
+//					&chime.VoiceConnectorGroupConnectorArgs{
+//						VoiceConnectorId: vc2.ID(),
+//						Priority:         pulumi.Int(3),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Configuration Recorder can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+//
+//	$ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+//
 // ```
 type VoiceConnectorGroup struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *VoiceConnectorGroup) ToVoiceConnectorGroupOutputWithContext(ctx context
 // VoiceConnectorGroupArrayInput is an input type that accepts VoiceConnectorGroupArray and VoiceConnectorGroupArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorGroupArrayInput` via:
 //
-//          VoiceConnectorGroupArray{ VoiceConnectorGroupArgs{...} }
+//	VoiceConnectorGroupArray{ VoiceConnectorGroupArgs{...} }
 type VoiceConnectorGroupArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i VoiceConnectorGroupArray) ToVoiceConnectorGroupArrayOutputWithContext(ct
 // VoiceConnectorGroupMapInput is an input type that accepts VoiceConnectorGroupMap and VoiceConnectorGroupMapOutput values.
 // You can construct a concrete instance of `VoiceConnectorGroupMapInput` via:
 //
-//          VoiceConnectorGroupMap{ "key": VoiceConnectorGroupArgs{...} }
+//	VoiceConnectorGroupMap{ "key": VoiceConnectorGroupArgs{...} }
 type VoiceConnectorGroupMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class ThingGroupMetadataGetArgs : Pulumi.ResourceArgs
+    public sealed class ThingGroupMetadataGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public ThingGroupMetadataGetArgs()
         {
         }
+        public static new ThingGroupMetadataGetArgs Empty => new ThingGroupMetadataGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
@@ -111,5 +111,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowSourceFlowConfigSourceConnectorPropertiesArgs()
         {
         }
+        public static new FlowSourceFlowConfigSourceConnectorPropertiesArgs Empty => new FlowSourceFlowConfigSourceConnectorPropertiesArgs();
     }
 }

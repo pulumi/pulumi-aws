@@ -16,46 +16,45 @@ namespace Pulumi.Aws.OpenSearch
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
     ///     {
-    ///         var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new Aws.OpenSearch.DomainArgs
+    ///         EngineVersion = "OpenSearch_1.1",
+    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
-    ///             EngineVersion = "OpenSearch_1.1",
-    ///             ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
-    ///             {
-    ///                 InstanceType = "r4.large.search",
-    ///             },
-    ///             SnapshotOptions = new Aws.OpenSearch.Inputs.DomainSnapshotOptionsArgs
-    ///             {
-    ///                 AutomatedSnapshotStartHour = 23,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Domain", "TestDomain" },
-    ///             },
-    ///         });
-    ///         var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("exampleDomainSamlOptions", new Aws.OpenSearch.DomainSamlOptionsArgs
+    ///             InstanceType = "r4.large.search",
+    ///         },
+    ///         SnapshotOptions = new Aws.OpenSearch.Inputs.DomainSnapshotOptionsArgs
     ///         {
-    ///             DomainName = exampleDomain.DomainName,
-    ///             SamlOptions = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
-    ///                 {
-    ///                     EntityId = "https://example.com",
-    ///                     MetadataContent = File.ReadAllText("./saml-metadata.xml"),
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             AutomatedSnapshotStartHour = 23,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Domain", "TestDomain" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     {
+    ///         DomainName = exampleDomain.DomainName,
+    ///         SamlOptions = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
+    ///             {
+    ///                 EntityId = "https://example.com",
+    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +66,7 @@ namespace Pulumi.Aws.OpenSearch
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/domainSamlOptions:DomainSamlOptions")]
-    public partial class DomainSamlOptions : Pulumi.CustomResource
+    public partial class DomainSamlOptions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the domain.
@@ -125,7 +124,7 @@ namespace Pulumi.Aws.OpenSearch
         }
     }
 
-    public sealed class DomainSamlOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -142,9 +141,10 @@ namespace Pulumi.Aws.OpenSearch
         public DomainSamlOptionsArgs()
         {
         }
+        public static new DomainSamlOptionsArgs Empty => new DomainSamlOptionsArgs();
     }
 
-    public sealed class DomainSamlOptionsState : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -161,5 +161,6 @@ namespace Pulumi.Aws.OpenSearch
         public DomainSamlOptionsState()
         {
         }
+        public static new DomainSamlOptionsState Empty => new DomainSamlOptionsState();
     }
 }

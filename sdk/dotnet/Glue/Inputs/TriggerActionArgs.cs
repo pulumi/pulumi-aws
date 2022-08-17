@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class TriggerActionArgs : Pulumi.ResourceArgs
+    public sealed class TriggerActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputMap<string>? _arguments;
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public TriggerActionArgs()
         {
         }
+        public static new TriggerActionArgs Empty => new TriggerActionArgs();
     }
 }

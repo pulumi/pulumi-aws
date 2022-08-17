@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpam:VpcIpam")]
-    public partial class VpcIpam : Pulumi.CustomResource
+    public partial class VpcIpam : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpamArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
@@ -163,9 +163,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamArgs()
         {
         }
+        public static new VpcIpamArgs Empty => new VpcIpamArgs();
     }
 
-    public sealed class VpcIpamState : Pulumi.ResourceArgs
+    public sealed class VpcIpamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM
@@ -243,5 +244,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamState()
         {
         }
+        public static new VpcIpamState Empty => new VpcIpamState();
     }
 }

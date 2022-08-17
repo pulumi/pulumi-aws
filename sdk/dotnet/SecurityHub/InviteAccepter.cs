@@ -17,42 +17,41 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleMember = new Aws.SecurityHub.Member("exampleMember", new Aws.SecurityHub.MemberArgs
-    ///         {
-    ///             AccountId = "123456789012",
-    ///             Email = "example@example.com",
-    ///             Invite = true,
-    ///         });
-    ///         var inviteeAccount = new Aws.SecurityHub.Account("inviteeAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "aws.invitee",
-    ///         });
-    ///         var inviteeInviteAccepter = new Aws.SecurityHub.InviteAccepter("inviteeInviteAccepter", new Aws.SecurityHub.InviteAccepterArgs
-    ///         {
-    ///             MasterId = exampleMember.MasterId,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "aws.invitee",
-    ///             DependsOn = 
-    ///             {
-    ///                 inviteeAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleMember = new Aws.SecurityHub.Member("exampleMember", new()
+    ///     {
+    ///         AccountId = "123456789012",
+    ///         Email = "example@example.com",
+    ///         Invite = true,
+    ///     });
+    /// 
+    ///     var inviteeAccount = new Aws.SecurityHub.Account("inviteeAccount", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "aws.invitee",
+    ///     });
+    /// 
+    ///     var inviteeInviteAccepter = new Aws.SecurityHub.InviteAccepter("inviteeInviteAccepter", new()
+    ///     {
+    ///         MasterId = exampleMember.MasterId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "aws.invitee",
+    ///         DependsOn = new[]
+    ///         {
+    ///             inviteeAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +63,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]
-    public partial class InviteAccepter : Pulumi.CustomResource
+    public partial class InviteAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the invitation.
@@ -122,7 +121,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class InviteAccepterArgs : Pulumi.ResourceArgs
+    public sealed class InviteAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID of the master Security Hub account whose invitation you're accepting.
@@ -133,9 +132,10 @@ namespace Pulumi.Aws.SecurityHub
         public InviteAccepterArgs()
         {
         }
+        public static new InviteAccepterArgs Empty => new InviteAccepterArgs();
     }
 
-    public sealed class InviteAccepterState : Pulumi.ResourceArgs
+    public sealed class InviteAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the invitation.
@@ -152,5 +152,6 @@ namespace Pulumi.Aws.SecurityHub
         public InviteAccepterState()
         {
         }
+        public static new InviteAccepterState Empty => new InviteAccepterState();
     }
 }

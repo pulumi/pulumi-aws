@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableSchemaDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusteringKeys")]
         private InputList<Inputs.TableSchemaDefinitionClusteringKeyArgs>? _clusteringKeys;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableSchemaDefinitionArgs()
         {
         }
+        public static new TableSchemaDefinitionArgs Empty => new TableSchemaDefinitionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ManagedScalingPolicyComputeLimitArgs : Pulumi.ResourceArgs
+    public sealed class ManagedScalingPolicyComputeLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ManagedScalingPolicyComputeLimitArgs()
         {
         }
+        public static new ManagedScalingPolicyComputeLimitArgs Empty => new ManagedScalingPolicyComputeLimitArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FlowDefinitionHumanLoopConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionHumanLoopConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the human task user interface.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FlowDefinitionHumanLoopConfigArgs()
         {
         }
+        public static new FlowDefinitionHumanLoopConfigArgs Empty => new FlowDefinitionHumanLoopConfigArgs();
     }
 }

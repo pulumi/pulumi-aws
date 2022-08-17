@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class RoutingProfileQueueConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class RoutingProfileQueueConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public RoutingProfileQueueConfigGetArgs()
         {
         }
+        public static new RoutingProfileQueueConfigGetArgs Empty => new RoutingProfileQueueConfigGetArgs();
     }
 }

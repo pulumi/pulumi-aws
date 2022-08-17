@@ -30,32 +30,35 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
-// 			CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-// 			PrivateKey:      readFileOrPanic("test-key.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
+//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+//				PrivateKey:      readFileOrPanic("test-key.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // **Example with cert in-line:**
@@ -64,24 +67,27 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewServerCertificate(ctx, "testCertAlt", &iam.ServerCertificateArgs{
-// 			CertificateBody: pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n")),
-// 			PrivateKey:      pulumi.String(fmt.Sprintf("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewServerCertificate(ctx, "testCertAlt", &iam.ServerCertificateArgs{
+//				CertificateBody: pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n")),
+//				PrivateKey:      pulumi.String(fmt.Sprintf("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // **Use in combination with an AWS ELB resource:**
@@ -97,52 +103,55 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testCert, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
-// 			NamePrefix:      pulumi.String("example-cert"),
-// 			CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-// 			PrivateKey:      readFileOrPanic("test-key.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elb.NewLoadBalancer(ctx, "ourapp", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 			},
-// 			CrossZoneLoadBalancing: pulumi.Bool(true),
-// 			Listeners: elb.LoadBalancerListenerArray{
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(8000),
-// 					InstanceProtocol: pulumi.String("http"),
-// 					LbPort:           pulumi.Int(443),
-// 					LbProtocol:       pulumi.String("https"),
-// 					SslCertificateId: testCert.Arn,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testCert, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
+//				NamePrefix:      pulumi.String("example-cert"),
+//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+//				PrivateKey:      readFileOrPanic("test-key.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewLoadBalancer(ctx, "ourapp", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//				},
+//				CrossZoneLoadBalancing: pulumi.Bool(true),
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(443),
+//						LbProtocol:       pulumi.String("https"),
+//						SslCertificateId: testCert.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -150,10 +159,12 @@ import (
 // IAM Server Certificates can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+//
+//	$ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+//
 // ```
 //
-//  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+//	[1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
@@ -183,7 +194,7 @@ type ServerCertificate struct {
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
 	UploadDate pulumi.StringOutput `pulumi:"uploadDate"`
@@ -250,7 +261,7 @@ type serverCertificateState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
 	UploadDate *string `pulumi:"uploadDate"`
@@ -283,7 +294,7 @@ type ServerCertificateState struct {
 	PrivateKey pulumi.StringPtrInput
 	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
 	UploadDate pulumi.StringPtrInput
@@ -370,7 +381,7 @@ func (i *ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Con
 // ServerCertificateArrayInput is an input type that accepts ServerCertificateArray and ServerCertificateArrayOutput values.
 // You can construct a concrete instance of `ServerCertificateArrayInput` via:
 //
-//          ServerCertificateArray{ ServerCertificateArgs{...} }
+//	ServerCertificateArray{ ServerCertificateArgs{...} }
 type ServerCertificateArrayInput interface {
 	pulumi.Input
 
@@ -395,7 +406,7 @@ func (i ServerCertificateArray) ToServerCertificateArrayOutputWithContext(ctx co
 // ServerCertificateMapInput is an input type that accepts ServerCertificateMap and ServerCertificateMapOutput values.
 // You can construct a concrete instance of `ServerCertificateMapInput` via:
 //
-//          ServerCertificateMap{ "key": ServerCertificateArgs{...} }
+//	ServerCertificateMap{ "key": ServerCertificateArgs{...} }
 type ServerCertificateMapInput interface {
 	pulumi.Input
 
@@ -484,7 +495,7 @@ func (o ServerCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

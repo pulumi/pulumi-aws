@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the input Kinesis data stream to read.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs();
     }
 }

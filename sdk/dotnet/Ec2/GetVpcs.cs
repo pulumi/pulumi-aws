@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcsArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpcsFilterArgs>? _filters;
@@ -59,9 +59,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcsArgs()
         {
         }
+        public static new GetVpcsArgs Empty => new GetVpcsArgs();
     }
 
-    public sealed class GetVpcsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcsFilterInputArgs>? _filters;
@@ -91,6 +92,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcsInvokeArgs()
         {
         }
+        public static new GetVpcsInvokeArgs Empty => new GetVpcsInvokeArgs();
     }
 
 

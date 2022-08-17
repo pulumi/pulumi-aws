@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
-// 			Description: pulumi.String("oauth config"),
-// 			IsEnabled:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_ = kms.GetCipherTextOutput(ctx, kms.GetCipherTextOutputArgs{
-// 			KeyId:     oauthConfig.KeyId,
-// 			Plaintext: pulumi.String(fmt.Sprintf("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n")),
-// 		}, nil)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
+//				Description: pulumi.String("oauth config"),
+//				IsEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = kms.GetCipherTextOutput(ctx, kms.GetCipherTextOutputArgs{
+//				KeyId:     oauthConfig.KeyId,
+//				Plaintext: pulumi.String(fmt.Sprintf("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n")),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.InvokeOption) (*GetCipherTextResult, error) {
 	var rv GetCipherTextResult

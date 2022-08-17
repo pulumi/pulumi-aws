@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainEbsOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainEbsOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether EBS volumes are attached to data nodes in the domain.
@@ -19,10 +19,16 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<bool> EbsEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        /// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
+
+        /// <summary>
+        /// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        /// </summary>
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
 
         /// <summary>
         /// Size of EBS volumes attached to data nodes (in GiB).
@@ -39,5 +45,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainEbsOptionsArgs()
         {
         }
+        public static new DomainEbsOptionsArgs Empty => new DomainEbsOptionsArgs();
     }
 }

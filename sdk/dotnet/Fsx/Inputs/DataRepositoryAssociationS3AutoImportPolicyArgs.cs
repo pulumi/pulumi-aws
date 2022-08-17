@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class DataRepositoryAssociationS3AutoImportPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DataRepositoryAssociationS3AutoImportPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("events")]
         private InputList<string>? _events;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public DataRepositoryAssociationS3AutoImportPolicyArgs()
         {
         }
+        public static new DataRepositoryAssociationS3AutoImportPolicyArgs Empty => new DataRepositoryAssociationS3AutoImportPolicyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionIotEventsArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionIotEventsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the AWS IoT Events input.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionIotEventsArgs()
         {
         }
+        public static new TopicRuleErrorActionIotEventsArgs Empty => new TopicRuleErrorActionIotEventsArgs();
     }
 }

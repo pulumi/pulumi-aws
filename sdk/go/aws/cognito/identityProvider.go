@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-// 			AutoVerifiedAttributes: pulumi.StringArray{
-// 				pulumi.String("email"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
-// 			UserPoolId:   example.ID(),
-// 			ProviderName: pulumi.String("Google"),
-// 			ProviderType: pulumi.String("Google"),
-// 			ProviderDetails: pulumi.StringMap{
-// 				"authorize_scopes": pulumi.String("email"),
-// 				"client_id":        pulumi.String("your client_id"),
-// 				"client_secret":    pulumi.String("your client_secret"),
-// 			},
-// 			AttributeMapping: pulumi.StringMap{
-// 				"email":    pulumi.String("email"),
-// 				"username": pulumi.String("sub"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				AutoVerifiedAttributes: pulumi.StringArray{
+//					pulumi.String("email"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
+//				UserPoolId:   example.ID(),
+//				ProviderName: pulumi.String("Google"),
+//				ProviderType: pulumi.String("Google"),
+//				ProviderDetails: pulumi.StringMap{
+//					"authorize_scopes": pulumi.String("email"),
+//					"client_id":        pulumi.String("your client_id"),
+//					"client_secret":    pulumi.String("your client_secret"),
+//				},
+//				AttributeMapping: pulumi.StringMap{
+//					"email":    pulumi.String("email"),
+//					"username": pulumi.String("sub"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+//
+//	$ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+//
 // ```
 type IdentityProvider struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Conte
 // IdentityProviderArrayInput is an input type that accepts IdentityProviderArray and IdentityProviderArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderArrayInput` via:
 //
-//          IdentityProviderArray{ IdentityProviderArgs{...} }
+//	IdentityProviderArray{ IdentityProviderArgs{...} }
 type IdentityProviderArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i IdentityProviderArray) ToIdentityProviderArrayOutputWithContext(ctx cont
 // IdentityProviderMapInput is an input type that accepts IdentityProviderMap and IdentityProviderMapOutput values.
 // You can construct a concrete instance of `IdentityProviderMapInput` via:
 //
-//          IdentityProviderMap{ "key": IdentityProviderArgs{...} }
+//	IdentityProviderMap{ "key": IdentityProviderArgs{...} }
 type IdentityProviderMapInput interface {
 	pulumi.Input
 

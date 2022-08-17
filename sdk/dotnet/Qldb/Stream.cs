@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Qldb
     /// Provides an AWS Quantum Ledger Database (QLDB) Stream resource
     /// </summary>
     [AwsResourceType("aws:qldb/stream:Stream")]
-    public partial class Stream : Pulumi.CustomResource
+    public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the QLDB Stream.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Qldb
         }
     }
 
-    public sealed class StreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
@@ -156,9 +156,10 @@ namespace Pulumi.Aws.Qldb
         public StreamArgs()
         {
         }
+        public static new StreamArgs Empty => new StreamArgs();
     }
 
-    public sealed class StreamState : Pulumi.ResourceArgs
+    public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the QLDB Stream.
@@ -221,5 +222,6 @@ namespace Pulumi.Aws.Qldb
         public StreamState()
         {
         }
+        public static new StreamState Empty => new StreamState();
     }
 }

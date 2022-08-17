@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class ProviderIgnoreTagsArgs : Pulumi.ResourceArgs
+    public sealed class ProviderIgnoreTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyPrefixes")]
         private InputList<string>? _keyPrefixes;
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.Inputs
         public ProviderIgnoreTagsArgs()
         {
         }
+        public static new ProviderIgnoreTagsArgs Empty => new ProviderIgnoreTagsArgs();
     }
 }

@@ -16,21 +16,19 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.LambdaFunctionAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Connect.LambdaFunctionAssociation("example", new Aws.Connect.LambdaFunctionAssociationArgs
-    ///         {
-    ///             FunctionArn = aws_lambda_function.Example.Arn,
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///         });
-    ///     }
+    ///         FunctionArn = aws_lambda_function.Example.Arn,
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")]
-    public partial class LambdaFunctionAssociation : Pulumi.CustomResource
+    public partial class LambdaFunctionAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -100,7 +98,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class LambdaFunctionAssociationArgs : Pulumi.ResourceArgs
+    public sealed class LambdaFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -117,9 +115,10 @@ namespace Pulumi.Aws.Connect
         public LambdaFunctionAssociationArgs()
         {
         }
+        public static new LambdaFunctionAssociationArgs Empty => new LambdaFunctionAssociationArgs();
     }
 
-    public sealed class LambdaFunctionAssociationState : Pulumi.ResourceArgs
+    public sealed class LambdaFunctionAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -136,5 +135,6 @@ namespace Pulumi.Aws.Connect
         public LambdaFunctionAssociationState()
         {
         }
+        public static new LambdaFunctionAssociationState Empty => new LambdaFunctionAssociationState();
     }
 }

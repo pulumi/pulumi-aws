@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteConfigurationV2RoutingRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2RoutingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteConfigurationV2RoutingRuleArgs()
         {
         }
+        public static new BucketWebsiteConfigurationV2RoutingRuleArgs Empty => new BucketWebsiteConfigurationV2RoutingRuleArgs();
     }
 }

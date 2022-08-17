@@ -18,69 +18,62 @@ namespace Pulumi.Aws.Sqs
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         DelaySeconds = 90,
+    ///         MaxMessageSize = 2048,
+    ///         MessageRetentionSeconds = 86400,
+    ///         ReceiveWaitTimeSeconds = 10,
+    ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             DelaySeconds = 90,
-    ///             MaxMessageSize = 2048,
-    ///             MessageRetentionSeconds = 86400,
-    ///             ReceiveWaitTimeSeconds = 10,
-    ///             RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "deadLetterTargetArn", aws_sqs_queue.Queue_deadletter.Arn },
-    ///                 { "maxReceiveCount", 4 },
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "production" },
-    ///             },
-    ///         });
-    ///     }
+    ///             ["deadLetterTargetArn"] = aws_sqs_queue.Queue_deadletter.Arn,
+    ///             ["maxReceiveCount"] = 4,
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## FIFO queue
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
-    ///         {
-    ///             ContentBasedDeduplication = true,
-    ///             FifoQueue = true,
-    ///         });
-    ///     }
+    ///         ContentBasedDeduplication = true,
+    ///         FifoQueue = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## High-throughput FIFO queue
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new()
     ///     {
-    ///         var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new Aws.Sqs.QueueArgs
-    ///         {
-    ///             DeduplicationScope = "messageGroup",
-    ///             FifoQueue = true,
-    ///             FifoThroughputLimit = "perMessageGroupId",
-    ///         });
-    ///     }
+    ///         DeduplicationScope = "messageGroup",
+    ///         FifoQueue = true,
+    ///         FifoThroughputLimit = "perMessageGroupId",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Dead-letter queue
@@ -91,25 +84,21 @@ namespace Pulumi.Aws.Sqs
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraformQueueDeadletter = new Aws.Sqs.Queue("terraformQueueDeadletter", new()
     ///     {
-    ///         var terraformQueueDeadletter = new Aws.Sqs.Queue("terraformQueueDeadletter", new Aws.Sqs.QueueArgs
+    ///         RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["redrivePermission"] = "byQueue",
+    ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 { "redrivePermission", "byQueue" },
-    ///                 { "sourceQueueArns", new[]
-    ///                     {
-    ///                         aws_sqs_queue.Terraform_queue.Arn,
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///                 aws_sqs_queue.Terraform_queue.Arn,
+    ///             },
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Server-side encryption (SSE)
@@ -117,40 +106,36 @@ namespace Pulumi.Aws.Sqs
     /// Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new()
     ///     {
-    ///         var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new Aws.Sqs.QueueArgs
-    ///         {
-    ///             SqsManagedSseEnabled = true,
-    ///         });
-    ///     }
+    ///         SqsManagedSseEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
-    ///         {
-    ///             KmsDataKeyReusePeriodSeconds = 300,
-    ///             KmsMasterKeyId = "alias/aws/sqs",
-    ///         });
-    ///     }
+    ///         KmsDataKeyReusePeriodSeconds = 300,
+    ///         KmsMasterKeyId = "alias/aws/sqs",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -162,7 +147,7 @@ namespace Pulumi.Aws.Sqs
     /// ```
     /// </summary>
     [AwsResourceType("aws:sqs/queue:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the SQS queue
@@ -273,7 +258,7 @@ namespace Pulumi.Aws.Sqs
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -334,7 +319,7 @@ namespace Pulumi.Aws.Sqs
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
@@ -453,9 +438,10 @@ namespace Pulumi.Aws.Sqs
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 
-    public sealed class QueueState : Pulumi.ResourceArgs
+    public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SQS queue
@@ -575,7 +561,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -598,5 +584,6 @@ namespace Pulumi.Aws.Sqs
         public QueueState()
         {
         }
+        public static new QueueState Empty => new QueueState();
     }
 }

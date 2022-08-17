@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeArtifact.Inputs
 {
 
-    public sealed class RepositoryExternalConnectionsArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryExternalConnectionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the external connection associated with a repository.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeArtifact.Inputs
         public RepositoryExternalConnectionsArgs()
         {
         }
+        public static new RepositoryExternalConnectionsArgs Empty => new RepositoryExternalConnectionsArgs();
     }
 }

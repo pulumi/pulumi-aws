@@ -21,31 +21,30 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new()
     ///     {
-    ///         var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new Aws.Ec2.NetworkAclArgs
-    ///         {
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///         });
-    ///         var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new Aws.Ec2.NetworkAclRuleArgs
-    ///         {
-    ///             NetworkAclId = barNetworkAcl.Id,
-    ///             RuleNumber = 200,
-    ///             Egress = false,
-    ///             Protocol = "tcp",
-    ///             RuleAction = "allow",
-    ///             CidrBlock = aws_vpc.Foo.Cidr_block,
-    ///             FromPort = 22,
-    ///             ToPort = 22,
-    ///         });
-    ///     }
+    ///         VpcId = aws_vpc.Foo.Id,
+    ///     });
     /// 
-    /// }
+    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new()
+    ///     {
+    ///         NetworkAclId = barNetworkAcl.Id,
+    ///         RuleNumber = 200,
+    ///         Egress = false,
+    ///         Protocol = "tcp",
+    ///         RuleAction = "allow",
+    ///         CidrBlock = aws_vpc.Foo.Cidr_block,
+    ///         FromPort = 22,
+    ///         ToPort = 22,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
@@ -65,7 +64,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAclRule:NetworkAclRule")]
-    public partial class NetworkAclRule : Pulumi.CustomResource
+    public partial class NetworkAclRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -177,7 +176,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkAclRuleArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -248,9 +247,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclRuleArgs()
         {
         }
+        public static new NetworkAclRuleArgs Empty => new NetworkAclRuleArgs();
     }
 
-    public sealed class NetworkAclRuleState : Pulumi.ResourceArgs
+    public sealed class NetworkAclRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -321,5 +321,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkAclRuleState()
         {
         }
+        public static new NetworkAclRuleState Empty => new NetworkAclRuleState();
     }
 }

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Rds
     ///  } }
     /// </summary>
     [AwsResourceType("aws:rds/globalCluster:GlobalCluster")]
-    public partial class GlobalCluster : Pulumi.CustomResource
+    public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// RDS Global Cluster Amazon Resource Name (ARN)
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class GlobalClusterArgs : Pulumi.ResourceArgs
+    public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for an automatically created database on cluster creation.
@@ -184,9 +184,10 @@ namespace Pulumi.Aws.Rds
         public GlobalClusterArgs()
         {
         }
+        public static new GlobalClusterArgs Empty => new GlobalClusterArgs();
     }
 
-    public sealed class GlobalClusterState : Pulumi.ResourceArgs
+    public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RDS Global Cluster Amazon Resource Name (ARN)
@@ -257,5 +258,6 @@ namespace Pulumi.Aws.Rds
         public GlobalClusterState()
         {
         }
+        public static new GlobalClusterState Empty => new GlobalClusterState();
     }
 }

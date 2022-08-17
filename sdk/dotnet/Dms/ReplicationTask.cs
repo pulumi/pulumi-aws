@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Dms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new replication task
+    ///     var test = new Aws.Dms.ReplicationTask("test", new()
     ///     {
-    ///         // Create a new replication task
-    ///         var test = new Aws.Dms.ReplicationTask("test", new Aws.Dms.ReplicationTaskArgs
+    ///         CdcStartTime = "1484346880",
+    ///         MigrationType = "full-load",
+    ///         ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
+    ///         ReplicationTaskId = "test-dms-replication-task-tf",
+    ///         ReplicationTaskSettings = "...",
+    ///         SourceEndpointArn = aws_dms_endpoint.Test_dms_source_endpoint_tf.Endpoint_arn,
+    ///         TableMappings = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
+    ///         Tags = 
     ///         {
-    ///             CdcStartTime = "1484346880",
-    ///             MigrationType = "full-load",
-    ///             ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
-    ///             ReplicationTaskId = "test-dms-replication-task-tf",
-    ///             ReplicationTaskSettings = "...",
-    ///             SourceEndpointArn = aws_dms_endpoint.Test_dms_source_endpoint_tf.Endpoint_arn,
-    ///             TableMappings = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "test" },
-    ///             },
-    ///             TargetEndpointArn = aws_dms_endpoint.Test_dms_target_endpoint_tf.Endpoint_arn,
-    ///         });
-    ///     }
+    ///             { "Name", "test" },
+    ///         },
+    ///         TargetEndpointArn = aws_dms_endpoint.Test_dms_target_endpoint_tf.Endpoint_arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Dms
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationTask:ReplicationTask")]
-    public partial class ReplicationTask : Pulumi.CustomResource
+    public partial class ReplicationTask : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.Dms
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -182,7 +180,7 @@ namespace Pulumi.Aws.Dms
         }
     }
 
-    public sealed class ReplicationTaskArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
@@ -259,9 +257,10 @@ namespace Pulumi.Aws.Dms
         public ReplicationTaskArgs()
         {
         }
+        public static new ReplicationTaskArgs Empty => new ReplicationTaskArgs();
     }
 
-    public sealed class ReplicationTaskState : Pulumi.ResourceArgs
+    public sealed class ReplicationTaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
@@ -345,7 +344,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -362,5 +361,6 @@ namespace Pulumi.Aws.Dms
         public ReplicationTaskState()
         {
         }
+        public static new ReplicationTaskState Empty => new ReplicationTaskState();
     }
 }

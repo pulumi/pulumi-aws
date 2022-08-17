@@ -15,25 +15,22 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var channel = new Aws.Pinpoint.BaiduChannel("channel", new Aws.Pinpoint.BaiduChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             ApiKey = "",
-    ///             SecretKey = "",
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var channel = new Aws.Pinpoint.BaiduChannel("channel", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         ApiKey = "",
+    ///         SecretKey = "",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +42,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
-    public partial class BaiduChannel : Pulumi.CustomResource
+    public partial class BaiduChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Platform credential API key from Baidu.
@@ -115,7 +112,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class BaiduChannelArgs : Pulumi.ResourceArgs
+    public sealed class BaiduChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Platform credential API key from Baidu.
@@ -144,9 +141,10 @@ namespace Pulumi.Aws.Pinpoint
         public BaiduChannelArgs()
         {
         }
+        public static new BaiduChannelArgs Empty => new BaiduChannelArgs();
     }
 
-    public sealed class BaiduChannelState : Pulumi.ResourceArgs
+    public sealed class BaiduChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Platform credential API key from Baidu.
@@ -175,5 +173,6 @@ namespace Pulumi.Aws.Pinpoint
         public BaiduChannelState()
         {
         }
+        public static new BaiduChannelState Empty => new BaiduChannelState();
     }
 }

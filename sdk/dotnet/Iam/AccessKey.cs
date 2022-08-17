@@ -15,26 +15,27 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lbUser = new Aws.Iam.User("lbUser", new()
     ///     {
-    ///         var lbUser = new Aws.Iam.User("lbUser", new Aws.Iam.UserArgs
-    ///         {
-    ///             Path = "/system/",
-    ///         });
-    ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
-    ///         {
-    ///             User = lbUser.Name,
-    ///             PgpKey = "keybase:some_person_that_exists",
-    ///         });
-    ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
-    ///         {
-    ///             User = lbUser.Name,
-    ///             Policy = @"{
+    ///         Path = "/system/",
+    ///     });
+    /// 
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     {
+    ///         User = lbUser.Name,
+    ///         PgpKey = "keybase:some_person_that_exists",
+    ///     });
+    /// 
+    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     {
+    ///         User = lbUser.Name,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -47,37 +48,37 @@ namespace Pulumi.Aws.Iam
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         this.Secret = lbAccessKey.EncryptedSecret;
-    ///     }
+    ///     });
     /// 
-    ///     [Output("secret")]
-    ///     public Output&lt;string&gt; Secret { get; set; }
-    /// }
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["secret"] = lbAccessKey.EncryptedSecret,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testUser = new Aws.Iam.User("testUser", new()
     ///     {
-    ///         var testUser = new Aws.Iam.User("testUser", new Aws.Iam.UserArgs
-    ///         {
-    ///             Path = "/test/",
-    ///         });
-    ///         var testAccessKey = new Aws.Iam.AccessKey("testAccessKey", new Aws.Iam.AccessKeyArgs
-    ///         {
-    ///             User = testUser.Name,
-    ///         });
-    ///         this.AwsIamSmtpPasswordV4 = testAccessKey.SesSmtpPasswordV4;
-    ///     }
+    ///         Path = "/test/",
+    ///     });
     /// 
-    ///     [Output("awsIamSmtpPasswordV4")]
-    ///     public Output&lt;string&gt; AwsIamSmtpPasswordV4 { get; set; }
-    /// }
+    ///     var testAccessKey = new Aws.Iam.AccessKey("testAccessKey", new()
+    ///     {
+    ///         User = testUser.Name,
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["awsIamSmtpPasswordV4"] = testAccessKey.SesSmtpPasswordV4,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +92,7 @@ namespace Pulumi.Aws.Iam
     ///  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
     /// </summary>
     [AwsResourceType("aws:iam/accessKey:AccessKey")]
-    public partial class AccessKey : Pulumi.CustomResource
+    public partial class AccessKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
@@ -185,7 +186,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class AccessKeyArgs : Pulumi.ResourceArgs
+    public sealed class AccessKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
@@ -208,9 +209,10 @@ namespace Pulumi.Aws.Iam
         public AccessKeyArgs()
         {
         }
+        public static new AccessKeyArgs Empty => new AccessKeyArgs();
     }
 
-    public sealed class AccessKeyState : Pulumi.ResourceArgs
+    public sealed class AccessKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
@@ -263,5 +265,6 @@ namespace Pulumi.Aws.Iam
         public AccessKeyState()
         {
         }
+        public static new AccessKeyState Empty => new AccessKeyState();
     }
 }

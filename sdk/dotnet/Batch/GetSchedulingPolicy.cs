@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Batch.GetSchedulingPolicy.InvokeAsync(new Aws.Batch.GetSchedulingPolicyArgs
-        ///         {
-        ///             Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Batch.GetSchedulingPolicy.InvokeAsync(new Aws.Batch.GetSchedulingPolicyArgs
-        ///         {
-        ///             Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Batch
     }
 
 
-    public sealed class GetSchedulingPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetSchedulingPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the scheduling policy.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Batch
         public GetSchedulingPolicyArgs()
         {
         }
+        public static new GetSchedulingPolicyArgs Empty => new GetSchedulingPolicyArgs();
     }
 
-    public sealed class GetSchedulingPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchedulingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the scheduling policy.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Batch
         public GetSchedulingPolicyInvokeArgs()
         {
         }
+        public static new GetSchedulingPolicyInvokeArgs Empty => new GetSchedulingPolicyInvokeArgs();
     }
 
 

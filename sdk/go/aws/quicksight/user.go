@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
-// 			Email:        pulumi.String("author@example.com"),
-// 			IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
-// 			IdentityType: pulumi.String("IAM"),
-// 			Namespace:    pulumi.String("foo"),
-// 			SessionName:  pulumi.String("an-author"),
-// 			UserRole:     pulumi.String("AUTHOR"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
+//				Email:        pulumi.String("author@example.com"),
+//				IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
+//				IdentityType: pulumi.String("IAM"),
+//				Namespace:    pulumi.String("foo"),
+//				SessionName:  pulumi.String("an-author"),
+//				UserRole:     pulumi.String("AUTHOR"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -215,7 +218,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +243,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 

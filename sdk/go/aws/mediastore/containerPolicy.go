@@ -19,52 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediastore"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediastore"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := mediastore.NewContainer(ctx, "exampleContainer", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mediastore.NewContainerPolicy(ctx, "exampleContainerPolicy", &mediastore.ContainerPolicyArgs{
-// 			ContainerName: exampleContainer.Name,
-// 			Policy: exampleContainer.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf(`{
-// 	"Version": "2012-10-17",
-// 	"Statement": [{
-// 		"Sid": "MediaStoreFullAccess",
-// 		"Action": [ "mediastore:*" ],
-// 		"Principal": {"AWS" : "arn:aws:iam::%v:root"},
-// 		"Effect": "Allow",
-// 		"Resource": "arn:aws:mediastore:%v:%v:container/%v/*",
-// 		"Condition": {
-// 			"Bool": { "aws:SecureTransport": "true" }
-// 		}
-// 	}]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := mediastore.NewContainer(ctx, "exampleContainer", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mediastore.NewContainerPolicy(ctx, "exampleContainerPolicy", &mediastore.ContainerPolicyArgs{
+//				ContainerName: exampleContainer.Name,
+//				Policy: exampleContainer.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf(`{
+//		"Version": "2012-10-17",
+//		"Statement": [{
+//			"Sid": "MediaStoreFullAccess",
+//			"Action": [ "mediastore:*" ],
+//			"Principal": {"AWS" : "arn:aws:iam::%v:root"},
+//			"Effect": "Allow",
+//			"Resource": "arn:aws:mediastore:%v:%v:container/%v/*",
+//			"Condition": {
+//				"Bool": { "aws:SecureTransport": "true" }
+//			}
+//		}]
+//	}
+//
 // `, currentCallerIdentity.AccountId, currentRegion.Name, currentCallerIdentity.AccountId, name), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +77,9 @@ import (
 // MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+//
+//	$ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+//
 // ```
 type ContainerPolicy struct {
 	pulumi.CustomResourceState
@@ -176,7 +183,7 @@ func (i *ContainerPolicy) ToContainerPolicyOutputWithContext(ctx context.Context
 // ContainerPolicyArrayInput is an input type that accepts ContainerPolicyArray and ContainerPolicyArrayOutput values.
 // You can construct a concrete instance of `ContainerPolicyArrayInput` via:
 //
-//          ContainerPolicyArray{ ContainerPolicyArgs{...} }
+//	ContainerPolicyArray{ ContainerPolicyArgs{...} }
 type ContainerPolicyArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +208,7 @@ func (i ContainerPolicyArray) ToContainerPolicyArrayOutputWithContext(ctx contex
 // ContainerPolicyMapInput is an input type that accepts ContainerPolicyMap and ContainerPolicyMapOutput values.
 // You can construct a concrete instance of `ContainerPolicyMapInput` via:
 //
-//          ContainerPolicyMap{ "key": ContainerPolicyArgs{...} }
+//	ContainerPolicyMap{ "key": ContainerPolicyArgs{...} }
 type ContainerPolicyMapInput interface {
 	pulumi.Input
 

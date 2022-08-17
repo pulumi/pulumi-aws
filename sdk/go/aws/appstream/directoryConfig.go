@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
-// 			DirectoryName: pulumi.String("NAME OF DIRECTORY"),
-// 			OrganizationalUnitDistinguishedNames: pulumi.StringArray{
-// 				pulumi.String("DISTINGUISHED NAME"),
-// 			},
-// 			ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
-// 				AccountName:     pulumi.String("NAME OF ACCOUNT"),
-// 				AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
+//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
+//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
+//					pulumi.String("DISTINGUISHED NAME"),
+//				},
+//				ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
+//					AccountName:     pulumi.String("NAME OF ACCOUNT"),
+//					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // `aws_appstream_directory_config` can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+//
+//	$ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+//
 // ```
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
@@ -171,7 +176,7 @@ func (i *DirectoryConfig) ToDirectoryConfigOutputWithContext(ctx context.Context
 // DirectoryConfigArrayInput is an input type that accepts DirectoryConfigArray and DirectoryConfigArrayOutput values.
 // You can construct a concrete instance of `DirectoryConfigArrayInput` via:
 //
-//          DirectoryConfigArray{ DirectoryConfigArgs{...} }
+//	DirectoryConfigArray{ DirectoryConfigArgs{...} }
 type DirectoryConfigArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i DirectoryConfigArray) ToDirectoryConfigArrayOutputWithContext(ctx contex
 // DirectoryConfigMapInput is an input type that accepts DirectoryConfigMap and DirectoryConfigMapOutput values.
 // You can construct a concrete instance of `DirectoryConfigMapInput` via:
 //
-//          DirectoryConfigMap{ "key": DirectoryConfigArgs{...} }
+//	DirectoryConfigMap{ "key": DirectoryConfigArgs{...} }
 type DirectoryConfigMapInput interface {
 	pulumi.Input
 

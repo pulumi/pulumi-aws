@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Registry("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Registry("example", new Aws.Glue.RegistryArgs
-    ///         {
-    ///             RegistryName = "example",
-    ///         });
-    ///     }
+    ///         RegistryName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/registry:Registry")]
-    public partial class Registry : Pulumi.CustomResource
+    public partial class Registry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Registry.
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class RegistryArgs : Pulumi.ResourceArgs
+    public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the registry.
@@ -145,9 +143,10 @@ namespace Pulumi.Aws.Glue
         public RegistryArgs()
         {
         }
+        public static new RegistryArgs Empty => new RegistryArgs();
     }
 
-    public sealed class RegistryState : Pulumi.ResourceArgs
+    public sealed class RegistryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Registry.
@@ -194,5 +193,6 @@ namespace Pulumi.Aws.Glue
         public RegistryState()
         {
         }
+        public static new RegistryState Empty => new RegistryState();
     }
 }

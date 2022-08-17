@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetCoipPoolFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetCoipPoolFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetCoipPoolFilterArgs()
         {
         }
+        public static new GetCoipPoolFilterArgs Empty => new GetCoipPoolFilterArgs();
     }
 }

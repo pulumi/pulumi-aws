@@ -105,10 +105,9 @@ class InviteAccepter(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        primary = pulumi.providers.Aws("primary")
-        member = pulumi.providers.Aws("member")
+        primary = aws.Provider("primary")
+        member = aws.Provider("member")
         primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
         member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
         member_member = aws.guardduty.Member("memberMember",
@@ -151,10 +150,9 @@ class InviteAccepter(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        primary = pulumi.providers.Aws("primary")
-        member = pulumi.providers.Aws("member")
+        primary = aws.Provider("primary")
+        member = aws.Provider("member")
         primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
         member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
         member_member = aws.guardduty.Member("memberMember",

@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
-// 			ClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Test.Cluster_identifier),
-// 			ClusterEndpointIdentifier: pulumi.String("example"),
-// 			EndpointType:              pulumi.String("READER"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
+//				ClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Test.Cluster_identifier),
+//				ClusterEndpointIdentifier: pulumi.String("example"),
+//				EndpointType:              pulumi.String("READER"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+//
+//	$ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+//
 // ```
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *ClusterEndpoint) ToClusterEndpointOutputWithContext(ctx context.Context
 // ClusterEndpointArrayInput is an input type that accepts ClusterEndpointArray and ClusterEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterEndpointArrayInput` via:
 //
-//          ClusterEndpointArray{ ClusterEndpointArgs{...} }
+//	ClusterEndpointArray{ ClusterEndpointArgs{...} }
 type ClusterEndpointArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i ClusterEndpointArray) ToClusterEndpointArrayOutputWithContext(ctx contex
 // ClusterEndpointMapInput is an input type that accepts ClusterEndpointMap and ClusterEndpointMapOutput values.
 // You can construct a concrete instance of `ClusterEndpointMapInput` via:
 //
-//          ClusterEndpointMap{ "key": ClusterEndpointArgs{...} }
+//	ClusterEndpointMap{ "key": ClusterEndpointArgs{...} }
 type ClusterEndpointMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class EventSourceMappingFilterCriteriaFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingFilterCriteriaFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public EventSourceMappingFilterCriteriaFilterGetArgs()
         {
         }
+        public static new EventSourceMappingFilterCriteriaFilterGetArgs Empty => new EventSourceMappingFilterCriteriaFilterGetArgs();
     }
 }

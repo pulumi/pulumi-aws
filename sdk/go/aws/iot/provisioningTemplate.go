@@ -19,112 +19,115 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		iotAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"sts:AssumeRole",
-// 					},
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Type: "Service",
-// 							Identifiers: []string{
-// 								"iot.amazonaws.com",
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		iotFleetProvisioning, err := iam.NewRole(ctx, "iotFleetProvisioning", &iam.RoleArgs{
-// 			Path:             pulumi.String("/service-role/"),
-// 			AssumeRolePolicy: pulumi.String(iotAssumeRolePolicy.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "iotFleetProvisioningRegistration", &iam.RolePolicyAttachmentArgs{
-// 			Role:      iotFleetProvisioning.Name,
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		devicePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"iot:Subscribe",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		devicePolicyPolicy, err := iot.NewPolicy(ctx, "devicePolicyPolicy", &iot.PolicyArgs{
-// 			Policy: pulumi.String(devicePolicyPolicyDocument.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewProvisioningTemplate(ctx, "fleet", &iot.ProvisioningTemplateArgs{
-// 			Description:         pulumi.String("My provisioning template"),
-// 			ProvisioningRoleArn: iotFleetProvisioning.Arn,
-// 			TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
-// 				var _zero pulumi.String
-// 				tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 					"Parameters": map[string]interface{}{
-// 						"SerialNumber": map[string]interface{}{
-// 							"Type": "String",
-// 						},
-// 					},
-// 					"Resources": map[string]interface{}{
-// 						"certificate": map[string]interface{}{
-// 							"Properties": map[string]interface{}{
-// 								"CertificateId": map[string]interface{}{
-// 									"Ref": "AWS::IoT::Certificate::Id",
-// 								},
-// 								"Status": "Active",
-// 							},
-// 							"Type": "AWS::IoT::Certificate",
-// 						},
-// 						"policy": map[string]interface{}{
-// 							"Properties": map[string]interface{}{
-// 								"PolicyName": name,
-// 							},
-// 							"Type": "AWS::IoT::Policy",
-// 						},
-// 					},
-// 				})
-// 				if err != nil {
-// 					return _zero, err
-// 				}
-// 				json0 := string(tmpJSON0)
-// 				return json0, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			iotAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"iot.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			iotFleetProvisioning, err := iam.NewRole(ctx, "iotFleetProvisioning", &iam.RoleArgs{
+//				Path:             pulumi.String("/service-role/"),
+//				AssumeRolePolicy: pulumi.String(iotAssumeRolePolicy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "iotFleetProvisioningRegistration", &iam.RolePolicyAttachmentArgs{
+//				Role:      iotFleetProvisioning.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			devicePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"iot:Subscribe",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			devicePolicyPolicy, err := iot.NewPolicy(ctx, "devicePolicyPolicy", &iot.PolicyArgs{
+//				Policy: pulumi.String(devicePolicyPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewProvisioningTemplate(ctx, "fleet", &iot.ProvisioningTemplateArgs{
+//				Description:         pulumi.String("My provisioning template"),
+//				ProvisioningRoleArn: iotFleetProvisioning.Arn,
+//				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"Parameters": map[string]interface{}{
+//							"SerialNumber": map[string]interface{}{
+//								"Type": "String",
+//							},
+//						},
+//						"Resources": map[string]interface{}{
+//							"certificate": map[string]interface{}{
+//								"Properties": map[string]interface{}{
+//									"CertificateId": map[string]interface{}{
+//										"Ref": "AWS::IoT::Certificate::Id",
+//									},
+//									"Status": "Active",
+//								},
+//								"Type": "AWS::IoT::Certificate",
+//							},
+//							"policy": map[string]interface{}{
+//								"Properties": map[string]interface{}{
+//									"PolicyName": name,
+//								},
+//								"Type": "AWS::IoT::Policy",
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -132,7 +135,9 @@ import (
 // IoT fleet provisioning templates can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+//
+//	$ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+//
 // ```
 type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
@@ -152,8 +157,7 @@ type ProvisioningTemplate struct {
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn pulumi.StringOutput `pulumi:"provisioningRoleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
@@ -209,8 +213,7 @@ type provisioningTemplateState struct {
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -232,8 +235,7 @@ type ProvisioningTemplateState struct {
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringPtrInput
@@ -304,7 +306,7 @@ func (i *ProvisioningTemplate) ToProvisioningTemplateOutputWithContext(ctx conte
 // ProvisioningTemplateArrayInput is an input type that accepts ProvisioningTemplateArray and ProvisioningTemplateArrayOutput values.
 // You can construct a concrete instance of `ProvisioningTemplateArrayInput` via:
 //
-//          ProvisioningTemplateArray{ ProvisioningTemplateArgs{...} }
+//	ProvisioningTemplateArray{ ProvisioningTemplateArgs{...} }
 type ProvisioningTemplateArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +331,7 @@ func (i ProvisioningTemplateArray) ToProvisioningTemplateArrayOutputWithContext(
 // ProvisioningTemplateMapInput is an input type that accepts ProvisioningTemplateMap and ProvisioningTemplateMapOutput values.
 // You can construct a concrete instance of `ProvisioningTemplateMapInput` via:
 //
-//          ProvisioningTemplateMap{ "key": ProvisioningTemplateArgs{...} }
+//	ProvisioningTemplateMap{ "key": ProvisioningTemplateArgs{...} }
 type ProvisioningTemplateMapInput interface {
 	pulumi.Input
 
@@ -407,7 +409,6 @@ func (o ProvisioningTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ProvisioningTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

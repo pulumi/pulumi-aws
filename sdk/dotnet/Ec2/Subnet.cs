@@ -18,25 +18,23 @@ namespace Pulumi.Aws.Ec2
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Subnet("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Subnet("main", new Aws.Ec2.SubnetArgs
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         CidrBlock = "10.0.1.0/24",
+    ///         Tags = 
     ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             CidrBlock = "10.0.1.0/24",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Main" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Main" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Subnets In Secondary VPC CIDR Blocks
     /// 
@@ -44,26 +42,25 @@ namespace Pulumi.Aws.Ec2
     /// resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
     ///     {
-    ///         var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new Aws.Ec2.VpcIpv4CidrBlockAssociationArgs
-    ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             CidrBlock = "172.2.0.0/16",
-    ///         });
-    ///         var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = secondaryCidr.VpcId,
-    ///             CidrBlock = "172.2.0.0/24",
-    ///         });
-    ///     }
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         CidrBlock = "172.2.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new()
+    ///     {
+    ///         VpcId = secondaryCidr.VpcId,
+    ///         CidrBlock = "172.2.0.0/24",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +72,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/subnet:Subnet")]
-    public partial class Subnet : Pulumi.CustomResource
+    public partial class Subnet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the subnet.
@@ -191,7 +188,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -246,7 +243,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify true to indicate
@@ -358,9 +355,10 @@ namespace Pulumi.Aws.Ec2
         public SubnetArgs()
         {
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 
-    public sealed class SubnetState : Pulumi.ResourceArgs
+    public sealed class SubnetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the subnet.
@@ -485,7 +483,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -502,5 +500,6 @@ namespace Pulumi.Aws.Ec2
         public SubnetState()
         {
         }
+        public static new SubnetState Empty => new SubnetState();
     }
 }

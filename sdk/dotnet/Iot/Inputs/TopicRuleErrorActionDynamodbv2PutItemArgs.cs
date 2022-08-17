@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionDynamodbv2PutItemArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionDynamodbv2PutItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DynamoDB table.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionDynamodbv2PutItemArgs()
         {
         }
+        public static new TopicRuleErrorActionDynamodbv2PutItemArgs Empty => new TopicRuleErrorActionDynamodbv2PutItemArgs();
     }
 }

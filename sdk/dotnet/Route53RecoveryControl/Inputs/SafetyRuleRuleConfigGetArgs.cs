@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53RecoveryControl.Inputs
 {
 
-    public sealed class SafetyRuleRuleConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class SafetyRuleRuleConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logical negation of the rule.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Route53RecoveryControl.Inputs
         public SafetyRuleRuleConfigGetArgs()
         {
         }
+        public static new SafetyRuleRuleConfigGetArgs Empty => new SafetyRuleRuleConfigGetArgs();
     }
 }

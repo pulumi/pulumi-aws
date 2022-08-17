@@ -22,93 +22,87 @@ namespace Pulumi.Aws.LakeFormation
         /// ### Permissions For A Lake Formation S3 Resource
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationInputArgs
         ///         {
-        ///             Principal = aws_iam_role.Workflow_role.Arn,
-        ///             DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationArgs
-        ///             {
-        ///                 Arn = aws_lakeformation_resource.Test.Arn,
-        ///             },
-        ///         }));
-        ///     }
+        ///             Arn = aws_lakeformation_resource.Test.Arn,
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Permissions For A Glue Catalog Database
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseInputArgs
         ///         {
-        ///             Principal = aws_iam_role.Workflow_role.Arn,
-        ///             Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseArgs
-        ///             {
-        ///                 Name = aws_glue_catalog_database.Test.Name,
-        ///                 CatalogId = "110376042874",
-        ///             },
-        ///         }));
-        ///     }
+        ///             Name = aws_glue_catalog_database.Test.Name,
+        ///             CatalogId = "110376042874",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Permissions For Tag-Based Access Control
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyInputArgs
         ///         {
-        ///             Principal = aws_iam_role.Workflow_role.Arn,
-        ///             LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyArgs
+        ///             ResourceType = "DATABASE",
+        ///             Expressions = new[]
         ///             {
-        ///                 ResourceType = "DATABASE",
-        ///                 Expressions = 
+        ///                 new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionInputArgs
         ///                 {
-        ///                     new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionArgs
+        ///                     Key = "Team",
+        ///                     Values = new[]
         ///                     {
-        ///                         Key = "Team",
-        ///                         Values = 
-        ///                         {
-        ///                             "Sales",
-        ///                         },
+        ///                         "Sales",
         ///                     },
-        ///                     new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionArgs
+        ///                 },
+        ///                 new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionInputArgs
+        ///                 {
+        ///                     Key = "Environment",
+        ///                     Values = new[]
         ///                     {
-        ///                         Key = "Environment",
-        ///                         Values = 
-        ///                         {
-        ///                             "Dev",
-        ///                             "Production",
-        ///                         },
+        ///                         "Dev",
+        ///                         "Production",
         ///                     },
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -127,93 +121,87 @@ namespace Pulumi.Aws.LakeFormation
         /// ### Permissions For A Lake Formation S3 Resource
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationInputArgs
         ///         {
-        ///             Principal = aws_iam_role.Workflow_role.Arn,
-        ///             DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationArgs
-        ///             {
-        ///                 Arn = aws_lakeformation_resource.Test.Arn,
-        ///             },
-        ///         }));
-        ///     }
+        ///             Arn = aws_lakeformation_resource.Test.Arn,
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Permissions For A Glue Catalog Database
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseInputArgs
         ///         {
-        ///             Principal = aws_iam_role.Workflow_role.Arn,
-        ///             Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseArgs
-        ///             {
-        ///                 Name = aws_glue_catalog_database.Test.Name,
-        ///                 CatalogId = "110376042874",
-        ///             },
-        ///         }));
-        ///     }
+        ///             Name = aws_glue_catalog_database.Test.Name,
+        ///             CatalogId = "110376042874",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Permissions For Tag-Based Access Control
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyInputArgs
         ///         {
-        ///             Principal = aws_iam_role.Workflow_role.Arn,
-        ///             LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyArgs
+        ///             ResourceType = "DATABASE",
+        ///             Expressions = new[]
         ///             {
-        ///                 ResourceType = "DATABASE",
-        ///                 Expressions = 
+        ///                 new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionInputArgs
         ///                 {
-        ///                     new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionArgs
+        ///                     Key = "Team",
+        ///                     Values = new[]
         ///                     {
-        ///                         Key = "Team",
-        ///                         Values = 
-        ///                         {
-        ///                             "Sales",
-        ///                         },
+        ///                         "Sales",
         ///                     },
-        ///                     new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionArgs
+        ///                 },
+        ///                 new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyExpressionInputArgs
+        ///                 {
+        ///                     Key = "Environment",
+        ///                     Values = new[]
         ///                     {
-        ///                         Key = "Environment",
-        ///                         Values = 
-        ///                         {
-        ///                             "Dev",
-        ///                             "Production",
-        ///                         },
+        ///                         "Dev",
+        ///                         "Production",
         ///                     },
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -223,7 +211,7 @@ namespace Pulumi.Aws.LakeFormation
     }
 
 
-    public sealed class GetPermissionsArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -282,9 +270,10 @@ namespace Pulumi.Aws.LakeFormation
         public GetPermissionsArgs()
         {
         }
+        public static new GetPermissionsArgs Empty => new GetPermissionsArgs();
     }
 
-    public sealed class GetPermissionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -343,6 +332,7 @@ namespace Pulumi.Aws.LakeFormation
         public GetPermissionsInvokeArgs()
         {
         }
+        public static new GetPermissionsInvokeArgs Empty => new GetPermissionsInvokeArgs();
     }
 
 

@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewWorkingStorage(ctx, "example", &storagegateway.WorkingStorageArgs{
-// 			DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
-// 			GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewWorkingStorage(ctx, "example", &storagegateway.WorkingStorageArgs{
+//				DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
+//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // `aws_storagegateway_working_storage` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+//
+//	$ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+//
 // ```
 type WorkingStorage struct {
 	pulumi.CustomResourceState
@@ -148,7 +153,7 @@ func (i *WorkingStorage) ToWorkingStorageOutputWithContext(ctx context.Context) 
 // WorkingStorageArrayInput is an input type that accepts WorkingStorageArray and WorkingStorageArrayOutput values.
 // You can construct a concrete instance of `WorkingStorageArrayInput` via:
 //
-//          WorkingStorageArray{ WorkingStorageArgs{...} }
+//	WorkingStorageArray{ WorkingStorageArgs{...} }
 type WorkingStorageArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i WorkingStorageArray) ToWorkingStorageArrayOutputWithContext(ctx context.
 // WorkingStorageMapInput is an input type that accepts WorkingStorageMap and WorkingStorageMapOutput values.
 // You can construct a concrete instance of `WorkingStorageMapInput` via:
 //
-//          WorkingStorageMap{ "key": WorkingStorageArgs{...} }
+//	WorkingStorageMap{ "key": WorkingStorageArgs{...} }
 type WorkingStorageMapInput interface {
 	pulumi.Input
 

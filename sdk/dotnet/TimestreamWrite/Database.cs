@@ -16,43 +16,39 @@ namespace Pulumi.Aws.TimestreamWrite
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.TimestreamWrite.Database("example", new()
     ///     {
-    ///         var example = new Aws.TimestreamWrite.Database("example", new Aws.TimestreamWrite.DatabaseArgs
-    ///         {
-    ///             DatabaseName = "database-example",
-    ///         });
-    ///     }
+    ///         DatabaseName = "database-example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Full usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.TimestreamWrite.Database("example", new()
     ///     {
-    ///         var example = new Aws.TimestreamWrite.Database("example", new Aws.TimestreamWrite.DatabaseArgs
+    ///         DatabaseName = "database-example",
+    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         Tags = 
     ///         {
-    ///             DatabaseName = "database-example",
-    ///             KmsKeyId = aws_kms_key.Example.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "value" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "value" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +60,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreamwrite/database:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN that uniquely identifies this database.
@@ -146,7 +142,7 @@ namespace Pulumi.Aws.TimestreamWrite
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
@@ -175,9 +171,10 @@ namespace Pulumi.Aws.TimestreamWrite
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 
-    public sealed class DatabaseState : Pulumi.ResourceArgs
+    public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN that uniquely identifies this database.
@@ -230,5 +227,6 @@ namespace Pulumi.Aws.TimestreamWrite
         public DatabaseState()
         {
         }
+        public static new DatabaseState Empty => new DatabaseState();
     }
 }

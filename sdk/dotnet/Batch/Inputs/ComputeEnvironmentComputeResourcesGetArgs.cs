@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentComputeResourcesGetArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentComputeResourcesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -135,5 +135,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public ComputeEnvironmentComputeResourcesGetArgs()
         {
         }
+        public static new ComputeEnvironmentComputeResourcesGetArgs Empty => new ComputeEnvironmentComputeResourcesGetArgs();
     }
 }

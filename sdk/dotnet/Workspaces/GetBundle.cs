@@ -20,41 +20,37 @@ namespace Pulumi.Aws.Workspaces
         /// ### By ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
-        ///         {
-        ///             BundleId = "wsb-b0s22j3d7",
-        ///         }));
-        ///     }
+        ///         BundleId = "wsb-b0s22j3d7",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Owner &amp; Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
-        ///         {
-        ///             Name = "Value with Windows 10 and Office 2016",
-        ///             Owner = "AMAZON",
-        ///         }));
-        ///     }
+        ///         Name = "Value with Windows 10 and Office 2016",
+        ///         Owner = "AMAZON",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,41 +67,37 @@ namespace Pulumi.Aws.Workspaces
         /// ### By ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
-        ///         {
-        ///             BundleId = "wsb-b0s22j3d7",
-        ///         }));
-        ///     }
+        ///         BundleId = "wsb-b0s22j3d7",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Owner &amp; Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
-        ///         {
-        ///             Name = "Value with Windows 10 and Office 2016",
-        ///             Owner = "AMAZON",
-        ///         }));
-        ///     }
+        ///         Name = "Value with Windows 10 and Office 2016",
+        ///         Owner = "AMAZON",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -115,7 +107,7 @@ namespace Pulumi.Aws.Workspaces
     }
 
 
-    public sealed class GetBundleArgs : Pulumi.InvokeArgs
+    public sealed class GetBundleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the bundle.
@@ -138,9 +130,10 @@ namespace Pulumi.Aws.Workspaces
         public GetBundleArgs()
         {
         }
+        public static new GetBundleArgs Empty => new GetBundleArgs();
     }
 
-    public sealed class GetBundleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBundleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the bundle.
@@ -163,6 +156,7 @@ namespace Pulumi.Aws.Workspaces
         public GetBundleInvokeArgs()
         {
         }
+        public static new GetBundleInvokeArgs Empty => new GetBundleInvokeArgs();
     }
 
 

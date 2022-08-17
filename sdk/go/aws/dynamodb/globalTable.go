@@ -23,76 +23,79 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "us-east-1", &providers.awsArgs{
-// 			Region: "us-east-1",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = providers.Newaws(ctx, "us-west-2", &providers.awsArgs{
-// 			Region: "us-west-2",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dynamodb.NewTable(ctx, "us-east-1Table", &dynamodb.TableArgs{
-// 			HashKey:        pulumi.String("myAttribute"),
-// 			StreamEnabled:  pulumi.Bool(true),
-// 			StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-// 			ReadCapacity:   pulumi.Int(1),
-// 			WriteCapacity:  pulumi.Int(1),
-// 			Attributes: dynamodb.TableAttributeArray{
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("myAttribute"),
-// 					Type: pulumi.String("S"),
-// 				},
-// 			},
-// 		}, pulumi.Provider(aws.Us-east-1))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dynamodb.NewTable(ctx, "us-west-2Table", &dynamodb.TableArgs{
-// 			HashKey:        pulumi.String("myAttribute"),
-// 			StreamEnabled:  pulumi.Bool(true),
-// 			StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-// 			ReadCapacity:   pulumi.Int(1),
-// 			WriteCapacity:  pulumi.Int(1),
-// 			Attributes: dynamodb.TableAttributeArray{
-// 				&dynamodb.TableAttributeArgs{
-// 					Name: pulumi.String("myAttribute"),
-// 					Type: pulumi.String("S"),
-// 				},
-// 			},
-// 		}, pulumi.Provider(aws.Us-west-2))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dynamodb.NewGlobalTable(ctx, "myTable", &dynamodb.GlobalTableArgs{
-// 			Replicas: dynamodb.GlobalTableReplicaArray{
-// 				&dynamodb.GlobalTableReplicaArgs{
-// 					RegionName: pulumi.String("us-east-1"),
-// 				},
-// 				&dynamodb.GlobalTableReplicaArgs{
-// 					RegionName: pulumi.String("us-west-2"),
-// 				},
-// 			},
-// 		}, pulumi.Provider(aws.Us-east-1), pulumi.DependsOn([]pulumi.Resource{
-// 			us_east_1Table,
-// 			us_west_2Table,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "us-east-1", &aws.ProviderArgs{
+//				Region: pulumi.String("us-east-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewProvider(ctx, "us-west-2", &aws.ProviderArgs{
+//				Region: pulumi.String("us-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynamodb.NewTable(ctx, "us-east-1Table", &dynamodb.TableArgs{
+//				HashKey:        pulumi.String("myAttribute"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				ReadCapacity:   pulumi.Int(1),
+//				WriteCapacity:  pulumi.Int(1),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("myAttribute"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
+//			}, pulumi.Provider(aws.Us-east-1))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynamodb.NewTable(ctx, "us-west-2Table", &dynamodb.TableArgs{
+//				HashKey:        pulumi.String("myAttribute"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				ReadCapacity:   pulumi.Int(1),
+//				WriteCapacity:  pulumi.Int(1),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("myAttribute"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
+//			}, pulumi.Provider(aws.Us-west-2))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynamodb.NewGlobalTable(ctx, "myTable", &dynamodb.GlobalTableArgs{
+//				Replicas: dynamodb.GlobalTableReplicaArray{
+//					&dynamodb.GlobalTableReplicaArgs{
+//						RegionName: pulumi.String("us-east-1"),
+//					},
+//					&dynamodb.GlobalTableReplicaArgs{
+//						RegionName: pulumi.String("us-west-2"),
+//					},
+//				},
+//			}, pulumi.Provider(aws.Us-east-1), pulumi.DependsOn([]pulumi.Resource{
+//				us_east_1Table,
+//				us_west_2Table,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,7 +103,9 @@ import (
 // DynamoDB Global Tables can be imported using the global table name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+//
+//	$ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+//
 // ```
 type GlobalTable struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) Global
 // GlobalTableArrayInput is an input type that accepts GlobalTableArray and GlobalTableArrayOutput values.
 // You can construct a concrete instance of `GlobalTableArrayInput` via:
 //
-//          GlobalTableArray{ GlobalTableArgs{...} }
+//	GlobalTableArray{ GlobalTableArgs{...} }
 type GlobalTableArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i GlobalTableArray) ToGlobalTableArrayOutputWithContext(ctx context.Contex
 // GlobalTableMapInput is an input type that accepts GlobalTableMap and GlobalTableMapOutput values.
 // You can construct a concrete instance of `GlobalTableMapInput` via:
 //
-//          GlobalTableMap{ "key": GlobalTableArgs{...} }
+//	GlobalTableMap{ "key": GlobalTableArgs{...} }
 type GlobalTableMapInput interface {
 	pulumi.Input
 

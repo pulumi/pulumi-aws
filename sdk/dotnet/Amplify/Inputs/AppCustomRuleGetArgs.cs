@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amplify.Inputs
 {
 
-    public sealed class AppCustomRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class AppCustomRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition for a URL rewrite or redirect rule, such as a country code.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Amplify.Inputs
         public AppCustomRuleGetArgs()
         {
         }
+        public static new AppCustomRuleGetArgs Empty => new AppCustomRuleGetArgs();
     }
 }

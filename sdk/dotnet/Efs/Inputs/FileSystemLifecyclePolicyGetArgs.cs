@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs.Inputs
 {
 
-    public sealed class FileSystemLifecyclePolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemLifecyclePolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Efs.Inputs
         public FileSystemLifecyclePolicyGetArgs()
         {
         }
+        public static new FileSystemLifecyclePolicyGetArgs Empty => new FileSystemLifecyclePolicyGetArgs();
     }
 }

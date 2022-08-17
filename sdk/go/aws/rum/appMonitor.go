@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rum"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rum"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
-// 			Domain: pulumi.String("localhost"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
+//				Domain: pulumi.String("localhost"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Cloudwatch RUM App Monitor can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rum/appMonitor:AppMonitor example example
+//
+//	$ pulumi import aws:rum/appMonitor:AppMonitor example example
+//
 // ```
 type AppMonitor struct {
 	pulumi.CustomResourceState
@@ -58,8 +63,7 @@ type AppMonitor struct {
 	// The name of the log stream.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -107,8 +111,7 @@ type appMonitorState struct {
 	// The name of the log stream.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -125,8 +128,7 @@ type AppMonitorState struct {
 	// The name of the log stream.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -144,8 +146,6 @@ type appMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AppMonitor resource.
@@ -159,8 +159,6 @@ type AppMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (AppMonitorArgs) ElementType() reflect.Type {
@@ -189,7 +187,7 @@ func (i *AppMonitor) ToAppMonitorOutputWithContext(ctx context.Context) AppMonit
 // AppMonitorArrayInput is an input type that accepts AppMonitorArray and AppMonitorArrayOutput values.
 // You can construct a concrete instance of `AppMonitorArrayInput` via:
 //
-//          AppMonitorArray{ AppMonitorArgs{...} }
+//	AppMonitorArray{ AppMonitorArgs{...} }
 type AppMonitorArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +212,7 @@ func (i AppMonitorArray) ToAppMonitorArrayOutputWithContext(ctx context.Context)
 // AppMonitorMapInput is an input type that accepts AppMonitorMap and AppMonitorMapOutput values.
 // You can construct a concrete instance of `AppMonitorMapInput` via:
 //
-//          AppMonitorMap{ "key": AppMonitorArgs{...} }
+//	AppMonitorMap{ "key": AppMonitorArgs{...} }
 type AppMonitorMapInput interface {
 	pulumi.Input
 
@@ -284,7 +282,6 @@ func (o AppMonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o AppMonitorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

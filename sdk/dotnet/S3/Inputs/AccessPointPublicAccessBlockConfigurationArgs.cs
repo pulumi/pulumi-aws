@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class AccessPointPublicAccessBlockConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointPublicAccessBlockConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public AccessPointPublicAccessBlockConfigurationArgs()
         {
         }
+        public static new AccessPointPublicAccessBlockConfigurationArgs Empty => new AccessPointPublicAccessBlockConfigurationArgs();
     }
 }

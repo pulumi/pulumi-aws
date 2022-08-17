@@ -16,81 +16,73 @@ namespace Pulumi.Aws.S3
     /// ### Add inventory configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testBucketV2 = new Aws.S3.BucketV2("testBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var inventory = new Aws.S3.BucketV2("inventory", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var testInventory = new Aws.S3.Inventory("testInventory", new Aws.S3.InventoryArgs
-    ///         {
-    ///             Bucket = testBucketV2.Id,
-    ///             IncludedObjectVersions = "All",
-    ///             Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
-    ///             {
-    ///                 Frequency = "Daily",
-    ///             },
-    ///             Destination = new Aws.S3.Inputs.InventoryDestinationArgs
-    ///             {
-    ///                 Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
-    ///                 {
-    ///                     Format = "ORC",
-    ///                     BucketArn = inventory.Arn,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var testBucketV2 = new Aws.S3.BucketV2("testBucketV2");
     /// 
-    /// }
+    ///     var inventory = new Aws.S3.BucketV2("inventory");
+    /// 
+    ///     var testInventory = new Aws.S3.Inventory("testInventory", new()
+    ///     {
+    ///         Bucket = testBucketV2.Id,
+    ///         IncludedObjectVersions = "All",
+    ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///         },
+    ///         Destination = new Aws.S3.Inputs.InventoryDestinationArgs
+    ///         {
+    ///             Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
+    ///             {
+    ///                 Format = "ORC",
+    ///                 BucketArn = inventory.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Add inventory configuration with S3 object prefix
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.S3.BucketV2("test", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var inventory = new Aws.S3.BucketV2("inventory", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var test_prefix = new Aws.S3.Inventory("test-prefix", new Aws.S3.InventoryArgs
-    ///         {
-    ///             Bucket = test.Id,
-    ///             IncludedObjectVersions = "All",
-    ///             Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
-    ///             {
-    ///                 Frequency = "Daily",
-    ///             },
-    ///             Filter = new Aws.S3.Inputs.InventoryFilterArgs
-    ///             {
-    ///                 Prefix = "documents/",
-    ///             },
-    ///             Destination = new Aws.S3.Inputs.InventoryDestinationArgs
-    ///             {
-    ///                 Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
-    ///                 {
-    ///                     Format = "ORC",
-    ///                     BucketArn = inventory.Arn,
-    ///                     Prefix = "inventory",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var test = new Aws.S3.BucketV2("test");
     /// 
-    /// }
+    ///     var inventory = new Aws.S3.BucketV2("inventory");
+    /// 
+    ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()
+    ///     {
+    ///         Bucket = test.Id,
+    ///         IncludedObjectVersions = "All",
+    ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///         },
+    ///         Filter = new Aws.S3.Inputs.InventoryFilterArgs
+    ///         {
+    ///             Prefix = "documents/",
+    ///         },
+    ///         Destination = new Aws.S3.Inputs.InventoryDestinationArgs
+    ///         {
+    ///             Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
+    ///             {
+    ///                 Format = "ORC",
+    ///                 BucketArn = inventory.Arn,
+    ///                 Prefix = "inventory",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -102,7 +94,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/inventory:Inventory")]
-    public partial class Inventory : Pulumi.CustomResource
+    public partial class Inventory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the source bucket that inventory lists the objects for.
@@ -196,7 +188,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class InventoryArgs : Pulumi.ResourceArgs
+    public sealed class InventoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the source bucket that inventory lists the objects for.
@@ -255,9 +247,10 @@ namespace Pulumi.Aws.S3
         public InventoryArgs()
         {
         }
+        public static new InventoryArgs Empty => new InventoryArgs();
     }
 
-    public sealed class InventoryState : Pulumi.ResourceArgs
+    public sealed class InventoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the source bucket that inventory lists the objects for.
@@ -316,5 +309,6 @@ namespace Pulumi.Aws.S3
         public InventoryState()
         {
         }
+        public static new InventoryState Empty => new InventoryState();
     }
 }

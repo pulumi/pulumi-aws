@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewEmailIdentity(ctx, "example", &ses.EmailIdentityArgs{
-// 			Email: pulumi.String("email@example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEmailIdentity(ctx, "example", &ses.EmailIdentityArgs{
+//				Email: pulumi.String("email@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // SES email identities can be imported using the email address.
 //
 // ```sh
-//  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+//
+//	$ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+//
 // ```
 type EmailIdentity struct {
 	pulumi.CustomResourceState
@@ -138,7 +143,7 @@ func (i *EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) Em
 // EmailIdentityArrayInput is an input type that accepts EmailIdentityArray and EmailIdentityArrayOutput values.
 // You can construct a concrete instance of `EmailIdentityArrayInput` via:
 //
-//          EmailIdentityArray{ EmailIdentityArgs{...} }
+//	EmailIdentityArray{ EmailIdentityArgs{...} }
 type EmailIdentityArrayInput interface {
 	pulumi.Input
 
@@ -163,7 +168,7 @@ func (i EmailIdentityArray) ToEmailIdentityArrayOutputWithContext(ctx context.Co
 // EmailIdentityMapInput is an input type that accepts EmailIdentityMap and EmailIdentityMapOutput values.
 // You can construct a concrete instance of `EmailIdentityMapInput` via:
 //
-//          EmailIdentityMap{ "key": EmailIdentityArgs{...} }
+//	EmailIdentityMap{ "key": EmailIdentityArgs{...} }
 type EmailIdentityMapInput interface {
 	pulumi.Input
 

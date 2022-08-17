@@ -16,42 +16,38 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ### Standard usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.Route("example", new Aws.Ec2TransitGateway.RouteArgs
-    ///         {
-    ///             DestinationCidrBlock = "0.0.0.0/0",
-    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///             TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
-    ///         });
-    ///     }
+    ///         DestinationCidrBlock = "0.0.0.0/0",
+    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Blackhole route
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.Route("example", new Aws.Ec2TransitGateway.RouteArgs
-    ///         {
-    ///             DestinationCidrBlock = "0.0.0.0/0",
-    ///             Blackhole = true,
-    ///             TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
-    ///         });
-    ///     }
+    ///         DestinationCidrBlock = "0.0.0.0/0",
+    ///         Blackhole = true,
+    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches this route (default to `false`).
@@ -133,7 +129,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches this route (default to `false`).
@@ -162,9 +158,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches this route (default to `false`).
@@ -193,5 +190,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

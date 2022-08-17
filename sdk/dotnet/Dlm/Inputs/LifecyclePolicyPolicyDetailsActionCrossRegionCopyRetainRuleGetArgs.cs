@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs Empty => new LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs();
     }
 }

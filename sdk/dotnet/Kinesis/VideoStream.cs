@@ -17,26 +17,24 @@ namespace Pulumi.Aws.Kinesis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Kinesis.VideoStream("default", new()
     ///     {
-    ///         var @default = new Aws.Kinesis.VideoStream("default", new Aws.Kinesis.VideoStreamArgs
+    ///         DataRetentionInHours = 1,
+    ///         DeviceName = "kinesis-video-device-name",
+    ///         MediaType = "video/h264",
+    ///         Tags = 
     ///         {
-    ///             DataRetentionInHours = 1,
-    ///             DeviceName = "kinesis-video-device-name",
-    ///             MediaType = "video/h264",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "kinesis-video-stream" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "kinesis-video-stream" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Kinesis
     ///  [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
     /// </summary>
     [AwsResourceType("aws:kinesis/videoStream:VideoStream")]
-    public partial class VideoStream : Pulumi.CustomResource
+    public partial class VideoStream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -157,7 +155,7 @@ namespace Pulumi.Aws.Kinesis
         }
     }
 
-    public sealed class VideoStreamArgs : Pulumi.ResourceArgs
+    public sealed class VideoStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
@@ -205,9 +203,10 @@ namespace Pulumi.Aws.Kinesis
         public VideoStreamArgs()
         {
         }
+        public static new VideoStreamArgs Empty => new VideoStreamArgs();
     }
 
-    public sealed class VideoStreamState : Pulumi.ResourceArgs
+    public sealed class VideoStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -285,5 +284,6 @@ namespace Pulumi.Aws.Kinesis
         public VideoStreamState()
         {
         }
+        public static new VideoStreamState Empty => new VideoStreamState();
     }
 }

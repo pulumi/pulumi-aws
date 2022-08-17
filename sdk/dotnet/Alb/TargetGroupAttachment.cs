@@ -17,70 +17,65 @@ namespace Pulumi.Aws.Alb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new Aws.LB.TargetGroupArgs
-    ///         {
-    ///         });
-    ///         // ... other configuration ...
-    ///         var testInstance = new Aws.Ec2.Instance("testInstance", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///         });
-    ///         // ... other configuration ...
-    ///         var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new Aws.LB.TargetGroupAttachmentArgs
-    ///         {
-    ///             TargetGroupArn = testTargetGroup.Arn,
-    ///             TargetId = testInstance.Id,
-    ///             Port = 80,
-    ///         });
-    ///     }
+    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup");
     /// 
-    /// }
+    ///     // ... other configuration ...
+    ///     var testInstance = new Aws.Ec2.Instance("testInstance");
+    /// 
+    ///     // ... other configuration ...
+    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     {
+    ///         TargetGroupArn = testTargetGroup.Arn,
+    ///         TargetId = testInstance.Id,
+    ///         Port = 80,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Usage with lambda
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new()
     ///     {
-    ///         var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new Aws.LB.TargetGroupArgs
-    ///         {
-    ///             TargetType = "lambda",
-    ///         });
-    ///         var testFunction = new Aws.Lambda.Function("testFunction", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///         });
-    ///         // ... other configuration ...
-    ///         var withLb = new Aws.Lambda.Permission("withLb", new Aws.Lambda.PermissionArgs
-    ///         {
-    ///             Action = "lambda:InvokeFunction",
-    ///             Function = testFunction.Arn,
-    ///             Principal = "elasticloadbalancing.amazonaws.com",
-    ///             SourceArn = testTargetGroup.Arn,
-    ///         });
-    ///         var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new Aws.LB.TargetGroupAttachmentArgs
-    ///         {
-    ///             TargetGroupArn = testTargetGroup.Arn,
-    ///             TargetId = testFunction.Arn,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 withLb,
-    ///             },
-    ///         });
-    ///     }
+    ///         TargetType = "lambda",
+    ///     });
     /// 
-    /// }
+    ///     var testFunction = new Aws.Lambda.Function("testFunction");
+    /// 
+    ///     // ... other configuration ...
+    ///     var withLb = new Aws.Lambda.Permission("withLb", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = testFunction.Name,
+    ///         Principal = "elasticloadbalancing.amazonaws.com",
+    ///         SourceArn = testTargetGroup.Arn,
+    ///     });
+    /// 
+    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     {
+    ///         TargetGroupArn = testTargetGroup.Arn,
+    ///         TargetId = testFunction.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             withLb,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +83,7 @@ namespace Pulumi.Aws.Alb
     /// Target Group Attachments cannot be imported.
     /// </summary>
     [AwsResourceType("aws:alb/targetGroupAttachment:TargetGroupAttachment")]
-    public partial class TargetGroupAttachment : Pulumi.CustomResource
+    public partial class TargetGroupAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
@@ -139,7 +134,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment"},
+                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -162,7 +157,7 @@ namespace Pulumi.Aws.Alb
         }
     }
 
-    public sealed class TargetGroupAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
@@ -191,9 +186,10 @@ namespace Pulumi.Aws.Alb
         public TargetGroupAttachmentArgs()
         {
         }
+        public static new TargetGroupAttachmentArgs Empty => new TargetGroupAttachmentArgs();
     }
 
-    public sealed class TargetGroupAttachmentState : Pulumi.ResourceArgs
+    public sealed class TargetGroupAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
@@ -222,5 +218,6 @@ namespace Pulumi.Aws.Alb
         public TargetGroupAttachmentState()
         {
         }
+        public static new TargetGroupAttachmentState Empty => new TargetGroupAttachmentState();
     }
 }

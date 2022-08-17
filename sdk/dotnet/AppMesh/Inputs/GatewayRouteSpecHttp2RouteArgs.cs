@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecHttp2RouteArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecHttp2RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take if a match is determined.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecHttp2RouteArgs()
         {
         }
+        public static new GatewayRouteSpecHttp2RouteArgs Empty => new GatewayRouteSpecHttp2RouteArgs();
     }
 }

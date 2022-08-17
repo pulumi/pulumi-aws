@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecHttpRouteActionRewritePrefixArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecHttpRouteActionRewritePrefixArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecHttpRouteActionRewritePrefixArgs()
         {
         }
+        public static new GatewayRouteSpecHttpRouteActionRewritePrefixArgs Empty => new GatewayRouteSpecHttpRouteActionRewritePrefixArgs();
     }
 }

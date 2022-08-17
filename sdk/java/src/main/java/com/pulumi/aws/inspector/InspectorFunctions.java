@@ -19,6 +19,51 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.inspector.InspectorFunctions;
+     * import com.pulumi.aws.inspector.ResourceGroup;
+     * import com.pulumi.aws.inspector.ResourceGroupArgs;
+     * import com.pulumi.aws.inspector.AssessmentTarget;
+     * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+     * import com.pulumi.aws.inspector.AssessmentTemplate;
+     * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = InspectorFunctions.getRulesPackages();
+     * 
+     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
+     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *             .resourceGroupArn(group.arn())
+     *             .build());
+     * 
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
+     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .duration(&#34;60&#34;)
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages() {
@@ -30,6 +75,51 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.inspector.InspectorFunctions;
+     * import com.pulumi.aws.inspector.ResourceGroup;
+     * import com.pulumi.aws.inspector.ResourceGroupArgs;
+     * import com.pulumi.aws.inspector.AssessmentTarget;
+     * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+     * import com.pulumi.aws.inspector.AssessmentTemplate;
+     * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = InspectorFunctions.getRulesPackages();
+     * 
+     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
+     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *             .resourceGroupArn(group.arn())
+     *             .build());
+     * 
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
+     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .duration(&#34;60&#34;)
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain() {
@@ -41,6 +131,51 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.inspector.InspectorFunctions;
+     * import com.pulumi.aws.inspector.ResourceGroup;
+     * import com.pulumi.aws.inspector.ResourceGroupArgs;
+     * import com.pulumi.aws.inspector.AssessmentTarget;
+     * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+     * import com.pulumi.aws.inspector.AssessmentTemplate;
+     * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = InspectorFunctions.getRulesPackages();
+     * 
+     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
+     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *             .resourceGroupArn(group.arn())
+     *             .build());
+     * 
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
+     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .duration(&#34;60&#34;)
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages(InvokeArgs args) {
@@ -52,6 +187,51 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.inspector.InspectorFunctions;
+     * import com.pulumi.aws.inspector.ResourceGroup;
+     * import com.pulumi.aws.inspector.ResourceGroupArgs;
+     * import com.pulumi.aws.inspector.AssessmentTarget;
+     * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+     * import com.pulumi.aws.inspector.AssessmentTemplate;
+     * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = InspectorFunctions.getRulesPackages();
+     * 
+     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
+     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *             .resourceGroupArn(group.arn())
+     *             .build());
+     * 
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
+     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .duration(&#34;60&#34;)
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain(InvokeArgs args) {
@@ -63,6 +243,51 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.inspector.InspectorFunctions;
+     * import com.pulumi.aws.inspector.ResourceGroup;
+     * import com.pulumi.aws.inspector.ResourceGroupArgs;
+     * import com.pulumi.aws.inspector.AssessmentTarget;
+     * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+     * import com.pulumi.aws.inspector.AssessmentTemplate;
+     * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = InspectorFunctions.getRulesPackages();
+     * 
+     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
+     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *             .resourceGroupArn(group.arn())
+     *             .build());
+     * 
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
+     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .duration(&#34;60&#34;)
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages(InvokeArgs args, InvokeOptions options) {
@@ -74,6 +299,51 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.inspector.InspectorFunctions;
+     * import com.pulumi.aws.inspector.ResourceGroup;
+     * import com.pulumi.aws.inspector.ResourceGroupArgs;
+     * import com.pulumi.aws.inspector.AssessmentTarget;
+     * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+     * import com.pulumi.aws.inspector.AssessmentTemplate;
+     * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rules = InspectorFunctions.getRulesPackages();
+     * 
+     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
+     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *             .resourceGroupArn(group.arn())
+     *             .build());
+     * 
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
+     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .duration(&#34;60&#34;)
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain(InvokeArgs args, InvokeOptions options) {

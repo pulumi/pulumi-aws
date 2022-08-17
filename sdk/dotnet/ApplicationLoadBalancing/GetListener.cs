@@ -24,31 +24,31 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var listenerArn = config.Require("listenerArn");
+        ///     var listener = Aws.LB.GetListener.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var listenerArn = config.Require("listenerArn");
-        ///         var listener = Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
-        ///         {
-        ///             Arn = listenerArn,
-        ///         }));
-        ///         var selected = Output.Create(Aws.LB.GetLoadBalancer.InvokeAsync(new Aws.LB.GetLoadBalancerArgs
-        ///         {
-        ///             Name = "default-public",
-        ///         }));
-        ///         var selected443 = selected.Apply(selected =&gt; Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
-        ///         {
-        ///             LoadBalancerArn = selected.Arn,
-        ///             Port = 443,
-        ///         })));
-        ///     }
+        ///         Arn = listenerArn,
+        ///     });
         /// 
-        /// }
+        ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Name = "default-public",
+        ///     });
+        /// 
+        ///     var selected443 = Aws.LB.GetListener.Invoke(new()
+        ///     {
+        ///         LoadBalancerArn = selected.Apply(getLoadBalancerResult =&gt; getLoadBalancerResult.Arn),
+        ///         Port = 443,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -68,31 +68,31 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var listenerArn = config.Require("listenerArn");
+        ///     var listener = Aws.LB.GetListener.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var listenerArn = config.Require("listenerArn");
-        ///         var listener = Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
-        ///         {
-        ///             Arn = listenerArn,
-        ///         }));
-        ///         var selected = Output.Create(Aws.LB.GetLoadBalancer.InvokeAsync(new Aws.LB.GetLoadBalancerArgs
-        ///         {
-        ///             Name = "default-public",
-        ///         }));
-        ///         var selected443 = selected.Apply(selected =&gt; Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
-        ///         {
-        ///             LoadBalancerArn = selected.Arn,
-        ///             Port = 443,
-        ///         })));
-        ///     }
+        ///         Arn = listenerArn,
+        ///     });
         /// 
-        /// }
+        ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Name = "default-public",
+        ///     });
+        /// 
+        ///     var selected443 = Aws.LB.GetListener.Invoke(new()
+        ///     {
+        ///         LoadBalancerArn = selected.Apply(getLoadBalancerResult =&gt; getLoadBalancerResult.Arn),
+        ///         Port = 443,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     }
 
 
-    public sealed class GetListenerArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
@@ -133,9 +133,10 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public GetListenerArgs()
         {
         }
+        public static new GetListenerArgs Empty => new GetListenerArgs();
     }
 
-    public sealed class GetListenerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
@@ -166,6 +167,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public GetListenerInvokeArgs()
         {
         }
+        public static new GetListenerInvokeArgs Empty => new GetListenerInvokeArgs();
     }
 
 

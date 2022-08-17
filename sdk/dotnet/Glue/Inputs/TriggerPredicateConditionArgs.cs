@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class TriggerPredicateConditionArgs : Pulumi.ResourceArgs
+    public sealed class TriggerPredicateConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public TriggerPredicateConditionArgs()
         {
         }
+        public static new TriggerPredicateConditionArgs Empty => new TriggerPredicateConditionArgs();
     }
 }

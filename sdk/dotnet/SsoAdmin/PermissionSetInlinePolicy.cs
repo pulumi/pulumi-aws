@@ -24,7 +24,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy")]
-    public partial class PermissionSetInlinePolicy : Pulumi.CustomResource
+    public partial class PermissionSetInlinePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IAM inline policy to attach to a Permission Set.
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
     }
 
-    public sealed class PermissionSetInlinePolicyArgs : Pulumi.ResourceArgs
+    public sealed class PermissionSetInlinePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IAM inline policy to attach to a Permission Set.
@@ -111,9 +111,10 @@ namespace Pulumi.Aws.SsoAdmin
         public PermissionSetInlinePolicyArgs()
         {
         }
+        public static new PermissionSetInlinePolicyArgs Empty => new PermissionSetInlinePolicyArgs();
     }
 
-    public sealed class PermissionSetInlinePolicyState : Pulumi.ResourceArgs
+    public sealed class PermissionSetInlinePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IAM inline policy to attach to a Permission Set.
@@ -136,5 +137,6 @@ namespace Pulumi.Aws.SsoAdmin
         public PermissionSetInlinePolicyState()
         {
         }
+        public static new PermissionSetInlinePolicyState Empty => new PermissionSetInlinePolicyState();
     }
 }

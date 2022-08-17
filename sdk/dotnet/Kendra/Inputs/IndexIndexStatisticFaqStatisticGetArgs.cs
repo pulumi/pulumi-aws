@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexIndexStatisticFaqStatisticGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexIndexStatisticFaqStatisticGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total number of FAQ questions and answers contained in the index.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexIndexStatisticFaqStatisticGetArgs()
         {
         }
+        public static new IndexIndexStatisticFaqStatisticGetArgs Empty => new IndexIndexStatisticFaqStatisticGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerListenerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port on the instance to route to
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
         public LoadBalancerListenerArgs()
         {
         }
+        public static new LoadBalancerListenerArgs Empty => new LoadBalancerListenerArgs();
     }
 }

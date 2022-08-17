@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
-// 			Cidr:   pulumi.String("10.10.10.10"),
-// 			Policy: pulumi.String("Block"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
+//				Cidr:   pulumi.String("10.10.10.10"),
+//				Policy: pulumi.String("Block"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // SES Receipt Filter can be imported using their `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+//
+//	$ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+//
 // ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
@@ -162,7 +167,7 @@ func (i *ReceiptFilter) ToReceiptFilterOutputWithContext(ctx context.Context) Re
 // ReceiptFilterArrayInput is an input type that accepts ReceiptFilterArray and ReceiptFilterArrayOutput values.
 // You can construct a concrete instance of `ReceiptFilterArrayInput` via:
 //
-//          ReceiptFilterArray{ ReceiptFilterArgs{...} }
+//	ReceiptFilterArray{ ReceiptFilterArgs{...} }
 type ReceiptFilterArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +192,7 @@ func (i ReceiptFilterArray) ToReceiptFilterArrayOutputWithContext(ctx context.Co
 // ReceiptFilterMapInput is an input type that accepts ReceiptFilterMap and ReceiptFilterMapOutput values.
 // You can construct a concrete instance of `ReceiptFilterMapInput` via:
 //
-//          ReceiptFilterMap{ "key": ReceiptFilterArgs{...} }
+//	ReceiptFilterMap{ "key": ReceiptFilterArgs{...} }
 type ReceiptFilterMapInput interface {
 	pulumi.Input
 

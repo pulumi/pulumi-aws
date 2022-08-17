@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The defaults for backends.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecArgs()
         {
         }
+        public static new VirtualGatewaySpecArgs Empty => new VirtualGatewaySpecArgs();
     }
 }

@@ -240,6 +240,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * 
+     */
+    @Import(name="preserveHostHeader")
+    private @Nullable Output<Boolean> preserveHostHeader;
+
+    /**
+     * @return Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> preserveHostHeader() {
+        return Optional.ofNullable(this.preserveHostHeader);
+    }
+
+    /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      * 
      */
@@ -320,6 +335,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         this.loadBalancerType = $.loadBalancerType;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.preserveHostHeader = $.preserveHostHeader;
         this.securityGroups = $.securityGroups;
         this.subnetMappings = $.subnetMappings;
         this.subnets = $.subnets;
@@ -644,6 +660,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param preserveHostHeader Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preserveHostHeader(@Nullable Output<Boolean> preserveHostHeader) {
+            $.preserveHostHeader = preserveHostHeader;
+            return this;
+        }
+
+        /**
+         * @param preserveHostHeader Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preserveHostHeader(Boolean preserveHostHeader) {
+            return preserveHostHeader(Output.of(preserveHostHeader));
         }
 
         /**

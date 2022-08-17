@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodePipeline.Inputs
 {
 
-    public sealed class WebhookAuthenticationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WebhookAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid CIDR block for `IP` filtering. Required for `IP`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public WebhookAuthenticationConfigurationArgs()
         {
         }
+        public static new WebhookAuthenticationConfigurationArgs Empty => new WebhookAuthenticationConfigurationArgs();
     }
 }

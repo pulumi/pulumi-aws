@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ses.ActiveReceiptRuleSet("main", new()
     ///     {
-    ///         var main = new Aws.Ses.ActiveReceiptRuleSet("main", new Aws.Ses.ActiveReceiptRuleSetArgs
-    ///         {
-    ///             RuleSetName = "primary-rules",
-    ///         });
-    ///     }
+    ///         RuleSetName = "primary-rules",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")]
-    public partial class ActiveReceiptRuleSet : Pulumi.CustomResource
+    public partial class ActiveReceiptRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The SES receipt rule set ARN.
@@ -90,7 +88,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class ActiveReceiptRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class ActiveReceiptRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the rule set
@@ -101,9 +99,10 @@ namespace Pulumi.Aws.Ses
         public ActiveReceiptRuleSetArgs()
         {
         }
+        public static new ActiveReceiptRuleSetArgs Empty => new ActiveReceiptRuleSetArgs();
     }
 
-    public sealed class ActiveReceiptRuleSetState : Pulumi.ResourceArgs
+    public sealed class ActiveReceiptRuleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SES receipt rule set ARN.
@@ -120,5 +119,6 @@ namespace Pulumi.Aws.Ses
         public ActiveReceiptRuleSetState()
         {
         }
+        public static new ActiveReceiptRuleSetState Empty => new ActiveReceiptRuleSetState();
     }
 }

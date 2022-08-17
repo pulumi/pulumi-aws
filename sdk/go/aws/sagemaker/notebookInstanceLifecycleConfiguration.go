@@ -17,7 +17,9 @@ import (
 // Models can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+//
+//	$ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+//
 // ```
 type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState
@@ -131,7 +133,7 @@ func (i *NotebookInstanceLifecycleConfiguration) ToNotebookInstanceLifecycleConf
 // NotebookInstanceLifecycleConfigurationArrayInput is an input type that accepts NotebookInstanceLifecycleConfigurationArray and NotebookInstanceLifecycleConfigurationArrayOutput values.
 // You can construct a concrete instance of `NotebookInstanceLifecycleConfigurationArrayInput` via:
 //
-//          NotebookInstanceLifecycleConfigurationArray{ NotebookInstanceLifecycleConfigurationArgs{...} }
+//	NotebookInstanceLifecycleConfigurationArray{ NotebookInstanceLifecycleConfigurationArgs{...} }
 type NotebookInstanceLifecycleConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -156,7 +158,7 @@ func (i NotebookInstanceLifecycleConfigurationArray) ToNotebookInstanceLifecycle
 // NotebookInstanceLifecycleConfigurationMapInput is an input type that accepts NotebookInstanceLifecycleConfigurationMap and NotebookInstanceLifecycleConfigurationMapOutput values.
 // You can construct a concrete instance of `NotebookInstanceLifecycleConfigurationMapInput` via:
 //
-//          NotebookInstanceLifecycleConfigurationMap{ "key": NotebookInstanceLifecycleConfigurationArgs{...} }
+//	NotebookInstanceLifecycleConfigurationMap{ "key": NotebookInstanceLifecycleConfigurationArgs{...} }
 type NotebookInstanceLifecycleConfigurationMapInput interface {
 	pulumi.Input
 

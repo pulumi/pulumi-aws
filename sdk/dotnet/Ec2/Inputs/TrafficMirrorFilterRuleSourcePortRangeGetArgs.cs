@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class TrafficMirrorFilterRuleSourcePortRangeGetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorFilterRuleSourcePortRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Starting port of the range
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public TrafficMirrorFilterRuleSourcePortRangeGetArgs()
         {
         }
+        public static new TrafficMirrorFilterRuleSourcePortRangeGetArgs Empty => new TrafficMirrorFilterRuleSourcePortRangeGetArgs();
     }
 }

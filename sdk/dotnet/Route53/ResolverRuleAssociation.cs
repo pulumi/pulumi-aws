@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53.ResolverRuleAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Route53.ResolverRuleAssociation("example", new Aws.Route53.ResolverRuleAssociationArgs
-    ///         {
-    ///             ResolverRuleId = aws_route53_resolver_rule.Sys.Id,
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///         });
-    ///     }
+    ///         ResolverRuleId = aws_route53_resolver_rule.Sys.Id,
+    ///         VpcId = aws_vpc.Foo.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
-    public partial class ResolverRuleAssociation : Pulumi.CustomResource
+    public partial class ResolverRuleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A name for the association that you're creating between a resolver rule and a VPC.
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverRuleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ResolverRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for the association that you're creating between a resolver rule and a VPC.
@@ -128,9 +126,10 @@ namespace Pulumi.Aws.Route53
         public ResolverRuleAssociationArgs()
         {
         }
+        public static new ResolverRuleAssociationArgs Empty => new ResolverRuleAssociationArgs();
     }
 
-    public sealed class ResolverRuleAssociationState : Pulumi.ResourceArgs
+    public sealed class ResolverRuleAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for the association that you're creating between a resolver rule and a VPC.
@@ -153,5 +152,6 @@ namespace Pulumi.Aws.Route53
         public ResolverRuleAssociationState()
         {
         }
+        public static new ResolverRuleAssociationState Empty => new ResolverRuleAssociationState();
     }
 }

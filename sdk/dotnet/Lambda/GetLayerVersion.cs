@@ -19,22 +19,20 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var layerName = config.Require("layerName");
+        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var layerName = config.Require("layerName");
-        ///         var existing = Output.Create(Aws.Lambda.GetLayerVersion.InvokeAsync(new Aws.Lambda.GetLayerVersionArgs
-        ///         {
-        ///             LayerName = layerName,
-        ///         }));
-        ///     }
+        ///         LayerName = layerName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var layerName = config.Require("layerName");
+        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var layerName = config.Require("layerName");
-        ///         var existing = Output.Create(Aws.Lambda.GetLayerVersion.InvokeAsync(new Aws.Lambda.GetLayerVersionArgs
-        ///         {
-        ///             LayerName = layerName,
-        ///         }));
-        ///     }
+        ///         LayerName = layerName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Lambda
     }
 
 
-    public sealed class GetLayerVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetLayerVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
@@ -104,9 +100,10 @@ namespace Pulumi.Aws.Lambda
         public GetLayerVersionArgs()
         {
         }
+        public static new GetLayerVersionArgs Empty => new GetLayerVersionArgs();
     }
 
-    public sealed class GetLayerVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLayerVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
@@ -135,6 +132,7 @@ namespace Pulumi.Aws.Lambda
         public GetLayerVersionInvokeArgs()
         {
         }
+        public static new GetLayerVersionInvokeArgs Empty => new GetLayerVersionInvokeArgs();
     }
 
 

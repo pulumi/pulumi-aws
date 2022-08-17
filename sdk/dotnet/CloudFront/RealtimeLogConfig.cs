@@ -15,16 +15,15 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -37,11 +36,12 @@ namespace Pulumi.Aws.CloudFront
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = exampleRole.Id,
-    ///             Policy = @$"{{
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -57,34 +57,34 @@ namespace Pulumi.Aws.CloudFront
     ///   ]
     /// }}
     /// ",
-    ///         });
-    ///         var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("exampleRealtimeLogConfig", new Aws.CloudFront.RealtimeLogConfigArgs
-    ///         {
-    ///             SamplingRate = 75,
-    ///             Fields = 
-    ///             {
-    ///                 "timestamp",
-    ///                 "c-ip",
-    ///             },
-    ///             Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
-    ///             {
-    ///                 StreamType = "Kinesis",
-    ///                 KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
-    ///                 {
-    ///                     RoleArn = exampleRole.Arn,
-    ///                     StreamArn = aws_kinesis_stream.Example.Arn,
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleRolePolicy,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("exampleRealtimeLogConfig", new()
+    ///     {
+    ///         SamplingRate = 75,
+    ///         Fields = new[]
+    ///         {
+    ///             "timestamp",
+    ///             "c-ip",
+    ///         },
+    ///         Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
+    ///         {
+    ///             StreamType = "Kinesis",
+    ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
+    ///             {
+    ///                 RoleArn = exampleRole.Arn,
+    ///                 StreamArn = aws_kinesis_stream.Example.Arn,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleRolePolicy,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")]
-    public partial class RealtimeLogConfig : Pulumi.CustomResource
+    public partial class RealtimeLogConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class RealtimeLogConfigArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Kinesis data streams where real-time log data is sent.
@@ -207,9 +207,10 @@ namespace Pulumi.Aws.CloudFront
         public RealtimeLogConfigArgs()
         {
         }
+        public static new RealtimeLogConfigArgs Empty => new RealtimeLogConfigArgs();
     }
 
-    public sealed class RealtimeLogConfigState : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
@@ -250,5 +251,6 @@ namespace Pulumi.Aws.CloudFront
         public RealtimeLogConfigState()
         {
         }
+        public static new RealtimeLogConfigState Empty => new RealtimeLogConfigState();
     }
 }

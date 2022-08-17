@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  *                 enable: false,
  *             },
  *         },
+ *         malwareProtection: {
+ *             scanEc2InstanceWithFindings: {
+ *                 ebsVolumes: {
+ *                     enable: true,
+ *                 },
+ *             },
+ *         },
  *         s3Logs: {
  *             enable: true,
  *         },
@@ -93,7 +100,7 @@ export class Detector extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -162,7 +169,7 @@ export interface DetectorState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

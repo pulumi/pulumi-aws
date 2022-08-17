@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class TriggerEventBatchingConditionArgs : Pulumi.ResourceArgs
+    public sealed class TriggerEventBatchingConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public TriggerEventBatchingConditionArgs()
         {
         }
+        public static new TriggerEventBatchingConditionArgs Empty => new TriggerEventBatchingConditionArgs();
     }
 }

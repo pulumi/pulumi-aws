@@ -18,25 +18,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
-// 			StorageLocation: &gamelift.ScriptStorageLocationArgs{
-// 				Bucket:  pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 				Key:     pulumi.Any(aws_s3_object.Example.Key),
-// 				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
+//				StorageLocation: &gamelift.ScriptStorageLocationArgs{
+//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Bucket),
+//					Key:     pulumi.Any(aws_s3_object.Example.Key),
+//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // GameLift Scripts can be imported using the ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:gamelift/script:Script example <script-id>
+//
+//	$ pulumi import aws:gamelift/script:Script example <script-id>
+//
 // ```
 type Script struct {
 	pulumi.CustomResourceState
@@ -56,8 +61,7 @@ type Script struct {
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -101,8 +105,7 @@ type scriptState struct {
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version *string `pulumi:"version"`
@@ -118,8 +121,7 @@ type ScriptState struct {
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Version that is associated with this script.
 	Version pulumi.StringPtrInput
@@ -184,7 +186,7 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 // ScriptArrayInput is an input type that accepts ScriptArray and ScriptArrayOutput values.
 // You can construct a concrete instance of `ScriptArrayInput` via:
 //
-//          ScriptArray{ ScriptArgs{...} }
+//	ScriptArray{ ScriptArgs{...} }
 type ScriptArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +211,7 @@ func (i ScriptArray) ToScriptArrayOutputWithContext(ctx context.Context) ScriptA
 // ScriptMapInput is an input type that accepts ScriptMap and ScriptMapOutput values.
 // You can construct a concrete instance of `ScriptMapInput` via:
 //
-//          ScriptMap{ "key": ScriptArgs{...} }
+//	ScriptMap{ "key": ScriptArgs{...} }
 type ScriptMapInput interface {
 	pulumi.Input
 
@@ -265,7 +267,6 @@ func (o ScriptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ScriptOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

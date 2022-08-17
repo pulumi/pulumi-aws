@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstanceRootBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceRootBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the volume should be destroyed on instance termination. Defaults to `true`.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstanceRootBlockDeviceGetArgs()
         {
         }
+        public static new InstanceRootBlockDeviceGetArgs Empty => new InstanceRootBlockDeviceGetArgs();
     }
 }

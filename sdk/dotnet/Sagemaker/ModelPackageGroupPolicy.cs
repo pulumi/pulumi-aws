@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]
-    public partial class ModelPackageGroupPolicy : Pulumi.CustomResource
+    public partial class ModelPackageGroupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the model package group.
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class ModelPackageGroupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageGroupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the model package group.
@@ -92,9 +92,10 @@ namespace Pulumi.Aws.Sagemaker
         public ModelPackageGroupPolicyArgs()
         {
         }
+        public static new ModelPackageGroupPolicyArgs Empty => new ModelPackageGroupPolicyArgs();
     }
 
-    public sealed class ModelPackageGroupPolicyState : Pulumi.ResourceArgs
+    public sealed class ModelPackageGroupPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the model package group.
@@ -108,5 +109,6 @@ namespace Pulumi.Aws.Sagemaker
         public ModelPackageGroupPolicyState()
         {
         }
+        public static new ModelPackageGroupPolicyState Empty => new ModelPackageGroupPolicyState();
     }
 }

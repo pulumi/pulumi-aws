@@ -16,55 +16,55 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
-    ///         {
-    ///         });
-    ///         // Accepter's credentials.
-    ///         var accepterCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Accepter's side of the VIF.
-    ///         var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new Aws.Ec2.VpnGatewayArgs
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Accepter,
-    ///         });
-    ///         // Creator's side of the VIF
-    ///         var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new Aws.DirectConnect.HostedPrivateVirtualInterfaceArgs
-    ///         {
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
-    ///             Vlan = 4094,
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 vpnGw,
-    ///             },
-    ///         });
-    ///         var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepterArgs
-    ///         {
-    ///             VirtualInterfaceId = creator.Id,
-    ///             VpnGatewayId = vpnGw.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Side", "Accepter" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Accepter,
-    ///         });
-    ///     }
+    ///     var accepter = new Aws.Provider("accepter");
     /// 
-    /// }
+    ///     // Accepter's credentials.
+    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     // Accepter's side of the VIF.
+    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Accepter,
+    ///     });
+    /// 
+    ///     // Creator's side of the VIF
+    ///     var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new()
+    ///     {
+    ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         Vlan = 4094,
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             vpnGw,
+    ///         },
+    ///     });
+    /// 
+    ///     var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", new()
+    ///     {
+    ///         VirtualInterfaceId = creator.Id,
+    ///         VpnGatewayId = vpnGw.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Accepter" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Accepter,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter")]
-    public partial class HostedPrivateVirtualInterfaceAccepter : Pulumi.CustomResource
+    public partial class HostedPrivateVirtualInterfaceAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the virtual interface.
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class HostedPrivateVirtualInterfaceAccepterArgs : Pulumi.ResourceArgs
+    public sealed class HostedPrivateVirtualInterfaceAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
@@ -193,9 +193,10 @@ namespace Pulumi.Aws.DirectConnect
         public HostedPrivateVirtualInterfaceAccepterArgs()
         {
         }
+        public static new HostedPrivateVirtualInterfaceAccepterArgs Empty => new HostedPrivateVirtualInterfaceAccepterArgs();
     }
 
-    public sealed class HostedPrivateVirtualInterfaceAccepterState : Pulumi.ResourceArgs
+    public sealed class HostedPrivateVirtualInterfaceAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the virtual interface.
@@ -225,7 +226,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -248,5 +249,6 @@ namespace Pulumi.Aws.DirectConnect
         public HostedPrivateVirtualInterfaceAccepterState()
         {
         }
+        public static new HostedPrivateVirtualInterfaceAccepterState Empty => new HostedPrivateVirtualInterfaceAccepterState();
     }
 }

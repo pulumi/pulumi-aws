@@ -18,50 +18,53 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			ForceDestroy: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Key:    pulumi.String("transcribe/test1.txt"),
-// 			Source: pulumi.NewFileAsset("test.txt"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = transcribe.NewVocabulary(ctx, "exampleVocabulary", &transcribe.VocabularyArgs{
-// 			VocabularyName: pulumi.String("example"),
-// 			LanguageCode:   pulumi.String("en-US"),
-// 			VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
-// 				id := _args[0].(string)
-// 				key := _args[1].(string)
-// 				return fmt.Sprintf("s3://%v/%v", id, key), nil
-// 			}).(pulumi.StringOutput),
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value3"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			object,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("transcribe/test1.txt"),
+//				Source: pulumi.NewFileAsset("test.txt"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transcribe.NewVocabulary(ctx, "exampleVocabulary", &transcribe.VocabularyArgs{
+//				VocabularyName: pulumi.String("example"),
+//				LanguageCode:   pulumi.String("en-US"),
+//				VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					key := _args[1].(string)
+//					return fmt.Sprintf("s3://%v/%v", id, key), nil
+//				}).(pulumi.StringOutput),
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				object,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+//
+//	$ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+//
 // ```
 type Vocabulary struct {
 	pulumi.CustomResourceState
@@ -82,9 +87,8 @@ type Vocabulary struct {
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayOutput `pulumi:"phrases"`
-	// A map of tags to assign to the Vocabulary. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
@@ -133,8 +137,7 @@ type vocabularyState struct {
 	// The language code you selected for your vocabulary.
 	LanguageCode *string `pulumi:"languageCode"`
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
-	Phrases []string `pulumi:"phrases"`
-	// A map of tags to assign to the Vocabulary. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Phrases []string          `pulumi:"phrases"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -152,7 +155,6 @@ type VocabularyState struct {
 	LanguageCode pulumi.StringPtrInput
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
-	// A map of tags to assign to the Vocabulary. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -169,10 +171,8 @@ type vocabularyArgs struct {
 	// The language code you selected for your vocabulary.
 	LanguageCode string `pulumi:"languageCode"`
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
-	Phrases []string `pulumi:"phrases"`
-	// A map of tags to assign to the Vocabulary. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Phrases []string          `pulumi:"phrases"`
 	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
@@ -185,9 +185,7 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
-	// A map of tags to assign to the Vocabulary. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.
@@ -220,7 +218,7 @@ func (i *Vocabulary) ToVocabularyOutputWithContext(ctx context.Context) Vocabula
 // VocabularyArrayInput is an input type that accepts VocabularyArray and VocabularyArrayOutput values.
 // You can construct a concrete instance of `VocabularyArrayInput` via:
 //
-//          VocabularyArray{ VocabularyArgs{...} }
+//	VocabularyArray{ VocabularyArgs{...} }
 type VocabularyArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +243,7 @@ func (i VocabularyArray) ToVocabularyArrayOutputWithContext(ctx context.Context)
 // VocabularyMapInput is an input type that accepts VocabularyMap and VocabularyMapOutput values.
 // You can construct a concrete instance of `VocabularyMapInput` via:
 //
-//          VocabularyMap{ "key": VocabularyArgs{...} }
+//	VocabularyMap{ "key": VocabularyArgs{...} }
 type VocabularyMapInput interface {
 	pulumi.Input
 
@@ -301,7 +299,6 @@ func (o VocabularyOutput) Phrases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringArrayOutput { return v.Phrases }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the Vocabulary. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

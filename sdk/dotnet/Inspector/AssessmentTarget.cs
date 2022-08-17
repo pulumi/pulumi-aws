@@ -15,28 +15,27 @@ namespace Pulumi.Aws.Inspector
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.Inspector.ResourceGroup("bar", new()
     ///     {
-    ///         var bar = new Aws.Inspector.ResourceGroup("bar", new Aws.Inspector.ResourceGroupArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foo" },
-    ///                 { "Env", "bar" },
-    ///             },
-    ///         });
-    ///         var foo = new Aws.Inspector.AssessmentTarget("foo", new Aws.Inspector.AssessmentTargetArgs
-    ///         {
-    ///             ResourceGroupArn = bar.Arn,
-    ///         });
-    ///     }
+    ///             { "Name", "foo" },
+    ///             { "Env", "bar" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Inspector.AssessmentTarget("foo", new()
+    ///     {
+    ///         ResourceGroupArn = bar.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +47,7 @@ namespace Pulumi.Aws.Inspector
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/assessmentTarget:AssessmentTarget")]
-    public partial class AssessmentTarget : Pulumi.CustomResource
+    public partial class AssessmentTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The target assessment ARN.
@@ -112,7 +111,7 @@ namespace Pulumi.Aws.Inspector
         }
     }
 
-    public sealed class AssessmentTargetArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the assessment target.
@@ -129,9 +128,10 @@ namespace Pulumi.Aws.Inspector
         public AssessmentTargetArgs()
         {
         }
+        public static new AssessmentTargetArgs Empty => new AssessmentTargetArgs();
     }
 
-    public sealed class AssessmentTargetState : Pulumi.ResourceArgs
+    public sealed class AssessmentTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target assessment ARN.
@@ -154,5 +154,6 @@ namespace Pulumi.Aws.Inspector
         public AssessmentTargetState()
         {
         }
+        public static new AssessmentTargetState Empty => new AssessmentTargetState();
     }
 }

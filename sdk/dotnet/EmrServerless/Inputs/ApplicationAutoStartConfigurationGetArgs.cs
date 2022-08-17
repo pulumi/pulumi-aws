@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EmrServerless.Inputs
 {
 
-    public sealed class ApplicationAutoStartConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAutoStartConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         public ApplicationAutoStartConfigurationGetArgs()
         {
         }
+        public static new ApplicationAutoStartConfigurationGetArgs Empty => new ApplicationAutoStartConfigurationGetArgs();
     }
 }

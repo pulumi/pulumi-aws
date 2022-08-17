@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-// 					},
-// 				},
-// 				ec2.GetAmiFilter{
-// 					Name: "virtualization-type",
-// 					Values: []string{
-// 						"hvm",
-// 					},
-// 				},
-// 			},
-// 			Owners: []string{
-// 				"099720109477",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-// 			ImageId:      pulumi.String(ubuntu.Id),
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+//						},
+//					},
+//					ec2.GetAmiFilter{
+//						Name: "virtualization-type",
+//						Values: []string{
+//							"hvm",
+//						},
+//					},
+//				},
+//				Owners: []string{
+//					"099720109477",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//				ImageId:      pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Using with AutoScaling Groups
 //
@@ -73,55 +76,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-// 					},
-// 				},
-// 				ec2.GetAmiFilter{
-// 					Name: "virtualization-type",
-// 					Values: []string{
-// 						"hvm",
-// 					},
-// 				},
-// 			},
-// 			Owners: []string{
-// 				"099720109477",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-// 			NamePrefix:   pulumi.String("lc-example-"),
-// 			ImageId:      pulumi.String(ubuntu.Id),
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
-// 			LaunchConfiguration: asConf.Name,
-// 			MinSize:             pulumi.Int(1),
-// 			MaxSize:             pulumi.Int(2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+//						},
+//					},
+//					ec2.GetAmiFilter{
+//						Name: "virtualization-type",
+//						Values: []string{
+//							"hvm",
+//						},
+//					},
+//				},
+//				Owners: []string{
+//					"099720109477",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//				NamePrefix:   pulumi.String("lc-example-"),
+//				ImageId:      pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				LaunchConfiguration: asConf.Name,
+//				MinSize:             pulumi.Int(1),
+//				MaxSize:             pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // With this setup this provider generates a unique name for your Launch
@@ -141,53 +147,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-// 					},
-// 				},
-// 				ec2.GetAmiFilter{
-// 					Name: "virtualization-type",
-// 					Values: []string{
-// 						"hvm",
-// 					},
-// 				},
-// 			},
-// 			Owners: []string{
-// 				"099720109477",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-// 			ImageId:      pulumi.String(ubuntu.Id),
-// 			InstanceType: pulumi.String("m4.large"),
-// 			SpotPrice:    pulumi.String("0.001"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
-// 			LaunchConfiguration: asConf.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+//						},
+//					},
+//					ec2.GetAmiFilter{
+//						Name: "virtualization-type",
+//						Values: []string{
+//							"hvm",
+//						},
+//					},
+//				},
+//				Owners: []string{
+//					"099720109477",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//				ImageId:      pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String("m4.large"),
+//				SpotPrice:    pulumi.String("0.001"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				LaunchConfiguration: asConf.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Block devices
@@ -199,45 +208,45 @@ import (
 //
 // The `rootBlockDevice` mapping supports the following:
 //
-// * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-//   or `"io1"`. (Default: `"standard"`).
-// * `volumeSize` - (Optional) The size of the volume in gigabytes.
-// * `iops` - (Optional) The amount of provisioned
-//   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-//   This must be set with a `volumeType` of `"io1"`.
-// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
-//   on instance termination (Default: `true`).
-// * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
+//   - `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
+//     or `"io1"`. (Default: `"standard"`).
+//   - `volumeSize` - (Optional) The size of the volume in gigabytes.
+//   - `iops` - (Optional) The amount of provisioned
+//     [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+//     This must be set with a `volumeType` of `"io1"`.
+//   - `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+//   - `deleteOnTermination` - (Optional) Whether the volume should be destroyed
+//     on instance termination (Default: `true`).
+//   - `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
 //
 // Modifying any of the `rootBlockDevice` settings requires resource
 // replacement.
 //
 // Each `ebsBlockDevice` supports the following:
 //
-// * `deviceName` - (Required) The name of the device to mount.
-// * `snapshotId` - (Optional) The Snapshot ID to mount.
-// * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-//   or `"io1"`. (Default: `"standard"`).
-// * `volumeSize` - (Optional) The size of the volume in gigabytes.
-// * `iops` - (Optional) The amount of provisioned
-//   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-//   This must be set with a `volumeType` of `"io1"`.
-// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
-//   on instance termination (Default: `true`).
-// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshotId` as the encrypted flag will be determined by the snapshot. (Default: `false`).
-// * `noDevice` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+//   - `deviceName` - (Required) The name of the device to mount.
+//   - `snapshotId` - (Optional) The Snapshot ID to mount.
+//   - `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
+//     or `"io1"`. (Default: `"standard"`).
+//   - `volumeSize` - (Optional) The size of the volume in gigabytes.
+//   - `iops` - (Optional) The amount of provisioned
+//     [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+//     This must be set with a `volumeType` of `"io1"`.
+//   - `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+//   - `deleteOnTermination` - (Optional) Whether the volume should be destroyed
+//     on instance termination (Default: `true`).
+//   - `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshotId` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+//   - `noDevice` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
 //
 // Modifying any `ebsBlockDevice` currently requires resource replacement.
 //
 // Each `ephemeralBlockDevice` supports the following:
 //
-// * `deviceName` - (Required) The name of the block device to mount on the instance.
-// * `noDevice` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-// * `virtualName` - (Optional) The [Instance Store Device
-//   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-//   (e.g., `"ephemeral0"`)
+//   - `deviceName` - (Required) The name of the block device to mount on the instance.
+//   - `noDevice` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+//   - `virtualName` - (Optional) The [Instance Store Device
+//     Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+//     (e.g., `"ephemeral0"`)
 //
 // Each AWS Instance type has a different set of Instance Store block devices
 // available for attachment. AWS [publishes a
@@ -255,7 +264,9 @@ import (
 // Launch configurations can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+//
+//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+//
 // ```
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState
@@ -585,7 +596,7 @@ func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context
 // LaunchConfigurationArrayInput is an input type that accepts LaunchConfigurationArray and LaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `LaunchConfigurationArrayInput` via:
 //
-//          LaunchConfigurationArray{ LaunchConfigurationArgs{...} }
+//	LaunchConfigurationArray{ LaunchConfigurationArgs{...} }
 type LaunchConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -610,7 +621,7 @@ func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutputWithContext(ct
 // LaunchConfigurationMapInput is an input type that accepts LaunchConfigurationMap and LaunchConfigurationMapOutput values.
 // You can construct a concrete instance of `LaunchConfigurationMapInput` via:
 //
-//          LaunchConfigurationMap{ "key": LaunchConfigurationArgs{...} }
+//	LaunchConfigurationMap{ "key": LaunchConfigurationArgs{...} }
 type LaunchConfigurationMapInput interface {
 	pulumi.Input
 

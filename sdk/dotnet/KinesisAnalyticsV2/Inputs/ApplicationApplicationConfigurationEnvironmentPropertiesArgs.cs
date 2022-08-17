@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationEnvironmentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationEnvironmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("propertyGroups", required: true)]
         private InputList<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>? _propertyGroups;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationEnvironmentPropertiesArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationEnvironmentPropertiesArgs Empty => new ApplicationApplicationConfigurationEnvironmentPropertiesArgs();
     }
 }

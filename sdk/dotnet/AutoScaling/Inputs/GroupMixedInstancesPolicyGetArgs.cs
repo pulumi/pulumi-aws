@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyGetArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyGetArgs Empty => new GroupMixedInstancesPolicyGetArgs();
     }
 }

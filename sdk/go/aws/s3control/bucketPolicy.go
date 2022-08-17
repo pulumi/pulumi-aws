@@ -21,43 +21,46 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Id": "testBucketPolicy",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": "s3-outposts:PutBucketLifecycleConfiguration",
-// 					"Effect": "Deny",
-// 					"Principal": map[string]interface{}{
-// 						"AWS": "*",
-// 					},
-// 					"Resource": aws_s3control_bucket.Example.Arn,
-// 					"Sid":      "statement1",
-// 				},
-// 			},
-// 			"Version": "2012-10-17",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
-// 			Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
-// 			Policy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Id": "testBucketPolicy",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
+//						"Effect": "Deny",
+//						"Principal": map[string]interface{}{
+//							"AWS": "*",
+//						},
+//						"Resource": aws_s3control_bucket.Example.Arn,
+//						"Sid":      "statement1",
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
+//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//
+//	$ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//
 // ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) Buck
 // BucketPolicyArrayInput is an input type that accepts BucketPolicyArray and BucketPolicyArrayOutput values.
 // You can construct a concrete instance of `BucketPolicyArrayInput` via:
 //
-//          BucketPolicyArray{ BucketPolicyArgs{...} }
+//	BucketPolicyArray{ BucketPolicyArgs{...} }
 type BucketPolicyArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i BucketPolicyArray) ToBucketPolicyArrayOutputWithContext(ctx context.Cont
 // BucketPolicyMapInput is an input type that accepts BucketPolicyMap and BucketPolicyMapOutput values.
 // You can construct a concrete instance of `BucketPolicyMapInput` via:
 //
-//          BucketPolicyMap{ "key": BucketPolicyArgs{...} }
+//	BucketPolicyMap{ "key": BucketPolicyArgs{...} }
 type BucketPolicyMapInput interface {
 	pulumi.Input
 

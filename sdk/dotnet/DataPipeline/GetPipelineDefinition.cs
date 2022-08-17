@@ -19,20 +19,18 @@ namespace Pulumi.Aws.DataPipeline
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DataPipeline.GetPipelineDefinition.InvokeAsync(new Aws.DataPipeline.GetPipelineDefinitionArgs
-        ///         {
-        ///             PipelineId = "pipelineID",
-        ///         }));
-        ///     }
+        ///         PipelineId = "pipelineID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.DataPipeline
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DataPipeline.GetPipelineDefinition.InvokeAsync(new Aws.DataPipeline.GetPipelineDefinitionArgs
-        ///         {
-        ///             PipelineId = "pipelineID",
-        ///         }));
-        ///     }
+        ///         PipelineId = "pipelineID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.DataPipeline
     }
 
 
-    public sealed class GetPipelineDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineDefinitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("parameterValues")]
         private List<Inputs.GetPipelineDefinitionParameterValueArgs>? _parameterValues;
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.DataPipeline
         public GetPipelineDefinitionArgs()
         {
         }
+        public static new GetPipelineDefinitionArgs Empty => new GetPipelineDefinitionArgs();
     }
 
-    public sealed class GetPipelineDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("parameterValues")]
         private InputList<Inputs.GetPipelineDefinitionParameterValueInputArgs>? _parameterValues;
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.DataPipeline
         public GetPipelineDefinitionInvokeArgs()
         {
         }
+        public static new GetPipelineDefinitionInvokeArgs Empty => new GetPipelineDefinitionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class JobDefinitionRetryStrategyGetArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionRetryStrategyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public JobDefinitionRetryStrategyGetArgs()
         {
         }
+        public static new JobDefinitionRetryStrategyGetArgs Empty => new JobDefinitionRetryStrategyGetArgs();
     }
 }

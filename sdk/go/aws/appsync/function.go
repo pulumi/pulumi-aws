@@ -19,70 +19,77 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-// 			AuthenticationType: pulumi.String("API_KEY"),
-// 			Schema: pulumi.String(fmt.Sprintf(`type Mutation {
-//   putPost(id: ID!, title: String!): Post
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("API_KEY"),
+//				Schema: pulumi.String(fmt.Sprintf(`type Mutation {
+//	  putPost(id: ID!, title: String!): Post
+//	}
 //
-// type Post {
-//   id: ID!
-//   title: String!
-// }
+//	type Post {
+//	  id: ID!
+//	  title: String!
+//	}
 //
-// type Query {
-//   singlePost(id: ID!): Post
-// }
+//	type Query {
+//	  singlePost(id: ID!): Post
+//	}
 //
-// schema {
-//   query: Query
-//   mutation: Mutation
-// }
+//	schema {
+//	  query: Query
+//	  mutation: Mutation
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataSource, err := appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
-// 			ApiId: exampleGraphQLApi.ID(),
-// 			Name:  pulumi.String("example"),
-// 			Type:  pulumi.String("HTTP"),
-// 			HttpConfig: &appsync.DataSourceHttpConfigArgs{
-// 				Endpoint: pulumi.String("http://example.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appsync.NewFunction(ctx, "exampleFunction", &appsync.FunctionArgs{
-// 			ApiId:      exampleGraphQLApi.ID(),
-// 			DataSource: exampleDataSource.Name,
-// 			Name:       pulumi.String("example"),
-// 			RequestMappingTemplate: pulumi.String(fmt.Sprintf(`{
-//     "version": "2018-05-29",
-//     "method": "GET",
-//     "resourcePath": "/",
-//     "params":{
-//         "headers": $utils.http.copyheaders($ctx.request.headers)
-//     }
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataSource, err := appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
+//				ApiId: exampleGraphQLApi.ID(),
+//				Name:  pulumi.String("example"),
+//				Type:  pulumi.String("HTTP"),
+//				HttpConfig: &appsync.DataSourceHttpConfigArgs{
+//					Endpoint: pulumi.String("http://example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewFunction(ctx, "exampleFunction", &appsync.FunctionArgs{
+//				ApiId:      exampleGraphQLApi.ID(),
+//				DataSource: exampleDataSource.Name,
+//				Name:       pulumi.String("example"),
+//				RequestMappingTemplate: pulumi.String(fmt.Sprintf(`{
+//	    "version": "2018-05-29",
+//	    "method": "GET",
+//	    "resourcePath": "/",
+//	    "params":{
+//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    }
+//	}
+//
 // `)),
-// 			ResponseMappingTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				ResponseMappingTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -90,7 +97,9 @@ import (
 // `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+//
+//	$ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+//
 // ```
 type Function struct {
 	pulumi.CustomResourceState
@@ -99,7 +108,7 @@ type Function struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The ARN of the Function object.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Function DataSource name.
+	// The Function data source name.
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
 	// The Function description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -164,7 +173,7 @@ type functionState struct {
 	ApiId *string `pulumi:"apiId"`
 	// The ARN of the Function object.
 	Arn *string `pulumi:"arn"`
-	// The Function DataSource name.
+	// The Function data source name.
 	DataSource *string `pulumi:"dataSource"`
 	// The Function description.
 	Description *string `pulumi:"description"`
@@ -189,7 +198,7 @@ type FunctionState struct {
 	ApiId pulumi.StringPtrInput
 	// The ARN of the Function object.
 	Arn pulumi.StringPtrInput
-	// The Function DataSource name.
+	// The Function data source name.
 	DataSource pulumi.StringPtrInput
 	// The Function description.
 	Description pulumi.StringPtrInput
@@ -216,7 +225,7 @@ func (FunctionState) ElementType() reflect.Type {
 type functionArgs struct {
 	// The ID of the associated AppSync API.
 	ApiId string `pulumi:"apiId"`
-	// The Function DataSource name.
+	// The Function data source name.
 	DataSource string `pulumi:"dataSource"`
 	// The Function description.
 	Description *string `pulumi:"description"`
@@ -238,7 +247,7 @@ type functionArgs struct {
 type FunctionArgs struct {
 	// The ID of the associated AppSync API.
 	ApiId pulumi.StringInput
-	// The Function DataSource name.
+	// The Function data source name.
 	DataSource pulumi.StringInput
 	// The Function description.
 	Description pulumi.StringPtrInput
@@ -282,7 +291,7 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 // FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionArrayInput` via:
 //
-//          FunctionArray{ FunctionArgs{...} }
+//	FunctionArray{ FunctionArgs{...} }
 type FunctionArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +316,7 @@ func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) Fun
 // FunctionMapInput is an input type that accepts FunctionMap and FunctionMapOutput values.
 // You can construct a concrete instance of `FunctionMapInput` via:
 //
-//          FunctionMap{ "key": FunctionArgs{...} }
+//	FunctionMap{ "key": FunctionArgs{...} }
 type FunctionMapInput interface {
 	pulumi.Input
 
@@ -353,7 +362,7 @@ func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Function DataSource name.
+// The Function data source name.
 func (o FunctionOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
 }

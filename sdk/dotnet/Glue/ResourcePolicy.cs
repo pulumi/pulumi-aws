@@ -15,57 +15,53 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var glue_example_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var currentPartition = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var glue_example_policy = Output.Tuple(currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///         Statements = new[]
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentRegion = values.Item2;
-    ///             var currentCallerIdentity = values.Item3;
-    ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Statements = 
+    ///                 Actions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     "glue:CreateTable",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         Actions = 
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             "glue:CreateTable",
+    ///                             "*",
     ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             $"arn:{currentPartition.Partition}:glue:{currentRegion.Name}:{currentCallerIdentity.AccountId}:*",
-    ///                         },
-    ///                         Principals = 
-    ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                             {
-    ///                                 Identifiers = 
-    ///                                 {
-    ///                                     "*",
-    ///                                 },
-    ///                                 Type = "AWS",
-    ///                             },
-    ///                         },
+    ///                         Type = "AWS",
     ///                     },
     ///                 },
-    ///             }));
-    ///         });
-    ///         var example = new Aws.Glue.ResourcePolicy("example", new Aws.Glue.ResourcePolicyArgs
-    ///         {
-    ///             Policy = glue_example_policy.Apply(glue_example_policy =&gt; glue_example_policy.Json),
-    ///         });
-    ///     }
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.Glue.ResourcePolicy("example", new()
+    ///     {
+    ///         Policy = glue_example_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(glue_example_policy =&gt; glue_example_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
-    public partial class ResourcePolicy : Pulumi.CustomResource
+    public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         [Output("enableHybrid")]
         public Output<string?> EnableHybrid { get; private set; } = null!;
@@ -132,7 +128,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
@@ -146,9 +142,10 @@ namespace Pulumi.Aws.Glue
         public ResourcePolicyArgs()
         {
         }
+        public static new ResourcePolicyArgs Empty => new ResourcePolicyArgs();
     }
 
-    public sealed class ResourcePolicyState : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
@@ -162,5 +159,6 @@ namespace Pulumi.Aws.Glue
         public ResourcePolicyState()
         {
         }
+        public static new ResourcePolicyState Empty => new ResourcePolicyState();
     }
 }

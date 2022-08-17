@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An absolute path to the document to return in case of a 4XX error.
@@ -40,5 +40,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteArgs()
         {
         }
+        public static new BucketWebsiteArgs Empty => new BucketWebsiteArgs();
     }
 }

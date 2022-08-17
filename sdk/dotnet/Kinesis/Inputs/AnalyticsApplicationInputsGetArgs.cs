@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationInputsGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationInputsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Kinesis Analytics Application.
@@ -82,5 +82,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationInputsGetArgs()
         {
         }
+        public static new AnalyticsApplicationInputsGetArgs Empty => new AnalyticsApplicationInputsGetArgs();
     }
 }

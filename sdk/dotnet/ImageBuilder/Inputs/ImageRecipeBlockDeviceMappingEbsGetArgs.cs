@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImageRecipeBlockDeviceMappingEbsGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeBlockDeviceMappingEbsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImageRecipeBlockDeviceMappingEbsGetArgs()
         {
         }
+        public static new ImageRecipeBlockDeviceMappingEbsGetArgs Empty => new ImageRecipeBlockDeviceMappingEbsGetArgs();
     }
 }

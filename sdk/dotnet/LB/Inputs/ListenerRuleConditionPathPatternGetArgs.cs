@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LB.Inputs
 {
 
-    public sealed class ListenerRuleConditionPathPatternGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleConditionPathPatternGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("values", required: true)]
         private InputList<string>? _values;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.LB.Inputs
         public ListenerRuleConditionPathPatternGetArgs()
         {
         }
+        public static new ListenerRuleConditionPathPatternGetArgs Empty => new ListenerRuleConditionPathPatternGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CrawlerLineageConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerLineageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CrawlerLineageConfigurationGetArgs()
         {
         }
+        public static new CrawlerLineageConfigurationGetArgs Empty => new CrawlerLineageConfigurationGetArgs();
     }
 }

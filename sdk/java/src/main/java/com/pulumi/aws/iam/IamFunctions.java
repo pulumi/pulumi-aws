@@ -60,6 +60,32 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias() {
@@ -70,6 +96,32 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain() {
@@ -80,6 +132,32 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias(InvokeArgs args) {
@@ -90,6 +168,32 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain(InvokeArgs args) {
@@ -100,6 +204,32 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias(InvokeArgs args, InvokeOptions options) {
@@ -110,6 +240,32 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain(InvokeArgs args, InvokeOptions options) {

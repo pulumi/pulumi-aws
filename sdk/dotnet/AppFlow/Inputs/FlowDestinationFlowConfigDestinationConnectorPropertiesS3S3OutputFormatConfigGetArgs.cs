@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigGetArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigGetArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigGetArgs();
     }
 }

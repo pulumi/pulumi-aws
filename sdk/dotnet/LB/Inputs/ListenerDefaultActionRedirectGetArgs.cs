@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LB.Inputs
 {
 
-    public sealed class ListenerDefaultActionRedirectGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionRedirectGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.LB.Inputs
         public ListenerDefaultActionRedirectGetArgs()
         {
         }
+        public static new ListenerDefaultActionRedirectGetArgs Empty => new ListenerDefaultActionRedirectGetArgs();
     }
 }

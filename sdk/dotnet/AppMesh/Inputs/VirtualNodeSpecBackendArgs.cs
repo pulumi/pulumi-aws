@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecBackendArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecBackendArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a virtual service to use as a backend for a virtual node.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecBackendArgs()
         {
         }
+        public static new VirtualNodeSpecBackendArgs Empty => new VirtualNodeSpecBackendArgs();
     }
 }

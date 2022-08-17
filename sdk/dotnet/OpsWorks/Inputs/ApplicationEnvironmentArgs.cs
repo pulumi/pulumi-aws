@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class ApplicationEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Variable name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public ApplicationEnvironmentArgs()
         {
         }
+        public static new ApplicationEnvironmentArgs Empty => new ApplicationEnvironmentArgs();
     }
 }

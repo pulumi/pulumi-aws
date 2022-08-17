@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PresetAudioGetArgs : Pulumi.ResourceArgs
+    public sealed class PresetAudioGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PresetAudioGetArgs()
         {
         }
+        public static new PresetAudioGetArgs Empty => new PresetAudioGetArgs();
     }
 }

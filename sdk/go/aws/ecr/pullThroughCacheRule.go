@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecr.NewPullThroughCacheRule(ctx, "example", &ecr.PullThroughCacheRuleArgs{
-// 			EcrRepositoryPrefix: pulumi.String("ecr-public"),
-// 			UpstreamRegistryUrl: pulumi.String("public.ecr.aws"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewPullThroughCacheRule(ctx, "example", &ecr.PullThroughCacheRuleArgs{
+//				EcrRepositoryPrefix: pulumi.String("ecr-public"),
+//				UpstreamRegistryUrl: pulumi.String("public.ecr.aws"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
 //
 // ```sh
-//  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+//
+//	$ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+//
 // ```
 type PullThroughCacheRule struct {
 	pulumi.CustomResourceState
@@ -155,7 +160,7 @@ func (i *PullThroughCacheRule) ToPullThroughCacheRuleOutputWithContext(ctx conte
 // PullThroughCacheRuleArrayInput is an input type that accepts PullThroughCacheRuleArray and PullThroughCacheRuleArrayOutput values.
 // You can construct a concrete instance of `PullThroughCacheRuleArrayInput` via:
 //
-//          PullThroughCacheRuleArray{ PullThroughCacheRuleArgs{...} }
+//	PullThroughCacheRuleArray{ PullThroughCacheRuleArgs{...} }
 type PullThroughCacheRuleArrayInput interface {
 	pulumi.Input
 
@@ -180,7 +185,7 @@ func (i PullThroughCacheRuleArray) ToPullThroughCacheRuleArrayOutputWithContext(
 // PullThroughCacheRuleMapInput is an input type that accepts PullThroughCacheRuleMap and PullThroughCacheRuleMapOutput values.
 // You can construct a concrete instance of `PullThroughCacheRuleMapInput` via:
 //
-//          PullThroughCacheRuleMap{ "key": PullThroughCacheRuleArgs{...} }
+//	PullThroughCacheRuleMap{ "key": PullThroughCacheRuleArgs{...} }
 type PullThroughCacheRuleMapInput interface {
 	pulumi.Input
 

@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
-// 			EventSourceArn: orderEventBus.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
+//				EventSourceArn: orderEventBus.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Example all optional arguments
 //
@@ -47,38 +50,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
-// 			Description:    pulumi.String("Archived events from order service"),
-// 			EventSourceArn: orderEventBus.Arn,
-// 			RetentionDays:  pulumi.Int(7),
-// 			EventPattern:   pulumi.String(fmt.Sprintf("{\n  \"source\": [\"company.team.order\"]\n}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
+//				Description:    pulumi.String("Archived events from order service"),
+//				EventSourceArn: orderEventBus.Arn,
+//				RetentionDays:  pulumi.Int(7),
+//				EventPattern:   pulumi.String(fmt.Sprintf("{\n  \"source\": [\"company.team.order\"]\n}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// Event Archive can be imported using their name, for example bash
+// # Event Archive can be imported using their name, for example console
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+//
+//	$ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+//
 // ```
 type EventArchive struct {
 	pulumi.CustomResourceState
@@ -215,7 +223,7 @@ func (i *EventArchive) ToEventArchiveOutputWithContext(ctx context.Context) Even
 // EventArchiveArrayInput is an input type that accepts EventArchiveArray and EventArchiveArrayOutput values.
 // You can construct a concrete instance of `EventArchiveArrayInput` via:
 //
-//          EventArchiveArray{ EventArchiveArgs{...} }
+//	EventArchiveArray{ EventArchiveArgs{...} }
 type EventArchiveArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +248,7 @@ func (i EventArchiveArray) ToEventArchiveArrayOutputWithContext(ctx context.Cont
 // EventArchiveMapInput is an input type that accepts EventArchiveMap and EventArchiveMapOutput values.
 // You can construct a concrete instance of `EventArchiveMapInput` via:
 //
-//          EventArchiveMap{ "key": EventArchiveArgs{...} }
+//	EventArchiveMap{ "key": EventArchiveArgs{...} }
 type EventArchiveMapInput interface {
 	pulumi.Input
 

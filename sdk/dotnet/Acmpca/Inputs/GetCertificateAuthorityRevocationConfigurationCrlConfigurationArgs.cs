@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class GetCertificateAuthorityRevocationConfigurationCrlConfigurationInputArgs : Pulumi.ResourceArgs
+    public sealed class GetCertificateAuthorityRevocationConfigurationCrlConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("customCname", required: true)]
         public Input<string> CustomCname { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public GetCertificateAuthorityRevocationConfigurationCrlConfigurationInputArgs()
         {
         }
+        public static new GetCertificateAuthorityRevocationConfigurationCrlConfigurationInputArgs Empty => new GetCertificateAuthorityRevocationConfigurationCrlConfigurationInputArgs();
     }
 }

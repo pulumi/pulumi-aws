@@ -18,97 +18,88 @@ namespace Pulumi.Aws.SecurityHub
     /// The following example will enable the aggregator for every region.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new Aws.SecurityHub.FindingAggregatorArgs
-    ///         {
-    ///             LinkingMode = "ALL_REGIONS",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     {
+    ///         LinkingMode = "ALL_REGIONS",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### All Regions Except Specified Regions Usage
     /// 
     /// The following example will enable the aggregator for every region except those specified in `specified_regions`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new Aws.SecurityHub.FindingAggregatorArgs
-    ///         {
-    ///             LinkingMode = "ALL_REGIONS_EXCEPT_SPECIFIED",
-    ///             SpecifiedRegions = 
-    ///             {
-    ///                 "eu-west-1",
-    ///                 "eu-west-2",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     {
+    ///         LinkingMode = "ALL_REGIONS_EXCEPT_SPECIFIED",
+    ///         SpecifiedRegions = new[]
+    ///         {
+    ///             "eu-west-1",
+    ///             "eu-west-2",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Specified Regions Usage
     /// 
     /// The following example will enable the aggregator for every region specified in `specified_regions`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new Aws.SecurityHub.FindingAggregatorArgs
-    ///         {
-    ///             LinkingMode = "SPECIFIED_REGIONS",
-    ///             SpecifiedRegions = 
-    ///             {
-    ///                 "eu-west-1",
-    ///                 "eu-west-2",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     {
+    ///         LinkingMode = "SPECIFIED_REGIONS",
+    ///         SpecifiedRegions = new[]
+    ///         {
+    ///             "eu-west-1",
+    ///             "eu-west-2",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -120,7 +111,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
-    public partial class FindingAggregator : Pulumi.CustomResource
+    public partial class FindingAggregator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
@@ -178,7 +169,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class FindingAggregatorArgs : Pulumi.ResourceArgs
+    public sealed class FindingAggregatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
@@ -201,9 +192,10 @@ namespace Pulumi.Aws.SecurityHub
         public FindingAggregatorArgs()
         {
         }
+        public static new FindingAggregatorArgs Empty => new FindingAggregatorArgs();
     }
 
-    public sealed class FindingAggregatorState : Pulumi.ResourceArgs
+    public sealed class FindingAggregatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
@@ -226,5 +218,6 @@ namespace Pulumi.Aws.SecurityHub
         public FindingAggregatorState()
         {
         }
+        public static new FindingAggregatorState Empty => new FindingAggregatorState();
     }
 }

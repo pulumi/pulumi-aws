@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to the top-level parent that contains the records.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs()
         {
         }
+        public static new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs Empty => new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs();
     }
 }

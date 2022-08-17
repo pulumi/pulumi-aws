@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class InstanceRootBlockDeviceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceRootBlockDeviceArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public InstanceRootBlockDeviceArgs()
         {
         }
+        public static new InstanceRootBlockDeviceArgs Empty => new InstanceRootBlockDeviceArgs();
     }
 }

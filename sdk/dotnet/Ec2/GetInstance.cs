@@ -20,39 +20,37 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ec2.GetInstance.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+        ///                 Name = "image-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "image-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "ami-xxxxxxxx",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "instance-name-tag",
-        ///                     },
+        ///                     "ami-xxxxxxxx",
         ///                 },
         ///             },
-        ///             InstanceId = "i-instanceid",
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "instance-name-tag",
+        ///                 },
+        ///             },
+        ///         },
+        ///         InstanceId = "i-instanceid",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,39 +67,37 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ec2.GetInstance.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+        ///                 Name = "image-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "image-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "ami-xxxxxxxx",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "instance-name-tag",
-        ///                     },
+        ///                     "ami-xxxxxxxx",
         ///                 },
         ///             },
-        ///             InstanceId = "i-instanceid",
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "instance-name-tag",
+        ///                 },
+        ///             },
+        ///         },
+        ///         InstanceId = "i-instanceid",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -111,7 +107,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetInstanceFilterArgs>? _filters;
@@ -173,9 +169,10 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceArgs()
         {
         }
+        public static new GetInstanceArgs Empty => new GetInstanceArgs();
     }
 
-    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetInstanceFilterInputArgs>? _filters;
@@ -237,6 +234,7 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceInvokeArgs()
         {
         }
+        public static new GetInstanceInvokeArgs Empty => new GetInstanceInvokeArgs();
     }
 
 

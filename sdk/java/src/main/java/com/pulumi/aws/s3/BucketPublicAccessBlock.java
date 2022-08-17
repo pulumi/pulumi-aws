@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  *             .bucket(exampleBucketV2.id())
  *             .blockPublicAcls(true)
  *             .blockPublicPolicy(true)
+ *             .ignorePublicAcls(true)
+ *             .restrictPublicBuckets(true)
  *             .build());
  * 
  *     }

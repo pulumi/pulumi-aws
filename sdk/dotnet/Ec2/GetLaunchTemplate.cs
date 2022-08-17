@@ -19,50 +19,46 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @default = Aws.Ec2.GetLaunchTemplate.Invoke(new()
         ///     {
-        ///         var @default = Output.Create(Aws.Ec2.GetLaunchTemplate.InvokeAsync(new Aws.Ec2.GetLaunchTemplateArgs
-        ///         {
-        ///             Name = "my-launch-template",
-        ///         }));
-        ///     }
+        ///         Name = "my-launch-template",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetLaunchTemplate.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetLaunchTemplate.InvokeAsync(new Aws.Ec2.GetLaunchTemplateArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetLaunchTemplateFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetLaunchTemplateFilterArgs
+        ///                 Name = "launch-template-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "launch-template-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "some-template",
-        ///                     },
+        ///                     "some-template",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -78,50 +74,46 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @default = Aws.Ec2.GetLaunchTemplate.Invoke(new()
         ///     {
-        ///         var @default = Output.Create(Aws.Ec2.GetLaunchTemplate.InvokeAsync(new Aws.Ec2.GetLaunchTemplateArgs
-        ///         {
-        ///             Name = "my-launch-template",
-        ///         }));
-        ///     }
+        ///         Name = "my-launch-template",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetLaunchTemplate.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetLaunchTemplate.InvokeAsync(new Aws.Ec2.GetLaunchTemplateArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetLaunchTemplateFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetLaunchTemplateFilterArgs
+        ///                 Name = "launch-template-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "launch-template-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "some-template",
-        ///                     },
+        ///                     "some-template",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -131,7 +123,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLaunchTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLaunchTemplateFilterArgs>? _filters;
@@ -172,9 +164,10 @@ namespace Pulumi.Aws.Ec2
         public GetLaunchTemplateArgs()
         {
         }
+        public static new GetLaunchTemplateArgs Empty => new GetLaunchTemplateArgs();
     }
 
-    public sealed class GetLaunchTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLaunchTemplateFilterInputArgs>? _filters;
@@ -215,6 +208,7 @@ namespace Pulumi.Aws.Ec2
         public GetLaunchTemplateInvokeArgs()
         {
         }
+        public static new GetLaunchTemplateInvokeArgs Empty => new GetLaunchTemplateInvokeArgs();
     }
 
 

@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-// 			SecretId:          pulumi.Any(aws_secretsmanager_secret.Example.Id),
-// 			RotationLambdaArn: pulumi.Any(aws_lambda_function.Example.Arn),
-// 			RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
-// 				AutomaticallyAfterDays: pulumi.Int(30),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
+//				SecretId:          pulumi.Any(aws_secretsmanager_secret.Example.Id),
+//				RotationLambdaArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
+//					AutomaticallyAfterDays: pulumi.Int(30),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Rotation Configuration
 //
@@ -53,7 +56,9 @@ import (
 // `aws_secretsmanager_secret_rotation` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+//
+//	$ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+//
 // ```
 type SecretRotation struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *SecretRotation) ToSecretRotationOutputWithContext(ctx context.Context) 
 // SecretRotationArrayInput is an input type that accepts SecretRotationArray and SecretRotationArrayOutput values.
 // You can construct a concrete instance of `SecretRotationArrayInput` via:
 //
-//          SecretRotationArray{ SecretRotationArgs{...} }
+//	SecretRotationArray{ SecretRotationArgs{...} }
 type SecretRotationArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i SecretRotationArray) ToSecretRotationArrayOutputWithContext(ctx context.
 // SecretRotationMapInput is an input type that accepts SecretRotationMap and SecretRotationMapOutput values.
 // You can construct a concrete instance of `SecretRotationMapInput` via:
 //
-//          SecretRotationMap{ "key": SecretRotationArgs{...} }
+//	SecretRotationMap{ "key": SecretRotationArgs{...} }
 type SecretRotationMapInput interface {
 	pulumi.Input
 

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.LocationFsxLustre("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.LocationFsxLustre("example", new Aws.DataSync.LocationFsxLustreArgs
+    ///         FsxFilesystemArn = aws_fsx_lustre_file_system.Example.Arn,
+    ///         SecurityGroupArns = new[]
     ///         {
-    ///             FsxFilesystemArn = aws_fsx_lustre_file_system.Example.Arn,
-    ///             SecurityGroupArns = 
-    ///             {
-    ///                 aws_security_group.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_security_group.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationFsxLustre:LocationFsxLustre")]
-    public partial class LocationFsxLustre : Pulumi.CustomResource
+    public partial class LocationFsxLustre : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -82,9 +80,6 @@ namespace Pulumi.Aws.DataSync
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -138,7 +133,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class LocationFsxLustreArgs : Pulumi.ResourceArgs
+    public sealed class LocationFsxLustreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -179,9 +174,10 @@ namespace Pulumi.Aws.DataSync
         public LocationFsxLustreArgs()
         {
         }
+        public static new LocationFsxLustreArgs Empty => new LocationFsxLustreArgs();
     }
 
-    public sealed class LocationFsxLustreState : Pulumi.ResourceArgs
+    public sealed class LocationFsxLustreState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -233,10 +229,6 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -252,5 +244,6 @@ namespace Pulumi.Aws.DataSync
         public LocationFsxLustreState()
         {
         }
+        public static new LocationFsxLustreState Empty => new LocationFsxLustreState();
     }
 }

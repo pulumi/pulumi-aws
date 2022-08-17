@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
-// 			Distributions: imagebuilder.DistributionConfigurationDistributionArray{
-// 				&imagebuilder.DistributionConfigurationDistributionArgs{
-// 					AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
-// 						AmiTags: pulumi.StringMap{
-// 							"CostCenter": pulumi.String("IT"),
-// 						},
-// 						LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
-// 							UserIds: pulumi.StringArray{
-// 								pulumi.String("123456789012"),
-// 							},
-// 						},
-// 						Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
-// 					},
-// 					LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
-// 						&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
-// 							LaunchTemplateId: pulumi.String("lt-0aaa1bcde2ff3456"),
-// 						},
-// 					},
-// 					Region: pulumi.String("us-east-1"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
+//				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
+//					&imagebuilder.DistributionConfigurationDistributionArgs{
+//						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
+//							AmiTags: pulumi.StringMap{
+//								"CostCenter": pulumi.String("IT"),
+//							},
+//							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
+//								UserIds: pulumi.StringArray{
+//									pulumi.String("123456789012"),
+//								},
+//							},
+//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
+//						},
+//						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
+//							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
+//								LaunchTemplateId: pulumi.String("lt-0aaa1bcde2ff3456"),
+//							},
+//						},
+//						Region: pulumi.String("us-east-1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+//
+//	$ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+//
 // ```
 type DistributionConfiguration struct {
 	pulumi.CustomResourceState
@@ -78,9 +83,9 @@ type DistributionConfiguration struct {
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
 	// Name to apply to the distributed AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -128,9 +133,9 @@ type distributionConfigurationState struct {
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
 	// Name to apply to the distributed AMI.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -147,9 +152,9 @@ type DistributionConfigurationState struct {
 	Distributions DistributionConfigurationDistributionArrayInput
 	// Name to apply to the distributed AMI.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -164,7 +169,7 @@ type distributionConfigurationArgs struct {
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
 	// Name to apply to the distributed AMI.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -176,7 +181,7 @@ type DistributionConfigurationArgs struct {
 	Distributions DistributionConfigurationDistributionArrayInput
 	// Name to apply to the distributed AMI.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -206,7 +211,7 @@ func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext
 // DistributionConfigurationArrayInput is an input type that accepts DistributionConfigurationArray and DistributionConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationArrayInput` via:
 //
-//          DistributionConfigurationArray{ DistributionConfigurationArgs{...} }
+//	DistributionConfigurationArray{ DistributionConfigurationArgs{...} }
 type DistributionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i DistributionConfigurationArray) ToDistributionConfigurationArrayOutputWi
 // DistributionConfigurationMapInput is an input type that accepts DistributionConfigurationMap and DistributionConfigurationMapOutput values.
 // You can construct a concrete instance of `DistributionConfigurationMapInput` via:
 //
-//          DistributionConfigurationMap{ "key": DistributionConfigurationArgs{...} }
+//	DistributionConfigurationMap{ "key": DistributionConfigurationArgs{...} }
 type DistributionConfigurationMapInput interface {
 	pulumi.Input
 
@@ -299,12 +304,12 @@ func (o DistributionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DistributionConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DistributionConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-// 			RequireEncryption: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
-// 			Disabled: pulumi.Bool(false),
-// 			CpsLimit: pulumi.Int(1),
-// 			CidrAllowLists: pulumi.StringArray{
-// 				pulumi.String("50.35.78.96/31"),
-// 			},
-// 			CallingRegions: pulumi.StringArray{
-// 				pulumi.String("US"),
-// 				pulumi.String("CA"),
-// 			},
-// 			VoiceConnectorId: defaultVoiceConnector.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
+//				Disabled: pulumi.Bool(false),
+//				CpsLimit: pulumi.Int(1),
+//				CidrAllowLists: pulumi.StringArray{
+//					pulumi.String("50.35.78.96/31"),
+//				},
+//				CallingRegions: pulumi.StringArray{
+//					pulumi.String("US"),
+//					pulumi.String("CA"),
+//				},
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Chime Voice Connector Termination can be imported using the `voice_connector_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+//
+//	$ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+//
 // ```
 type VoiceConnectorTermination struct {
 	pulumi.CustomResourceState
@@ -203,7 +208,7 @@ func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationOutputWithContext
 // VoiceConnectorTerminationArrayInput is an input type that accepts VoiceConnectorTerminationArray and VoiceConnectorTerminationArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationArrayInput` via:
 //
-//          VoiceConnectorTerminationArray{ VoiceConnectorTerminationArgs{...} }
+//	VoiceConnectorTerminationArray{ VoiceConnectorTerminationArgs{...} }
 type VoiceConnectorTerminationArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +233,7 @@ func (i VoiceConnectorTerminationArray) ToVoiceConnectorTerminationArrayOutputWi
 // VoiceConnectorTerminationMapInput is an input type that accepts VoiceConnectorTerminationMap and VoiceConnectorTerminationMapOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationMapInput` via:
 //
-//          VoiceConnectorTerminationMap{ "key": VoiceConnectorTerminationArgs{...} }
+//	VoiceConnectorTerminationMap{ "key": VoiceConnectorTerminationArgs{...} }
 type VoiceConnectorTerminationMapInput interface {
 	pulumi.Input
 

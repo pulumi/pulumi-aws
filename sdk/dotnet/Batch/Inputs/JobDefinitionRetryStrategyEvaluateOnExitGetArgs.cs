@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class JobDefinitionRetryStrategyEvaluateOnExitGetArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionRetryStrategyEvaluateOnExitGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public JobDefinitionRetryStrategyEvaluateOnExitGetArgs()
         {
         }
+        public static new JobDefinitionRetryStrategyEvaluateOnExitGetArgs Empty => new JobDefinitionRetryStrategyEvaluateOnExitGetArgs();
     }
 }

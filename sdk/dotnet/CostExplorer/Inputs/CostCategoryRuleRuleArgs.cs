@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategoryRuleRuleArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryRuleRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("ands")]
         private InputList<Inputs.CostCategoryRuleRuleAndArgs>? _ands;
@@ -54,14 +54,12 @@ namespace Pulumi.Aws.CostExplorer.Inputs
             set => _ors = value;
         }
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Input("tags")]
         public Input<Inputs.CostCategoryRuleRuleTagsArgs>? Tags { get; set; }
 
         public CostCategoryRuleRuleArgs()
         {
         }
+        public static new CostCategoryRuleRuleArgs Empty => new CostCategoryRuleRuleArgs();
     }
 }

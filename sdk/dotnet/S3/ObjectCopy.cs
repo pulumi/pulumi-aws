@@ -15,38 +15,36 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.S3.ObjectCopy("test", new()
     ///     {
-    ///         var test = new Aws.S3.ObjectCopy("test", new Aws.S3.ObjectCopyArgs
+    ///         Bucket = "destination_bucket",
+    ///         Grants = new[]
     ///         {
-    ///             Bucket = "destination_bucket",
-    ///             Grants = 
+    ///             new Aws.S3.Inputs.ObjectCopyGrantArgs
     ///             {
-    ///                 new Aws.S3.Inputs.ObjectCopyGrantArgs
+    ///                 Permissions = new[]
     ///                 {
-    ///                     Permissions = 
-    ///                     {
-    ///                         "READ",
-    ///                     },
-    ///                     Type = "Group",
-    ///                     Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
+    ///                     "READ",
     ///                 },
+    ///                 Type = "Group",
+    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
     ///             },
-    ///             Key = "destination_key",
-    ///             Source = "source_bucket/source_key",
-    ///         });
-    ///     }
+    ///         },
+    ///         Key = "destination_key",
+    ///         Source = "source_bucket/source_key",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/objectCopy:ObjectCopy")]
-    public partial class ObjectCopy : Pulumi.CustomResource
+    public partial class ObjectCopy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to `private`. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
@@ -298,7 +296,7 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -359,7 +357,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class ObjectCopyArgs : Pulumi.ResourceArgs
+    public sealed class ObjectCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to `private`. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
@@ -607,9 +605,10 @@ namespace Pulumi.Aws.S3
         public ObjectCopyArgs()
         {
         }
+        public static new ObjectCopyArgs Empty => new ObjectCopyArgs();
     }
 
-    public sealed class ObjectCopyState : Pulumi.ResourceArgs
+    public sealed class ObjectCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to `private`. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
@@ -882,7 +881,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -905,5 +904,6 @@ namespace Pulumi.Aws.S3
         public ObjectCopyState()
         {
         }
+        public static new ObjectCopyState Empty => new ObjectCopyState();
     }
 }

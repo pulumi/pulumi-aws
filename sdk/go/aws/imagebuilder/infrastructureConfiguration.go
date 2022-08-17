@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
-// 			Description:         pulumi.String("example description"),
-// 			InstanceProfileName: pulumi.Any(aws_iam_instance_profile.Example.Name),
-// 			InstanceTypes: pulumi.StringArray{
-// 				pulumi.String("t2.nano"),
-// 				pulumi.String("t3.micro"),
-// 			},
-// 			KeyPair: pulumi.Any(aws_key_pair.Example.Key_name),
-// 			SecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Id),
-// 			},
-// 			SnsTopicArn:                pulumi.Any(aws_sns_topic.Example.Arn),
-// 			SubnetId:                   pulumi.Any(aws_subnet.Main.Id),
-// 			TerminateInstanceOnFailure: pulumi.Bool(true),
-// 			Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
-// 				S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
-// 					S3BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 					S3KeyPrefix:  pulumi.String("logs"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
+//				Description:         pulumi.String("example description"),
+//				InstanceProfileName: pulumi.Any(aws_iam_instance_profile.Example.Name),
+//				InstanceTypes: pulumi.StringArray{
+//					pulumi.String("t2.nano"),
+//					pulumi.String("t3.micro"),
+//				},
+//				KeyPair: pulumi.Any(aws_key_pair.Example.Key_name),
+//				SecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Id),
+//				},
+//				SnsTopicArn:                pulumi.Any(aws_sns_topic.Example.Arn),
+//				SubnetId:                   pulumi.Any(aws_subnet.Main.Id),
+//				TerminateInstanceOnFailure: pulumi.Bool(true),
+//				Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
+//					S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
+//						S3BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//						S3KeyPrefix:  pulumi.String("logs"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+//
+//	$ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+//
 // ```
 type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
@@ -97,7 +102,7 @@ type InfrastructureConfiguration struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnFailure"`
@@ -165,7 +170,7 @@ type infrastructureConfigurationState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
@@ -202,7 +207,7 @@ type InfrastructureConfigurationState struct {
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
@@ -297,7 +302,7 @@ func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithCon
 // InfrastructureConfigurationArrayInput is an input type that accepts InfrastructureConfigurationArray and InfrastructureConfigurationArrayOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationArrayInput` via:
 //
-//          InfrastructureConfigurationArray{ InfrastructureConfigurationArgs{...} }
+//	InfrastructureConfigurationArray{ InfrastructureConfigurationArgs{...} }
 type InfrastructureConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -322,7 +327,7 @@ func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutp
 // InfrastructureConfigurationMapInput is an input type that accepts InfrastructureConfigurationMap and InfrastructureConfigurationMapOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationMapInput` via:
 //
-//          InfrastructureConfigurationMap{ "key": InfrastructureConfigurationArgs{...} }
+//	InfrastructureConfigurationMap{ "key": InfrastructureConfigurationArgs{...} }
 type InfrastructureConfigurationMapInput interface {
 	pulumi.Input
 
@@ -435,7 +440,7 @@ func (o InfrastructureConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InfrastructureConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

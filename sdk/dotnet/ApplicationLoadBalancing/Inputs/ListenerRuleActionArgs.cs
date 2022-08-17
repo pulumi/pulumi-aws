@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerRuleActionArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
@@ -60,5 +60,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerRuleActionArgs()
         {
         }
+        public static new ListenerRuleActionArgs Empty => new ListenerRuleActionArgs();
     }
 }

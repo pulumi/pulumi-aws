@@ -19,29 +19,24 @@ namespace Pulumi.Aws.Eks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Eks.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Eks.GetCluster.InvokeAsync(new Aws.Eks.GetClusterArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///         this.Endpoint = example.Apply(example =&gt; example.Endpoint);
-        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthorities?[0]?.Data);
-        ///         this.Identity_oidc_issuer = example.Apply(example =&gt; example.Identities?[0]?.Oidcs?[0]?.Issuer);
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        ///     [Output("endpoint")]
-        ///     public Output&lt;string&gt; Endpoint { get; set; }
-        ///     [Output("kubeconfig-certificate-authority-data")]
-        ///     public Output&lt;string&gt; Kubeconfig_certificate_authority_data { get; set; }
-        ///     [Output("identity-oidc-issuer")]
-        ///     public Output&lt;string&gt; Identity_oidc_issuer { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["endpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
+        ///         ["kubeconfig-certificate-authority-data"] = example.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
+        ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +52,24 @@ namespace Pulumi.Aws.Eks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Eks.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Eks.GetCluster.InvokeAsync(new Aws.Eks.GetClusterArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///         this.Endpoint = example.Apply(example =&gt; example.Endpoint);
-        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthorities?[0]?.Data);
-        ///         this.Identity_oidc_issuer = example.Apply(example =&gt; example.Identities?[0]?.Oidcs?[0]?.Issuer);
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        ///     [Output("endpoint")]
-        ///     public Output&lt;string&gt; Endpoint { get; set; }
-        ///     [Output("kubeconfig-certificate-authority-data")]
-        ///     public Output&lt;string&gt; Kubeconfig_certificate_authority_data { get; set; }
-        ///     [Output("identity-oidc-issuer")]
-        ///     public Output&lt;string&gt; Identity_oidc_issuer { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["endpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
+        ///         ["kubeconfig-certificate-authority-data"] = example.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
+        ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +79,7 @@ namespace Pulumi.Aws.Eks
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -112,9 +102,10 @@ namespace Pulumi.Aws.Eks
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -137,6 +128,7 @@ namespace Pulumi.Aws.Eks
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

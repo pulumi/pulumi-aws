@@ -14,48 +14,48 @@ namespace Pulumi.Aws.Transcribe
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///             ForceDestroy = true,
-    ///         });
-    ///         var @object = new Aws.S3.BucketObjectv2("object", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Key = "transcribe/test1.txt",
-    ///             Source = new FileAsset("test.txt"),
-    ///         });
-    ///         var exampleVocabulary = new Aws.Transcribe.Vocabulary("exampleVocabulary", new Aws.Transcribe.VocabularyArgs
-    ///         {
-    ///             VocabularyName = "example",
-    ///             LanguageCode = "en-US",
-    ///             VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
-    ///             {
-    ///                 var id = values.Item1;
-    ///                 var key = values.Item2;
-    ///                 return $"s3://{id}/{key}";
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value3" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 @object,
-    ///             },
-    ///         });
-    ///     }
+    ///         ForceDestroy = true,
+    ///     });
     /// 
-    /// }
+    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "transcribe/test1.txt",
+    ///         Source = new FileAsset("test.txt"),
+    ///     });
+    /// 
+    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary("exampleVocabulary", new()
+    ///     {
+    ///         VocabularyName = "example",
+    ///         LanguageCode = "en-US",
+    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"s3://{id}/{key}";
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value3" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             @object,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Transcribe
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/vocabulary:Vocabulary")]
-    public partial class Vocabulary : Pulumi.CustomResource
+    public partial class Vocabulary : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Vocabulary.
@@ -93,9 +93,6 @@ namespace Pulumi.Aws.Transcribe
         [Output("phrases")]
         public Output<ImmutableArray<string>> Phrases { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -158,7 +155,7 @@ namespace Pulumi.Aws.Transcribe
         }
     }
 
-    public sealed class VocabularyArgs : Pulumi.ResourceArgs
+    public sealed class VocabularyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The language code you selected for your vocabulary.
@@ -180,22 +177,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -213,9 +198,10 @@ namespace Pulumi.Aws.Transcribe
         public VocabularyArgs()
         {
         }
+        public static new VocabularyArgs Empty => new VocabularyArgs();
     }
 
-    public sealed class VocabularyState : Pulumi.ResourceArgs
+    public sealed class VocabularyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Vocabulary.
@@ -249,10 +235,6 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -282,5 +264,6 @@ namespace Pulumi.Aws.Transcribe
         public VocabularyState()
         {
         }
+        public static new VocabularyState Empty => new VocabularyState();
     }
 }

@@ -19,17 +19,15 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.ElasticBeanstalk.GetHostedZone.InvokeAsync());
-        ///     }
+        ///     var current = Aws.ElasticBeanstalk.GetHostedZone.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,17 +43,15 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.ElasticBeanstalk.GetHostedZone.InvokeAsync());
-        ///     }
+        ///     var current = Aws.ElasticBeanstalk.GetHostedZone.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,7 +61,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     }
 
 
-    public sealed class GetHostedZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The region you'd like the zone for. By default, fetches the current region.
@@ -76,9 +72,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public GetHostedZoneArgs()
         {
         }
+        public static new GetHostedZoneArgs Empty => new GetHostedZoneArgs();
     }
 
-    public sealed class GetHostedZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The region you'd like the zone for. By default, fetches the current region.
@@ -89,6 +86,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public GetHostedZoneInvokeArgs()
         {
         }
+        public static new GetHostedZoneInvokeArgs Empty => new GetHostedZoneInvokeArgs();
     }
 
 

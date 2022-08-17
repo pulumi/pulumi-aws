@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersS3GetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersS3GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object containing the S3 location of the S3 manifest file.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersS3GetArgs()
         {
         }
+        public static new DataSourceParametersS3GetArgs Empty => new DataSourceParametersS3GetArgs();
     }
 }

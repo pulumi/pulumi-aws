@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigGetArgs()
         {
         }
+        public static new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigGetArgs Empty => new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigGetArgs();
     }
 }

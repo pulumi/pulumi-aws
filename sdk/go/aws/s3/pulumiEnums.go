@@ -146,7 +146,7 @@ func (o CannedAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // CannedAclInput is an input type that accepts CannedAclArgs and CannedAclOutput values.
 // You can construct a concrete instance of `CannedAclInput` via:
 //
-//          CannedAclArgs{...}
+//	CannedAclArgs{...}
 type CannedAclInput interface {
 	pulumi.Input
 

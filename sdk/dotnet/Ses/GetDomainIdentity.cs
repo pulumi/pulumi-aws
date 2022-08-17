@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ses
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ses.GetDomainIdentity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ses.GetDomainIdentity.InvokeAsync(new Aws.Ses.GetDomainIdentityArgs
-        ///         {
-        ///             Domain = "example.com",
-        ///         }));
-        ///     }
+        ///         Domain = "example.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Ses
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ses.GetDomainIdentity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ses.GetDomainIdentity.InvokeAsync(new Aws.Ses.GetDomainIdentityArgs
-        ///         {
-        ///             Domain = "example.com",
-        ///         }));
-        ///     }
+        ///         Domain = "example.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ses
     }
 
 
-    public sealed class GetDomainIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Ses
         public GetDomainIdentityArgs()
         {
         }
+        public static new GetDomainIdentityArgs Empty => new GetDomainIdentityArgs();
     }
 
-    public sealed class GetDomainIdentityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Ses
         public GetDomainIdentityInvokeArgs()
         {
         }
+        public static new GetDomainIdentityInvokeArgs Empty => new GetDomainIdentityInvokeArgs();
     }
 
 

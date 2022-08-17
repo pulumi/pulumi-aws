@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class PlanRuleLifecycleArgs : Pulumi.ResourceArgs
+    public sealed class PlanRuleLifecycleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days after creation that a recovery point is moved to cold storage.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public PlanRuleLifecycleArgs()
         {
         }
+        public static new PlanRuleLifecycleArgs Empty => new PlanRuleLifecycleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LB.Inputs
 {
 
-    public sealed class ListenerRuleActionForwardArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionForwardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target group stickiness for the rule.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.LB.Inputs
         public ListenerRuleActionForwardArgs()
         {
         }
+        public static new ListenerRuleActionForwardArgs Empty => new ListenerRuleActionForwardArgs();
     }
 }

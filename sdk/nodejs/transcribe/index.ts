@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./languageModel";
 export * from "./medicalVocabulary";
 export * from "./vocabulary";
 export * from "./vocabularyFilter";
 
 // Import resources to register:
+import { LanguageModel } from "./languageModel";
 import { MedicalVocabulary } from "./medicalVocabulary";
 import { Vocabulary } from "./vocabulary";
 import { VocabularyFilter } from "./vocabularyFilter";
@@ -18,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:transcribe/languageModel:LanguageModel":
+                return new LanguageModel(name, <any>undefined, { urn })
             case "aws:transcribe/medicalVocabulary:MedicalVocabulary":
                 return new MedicalVocabulary(name, <any>undefined, { urn })
             case "aws:transcribe/vocabulary:Vocabulary":
@@ -29,6 +33,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "transcribe/languageModel", _module)
 pulumi.runtime.registerResourceModule("aws", "transcribe/medicalVocabulary", _module)
 pulumi.runtime.registerResourceModule("aws", "transcribe/vocabulary", _module)
 pulumi.runtime.registerResourceModule("aws", "transcribe/vocabularyFilter", _module)

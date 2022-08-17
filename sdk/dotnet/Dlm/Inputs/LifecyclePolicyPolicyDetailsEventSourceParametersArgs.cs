@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsEventSourceParametersArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsEventSourceParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsEventSourceParametersArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsEventSourceParametersArgs Empty => new LifecyclePolicyPolicyDetailsEventSourceParametersArgs();
     }
 }

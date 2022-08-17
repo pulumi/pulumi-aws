@@ -17,35 +17,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
-// 			Length: pulumi.Int(16),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = memorydb.NewUser(ctx, "exampleUser", &memorydb.UserArgs{
-// 			UserName:     pulumi.String("my-user"),
-// 			AccessString: pulumi.String("on ~* &* +@all"),
-// 			AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
-// 				Type: pulumi.String("password"),
-// 				Passwords: pulumi.StringArray{
-// 					exampleRandomPassword.Result,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
+//				Length: pulumi.Int(16),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = memorydb.NewUser(ctx, "exampleUser", &memorydb.UserArgs{
+//				UserName:     pulumi.String("my-user"),
+//				AccessString: pulumi.String("on ~* &* +@all"),
+//				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
+//					Type: pulumi.String("password"),
+//					Passwords: pulumi.StringArray{
+//						exampleRandomPassword.Result,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,10 +56,12 @@ import (
 // Use the `user_name` to import a user. For example
 //
 // ```sh
-//  $ pulumi import aws:memorydb/user:User example my-user
+//
+//	$ pulumi import aws:memorydb/user:User example my-user
+//
 // ```
 //
-//  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+//	The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -70,8 +75,7 @@ type User struct {
 	// * `authenticationMode` configuration block
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -125,8 +129,7 @@ type userState struct {
 	// * `authenticationMode` configuration block
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName *string `pulumi:"userName"`
@@ -143,8 +146,7 @@ type UserState struct {
 	// * `authenticationMode` configuration block
 	MinimumEngineVersion pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName pulumi.StringPtrInput
@@ -203,7 +205,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +230,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 
@@ -290,7 +292,6 @@ func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

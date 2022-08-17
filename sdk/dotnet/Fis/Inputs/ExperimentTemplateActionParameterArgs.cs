@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fis.Inputs
 {
 
-    public sealed class ExperimentTemplateActionParameterArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateActionParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tag key.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fis.Inputs
         public ExperimentTemplateActionParameterArgs()
         {
         }
+        public static new ExperimentTemplateActionParameterArgs Empty => new ExperimentTemplateActionParameterArgs();
     }
 }

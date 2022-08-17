@@ -17,89 +17,94 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCluster, err := msk.NewCluster(ctx, "exampleCluster", &msk.ClusterArgs{
-// 			ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
-// 				Sasl: &msk.ClusterClientAuthenticationSaslArgs{
-// 					Scram: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-// 			Description: pulumi.String("Example Key for MSK Cluster Scram Secret Association"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", &secretsmanager.SecretArgs{
-// 			KmsKeyId: exampleKey.KeyId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"username": "user",
-// 			"password": "pass",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
-// 			SecretId:     exampleSecret.ID(),
-// 			SecretString: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = msk.NewScramSecretAssociation(ctx, "exampleScramSecretAssociation", &msk.ScramSecretAssociationArgs{
-// 			ClusterArn: exampleCluster.Arn,
-// 			SecretArnLists: pulumi.StringArray{
-// 				exampleSecret.Arn,
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleSecretVersion,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
-// 			SecretArn: exampleSecret.Arn,
-// 			Policy: exampleSecret.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version" : "2012-10-17",
-//   "Statement" : [ {
-//     "Sid": "AWSKafkaResourcePolicy",
-//     "Effect" : "Allow",
-//     "Principal" : {
-//       "Service" : "kafka.amazonaws.com"
-//     },
-//     "Action" : "secretsmanager:getSecretValue",
-//     "Resource" : "%v"
-//   } ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := msk.NewCluster(ctx, "exampleCluster", &msk.ClusterArgs{
+//				ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
+//					Sasl: &msk.ClusterClientAuthenticationSaslArgs{
+//						Scram: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description: pulumi.String("Example Key for MSK Cluster Scram Secret Association"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", &secretsmanager.SecretArgs{
+//				KmsKeyId: exampleKey.KeyId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"username": "user",
+//				"password": "pass",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
+//				SecretId:     exampleSecret.ID(),
+//				SecretString: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = msk.NewScramSecretAssociation(ctx, "exampleScramSecretAssociation", &msk.ScramSecretAssociationArgs{
+//				ClusterArn: exampleCluster.Arn,
+//				SecretArnLists: pulumi.StringArray{
+//					exampleSecret.Arn,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSecretVersion,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
+//				SecretArn: exampleSecret.Arn,
+//				Policy: exampleSecret.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version" : "2012-10-17",
+//	  "Statement" : [ {
+//	    "Sid": "AWSKafkaResourcePolicy",
+//	    "Effect" : "Allow",
+//	    "Principal" : {
+//	      "Service" : "kafka.amazonaws.com"
+//	    },
+//	    "Action" : "secretsmanager:getSecretValue",
+//	    "Resource" : "%v"
+//	  } ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -107,7 +112,9 @@ import (
 // MSK SCRAM Secret Associations can be imported using the `id` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+//
+//	$ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+//
 // ```
 type ScramSecretAssociation struct {
 	pulumi.CustomResourceState
@@ -211,7 +218,7 @@ func (i *ScramSecretAssociation) ToScramSecretAssociationOutputWithContext(ctx c
 // ScramSecretAssociationArrayInput is an input type that accepts ScramSecretAssociationArray and ScramSecretAssociationArrayOutput values.
 // You can construct a concrete instance of `ScramSecretAssociationArrayInput` via:
 //
-//          ScramSecretAssociationArray{ ScramSecretAssociationArgs{...} }
+//	ScramSecretAssociationArray{ ScramSecretAssociationArgs{...} }
 type ScramSecretAssociationArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +243,7 @@ func (i ScramSecretAssociationArray) ToScramSecretAssociationArrayOutputWithCont
 // ScramSecretAssociationMapInput is an input type that accepts ScramSecretAssociationMap and ScramSecretAssociationMapOutput values.
 // You can construct a concrete instance of `ScramSecretAssociationMapInput` via:
 //
-//          ScramSecretAssociationMap{ "key": ScramSecretAssociationArgs{...} }
+//	ScramSecretAssociationMap{ "key": ScramSecretAssociationArgs{...} }
 type ScramSecretAssociationMapInput interface {
 	pulumi.Input
 

@@ -15,39 +15,36 @@ namespace Pulumi.Aws.Macie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.Macie2.Account("exampleAccount", new Aws.Macie2.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleCustomDataIdentifier = new Aws.Macie.CustomDataIdentifier("exampleCustomDataIdentifier", new Aws.Macie.CustomDataIdentifierArgs
-    ///         {
-    ///             Regex = "[0-9]{3}-[0-9]{2}-[0-9]{4}",
-    ///             Description = "DESCRIPTION",
-    ///             MaximumMatchDistance = 10,
-    ///             Keywords = 
-    ///             {
-    ///                 "keyword",
-    ///             },
-    ///             IgnoreWords = 
-    ///             {
-    ///                 "ignore",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_macie2_account.Test,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleCustomDataIdentifier = new Aws.Macie.CustomDataIdentifier("exampleCustomDataIdentifier", new()
+    ///     {
+    ///         Regex = "[0-9]{3}-[0-9]{2}-[0-9]{4}",
+    ///         Description = "DESCRIPTION",
+    ///         MaximumMatchDistance = 10,
+    ///         Keywords = new[]
+    ///         {
+    ///             "keyword",
+    ///         },
+    ///         IgnoreWords = new[]
+    ///         {
+    ///             "ignore",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_macie2_account.Test,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +56,7 @@ namespace Pulumi.Aws.Macie
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie/customDataIdentifier:CustomDataIdentifier")]
-    public partial class CustomDataIdentifier : Pulumi.CustomResource
+    public partial class CustomDataIdentifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom data identifier.
@@ -165,7 +162,7 @@ namespace Pulumi.Aws.Macie
         }
     }
 
-    public sealed class CustomDataIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class CustomDataIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
@@ -233,9 +230,10 @@ namespace Pulumi.Aws.Macie
         public CustomDataIdentifierArgs()
         {
         }
+        public static new CustomDataIdentifierArgs Empty => new CustomDataIdentifierArgs();
     }
 
-    public sealed class CustomDataIdentifierState : Pulumi.ResourceArgs
+    public sealed class CustomDataIdentifierState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom data identifier.
@@ -323,5 +321,6 @@ namespace Pulumi.Aws.Macie
         public CustomDataIdentifierState()
         {
         }
+        public static new CustomDataIdentifierState Empty => new CustomDataIdentifierState();
     }
 }

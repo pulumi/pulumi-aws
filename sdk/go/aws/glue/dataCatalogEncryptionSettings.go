@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
-// 			DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
-// 				ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
-// 					AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
-// 					ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
-// 				},
-// 				EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
-// 					CatalogEncryptionMode: pulumi.String("SSE-KMS"),
-// 					SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
+//				DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
+//					ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
+//						AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
+//						ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
+//					},
+//					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
+//						CatalogEncryptionMode: pulumi.String("SSE-KMS"),
+//						SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+//
+//	$ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+//
 // ```
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
@@ -151,7 +156,7 @@ func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWit
 // DataCatalogEncryptionSettingsArrayInput is an input type that accepts DataCatalogEncryptionSettingsArray and DataCatalogEncryptionSettingsArrayOutput values.
 // You can construct a concrete instance of `DataCatalogEncryptionSettingsArrayInput` via:
 //
-//          DataCatalogEncryptionSettingsArray{ DataCatalogEncryptionSettingsArgs{...} }
+//	DataCatalogEncryptionSettingsArray{ DataCatalogEncryptionSettingsArgs{...} }
 type DataCatalogEncryptionSettingsArrayInput interface {
 	pulumi.Input
 
@@ -176,7 +181,7 @@ func (i DataCatalogEncryptionSettingsArray) ToDataCatalogEncryptionSettingsArray
 // DataCatalogEncryptionSettingsMapInput is an input type that accepts DataCatalogEncryptionSettingsMap and DataCatalogEncryptionSettingsMapOutput values.
 // You can construct a concrete instance of `DataCatalogEncryptionSettingsMapInput` via:
 //
-//          DataCatalogEncryptionSettingsMap{ "key": DataCatalogEncryptionSettingsArgs{...} }
+//	DataCatalogEncryptionSettingsMap{ "key": DataCatalogEncryptionSettingsArgs{...} }
 type DataCatalogEncryptionSettingsMapInput interface {
 	pulumi.Input
 

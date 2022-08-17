@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualRouterSpecGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRouterSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The listeners that the virtual router is expected to receive inbound traffic from.
@@ -22,5 +22,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualRouterSpecGetArgs()
         {
         }
+        public static new VirtualRouterSpecGetArgs Empty => new VirtualRouterSpecGetArgs();
     }
 }

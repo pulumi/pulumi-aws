@@ -16,22 +16,20 @@ namespace Pulumi.Aws.ImageBuilder
     /// ### URI Document
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ImageBuilder.Component("example", new()
     ///     {
-    ///         var example = new Aws.ImageBuilder.Component("example", new Aws.ImageBuilder.ComponentArgs
-    ///         {
-    ///             Platform = "Linux",
-    ///             Uri = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
-    ///             Version = "1.0.0",
-    ///         });
-    ///     }
+    ///         Platform = "Linux",
+    ///         Uri = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
+    ///         Version = "1.0.0",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:imagebuilder/component:Component")]
-    public partial class Component : Pulumi.CustomResource
+    public partial class Component : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the component.
@@ -114,13 +112,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableArray<string>> SupportedOsVersions { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the component. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -187,7 +185,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
     }
 
-    public sealed class ComponentArgs : Pulumi.ResourceArgs
+    public sealed class ComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Change description of the component.
@@ -241,7 +239,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the component. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,9 +262,10 @@ namespace Pulumi.Aws.ImageBuilder
         public ComponentArgs()
         {
         }
+        public static new ComponentArgs Empty => new ComponentArgs();
     }
 
-    public sealed class ComponentState : Pulumi.ResourceArgs
+    public sealed class ComponentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the component.
@@ -344,7 +343,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the component. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -356,7 +355,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -385,5 +384,6 @@ namespace Pulumi.Aws.ImageBuilder
         public ComponentState()
         {
         }
+        public static new ComponentState Empty => new ComponentState();
     }
 }

@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testInstance, err := ec2.NewInstance(ctx, "testInstance", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
-// 			TargetGroupArn: testTargetGroup.Arn,
-// 			TargetId:       testInstance.ID(),
-// 			Port:           pulumi.Int(80),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testInstance, err := ec2.NewInstance(ctx, "testInstance", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+//				TargetGroupArn: testTargetGroup.Arn,
+//				TargetId:       testInstance.ID(),
+//				Port:           pulumi.Int(80),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Usage with lambda
 //
@@ -54,44 +57,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", &lb.TargetGroupArgs{
-// 			TargetType: pulumi.String("lambda"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testFunction, err := lambda.NewFunction(ctx, "testFunction", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
-// 			Action:    pulumi.String("lambda:InvokeFunction"),
-// 			Function:  testFunction.Arn,
-// 			Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
-// 			SourceArn: testTargetGroup.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
-// 			TargetGroupArn: testTargetGroup.Arn,
-// 			TargetId:       testFunction.Arn,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			withLb,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", &lb.TargetGroupArgs{
+//				TargetType: pulumi.String("lambda"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testFunction, err := lambda.NewFunction(ctx, "testFunction", nil)
+//			if err != nil {
+//				return err
+//			}
+//			withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  testFunction.Name,
+//				Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
+//				SourceArn: testTargetGroup.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+//				TargetGroupArn: testTargetGroup.Arn,
+//				TargetId:       testFunction.Arn,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				withLb,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -221,7 +227,7 @@ func (i *TargetGroupAttachment) ToTargetGroupAttachmentOutputWithContext(ctx con
 // TargetGroupAttachmentArrayInput is an input type that accepts TargetGroupAttachmentArray and TargetGroupAttachmentArrayOutput values.
 // You can construct a concrete instance of `TargetGroupAttachmentArrayInput` via:
 //
-//          TargetGroupAttachmentArray{ TargetGroupAttachmentArgs{...} }
+//	TargetGroupAttachmentArray{ TargetGroupAttachmentArgs{...} }
 type TargetGroupAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +252,7 @@ func (i TargetGroupAttachmentArray) ToTargetGroupAttachmentArrayOutputWithContex
 // TargetGroupAttachmentMapInput is an input type that accepts TargetGroupAttachmentMap and TargetGroupAttachmentMapOutput values.
 // You can construct a concrete instance of `TargetGroupAttachmentMapInput` via:
 //
-//          TargetGroupAttachmentMap{ "key": TargetGroupAttachmentArgs{...} }
+//	TargetGroupAttachmentMap{ "key": TargetGroupAttachmentArgs{...} }
 type TargetGroupAttachmentMapInput interface {
 	pulumi.Input
 

@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
-// 			Comment:    pulumi.String("test public key"),
-// 			EncodedKey: readFileOrPanic("public_key.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudfront.NewFieldLevelEncryptionProfile(ctx, "test", &cloudfront.FieldLevelEncryptionProfileArgs{
-// 			Comment: pulumi.String("test comment"),
-// 			EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
-// 				Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
-// 					&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{
-// 						PublicKeyId: example.ID(),
-// 						ProviderId:  pulumi.String("test provider"),
-// 						FieldPatterns: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{
-// 							Items: pulumi.StringArray{
-// 								pulumi.String("DateOfBirth"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
+//				Comment:    pulumi.String("test public key"),
+//				EncodedKey: readFileOrPanic("public_key.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewFieldLevelEncryptionProfile(ctx, "test", &cloudfront.FieldLevelEncryptionProfileArgs{
+//				Comment: pulumi.String("test comment"),
+//				EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
+//					Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
+//						&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{
+//							PublicKeyId: example.ID(),
+//							ProviderId:  pulumi.String("test provider"),
+//							FieldPatterns: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{
+//								Items: pulumi.StringArray{
+//									pulumi.String("DateOfBirth"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // Cloudfront Field Level Encryption Profile can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+//
+//	$ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+//
 // ```
 type FieldLevelEncryptionProfile struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfileOutputWithCon
 // FieldLevelEncryptionProfileArrayInput is an input type that accepts FieldLevelEncryptionProfileArray and FieldLevelEncryptionProfileArrayOutput values.
 // You can construct a concrete instance of `FieldLevelEncryptionProfileArrayInput` via:
 //
-//          FieldLevelEncryptionProfileArray{ FieldLevelEncryptionProfileArgs{...} }
+//	FieldLevelEncryptionProfileArray{ FieldLevelEncryptionProfileArgs{...} }
 type FieldLevelEncryptionProfileArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i FieldLevelEncryptionProfileArray) ToFieldLevelEncryptionProfileArrayOutp
 // FieldLevelEncryptionProfileMapInput is an input type that accepts FieldLevelEncryptionProfileMap and FieldLevelEncryptionProfileMapOutput values.
 // You can construct a concrete instance of `FieldLevelEncryptionProfileMapInput` via:
 //
-//          FieldLevelEncryptionProfileMap{ "key": FieldLevelEncryptionProfileArgs{...} }
+//	FieldLevelEncryptionProfileMap{ "key": FieldLevelEncryptionProfileArgs{...} }
 type FieldLevelEncryptionProfileMapInput interface {
 	pulumi.Input
 

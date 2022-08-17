@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 {
 
-    public sealed class GetVpnAttachmentFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnAttachmentFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
         public GetVpnAttachmentFilterArgs()
         {
         }
+        public static new GetVpnAttachmentFilterArgs Empty => new GetVpnAttachmentFilterArgs();
     }
 }

@@ -15,36 +15,35 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
     ///     {
-    ///         var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
-    ///         {
-    ///             Name = "my_database",
-    ///         });
-    ///         var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("exampleUserDefinedFunction", new Aws.Glue.UserDefinedFunctionArgs
-    ///         {
-    ///             CatalogId = exampleCatalogDatabase.CatalogId,
-    ///             DatabaseName = exampleCatalogDatabase.Name,
-    ///             ClassName = "class",
-    ///             OwnerName = "owner",
-    ///             OwnerType = "GROUP",
-    ///             ResourceUris = 
-    ///             {
-    ///                 new Aws.Glue.Inputs.UserDefinedFunctionResourceUriArgs
-    ///                 {
-    ///                     ResourceType = "ARCHIVE",
-    ///                     Uri = "uri",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "my_database",
+    ///     });
     /// 
-    /// }
+    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("exampleUserDefinedFunction", new()
+    ///     {
+    ///         CatalogId = exampleCatalogDatabase.CatalogId,
+    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         ClassName = "class",
+    ///         OwnerName = "owner",
+    ///         OwnerType = "GROUP",
+    ///         ResourceUris = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.UserDefinedFunctionResourceUriArgs
+    ///             {
+    ///                 ResourceType = "ARCHIVE",
+    ///                 Uri = "uri",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
-    public partial class UserDefinedFunction : Pulumi.CustomResource
+    public partial class UserDefinedFunction : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -150,7 +149,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class UserDefinedFunctionArgs : Pulumi.ResourceArgs
+    public sealed class UserDefinedFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
@@ -203,9 +202,10 @@ namespace Pulumi.Aws.Glue
         public UserDefinedFunctionArgs()
         {
         }
+        public static new UserDefinedFunctionArgs Empty => new UserDefinedFunctionArgs();
     }
 
-    public sealed class UserDefinedFunctionState : Pulumi.ResourceArgs
+    public sealed class UserDefinedFunctionState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -264,5 +264,6 @@ namespace Pulumi.Aws.Glue
         public UserDefinedFunctionState()
         {
         }
+        public static new UserDefinedFunctionState Empty => new UserDefinedFunctionState();
     }
 }

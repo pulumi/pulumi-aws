@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTimeoutGrpcArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTimeoutGrpcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTimeoutGrpcArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTimeoutGrpcArgs Empty => new VirtualNodeSpecListenerTimeoutGrpcArgs();
     }
 }

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var yada = new Aws.CloudWatch.LogGroup("yada", new()
     ///     {
-    ///         var yada = new Aws.CloudWatch.LogGroup("yada", new Aws.CloudWatch.LogGroupArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Application", "serviceA" },
-    ///                 { "Environment", "production" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Application", "serviceA" },
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logGroup:LogGroup")]
-    public partial class LogGroup : Pulumi.CustomResource
+    public partial class LogGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogGroupArgs : Pulumi.ResourceArgs
+    public sealed class LogGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
@@ -181,9 +179,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogGroupArgs()
         {
         }
+        public static new LogGroupArgs Empty => new LogGroupArgs();
     }
 
-    public sealed class LogGroupState : Pulumi.ResourceArgs
+    public sealed class LogGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
@@ -235,7 +234,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -246,5 +245,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogGroupState()
         {
         }
+        public static new LogGroupState Empty => new LogGroupState();
     }
 }

@@ -26,24 +26,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultSubnet(ctx, "defaultAz1", &ec2.DefaultSubnetArgs{
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Default subnet for us-west-2a"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewDefaultSubnet(ctx, "defaultAz1", &ec2.DefaultSubnetArgs{
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Default subnet for us-west-2a"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Subnets can be imported using the `subnet id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+//
+//	$ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+//
 // ```
 type DefaultSubnet struct {
 	pulumi.CustomResourceState
@@ -253,7 +258,7 @@ func (i *DefaultSubnet) ToDefaultSubnetOutputWithContext(ctx context.Context) De
 // DefaultSubnetArrayInput is an input type that accepts DefaultSubnetArray and DefaultSubnetArrayOutput values.
 // You can construct a concrete instance of `DefaultSubnetArrayInput` via:
 //
-//          DefaultSubnetArray{ DefaultSubnetArgs{...} }
+//	DefaultSubnetArray{ DefaultSubnetArgs{...} }
 type DefaultSubnetArrayInput interface {
 	pulumi.Input
 
@@ -278,7 +283,7 @@ func (i DefaultSubnetArray) ToDefaultSubnetArrayOutputWithContext(ctx context.Co
 // DefaultSubnetMapInput is an input type that accepts DefaultSubnetMap and DefaultSubnetMapOutput values.
 // You can construct a concrete instance of `DefaultSubnetMapInput` via:
 //
-//          DefaultSubnetMap{ "key": DefaultSubnetArgs{...} }
+//	DefaultSubnetMap{ "key": DefaultSubnetArgs{...} }
 type DefaultSubnetMapInput interface {
 	pulumi.Input
 

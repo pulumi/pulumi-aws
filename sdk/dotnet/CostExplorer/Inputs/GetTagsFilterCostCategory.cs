@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class GetTagsFilterCostCategoryArgs : Pulumi.InvokeArgs
+    public sealed class GetTagsFilterCostCategoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public GetTagsFilterCostCategoryArgs()
         {
         }
+        public static new GetTagsFilterCostCategoryArgs Empty => new GetTagsFilterCostCategoryArgs();
     }
 }

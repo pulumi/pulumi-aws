@@ -15,19 +15,15 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Route53.ResolverFirewallRuleGroup("example", new Aws.Route53.ResolverFirewallRuleGroupArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.Route53.ResolverFirewallRuleGroup("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup")]
-    public partial class ResolverFirewallRuleGroup : Pulumi.CustomResource
+    public partial class ResolverFirewallRuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the rule group.
@@ -72,7 +68,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -121,7 +117,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverFirewallRuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallRuleGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.
@@ -144,9 +140,10 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallRuleGroupArgs()
         {
         }
+        public static new ResolverFirewallRuleGroupArgs Empty => new ResolverFirewallRuleGroupArgs();
     }
 
-    public sealed class ResolverFirewallRuleGroupState : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallRuleGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the rule group.
@@ -188,7 +185,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -199,5 +196,6 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallRuleGroupState()
         {
         }
+        public static new ResolverFirewallRuleGroupState Empty => new ResolverFirewallRuleGroupState();
     }
 }

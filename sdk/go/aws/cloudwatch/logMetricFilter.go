@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		dada, err := cloudwatch.NewLogGroup(ctx, "dada", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
-// 			Pattern:      pulumi.String(""),
-// 			LogGroupName: dada.Name,
-// 			MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
-// 				Name:      pulumi.String("EventCount"),
-// 				Namespace: pulumi.String("YourNamespace"),
-// 				Value:     pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
+//				Pattern:      pulumi.String(""),
+//				LogGroupName: dada.Name,
+//				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
+//					Name:      pulumi.String("EventCount"),
+//					Namespace: pulumi.String("YourNamespace"),
+//					Value:     pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+//
+//	$ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+//
 // ```
 type LogMetricFilter struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *LogMetricFilter) ToLogMetricFilterOutputWithContext(ctx context.Context
 // LogMetricFilterArrayInput is an input type that accepts LogMetricFilterArray and LogMetricFilterArrayOutput values.
 // You can construct a concrete instance of `LogMetricFilterArrayInput` via:
 //
-//          LogMetricFilterArray{ LogMetricFilterArgs{...} }
+//	LogMetricFilterArray{ LogMetricFilterArgs{...} }
 type LogMetricFilterArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i LogMetricFilterArray) ToLogMetricFilterArrayOutputWithContext(ctx contex
 // LogMetricFilterMapInput is an input type that accepts LogMetricFilterMap and LogMetricFilterMapOutput values.
 // You can construct a concrete instance of `LogMetricFilterMapInput` via:
 //
-//          LogMetricFilterMap{ "key": LogMetricFilterArgs{...} }
+//	LogMetricFilterMap{ "key": LogMetricFilterArgs{...} }
 type LogMetricFilterMapInput interface {
 	pulumi.Input
 

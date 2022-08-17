@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionLambdaGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionLambdaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lambda function.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionLambdaGetArgs()
         {
         }
+        public static new TopicRuleErrorActionLambdaGetArgs Empty => new TopicRuleErrorActionLambdaGetArgs();
     }
 }

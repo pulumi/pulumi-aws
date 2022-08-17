@@ -22,51 +22,47 @@ namespace Pulumi.Aws.Schemas
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testRegistry = new Aws.Schemas.Registry("testRegistry", new Aws.Schemas.RegistryArgs
-    ///         {
-    ///         });
-    ///         var testSchema = new Aws.Schemas.Schema("testSchema", new Aws.Schemas.SchemaArgs
-    ///         {
-    ///             RegistryName = testRegistry.Name,
-    ///             Type = "OpenApi3",
-    ///             Description = "The schema definition for my event",
-    ///             Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "openapi", "3.0.0" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "version", "1.0.0" },
-    ///                     { "title", "Event" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                 } },
-    ///                 { "components", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "schemas", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "Event", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "type", "object" },
-    ///                             { "properties", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "name", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "type", "string" },
-    ///                                 } },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///     }
+    ///     var testRegistry = new Aws.Schemas.Registry("testRegistry");
     /// 
-    /// }
+    ///     var testSchema = new Aws.Schemas.Schema("testSchema", new()
+    ///     {
+    ///         RegistryName = testRegistry.Name,
+    ///         Type = "OpenApi3",
+    ///         Description = "The schema definition for my event",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.0",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["version"] = "1.0.0",
+    ///                 ["title"] = "Event",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///             },
+    ///             ["components"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["schemas"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Event"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["type"] = "object",
+    ///                         ["properties"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["name"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["type"] = "string",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +74,7 @@ namespace Pulumi.Aws.Schemas
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/schema:Schema")]
-    public partial class Schema : Pulumi.CustomResource
+    public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
@@ -190,7 +186,7 @@ namespace Pulumi.Aws.Schemas
         }
     }
 
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The schema specification. Must be a valid Open API 3.0 spec.
@@ -237,9 +233,10 @@ namespace Pulumi.Aws.Schemas
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 
-    public sealed class SchemaState : Pulumi.ResourceArgs
+    public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
@@ -322,5 +319,6 @@ namespace Pulumi.Aws.Schemas
         public SchemaState()
         {
         }
+        public static new SchemaState Empty => new SchemaState();
     }
 }

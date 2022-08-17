@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetIndex.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetIndex.InvokeAsync(new Aws.Kendra.GetIndexArgs
-        ///         {
-        ///             Id = "12345678-1234-1234-1234-123456789123",
-        ///         }));
-        ///     }
+        ///         Id = "12345678-1234-1234-1234-123456789123",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetIndex.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetIndex.InvokeAsync(new Aws.Kendra.GetIndexArgs
-        ///         {
-        ///             Id = "12345678-1234-1234-1234-123456789123",
-        ///         }));
-        ///     }
+        ///         Id = "12345678-1234-1234-1234-123456789123",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Kendra
     }
 
 
-    public sealed class GetIndexArgs : Pulumi.InvokeArgs
+    public sealed class GetIndexArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific Index by id.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Kendra
         public GetIndexArgs()
         {
         }
+        public static new GetIndexArgs Empty => new GetIndexArgs();
     }
 
-    public sealed class GetIndexInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific Index by id.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Kendra
         public GetIndexInvokeArgs()
         {
         }
+        public static new GetIndexInvokeArgs Empty => new GetIndexInvokeArgs();
     }
 
 

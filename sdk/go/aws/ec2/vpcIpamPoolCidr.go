@@ -23,7 +23,9 @@ import (
 // IPAMs can be imported using the `<cidr>_<ipam-pool-id>`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
+//
+//	$ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
+//
 // ```
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState
@@ -134,7 +136,7 @@ func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrOutputWithContext(ctx context.Context
 // VpcIpamPoolCidrArrayInput is an input type that accepts VpcIpamPoolCidrArray and VpcIpamPoolCidrArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPoolCidrArrayInput` via:
 //
-//          VpcIpamPoolCidrArray{ VpcIpamPoolCidrArgs{...} }
+//	VpcIpamPoolCidrArray{ VpcIpamPoolCidrArgs{...} }
 type VpcIpamPoolCidrArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +161,7 @@ func (i VpcIpamPoolCidrArray) ToVpcIpamPoolCidrArrayOutputWithContext(ctx contex
 // VpcIpamPoolCidrMapInput is an input type that accepts VpcIpamPoolCidrMap and VpcIpamPoolCidrMapOutput values.
 // You can construct a concrete instance of `VpcIpamPoolCidrMapInput` via:
 //
-//          VpcIpamPoolCidrMap{ "key": VpcIpamPoolCidrArgs{...} }
+//	VpcIpamPoolCidrMap{ "key": VpcIpamPoolCidrArgs{...} }
 type VpcIpamPoolCidrMapInput interface {
 	pulumi.Input
 

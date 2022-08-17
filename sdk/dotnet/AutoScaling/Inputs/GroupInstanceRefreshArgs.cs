@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupInstanceRefreshArgs : Pulumi.ResourceArgs
+    public sealed class GroupInstanceRefreshArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override default parameters for Instance Refresh.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupInstanceRefreshArgs()
         {
         }
+        public static new GroupInstanceRefreshArgs Empty => new GroupInstanceRefreshArgs();
     }
 }

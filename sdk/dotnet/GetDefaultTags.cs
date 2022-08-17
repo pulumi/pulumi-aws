@@ -18,17 +18,15 @@ namespace Pulumi.Aws
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.GetDefaultTags.InvokeAsync());
-        ///     }
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -43,17 +41,15 @@ namespace Pulumi.Aws
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.GetDefaultTags.InvokeAsync());
-        ///     }
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,7 +59,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetDefaultTagsArgs : Pulumi.InvokeArgs
+    public sealed class GetDefaultTagsArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -80,9 +76,10 @@ namespace Pulumi.Aws
         public GetDefaultTagsArgs()
         {
         }
+        public static new GetDefaultTagsArgs Empty => new GetDefaultTagsArgs();
     }
 
-    public sealed class GetDefaultTagsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDefaultTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -99,6 +96,7 @@ namespace Pulumi.Aws
         public GetDefaultTagsInvokeArgs()
         {
         }
+        public static new GetDefaultTagsInvokeArgs Empty => new GetDefaultTagsInvokeArgs();
     }
 
 

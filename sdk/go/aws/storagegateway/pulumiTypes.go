@@ -20,7 +20,7 @@ type FileSystemAssociationCacheAttributes struct {
 // FileSystemAssociationCacheAttributesInput is an input type that accepts FileSystemAssociationCacheAttributesArgs and FileSystemAssociationCacheAttributesOutput values.
 // You can construct a concrete instance of `FileSystemAssociationCacheAttributesInput` via:
 //
-//          FileSystemAssociationCacheAttributesArgs{...}
+//	FileSystemAssociationCacheAttributesArgs{...}
 type FileSystemAssociationCacheAttributesInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i FileSystemAssociationCacheAttributesArgs) ToFileSystemAssociationCacheAt
 // FileSystemAssociationCacheAttributesPtrInput is an input type that accepts FileSystemAssociationCacheAttributesArgs, FileSystemAssociationCacheAttributesPtr and FileSystemAssociationCacheAttributesPtrOutput values.
 // You can construct a concrete instance of `FileSystemAssociationCacheAttributesPtrInput` via:
 //
-//          FileSystemAssociationCacheAttributesArgs{...}
+//	        FileSystemAssociationCacheAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemAssociationCacheAttributesPtrInput interface {
 	pulumi.Input
 
@@ -163,7 +163,7 @@ type GatewayGatewayNetworkInterface struct {
 // GatewayGatewayNetworkInterfaceInput is an input type that accepts GatewayGatewayNetworkInterfaceArgs and GatewayGatewayNetworkInterfaceOutput values.
 // You can construct a concrete instance of `GatewayGatewayNetworkInterfaceInput` via:
 //
-//          GatewayGatewayNetworkInterfaceArgs{...}
+//	GatewayGatewayNetworkInterfaceArgs{...}
 type GatewayGatewayNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -191,7 +191,7 @@ func (i GatewayGatewayNetworkInterfaceArgs) ToGatewayGatewayNetworkInterfaceOutp
 // GatewayGatewayNetworkInterfaceArrayInput is an input type that accepts GatewayGatewayNetworkInterfaceArray and GatewayGatewayNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `GatewayGatewayNetworkInterfaceArrayInput` via:
 //
-//          GatewayGatewayNetworkInterfaceArray{ GatewayGatewayNetworkInterfaceArgs{...} }
+//	GatewayGatewayNetworkInterfaceArray{ GatewayGatewayNetworkInterfaceArgs{...} }
 type GatewayGatewayNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +266,7 @@ type GatewayMaintenanceStartTime struct {
 // GatewayMaintenanceStartTimeInput is an input type that accepts GatewayMaintenanceStartTimeArgs and GatewayMaintenanceStartTimeOutput values.
 // You can construct a concrete instance of `GatewayMaintenanceStartTimeInput` via:
 //
-//          GatewayMaintenanceStartTimeArgs{...}
+//	GatewayMaintenanceStartTimeArgs{...}
 type GatewayMaintenanceStartTimeInput interface {
 	pulumi.Input
 
@@ -308,11 +308,11 @@ func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimePtrOutputW
 // GatewayMaintenanceStartTimePtrInput is an input type that accepts GatewayMaintenanceStartTimeArgs, GatewayMaintenanceStartTimePtr and GatewayMaintenanceStartTimePtrOutput values.
 // You can construct a concrete instance of `GatewayMaintenanceStartTimePtrInput` via:
 //
-//          GatewayMaintenanceStartTimeArgs{...}
+//	        GatewayMaintenanceStartTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GatewayMaintenanceStartTimePtrInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ type GatewaySmbActiveDirectorySettings struct {
 // GatewaySmbActiveDirectorySettingsInput is an input type that accepts GatewaySmbActiveDirectorySettingsArgs and GatewaySmbActiveDirectorySettingsOutput values.
 // You can construct a concrete instance of `GatewaySmbActiveDirectorySettingsInput` via:
 //
-//          GatewaySmbActiveDirectorySettingsArgs{...}
+//	GatewaySmbActiveDirectorySettingsArgs{...}
 type GatewaySmbActiveDirectorySettingsInput interface {
 	pulumi.Input
 
@@ -516,11 +516,11 @@ func (i GatewaySmbActiveDirectorySettingsArgs) ToGatewaySmbActiveDirectorySettin
 // GatewaySmbActiveDirectorySettingsPtrInput is an input type that accepts GatewaySmbActiveDirectorySettingsArgs, GatewaySmbActiveDirectorySettingsPtr and GatewaySmbActiveDirectorySettingsPtrOutput values.
 // You can construct a concrete instance of `GatewaySmbActiveDirectorySettingsPtrInput` via:
 //
-//          GatewaySmbActiveDirectorySettingsArgs{...}
+//	        GatewaySmbActiveDirectorySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GatewaySmbActiveDirectorySettingsPtrInput interface {
 	pulumi.Input
 
@@ -711,7 +711,7 @@ type NfsFileShareCacheAttributes struct {
 // NfsFileShareCacheAttributesInput is an input type that accepts NfsFileShareCacheAttributesArgs and NfsFileShareCacheAttributesOutput values.
 // You can construct a concrete instance of `NfsFileShareCacheAttributesInput` via:
 //
-//          NfsFileShareCacheAttributesArgs{...}
+//	NfsFileShareCacheAttributesArgs{...}
 type NfsFileShareCacheAttributesInput interface {
 	pulumi.Input
 
@@ -749,11 +749,11 @@ func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesPtrOutputW
 // NfsFileShareCacheAttributesPtrInput is an input type that accepts NfsFileShareCacheAttributesArgs, NfsFileShareCacheAttributesPtr and NfsFileShareCacheAttributesPtrOutput values.
 // You can construct a concrete instance of `NfsFileShareCacheAttributesPtrInput` via:
 //
-//          NfsFileShareCacheAttributesArgs{...}
+//	        NfsFileShareCacheAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NfsFileShareCacheAttributesPtrInput interface {
 	pulumi.Input
 
@@ -860,7 +860,7 @@ type NfsFileShareNfsFileShareDefaults struct {
 // NfsFileShareNfsFileShareDefaultsInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs and NfsFileShareNfsFileShareDefaultsOutput values.
 // You can construct a concrete instance of `NfsFileShareNfsFileShareDefaultsInput` via:
 //
-//          NfsFileShareNfsFileShareDefaultsArgs{...}
+//	NfsFileShareNfsFileShareDefaultsArgs{...}
 type NfsFileShareNfsFileShareDefaultsInput interface {
 	pulumi.Input
 
@@ -902,11 +902,11 @@ func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaults
 // NfsFileShareNfsFileShareDefaultsPtrInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs, NfsFileShareNfsFileShareDefaultsPtr and NfsFileShareNfsFileShareDefaultsPtrOutput values.
 // You can construct a concrete instance of `NfsFileShareNfsFileShareDefaultsPtrInput` via:
 //
-//          NfsFileShareNfsFileShareDefaultsArgs{...}
+//	        NfsFileShareNfsFileShareDefaultsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NfsFileShareNfsFileShareDefaultsPtrInput interface {
 	pulumi.Input
 
@@ -1050,7 +1050,7 @@ type SmbFileShareCacheAttributes struct {
 // SmbFileShareCacheAttributesInput is an input type that accepts SmbFileShareCacheAttributesArgs and SmbFileShareCacheAttributesOutput values.
 // You can construct a concrete instance of `SmbFileShareCacheAttributesInput` via:
 //
-//          SmbFileShareCacheAttributesArgs{...}
+//	SmbFileShareCacheAttributesArgs{...}
 type SmbFileShareCacheAttributesInput interface {
 	pulumi.Input
 
@@ -1088,11 +1088,11 @@ func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesPtrOutputW
 // SmbFileShareCacheAttributesPtrInput is an input type that accepts SmbFileShareCacheAttributesArgs, SmbFileShareCacheAttributesPtr and SmbFileShareCacheAttributesPtrOutput values.
 // You can construct a concrete instance of `SmbFileShareCacheAttributesPtrInput` via:
 //
-//          SmbFileShareCacheAttributesArgs{...}
+//	        SmbFileShareCacheAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SmbFileShareCacheAttributesPtrInput interface {
 	pulumi.Input
 

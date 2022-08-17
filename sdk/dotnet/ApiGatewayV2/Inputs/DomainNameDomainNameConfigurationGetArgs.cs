@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class DomainNameDomainNameConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameDomainNameConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public DomainNameDomainNameConfigurationGetArgs()
         {
         }
+        public static new DomainNameDomainNameConfigurationGetArgs Empty => new DomainNameDomainNameConfigurationGetArgs();
     }
 }

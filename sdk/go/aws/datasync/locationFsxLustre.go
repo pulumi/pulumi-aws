@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
-// 			FsxFilesystemArn: pulumi.Any(aws_fsx_lustre_file_system.Example.Arn),
-// 			SecurityGroupArns: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
+//				FsxFilesystemArn: pulumi.Any(aws_fsx_lustre_file_system.Example.Arn),
+//				SecurityGroupArns: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // `aws_datasync_location_fsx_lustre_file_system` can be imported by using the `DataSync-ARN#FSx-Lustre-ARN`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+//
+//	$ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+//
 // ```
 type LocationFsxLustre struct {
 	pulumi.CustomResourceState
@@ -60,8 +65,7 @@ type LocationFsxLustre struct {
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for Lustre location that was described.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -113,8 +117,7 @@ type locationFsxLustreState struct {
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the FSx for Lustre location that was described.
 	Uri *string `pulumi:"uri"`
@@ -132,8 +135,7 @@ type LocationFsxLustreState struct {
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The URL of the FSx for Lustre location that was described.
 	Uri pulumi.StringPtrInput
@@ -192,7 +194,7 @@ func (i *LocationFsxLustre) ToLocationFsxLustreOutputWithContext(ctx context.Con
 // LocationFsxLustreArrayInput is an input type that accepts LocationFsxLustreArray and LocationFsxLustreArrayOutput values.
 // You can construct a concrete instance of `LocationFsxLustreArrayInput` via:
 //
-//          LocationFsxLustreArray{ LocationFsxLustreArgs{...} }
+//	LocationFsxLustreArray{ LocationFsxLustreArgs{...} }
 type LocationFsxLustreArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +219,7 @@ func (i LocationFsxLustreArray) ToLocationFsxLustreArrayOutputWithContext(ctx co
 // LocationFsxLustreMapInput is an input type that accepts LocationFsxLustreMap and LocationFsxLustreMapOutput values.
 // You can construct a concrete instance of `LocationFsxLustreMapInput` via:
 //
-//          LocationFsxLustreMap{ "key": LocationFsxLustreArgs{...} }
+//	LocationFsxLustreMap{ "key": LocationFsxLustreArgs{...} }
 type LocationFsxLustreMapInput interface {
 	pulumi.Input
 
@@ -283,7 +285,6 @@ func (o LocationFsxLustreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o LocationFsxLustreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

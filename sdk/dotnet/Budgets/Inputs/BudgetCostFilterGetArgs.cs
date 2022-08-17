@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetCostFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetCostFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a budget. Unique within accounts.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetCostFilterGetArgs()
         {
         }
+        public static new BudgetCostFilterGetArgs Empty => new BudgetCostFilterGetArgs();
     }
 }

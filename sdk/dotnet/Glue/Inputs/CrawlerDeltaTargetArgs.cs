@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CrawlerDeltaTargetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerDeltaTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the connection to use to connect to the Delta table target.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CrawlerDeltaTargetArgs()
         {
         }
+        public static new CrawlerDeltaTargetArgs Empty => new CrawlerDeltaTargetArgs();
     }
 }

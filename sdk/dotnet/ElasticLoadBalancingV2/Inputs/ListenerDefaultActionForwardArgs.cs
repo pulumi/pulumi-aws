@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerDefaultActionForwardArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionForwardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for target group stickiness for the rule. Detailed below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public ListenerDefaultActionForwardArgs()
         {
         }
+        public static new ListenerDefaultActionForwardArgs Empty => new ListenerDefaultActionForwardArgs();
     }
 }

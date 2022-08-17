@@ -292,10 +292,7 @@ export class Database extends pulumi.CustomResource {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -376,7 +373,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["relationalDatabaseName"] = args ? args.relationalDatabaseName : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
             resourceInputs["cpuCount"] = undefined /*out*/;
@@ -389,6 +385,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["ramSize"] = undefined /*out*/;
             resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
             resourceInputs["supportCode"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -504,9 +501,6 @@ export interface DatabaseState {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -571,8 +565,4 @@ export interface DatabaseArgs {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

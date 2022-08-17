@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateElasticGpuSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateElasticGpuSpecificationArgs()
         {
         }
+        public static new LaunchTemplateElasticGpuSpecificationArgs Empty => new LaunchTemplateElasticGpuSpecificationArgs();
     }
 }

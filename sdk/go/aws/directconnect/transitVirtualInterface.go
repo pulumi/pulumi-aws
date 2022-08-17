@@ -20,31 +20,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
-// 			AmazonSideAsn: pulumi.String("64512"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
-// 			ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
-// 			DxGatewayId:   exampleGateway.ID(),
-// 			Vlan:          pulumi.Int(4094),
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			BgpAsn:        pulumi.Int(65352),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//				AmazonSideAsn: pulumi.String("64512"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
+//				ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
+//				DxGatewayId:   exampleGateway.ID(),
+//				Vlan:          pulumi.Int(4094),
+//				AddressFamily: pulumi.String("ipv4"),
+//				BgpAsn:        pulumi.Int(65352),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+//
+//	$ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+//
 // ```
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -86,7 +91,7 @@ type TransitVirtualInterface struct {
 	SitelinkEnabled pulumi.BoolPtrOutput `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
@@ -165,7 +170,7 @@ type transitVirtualInterfaceState struct {
 	SitelinkEnabled *bool   `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
@@ -201,7 +206,7 @@ type TransitVirtualInterfaceState struct {
 	SitelinkEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
@@ -292,7 +297,7 @@ func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutputWithContext(ctx
 // TransitVirtualInterfaceArrayInput is an input type that accepts TransitVirtualInterfaceArray and TransitVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `TransitVirtualInterfaceArrayInput` via:
 //
-//          TransitVirtualInterfaceArray{ TransitVirtualInterfaceArgs{...} }
+//	TransitVirtualInterfaceArray{ TransitVirtualInterfaceArgs{...} }
 type TransitVirtualInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +322,7 @@ func (i TransitVirtualInterfaceArray) ToTransitVirtualInterfaceArrayOutputWithCo
 // TransitVirtualInterfaceMapInput is an input type that accepts TransitVirtualInterfaceMap and TransitVirtualInterfaceMapOutput values.
 // You can construct a concrete instance of `TransitVirtualInterfaceMapInput` via:
 //
-//          TransitVirtualInterfaceMap{ "key": TransitVirtualInterfaceArgs{...} }
+//	TransitVirtualInterfaceMap{ "key": TransitVirtualInterfaceArgs{...} }
 type TransitVirtualInterfaceMapInput interface {
 	pulumi.Input
 
@@ -427,7 +432,7 @@ func (o TransitVirtualInterfaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TransitVirtualInterfaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

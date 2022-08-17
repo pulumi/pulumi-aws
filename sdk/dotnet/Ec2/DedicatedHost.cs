@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new host with instance type of c5.18xlarge with Auto Placement
+    ///     // and Host Recovery enabled.
+    ///     var test = new Aws.Ec2.DedicatedHost("test", new()
     ///     {
-    ///         // Create a new host with instance type of c5.18xlarge with Auto Placement
-    ///         // and Host Recovery enabled.
-    ///         var test = new Aws.Ec2.DedicatedHost("test", new Aws.Ec2.DedicatedHostArgs
-    ///         {
-    ///             AutoPlacement = "on",
-    ///             AvailabilityZone = "us-west-2a",
-    ///             HostRecovery = "on",
-    ///             InstanceType = "c5.18xlarge",
-    ///         });
-    ///     }
+    ///         AutoPlacement = "on",
+    ///         AvailabilityZone = "us-west-2a",
+    ///         HostRecovery = "on",
+    ///         InstanceType = "c5.18xlarge",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/dedicatedHost:DedicatedHost")]
-    public partial class DedicatedHost : Pulumi.CustomResource
+    public partial class DedicatedHost : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Dedicated Host.
@@ -151,7 +149,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class DedicatedHostArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
@@ -204,9 +202,10 @@ namespace Pulumi.Aws.Ec2
         public DedicatedHostArgs()
         {
         }
+        public static new DedicatedHostArgs Empty => new DedicatedHostArgs();
     }
 
-    public sealed class DedicatedHostState : Pulumi.ResourceArgs
+    public sealed class DedicatedHostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Dedicated Host.
@@ -283,5 +282,6 @@ namespace Pulumi.Aws.Ec2
         public DedicatedHostState()
         {
         }
+        public static new DedicatedHostState Empty => new DedicatedHostState();
     }
 }

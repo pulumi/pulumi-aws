@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectFileSystemLocationArgs : Pulumi.ResourceArgs
+    public sealed class ProjectFileSystemLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectFileSystemLocationArgs()
         {
         }
+        public static new ProjectFileSystemLocationArgs Empty => new ProjectFileSystemLocationArgs();
     }
 }

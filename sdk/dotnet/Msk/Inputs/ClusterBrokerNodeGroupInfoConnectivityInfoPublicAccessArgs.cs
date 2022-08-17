@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs Empty => new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs();
     }
 }

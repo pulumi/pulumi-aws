@@ -20,7 +20,9 @@ import (
 // DKIM tokens can be imported using the `domain` attribute, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+//
+//	$ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+//
 // ```
 type DomainDkim struct {
 	pulumi.CustomResourceState
@@ -132,7 +134,7 @@ func (i *DomainDkim) ToDomainDkimOutputWithContext(ctx context.Context) DomainDk
 // DomainDkimArrayInput is an input type that accepts DomainDkimArray and DomainDkimArrayOutput values.
 // You can construct a concrete instance of `DomainDkimArrayInput` via:
 //
-//          DomainDkimArray{ DomainDkimArgs{...} }
+//	DomainDkimArray{ DomainDkimArgs{...} }
 type DomainDkimArrayInput interface {
 	pulumi.Input
 
@@ -157,7 +159,7 @@ func (i DomainDkimArray) ToDomainDkimArrayOutputWithContext(ctx context.Context)
 // DomainDkimMapInput is an input type that accepts DomainDkimMap and DomainDkimMapOutput values.
 // You can construct a concrete instance of `DomainDkimMapInput` via:
 //
-//          DomainDkimMap{ "key": DomainDkimArgs{...} }
+//	DomainDkimMap{ "key": DomainDkimArgs{...} }
 type DomainDkimMapInput interface {
 	pulumi.Input
 

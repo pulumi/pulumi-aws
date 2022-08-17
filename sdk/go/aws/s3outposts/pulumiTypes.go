@@ -18,7 +18,7 @@ type EndpointNetworkInterface struct {
 // EndpointNetworkInterfaceInput is an input type that accepts EndpointNetworkInterfaceArgs and EndpointNetworkInterfaceOutput values.
 // You can construct a concrete instance of `EndpointNetworkInterfaceInput` via:
 //
-//          EndpointNetworkInterfaceArgs{...}
+//	EndpointNetworkInterfaceArgs{...}
 type EndpointNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutputWithContex
 // EndpointNetworkInterfaceArrayInput is an input type that accepts EndpointNetworkInterfaceArray and EndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `EndpointNetworkInterfaceArrayInput` via:
 //
-//          EndpointNetworkInterfaceArray{ EndpointNetworkInterfaceArgs{...} }
+//	EndpointNetworkInterfaceArray{ EndpointNetworkInterfaceArgs{...} }
 type EndpointNetworkInterfaceArrayInput interface {
 	pulumi.Input
 

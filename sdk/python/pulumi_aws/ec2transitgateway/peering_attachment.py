@@ -220,10 +220,9 @@ class PeeringAttachment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        local = pulumi.providers.Aws("local", region="us-east-1")
-        peer = pulumi.providers.Aws("peer", region="us-west-2")
+        local = aws.Provider("local", region="us-east-1")
+        peer = aws.Provider("peer", region="us-west-2")
         peer_region = aws.get_region()
         local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
             "Name": "Local TGW",
@@ -274,10 +273,9 @@ class PeeringAttachment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        local = pulumi.providers.Aws("local", region="us-east-1")
-        peer = pulumi.providers.Aws("peer", region="us-west-2")
+        local = aws.Provider("local", region="us-east-1")
+        peer = aws.Provider("peer", region="us-west-2")
         peer_region = aws.get_region()
         local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
             "Name": "Local TGW",

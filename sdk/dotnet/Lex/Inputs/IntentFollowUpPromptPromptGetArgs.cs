@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentFollowUpPromptPromptGetArgs : Pulumi.ResourceArgs
+    public sealed class IntentFollowUpPromptPromptGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -43,5 +43,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentFollowUpPromptPromptGetArgs()
         {
         }
+        public static new IntentFollowUpPromptPromptGetArgs Empty => new IntentFollowUpPromptPromptGetArgs();
     }
 }

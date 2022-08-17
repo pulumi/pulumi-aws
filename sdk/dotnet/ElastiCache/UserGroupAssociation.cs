@@ -13,52 +13,53 @@ namespace Pulumi.Aws.ElastiCache
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.ElastiCache.User("default", new()
     ///     {
-    ///         var @default = new Aws.ElastiCache.User("default", new Aws.ElastiCache.UserArgs
+    ///         UserId = "defaultUserID",
+    ///         UserName = "default",
+    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+    ///         Engine = "REDIS",
+    ///         Passwords = new[]
     ///         {
-    ///             UserId = "defaultUserID",
-    ///             UserName = "default",
-    ///             AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///             Engine = "REDIS",
-    ///             Passwords = 
-    ///             {
-    ///                 "password123456789",
-    ///             },
-    ///         });
-    ///         var exampleUserGroup = new Aws.ElastiCache.UserGroup("exampleUserGroup", new Aws.ElastiCache.UserGroupArgs
-    ///         {
-    ///             Engine = "REDIS",
-    ///             UserGroupId = "userGroupId",
-    ///             UserIds = 
-    ///             {
-    ///                 @default.UserId,
-    ///             },
-    ///         });
-    ///         var exampleUser = new Aws.ElastiCache.User("exampleUser", new Aws.ElastiCache.UserArgs
-    ///         {
-    ///             UserId = "exampleUserID",
-    ///             UserName = "exampleuser",
-    ///             AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///             Engine = "REDIS",
-    ///             Passwords = 
-    ///             {
-    ///                 "password123456789",
-    ///             },
-    ///         });
-    ///         var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("exampleUserGroupAssociation", new Aws.ElastiCache.UserGroupAssociationArgs
-    ///         {
-    ///             UserGroupId = exampleUserGroup.UserGroupId,
-    ///             UserId = exampleUser.UserId,
-    ///         });
-    ///     }
+    ///             "password123456789",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleUserGroup = new Aws.ElastiCache.UserGroup("exampleUserGroup", new()
+    ///     {
+    ///         Engine = "REDIS",
+    ///         UserGroupId = "userGroupId",
+    ///         UserIds = new[]
+    ///         {
+    ///             @default.UserId,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.ElastiCache.User("exampleUser", new()
+    ///     {
+    ///         UserId = "exampleUserID",
+    ///         UserName = "exampleuser",
+    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+    ///         Engine = "REDIS",
+    ///         Passwords = new[]
+    ///         {
+    ///             "password123456789",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("exampleUserGroupAssociation", new()
+    ///     {
+    ///         UserGroupId = exampleUserGroup.UserGroupId,
+    ///         UserId = exampleUser.UserId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +71,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]
-    public partial class UserGroupAssociation : Pulumi.CustomResource
+    public partial class UserGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the user group.
@@ -128,7 +129,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class UserGroupAssociationArgs : Pulumi.ResourceArgs
+    public sealed class UserGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the user group.
@@ -145,9 +146,10 @@ namespace Pulumi.Aws.ElastiCache
         public UserGroupAssociationArgs()
         {
         }
+        public static new UserGroupAssociationArgs Empty => new UserGroupAssociationArgs();
     }
 
-    public sealed class UserGroupAssociationState : Pulumi.ResourceArgs
+    public sealed class UserGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the user group.
@@ -164,5 +166,6 @@ namespace Pulumi.Aws.ElastiCache
         public UserGroupAssociationState()
         {
         }
+        public static new UserGroupAssociationState Empty => new UserGroupAssociationState();
     }
 }

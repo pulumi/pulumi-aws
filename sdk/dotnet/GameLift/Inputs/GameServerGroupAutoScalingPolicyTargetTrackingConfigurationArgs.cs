@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Desired value to use with a game server group target-based scaling policy.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs()
         {
         }
+        public static new GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs Empty => new GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs();
     }
 }

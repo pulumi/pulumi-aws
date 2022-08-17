@@ -27,31 +27,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
-// 			ProductName:              pulumi.String("Example product"),
-// 			ProvisioningArtifactName: pulumi.String("Example version"),
-// 			ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
-// 				&servicecatalog.ProvisionedProductProvisioningParameterArgs{
-// 					Key:   pulumi.String("foo"),
-// 					Value: pulumi.String("bar"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
+//				ProductName:              pulumi.String("Example product"),
+//				ProvisioningArtifactName: pulumi.String("Example version"),
+//				ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
+//					&servicecatalog.ProvisionedProductProvisioningParameterArgs{
+//						Key:   pulumi.String("foo"),
+//						Value: pulumi.String("bar"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // `aws_servicecatalog_provisioned_product` can be imported using the provisioned product ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+//
+//	$ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+//
 // ```
 type ProvisionedProduct struct {
 	pulumi.CustomResourceState
@@ -349,7 +354,7 @@ func (i *ProvisionedProduct) ToProvisionedProductOutputWithContext(ctx context.C
 // ProvisionedProductArrayInput is an input type that accepts ProvisionedProductArray and ProvisionedProductArrayOutput values.
 // You can construct a concrete instance of `ProvisionedProductArrayInput` via:
 //
-//          ProvisionedProductArray{ ProvisionedProductArgs{...} }
+//	ProvisionedProductArray{ ProvisionedProductArgs{...} }
 type ProvisionedProductArrayInput interface {
 	pulumi.Input
 
@@ -374,7 +379,7 @@ func (i ProvisionedProductArray) ToProvisionedProductArrayOutputWithContext(ctx 
 // ProvisionedProductMapInput is an input type that accepts ProvisionedProductMap and ProvisionedProductMapOutput values.
 // You can construct a concrete instance of `ProvisionedProductMapInput` via:
 //
-//          ProvisionedProductMap{ "key": ProvisionedProductArgs{...} }
+//	ProvisionedProductMap{ "key": ProvisionedProductArgs{...} }
 type ProvisionedProductMapInput interface {
 	pulumi.Input
 

@@ -16,58 +16,55 @@ namespace Pulumi.Aws.Ssm
     /// ### Basic example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ssm.Parameter("foo", new()
     ///     {
-    ///         var foo = new Aws.Ssm.Parameter("foo", new Aws.Ssm.ParameterArgs
-    ///         {
-    ///             Type = "String",
-    ///             Value = "bar",
-    ///         });
-    ///     }
+    ///         Type = "String",
+    ///         Value = "bar",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Encrypted string using default SSM KMS key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.Instance("default", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 10,
-    ///             StorageType = "gp2",
-    ///             Engine = "mysql",
-    ///             EngineVersion = "5.7.16",
-    ///             InstanceClass = "db.t2.micro",
-    ///             Name = "mydb",
-    ///             Username = "foo",
-    ///             Password = @var.Database_master_password,
-    ///             DbSubnetGroupName = "my_database_subnet_group",
-    ///             ParameterGroupName = "default.mysql5.7",
-    ///         });
-    ///         var secret = new Aws.Ssm.Parameter("secret", new Aws.Ssm.ParameterArgs
-    ///         {
-    ///             Description = "The parameter description",
-    ///             Type = "SecureString",
-    ///             Value = @var.Database_master_password,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         AllocatedStorage = 10,
+    ///         StorageType = "gp2",
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.7.16",
+    ///         InstanceClass = "db.t2.micro",
+    ///         Name = "mydb",
+    ///         Username = "foo",
+    ///         Password = @var.Database_master_password,
+    ///         DbSubnetGroupName = "my_database_subnet_group",
+    ///         ParameterGroupName = "default.mysql5.7",
+    ///     });
     /// 
-    /// }
+    ///     var secret = new Aws.Ssm.Parameter("secret", new()
+    ///     {
+    ///         Description = "The parameter description",
+    ///         Type = "SecureString",
+    ///         Value = @var.Database_master_password,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +76,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]
-    public partial class Parameter : Pulumi.CustomResource
+    public partial class Parameter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Regular expression used to validate the parameter value.
@@ -206,7 +203,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class ParameterArgs : Pulumi.ResourceArgs
+    public sealed class ParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Regular expression used to validate the parameter value.
@@ -286,9 +283,10 @@ namespace Pulumi.Aws.Ssm
         public ParameterArgs()
         {
         }
+        public static new ParameterArgs Empty => new ParameterArgs();
     }
 
-    public sealed class ParameterState : Pulumi.ResourceArgs
+    public sealed class ParameterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Regular expression used to validate the parameter value.
@@ -386,5 +384,6 @@ namespace Pulumi.Aws.Ssm
         public ParameterState()
         {
         }
+        public static new ParameterState Empty => new ParameterState();
     }
 }

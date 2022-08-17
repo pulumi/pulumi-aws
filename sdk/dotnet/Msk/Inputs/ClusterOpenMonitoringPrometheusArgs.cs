@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterOpenMonitoringPrometheusArgs : Pulumi.ResourceArgs
+    public sealed class ClusterOpenMonitoringPrometheusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for JMX Exporter. See below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterOpenMonitoringPrometheusArgs()
         {
         }
+        public static new ClusterOpenMonitoringPrometheusArgs Empty => new ClusterOpenMonitoringPrometheusArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action to take for a high risk. See action block below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs()
         {
         }
+        public static new RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs Empty => new RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs();
     }
 }

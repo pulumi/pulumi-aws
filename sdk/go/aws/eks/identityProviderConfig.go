@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
-// 			ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// 			Oidc: &eks.IdentityProviderConfigOidcArgs{
-// 				ClientId:                   pulumi.String("your client_id"),
-// 				IdentityProviderConfigName: pulumi.String("example"),
-// 				IssuerUrl:                  pulumi.String("your issuer_url"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
+//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				Oidc: &eks.IdentityProviderConfigOidcArgs{
+//					ClientId:                   pulumi.String("your client_id"),
+//					IdentityProviderConfigName: pulumi.String("example"),
+//					IssuerUrl:                  pulumi.String("your issuer_url"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+//
+//	$ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+//
 // ```
 type IdentityProviderConfig struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *IdentityProviderConfig) ToIdentityProviderConfigOutputWithContext(ctx c
 // IdentityProviderConfigArrayInput is an input type that accepts IdentityProviderConfigArray and IdentityProviderConfigArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigArrayInput` via:
 //
-//          IdentityProviderConfigArray{ IdentityProviderConfigArgs{...} }
+//	IdentityProviderConfigArray{ IdentityProviderConfigArgs{...} }
 type IdentityProviderConfigArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i IdentityProviderConfigArray) ToIdentityProviderConfigArrayOutputWithCont
 // IdentityProviderConfigMapInput is an input type that accepts IdentityProviderConfigMap and IdentityProviderConfigMapOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigMapInput` via:
 //
-//          IdentityProviderConfigMap{ "key": IdentityProviderConfigArgs{...} }
+//	IdentityProviderConfigMap{ "key": IdentityProviderConfigArgs{...} }
 type IdentityProviderConfigMapInput interface {
 	pulumi.Input
 

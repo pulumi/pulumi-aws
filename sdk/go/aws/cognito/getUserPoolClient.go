@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cognito.LookupUserPoolClient(ctx, &cognito.LookupUserPoolClientArgs{
-// 			ClientId:   "38fjsnc484p94kpqsnet7mpld0",
-// 			UserPoolId: "us-west-2_aaaaaaaaa",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cognito.LookupUserPoolClient(ctx, &cognito.LookupUserPoolClientArgs{
+//				ClientId:   "38fjsnc484p94kpqsnet7mpld0",
+//				UserPoolId: "us-west-2_aaaaaaaaa",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolClientResult, error) {
 	var rv LookupUserPoolClientResult

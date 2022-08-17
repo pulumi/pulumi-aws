@@ -19,39 +19,38 @@ namespace Pulumi.Aws.LightSail
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
     ///     {
-    ///         var testInstance = new Aws.LightSail.Instance("testInstance", new Aws.LightSail.InstanceArgs
-    ///         {
-    ///             AvailabilityZone = data.Aws_availability_zones.Available.Names[0],
-    ///             BlueprintId = "amazon_linux",
-    ///             BundleId = "nano_1_0",
-    ///         });
-    ///         var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("testInstancePublicPorts", new Aws.LightSail.InstancePublicPortsArgs
-    ///         {
-    ///             InstanceName = testInstance.Name,
-    ///             PortInfos = 
-    ///             {
-    ///                 new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
-    ///                 {
-    ///                     Protocol = "tcp",
-    ///                     FromPort = 80,
-    ///                     ToPort = 80,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         AvailabilityZone = data.Aws_availability_zones.Available.Names[0],
+    ///         BlueprintId = "amazon_linux",
+    ///         BundleId = "nano_1_0",
+    ///     });
     /// 
-    /// }
+    ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("testInstancePublicPorts", new()
+    ///     {
+    ///         InstanceName = testInstance.Name,
+    ///         PortInfos = new[]
+    ///         {
+    ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
+    ///             {
+    ///                 Protocol = "tcp",
+    ///                 FromPort = 80,
+    ///                 ToPort = 80,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
-    public partial class InstancePublicPorts : Pulumi.CustomResource
+    public partial class InstancePublicPorts : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Lightsail Instance.
@@ -109,7 +108,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class InstancePublicPortsArgs : Pulumi.ResourceArgs
+    public sealed class InstancePublicPortsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Lightsail Instance.
@@ -132,9 +131,10 @@ namespace Pulumi.Aws.LightSail
         public InstancePublicPortsArgs()
         {
         }
+        public static new InstancePublicPortsArgs Empty => new InstancePublicPortsArgs();
     }
 
-    public sealed class InstancePublicPortsState : Pulumi.ResourceArgs
+    public sealed class InstancePublicPortsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Lightsail Instance.
@@ -157,5 +157,6 @@ namespace Pulumi.Aws.LightSail
         public InstancePublicPortsState()
         {
         }
+        public static new InstancePublicPortsState Empty => new InstancePublicPortsState();
     }
 }

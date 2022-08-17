@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
-// 			OperatingSystem: pulumi.String("WINDOWS_2012"),
-// 			StorageLocation: &gamelift.BuildStorageLocationArgs{
-// 				Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
-// 				Key:     pulumi.Any(aws_s3_object.Test.Key),
-// 				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
+//				OperatingSystem: pulumi.String("WINDOWS_2012"),
+//				StorageLocation: &gamelift.BuildStorageLocationArgs{
+//					Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
+//					Key:     pulumi.Any(aws_s3_object.Test.Key),
+//					RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // GameLift Builds can be imported using the ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:gamelift/build:Build example <build-id>
+//
+//	$ pulumi import aws:gamelift/build:Build example <build-id>
+//
 // ```
 type Build struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 // BuildArrayInput is an input type that accepts BuildArray and BuildArrayOutput values.
 // You can construct a concrete instance of `BuildArrayInput` via:
 //
-//          BuildArray{ BuildArgs{...} }
+//	BuildArray{ BuildArgs{...} }
 type BuildArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i BuildArray) ToBuildArrayOutputWithContext(ctx context.Context) BuildArra
 // BuildMapInput is an input type that accepts BuildMap and BuildMapOutput values.
 // You can construct a concrete instance of `BuildMapInput` via:
 //
-//          BuildMap{ "key": BuildArgs{...} }
+//	BuildMap{ "key": BuildArgs{...} }
 type BuildMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketIntelligentTieringConfigurationTieringGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketIntelligentTieringConfigurationTieringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketIntelligentTieringConfigurationTieringGetArgs()
         {
         }
+        public static new BucketIntelligentTieringConfigurationTieringGetArgs Empty => new BucketIntelligentTieringConfigurationTieringGetArgs();
     }
 }

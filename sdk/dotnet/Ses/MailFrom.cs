@@ -18,75 +18,75 @@ namespace Pulumi.Aws.Ses
     /// ### Domain Identity MAIL FROM
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Example SES Domain Identity
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
     ///     {
-    ///         // Example SES Domain Identity
-    ///         var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new Aws.Ses.DomainIdentityArgs
-    ///         {
-    ///             Domain = "example.com",
-    ///         });
-    ///         var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new Aws.Ses.MailFromArgs
-    ///         {
-    ///             Domain = exampleDomainIdentity.Domain,
-    ///             MailFromDomain = exampleDomainIdentity.Domain.Apply(domain =&gt; $"bounce.{domain}"),
-    ///         });
-    ///         // Example Route53 MX record
-    ///         var exampleSesDomainMailFromMx = new Aws.Route53.Record("exampleSesDomainMailFromMx", new Aws.Route53.RecordArgs
-    ///         {
-    ///             ZoneId = aws_route53_zone.Example.Id,
-    ///             Name = exampleMailFrom.MailFromDomain,
-    ///             Type = "MX",
-    ///             Ttl = 600,
-    ///             Records = 
-    ///             {
-    ///                 "10 feedback-smtp.us-east-1.amazonses.com",
-    ///             },
-    ///         });
-    ///         // Change to the region in which `aws_ses_domain_identity.example` is created
-    ///         // Example Route53 TXT record for SPF
-    ///         var exampleSesDomainMailFromTxt = new Aws.Route53.Record("exampleSesDomainMailFromTxt", new Aws.Route53.RecordArgs
-    ///         {
-    ///             ZoneId = aws_route53_zone.Example.Id,
-    ///             Name = exampleMailFrom.MailFromDomain,
-    ///             Type = "TXT",
-    ///             Ttl = 600,
-    ///             Records = 
-    ///             {
-    ///                 "v=spf1 include:amazonses.com -all",
-    ///             },
-    ///         });
-    ///     }
+    ///         Domain = "example.com",
+    ///     });
     /// 
-    /// }
+    ///     var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new()
+    ///     {
+    ///         Domain = exampleDomainIdentity.Domain,
+    ///         MailFromDomain = exampleDomainIdentity.Domain.Apply(domain =&gt; $"bounce.{domain}"),
+    ///     });
+    /// 
+    ///     // Example Route53 MX record
+    ///     var exampleSesDomainMailFromMx = new Aws.Route53.Record("exampleSesDomainMailFromMx", new()
+    ///     {
+    ///         ZoneId = aws_route53_zone.Example.Id,
+    ///         Name = exampleMailFrom.MailFromDomain,
+    ///         Type = "MX",
+    ///         Ttl = 600,
+    ///         Records = new[]
+    ///         {
+    ///             "10 feedback-smtp.us-east-1.amazonses.com",
+    ///         },
+    ///     });
+    /// 
+    ///     // Change to the region in which `aws_ses_domain_identity.example` is created
+    ///     // Example Route53 TXT record for SPF
+    ///     var exampleSesDomainMailFromTxt = new Aws.Route53.Record("exampleSesDomainMailFromTxt", new()
+    ///     {
+    ///         ZoneId = aws_route53_zone.Example.Id,
+    ///         Name = exampleMailFrom.MailFromDomain,
+    ///         Type = "TXT",
+    ///         Ttl = 600,
+    ///         Records = new[]
+    ///         {
+    ///             "v=spf1 include:amazonses.com -all",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Email Identity MAIL FROM
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Example SES Email Identity
+    ///     var exampleEmailIdentity = new Aws.Ses.EmailIdentity("exampleEmailIdentity", new()
     ///     {
-    ///         // Example SES Email Identity
-    ///         var exampleEmailIdentity = new Aws.Ses.EmailIdentity("exampleEmailIdentity", new Aws.Ses.EmailIdentityArgs
-    ///         {
-    ///             Email = "user@example.com",
-    ///         });
-    ///         var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new Aws.Ses.MailFromArgs
-    ///         {
-    ///             Domain = exampleEmailIdentity.Email,
-    ///             MailFromDomain = "mail.example.com",
-    ///         });
-    ///     }
+    ///         Email = "user@example.com",
+    ///     });
     /// 
-    /// }
+    ///     var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new()
+    ///     {
+    ///         Domain = exampleEmailIdentity.Email,
+    ///         MailFromDomain = "mail.example.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/mailFrom:MailFrom")]
-    public partial class MailFrom : Pulumi.CustomResource
+    public partial class MailFrom : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class MailFromArgs : Pulumi.ResourceArgs
+    public sealed class MailFromArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
@@ -185,9 +185,10 @@ namespace Pulumi.Aws.Ses
         public MailFromArgs()
         {
         }
+        public static new MailFromArgs Empty => new MailFromArgs();
     }
 
-    public sealed class MailFromState : Pulumi.ResourceArgs
+    public sealed class MailFromState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
@@ -210,5 +211,6 @@ namespace Pulumi.Aws.Ses
         public MailFromState()
         {
         }
+        public static new MailFromState Empty => new MailFromState();
     }
 }

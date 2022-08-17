@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs()
         {
         }
+        public static new RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs Empty => new RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs();
     }
 }

@@ -17,29 +17,29 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = new Aws.Iam.User("exampleUser", new()
     ///     {
-    ///         var exampleUser = new Aws.Iam.User("exampleUser", new Aws.Iam.UserArgs
-    ///         {
-    ///             Path = "/",
-    ///             ForceDestroy = true,
-    ///         });
-    ///         var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new Aws.Iam.UserLoginProfileArgs
-    ///         {
-    ///             User = exampleUser.Name,
-    ///             PgpKey = "keybase:some_person_that_exists",
-    ///         });
-    ///         this.Password = exampleUserLoginProfile.EncryptedPassword;
-    ///     }
+    ///         Path = "/",
+    ///         ForceDestroy = true,
+    ///     });
     /// 
-    ///     [Output("password")]
-    ///     public Output&lt;string&gt; Password { get; set; }
-    /// }
+    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new()
+    ///     {
+    ///         User = exampleUser.Name,
+    ///         PgpKey = "keybase:some_person_that_exists",
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["password"] = exampleUserLoginProfile.EncryptedPassword,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Iam
     ///  } }
     /// </summary>
     [AwsResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
-    public partial class UserLoginProfile : Pulumi.CustomResource
+    public partial class UserLoginProfile : global::Pulumi.CustomResource
     {
         [Output("encryptedPassword")]
         public Output<string> EncryptedPassword { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class UserLoginProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserLoginProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -183,9 +183,10 @@ namespace Pulumi.Aws.Iam
         public UserLoginProfileArgs()
         {
         }
+        public static new UserLoginProfileArgs Empty => new UserLoginProfileArgs();
     }
 
-    public sealed class UserLoginProfileState : Pulumi.ResourceArgs
+    public sealed class UserLoginProfileState : global::Pulumi.ResourceArgs
     {
         [Input("encryptedPassword")]
         public Input<string>? EncryptedPassword { get; set; }
@@ -229,5 +230,6 @@ namespace Pulumi.Aws.Iam
         public UserLoginProfileState()
         {
         }
+        public static new UserLoginProfileState Empty => new UserLoginProfileState();
     }
 }

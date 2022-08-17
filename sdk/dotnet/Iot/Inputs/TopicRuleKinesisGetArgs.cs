@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleKinesisGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleKinesisGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The partition key.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleKinesisGetArgs()
         {
         }
+        public static new TopicRuleKinesisGetArgs Empty => new TopicRuleKinesisGetArgs();
     }
 }

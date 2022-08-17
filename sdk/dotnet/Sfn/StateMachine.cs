@@ -16,18 +16,17 @@ namespace Pulumi.Aws.Sfn
     /// ### Basic (Standard Workflow)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ...
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
     ///     {
-    ///         // ...
-    ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
-    ///             Definition = @$"{{
+    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
@@ -39,27 +38,25 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Basic (Express Workflow)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ...
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
     ///     {
-    ///         // ...
-    ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
-    ///             Type = "EXPRESS",
-    ///             Definition = @$"{{
+    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Type = "EXPRESS",
+    ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
@@ -71,28 +68,26 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Logging
     /// 
     /// &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ...
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
     ///     {
-    ///         // ...
-    ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
-    ///             Definition = @$"{{
+    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
@@ -104,16 +99,15 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
-    ///             LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
-    ///             {
-    ///                 LogDestination = $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*",
-    ///                 IncludeExecutionData = true,
-    ///                 Level = "ERROR",
-    ///             },
-    ///         });
-    ///     }
+    ///         LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
+    ///         {
+    ///             LogDestination = $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*",
+    ///             IncludeExecutionData = true,
+    ///             Level = "ERROR",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +119,7 @@ namespace Pulumi.Aws.Sfn
     /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/stateMachine:StateMachine")]
-    public partial class StateMachine : Pulumi.CustomResource
+    public partial class StateMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the state machine.
@@ -176,7 +170,7 @@ namespace Pulumi.Aws.Sfn
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -237,7 +231,7 @@ namespace Pulumi.Aws.Sfn
         }
     }
 
-    public sealed class StateMachineArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
@@ -290,9 +284,10 @@ namespace Pulumi.Aws.Sfn
         public StateMachineArgs()
         {
         }
+        public static new StateMachineArgs Empty => new StateMachineArgs();
     }
 
-    public sealed class StateMachineState : Pulumi.ResourceArgs
+    public sealed class StateMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the state machine.
@@ -352,7 +347,7 @@ namespace Pulumi.Aws.Sfn
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -375,5 +370,6 @@ namespace Pulumi.Aws.Sfn
         public StateMachineState()
         {
         }
+        public static new StateMachineState Empty => new StateMachineState();
     }
 }

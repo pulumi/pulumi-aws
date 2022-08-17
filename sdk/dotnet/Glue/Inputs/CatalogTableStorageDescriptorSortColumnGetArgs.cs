@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogTableStorageDescriptorSortColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class CatalogTableStorageDescriptorSortColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the column.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogTableStorageDescriptorSortColumnGetArgs()
         {
         }
+        public static new CatalogTableStorageDescriptorSortColumnGetArgs Empty => new CatalogTableStorageDescriptorSortColumnGetArgs();
     }
 }

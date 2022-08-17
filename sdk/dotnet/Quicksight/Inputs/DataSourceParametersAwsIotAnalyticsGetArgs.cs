@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersAwsIotAnalyticsGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersAwsIotAnalyticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the data set to which to connect.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersAwsIotAnalyticsGetArgs()
         {
         }
+        public static new DataSourceParametersAwsIotAnalyticsGetArgs Empty => new DataSourceParametersAwsIotAnalyticsGetArgs();
     }
 }

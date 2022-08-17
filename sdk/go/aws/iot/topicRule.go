@@ -17,87 +17,94 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mytopic, err := sns.NewTopic(ctx, "mytopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": "iot.amazonaws.com"
-//       },
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mytopic, err := sns.NewTopic(ctx, "mytopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "iot.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
-// 			Description: pulumi.String("Example rule"),
-// 			Enabled:     pulumi.Bool(true),
-// 			Sql:         pulumi.String("SELECT * FROM 'topic/test'"),
-// 			SqlVersion:  pulumi.String("2016-03-23"),
-// 			Sns: &iot.TopicRuleSnsArgs{
-// 				MessageFormat: pulumi.String("RAW"),
-// 				RoleArn:       role.Arn,
-// 				TargetArn:     mytopic.Arn,
-// 			},
-// 			ErrorAction: &iot.TopicRuleErrorActionArgs{
-// 				Sns: &iot.TopicRuleErrorActionSnsArgs{
-// 					MessageFormat: pulumi.String("RAW"),
-// 					RoleArn:       role.Arn,
-// 					TargetArn:     myerrortopic.Arn,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "iamPolicyForLambda", &iam.RolePolicyArgs{
-// 			Role: role.ID(),
-// 			Policy: mytopic.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//         "Effect": "Allow",
-//         "Action": [
-//             "sns:Publish"
-//         ],
-//         "Resource": "%v"
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
+//				Description: pulumi.String("Example rule"),
+//				Enabled:     pulumi.Bool(true),
+//				Sql:         pulumi.String("SELECT * FROM 'topic/test'"),
+//				SqlVersion:  pulumi.String("2016-03-23"),
+//				Sns: &iot.TopicRuleSnsArgs{
+//					MessageFormat: pulumi.String("RAW"),
+//					RoleArn:       role.Arn,
+//					TargetArn:     mytopic.Arn,
+//				},
+//				ErrorAction: &iot.TopicRuleErrorActionArgs{
+//					Sns: &iot.TopicRuleErrorActionSnsArgs{
+//						MessageFormat: pulumi.String("RAW"),
+//						RoleArn:       role.Arn,
+//						TargetArn:     myerrortopic.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "iamPolicyForLambda", &iam.RolePolicyArgs{
+//				Role: role.ID(),
+//				Policy: mytopic.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	        "Effect": "Allow",
+//	        "Action": [
+//	            "sns:Publish"
+//	        ],
+//	        "Resource": "%v"
+//	    }
+//	  ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -105,7 +112,9 @@ import (
 // IoT Topic Rules can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+//
+//	$ pulumi import aws:iot/topicRule:TopicRule rule <name>
+//
 // ```
 type TopicRule struct {
 	pulumi.CustomResourceState
@@ -144,7 +153,7 @@ type TopicRule struct {
 	StepFunctions TopicRuleStepFunctionArrayOutput `pulumi:"stepFunctions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     pulumi.StringMapOutput         `pulumi:"tagsAll"`
 	Timestreams TopicRuleTimestreamArrayOutput `pulumi:"timestreams"`
 }
@@ -221,7 +230,7 @@ type topicRuleState struct {
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     map[string]string     `pulumi:"tagsAll"`
 	Timestreams []TopicRuleTimestream `pulumi:"timestreams"`
 }
@@ -261,7 +270,7 @@ type TopicRuleState struct {
 	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     pulumi.StringMapInput
 	Timestreams TopicRuleTimestreamArrayInput
 }
@@ -369,7 +378,7 @@ func (i *TopicRule) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleO
 // TopicRuleArrayInput is an input type that accepts TopicRuleArray and TopicRuleArrayOutput values.
 // You can construct a concrete instance of `TopicRuleArrayInput` via:
 //
-//          TopicRuleArray{ TopicRuleArgs{...} }
+//	TopicRuleArray{ TopicRuleArgs{...} }
 type TopicRuleArrayInput interface {
 	pulumi.Input
 
@@ -394,7 +403,7 @@ func (i TopicRuleArray) ToTopicRuleArrayOutputWithContext(ctx context.Context) T
 // TopicRuleMapInput is an input type that accepts TopicRuleMap and TopicRuleMapOutput values.
 // You can construct a concrete instance of `TopicRuleMapInput` via:
 //
-//          TopicRuleMap{ "key": TopicRuleArgs{...} }
+//	TopicRuleMap{ "key": TopicRuleArgs{...} }
 type TopicRuleMapInput interface {
 	pulumi.Input
 
@@ -542,7 +551,7 @@ func (o TopicRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TopicRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceCatalog.Inputs
 {
 
-    public sealed class ProductProvisioningArtifactParametersArgs : Pulumi.ResourceArgs
+    public sealed class ProductProvisioningArtifactParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public ProductProvisioningArtifactParametersArgs()
         {
         }
+        public static new ProductProvisioningArtifactParametersArgs Empty => new ProductProvisioningArtifactParametersArgs();
     }
 }

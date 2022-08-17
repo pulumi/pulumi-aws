@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GlobalAccelerator.Inputs
 {
 
-    public sealed class AcceleratorIpSetArgs : Pulumi.ResourceArgs
+    public sealed class AcceleratorIpSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public AcceleratorIpSetArgs()
         {
         }
+        public static new AcceleratorIpSetArgs Empty => new AcceleratorIpSetArgs();
     }
 }

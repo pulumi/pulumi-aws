@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.0.0.0/16"),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewResolverFirewallConfig(ctx, "exampleResolverFirewallConfig", &route53.ResolverFirewallConfigArgs{
-// 			ResourceId:       exampleVpc.ID(),
-// 			FirewallFailOpen: pulumi.String("ENABLED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.0.0.0/16"),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewResolverFirewallConfig(ctx, "exampleResolverFirewallConfig", &route53.ResolverFirewallConfigArgs{
+//				ResourceId:       exampleVpc.ID(),
+//				FirewallFailOpen: pulumi.String("ENABLED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Route 53 Resolver DNS Firewall configs can be imported using the Route 53 Resolver DNS Firewall config ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+//
+//	$ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+//
 // ```
 type ResolverFirewallConfig struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *ResolverFirewallConfig) ToResolverFirewallConfigOutputWithContext(ctx c
 // ResolverFirewallConfigArrayInput is an input type that accepts ResolverFirewallConfigArray and ResolverFirewallConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallConfigArrayInput` via:
 //
-//          ResolverFirewallConfigArray{ ResolverFirewallConfigArgs{...} }
+//	ResolverFirewallConfigArray{ ResolverFirewallConfigArgs{...} }
 type ResolverFirewallConfigArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i ResolverFirewallConfigArray) ToResolverFirewallConfigArrayOutputWithCont
 // ResolverFirewallConfigMapInput is an input type that accepts ResolverFirewallConfigMap and ResolverFirewallConfigMapOutput values.
 // You can construct a concrete instance of `ResolverFirewallConfigMapInput` via:
 //
-//          ResolverFirewallConfigMap{ "key": ResolverFirewallConfigArgs{...} }
+//	ResolverFirewallConfigMap{ "key": ResolverFirewallConfigArgs{...} }
 type ResolverFirewallConfigMapInput interface {
 	pulumi.Input
 

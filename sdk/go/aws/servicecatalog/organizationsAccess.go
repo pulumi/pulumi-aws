@@ -22,21 +22,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewOrganizationsAccess(ctx, "example", &servicecatalog.OrganizationsAccessArgs{
-// 			Enabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewOrganizationsAccess(ctx, "example", &servicecatalog.OrganizationsAccessArgs{
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type OrganizationsAccess struct {
 	pulumi.CustomResourceState
@@ -127,7 +130,7 @@ func (i *OrganizationsAccess) ToOrganizationsAccessOutputWithContext(ctx context
 // OrganizationsAccessArrayInput is an input type that accepts OrganizationsAccessArray and OrganizationsAccessArrayOutput values.
 // You can construct a concrete instance of `OrganizationsAccessArrayInput` via:
 //
-//          OrganizationsAccessArray{ OrganizationsAccessArgs{...} }
+//	OrganizationsAccessArray{ OrganizationsAccessArgs{...} }
 type OrganizationsAccessArrayInput interface {
 	pulumi.Input
 
@@ -152,7 +155,7 @@ func (i OrganizationsAccessArray) ToOrganizationsAccessArrayOutputWithContext(ct
 // OrganizationsAccessMapInput is an input type that accepts OrganizationsAccessMap and OrganizationsAccessMapOutput values.
 // You can construct a concrete instance of `OrganizationsAccessMapInput` via:
 //
-//          OrganizationsAccessMap{ "key": OrganizationsAccessArgs{...} }
+//	OrganizationsAccessMap{ "key": OrganizationsAccessArgs{...} }
 type OrganizationsAccessMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestLaunchTemplateConfigOverrideArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestLaunchTemplateConfigOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The availability zone in which to place the request.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestLaunchTemplateConfigOverrideArgs()
         {
         }
+        public static new SpotFleetRequestLaunchTemplateConfigOverrideArgs Empty => new SpotFleetRequestLaunchTemplateConfigOverrideArgs();
     }
 }

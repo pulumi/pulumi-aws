@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The cidr block of the desired VPC.
@@ -95,9 +95,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcArgs()
         {
         }
+        public static new GetVpcArgs Empty => new GetVpcArgs();
     }
 
-    public sealed class GetVpcInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The cidr block of the desired VPC.
@@ -159,6 +160,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcInvokeArgs()
         {
         }
+        public static new GetVpcInvokeArgs Empty => new GetVpcInvokeArgs();
     }
 
 

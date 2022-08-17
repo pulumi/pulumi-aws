@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetPlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetPlan.InvokeAsync(new Aws.Backup.GetPlanArgs
-        ///         {
-        ///             PlanId = "tf_example_backup_plan_id",
-        ///         }));
-        ///     }
+        ///         PlanId = "tf_example_backup_plan_id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetPlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetPlan.InvokeAsync(new Aws.Backup.GetPlanArgs
-        ///         {
-        ///             PlanId = "tf_example_backup_plan_id",
-        ///         }));
-        ///     }
+        ///         PlanId = "tf_example_backup_plan_id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Backup
     }
 
 
-    public sealed class GetPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup plan ID.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Backup
         public GetPlanArgs()
         {
         }
+        public static new GetPlanArgs Empty => new GetPlanArgs();
     }
 
-    public sealed class GetPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup plan ID.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Backup
         public GetPlanInvokeArgs()
         {
         }
+        public static new GetPlanInvokeArgs Empty => new GetPlanInvokeArgs();
     }
 
 

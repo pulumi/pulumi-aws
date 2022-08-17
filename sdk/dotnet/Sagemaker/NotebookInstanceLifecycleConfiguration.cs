@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
-    public partial class NotebookInstanceLifecycleConfiguration : Pulumi.CustomResource
+    public partial class NotebookInstanceLifecycleConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class NotebookInstanceLifecycleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
@@ -114,9 +114,10 @@ namespace Pulumi.Aws.Sagemaker
         public NotebookInstanceLifecycleConfigurationArgs()
         {
         }
+        public static new NotebookInstanceLifecycleConfigurationArgs Empty => new NotebookInstanceLifecycleConfigurationArgs();
     }
 
-    public sealed class NotebookInstanceLifecycleConfigurationState : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceLifecycleConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
@@ -145,5 +146,6 @@ namespace Pulumi.Aws.Sagemaker
         public NotebookInstanceLifecycleConfigurationState()
         {
         }
+        public static new NotebookInstanceLifecycleConfigurationState Empty => new NotebookInstanceLifecycleConfigurationState();
     }
 }

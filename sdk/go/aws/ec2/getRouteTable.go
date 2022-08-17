@@ -22,32 +22,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		subnetId := cfg.RequireObject("subnetId")
-// 		selected, err := ec2.LookupRouteTable(ctx, &ec2.LookupRouteTableArgs{
-// 			SubnetId: pulumi.StringRef(subnetId),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-// 			RouteTableId:           pulumi.String(selected.Id),
-// 			DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
-// 			VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			subnetId := cfg.RequireObject("subnetId")
+//			selected, err := ec2.LookupRouteTable(ctx, &ec2.LookupRouteTableArgs{
+//				SubnetId: pulumi.StringRef(subnetId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
+//				RouteTableId:           pulumi.String(selected.Id),
+//				DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
+//				VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult

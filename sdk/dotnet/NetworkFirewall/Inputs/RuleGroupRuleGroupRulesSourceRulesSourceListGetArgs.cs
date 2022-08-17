@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRulesSourceRulesSourceListGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRulesSourceRulesSourceListGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRulesSourceRulesSourceListGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupRulesSourceRulesSourceListGetArgs Empty => new RuleGroupRuleGroupRulesSourceRulesSourceListGetArgs();
     }
 }

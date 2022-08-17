@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplatePlacementGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplatePlacementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The affinity setting for an instance on a Dedicated Host.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplatePlacementGetArgs()
         {
         }
+        public static new LaunchTemplatePlacementGetArgs Empty => new LaunchTemplatePlacementGetArgs();
     }
 }

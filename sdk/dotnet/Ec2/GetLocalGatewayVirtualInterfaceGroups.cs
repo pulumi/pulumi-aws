@@ -19,17 +19,15 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var all = Output.Create(Aws.Ec2.GetLocalGatewayVirtualInterfaceGroups.InvokeAsync());
-        ///     }
+        ///     var all = Aws.Ec2.GetLocalGatewayVirtualInterfaceGroups.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,17 +43,15 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var all = Output.Create(Aws.Ec2.GetLocalGatewayVirtualInterfaceGroups.InvokeAsync());
-        ///     }
+        ///     var all = Aws.Ec2.GetLocalGatewayVirtualInterfaceGroups.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,7 +61,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLocalGatewayVirtualInterfaceGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayVirtualInterfaceGroupsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewayVirtualInterfaceGroupsFilterArgs>? _filters;
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayVirtualInterfaceGroupsArgs()
         {
         }
+        public static new GetLocalGatewayVirtualInterfaceGroupsArgs Empty => new GetLocalGatewayVirtualInterfaceGroupsArgs();
     }
 
-    public sealed class GetLocalGatewayVirtualInterfaceGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayVirtualInterfaceGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewayVirtualInterfaceGroupsFilterInputArgs>? _filters;
@@ -125,6 +122,7 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayVirtualInterfaceGroupsInvokeArgs()
         {
         }
+        public static new GetLocalGatewayVirtualInterfaceGroupsInvokeArgs Empty => new GetLocalGatewayVirtualInterfaceGroupsInvokeArgs();
     }
 
 

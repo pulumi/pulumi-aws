@@ -22,6 +22,7 @@ export * from "./parameterType";
 export * from "./patchBaseline";
 export * from "./patchGroup";
 export * from "./resourceDataSync";
+export * from "./serviceSetting";
 
 // Export enums:
 export * from "../types/enums/ssm";
@@ -37,6 +38,7 @@ import { Parameter } from "./parameter";
 import { PatchBaseline } from "./patchBaseline";
 import { PatchGroup } from "./patchGroup";
 import { ResourceDataSync } from "./resourceDataSync";
+import { ServiceSetting } from "./serviceSetting";
 
 const _module = {
     version: utilities.getVersion(),
@@ -62,6 +64,8 @@ const _module = {
                 return new PatchGroup(name, <any>undefined, { urn })
             case "aws:ssm/resourceDataSync:ResourceDataSync":
                 return new ResourceDataSync(name, <any>undefined, { urn })
+            case "aws:ssm/serviceSetting:ServiceSetting":
+                return new ServiceSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -77,3 +81,4 @@ pulumi.runtime.registerResourceModule("aws", "ssm/parameter", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/patchBaseline", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/patchGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/resourceDataSync", _module)
+pulumi.runtime.registerResourceModule("aws", "ssm/serviceSetting", _module)

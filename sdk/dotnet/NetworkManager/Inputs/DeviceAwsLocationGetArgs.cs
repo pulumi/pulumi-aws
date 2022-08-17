@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class DeviceAwsLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class DeviceAwsLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the subnet that the device is located in.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public DeviceAwsLocationGetArgs()
         {
         }
+        public static new DeviceAwsLocationGetArgs Empty => new DeviceAwsLocationGetArgs();
     }
 }

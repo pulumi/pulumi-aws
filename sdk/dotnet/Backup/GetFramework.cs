@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetFramework.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetFramework.InvokeAsync(new Aws.Backup.GetFrameworkArgs
-        ///         {
-        ///             Name = "tf_example_backup_framework_name",
-        ///         }));
-        ///     }
+        ///         Name = "tf_example_backup_framework_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetFramework.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetFramework.InvokeAsync(new Aws.Backup.GetFrameworkArgs
-        ///         {
-        ///             Name = "tf_example_backup_framework_name",
-        ///         }));
-        ///     }
+        ///         Name = "tf_example_backup_framework_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Backup
     }
 
 
-    public sealed class GetFrameworkArgs : Pulumi.InvokeArgs
+    public sealed class GetFrameworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup framework name.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Backup
         public GetFrameworkArgs()
         {
         }
+        public static new GetFrameworkArgs Empty => new GetFrameworkArgs();
     }
 
-    public sealed class GetFrameworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFrameworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup framework name.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Backup
         public GetFrameworkInvokeArgs()
         {
         }
+        public static new GetFrameworkInvokeArgs Empty => new GetFrameworkInvokeArgs();
     }
 
 

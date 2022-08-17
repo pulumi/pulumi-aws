@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestSpotMaintenanceStrategiesArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestSpotMaintenanceStrategiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested argument containing the capacity rebalance for your fleet request. Defined below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestSpotMaintenanceStrategiesArgs()
         {
         }
+        public static new SpotFleetRequestSpotMaintenanceStrategiesArgs Empty => new SpotFleetRequestSpotMaintenanceStrategiesArgs();
     }
 }

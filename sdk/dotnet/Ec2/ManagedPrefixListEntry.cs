@@ -15,31 +15,30 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.ManagedPrefixList("example", new Aws.Ec2.ManagedPrefixListArgs
+    ///         AddressFamily = "IPv4",
+    ///         MaxEntries = 5,
+    ///         Tags = 
     ///         {
-    ///             AddressFamily = "IPv4",
-    ///             MaxEntries = 5,
-    ///             Tags = 
-    ///             {
-    ///                 { "Env", "live" },
-    ///             },
-    ///         });
-    ///         var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry1", new Aws.Ec2.ManagedPrefixListEntryArgs
-    ///         {
-    ///             Cidr = aws_vpc.Example.Cidr_block,
-    ///             Description = "Primary",
-    ///             PrefixListId = aws_ec2_managed_prefix_list.Entry.Id,
-    ///         });
-    ///     }
+    ///             { "Env", "live" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry1", new()
+    ///     {
+    ///         Cidr = aws_vpc.Example.Cidr_block,
+    ///         Description = "Primary",
+    ///         PrefixListId = aws_ec2_managed_prefix_list.Entry.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
-    public partial class ManagedPrefixListEntry : Pulumi.CustomResource
+    public partial class ManagedPrefixListEntry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// CIDR block of this entry.
@@ -115,7 +114,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class ManagedPrefixListEntryArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrefixListEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CIDR block of this entry.
@@ -138,9 +137,10 @@ namespace Pulumi.Aws.Ec2
         public ManagedPrefixListEntryArgs()
         {
         }
+        public static new ManagedPrefixListEntryArgs Empty => new ManagedPrefixListEntryArgs();
     }
 
-    public sealed class ManagedPrefixListEntryState : Pulumi.ResourceArgs
+    public sealed class ManagedPrefixListEntryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CIDR block of this entry.
@@ -163,5 +163,6 @@ namespace Pulumi.Aws.Ec2
         public ManagedPrefixListEntryState()
         {
         }
+        public static new ManagedPrefixListEntryState Empty => new ManagedPrefixListEntryState();
     }
 }

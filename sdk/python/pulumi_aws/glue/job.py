@@ -21,6 +21,7 @@ class JobArgs:
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
@@ -40,6 +41,7 @@ class JobArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -61,6 +63,8 @@ class JobArgs:
             pulumi.set(__self__, "default_arguments", default_arguments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if execution_class is not None:
+            pulumi.set(__self__, "execution_class", execution_class)
         if execution_property is not None:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
@@ -145,6 +149,18 @@ class JobArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="executionClass")
+    def execution_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        """
+        return pulumi.get(self, "execution_class")
+
+    @execution_class.setter
+    def execution_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_class", value)
 
     @property
     @pulumi.getter(name="executionProperty")
@@ -299,6 +315,7 @@ class _JobState:
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
@@ -320,6 +337,7 @@ class _JobState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -345,6 +363,8 @@ class _JobState:
             pulumi.set(__self__, "default_arguments", default_arguments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if execution_class is not None:
+            pulumi.set(__self__, "execution_class", execution_class)
         if execution_property is not None:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
@@ -433,6 +453,18 @@ class _JobState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="executionClass")
+    def execution_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        """
+        return pulumi.get(self, "execution_class")
+
+    @execution_class.setter
+    def execution_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_class", value)
 
     @property
     @pulumi.getter(name="executionProperty")
@@ -612,6 +644,7 @@ class Job(pulumi.CustomResource):
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
@@ -702,6 +735,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -811,6 +845,7 @@ class Job(pulumi.CustomResource):
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
@@ -839,6 +874,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["connections"] = connections
             __props__.__dict__["default_arguments"] = default_arguments
             __props__.__dict__["description"] = description
+            __props__.__dict__["execution_class"] = execution_class
             __props__.__dict__["execution_property"] = execution_property
             __props__.__dict__["glue_version"] = glue_version
             __props__.__dict__["max_capacity"] = max_capacity
@@ -871,6 +907,7 @@ class Job(pulumi.CustomResource):
             connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            execution_class: Optional[pulumi.Input[str]] = None,
             execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
             glue_version: Optional[pulumi.Input[str]] = None,
             max_capacity: Optional[pulumi.Input[float]] = None,
@@ -897,6 +934,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -921,6 +959,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["connections"] = connections
         __props__.__dict__["default_arguments"] = default_arguments
         __props__.__dict__["description"] = description
+        __props__.__dict__["execution_class"] = execution_class
         __props__.__dict__["execution_property"] = execution_property
         __props__.__dict__["glue_version"] = glue_version
         __props__.__dict__["max_capacity"] = max_capacity
@@ -976,6 +1015,14 @@ class Job(pulumi.CustomResource):
         Description of the job.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="executionClass")
+    def execution_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        """
+        return pulumi.get(self, "execution_class")
 
     @property
     @pulumi.getter(name="executionProperty")

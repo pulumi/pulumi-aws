@@ -15,43 +15,44 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
     ///     {
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///             MulticastSupport = "enable",
-    ///         });
-    ///         var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("exampleVpcAttachment", new Aws.Ec2TransitGateway.VpcAttachmentArgs
-    ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///         var exampleMulticastDomain = new Aws.Ec2TransitGateway.MulticastDomain("exampleMulticastDomain", new Aws.Ec2TransitGateway.MulticastDomainArgs
-    ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///         });
-    ///         var exampleMulticastDomainAssociation = new Aws.Ec2TransitGateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", new Aws.Ec2TransitGateway.MulticastDomainAssociationArgs
-    ///         {
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///             TransitGatewayAttachmentId = exampleVpcAttachment.Id,
-    ///             TransitGatewayMulticastDomainId = exampleMulticastDomain.Id,
-    ///         });
-    ///     }
+    ///         MulticastSupport = "enable",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("exampleVpcAttachment", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleMulticastDomain = new Aws.Ec2TransitGateway.MulticastDomain("exampleMulticastDomain", new()
+    ///     {
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///     });
+    /// 
+    ///     var exampleMulticastDomainAssociation = new Aws.Ec2TransitGateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", new()
+    ///     {
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleVpcAttachment.Id,
+    ///         TransitGatewayMulticastDomainId = exampleMulticastDomain.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")]
-    public partial class MulticastDomainAssociation : Pulumi.CustomResource
+    public partial class MulticastDomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the subnet to associate with the transit gateway multicast domain.
@@ -115,7 +116,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class MulticastDomainAssociationArgs : Pulumi.ResourceArgs
+    public sealed class MulticastDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the subnet to associate with the transit gateway multicast domain.
@@ -138,9 +139,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public MulticastDomainAssociationArgs()
         {
         }
+        public static new MulticastDomainAssociationArgs Empty => new MulticastDomainAssociationArgs();
     }
 
-    public sealed class MulticastDomainAssociationState : Pulumi.ResourceArgs
+    public sealed class MulticastDomainAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the subnet to associate with the transit gateway multicast domain.
@@ -163,5 +165,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public MulticastDomainAssociationState()
         {
         }
+        public static new MulticastDomainAssociationState Empty => new MulticastDomainAssociationState();
     }
 }

@@ -13,45 +13,43 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.SecurityHub.Account("example", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cisAwsFoundationsBenchmark", new Aws.SecurityHub.StandardsSubscriptionArgs
-    ///         {
-    ///             StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 example,
-    ///             },
-    ///         });
-    ///         var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", new Aws.SecurityHub.StandardsControlArgs
-    ///         {
-    ///             StandardsControlArn = "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
-    ///             ControlStatus = "DISABLED",
-    ///             DisabledReason = "We handle password policies within Okta",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 cisAwsFoundationsBenchmark,
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    /// }
+    ///     var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cisAwsFoundationsBenchmark", new()
+    ///     {
+    ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    ///     var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", new()
+    ///     {
+    ///         StandardsControlArn = "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
+    ///         ControlStatus = "DISABLED",
+    ///         DisabledReason = "We handle password policies within Okta",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             cisAwsFoundationsBenchmark,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsControl:StandardsControl")]
-    public partial class StandardsControl : Pulumi.CustomResource
+    public partial class StandardsControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier of the security standard control.
@@ -157,7 +155,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class StandardsControlArgs : Pulumi.ResourceArgs
+    public sealed class StandardsControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
@@ -180,9 +178,10 @@ namespace Pulumi.Aws.SecurityHub
         public StandardsControlArgs()
         {
         }
+        public static new StandardsControlArgs Empty => new StandardsControlArgs();
     }
 
-    public sealed class StandardsControlState : Pulumi.ResourceArgs
+    public sealed class StandardsControlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the security standard control.
@@ -253,5 +252,6 @@ namespace Pulumi.Aws.SecurityHub
         public StandardsControlState()
         {
         }
+        public static new StandardsControlState Empty => new StandardsControlState();
     }
 }

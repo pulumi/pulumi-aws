@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
-// 			Attributes: pulumi.StringMap{
-// 				"First": pulumi.String("examplevalue"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
+//				Attributes: pulumi.StringMap{
+//					"First": pulumi.String("examplevalue"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // IOT Things can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iot/thing:Thing example example
+//
+//	$ pulumi import aws:iot/thing:Thing example example
+//
 // ```
 type Thing struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *Thing) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 // ThingArrayInput is an input type that accepts ThingArray and ThingArrayOutput values.
 // You can construct a concrete instance of `ThingArrayInput` via:
 //
-//          ThingArray{ ThingArgs{...} }
+//	ThingArray{ ThingArgs{...} }
 type ThingArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i ThingArray) ToThingArrayOutputWithContext(ctx context.Context) ThingArra
 // ThingMapInput is an input type that accepts ThingMap and ThingMapOutput values.
 // You can construct a concrete instance of `ThingMapInput` via:
 //
-//          ThingMap{ "key": ThingArgs{...} }
+//	ThingMap{ "key": ThingArgs{...} }
 type ThingMapInput interface {
 	pulumi.Input
 

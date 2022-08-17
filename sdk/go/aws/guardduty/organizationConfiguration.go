@@ -21,38 +21,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDetector, err := guardduty.NewDetector(ctx, "exampleDetector", &guardduty.DetectorArgs{
-// 			Enable: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
-// 			AutoEnable: pulumi.Bool(true),
-// 			DetectorId: exampleDetector.ID(),
-// 			Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
-// 				S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
-// 					AutoEnable: pulumi.Bool(true),
-// 				},
-// 				Kubernetes: &guardduty.OrganizationConfigurationDatasourcesKubernetesArgs{
-// 					AuditLogs: &guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{
-// 						Enable: pulumi.Bool(true),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDetector, err := guardduty.NewDetector(ctx, "exampleDetector", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
+//				AutoEnable: pulumi.Bool(true),
+//				DetectorId: exampleDetector.ID(),
+//				Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
+//					S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
+//						AutoEnable: pulumi.Bool(true),
+//					},
+//					Kubernetes: &guardduty.OrganizationConfigurationDatasourcesKubernetesArgs{
+//						AuditLogs: &guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{
+//							Enable: pulumi.Bool(true),
+//						},
+//					},
+//					MalwareProtection: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs{
+//						ScanEc2InstanceWithFindings: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
+//							EbsVolumes: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
+//								AutoEnable: pulumi.Bool(true),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +70,9 @@ import (
 // GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+//
+//	$ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+//
 // ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
@@ -174,7 +186,7 @@ func (i *OrganizationConfiguration) ToOrganizationConfigurationOutputWithContext
 // OrganizationConfigurationArrayInput is an input type that accepts OrganizationConfigurationArray and OrganizationConfigurationArrayOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationArrayInput` via:
 //
-//          OrganizationConfigurationArray{ OrganizationConfigurationArgs{...} }
+//	OrganizationConfigurationArray{ OrganizationConfigurationArgs{...} }
 type OrganizationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +211,7 @@ func (i OrganizationConfigurationArray) ToOrganizationConfigurationArrayOutputWi
 // OrganizationConfigurationMapInput is an input type that accepts OrganizationConfigurationMap and OrganizationConfigurationMapOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationMapInput` via:
 //
-//          OrganizationConfigurationMap{ "key": OrganizationConfigurationArgs{...} }
+//	OrganizationConfigurationMap{ "key": OrganizationConfigurationArgs{...} }
 type OrganizationConfigurationMapInput interface {
 	pulumi.Input
 

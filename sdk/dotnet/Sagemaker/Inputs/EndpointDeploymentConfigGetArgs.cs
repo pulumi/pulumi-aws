@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointDeploymentConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeploymentConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointDeploymentConfigGetArgs()
         {
         }
+        public static new EndpointDeploymentConfigGetArgs Empty => new EndpointDeploymentConfigGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobUserPausedDetailArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobUserPausedDetailArgs : global::Pulumi.ResourceArgs
     {
         [Input("jobExpiresAt")]
         public Input<string>? JobExpiresAt { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobUserPausedDetailArgs()
         {
         }
+        public static new ClassificationJobUserPausedDetailArgs Empty => new ClassificationJobUserPausedDetailArgs();
     }
 }

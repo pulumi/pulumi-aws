@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs()
         {
         }
+        public static new FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs Empty => new FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs();
     }
 }

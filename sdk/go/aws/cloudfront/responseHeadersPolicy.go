@@ -23,40 +23,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-// 			Comment: pulumi.String("test comment"),
-// 			CorsConfig: &cloudfront.ResponseHeadersPolicyCorsConfigArgs{
-// 				AccessControlAllowCredentials: pulumi.Bool(true),
-// 				AccessControlAllowHeaders: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs{
-// 					Items: pulumi.StringArray{
-// 						pulumi.String("test"),
-// 					},
-// 				},
-// 				AccessControlAllowMethods: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs{
-// 					Items: pulumi.StringArray{
-// 						pulumi.String("GET"),
-// 					},
-// 				},
-// 				AccessControlAllowOrigins: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs{
-// 					Items: pulumi.StringArray{
-// 						pulumi.String("test.example.comtest"),
-// 					},
-// 				},
-// 				OriginOverride: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+//				Comment: pulumi.String("test comment"),
+//				CorsConfig: &cloudfront.ResponseHeadersPolicyCorsConfigArgs{
+//					AccessControlAllowCredentials: pulumi.Bool(true),
+//					AccessControlAllowHeaders: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("test"),
+//						},
+//					},
+//					AccessControlAllowMethods: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("GET"),
+//						},
+//					},
+//					AccessControlAllowOrigins: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("test.example.comtest"),
+//						},
+//					},
+//					OriginOverride: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // The example below creates a CloudFront response headers policy with a custom headers config.
@@ -65,34 +68,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-// 			CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
-// 				Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
-// 					&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
-// 						Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
-// 						Override: pulumi.Bool(true),
-// 						Value:    pulumi.String("none"),
-// 					},
-// 					&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
-// 						Header:   pulumi.String("X-Test"),
-// 						Override: pulumi.Bool(true),
-// 						Value:    pulumi.String("none"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+//				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
+//					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
+//						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
+//							Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
+//							Override: pulumi.Bool(true),
+//							Value:    pulumi.String("none"),
+//						},
+//						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
+//							Header:   pulumi.String("X-Test"),
+//							Override: pulumi.Bool(true),
+//							Value:    pulumi.String("none"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
@@ -101,33 +107,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-// 			CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
-// 				Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
-// 					&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
-// 						Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
-// 						Override: pulumi.Bool(true),
-// 						Value:    pulumi.String("none"),
-// 					},
-// 				},
-// 			},
-// 			ServerTimingHeadersConfig: &cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs{
-// 				Enabled:      pulumi.Bool(true),
-// 				SamplingRate: pulumi.Float64(50),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+//				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
+//					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
+//						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
+//							Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
+//							Override: pulumi.Bool(true),
+//							Value:    pulumi.String("none"),
+//						},
+//					},
+//				},
+//				ServerTimingHeadersConfig: &cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs{
+//					Enabled:      pulumi.Bool(true),
+//					SamplingRate: pulumi.Float64(50),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -135,7 +144,9 @@ import (
 // Cloudfront Response Headers Policies can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+//
+//	$ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+//
 // ```
 type ResponseHeadersPolicy struct {
 	pulumi.CustomResourceState
@@ -283,7 +294,7 @@ func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutputWithContext(ctx con
 // ResponseHeadersPolicyArrayInput is an input type that accepts ResponseHeadersPolicyArray and ResponseHeadersPolicyArrayOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyArrayInput` via:
 //
-//          ResponseHeadersPolicyArray{ ResponseHeadersPolicyArgs{...} }
+//	ResponseHeadersPolicyArray{ ResponseHeadersPolicyArgs{...} }
 type ResponseHeadersPolicyArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +319,7 @@ func (i ResponseHeadersPolicyArray) ToResponseHeadersPolicyArrayOutputWithContex
 // ResponseHeadersPolicyMapInput is an input type that accepts ResponseHeadersPolicyMap and ResponseHeadersPolicyMapOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyMapInput` via:
 //
-//          ResponseHeadersPolicyMap{ "key": ResponseHeadersPolicyArgs{...} }
+//	ResponseHeadersPolicyMap{ "key": ResponseHeadersPolicyArgs{...} }
 type ResponseHeadersPolicyMapInput interface {
 	pulumi.Input
 

@@ -15,80 +15,81 @@ namespace Pulumi.Aws.Elb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
     ///     {
-    ///         var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 443,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 443,
-    ///                     LbProtocol = "https",
-    ///                     SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "wu-tang" },
-    ///             },
-    ///         });
-    ///         var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new Aws.Elb.LoadBalancerPolicyArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             LoadBalancerName = wu_tang.Name,
-    ///             PolicyName = "wu-tang-ca-pubkey-policy",
-    ///             PolicyTypeName = "PublicKeyPolicyType",
-    ///             PolicyAttributes = 
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
     ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "PublicKey",
-    ///                     Value = File.ReadAllText("wu-tang-pubkey"),
-    ///                 },
+    ///                 InstancePort = 443,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 443,
+    ///                 LbProtocol = "https",
+    ///                 SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
     ///             },
-    ///         });
-    ///         var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new Aws.Elb.LoadBalancerPolicyArgs
+    ///         },
+    ///         Tags = 
     ///         {
-    ///             LoadBalancerName = wu_tang.Name,
-    ///             PolicyName = "wu-tang-root-ca-backend-auth-policy",
-    ///             PolicyTypeName = "BackendServerAuthenticationPolicyType",
-    ///             PolicyAttributes = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "PublicKeyPolicyName",
-    ///                     Value = aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new Aws.Elb.LoadBalancerBackendServerPolicyArgs
-    ///         {
-    ///             LoadBalancerName = wu_tang.Name,
-    ///             InstancePort = 443,
-    ///             PolicyNames = 
-    ///             {
-    ///                 wu_tang_root_ca_backend_auth_policy.PolicyName,
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "wu-tang" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new()
+    ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         PolicyName = "wu-tang-ca-pubkey-policy",
+    ///         PolicyTypeName = "PublicKeyPolicyType",
+    ///         PolicyAttributes = new[]
+    ///         {
+    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             {
+    ///                 Name = "PublicKey",
+    ///                 Value = File.ReadAllText("wu-tang-pubkey"),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new()
+    ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         PolicyName = "wu-tang-root-ca-backend-auth-policy",
+    ///         PolicyTypeName = "BackendServerAuthenticationPolicyType",
+    ///         PolicyAttributes = new[]
+    ///         {
+    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             {
+    ///                 Name = "PublicKeyPolicyName",
+    ///                 Value = aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new()
+    ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         InstancePort = 443,
+    ///         PolicyNames = new[]
+    ///         {
+    ///             wu_tang_root_ca_backend_auth_policy.PolicyName,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")]
-    public partial class LoadBalancerBackendServerPolicy : Pulumi.CustomResource
+    public partial class LoadBalancerBackendServerPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The instance port to apply the policy to.
@@ -133,7 +134,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +157,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
-    public sealed class LoadBalancerBackendServerPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerBackendServerPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance port to apply the policy to.
@@ -185,9 +186,10 @@ namespace Pulumi.Aws.Elb
         public LoadBalancerBackendServerPolicyArgs()
         {
         }
+        public static new LoadBalancerBackendServerPolicyArgs Empty => new LoadBalancerBackendServerPolicyArgs();
     }
 
-    public sealed class LoadBalancerBackendServerPolicyState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerBackendServerPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance port to apply the policy to.
@@ -216,5 +218,6 @@ namespace Pulumi.Aws.Elb
         public LoadBalancerBackendServerPolicyState()
         {
         }
+        public static new LoadBalancerBackendServerPolicyState Empty => new LoadBalancerBackendServerPolicyState();
     }
 }

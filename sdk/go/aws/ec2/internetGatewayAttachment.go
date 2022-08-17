@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "exampleInternetGateway", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewInternetGatewayAttachment(ctx, "exampleInternetGatewayAttachment", &ec2.InternetGatewayAttachmentArgs{
-// 			InternetGatewayId: exampleInternetGateway.ID(),
-// 			VpcId:             exampleVpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "exampleInternetGateway", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInternetGatewayAttachment(ctx, "exampleInternetGatewayAttachment", &ec2.InternetGatewayAttachmentArgs{
+//				InternetGatewayId: exampleInternetGateway.ID(),
+//				VpcId:             exampleVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Internet Gateway Attachments can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+//
+//	$ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+//
 // ```
 type InternetGatewayAttachment struct {
 	pulumi.CustomResourceState
@@ -156,7 +161,7 @@ func (i *InternetGatewayAttachment) ToInternetGatewayAttachmentOutputWithContext
 // InternetGatewayAttachmentArrayInput is an input type that accepts InternetGatewayAttachmentArray and InternetGatewayAttachmentArrayOutput values.
 // You can construct a concrete instance of `InternetGatewayAttachmentArrayInput` via:
 //
-//          InternetGatewayAttachmentArray{ InternetGatewayAttachmentArgs{...} }
+//	InternetGatewayAttachmentArray{ InternetGatewayAttachmentArgs{...} }
 type InternetGatewayAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +186,7 @@ func (i InternetGatewayAttachmentArray) ToInternetGatewayAttachmentArrayOutputWi
 // InternetGatewayAttachmentMapInput is an input type that accepts InternetGatewayAttachmentMap and InternetGatewayAttachmentMapOutput values.
 // You can construct a concrete instance of `InternetGatewayAttachmentMapInput` via:
 //
-//          InternetGatewayAttachmentMap{ "key": InternetGatewayAttachmentArgs{...} }
+//	InternetGatewayAttachmentMap{ "key": InternetGatewayAttachmentArgs{...} }
 type InternetGatewayAttachmentMapInput interface {
 	pulumi.Input
 

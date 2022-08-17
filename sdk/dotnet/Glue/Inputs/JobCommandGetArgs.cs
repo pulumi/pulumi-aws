@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class JobCommandGetArgs : Pulumi.ResourceArgs
+    public sealed class JobCommandGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public JobCommandGetArgs()
         {
         }
+        public static new JobCommandGetArgs Empty => new JobCommandGetArgs();
     }
 }

@@ -13,57 +13,55 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var route = new Aws.Ec2.Route("route", new()
     ///     {
-    ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
+    ///         RouteTableId = "rtb-4fbb3ac4",
+    ///         DestinationCidrBlock = "10.0.1.0/22",
+    ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             RouteTableId = "rtb-4fbb3ac4",
-    ///             DestinationCidrBlock = "10.0.1.0/22",
-    ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_route_table.Testing,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_route_table.Testing,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Example IPv6 Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
     ///     {
-    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///             AssignGeneratedIpv6CidrBlock = true,
-    ///         });
-    ///         var egress = new Aws.Ec2.EgressOnlyInternetGateway("egress", new Aws.Ec2.EgressOnlyInternetGatewayArgs
-    ///         {
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-    ///         {
-    ///             RouteTableId = "rtb-4fbb3ac4",
-    ///             DestinationIpv6CidrBlock = "::/0",
-    ///             EgressOnlyGatewayId = egress.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///         AssignGeneratedIpv6CidrBlock = true,
+    ///     });
     /// 
-    /// }
+    ///     var egress = new Aws.Ec2.EgressOnlyInternetGateway("egress", new()
+    ///     {
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     {
+    ///         RouteTableId = "rtb-4fbb3ac4",
+    ///         DestinationIpv6CidrBlock = "::/0",
+    ///         EgressOnlyGatewayId = egress.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -241,7 +239,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -336,9 +334,10 @@ namespace Pulumi.Aws.Ec2
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -451,5 +450,6 @@ namespace Pulumi.Aws.Ec2
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

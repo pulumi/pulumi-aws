@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApplication, err := appconfig.NewApplication(ctx, "exampleApplication", &appconfig.ApplicationArgs{
-// 			Description: pulumi.String("Example AppConfig Application"),
-// 			Tags: pulumi.StringMap{
-// 				"Type": pulumi.String("AppConfig Application"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appconfig.NewEnvironment(ctx, "exampleEnvironment", &appconfig.EnvironmentArgs{
-// 			Description:   pulumi.String("Example AppConfig Environment"),
-// 			ApplicationId: exampleApplication.ID(),
-// 			Monitors: appconfig.EnvironmentMonitorArray{
-// 				&appconfig.EnvironmentMonitorArgs{
-// 					AlarmArn:     pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
-// 					AlarmRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Type": pulumi.String("AppConfig Environment"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApplication, err := appconfig.NewApplication(ctx, "exampleApplication", &appconfig.ApplicationArgs{
+//				Description: pulumi.String("Example AppConfig Application"),
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Application"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfig.NewEnvironment(ctx, "exampleEnvironment", &appconfig.EnvironmentArgs{
+//				Description:   pulumi.String("Example AppConfig Environment"),
+//				ApplicationId: exampleApplication.ID(),
+//				Monitors: appconfig.EnvironmentMonitorArray{
+//					&appconfig.EnvironmentMonitorArgs{
+//						AlarmArn:     pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
+//						AlarmRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Environment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+//
+//	$ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+//
 // ```
 type Environment struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 // EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentArrayInput` via:
 //
-//          EnvironmentArray{ EnvironmentArgs{...} }
+//	EnvironmentArray{ EnvironmentArgs{...} }
 type EnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Contex
 // EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
 // You can construct a concrete instance of `EnvironmentMapInput` via:
 //
-//          EnvironmentMap{ "key": EnvironmentArgs{...} }
+//	EnvironmentMap{ "key": EnvironmentArgs{...} }
 type EnvironmentMapInput interface {
 	pulumi.Input
 

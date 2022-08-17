@@ -20,7 +20,7 @@ type AnomalySubscriptionSubscriber struct {
 // AnomalySubscriptionSubscriberInput is an input type that accepts AnomalySubscriptionSubscriberArgs and AnomalySubscriptionSubscriberOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberInput` via:
 //
-//          AnomalySubscriptionSubscriberArgs{...}
+//	AnomalySubscriptionSubscriberArgs{...}
 type AnomalySubscriptionSubscriberInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AnomalySubscriptionSubscriberArgs) ToAnomalySubscriptionSubscriberOutput
 // AnomalySubscriptionSubscriberArrayInput is an input type that accepts AnomalySubscriptionSubscriberArray and AnomalySubscriptionSubscriberArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberArrayInput` via:
 //
-//          AnomalySubscriptionSubscriberArray{ AnomalySubscriptionSubscriberArgs{...} }
+//	AnomalySubscriptionSubscriberArray{ AnomalySubscriptionSubscriberArgs{...} }
 type AnomalySubscriptionSubscriberArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type CostCategoryRule struct {
 // CostCategoryRuleInput is an input type that accepts CostCategoryRuleArgs and CostCategoryRuleOutput values.
 // You can construct a concrete instance of `CostCategoryRuleInput` via:
 //
-//          CostCategoryRuleArgs{...}
+//	CostCategoryRuleArgs{...}
 type CostCategoryRuleInput interface {
 	pulumi.Input
 
@@ -164,7 +164,7 @@ func (i CostCategoryRuleArgs) ToCostCategoryRuleOutputWithContext(ctx context.Co
 // CostCategoryRuleArrayInput is an input type that accepts CostCategoryRuleArray and CostCategoryRuleArrayOutput values.
 // You can construct a concrete instance of `CostCategoryRuleArrayInput` via:
 //
-//          CostCategoryRuleArray{ CostCategoryRuleArgs{...} }
+//	CostCategoryRuleArray{ CostCategoryRuleArgs{...} }
 type CostCategoryRuleArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ type CostCategoryRuleInheritedValue struct {
 // CostCategoryRuleInheritedValueInput is an input type that accepts CostCategoryRuleInheritedValueArgs and CostCategoryRuleInheritedValueOutput values.
 // You can construct a concrete instance of `CostCategoryRuleInheritedValueInput` via:
 //
-//          CostCategoryRuleInheritedValueArgs{...}
+//	CostCategoryRuleInheritedValueArgs{...}
 type CostCategoryRuleInheritedValueInput interface {
 	pulumi.Input
 
@@ -288,11 +288,11 @@ func (i CostCategoryRuleInheritedValueArgs) ToCostCategoryRuleInheritedValuePtrO
 // CostCategoryRuleInheritedValuePtrInput is an input type that accepts CostCategoryRuleInheritedValueArgs, CostCategoryRuleInheritedValuePtr and CostCategoryRuleInheritedValuePtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleInheritedValuePtrInput` via:
 //
-//          CostCategoryRuleInheritedValueArgs{...}
+//	        CostCategoryRuleInheritedValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleInheritedValuePtrInput interface {
 	pulumi.Input
 
@@ -406,15 +406,14 @@ type CostCategoryRuleRule struct {
 	// Return results that match both `Dimension` object.
 	Not *CostCategoryRuleRuleNot `pulumi:"not"`
 	// Return results that match both `Dimension` object.
-	Ors []CostCategoryRuleRuleOr `pulumi:"ors"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Ors  []CostCategoryRuleRuleOr  `pulumi:"ors"`
 	Tags *CostCategoryRuleRuleTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleInput is an input type that accepts CostCategoryRuleRuleArgs and CostCategoryRuleRuleOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleInput` via:
 //
-//          CostCategoryRuleRuleArgs{...}
+//	CostCategoryRuleRuleArgs{...}
 type CostCategoryRuleRuleInput interface {
 	pulumi.Input
 
@@ -432,8 +431,7 @@ type CostCategoryRuleRuleArgs struct {
 	// Return results that match both `Dimension` object.
 	Not CostCategoryRuleRuleNotPtrInput `pulumi:"not"`
 	// Return results that match both `Dimension` object.
-	Ors CostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Ors  CostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
 	Tags CostCategoryRuleRuleTagsPtrInput `pulumi:"tags"`
 }
 
@@ -460,11 +458,11 @@ func (i CostCategoryRuleRuleArgs) ToCostCategoryRuleRulePtrOutputWithContext(ctx
 // CostCategoryRuleRulePtrInput is an input type that accepts CostCategoryRuleRuleArgs, CostCategoryRuleRulePtr and CostCategoryRuleRulePtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRulePtrInput` via:
 //
-//          CostCategoryRuleRuleArgs{...}
+//	        CostCategoryRuleRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRulePtrInput interface {
 	pulumi.Input
 
@@ -539,7 +537,6 @@ func (o CostCategoryRuleRuleOutput) Ors() CostCategoryRuleRuleOrArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRule) []CostCategoryRuleRuleOr { return v.Ors }).(CostCategoryRuleRuleOrArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleOutput) Tags() CostCategoryRuleRuleTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRule) *CostCategoryRuleRuleTags { return v.Tags }).(CostCategoryRuleRuleTagsPtrOutput)
 }
@@ -618,7 +615,6 @@ func (o CostCategoryRuleRulePtrOutput) Ors() CostCategoryRuleRuleOrArrayOutput {
 	}).(CostCategoryRuleRuleOrArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRulePtrOutput) Tags() CostCategoryRuleRuleTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRule) *CostCategoryRuleRuleTags {
 		if v == nil {
@@ -633,14 +629,13 @@ type CostCategoryRuleRuleAnd struct {
 	CostCategory *CostCategoryRuleRuleAndCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleAndDimension `pulumi:"dimension"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags *CostCategoryRuleRuleAndTags `pulumi:"tags"`
+	Tags      *CostCategoryRuleRuleAndTags      `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleAndInput is an input type that accepts CostCategoryRuleRuleAndArgs and CostCategoryRuleRuleAndOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndInput` via:
 //
-//          CostCategoryRuleRuleAndArgs{...}
+//	CostCategoryRuleRuleAndArgs{...}
 type CostCategoryRuleRuleAndInput interface {
 	pulumi.Input
 
@@ -653,8 +648,7 @@ type CostCategoryRuleRuleAndArgs struct {
 	CostCategory CostCategoryRuleRuleAndCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleAndDimensionPtrInput `pulumi:"dimension"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags CostCategoryRuleRuleAndTagsPtrInput `pulumi:"tags"`
+	Tags      CostCategoryRuleRuleAndTagsPtrInput      `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleAndArgs) ElementType() reflect.Type {
@@ -672,7 +666,7 @@ func (i CostCategoryRuleRuleAndArgs) ToCostCategoryRuleRuleAndOutputWithContext(
 // CostCategoryRuleRuleAndArrayInput is an input type that accepts CostCategoryRuleRuleAndArray and CostCategoryRuleRuleAndArrayOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndArrayInput` via:
 //
-//          CostCategoryRuleRuleAndArray{ CostCategoryRuleRuleAndArgs{...} }
+//	CostCategoryRuleRuleAndArray{ CostCategoryRuleRuleAndArgs{...} }
 type CostCategoryRuleRuleAndArrayInput interface {
 	pulumi.Input
 
@@ -718,7 +712,6 @@ func (o CostCategoryRuleRuleAndOutput) Dimension() CostCategoryRuleRuleAndDimens
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndDimensionPtrOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleAndOutput) Tags() CostCategoryRuleRuleAndTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndTags { return v.Tags }).(CostCategoryRuleRuleAndTagsPtrOutput)
 }
@@ -755,7 +748,7 @@ type CostCategoryRuleRuleAndCostCategory struct {
 // CostCategoryRuleRuleAndCostCategoryInput is an input type that accepts CostCategoryRuleRuleAndCostCategoryArgs and CostCategoryRuleRuleAndCostCategoryOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndCostCategoryInput` via:
 //
-//          CostCategoryRuleRuleAndCostCategoryArgs{...}
+//	CostCategoryRuleRuleAndCostCategoryArgs{...}
 type CostCategoryRuleRuleAndCostCategoryInput interface {
 	pulumi.Input
 
@@ -795,11 +788,11 @@ func (i CostCategoryRuleRuleAndCostCategoryArgs) ToCostCategoryRuleRuleAndCostCa
 // CostCategoryRuleRuleAndCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleAndCostCategoryArgs, CostCategoryRuleRuleAndCostCategoryPtr and CostCategoryRuleRuleAndCostCategoryPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndCostCategoryPtrInput` via:
 //
-//          CostCategoryRuleRuleAndCostCategoryArgs{...}
+//	        CostCategoryRuleRuleAndCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleAndCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -930,7 +923,7 @@ type CostCategoryRuleRuleAndDimension struct {
 // CostCategoryRuleRuleAndDimensionInput is an input type that accepts CostCategoryRuleRuleAndDimensionArgs and CostCategoryRuleRuleAndDimensionOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndDimensionInput` via:
 //
-//          CostCategoryRuleRuleAndDimensionArgs{...}
+//	CostCategoryRuleRuleAndDimensionArgs{...}
 type CostCategoryRuleRuleAndDimensionInput interface {
 	pulumi.Input
 
@@ -970,11 +963,11 @@ func (i CostCategoryRuleRuleAndDimensionArgs) ToCostCategoryRuleRuleAndDimension
 // CostCategoryRuleRuleAndDimensionPtrInput is an input type that accepts CostCategoryRuleRuleAndDimensionArgs, CostCategoryRuleRuleAndDimensionPtr and CostCategoryRuleRuleAndDimensionPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndDimensionPtrInput` via:
 //
-//          CostCategoryRuleRuleAndDimensionArgs{...}
+//	        CostCategoryRuleRuleAndDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleAndDimensionPtrInput interface {
 	pulumi.Input
 
@@ -1105,7 +1098,7 @@ type CostCategoryRuleRuleAndTags struct {
 // CostCategoryRuleRuleAndTagsInput is an input type that accepts CostCategoryRuleRuleAndTagsArgs and CostCategoryRuleRuleAndTagsOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndTagsInput` via:
 //
-//          CostCategoryRuleRuleAndTagsArgs{...}
+//	CostCategoryRuleRuleAndTagsArgs{...}
 type CostCategoryRuleRuleAndTagsInput interface {
 	pulumi.Input
 
@@ -1145,11 +1138,11 @@ func (i CostCategoryRuleRuleAndTagsArgs) ToCostCategoryRuleRuleAndTagsPtrOutputW
 // CostCategoryRuleRuleAndTagsPtrInput is an input type that accepts CostCategoryRuleRuleAndTagsArgs, CostCategoryRuleRuleAndTagsPtr and CostCategoryRuleRuleAndTagsPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndTagsPtrInput` via:
 //
-//          CostCategoryRuleRuleAndTagsArgs{...}
+//	        CostCategoryRuleRuleAndTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleAndTagsPtrInput interface {
 	pulumi.Input
 
@@ -1280,7 +1273,7 @@ type CostCategoryRuleRuleCostCategory struct {
 // CostCategoryRuleRuleCostCategoryInput is an input type that accepts CostCategoryRuleRuleCostCategoryArgs and CostCategoryRuleRuleCostCategoryOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleCostCategoryInput` via:
 //
-//          CostCategoryRuleRuleCostCategoryArgs{...}
+//	CostCategoryRuleRuleCostCategoryArgs{...}
 type CostCategoryRuleRuleCostCategoryInput interface {
 	pulumi.Input
 
@@ -1320,11 +1313,11 @@ func (i CostCategoryRuleRuleCostCategoryArgs) ToCostCategoryRuleRuleCostCategory
 // CostCategoryRuleRuleCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleCostCategoryArgs, CostCategoryRuleRuleCostCategoryPtr and CostCategoryRuleRuleCostCategoryPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleCostCategoryPtrInput` via:
 //
-//          CostCategoryRuleRuleCostCategoryArgs{...}
+//	        CostCategoryRuleRuleCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -1455,7 +1448,7 @@ type CostCategoryRuleRuleDimension struct {
 // CostCategoryRuleRuleDimensionInput is an input type that accepts CostCategoryRuleRuleDimensionArgs and CostCategoryRuleRuleDimensionOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleDimensionInput` via:
 //
-//          CostCategoryRuleRuleDimensionArgs{...}
+//	CostCategoryRuleRuleDimensionArgs{...}
 type CostCategoryRuleRuleDimensionInput interface {
 	pulumi.Input
 
@@ -1495,11 +1488,11 @@ func (i CostCategoryRuleRuleDimensionArgs) ToCostCategoryRuleRuleDimensionPtrOut
 // CostCategoryRuleRuleDimensionPtrInput is an input type that accepts CostCategoryRuleRuleDimensionArgs, CostCategoryRuleRuleDimensionPtr and CostCategoryRuleRuleDimensionPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleDimensionPtrInput` via:
 //
-//          CostCategoryRuleRuleDimensionArgs{...}
+//	        CostCategoryRuleRuleDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleDimensionPtrInput interface {
 	pulumi.Input
 
@@ -1623,14 +1616,13 @@ type CostCategoryRuleRuleNot struct {
 	CostCategory *CostCategoryRuleRuleNotCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleNotDimension `pulumi:"dimension"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags *CostCategoryRuleRuleNotTags `pulumi:"tags"`
+	Tags      *CostCategoryRuleRuleNotTags      `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleNotInput is an input type that accepts CostCategoryRuleRuleNotArgs and CostCategoryRuleRuleNotOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotInput` via:
 //
-//          CostCategoryRuleRuleNotArgs{...}
+//	CostCategoryRuleRuleNotArgs{...}
 type CostCategoryRuleRuleNotInput interface {
 	pulumi.Input
 
@@ -1643,8 +1635,7 @@ type CostCategoryRuleRuleNotArgs struct {
 	CostCategory CostCategoryRuleRuleNotCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleNotDimensionPtrInput `pulumi:"dimension"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags CostCategoryRuleRuleNotTagsPtrInput `pulumi:"tags"`
+	Tags      CostCategoryRuleRuleNotTagsPtrInput      `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleNotArgs) ElementType() reflect.Type {
@@ -1670,11 +1661,11 @@ func (i CostCategoryRuleRuleNotArgs) ToCostCategoryRuleRuleNotPtrOutputWithConte
 // CostCategoryRuleRuleNotPtrInput is an input type that accepts CostCategoryRuleRuleNotArgs, CostCategoryRuleRuleNotPtr and CostCategoryRuleRuleNotPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotPtrInput` via:
 //
-//          CostCategoryRuleRuleNotArgs{...}
+//	        CostCategoryRuleRuleNotArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleNotPtrInput interface {
 	pulumi.Input
 
@@ -1734,7 +1725,6 @@ func (o CostCategoryRuleRuleNotOutput) Dimension() CostCategoryRuleRuleNotDimens
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleNotOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags { return v.Tags }).(CostCategoryRuleRuleNotTagsPtrOutput)
 }
@@ -1783,7 +1773,6 @@ func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDim
 	}).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleNotPtrOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags {
 		if v == nil {
@@ -1805,7 +1794,7 @@ type CostCategoryRuleRuleNotCostCategory struct {
 // CostCategoryRuleRuleNotCostCategoryInput is an input type that accepts CostCategoryRuleRuleNotCostCategoryArgs and CostCategoryRuleRuleNotCostCategoryOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotCostCategoryInput` via:
 //
-//          CostCategoryRuleRuleNotCostCategoryArgs{...}
+//	CostCategoryRuleRuleNotCostCategoryArgs{...}
 type CostCategoryRuleRuleNotCostCategoryInput interface {
 	pulumi.Input
 
@@ -1845,11 +1834,11 @@ func (i CostCategoryRuleRuleNotCostCategoryArgs) ToCostCategoryRuleRuleNotCostCa
 // CostCategoryRuleRuleNotCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleNotCostCategoryArgs, CostCategoryRuleRuleNotCostCategoryPtr and CostCategoryRuleRuleNotCostCategoryPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotCostCategoryPtrInput` via:
 //
-//          CostCategoryRuleRuleNotCostCategoryArgs{...}
+//	        CostCategoryRuleRuleNotCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleNotCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -1980,7 +1969,7 @@ type CostCategoryRuleRuleNotDimension struct {
 // CostCategoryRuleRuleNotDimensionInput is an input type that accepts CostCategoryRuleRuleNotDimensionArgs and CostCategoryRuleRuleNotDimensionOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotDimensionInput` via:
 //
-//          CostCategoryRuleRuleNotDimensionArgs{...}
+//	CostCategoryRuleRuleNotDimensionArgs{...}
 type CostCategoryRuleRuleNotDimensionInput interface {
 	pulumi.Input
 
@@ -2020,11 +2009,11 @@ func (i CostCategoryRuleRuleNotDimensionArgs) ToCostCategoryRuleRuleNotDimension
 // CostCategoryRuleRuleNotDimensionPtrInput is an input type that accepts CostCategoryRuleRuleNotDimensionArgs, CostCategoryRuleRuleNotDimensionPtr and CostCategoryRuleRuleNotDimensionPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotDimensionPtrInput` via:
 //
-//          CostCategoryRuleRuleNotDimensionArgs{...}
+//	        CostCategoryRuleRuleNotDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleNotDimensionPtrInput interface {
 	pulumi.Input
 
@@ -2155,7 +2144,7 @@ type CostCategoryRuleRuleNotTags struct {
 // CostCategoryRuleRuleNotTagsInput is an input type that accepts CostCategoryRuleRuleNotTagsArgs and CostCategoryRuleRuleNotTagsOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotTagsInput` via:
 //
-//          CostCategoryRuleRuleNotTagsArgs{...}
+//	CostCategoryRuleRuleNotTagsArgs{...}
 type CostCategoryRuleRuleNotTagsInput interface {
 	pulumi.Input
 
@@ -2195,11 +2184,11 @@ func (i CostCategoryRuleRuleNotTagsArgs) ToCostCategoryRuleRuleNotTagsPtrOutputW
 // CostCategoryRuleRuleNotTagsPtrInput is an input type that accepts CostCategoryRuleRuleNotTagsArgs, CostCategoryRuleRuleNotTagsPtr and CostCategoryRuleRuleNotTagsPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleNotTagsPtrInput` via:
 //
-//          CostCategoryRuleRuleNotTagsArgs{...}
+//	        CostCategoryRuleRuleNotTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleNotTagsPtrInput interface {
 	pulumi.Input
 
@@ -2323,14 +2312,13 @@ type CostCategoryRuleRuleOr struct {
 	CostCategory *CostCategoryRuleRuleOrCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleOrDimension `pulumi:"dimension"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags *CostCategoryRuleRuleOrTags `pulumi:"tags"`
+	Tags      *CostCategoryRuleRuleOrTags      `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleOrInput is an input type that accepts CostCategoryRuleRuleOrArgs and CostCategoryRuleRuleOrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrInput` via:
 //
-//          CostCategoryRuleRuleOrArgs{...}
+//	CostCategoryRuleRuleOrArgs{...}
 type CostCategoryRuleRuleOrInput interface {
 	pulumi.Input
 
@@ -2343,8 +2331,7 @@ type CostCategoryRuleRuleOrArgs struct {
 	CostCategory CostCategoryRuleRuleOrCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleOrDimensionPtrInput `pulumi:"dimension"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags CostCategoryRuleRuleOrTagsPtrInput `pulumi:"tags"`
+	Tags      CostCategoryRuleRuleOrTagsPtrInput      `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleOrArgs) ElementType() reflect.Type {
@@ -2362,7 +2349,7 @@ func (i CostCategoryRuleRuleOrArgs) ToCostCategoryRuleRuleOrOutputWithContext(ct
 // CostCategoryRuleRuleOrArrayInput is an input type that accepts CostCategoryRuleRuleOrArray and CostCategoryRuleRuleOrArrayOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrArrayInput` via:
 //
-//          CostCategoryRuleRuleOrArray{ CostCategoryRuleRuleOrArgs{...} }
+//	CostCategoryRuleRuleOrArray{ CostCategoryRuleRuleOrArgs{...} }
 type CostCategoryRuleRuleOrArrayInput interface {
 	pulumi.Input
 
@@ -2408,7 +2395,6 @@ func (o CostCategoryRuleRuleOrOutput) Dimension() CostCategoryRuleRuleOrDimensio
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrDimensionPtrOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleOrOutput) Tags() CostCategoryRuleRuleOrTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrTags { return v.Tags }).(CostCategoryRuleRuleOrTagsPtrOutput)
 }
@@ -2445,7 +2431,7 @@ type CostCategoryRuleRuleOrCostCategory struct {
 // CostCategoryRuleRuleOrCostCategoryInput is an input type that accepts CostCategoryRuleRuleOrCostCategoryArgs and CostCategoryRuleRuleOrCostCategoryOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrCostCategoryInput` via:
 //
-//          CostCategoryRuleRuleOrCostCategoryArgs{...}
+//	CostCategoryRuleRuleOrCostCategoryArgs{...}
 type CostCategoryRuleRuleOrCostCategoryInput interface {
 	pulumi.Input
 
@@ -2485,11 +2471,11 @@ func (i CostCategoryRuleRuleOrCostCategoryArgs) ToCostCategoryRuleRuleOrCostCate
 // CostCategoryRuleRuleOrCostCategoryPtrInput is an input type that accepts CostCategoryRuleRuleOrCostCategoryArgs, CostCategoryRuleRuleOrCostCategoryPtr and CostCategoryRuleRuleOrCostCategoryPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrCostCategoryPtrInput` via:
 //
-//          CostCategoryRuleRuleOrCostCategoryArgs{...}
+//	        CostCategoryRuleRuleOrCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleOrCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -2620,7 +2606,7 @@ type CostCategoryRuleRuleOrDimension struct {
 // CostCategoryRuleRuleOrDimensionInput is an input type that accepts CostCategoryRuleRuleOrDimensionArgs and CostCategoryRuleRuleOrDimensionOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrDimensionInput` via:
 //
-//          CostCategoryRuleRuleOrDimensionArgs{...}
+//	CostCategoryRuleRuleOrDimensionArgs{...}
 type CostCategoryRuleRuleOrDimensionInput interface {
 	pulumi.Input
 
@@ -2660,11 +2646,11 @@ func (i CostCategoryRuleRuleOrDimensionArgs) ToCostCategoryRuleRuleOrDimensionPt
 // CostCategoryRuleRuleOrDimensionPtrInput is an input type that accepts CostCategoryRuleRuleOrDimensionArgs, CostCategoryRuleRuleOrDimensionPtr and CostCategoryRuleRuleOrDimensionPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrDimensionPtrInput` via:
 //
-//          CostCategoryRuleRuleOrDimensionArgs{...}
+//	        CostCategoryRuleRuleOrDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleOrDimensionPtrInput interface {
 	pulumi.Input
 
@@ -2795,7 +2781,7 @@ type CostCategoryRuleRuleOrTags struct {
 // CostCategoryRuleRuleOrTagsInput is an input type that accepts CostCategoryRuleRuleOrTagsArgs and CostCategoryRuleRuleOrTagsOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrTagsInput` via:
 //
-//          CostCategoryRuleRuleOrTagsArgs{...}
+//	CostCategoryRuleRuleOrTagsArgs{...}
 type CostCategoryRuleRuleOrTagsInput interface {
 	pulumi.Input
 
@@ -2835,11 +2821,11 @@ func (i CostCategoryRuleRuleOrTagsArgs) ToCostCategoryRuleRuleOrTagsPtrOutputWit
 // CostCategoryRuleRuleOrTagsPtrInput is an input type that accepts CostCategoryRuleRuleOrTagsArgs, CostCategoryRuleRuleOrTagsPtr and CostCategoryRuleRuleOrTagsPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrTagsPtrInput` via:
 //
-//          CostCategoryRuleRuleOrTagsArgs{...}
+//	        CostCategoryRuleRuleOrTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleOrTagsPtrInput interface {
 	pulumi.Input
 
@@ -2970,7 +2956,7 @@ type CostCategoryRuleRuleTags struct {
 // CostCategoryRuleRuleTagsInput is an input type that accepts CostCategoryRuleRuleTagsArgs and CostCategoryRuleRuleTagsOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleTagsInput` via:
 //
-//          CostCategoryRuleRuleTagsArgs{...}
+//	CostCategoryRuleRuleTagsArgs{...}
 type CostCategoryRuleRuleTagsInput interface {
 	pulumi.Input
 
@@ -3010,11 +2996,11 @@ func (i CostCategoryRuleRuleTagsArgs) ToCostCategoryRuleRuleTagsPtrOutputWithCon
 // CostCategoryRuleRuleTagsPtrInput is an input type that accepts CostCategoryRuleRuleTagsArgs, CostCategoryRuleRuleTagsPtr and CostCategoryRuleRuleTagsPtrOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleTagsPtrInput` via:
 //
-//          CostCategoryRuleRuleTagsArgs{...}
+//	        CostCategoryRuleRuleTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostCategoryRuleRuleTagsPtrInput interface {
 	pulumi.Input
 
@@ -3147,7 +3133,7 @@ type CostCategorySplitChargeRule struct {
 // CostCategorySplitChargeRuleInput is an input type that accepts CostCategorySplitChargeRuleArgs and CostCategorySplitChargeRuleOutput values.
 // You can construct a concrete instance of `CostCategorySplitChargeRuleInput` via:
 //
-//          CostCategorySplitChargeRuleArgs{...}
+//	CostCategorySplitChargeRuleArgs{...}
 type CostCategorySplitChargeRuleInput interface {
 	pulumi.Input
 
@@ -3181,7 +3167,7 @@ func (i CostCategorySplitChargeRuleArgs) ToCostCategorySplitChargeRuleOutputWith
 // CostCategorySplitChargeRuleArrayInput is an input type that accepts CostCategorySplitChargeRuleArray and CostCategorySplitChargeRuleArrayOutput values.
 // You can construct a concrete instance of `CostCategorySplitChargeRuleArrayInput` via:
 //
-//          CostCategorySplitChargeRuleArray{ CostCategorySplitChargeRuleArgs{...} }
+//	CostCategorySplitChargeRuleArray{ CostCategorySplitChargeRuleArgs{...} }
 type CostCategorySplitChargeRuleArrayInput interface {
 	pulumi.Input
 
@@ -3267,7 +3253,7 @@ type CostCategorySplitChargeRuleParameter struct {
 // CostCategorySplitChargeRuleParameterInput is an input type that accepts CostCategorySplitChargeRuleParameterArgs and CostCategorySplitChargeRuleParameterOutput values.
 // You can construct a concrete instance of `CostCategorySplitChargeRuleParameterInput` via:
 //
-//          CostCategorySplitChargeRuleParameterArgs{...}
+//	CostCategorySplitChargeRuleParameterArgs{...}
 type CostCategorySplitChargeRuleParameterInput interface {
 	pulumi.Input
 
@@ -3297,7 +3283,7 @@ func (i CostCategorySplitChargeRuleParameterArgs) ToCostCategorySplitChargeRuleP
 // CostCategorySplitChargeRuleParameterArrayInput is an input type that accepts CostCategorySplitChargeRuleParameterArray and CostCategorySplitChargeRuleParameterArrayOutput values.
 // You can construct a concrete instance of `CostCategorySplitChargeRuleParameterArrayInput` via:
 //
-//          CostCategorySplitChargeRuleParameterArray{ CostCategorySplitChargeRuleParameterArgs{...} }
+//	CostCategorySplitChargeRuleParameterArray{ CostCategorySplitChargeRuleParameterArgs{...} }
 type CostCategorySplitChargeRuleParameterArrayInput interface {
 	pulumi.Input
 
@@ -3377,7 +3363,7 @@ type GetCostCategoryRule struct {
 // GetCostCategoryRuleInput is an input type that accepts GetCostCategoryRuleArgs and GetCostCategoryRuleOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleInput` via:
 //
-//          GetCostCategoryRuleArgs{...}
+//	GetCostCategoryRuleArgs{...}
 type GetCostCategoryRuleInput interface {
 	pulumi.Input
 
@@ -3411,7 +3397,7 @@ func (i GetCostCategoryRuleArgs) ToGetCostCategoryRuleOutputWithContext(ctx cont
 // GetCostCategoryRuleArrayInput is an input type that accepts GetCostCategoryRuleArray and GetCostCategoryRuleArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleArrayInput` via:
 //
-//          GetCostCategoryRuleArray{ GetCostCategoryRuleArgs{...} }
+//	GetCostCategoryRuleArray{ GetCostCategoryRuleArgs{...} }
 type GetCostCategoryRuleArrayInput interface {
 	pulumi.Input
 
@@ -3497,7 +3483,7 @@ type GetCostCategoryRuleInheritedValue struct {
 // GetCostCategoryRuleInheritedValueInput is an input type that accepts GetCostCategoryRuleInheritedValueArgs and GetCostCategoryRuleInheritedValueOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleInheritedValueInput` via:
 //
-//          GetCostCategoryRuleInheritedValueArgs{...}
+//	GetCostCategoryRuleInheritedValueArgs{...}
 type GetCostCategoryRuleInheritedValueInput interface {
 	pulumi.Input
 
@@ -3527,7 +3513,7 @@ func (i GetCostCategoryRuleInheritedValueArgs) ToGetCostCategoryRuleInheritedVal
 // GetCostCategoryRuleInheritedValueArrayInput is an input type that accepts GetCostCategoryRuleInheritedValueArray and GetCostCategoryRuleInheritedValueArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleInheritedValueArrayInput` via:
 //
-//          GetCostCategoryRuleInheritedValueArray{ GetCostCategoryRuleInheritedValueArgs{...} }
+//	GetCostCategoryRuleInheritedValueArray{ GetCostCategoryRuleInheritedValueArgs{...} }
 type GetCostCategoryRuleInheritedValueArrayInput interface {
 	pulumi.Input
 
@@ -3611,7 +3597,7 @@ type GetCostCategoryRuleRule struct {
 // GetCostCategoryRuleRuleInput is an input type that accepts GetCostCategoryRuleRuleArgs and GetCostCategoryRuleRuleOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleInput` via:
 //
-//          GetCostCategoryRuleRuleArgs{...}
+//	GetCostCategoryRuleRuleArgs{...}
 type GetCostCategoryRuleRuleInput interface {
 	pulumi.Input
 
@@ -3649,7 +3635,7 @@ func (i GetCostCategoryRuleRuleArgs) ToGetCostCategoryRuleRuleOutputWithContext(
 // GetCostCategoryRuleRuleArrayInput is an input type that accepts GetCostCategoryRuleRuleArray and GetCostCategoryRuleRuleArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleArrayInput` via:
 //
-//          GetCostCategoryRuleRuleArray{ GetCostCategoryRuleRuleArgs{...} }
+//	GetCostCategoryRuleRuleArray{ GetCostCategoryRuleRuleArgs{...} }
 type GetCostCategoryRuleRuleArrayInput interface {
 	pulumi.Input
 
@@ -3747,7 +3733,7 @@ type GetCostCategoryRuleRuleAnd struct {
 // GetCostCategoryRuleRuleAndInput is an input type that accepts GetCostCategoryRuleRuleAndArgs and GetCostCategoryRuleRuleAndOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndInput` via:
 //
-//          GetCostCategoryRuleRuleAndArgs{...}
+//	GetCostCategoryRuleRuleAndArgs{...}
 type GetCostCategoryRuleRuleAndInput interface {
 	pulumi.Input
 
@@ -3779,7 +3765,7 @@ func (i GetCostCategoryRuleRuleAndArgs) ToGetCostCategoryRuleRuleAndOutputWithCo
 // GetCostCategoryRuleRuleAndArrayInput is an input type that accepts GetCostCategoryRuleRuleAndArray and GetCostCategoryRuleRuleAndArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndArrayInput` via:
 //
-//          GetCostCategoryRuleRuleAndArray{ GetCostCategoryRuleRuleAndArgs{...} }
+//	GetCostCategoryRuleRuleAndArray{ GetCostCategoryRuleRuleAndArgs{...} }
 type GetCostCategoryRuleRuleAndArrayInput interface {
 	pulumi.Input
 
@@ -3862,7 +3848,7 @@ type GetCostCategoryRuleRuleAndCostCategory struct {
 // GetCostCategoryRuleRuleAndCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleAndCostCategoryArgs and GetCostCategoryRuleRuleAndCostCategoryOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndCostCategoryInput` via:
 //
-//          GetCostCategoryRuleRuleAndCostCategoryArgs{...}
+//	GetCostCategoryRuleRuleAndCostCategoryArgs{...}
 type GetCostCategoryRuleRuleAndCostCategoryInput interface {
 	pulumi.Input
 
@@ -3894,7 +3880,7 @@ func (i GetCostCategoryRuleRuleAndCostCategoryArgs) ToGetCostCategoryRuleRuleAnd
 // GetCostCategoryRuleRuleAndCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleAndCostCategoryArray and GetCostCategoryRuleRuleAndCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndCostCategoryArrayInput` via:
 //
-//          GetCostCategoryRuleRuleAndCostCategoryArray{ GetCostCategoryRuleRuleAndCostCategoryArgs{...} }
+//	GetCostCategoryRuleRuleAndCostCategoryArray{ GetCostCategoryRuleRuleAndCostCategoryArgs{...} }
 type GetCostCategoryRuleRuleAndCostCategoryArrayInput interface {
 	pulumi.Input
 
@@ -3977,7 +3963,7 @@ type GetCostCategoryRuleRuleAndDimension struct {
 // GetCostCategoryRuleRuleAndDimensionInput is an input type that accepts GetCostCategoryRuleRuleAndDimensionArgs and GetCostCategoryRuleRuleAndDimensionOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndDimensionInput` via:
 //
-//          GetCostCategoryRuleRuleAndDimensionArgs{...}
+//	GetCostCategoryRuleRuleAndDimensionArgs{...}
 type GetCostCategoryRuleRuleAndDimensionInput interface {
 	pulumi.Input
 
@@ -4009,7 +3995,7 @@ func (i GetCostCategoryRuleRuleAndDimensionArgs) ToGetCostCategoryRuleRuleAndDim
 // GetCostCategoryRuleRuleAndDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleAndDimensionArray and GetCostCategoryRuleRuleAndDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndDimensionArrayInput` via:
 //
-//          GetCostCategoryRuleRuleAndDimensionArray{ GetCostCategoryRuleRuleAndDimensionArgs{...} }
+//	GetCostCategoryRuleRuleAndDimensionArray{ GetCostCategoryRuleRuleAndDimensionArgs{...} }
 type GetCostCategoryRuleRuleAndDimensionArrayInput interface {
 	pulumi.Input
 
@@ -4092,7 +4078,7 @@ type GetCostCategoryRuleRuleAndTag struct {
 // GetCostCategoryRuleRuleAndTagInput is an input type that accepts GetCostCategoryRuleRuleAndTagArgs and GetCostCategoryRuleRuleAndTagOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndTagInput` via:
 //
-//          GetCostCategoryRuleRuleAndTagArgs{...}
+//	GetCostCategoryRuleRuleAndTagArgs{...}
 type GetCostCategoryRuleRuleAndTagInput interface {
 	pulumi.Input
 
@@ -4124,7 +4110,7 @@ func (i GetCostCategoryRuleRuleAndTagArgs) ToGetCostCategoryRuleRuleAndTagOutput
 // GetCostCategoryRuleRuleAndTagArrayInput is an input type that accepts GetCostCategoryRuleRuleAndTagArray and GetCostCategoryRuleRuleAndTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndTagArrayInput` via:
 //
-//          GetCostCategoryRuleRuleAndTagArray{ GetCostCategoryRuleRuleAndTagArgs{...} }
+//	GetCostCategoryRuleRuleAndTagArray{ GetCostCategoryRuleRuleAndTagArgs{...} }
 type GetCostCategoryRuleRuleAndTagArrayInput interface {
 	pulumi.Input
 
@@ -4207,7 +4193,7 @@ type GetCostCategoryRuleRuleCostCategory struct {
 // GetCostCategoryRuleRuleCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleCostCategoryArgs and GetCostCategoryRuleRuleCostCategoryOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleCostCategoryInput` via:
 //
-//          GetCostCategoryRuleRuleCostCategoryArgs{...}
+//	GetCostCategoryRuleRuleCostCategoryArgs{...}
 type GetCostCategoryRuleRuleCostCategoryInput interface {
 	pulumi.Input
 
@@ -4239,7 +4225,7 @@ func (i GetCostCategoryRuleRuleCostCategoryArgs) ToGetCostCategoryRuleRuleCostCa
 // GetCostCategoryRuleRuleCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleCostCategoryArray and GetCostCategoryRuleRuleCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleCostCategoryArrayInput` via:
 //
-//          GetCostCategoryRuleRuleCostCategoryArray{ GetCostCategoryRuleRuleCostCategoryArgs{...} }
+//	GetCostCategoryRuleRuleCostCategoryArray{ GetCostCategoryRuleRuleCostCategoryArgs{...} }
 type GetCostCategoryRuleRuleCostCategoryArrayInput interface {
 	pulumi.Input
 
@@ -4322,7 +4308,7 @@ type GetCostCategoryRuleRuleDimension struct {
 // GetCostCategoryRuleRuleDimensionInput is an input type that accepts GetCostCategoryRuleRuleDimensionArgs and GetCostCategoryRuleRuleDimensionOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleDimensionInput` via:
 //
-//          GetCostCategoryRuleRuleDimensionArgs{...}
+//	GetCostCategoryRuleRuleDimensionArgs{...}
 type GetCostCategoryRuleRuleDimensionInput interface {
 	pulumi.Input
 
@@ -4354,7 +4340,7 @@ func (i GetCostCategoryRuleRuleDimensionArgs) ToGetCostCategoryRuleRuleDimension
 // GetCostCategoryRuleRuleDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleDimensionArray and GetCostCategoryRuleRuleDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleDimensionArrayInput` via:
 //
-//          GetCostCategoryRuleRuleDimensionArray{ GetCostCategoryRuleRuleDimensionArgs{...} }
+//	GetCostCategoryRuleRuleDimensionArray{ GetCostCategoryRuleRuleDimensionArgs{...} }
 type GetCostCategoryRuleRuleDimensionArrayInput interface {
 	pulumi.Input
 
@@ -4437,7 +4423,7 @@ type GetCostCategoryRuleRuleNot struct {
 // GetCostCategoryRuleRuleNotInput is an input type that accepts GetCostCategoryRuleRuleNotArgs and GetCostCategoryRuleRuleNotOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotInput` via:
 //
-//          GetCostCategoryRuleRuleNotArgs{...}
+//	GetCostCategoryRuleRuleNotArgs{...}
 type GetCostCategoryRuleRuleNotInput interface {
 	pulumi.Input
 
@@ -4469,7 +4455,7 @@ func (i GetCostCategoryRuleRuleNotArgs) ToGetCostCategoryRuleRuleNotOutputWithCo
 // GetCostCategoryRuleRuleNotArrayInput is an input type that accepts GetCostCategoryRuleRuleNotArray and GetCostCategoryRuleRuleNotArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotArrayInput` via:
 //
-//          GetCostCategoryRuleRuleNotArray{ GetCostCategoryRuleRuleNotArgs{...} }
+//	GetCostCategoryRuleRuleNotArray{ GetCostCategoryRuleRuleNotArgs{...} }
 type GetCostCategoryRuleRuleNotArrayInput interface {
 	pulumi.Input
 
@@ -4552,7 +4538,7 @@ type GetCostCategoryRuleRuleNotCostCategory struct {
 // GetCostCategoryRuleRuleNotCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleNotCostCategoryArgs and GetCostCategoryRuleRuleNotCostCategoryOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotCostCategoryInput` via:
 //
-//          GetCostCategoryRuleRuleNotCostCategoryArgs{...}
+//	GetCostCategoryRuleRuleNotCostCategoryArgs{...}
 type GetCostCategoryRuleRuleNotCostCategoryInput interface {
 	pulumi.Input
 
@@ -4584,7 +4570,7 @@ func (i GetCostCategoryRuleRuleNotCostCategoryArgs) ToGetCostCategoryRuleRuleNot
 // GetCostCategoryRuleRuleNotCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleNotCostCategoryArray and GetCostCategoryRuleRuleNotCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotCostCategoryArrayInput` via:
 //
-//          GetCostCategoryRuleRuleNotCostCategoryArray{ GetCostCategoryRuleRuleNotCostCategoryArgs{...} }
+//	GetCostCategoryRuleRuleNotCostCategoryArray{ GetCostCategoryRuleRuleNotCostCategoryArgs{...} }
 type GetCostCategoryRuleRuleNotCostCategoryArrayInput interface {
 	pulumi.Input
 
@@ -4667,7 +4653,7 @@ type GetCostCategoryRuleRuleNotDimension struct {
 // GetCostCategoryRuleRuleNotDimensionInput is an input type that accepts GetCostCategoryRuleRuleNotDimensionArgs and GetCostCategoryRuleRuleNotDimensionOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotDimensionInput` via:
 //
-//          GetCostCategoryRuleRuleNotDimensionArgs{...}
+//	GetCostCategoryRuleRuleNotDimensionArgs{...}
 type GetCostCategoryRuleRuleNotDimensionInput interface {
 	pulumi.Input
 
@@ -4699,7 +4685,7 @@ func (i GetCostCategoryRuleRuleNotDimensionArgs) ToGetCostCategoryRuleRuleNotDim
 // GetCostCategoryRuleRuleNotDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleNotDimensionArray and GetCostCategoryRuleRuleNotDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotDimensionArrayInput` via:
 //
-//          GetCostCategoryRuleRuleNotDimensionArray{ GetCostCategoryRuleRuleNotDimensionArgs{...} }
+//	GetCostCategoryRuleRuleNotDimensionArray{ GetCostCategoryRuleRuleNotDimensionArgs{...} }
 type GetCostCategoryRuleRuleNotDimensionArrayInput interface {
 	pulumi.Input
 
@@ -4782,7 +4768,7 @@ type GetCostCategoryRuleRuleNotTag struct {
 // GetCostCategoryRuleRuleNotTagInput is an input type that accepts GetCostCategoryRuleRuleNotTagArgs and GetCostCategoryRuleRuleNotTagOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotTagInput` via:
 //
-//          GetCostCategoryRuleRuleNotTagArgs{...}
+//	GetCostCategoryRuleRuleNotTagArgs{...}
 type GetCostCategoryRuleRuleNotTagInput interface {
 	pulumi.Input
 
@@ -4814,7 +4800,7 @@ func (i GetCostCategoryRuleRuleNotTagArgs) ToGetCostCategoryRuleRuleNotTagOutput
 // GetCostCategoryRuleRuleNotTagArrayInput is an input type that accepts GetCostCategoryRuleRuleNotTagArray and GetCostCategoryRuleRuleNotTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotTagArrayInput` via:
 //
-//          GetCostCategoryRuleRuleNotTagArray{ GetCostCategoryRuleRuleNotTagArgs{...} }
+//	GetCostCategoryRuleRuleNotTagArray{ GetCostCategoryRuleRuleNotTagArgs{...} }
 type GetCostCategoryRuleRuleNotTagArrayInput interface {
 	pulumi.Input
 
@@ -4897,7 +4883,7 @@ type GetCostCategoryRuleRuleOr struct {
 // GetCostCategoryRuleRuleOrInput is an input type that accepts GetCostCategoryRuleRuleOrArgs and GetCostCategoryRuleRuleOrOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrInput` via:
 //
-//          GetCostCategoryRuleRuleOrArgs{...}
+//	GetCostCategoryRuleRuleOrArgs{...}
 type GetCostCategoryRuleRuleOrInput interface {
 	pulumi.Input
 
@@ -4929,7 +4915,7 @@ func (i GetCostCategoryRuleRuleOrArgs) ToGetCostCategoryRuleRuleOrOutputWithCont
 // GetCostCategoryRuleRuleOrArrayInput is an input type that accepts GetCostCategoryRuleRuleOrArray and GetCostCategoryRuleRuleOrArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrArrayInput` via:
 //
-//          GetCostCategoryRuleRuleOrArray{ GetCostCategoryRuleRuleOrArgs{...} }
+//	GetCostCategoryRuleRuleOrArray{ GetCostCategoryRuleRuleOrArgs{...} }
 type GetCostCategoryRuleRuleOrArrayInput interface {
 	pulumi.Input
 
@@ -5012,7 +4998,7 @@ type GetCostCategoryRuleRuleOrCostCategory struct {
 // GetCostCategoryRuleRuleOrCostCategoryInput is an input type that accepts GetCostCategoryRuleRuleOrCostCategoryArgs and GetCostCategoryRuleRuleOrCostCategoryOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrCostCategoryInput` via:
 //
-//          GetCostCategoryRuleRuleOrCostCategoryArgs{...}
+//	GetCostCategoryRuleRuleOrCostCategoryArgs{...}
 type GetCostCategoryRuleRuleOrCostCategoryInput interface {
 	pulumi.Input
 
@@ -5044,7 +5030,7 @@ func (i GetCostCategoryRuleRuleOrCostCategoryArgs) ToGetCostCategoryRuleRuleOrCo
 // GetCostCategoryRuleRuleOrCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleOrCostCategoryArray and GetCostCategoryRuleRuleOrCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrCostCategoryArrayInput` via:
 //
-//          GetCostCategoryRuleRuleOrCostCategoryArray{ GetCostCategoryRuleRuleOrCostCategoryArgs{...} }
+//	GetCostCategoryRuleRuleOrCostCategoryArray{ GetCostCategoryRuleRuleOrCostCategoryArgs{...} }
 type GetCostCategoryRuleRuleOrCostCategoryArrayInput interface {
 	pulumi.Input
 
@@ -5127,7 +5113,7 @@ type GetCostCategoryRuleRuleOrDimension struct {
 // GetCostCategoryRuleRuleOrDimensionInput is an input type that accepts GetCostCategoryRuleRuleOrDimensionArgs and GetCostCategoryRuleRuleOrDimensionOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrDimensionInput` via:
 //
-//          GetCostCategoryRuleRuleOrDimensionArgs{...}
+//	GetCostCategoryRuleRuleOrDimensionArgs{...}
 type GetCostCategoryRuleRuleOrDimensionInput interface {
 	pulumi.Input
 
@@ -5159,7 +5145,7 @@ func (i GetCostCategoryRuleRuleOrDimensionArgs) ToGetCostCategoryRuleRuleOrDimen
 // GetCostCategoryRuleRuleOrDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleOrDimensionArray and GetCostCategoryRuleRuleOrDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrDimensionArrayInput` via:
 //
-//          GetCostCategoryRuleRuleOrDimensionArray{ GetCostCategoryRuleRuleOrDimensionArgs{...} }
+//	GetCostCategoryRuleRuleOrDimensionArray{ GetCostCategoryRuleRuleOrDimensionArgs{...} }
 type GetCostCategoryRuleRuleOrDimensionArrayInput interface {
 	pulumi.Input
 
@@ -5242,7 +5228,7 @@ type GetCostCategoryRuleRuleOrTag struct {
 // GetCostCategoryRuleRuleOrTagInput is an input type that accepts GetCostCategoryRuleRuleOrTagArgs and GetCostCategoryRuleRuleOrTagOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrTagInput` via:
 //
-//          GetCostCategoryRuleRuleOrTagArgs{...}
+//	GetCostCategoryRuleRuleOrTagArgs{...}
 type GetCostCategoryRuleRuleOrTagInput interface {
 	pulumi.Input
 
@@ -5274,7 +5260,7 @@ func (i GetCostCategoryRuleRuleOrTagArgs) ToGetCostCategoryRuleRuleOrTagOutputWi
 // GetCostCategoryRuleRuleOrTagArrayInput is an input type that accepts GetCostCategoryRuleRuleOrTagArray and GetCostCategoryRuleRuleOrTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrTagArrayInput` via:
 //
-//          GetCostCategoryRuleRuleOrTagArray{ GetCostCategoryRuleRuleOrTagArgs{...} }
+//	GetCostCategoryRuleRuleOrTagArray{ GetCostCategoryRuleRuleOrTagArgs{...} }
 type GetCostCategoryRuleRuleOrTagArrayInput interface {
 	pulumi.Input
 
@@ -5357,7 +5343,7 @@ type GetCostCategoryRuleRuleTag struct {
 // GetCostCategoryRuleRuleTagInput is an input type that accepts GetCostCategoryRuleRuleTagArgs and GetCostCategoryRuleRuleTagOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleTagInput` via:
 //
-//          GetCostCategoryRuleRuleTagArgs{...}
+//	GetCostCategoryRuleRuleTagArgs{...}
 type GetCostCategoryRuleRuleTagInput interface {
 	pulumi.Input
 
@@ -5389,7 +5375,7 @@ func (i GetCostCategoryRuleRuleTagArgs) ToGetCostCategoryRuleRuleTagOutputWithCo
 // GetCostCategoryRuleRuleTagArrayInput is an input type that accepts GetCostCategoryRuleRuleTagArray and GetCostCategoryRuleRuleTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleTagArrayInput` via:
 //
-//          GetCostCategoryRuleRuleTagArray{ GetCostCategoryRuleRuleTagArgs{...} }
+//	GetCostCategoryRuleRuleTagArray{ GetCostCategoryRuleRuleTagArgs{...} }
 type GetCostCategoryRuleRuleTagArrayInput interface {
 	pulumi.Input
 
@@ -5474,7 +5460,7 @@ type GetCostCategorySplitChargeRule struct {
 // GetCostCategorySplitChargeRuleInput is an input type that accepts GetCostCategorySplitChargeRuleArgs and GetCostCategorySplitChargeRuleOutput values.
 // You can construct a concrete instance of `GetCostCategorySplitChargeRuleInput` via:
 //
-//          GetCostCategorySplitChargeRuleArgs{...}
+//	GetCostCategorySplitChargeRuleArgs{...}
 type GetCostCategorySplitChargeRuleInput interface {
 	pulumi.Input
 
@@ -5508,7 +5494,7 @@ func (i GetCostCategorySplitChargeRuleArgs) ToGetCostCategorySplitChargeRuleOutp
 // GetCostCategorySplitChargeRuleArrayInput is an input type that accepts GetCostCategorySplitChargeRuleArray and GetCostCategorySplitChargeRuleArrayOutput values.
 // You can construct a concrete instance of `GetCostCategorySplitChargeRuleArrayInput` via:
 //
-//          GetCostCategorySplitChargeRuleArray{ GetCostCategorySplitChargeRuleArgs{...} }
+//	GetCostCategorySplitChargeRuleArray{ GetCostCategorySplitChargeRuleArgs{...} }
 type GetCostCategorySplitChargeRuleArrayInput interface {
 	pulumi.Input
 
@@ -5594,7 +5580,7 @@ type GetCostCategorySplitChargeRuleParameter struct {
 // GetCostCategorySplitChargeRuleParameterInput is an input type that accepts GetCostCategorySplitChargeRuleParameterArgs and GetCostCategorySplitChargeRuleParameterOutput values.
 // You can construct a concrete instance of `GetCostCategorySplitChargeRuleParameterInput` via:
 //
-//          GetCostCategorySplitChargeRuleParameterArgs{...}
+//	GetCostCategorySplitChargeRuleParameterArgs{...}
 type GetCostCategorySplitChargeRuleParameterInput interface {
 	pulumi.Input
 
@@ -5624,7 +5610,7 @@ func (i GetCostCategorySplitChargeRuleParameterArgs) ToGetCostCategorySplitCharg
 // GetCostCategorySplitChargeRuleParameterArrayInput is an input type that accepts GetCostCategorySplitChargeRuleParameterArray and GetCostCategorySplitChargeRuleParameterArrayOutput values.
 // You can construct a concrete instance of `GetCostCategorySplitChargeRuleParameterArrayInput` via:
 //
-//          GetCostCategorySplitChargeRuleParameterArray{ GetCostCategorySplitChargeRuleParameterArgs{...} }
+//	GetCostCategorySplitChargeRuleParameterArray{ GetCostCategorySplitChargeRuleParameterArgs{...} }
 type GetCostCategorySplitChargeRuleParameterArrayInput interface {
 	pulumi.Input
 
@@ -5708,7 +5694,7 @@ type GetTagsFilter struct {
 // GetTagsFilterInput is an input type that accepts GetTagsFilterArgs and GetTagsFilterOutput values.
 // You can construct a concrete instance of `GetTagsFilterInput` via:
 //
-//          GetTagsFilterArgs{...}
+//	GetTagsFilterArgs{...}
 type GetTagsFilterInput interface {
 	pulumi.Input
 
@@ -5754,11 +5740,11 @@ func (i GetTagsFilterArgs) ToGetTagsFilterPtrOutputWithContext(ctx context.Conte
 // GetTagsFilterPtrInput is an input type that accepts GetTagsFilterArgs, GetTagsFilterPtr and GetTagsFilterPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterPtrInput` via:
 //
-//          GetTagsFilterArgs{...}
+//	        GetTagsFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterPtrInput interface {
 	pulumi.Input
 
@@ -5934,7 +5920,7 @@ type GetTagsFilterAnd struct {
 // GetTagsFilterAndInput is an input type that accepts GetTagsFilterAndArgs and GetTagsFilterAndOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndInput` via:
 //
-//          GetTagsFilterAndArgs{...}
+//	GetTagsFilterAndArgs{...}
 type GetTagsFilterAndInput interface {
 	pulumi.Input
 
@@ -5966,7 +5952,7 @@ func (i GetTagsFilterAndArgs) ToGetTagsFilterAndOutputWithContext(ctx context.Co
 // GetTagsFilterAndArrayInput is an input type that accepts GetTagsFilterAndArray and GetTagsFilterAndArrayOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndArrayInput` via:
 //
-//          GetTagsFilterAndArray{ GetTagsFilterAndArgs{...} }
+//	GetTagsFilterAndArray{ GetTagsFilterAndArgs{...} }
 type GetTagsFilterAndArrayInput interface {
 	pulumi.Input
 
@@ -6049,7 +6035,7 @@ type GetTagsFilterAndCostCategory struct {
 // GetTagsFilterAndCostCategoryInput is an input type that accepts GetTagsFilterAndCostCategoryArgs and GetTagsFilterAndCostCategoryOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndCostCategoryInput` via:
 //
-//          GetTagsFilterAndCostCategoryArgs{...}
+//	GetTagsFilterAndCostCategoryArgs{...}
 type GetTagsFilterAndCostCategoryInput interface {
 	pulumi.Input
 
@@ -6089,11 +6075,11 @@ func (i GetTagsFilterAndCostCategoryArgs) ToGetTagsFilterAndCostCategoryPtrOutpu
 // GetTagsFilterAndCostCategoryPtrInput is an input type that accepts GetTagsFilterAndCostCategoryArgs, GetTagsFilterAndCostCategoryPtr and GetTagsFilterAndCostCategoryPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndCostCategoryPtrInput` via:
 //
-//          GetTagsFilterAndCostCategoryArgs{...}
+//	        GetTagsFilterAndCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterAndCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -6224,7 +6210,7 @@ type GetTagsFilterAndDimension struct {
 // GetTagsFilterAndDimensionInput is an input type that accepts GetTagsFilterAndDimensionArgs and GetTagsFilterAndDimensionOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndDimensionInput` via:
 //
-//          GetTagsFilterAndDimensionArgs{...}
+//	GetTagsFilterAndDimensionArgs{...}
 type GetTagsFilterAndDimensionInput interface {
 	pulumi.Input
 
@@ -6264,11 +6250,11 @@ func (i GetTagsFilterAndDimensionArgs) ToGetTagsFilterAndDimensionPtrOutputWithC
 // GetTagsFilterAndDimensionPtrInput is an input type that accepts GetTagsFilterAndDimensionArgs, GetTagsFilterAndDimensionPtr and GetTagsFilterAndDimensionPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndDimensionPtrInput` via:
 //
-//          GetTagsFilterAndDimensionArgs{...}
+//	        GetTagsFilterAndDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterAndDimensionPtrInput interface {
 	pulumi.Input
 
@@ -6399,7 +6385,7 @@ type GetTagsFilterAndTags struct {
 // GetTagsFilterAndTagsInput is an input type that accepts GetTagsFilterAndTagsArgs and GetTagsFilterAndTagsOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndTagsInput` via:
 //
-//          GetTagsFilterAndTagsArgs{...}
+//	GetTagsFilterAndTagsArgs{...}
 type GetTagsFilterAndTagsInput interface {
 	pulumi.Input
 
@@ -6439,11 +6425,11 @@ func (i GetTagsFilterAndTagsArgs) ToGetTagsFilterAndTagsPtrOutputWithContext(ctx
 // GetTagsFilterAndTagsPtrInput is an input type that accepts GetTagsFilterAndTagsArgs, GetTagsFilterAndTagsPtr and GetTagsFilterAndTagsPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndTagsPtrInput` via:
 //
-//          GetTagsFilterAndTagsArgs{...}
+//	        GetTagsFilterAndTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterAndTagsPtrInput interface {
 	pulumi.Input
 
@@ -6574,7 +6560,7 @@ type GetTagsFilterCostCategory struct {
 // GetTagsFilterCostCategoryInput is an input type that accepts GetTagsFilterCostCategoryArgs and GetTagsFilterCostCategoryOutput values.
 // You can construct a concrete instance of `GetTagsFilterCostCategoryInput` via:
 //
-//          GetTagsFilterCostCategoryArgs{...}
+//	GetTagsFilterCostCategoryArgs{...}
 type GetTagsFilterCostCategoryInput interface {
 	pulumi.Input
 
@@ -6614,11 +6600,11 @@ func (i GetTagsFilterCostCategoryArgs) ToGetTagsFilterCostCategoryPtrOutputWithC
 // GetTagsFilterCostCategoryPtrInput is an input type that accepts GetTagsFilterCostCategoryArgs, GetTagsFilterCostCategoryPtr and GetTagsFilterCostCategoryPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterCostCategoryPtrInput` via:
 //
-//          GetTagsFilterCostCategoryArgs{...}
+//	        GetTagsFilterCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -6749,7 +6735,7 @@ type GetTagsFilterDimension struct {
 // GetTagsFilterDimensionInput is an input type that accepts GetTagsFilterDimensionArgs and GetTagsFilterDimensionOutput values.
 // You can construct a concrete instance of `GetTagsFilterDimensionInput` via:
 //
-//          GetTagsFilterDimensionArgs{...}
+//	GetTagsFilterDimensionArgs{...}
 type GetTagsFilterDimensionInput interface {
 	pulumi.Input
 
@@ -6789,11 +6775,11 @@ func (i GetTagsFilterDimensionArgs) ToGetTagsFilterDimensionPtrOutputWithContext
 // GetTagsFilterDimensionPtrInput is an input type that accepts GetTagsFilterDimensionArgs, GetTagsFilterDimensionPtr and GetTagsFilterDimensionPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterDimensionPtrInput` via:
 //
-//          GetTagsFilterDimensionArgs{...}
+//	        GetTagsFilterDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterDimensionPtrInput interface {
 	pulumi.Input
 
@@ -6924,7 +6910,7 @@ type GetTagsFilterNot struct {
 // GetTagsFilterNotInput is an input type that accepts GetTagsFilterNotArgs and GetTagsFilterNotOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotInput` via:
 //
-//          GetTagsFilterNotArgs{...}
+//	GetTagsFilterNotArgs{...}
 type GetTagsFilterNotInput interface {
 	pulumi.Input
 
@@ -6964,11 +6950,11 @@ func (i GetTagsFilterNotArgs) ToGetTagsFilterNotPtrOutputWithContext(ctx context
 // GetTagsFilterNotPtrInput is an input type that accepts GetTagsFilterNotArgs, GetTagsFilterNotPtr and GetTagsFilterNotPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotPtrInput` via:
 //
-//          GetTagsFilterNotArgs{...}
+//	        GetTagsFilterNotArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterNotPtrInput interface {
 	pulumi.Input
 
@@ -7099,7 +7085,7 @@ type GetTagsFilterNotCostCategory struct {
 // GetTagsFilterNotCostCategoryInput is an input type that accepts GetTagsFilterNotCostCategoryArgs and GetTagsFilterNotCostCategoryOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotCostCategoryInput` via:
 //
-//          GetTagsFilterNotCostCategoryArgs{...}
+//	GetTagsFilterNotCostCategoryArgs{...}
 type GetTagsFilterNotCostCategoryInput interface {
 	pulumi.Input
 
@@ -7139,11 +7125,11 @@ func (i GetTagsFilterNotCostCategoryArgs) ToGetTagsFilterNotCostCategoryPtrOutpu
 // GetTagsFilterNotCostCategoryPtrInput is an input type that accepts GetTagsFilterNotCostCategoryArgs, GetTagsFilterNotCostCategoryPtr and GetTagsFilterNotCostCategoryPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotCostCategoryPtrInput` via:
 //
-//          GetTagsFilterNotCostCategoryArgs{...}
+//	        GetTagsFilterNotCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterNotCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -7274,7 +7260,7 @@ type GetTagsFilterNotDimension struct {
 // GetTagsFilterNotDimensionInput is an input type that accepts GetTagsFilterNotDimensionArgs and GetTagsFilterNotDimensionOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotDimensionInput` via:
 //
-//          GetTagsFilterNotDimensionArgs{...}
+//	GetTagsFilterNotDimensionArgs{...}
 type GetTagsFilterNotDimensionInput interface {
 	pulumi.Input
 
@@ -7314,11 +7300,11 @@ func (i GetTagsFilterNotDimensionArgs) ToGetTagsFilterNotDimensionPtrOutputWithC
 // GetTagsFilterNotDimensionPtrInput is an input type that accepts GetTagsFilterNotDimensionArgs, GetTagsFilterNotDimensionPtr and GetTagsFilterNotDimensionPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotDimensionPtrInput` via:
 //
-//          GetTagsFilterNotDimensionArgs{...}
+//	        GetTagsFilterNotDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterNotDimensionPtrInput interface {
 	pulumi.Input
 
@@ -7449,7 +7435,7 @@ type GetTagsFilterNotTags struct {
 // GetTagsFilterNotTagsInput is an input type that accepts GetTagsFilterNotTagsArgs and GetTagsFilterNotTagsOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotTagsInput` via:
 //
-//          GetTagsFilterNotTagsArgs{...}
+//	GetTagsFilterNotTagsArgs{...}
 type GetTagsFilterNotTagsInput interface {
 	pulumi.Input
 
@@ -7489,11 +7475,11 @@ func (i GetTagsFilterNotTagsArgs) ToGetTagsFilterNotTagsPtrOutputWithContext(ctx
 // GetTagsFilterNotTagsPtrInput is an input type that accepts GetTagsFilterNotTagsArgs, GetTagsFilterNotTagsPtr and GetTagsFilterNotTagsPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterNotTagsPtrInput` via:
 //
-//          GetTagsFilterNotTagsArgs{...}
+//	        GetTagsFilterNotTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterNotTagsPtrInput interface {
 	pulumi.Input
 
@@ -7624,7 +7610,7 @@ type GetTagsFilterOr struct {
 // GetTagsFilterOrInput is an input type that accepts GetTagsFilterOrArgs and GetTagsFilterOrOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrInput` via:
 //
-//          GetTagsFilterOrArgs{...}
+//	GetTagsFilterOrArgs{...}
 type GetTagsFilterOrInput interface {
 	pulumi.Input
 
@@ -7656,7 +7642,7 @@ func (i GetTagsFilterOrArgs) ToGetTagsFilterOrOutputWithContext(ctx context.Cont
 // GetTagsFilterOrArrayInput is an input type that accepts GetTagsFilterOrArray and GetTagsFilterOrArrayOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrArrayInput` via:
 //
-//          GetTagsFilterOrArray{ GetTagsFilterOrArgs{...} }
+//	GetTagsFilterOrArray{ GetTagsFilterOrArgs{...} }
 type GetTagsFilterOrArrayInput interface {
 	pulumi.Input
 
@@ -7739,7 +7725,7 @@ type GetTagsFilterOrCostCategory struct {
 // GetTagsFilterOrCostCategoryInput is an input type that accepts GetTagsFilterOrCostCategoryArgs and GetTagsFilterOrCostCategoryOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrCostCategoryInput` via:
 //
-//          GetTagsFilterOrCostCategoryArgs{...}
+//	GetTagsFilterOrCostCategoryArgs{...}
 type GetTagsFilterOrCostCategoryInput interface {
 	pulumi.Input
 
@@ -7779,11 +7765,11 @@ func (i GetTagsFilterOrCostCategoryArgs) ToGetTagsFilterOrCostCategoryPtrOutputW
 // GetTagsFilterOrCostCategoryPtrInput is an input type that accepts GetTagsFilterOrCostCategoryArgs, GetTagsFilterOrCostCategoryPtr and GetTagsFilterOrCostCategoryPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrCostCategoryPtrInput` via:
 //
-//          GetTagsFilterOrCostCategoryArgs{...}
+//	        GetTagsFilterOrCostCategoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterOrCostCategoryPtrInput interface {
 	pulumi.Input
 
@@ -7914,7 +7900,7 @@ type GetTagsFilterOrDimension struct {
 // GetTagsFilterOrDimensionInput is an input type that accepts GetTagsFilterOrDimensionArgs and GetTagsFilterOrDimensionOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrDimensionInput` via:
 //
-//          GetTagsFilterOrDimensionArgs{...}
+//	GetTagsFilterOrDimensionArgs{...}
 type GetTagsFilterOrDimensionInput interface {
 	pulumi.Input
 
@@ -7954,11 +7940,11 @@ func (i GetTagsFilterOrDimensionArgs) ToGetTagsFilterOrDimensionPtrOutputWithCon
 // GetTagsFilterOrDimensionPtrInput is an input type that accepts GetTagsFilterOrDimensionArgs, GetTagsFilterOrDimensionPtr and GetTagsFilterOrDimensionPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrDimensionPtrInput` via:
 //
-//          GetTagsFilterOrDimensionArgs{...}
+//	        GetTagsFilterOrDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterOrDimensionPtrInput interface {
 	pulumi.Input
 
@@ -8089,7 +8075,7 @@ type GetTagsFilterOrTags struct {
 // GetTagsFilterOrTagsInput is an input type that accepts GetTagsFilterOrTagsArgs and GetTagsFilterOrTagsOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrTagsInput` via:
 //
-//          GetTagsFilterOrTagsArgs{...}
+//	GetTagsFilterOrTagsArgs{...}
 type GetTagsFilterOrTagsInput interface {
 	pulumi.Input
 
@@ -8129,11 +8115,11 @@ func (i GetTagsFilterOrTagsArgs) ToGetTagsFilterOrTagsPtrOutputWithContext(ctx c
 // GetTagsFilterOrTagsPtrInput is an input type that accepts GetTagsFilterOrTagsArgs, GetTagsFilterOrTagsPtr and GetTagsFilterOrTagsPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrTagsPtrInput` via:
 //
-//          GetTagsFilterOrTagsArgs{...}
+//	        GetTagsFilterOrTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterOrTagsPtrInput interface {
 	pulumi.Input
 
@@ -8264,7 +8250,7 @@ type GetTagsFilterTags struct {
 // GetTagsFilterTagsInput is an input type that accepts GetTagsFilterTagsArgs and GetTagsFilterTagsOutput values.
 // You can construct a concrete instance of `GetTagsFilterTagsInput` via:
 //
-//          GetTagsFilterTagsArgs{...}
+//	GetTagsFilterTagsArgs{...}
 type GetTagsFilterTagsInput interface {
 	pulumi.Input
 
@@ -8304,11 +8290,11 @@ func (i GetTagsFilterTagsArgs) ToGetTagsFilterTagsPtrOutputWithContext(ctx conte
 // GetTagsFilterTagsPtrInput is an input type that accepts GetTagsFilterTagsArgs, GetTagsFilterTagsPtr and GetTagsFilterTagsPtrOutput values.
 // You can construct a concrete instance of `GetTagsFilterTagsPtrInput` via:
 //
-//          GetTagsFilterTagsArgs{...}
+//	        GetTagsFilterTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetTagsFilterTagsPtrInput interface {
 	pulumi.Input
 
@@ -8437,7 +8423,7 @@ type GetTagsSortBy struct {
 // GetTagsSortByInput is an input type that accepts GetTagsSortByArgs and GetTagsSortByOutput values.
 // You can construct a concrete instance of `GetTagsSortByInput` via:
 //
-//          GetTagsSortByArgs{...}
+//	GetTagsSortByArgs{...}
 type GetTagsSortByInput interface {
 	pulumi.Input
 
@@ -8467,7 +8453,7 @@ func (i GetTagsSortByArgs) ToGetTagsSortByOutputWithContext(ctx context.Context)
 // GetTagsSortByArrayInput is an input type that accepts GetTagsSortByArray and GetTagsSortByArrayOutput values.
 // You can construct a concrete instance of `GetTagsSortByArrayInput` via:
 //
-//          GetTagsSortByArray{ GetTagsSortByArgs{...} }
+//	GetTagsSortByArray{ GetTagsSortByArgs{...} }
 type GetTagsSortByArrayInput interface {
 	pulumi.Input
 
@@ -8543,7 +8529,7 @@ type GetTagsTimePeriod struct {
 // GetTagsTimePeriodInput is an input type that accepts GetTagsTimePeriodArgs and GetTagsTimePeriodOutput values.
 // You can construct a concrete instance of `GetTagsTimePeriodInput` via:
 //
-//          GetTagsTimePeriodArgs{...}
+//	GetTagsTimePeriodArgs{...}
 type GetTagsTimePeriodInput interface {
 	pulumi.Input
 

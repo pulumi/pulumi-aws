@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.RouteTableAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.RouteTableAssociation("example", new Aws.Ec2TransitGateway.RouteTableAssociationArgs
-    ///         {
-    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///             TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
-    ///         });
-    ///     }
+    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation")]
-    public partial class RouteTableAssociation : Pulumi.CustomResource
+    public partial class RouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of the resource
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class RouteTableAssociationArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
@@ -128,9 +126,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public RouteTableAssociationArgs()
         {
         }
+        public static new RouteTableAssociationArgs Empty => new RouteTableAssociationArgs();
     }
 
-    public sealed class RouteTableAssociationState : Pulumi.ResourceArgs
+    public sealed class RouteTableAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the resource
@@ -159,5 +158,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public RouteTableAssociationState()
         {
         }
+        public static new RouteTableAssociationState Empty => new RouteTableAssociationState();
     }
 }

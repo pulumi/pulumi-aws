@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FeatureGroupFeatureDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupFeatureDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FeatureGroupFeatureDefinitionArgs()
         {
         }
+        public static new FeatureGroupFeatureDefinitionArgs Empty => new FeatureGroupFeatureDefinitionArgs();
     }
 }

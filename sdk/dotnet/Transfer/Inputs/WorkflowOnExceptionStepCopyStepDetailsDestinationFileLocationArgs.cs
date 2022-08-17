@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the details for the EFS file being copied.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs()
         {
         }
+        public static new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs Empty => new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs();
     }
 }

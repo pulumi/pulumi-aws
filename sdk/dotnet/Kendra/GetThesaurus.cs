@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetThesaurus.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetThesaurus.InvokeAsync(new Aws.Kendra.GetThesaurusArgs
-        ///         {
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///             ThesaurusId = "87654321-1234-4321-4321-321987654321",
-        ///         }));
-        ///     }
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///         ThesaurusId = "87654321-1234-4321-4321-321987654321",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Kendra
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Kendra.GetThesaurus.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Kendra.GetThesaurus.InvokeAsync(new Aws.Kendra.GetThesaurusArgs
-        ///         {
-        ///             IndexId = "12345678-1234-1234-1234-123456789123",
-        ///             ThesaurusId = "87654321-1234-4321-4321-321987654321",
-        ///         }));
-        ///     }
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///         ThesaurusId = "87654321-1234-4321-4321-321987654321",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Kendra
     }
 
 
-    public sealed class GetThesaurusArgs : Pulumi.InvokeArgs
+    public sealed class GetThesaurusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the index that contains the Thesaurus.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.Kendra
         public GetThesaurusArgs()
         {
         }
+        public static new GetThesaurusArgs Empty => new GetThesaurusArgs();
     }
 
-    public sealed class GetThesaurusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThesaurusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the index that contains the Thesaurus.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.Kendra
         public GetThesaurusInvokeArgs()
         {
         }
+        public static new GetThesaurusInvokeArgs Empty => new GetThesaurusInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationRedactedFieldArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationRedactedFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Redact all query arguments.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclLoggingConfigurationRedactedFieldArgs()
         {
         }
+        public static new WebAclLoggingConfigurationRedactedFieldArgs Empty => new WebAclLoggingConfigurationRedactedFieldArgs();
     }
 }

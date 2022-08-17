@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImageOutputResourceAmiGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageOutputResourceAmiGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account identifier of the AMI.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImageOutputResourceAmiGetArgs()
         {
         }
+        public static new ImageOutputResourceAmiGetArgs Empty => new ImageOutputResourceAmiGetArgs();
     }
 }

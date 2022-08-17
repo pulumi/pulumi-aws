@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class OptionGroupOptionArgs : Pulumi.ResourceArgs
+    public sealed class OptionGroupOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("dbSecurityGroupMemberships")]
         private InputList<string>? _dbSecurityGroupMemberships;
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public OptionGroupOptionArgs()
         {
         }
+        public static new OptionGroupOptionArgs Empty => new OptionGroupOptionArgs();
     }
 }

@@ -17,25 +17,24 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
-    ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
-    ///         {
-    ///             Description = "tf-test-desc",
-    ///         });
-    ///         var tfTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("tfTemplate", new Aws.ElasticBeanstalk.ConfigurationTemplateArgs
-    ///         {
-    ///             Application = tftest.Name,
-    ///             SolutionStackName = "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
-    ///         });
-    ///     }
+    ///         Description = "tf-test-desc",
+    ///     });
     /// 
-    /// }
+    ///     var tfTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("tfTemplate", new()
+    ///     {
+    ///         Application = tftest.Name,
+    ///         SolutionStackName = "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Option Settings
     /// 
@@ -47,7 +46,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")]
-    public partial class ConfigurationTemplate : Pulumi.CustomResource
+    public partial class ConfigurationTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// name of the application to associate with this configuration template
@@ -132,7 +131,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
-    public sealed class ConfigurationTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the application to associate with this configuration template
@@ -182,9 +181,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ConfigurationTemplateArgs()
         {
         }
+        public static new ConfigurationTemplateArgs Empty => new ConfigurationTemplateArgs();
     }
 
-    public sealed class ConfigurationTemplateState : Pulumi.ResourceArgs
+    public sealed class ConfigurationTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the application to associate with this configuration template
@@ -234,5 +234,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ConfigurationTemplateState()
         {
         }
+        public static new ConfigurationTemplateState Empty => new ConfigurationTemplateState();
     }
 }

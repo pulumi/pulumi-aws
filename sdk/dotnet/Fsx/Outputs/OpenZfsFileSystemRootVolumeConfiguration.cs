@@ -30,6 +30,10 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly bool? ReadOnly;
         /// <summary>
+        /// - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// </summary>
+        public readonly int? RecordSizeKib;
+        /// <summary>
         /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         /// </summary>
         public readonly ImmutableArray<Outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> UserAndGroupQuotas;
@@ -44,12 +48,15 @@ namespace Pulumi.Aws.Fsx.Outputs
 
             bool? readOnly,
 
+            int? recordSizeKib,
+
             ImmutableArray<Outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas)
         {
             CopyTagsToSnapshots = copyTagsToSnapshots;
             DataCompressionType = dataCompressionType;
             NfsExports = nfsExports;
             ReadOnly = readOnly;
+            RecordSizeKib = recordSizeKib;
             UserAndGroupQuotas = userAndGroupQuotas;
         }
     }

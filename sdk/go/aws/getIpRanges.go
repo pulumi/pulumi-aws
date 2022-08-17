@@ -18,46 +18,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		europeanEc2, err := aws.GetIpRanges(ctx, &GetIpRangesArgs{
-// 			Regions: []string{
-// 				"eu-west-1",
-// 				"eu-central-1",
-// 			},
-// 			Services: []string{
-// 				"ec2",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSecurityGroup(ctx, "fromEurope", &ec2.SecurityGroupArgs{
-// 			Ingress: ec2.SecurityGroupIngressArray{
-// 				&ec2.SecurityGroupIngressArgs{
-// 					FromPort:       pulumi.Int(443),
-// 					ToPort:         pulumi.Int(443),
-// 					Protocol:       pulumi.String("tcp"),
-// 					CidrBlocks:     interface{}(europeanEc2.CidrBlocks),
-// 					Ipv6CidrBlocks: interface{}(europeanEc2.Ipv6CidrBlocks),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"CreateDate": pulumi.String(europeanEc2.CreateDate),
-// 				"SyncToken":  pulumi.Int(europeanEc2.SyncToken),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			europeanEc2, err := aws.GetIpRanges(ctx, &GetIpRangesArgs{
+//				Regions: []string{
+//					"eu-west-1",
+//					"eu-central-1",
+//				},
+//				Services: []string{
+//					"ec2",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSecurityGroup(ctx, "fromEurope", &ec2.SecurityGroupArgs{
+//				Ingress: ec2.SecurityGroupIngressArray{
+//					&ec2.SecurityGroupIngressArgs{
+//						FromPort:       pulumi.Int(443),
+//						ToPort:         pulumi.Int(443),
+//						Protocol:       pulumi.String("tcp"),
+//						CidrBlocks:     interface{}(europeanEc2.CidrBlocks),
+//						Ipv6CidrBlocks: interface{}(europeanEc2.Ipv6CidrBlocks),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"CreateDate": pulumi.String(europeanEc2.CreateDate),
+//					"SyncToken":  pulumi.Int(europeanEc2.SyncToken),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
 	var rv GetIpRangesResult

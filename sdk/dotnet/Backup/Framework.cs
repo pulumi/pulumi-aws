@@ -17,80 +17,78 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Framework("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Framework("example", new Aws.Backup.FrameworkArgs
+    ///         Controls = new[]
     ///         {
-    ///             Controls = 
+    ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
-    ///                 new Aws.Backup.Inputs.FrameworkControlArgs
+    ///                 InputParameters = new[]
     ///                 {
-    ///                     InputParameters = 
+    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
     ///                     {
-    ///                         new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                         {
-    ///                             Name = "requiredRetentionDays",
-    ///                             Value = "35",
-    ///                         },
-    ///                     },
-    ///                     Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-    ///                 },
-    ///                 new Aws.Backup.Inputs.FrameworkControlArgs
-    ///                 {
-    ///                     InputParameters = 
-    ///                     {
-    ///                         new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                         {
-    ///                             Name = "requiredFrequencyUnit",
-    ///                             Value = "hours",
-    ///                         },
-    ///                         new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                         {
-    ///                             Name = "requiredRetentionDays",
-    ///                             Value = "35",
-    ///                         },
-    ///                         new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                         {
-    ///                             Name = "requiredFrequencyValue",
-    ///                             Value = "1",
-    ///                         },
-    ///                     },
-    ///                     Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-    ///                 },
-    ///                 new Aws.Backup.Inputs.FrameworkControlArgs
-    ///                 {
-    ///                     Name = "BACKUP_RECOVERY_POINT_ENCRYPTED",
-    ///                 },
-    ///                 new Aws.Backup.Inputs.FrameworkControlArgs
-    ///                 {
-    ///                     Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-    ///                     Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
-    ///                     {
-    ///                         ComplianceResourceTypes = 
-    ///                         {
-    ///                             "EBS",
-    ///                         },
+    ///                         Name = "requiredRetentionDays",
+    ///                         Value = "35",
     ///                     },
     ///                 },
-    ///                 new Aws.Backup.Inputs.FrameworkControlArgs
+    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
+    ///             },
+    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             {
+    ///                 InputParameters = new[]
     ///                 {
-    ///                     Name = "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
+    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     {
+    ///                         Name = "requiredFrequencyUnit",
+    ///                         Value = "hours",
+    ///                     },
+    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     {
+    ///                         Name = "requiredRetentionDays",
+    ///                         Value = "35",
+    ///                     },
+    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     {
+    ///                         Name = "requiredFrequencyValue",
+    ///                         Value = "1",
+    ///                     },
+    ///                 },
+    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
+    ///             },
+    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             {
+    ///                 Name = "BACKUP_RECOVERY_POINT_ENCRYPTED",
+    ///             },
+    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             {
+    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
+    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
+    ///                 {
+    ///                     ComplianceResourceTypes = new[]
+    ///                     {
+    ///                         "EBS",
+    ///                     },
     ///                 },
     ///             },
-    ///             Description = "this is an example framework",
-    ///             Tags = 
+    ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
-    ///                 { "Name", "Example Framework" },
+    ///                 Name = "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Description = "this is an example framework",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Framework" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -102,7 +100,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/framework:Framework")]
-    public partial class Framework : Pulumi.CustomResource
+    public partial class Framework : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the backup framework.
@@ -152,9 +150,6 @@ namespace Pulumi.Aws.Backup
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -202,7 +197,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class FrameworkArgs : Pulumi.ResourceArgs
+    public sealed class FrameworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("controls", required: true)]
         private InputList<Inputs.FrameworkControlArgs>? _controls;
@@ -243,9 +238,10 @@ namespace Pulumi.Aws.Backup
         public FrameworkArgs()
         {
         }
+        public static new FrameworkArgs Empty => new FrameworkArgs();
     }
 
-    public sealed class FrameworkState : Pulumi.ResourceArgs
+    public sealed class FrameworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the backup framework.
@@ -309,10 +305,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -322,5 +314,6 @@ namespace Pulumi.Aws.Backup
         public FrameworkState()
         {
         }
+        public static new FrameworkState Empty => new FrameworkState();
     }
 }

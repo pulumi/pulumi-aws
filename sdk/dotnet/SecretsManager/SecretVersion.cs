@@ -18,21 +18,19 @@ namespace Pulumi.Aws.SecretsManager
     /// ### Simple String Value
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.SecretsManager.SecretVersion("example", new()
     ///     {
-    ///         var example = new Aws.SecretsManager.SecretVersion("example", new Aws.SecretsManager.SecretVersionArgs
-    ///         {
-    ///             SecretId = aws_secretsmanager_secret.Example.Id,
-    ///             SecretString = "example-string-to-protect",
-    ///         });
-    ///     }
+    ///         SecretId = aws_secretsmanager_secret.Example.Id,
+    ///         SecretString = "example-string-to-protect",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Key-Value Pairs
     /// 
@@ -44,24 +42,21 @@ namespace Pulumi.Aws.SecretsManager
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var example = config.GetObject&lt;dynamic&gt;("example") ?? 
     ///     {
-    ///         var config = new Config();
-    ///         var example = config.GetObject&lt;dynamic&gt;("example") ?? 
-    ///         {
-    ///             { "key1", "value1" },
-    ///             { "key2", "value2" },
-    ///         };
-    ///         var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new Aws.SecretsManager.SecretVersionArgs
-    ///         {
-    ///             SecretId = aws_secretsmanager_secret.Example.Id,
-    ///             SecretString = JsonSerializer.Serialize(example),
-    ///         });
-    ///     }
+    ///         { "key1", "value1" },
+    ///         { "key2", "value2" },
+    ///     };
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     {
+    ///         SecretId = aws_secretsmanager_secret.Example.Id,
+    ///         SecretString = JsonSerializer.Serialize(example),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +68,7 @@ namespace Pulumi.Aws.SecretsManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
-    public partial class SecretVersion : Pulumi.CustomResource
+    public partial class SecretVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the secret.
@@ -155,7 +150,7 @@ namespace Pulumi.Aws.SecretsManager
         }
     }
 
-    public sealed class SecretVersionArgs : Pulumi.ResourceArgs
+    public sealed class SecretVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
@@ -190,9 +185,10 @@ namespace Pulumi.Aws.SecretsManager
         public SecretVersionArgs()
         {
         }
+        public static new SecretVersionArgs Empty => new SecretVersionArgs();
     }
 
-    public sealed class SecretVersionState : Pulumi.ResourceArgs
+    public sealed class SecretVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the secret.
@@ -239,5 +235,6 @@ namespace Pulumi.Aws.SecretsManager
         public SecretVersionState()
         {
         }
+        public static new SecretVersionState Empty => new SecretVersionState();
     }
 }

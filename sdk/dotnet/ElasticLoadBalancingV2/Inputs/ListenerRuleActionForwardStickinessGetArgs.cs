@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleActionForwardStickinessGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionForwardStickinessGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public ListenerRuleActionForwardStickinessGetArgs()
         {
         }
+        public static new ListenerRuleActionForwardStickinessGetArgs Empty => new ListenerRuleActionForwardStickinessGetArgs();
     }
 }

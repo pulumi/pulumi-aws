@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryControl.ControlPanel("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryControl.ControlPanel("example", new Aws.Route53RecoveryControl.ControlPanelArgs
-    ///         {
-    ///             ClusterArn = "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
-    ///         });
-    ///     }
+    ///         ClusterArn = "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/controlPanel:ControlPanel")]
-    public partial class ControlPanel : Pulumi.CustomResource
+    public partial class ControlPanel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the control panel.
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         }
     }
 
-    public sealed class ControlPanelArgs : Pulumi.ResourceArgs
+    public sealed class ControlPanelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cluster in which this control panel will reside.
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public ControlPanelArgs()
         {
         }
+        public static new ControlPanelArgs Empty => new ControlPanelArgs();
     }
 
-    public sealed class ControlPanelState : Pulumi.ResourceArgs
+    public sealed class ControlPanelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the control panel.
@@ -182,5 +181,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public ControlPanelState()
         {
         }
+        public static new ControlPanelState Empty => new ControlPanelState();
     }
 }

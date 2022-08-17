@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstanceEbsBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceEbsBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the volume should be destroyed on instance termination. Defaults to `true`.
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstanceEbsBlockDeviceGetArgs()
         {
         }
+        public static new InstanceEbsBlockDeviceGetArgs Empty => new InstanceEbsBlockDeviceGetArgs();
     }
 }

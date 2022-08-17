@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Dax
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Dax.ParameterGroup("example", new()
     ///     {
-    ///         var example = new Aws.Dax.ParameterGroup("example", new Aws.Dax.ParameterGroupArgs
+    ///         Parameters = new[]
     ///         {
-    ///             Parameters = 
+    ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.Dax.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "query-ttl-millis",
-    ///                     Value = "100000",
-    ///                 },
-    ///                 new Aws.Dax.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "record-ttl-millis",
-    ///                     Value = "100000",
-    ///                 },
+    ///                 Name = "query-ttl-millis",
+    ///                 Value = "100000",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "record-ttl-millis",
+    ///                 Value = "100000",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Dax
     /// ```
     /// </summary>
     [AwsResourceType("aws:dax/parameterGroup:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the parameter group.
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Dax
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the parameter group.
@@ -145,9 +143,10 @@ namespace Pulumi.Aws.Dax
         public ParameterGroupArgs()
         {
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 
-    public sealed class ParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the parameter group.
@@ -176,5 +175,6 @@ namespace Pulumi.Aws.Dax
         public ParameterGroupState()
         {
         }
+        public static new ParameterGroupState Empty => new ParameterGroupState();
     }
 }

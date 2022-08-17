@@ -19,191 +19,194 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
-// 			State: pulumi.StringRef("available"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		amazonLinux, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Owners: []string{
-// 				"amazon",
-// 			},
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"amzn-ami-hvm-*-x86_64-gp2",
-// 					},
-// 				},
-// 				ec2.GetAmiFilter{
-// 					Name: "owner-alias",
-// 					Values: []string{
-// 						"amazon",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vpc1, err := ec2.NewVpc(ctx, "vpc1", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vpc2, err := ec2.NewVpc(ctx, "vpc2", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subnet1, err := ec2.NewSubnet(ctx, "subnet1", &ec2.SubnetArgs{
-// 			VpcId:            vpc1.ID(),
-// 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 			AvailabilityZone: pulumi.String(available.Names[0]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subnet2, err := ec2.NewSubnet(ctx, "subnet2", &ec2.SubnetArgs{
-// 			VpcId:            vpc1.ID(),
-// 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 			AvailabilityZone: pulumi.String(available.Names[1]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subnet3, err := ec2.NewSubnet(ctx, "subnet3", &ec2.SubnetArgs{
-// 			VpcId:            vpc2.ID(),
-// 			CidrBlock:        pulumi.String("10.1.1.0/24"),
-// 			AvailabilityZone: pulumi.String(available.Names[0]),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		instance1, err := ec2.NewInstance(ctx, "instance1", &ec2.InstanceArgs{
-// 			Ami:          pulumi.String(amazonLinux.Id),
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			SubnetId:     subnet1.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		instance2, err := ec2.NewInstance(ctx, "instance2", &ec2.InstanceArgs{
-// 			Ami:          pulumi.String(amazonLinux.Id),
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			SubnetId:     subnet2.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		instance3, err := ec2.NewInstance(ctx, "instance3", &ec2.InstanceArgs{
-// 			Ami:          pulumi.String(amazonLinux.Id),
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			SubnetId:     subnet3.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tgw, err := ec2transitgateway.NewTransitGateway(ctx, "tgw", &ec2transitgateway.TransitGatewayArgs{
-// 			MulticastSupport: pulumi.String("enable"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		attachment1, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment1", &ec2transitgateway.VpcAttachmentArgs{
-// 			SubnetIds: pulumi.StringArray{
-// 				subnet1.ID(),
-// 				subnet2.ID(),
-// 			},
-// 			TransitGatewayId: tgw.ID(),
-// 			VpcId:            vpc1.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		attachment2, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment2", &ec2transitgateway.VpcAttachmentArgs{
-// 			SubnetIds: pulumi.StringArray{
-// 				subnet3.ID(),
-// 			},
-// 			TransitGatewayId: tgw.ID(),
-// 			VpcId:            vpc2.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		domain, err := ec2transitgateway.NewMulticastDomain(ctx, "domain", &ec2transitgateway.MulticastDomainArgs{
-// 			TransitGatewayId:     tgw.ID(),
-// 			StaticSourcesSupport: pulumi.String("enable"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Transit_Gateway_Multicast_Domain_Example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		association3, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association3", &ec2transitgateway.MulticastDomainAssociationArgs{
-// 			SubnetId:                        subnet3.ID(),
-// 			TransitGatewayAttachmentId:      attachment2.ID(),
-// 			TransitGatewayMulticastDomainId: domain.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewMulticastGroupSource(ctx, "source", &ec2transitgateway.MulticastGroupSourceArgs{
-// 			GroupIpAddress:                  pulumi.String("224.0.0.1"),
-// 			NetworkInterfaceId:              instance3.PrimaryNetworkInterfaceId,
-// 			TransitGatewayMulticastDomainId: association3.TransitGatewayMulticastDomainId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		association1, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association1", &ec2transitgateway.MulticastDomainAssociationArgs{
-// 			SubnetId:                        subnet1.ID(),
-// 			TransitGatewayAttachmentId:      attachment1.ID(),
-// 			TransitGatewayMulticastDomainId: domain.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "association2", &ec2transitgateway.MulticastDomainAssociationArgs{
-// 			SubnetId:                        subnet2.ID(),
-// 			TransitGatewayAttachmentId:      attachment2.ID(),
-// 			TransitGatewayMulticastDomainId: domain.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewMulticastGroupMember(ctx, "member1", &ec2transitgateway.MulticastGroupMemberArgs{
-// 			GroupIpAddress:                  pulumi.String("224.0.0.1"),
-// 			NetworkInterfaceId:              instance1.PrimaryNetworkInterfaceId,
-// 			TransitGatewayMulticastDomainId: association1.TransitGatewayMulticastDomainId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewMulticastGroupMember(ctx, "member2", &ec2transitgateway.MulticastGroupMemberArgs{
-// 			GroupIpAddress:                  pulumi.String("224.0.0.1"),
-// 			NetworkInterfaceId:              instance2.PrimaryNetworkInterfaceId,
-// 			TransitGatewayMulticastDomainId: association1.TransitGatewayMulticastDomainId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			amazonLinux, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"amzn-ami-hvm-*-x86_64-gp2",
+//						},
+//					},
+//					ec2.GetAmiFilter{
+//						Name: "owner-alias",
+//						Values: []string{
+//							"amazon",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			vpc1, err := ec2.NewVpc(ctx, "vpc1", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vpc2, err := ec2.NewVpc(ctx, "vpc2", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			subnet1, err := ec2.NewSubnet(ctx, "subnet1", &ec2.SubnetArgs{
+//				VpcId:            vpc1.ID(),
+//				CidrBlock:        pulumi.String("10.0.1.0/24"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			subnet2, err := ec2.NewSubnet(ctx, "subnet2", &ec2.SubnetArgs{
+//				VpcId:            vpc1.ID(),
+//				CidrBlock:        pulumi.String("10.0.2.0/24"),
+//				AvailabilityZone: pulumi.String(available.Names[1]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			subnet3, err := ec2.NewSubnet(ctx, "subnet3", &ec2.SubnetArgs{
+//				VpcId:            vpc2.ID(),
+//				CidrBlock:        pulumi.String("10.1.1.0/24"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			instance1, err := ec2.NewInstance(ctx, "instance1", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(amazonLinux.Id),
+//				InstanceType: pulumi.String("t2.micro"),
+//				SubnetId:     subnet1.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			instance2, err := ec2.NewInstance(ctx, "instance2", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(amazonLinux.Id),
+//				InstanceType: pulumi.String("t2.micro"),
+//				SubnetId:     subnet2.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			instance3, err := ec2.NewInstance(ctx, "instance3", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(amazonLinux.Id),
+//				InstanceType: pulumi.String("t2.micro"),
+//				SubnetId:     subnet3.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tgw, err := ec2transitgateway.NewTransitGateway(ctx, "tgw", &ec2transitgateway.TransitGatewayArgs{
+//				MulticastSupport: pulumi.String("enable"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			attachment1, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment1", &ec2transitgateway.VpcAttachmentArgs{
+//				SubnetIds: pulumi.StringArray{
+//					subnet1.ID(),
+//					subnet2.ID(),
+//				},
+//				TransitGatewayId: tgw.ID(),
+//				VpcId:            vpc1.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			attachment2, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment2", &ec2transitgateway.VpcAttachmentArgs{
+//				SubnetIds: pulumi.StringArray{
+//					subnet3.ID(),
+//				},
+//				TransitGatewayId: tgw.ID(),
+//				VpcId:            vpc2.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			domain, err := ec2transitgateway.NewMulticastDomain(ctx, "domain", &ec2transitgateway.MulticastDomainArgs{
+//				TransitGatewayId:     tgw.ID(),
+//				StaticSourcesSupport: pulumi.String("enable"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Transit_Gateway_Multicast_Domain_Example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			association3, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association3", &ec2transitgateway.MulticastDomainAssociationArgs{
+//				SubnetId:                        subnet3.ID(),
+//				TransitGatewayAttachmentId:      attachment2.ID(),
+//				TransitGatewayMulticastDomainId: domain.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewMulticastGroupSource(ctx, "source", &ec2transitgateway.MulticastGroupSourceArgs{
+//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
+//				NetworkInterfaceId:              instance3.PrimaryNetworkInterfaceId,
+//				TransitGatewayMulticastDomainId: association3.TransitGatewayMulticastDomainId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			association1, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association1", &ec2transitgateway.MulticastDomainAssociationArgs{
+//				SubnetId:                        subnet1.ID(),
+//				TransitGatewayAttachmentId:      attachment1.ID(),
+//				TransitGatewayMulticastDomainId: domain.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "association2", &ec2transitgateway.MulticastDomainAssociationArgs{
+//				SubnetId:                        subnet2.ID(),
+//				TransitGatewayAttachmentId:      attachment2.ID(),
+//				TransitGatewayMulticastDomainId: domain.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewMulticastGroupMember(ctx, "member1", &ec2transitgateway.MulticastGroupMemberArgs{
+//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
+//				NetworkInterfaceId:              instance1.PrimaryNetworkInterfaceId,
+//				TransitGatewayMulticastDomainId: association1.TransitGatewayMulticastDomainId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewMulticastGroupMember(ctx, "member2", &ec2transitgateway.MulticastGroupMemberArgs{
+//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
+//				NetworkInterfaceId:              instance2.PrimaryNetworkInterfaceId,
+//				TransitGatewayMulticastDomainId: association1.TransitGatewayMulticastDomainId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -211,7 +214,9 @@ import (
 // `aws_ec2_transit_gateway_multicast_domain` can be imported by using the EC2 Transit Gateway Multicast Domain identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+//
+//	$ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+//
 // ```
 type MulticastDomain struct {
 	pulumi.CustomResourceState
@@ -352,7 +357,7 @@ func (i *MulticastDomain) ToMulticastDomainOutputWithContext(ctx context.Context
 // MulticastDomainArrayInput is an input type that accepts MulticastDomainArray and MulticastDomainArrayOutput values.
 // You can construct a concrete instance of `MulticastDomainArrayInput` via:
 //
-//          MulticastDomainArray{ MulticastDomainArgs{...} }
+//	MulticastDomainArray{ MulticastDomainArgs{...} }
 type MulticastDomainArrayInput interface {
 	pulumi.Input
 
@@ -377,7 +382,7 @@ func (i MulticastDomainArray) ToMulticastDomainArrayOutputWithContext(ctx contex
 // MulticastDomainMapInput is an input type that accepts MulticastDomainMap and MulticastDomainMapOutput values.
 // You can construct a concrete instance of `MulticastDomainMapInput` via:
 //
-//          MulticastDomainMap{ "key": MulticastDomainArgs{...} }
+//	MulticastDomainMap{ "key": MulticastDomainArgs{...} }
 type MulticastDomainMapInput interface {
 	pulumi.Input
 

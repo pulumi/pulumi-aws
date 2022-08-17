@@ -15,23 +15,21 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.RedShift.UsageLimit("example", new()
     ///     {
-    ///         var example = new Aws.RedShift.UsageLimit("example", new Aws.RedShift.UsageLimitArgs
-    ///         {
-    ///             ClusterIdentifier = aws_redshift_cluster.Example.Id,
-    ///             FeatureType = "concurrency-scaling",
-    ///             LimitType = "time",
-    ///             Amount = 60,
-    ///         });
-    ///     }
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
+    ///         FeatureType = "concurrency-scaling",
+    ///         LimitType = "time",
+    ///         Amount = 60,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/usageLimit:UsageLimit")]
-    public partial class UsageLimit : Pulumi.CustomResource
+    public partial class UsageLimit : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
@@ -93,9 +91,6 @@ namespace Pulumi.Aws.RedShift
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -143,7 +138,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class UsageLimitArgs : Pulumi.ResourceArgs
+    public sealed class UsageLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
@@ -196,9 +191,10 @@ namespace Pulumi.Aws.RedShift
         public UsageLimitArgs()
         {
         }
+        public static new UsageLimitArgs Empty => new UsageLimitArgs();
     }
 
-    public sealed class UsageLimitState : Pulumi.ResourceArgs
+    public sealed class UsageLimitState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
@@ -256,10 +252,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -269,5 +261,6 @@ namespace Pulumi.Aws.RedShift
         public UsageLimitState()
         {
         }
+        public static new UsageLimitState Empty => new UsageLimitState();
     }
 }

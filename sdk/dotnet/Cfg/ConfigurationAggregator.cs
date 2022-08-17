@@ -16,44 +16,41 @@ namespace Pulumi.Aws.Cfg
     /// ### Account Based Aggregation
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var account = new Aws.Cfg.ConfigurationAggregator("account", new()
     ///     {
-    ///         var account = new Aws.Cfg.ConfigurationAggregator("account", new Aws.Cfg.ConfigurationAggregatorArgs
+    ///         AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
     ///         {
-    ///             AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
+    ///             AccountIds = new[]
     ///             {
-    ///                 AccountIds = 
-    ///                 {
-    ///                     "123456789012",
-    ///                 },
-    ///                 Regions = 
-    ///                 {
-    ///                     "us-west-2",
-    ///                 },
+    ///                 "123456789012",
     ///             },
-    ///         });
-    ///     }
+    ///             Regions = new[]
+    ///             {
+    ///                 "us-west-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Organization Based Aggregation
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var organizationRole = new Aws.Iam.Role("organizationRole", new()
     ///     {
-    ///         var organizationRole = new Aws.Iam.Role("organizationRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -67,29 +64,30 @@ namespace Pulumi.Aws.Cfg
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = organizationRole.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-    ///         });
-    ///         var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new Aws.Cfg.ConfigurationAggregatorArgs
-    ///         {
-    ///             OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
-    ///             {
-    ///                 AllRegions = true,
-    ///                 RoleArn = organizationRole.Arn,
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 organizationRolePolicyAttachment,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new()
+    ///     {
+    ///         Role = organizationRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+    ///     });
+    /// 
+    ///     var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new()
+    ///     {
+    ///         OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
+    ///         {
+    ///             AllRegions = true,
+    ///             RoleArn = organizationRole.Arn,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             organizationRolePolicyAttachment,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
-    public partial class ConfigurationAggregator : Pulumi.CustomResource
+    public partial class ConfigurationAggregator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account(s) to aggregate config data from as documented below.
@@ -134,7 +132,7 @@ namespace Pulumi.Aws.Cfg
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -183,7 +181,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class ConfigurationAggregatorArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationAggregatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account(s) to aggregate config data from as documented below.
@@ -218,9 +216,10 @@ namespace Pulumi.Aws.Cfg
         public ConfigurationAggregatorArgs()
         {
         }
+        public static new ConfigurationAggregatorArgs Empty => new ConfigurationAggregatorArgs();
     }
 
-    public sealed class ConfigurationAggregatorState : Pulumi.ResourceArgs
+    public sealed class ConfigurationAggregatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account(s) to aggregate config data from as documented below.
@@ -262,7 +261,7 @@ namespace Pulumi.Aws.Cfg
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -273,5 +272,6 @@ namespace Pulumi.Aws.Cfg
         public ConfigurationAggregatorState()
         {
         }
+        public static new ConfigurationAggregatorState Empty => new ConfigurationAggregatorState();
     }
 }

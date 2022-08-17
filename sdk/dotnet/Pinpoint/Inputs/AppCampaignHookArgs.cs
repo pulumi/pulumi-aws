@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint.Inputs
 {
 
-    public sealed class AppCampaignHookArgs : Pulumi.ResourceArgs
+    public sealed class AppCampaignHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         public AppCampaignHookArgs()
         {
         }
+        public static new AppCampaignHookArgs Empty => new AppCampaignHookArgs();
     }
 }

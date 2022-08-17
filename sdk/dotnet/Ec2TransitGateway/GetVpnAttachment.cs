@@ -22,51 +22,47 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Transit Gateway and VPN Connection Identifiers
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
-        ///         {
-        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///             VpnConnectionId = aws_vpn_connection.Example.Id,
-        ///         }));
-        ///     }
+        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterArgs
+        ///                 Name = "resource-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "resource-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "some-resource",
-        ///                     },
+        ///                     "some-resource",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,51 +81,47 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Transit Gateway and VPN Connection Identifiers
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
-        ///         {
-        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///             VpnConnectionId = aws_vpn_connection.Example.Id,
-        ///         }));
-        ///     }
+        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterArgs
+        ///                 Name = "resource-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "resource-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "some-resource",
-        ///                     },
+        ///                     "some-resource",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -139,7 +131,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetVpnAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpnAttachmentFilterArgs>? _filters;
@@ -180,9 +172,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetVpnAttachmentArgs()
         {
         }
+        public static new GetVpnAttachmentArgs Empty => new GetVpnAttachmentArgs();
     }
 
-    public sealed class GetVpnAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpnAttachmentFilterInputArgs>? _filters;
@@ -223,6 +216,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetVpnAttachmentInvokeArgs()
         {
         }
+        public static new GetVpnAttachmentInvokeArgs Empty => new GetVpnAttachmentInvokeArgs();
     }
 
 

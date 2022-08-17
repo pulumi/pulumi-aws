@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Neptune.ParameterGroup("example", new()
     ///     {
-    ///         var example = new Aws.Neptune.ParameterGroup("example", new Aws.Neptune.ParameterGroupArgs
+    ///         Family = "neptune1",
+    ///         Parameters = new[]
     ///         {
-    ///             Family = "neptune1",
-    ///             Parameters = 
+    ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.Neptune.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "neptune_query_timeout",
-    ///                     Value = "25",
-    ///                 },
+    ///                 Name = "neptune_query_timeout",
+    ///                 Value = "25",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/parameterGroup:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Neptune parameter group Amazon Resource Name (ARN).
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.Neptune
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
@@ -183,9 +181,10 @@ namespace Pulumi.Aws.Neptune
         public ParameterGroupArgs()
         {
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 
-    public sealed class ParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Neptune parameter group Amazon Resource Name (ARN).
@@ -239,7 +238,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -250,5 +249,6 @@ namespace Pulumi.Aws.Neptune
         public ParameterGroupState()
         {
         }
+        public static new ParameterGroupState Empty => new ParameterGroupState();
     }
 }

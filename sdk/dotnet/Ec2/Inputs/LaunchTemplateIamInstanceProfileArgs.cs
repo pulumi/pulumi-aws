@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateIamInstanceProfileArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateIamInstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateIamInstanceProfileArgs()
         {
         }
+        public static new LaunchTemplateIamInstanceProfileArgs Empty => new LaunchTemplateIamInstanceProfileArgs();
     }
 }

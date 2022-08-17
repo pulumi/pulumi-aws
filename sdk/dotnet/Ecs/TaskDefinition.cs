@@ -21,182 +21,170 @@ namespace Pulumi.Aws.Ecs
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
-    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         Family = "service",
+    ///         ContainerDefinitions = JsonSerializer.Serialize(new[]
     ///         {
-    ///             Family = "service",
-    ///             ContainerDefinitions = JsonSerializer.Serialize(new[]
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["name"] = "first",
+    ///                 ["image"] = "service-first",
+    ///                 ["cpu"] = 10,
+    ///                 ["memory"] = 512,
+    ///                 ["essential"] = true,
+    ///                 ["portMappings"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "name", "first" },
-    ///                         { "image", "service-first" },
-    ///                         { "cpu", 10 },
-    ///                         { "memory", 512 },
-    ///                         { "essential", true },
-    ///                         { "portMappings", new[]
-    ///                             {
-    ///                                 new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "containerPort", 80 },
-    ///                                     { "hostPort", 80 },
-    ///                                 },
-    ///                             }
-    ///                          },
+    ///                         ["containerPort"] = 80,
+    ///                         ["hostPort"] = 80,
     ///                     },
+    ///                 },
+    ///             },
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["name"] = "second",
+    ///                 ["image"] = "service-second",
+    ///                 ["cpu"] = 10,
+    ///                 ["memory"] = 256,
+    ///                 ["essential"] = true,
+    ///                 ["portMappings"] = new[]
+    ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "name", "second" },
-    ///                         { "image", "service-second" },
-    ///                         { "cpu", 10 },
-    ///                         { "memory", 256 },
-    ///                         { "essential", true },
-    ///                         { "portMappings", new[]
-    ///                             {
-    ///                                 new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "containerPort", 443 },
-    ///                                     { "hostPort", 443 },
-    ///                                 },
-    ///                             }
-    ///                          },
+    ///                         ["containerPort"] = 443,
+    ///                         ["hostPort"] = 443,
     ///                     },
-    ///                 }
-    ///             ),
-    ///             Volumes = 
-    ///             {
-    ///                 new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
-    ///                 {
-    ///                     Name = "service-storage",
-    ///                     HostPath = "/ecs/service-storage",
     ///                 },
     ///             },
-    ///             PlacementConstraints = 
+    ///         }),
+    ///         Volumes = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.TaskDefinitionPlacementConstraintArgs
-    ///                 {
-    ///                     Type = "memberOf",
-    ///                     Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-    ///                 },
+    ///                 Name = "service-storage",
+    ///                 HostPath = "/ecs/service-storage",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         PlacementConstraints = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.TaskDefinitionPlacementConstraintArgs
+    ///             {
+    ///                 Type = "memberOf",
+    ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With AppMesh Proxy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
-    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         Family = "service",
+    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
     ///         {
-    ///             Family = "service",
-    ///             ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///             ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
+    ///             Type = "APPMESH",
+    ///             ContainerName = "applicationContainerName",
+    ///             Properties = 
     ///             {
-    ///                 Type = "APPMESH",
-    ///                 ContainerName = "applicationContainerName",
-    ///                 Properties = 
-    ///                 {
-    ///                     { "AppPorts", "8080" },
-    ///                     { "EgressIgnoredIPs", "169.254.170.2,169.254.169.254" },
-    ///                     { "IgnoredUID", "1337" },
-    ///                     { "ProxyEgressPort", "15001" },
-    ///                     { "ProxyIngressPort", "15000" },
-    ///                 },
+    ///                 { "AppPorts", "8080" },
+    ///                 { "EgressIgnoredIPs", "169.254.170.2,169.254.169.254" },
+    ///                 { "IgnoredUID", "1337" },
+    ///                 { "ProxyEgressPort", "15001" },
+    ///                 { "ProxyIngressPort", "15000" },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example Using `docker_volume_configuration`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
-    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         Family = "service",
+    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         Volumes = new[]
     ///         {
-    ///             Family = "service",
-    ///             ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///             Volumes = 
+    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///                 Name = "service-storage",
+    ///                 DockerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs
     ///                 {
-    ///                     Name = "service-storage",
-    ///                     DockerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs
+    ///                     Scope = "shared",
+    ///                     Autoprovision = true,
+    ///                     Driver = "local",
+    ///                     DriverOpts = 
     ///                     {
-    ///                         Scope = "shared",
-    ///                         Autoprovision = true,
-    ///                         Driver = "local",
-    ///                         DriverOpts = 
-    ///                         {
-    ///                             { "type", "nfs" },
-    ///                             { "device", $"{aws_efs_file_system.Fs.Dns_name}:/" },
-    ///                             { "o", $"addr={aws_efs_file_system.Fs.Dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
-    ///                         },
+    ///                         { "type", "nfs" },
+    ///                         { "device", $"{aws_efs_file_system.Fs.Dns_name}:/" },
+    ///                         { "o", $"addr={aws_efs_file_system.Fs.Dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example Using `efs_volume_configuration`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
-    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         Family = "service",
+    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         Volumes = new[]
     ///         {
-    ///             Family = "service",
-    ///             ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///             Volumes = 
+    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///                 Name = "service-storage",
+    ///                 EfsVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs
     ///                 {
-    ///                     Name = "service-storage",
-    ///                     EfsVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs
+    ///                     FileSystemId = aws_efs_file_system.Fs.Id,
+    ///                     RootDirectory = "/opt/data",
+    ///                     TransitEncryption = "ENABLED",
+    ///                     TransitEncryptionPort = 2999,
+    ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
     ///                     {
-    ///                         FileSystemId = aws_efs_file_system.Fs.Id,
-    ///                         RootDirectory = "/opt/data",
-    ///                         TransitEncryption = "ENABLED",
-    ///                         TransitEncryptionPort = 2999,
-    ///                         AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
-    ///                         {
-    ///                             AccessPointId = aws_efs_access_point.Test.Id,
-    ///                             Iam = "ENABLED",
-    ///                         },
+    ///                         AccessPointId = aws_efs_access_point.Test.Id,
+    ///                         Iam = "ENABLED",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example Using `fsx_windows_file_server_volume_configuration`
     /// 
@@ -207,58 +195,55 @@ namespace Pulumi.Aws.Ecs
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.SecretsManager.SecretVersion("test", new()
     ///     {
-    ///         var test = new Aws.SecretsManager.SecretVersion("test", new Aws.SecretsManager.SecretVersionArgs
+    ///         SecretId = aws_secretsmanager_secret.Test.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             SecretId = aws_secretsmanager_secret.Test.Id,
-    ///             SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "username", "admin" },
-    ///                 { "password", aws_directory_service_directory.Test.Password },
-    ///             }),
-    ///         });
-    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///             ["username"] = "admin",
+    ///             ["password"] = aws_directory_service_directory.Test.Password,
+    ///         }),
+    ///     });
+    /// 
+    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
+    ///     {
+    ///         Family = "service",
+    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         Volumes = new[]
     ///         {
-    ///             Family = "service",
-    ///             ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///             Volumes = 
+    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///                 Name = "service-storage",
+    ///                 FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
     ///                 {
-    ///                     Name = "service-storage",
-    ///                     FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
+    ///                     FileSystemId = aws_fsx_windows_file_system.Test.Id,
+    ///                     RootDirectory = "\\data",
+    ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
     ///                     {
-    ///                         FileSystemId = aws_fsx_windows_file_system.Test.Id,
-    ///                         RootDirectory = "\\data",
-    ///                         AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
-    ///                         {
-    ///                             CredentialsParameter = test.Arn,
-    ///                             Domain = aws_directory_service_directory.Test.Name,
-    ///                         },
+    ///                         CredentialsParameter = test.Arn,
+    ///                         Domain = aws_directory_service_directory.Test.Name,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example Using `container_definitions` and `inference_accelerator`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ecs.TaskDefinition("test", new()
     ///     {
-    ///         var test = new Aws.Ecs.TaskDefinition("test", new Aws.Ecs.TaskDefinitionArgs
-    ///         {
-    ///             ContainerDefinitions = @"[
+    ///         ContainerDefinitions = @"[
     ///   {
     ///     ""cpu"": 10,
     ///     ""command"": [""sleep"", ""10""],
@@ -286,33 +271,31 @@ namespace Pulumi.Aws.Ecs
     /// ]
     /// 
     /// ",
-    ///             Family = "test",
-    ///             InferenceAccelerators = 
+    ///         Family = "test",
+    ///         InferenceAccelerators = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
-    ///                 {
-    ///                     DeviceName = "device_1",
-    ///                     DeviceType = "eia1.medium",
-    ///                 },
+    ///                 DeviceName = "device_1",
+    ///                 DeviceType = "eia1.medium",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example Using `runtime_platform` and `fargate`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ecs.TaskDefinition("test", new()
     ///     {
-    ///         var test = new Aws.Ecs.TaskDefinition("test", new Aws.Ecs.TaskDefinitionArgs
-    ///         {
-    ///             ContainerDefinitions = @"[
+    ///         ContainerDefinitions = @"[
     ///   {
     ///     ""name"": ""iis"",
     ///     ""image"": ""mcr.microsoft.com/windows/servercore/iis"",
@@ -323,23 +306,22 @@ namespace Pulumi.Aws.Ecs
     /// ]
     /// 
     /// ",
-    ///             Cpu = "1024",
-    ///             Family = "test",
-    ///             Memory = "2048",
-    ///             NetworkMode = "awsvpc",
-    ///             RequiresCompatibilities = 
-    ///             {
-    ///                 "FARGATE",
-    ///             },
-    ///             RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
-    ///             {
-    ///                 CpuArchitecture = "X86_64",
-    ///                 OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
-    ///             },
-    ///         });
-    ///     }
+    ///         Cpu = "1024",
+    ///         Family = "test",
+    ///         Memory = "2048",
+    ///         NetworkMode = "awsvpc",
+    ///         RequiresCompatibilities = new[]
+    ///         {
+    ///             "FARGATE",
+    ///         },
+    ///         RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
+    ///         {
+    ///             CpuArchitecture = "X86_64",
+    ///             OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -351,7 +333,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/taskDefinition:TaskDefinition")]
-    public partial class TaskDefinition : Pulumi.CustomResource
+    public partial class TaskDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Full ARN of the Task Definition (including both `family` and `revision`).
@@ -453,13 +435,13 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -520,7 +502,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class TaskDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
@@ -631,7 +613,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -660,9 +642,10 @@ namespace Pulumi.Aws.Ecs
         public TaskDefinitionArgs()
         {
         }
+        public static new TaskDefinitionArgs Empty => new TaskDefinitionArgs();
     }
 
-    public sealed class TaskDefinitionState : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full ARN of the Task Definition (including both `family` and `revision`).
@@ -785,7 +768,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -797,7 +780,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -826,5 +809,6 @@ namespace Pulumi.Aws.Ecs
         public TaskDefinitionState()
         {
         }
+        public static new TaskDefinitionState Empty => new TaskDefinitionState();
     }
 }

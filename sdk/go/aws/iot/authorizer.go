@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
-// 			AuthorizerFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-// 			SigningDisabled:       pulumi.Bool(false),
-// 			Status:                pulumi.String("ACTIVE"),
-// 			TokenKeyName:          pulumi.String("Token-Header"),
-// 			TokenSigningPublicKeys: pulumi.StringMap{
-// 				"Key1": readFileOrPanic("test-fixtures/iot-authorizer-signing-key.pem"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
+//				AuthorizerFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//				SigningDisabled:       pulumi.Bool(false),
+//				Status:                pulumi.String("ACTIVE"),
+//				TokenKeyName:          pulumi.String("Token-Header"),
+//				TokenSigningPublicKeys: pulumi.StringMap{
+//					"Key1": readFileOrPanic("test-fixtures/iot-authorizer-signing-key.pem"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // IOT Authorizers can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iot/authorizer:Authorizer example example
+//
+//	$ pulumi import aws:iot/authorizer:Authorizer example example
+//
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 // AuthorizerArrayInput is an input type that accepts AuthorizerArray and AuthorizerArrayOutput values.
 // You can construct a concrete instance of `AuthorizerArrayInput` via:
 //
-//          AuthorizerArray{ AuthorizerArgs{...} }
+//	AuthorizerArray{ AuthorizerArgs{...} }
 type AuthorizerArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i AuthorizerArray) ToAuthorizerArrayOutputWithContext(ctx context.Context)
 // AuthorizerMapInput is an input type that accepts AuthorizerMap and AuthorizerMapOutput values.
 // You can construct a concrete instance of `AuthorizerMapInput` via:
 //
-//          AuthorizerMap{ "key": AuthorizerArgs{...} }
+//	AuthorizerMap{ "key": AuthorizerArgs{...} }
 type AuthorizerMapInput interface {
 	pulumi.Input
 

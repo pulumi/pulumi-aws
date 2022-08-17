@@ -15,24 +15,21 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleUser = new Aws.Iam.User("exampleUser", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var exampleServiceSpecificCredential = new Aws.Iam.ServiceSpecificCredential("exampleServiceSpecificCredential", new Aws.Iam.ServiceSpecificCredentialArgs
-    ///         {
-    ///             ServiceName = "codecommit.amazonaws.com",
-    ///             UserName = exampleUser.Name,
-    ///         });
-    ///     }
+    ///     var exampleUser = new Aws.Iam.User("exampleUser");
     /// 
-    /// }
+    ///     var exampleServiceSpecificCredential = new Aws.Iam.ServiceSpecificCredential("exampleServiceSpecificCredential", new()
+    ///     {
+    ///         ServiceName = "codecommit.amazonaws.com",
+    ///         UserName = exampleUser.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +41,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/serviceSpecificCredential:ServiceSpecificCredential")]
-    public partial class ServiceSpecificCredential : Pulumi.CustomResource
+    public partial class ServiceSpecificCredential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
@@ -126,7 +123,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class ServiceSpecificCredentialArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSpecificCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
@@ -149,9 +146,10 @@ namespace Pulumi.Aws.Iam
         public ServiceSpecificCredentialArgs()
         {
         }
+        public static new ServiceSpecificCredentialArgs Empty => new ServiceSpecificCredentialArgs();
     }
 
-    public sealed class ServiceSpecificCredentialState : Pulumi.ResourceArgs
+    public sealed class ServiceSpecificCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
@@ -192,5 +190,6 @@ namespace Pulumi.Aws.Iam
         public ServiceSpecificCredentialState()
         {
         }
+        public static new ServiceSpecificCredentialState Empty => new ServiceSpecificCredentialState();
     }
 }

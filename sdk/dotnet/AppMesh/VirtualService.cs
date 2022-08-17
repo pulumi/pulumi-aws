@@ -16,58 +16,54 @@ namespace Pulumi.Aws.AppMesh
     /// ### Virtual Node Provider
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
     ///     {
-    ///         var servicea = new Aws.AppMesh.VirtualService("servicea", new Aws.AppMesh.VirtualServiceArgs
+    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
     ///         {
-    ///             MeshName = aws_appmesh_mesh.Simple.Id,
-    ///             Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
+    ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
     ///             {
-    ///                 Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
+    ///                 VirtualNode = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualNodeArgs
     ///                 {
-    ///                     VirtualNode = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualNodeArgs
-    ///                     {
-    ///                         VirtualNodeName = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                     },
+    ///                     VirtualNodeName = aws_appmesh_virtual_node.Serviceb1.Name,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Virtual Router Provider
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
     ///     {
-    ///         var servicea = new Aws.AppMesh.VirtualService("servicea", new Aws.AppMesh.VirtualServiceArgs
+    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
     ///         {
-    ///             MeshName = aws_appmesh_mesh.Simple.Id,
-    ///             Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
+    ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
     ///             {
-    ///                 Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
+    ///                 VirtualRouter = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualRouterArgs
     ///                 {
-    ///                     VirtualRouter = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualRouterArgs
-    ///                     {
-    ///                         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///                     },
+    ///                     VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.AppMesh
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualService:VirtualService")]
-    public partial class VirtualService : Pulumi.CustomResource
+    public partial class VirtualService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the virtual service.
@@ -138,7 +134,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -187,7 +183,7 @@ namespace Pulumi.Aws.AppMesh
         }
     }
 
-    public sealed class VirtualServiceArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
@@ -228,9 +224,10 @@ namespace Pulumi.Aws.AppMesh
         public VirtualServiceArgs()
         {
         }
+        public static new VirtualServiceArgs Empty => new VirtualServiceArgs();
     }
 
-    public sealed class VirtualServiceState : Pulumi.ResourceArgs
+    public sealed class VirtualServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the virtual service.
@@ -296,7 +293,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -307,5 +304,6 @@ namespace Pulumi.Aws.AppMesh
         public VirtualServiceState()
         {
         }
+        public static new VirtualServiceState Empty => new VirtualServiceState();
     }
 }

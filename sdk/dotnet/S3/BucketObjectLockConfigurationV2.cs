@@ -20,32 +20,31 @@ namespace Pulumi.Aws.S3
     /// ### Object Lock configuration for a new bucket
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///             ObjectLockEnabled = true,
-    ///         });
-    ///         var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", new Aws.S3.BucketObjectLockConfigurationV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Bucket,
-    ///             Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
-    ///             {
-    ///                 DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
-    ///                 {
-    ///                     Mode = "COMPLIANCE",
-    ///                     Days = 5,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         ObjectLockEnabled = true,
+    ///     });
     /// 
-    /// }
+    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Bucket,
+    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
+    ///         {
+    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
+    ///             {
+    ///                 Mode = "COMPLIANCE",
+    ///                 Days = 5,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Object Lock configuration for an existing bucket
     /// 
@@ -56,27 +55,24 @@ namespace Pulumi.Aws.S3
     /// 
     /// &lt;!-- markdownlint-disable MD029 --&gt;
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Bucket,
-    ///             VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
-    ///             {
-    ///                 Status = "Enabled",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Bucket,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// &lt;!-- markdownlint-disable MD029 --&gt;
     /// 
@@ -85,29 +81,27 @@ namespace Pulumi.Aws.S3
     /// 
     /// &lt;!-- markdownlint-disable MD029 --&gt;
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.BucketObjectLockConfigurationV2("example", new()
     ///     {
-    ///         var example = new Aws.S3.BucketObjectLockConfigurationV2("example", new Aws.S3.BucketObjectLockConfigurationV2Args
+    ///         Bucket = aws_s3_bucket.Example.Bucket,
+    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Bucket,
-    ///             Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
+    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
     ///             {
-    ///                 DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
-    ///                 {
-    ///                     Mode = "COMPLIANCE",
-    ///                     Days = 5,
-    ///                 },
+    ///                 Mode = "COMPLIANCE",
+    ///                 Days = 5,
     ///             },
-    ///             Token = "NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==",
-    ///         });
-    ///     }
+    ///         },
+    ///         Token = "NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// &lt;!-- markdownlint-disable MD029 --&gt;
     /// 
@@ -126,7 +120,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")]
-    public partial class BucketObjectLockConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketObjectLockConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -203,7 +197,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketObjectLockConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketObjectLockConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -239,9 +233,10 @@ namespace Pulumi.Aws.S3
         public BucketObjectLockConfigurationV2Args()
         {
         }
+        public static new BucketObjectLockConfigurationV2Args Empty => new BucketObjectLockConfigurationV2Args();
     }
 
-    public sealed class BucketObjectLockConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketObjectLockConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -277,5 +272,6 @@ namespace Pulumi.Aws.S3
         public BucketObjectLockConfigurationV2State()
         {
         }
+        public static new BucketObjectLockConfigurationV2State Empty => new BucketObjectLockConfigurationV2State();
     }
 }

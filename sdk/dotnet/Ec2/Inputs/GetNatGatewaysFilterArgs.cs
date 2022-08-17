@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetNatGatewaysFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetNatGatewaysFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetNatGatewaysFilterInputArgs()
         {
         }
+        public static new GetNatGatewaysFilterInputArgs Empty => new GetNatGatewaysFilterInputArgs();
     }
 }

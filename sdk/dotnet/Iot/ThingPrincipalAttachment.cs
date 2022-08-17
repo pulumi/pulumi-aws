@@ -15,34 +15,32 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Iot.Thing("example", new Aws.Iot.ThingArgs
-    ///         {
-    ///         });
-    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
-    ///         {
-    ///             Csr = File.ReadAllText("csr.pem"),
-    ///             Active = true,
-    ///         });
-    ///         var att = new Aws.Iot.ThingPrincipalAttachment("att", new Aws.Iot.ThingPrincipalAttachmentArgs
-    ///         {
-    ///             Principal = cert.Arn,
-    ///             Thing = example.Name,
-    ///         });
-    ///     }
+    ///     var example = new Aws.Iot.Thing("example");
     /// 
-    /// }
+    ///     var cert = new Aws.Iot.Certificate("cert", new()
+    ///     {
+    ///         Csr = File.ReadAllText("csr.pem"),
+    ///         Active = true,
+    ///     });
+    /// 
+    ///     var att = new Aws.Iot.ThingPrincipalAttachment("att", new()
+    ///     {
+    ///         Principal = cert.Arn,
+    ///         Thing = example.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")]
-    public partial class ThingPrincipalAttachment : Pulumi.CustomResource
+    public partial class ThingPrincipalAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
@@ -100,7 +98,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class ThingPrincipalAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class ThingPrincipalAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
@@ -117,9 +115,10 @@ namespace Pulumi.Aws.Iot
         public ThingPrincipalAttachmentArgs()
         {
         }
+        public static new ThingPrincipalAttachmentArgs Empty => new ThingPrincipalAttachmentArgs();
     }
 
-    public sealed class ThingPrincipalAttachmentState : Pulumi.ResourceArgs
+    public sealed class ThingPrincipalAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
@@ -136,5 +135,6 @@ namespace Pulumi.Aws.Iot
         public ThingPrincipalAttachmentState()
         {
         }
+        public static new ThingPrincipalAttachmentState Empty => new ThingPrincipalAttachmentState();
     }
 }

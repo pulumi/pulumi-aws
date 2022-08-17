@@ -17,22 +17,20 @@ namespace Pulumi.Aws.ServiceQuotas
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceQuotas.ServiceQuota("example", new()
     ///     {
-    ///         var example = new Aws.ServiceQuotas.ServiceQuota("example", new Aws.ServiceQuotas.ServiceQuotaArgs
-    ///         {
-    ///             QuotaCode = "L-F678F1CE",
-    ///             ServiceCode = "vpc",
-    ///             Value = 75,
-    ///         });
-    ///     }
+    ///         QuotaCode = "L-F678F1CE",
+    ///         ServiceCode = "vpc",
+    ///         Value = 75,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]
-    public partial class ServiceQuota : Pulumi.CustomResource
+    public partial class ServiceQuota : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the service quota can be increased.
@@ -144,7 +142,7 @@ namespace Pulumi.Aws.ServiceQuotas
         }
     }
 
-    public sealed class ServiceQuotaArgs : Pulumi.ResourceArgs
+    public sealed class ServiceQuotaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
@@ -167,9 +165,10 @@ namespace Pulumi.Aws.ServiceQuotas
         public ServiceQuotaArgs()
         {
         }
+        public static new ServiceQuotaArgs Empty => new ServiceQuotaArgs();
     }
 
-    public sealed class ServiceQuotaState : Pulumi.ResourceArgs
+    public sealed class ServiceQuotaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the service quota can be increased.
@@ -228,5 +227,6 @@ namespace Pulumi.Aws.ServiceQuotas
         public ServiceQuotaState()
         {
         }
+        public static new ServiceQuotaState Empty => new ServiceQuotaState();
     }
 }

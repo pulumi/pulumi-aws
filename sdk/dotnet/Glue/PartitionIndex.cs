@@ -13,127 +13,127 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
     ///     {
-    ///         var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new()
+    ///     {
+    ///         Name = "example",
+    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         Owner = "my_owner",
+    ///         Retention = 1,
+    ///         TableType = "VIRTUAL_VIEW",
+    ///         ViewExpandedText = "view_expanded_text_1",
+    ///         ViewOriginalText = "view_original_text_1",
+    ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
-    ///             Name = "example",
-    ///         });
-    ///         var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new Aws.Glue.CatalogTableArgs
-    ///         {
-    ///             Name = "example",
-    ///             DatabaseName = exampleCatalogDatabase.Name,
-    ///             Owner = "my_owner",
-    ///             Retention = 1,
-    ///             TableType = "VIRTUAL_VIEW",
-    ///             ViewExpandedText = "view_expanded_text_1",
-    ///             ViewOriginalText = "view_original_text_1",
-    ///             StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
+    ///             BucketColumns = new[]
     ///             {
-    ///                 BucketColumns = 
-    ///                 {
-    ///                     "bucket_column_1",
-    ///                 },
-    ///                 Compressed = false,
-    ///                 InputFormat = "SequenceFileInputFormat",
-    ///                 Location = "my_location",
-    ///                 NumberOfBuckets = 1,
-    ///                 OutputFormat = "SequenceFileInputFormat",
-    ///                 StoredAsSubDirectories = false,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "param1", "param1_val" },
-    ///                 },
-    ///                 Columns = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
-    ///                     {
-    ///                         Name = "my_column_1",
-    ///                         Type = "int",
-    ///                         Comment = "my_column1_comment",
-    ///                     },
-    ///                     new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
-    ///                     {
-    ///                         Name = "my_column_2",
-    ///                         Type = "string",
-    ///                         Comment = "my_column2_comment",
-    ///                     },
-    ///                 },
-    ///                 SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
-    ///                 {
-    ///                     Name = "ser_de_name",
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "param1", "param_val_1" },
-    ///                     },
-    ///                     SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-    ///                 },
-    ///                 SortColumns = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
-    ///                     {
-    ///                         Column = "my_column_1",
-    ///                         SortOrder = 1,
-    ///                     },
-    ///                 },
-    ///                 SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
-    ///                 {
-    ///                     SkewedColumnNames = 
-    ///                     {
-    ///                         "my_column_1",
-    ///                     },
-    ///                     SkewedColumnValueLocationMaps = 
-    ///                     {
-    ///                         { "my_column_1", "my_column_1_val_loc_map" },
-    ///                     },
-    ///                     SkewedColumnValues = 
-    ///                     {
-    ///                         "skewed_val_1",
-    ///                     },
-    ///                 },
+    ///                 "bucket_column_1",
     ///             },
-    ///             PartitionKeys = 
-    ///             {
-    ///                 new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
-    ///                 {
-    ///                     Name = "my_column_1",
-    ///                     Type = "int",
-    ///                     Comment = "my_column_1_comment",
-    ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
-    ///                 {
-    ///                     Name = "my_column_2",
-    ///                     Type = "string",
-    ///                     Comment = "my_column_2_comment",
-    ///                 },
-    ///             },
+    ///             Compressed = false,
+    ///             InputFormat = "SequenceFileInputFormat",
+    ///             Location = "my_location",
+    ///             NumberOfBuckets = 1,
+    ///             OutputFormat = "SequenceFileInputFormat",
+    ///             StoredAsSubDirectories = false,
     ///             Parameters = 
     ///             {
     ///                 { "param1", "param1_val" },
     ///             },
-    ///         });
-    ///         var examplePartitionIndex = new Aws.Glue.PartitionIndex("examplePartitionIndex", new Aws.Glue.PartitionIndexArgs
-    ///         {
-    ///             DatabaseName = exampleCatalogDatabase.Name,
-    ///             TableName = exampleCatalogTable.Name,
-    ///             PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
+    ///             Columns = new[]
     ///             {
-    ///                 IndexName = "example",
-    ///                 Keys = 
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
     ///                 {
-    ///                     "my_column_1",
-    ///                     "my_column_2",
+    ///                     Name = "my_column_1",
+    ///                     Type = "int",
+    ///                     Comment = "my_column1_comment",
+    ///                 },
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 {
+    ///                     Name = "my_column_2",
+    ///                     Type = "string",
+    ///                     Comment = "my_column2_comment",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
+    ///             {
+    ///                 Name = "ser_de_name",
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "param1", "param_val_1" },
+    ///                 },
+    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+    ///             },
+    ///             SortColumns = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
+    ///                 {
+    ///                     Column = "my_column_1",
+    ///                     SortOrder = 1,
+    ///                 },
+    ///             },
+    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
+    ///             {
+    ///                 SkewedColumnNames = new[]
+    ///                 {
+    ///                     "my_column_1",
+    ///                 },
+    ///                 SkewedColumnValueLocationMaps = 
+    ///                 {
+    ///                     { "my_column_1", "my_column_1_val_loc_map" },
+    ///                 },
+    ///                 SkewedColumnValues = new[]
+    ///                 {
+    ///                     "skewed_val_1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PartitionKeys = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
+    ///             {
+    ///                 Name = "my_column_1",
+    ///                 Type = "int",
+    ///                 Comment = "my_column_1_comment",
+    ///             },
+    ///             new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
+    ///             {
+    ///                 Name = "my_column_2",
+    ///                 Type = "string",
+    ///                 Comment = "my_column_2_comment",
+    ///             },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "param1", "param1_val" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("examplePartitionIndex", new()
+    ///     {
+    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         TableName = exampleCatalogTable.Name,
+    ///         PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
+    ///         {
+    ///             IndexName = "example",
+    ///             Keys = new[]
+    ///             {
+    ///                 "my_column_1",
+    ///                 "my_column_2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/partitionIndex:PartitionIndex")]
-    public partial class PartitionIndex : Pulumi.CustomResource
+    public partial class PartitionIndex : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The catalog ID where the table resides.
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class PartitionIndexArgs : Pulumi.ResourceArgs
+    public sealed class PartitionIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The catalog ID where the table resides.
@@ -244,9 +244,10 @@ namespace Pulumi.Aws.Glue
         public PartitionIndexArgs()
         {
         }
+        public static new PartitionIndexArgs Empty => new PartitionIndexArgs();
     }
 
-    public sealed class PartitionIndexState : Pulumi.ResourceArgs
+    public sealed class PartitionIndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The catalog ID where the table resides.
@@ -275,5 +276,6 @@ namespace Pulumi.Aws.Glue
         public PartitionIndexState()
         {
         }
+        public static new PartitionIndexState Empty => new PartitionIndexState();
     }
 }

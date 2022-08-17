@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connection pool information for the listener.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerArgs()
         {
         }
+        public static new VirtualNodeSpecListenerArgs Empty => new VirtualNodeSpecListenerArgs();
     }
 }

@@ -20,26 +20,21 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-        ///         this.AccountId = current.Apply(current =&gt; current.AccountId);
-        ///         this.CallerArn = current.Apply(current =&gt; current.Arn);
-        ///         this.CallerUser = current.Apply(current =&gt; current.UserId);
-        ///     }
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
-        ///     [Output("accountId")]
-        ///     public Output&lt;string&gt; AccountId { get; set; }
-        ///     [Output("callerArn")]
-        ///     public Output&lt;string&gt; CallerArn { get; set; }
-        ///     [Output("callerUser")]
-        ///     public Output&lt;string&gt; CallerUser { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountId"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///         ["callerArn"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+        ///         ["callerUser"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.UserId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

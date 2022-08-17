@@ -18,30 +18,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
-// 			LanguageCode: pulumi.String("en-US"),
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value3"),
-// 			},
-// 			VocabularyFilterName: pulumi.String("example"),
-// 			Words: pulumi.StringArray{
-// 				pulumi.String("cars"),
-// 				pulumi.String("bucket"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
+//				LanguageCode: pulumi.String("en-US"),
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
+//				},
+//				VocabularyFilterName: pulumi.String("example"),
+//				Words: pulumi.StringArray{
+//					pulumi.String("cars"),
+//					pulumi.String("bucket"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+//
+//	$ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+//
 // ```
 type VocabularyFilter struct {
 	pulumi.CustomResourceState
@@ -59,10 +64,9 @@ type VocabularyFilter struct {
 	// Generated download URI.
 	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
 	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	LanguageCode pulumi.StringOutput    `pulumi:"languageCode"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
 	VocabularyFilterFileUri pulumi.StringPtrOutput `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
@@ -111,10 +115,9 @@ type vocabularyFilterState struct {
 	// Generated download URI.
 	DownloadUri *string `pulumi:"downloadUri"`
 	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode *string `pulumi:"languageCode"`
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	LanguageCode *string           `pulumi:"languageCode"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
@@ -130,9 +133,8 @@ type VocabularyFilterState struct {
 	DownloadUri pulumi.StringPtrInput
 	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode pulumi.StringPtrInput
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
@@ -147,10 +149,8 @@ func (VocabularyFilterState) ElementType() reflect.Type {
 
 type vocabularyFilterArgs struct {
 	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode string `pulumi:"languageCode"`
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	LanguageCode string            `pulumi:"languageCode"`
+	Tags         map[string]string `pulumi:"tags"`
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
@@ -163,9 +163,7 @@ type vocabularyFilterArgs struct {
 type VocabularyFilterArgs struct {
 	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode pulumi.StringInput
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
@@ -200,7 +198,7 @@ func (i *VocabularyFilter) ToVocabularyFilterOutputWithContext(ctx context.Conte
 // VocabularyFilterArrayInput is an input type that accepts VocabularyFilterArray and VocabularyFilterArrayOutput values.
 // You can construct a concrete instance of `VocabularyFilterArrayInput` via:
 //
-//          VocabularyFilterArray{ VocabularyFilterArgs{...} }
+//	VocabularyFilterArray{ VocabularyFilterArgs{...} }
 type VocabularyFilterArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +223,7 @@ func (i VocabularyFilterArray) ToVocabularyFilterArrayOutputWithContext(ctx cont
 // VocabularyFilterMapInput is an input type that accepts VocabularyFilterMap and VocabularyFilterMapOutput values.
 // You can construct a concrete instance of `VocabularyFilterMapInput` via:
 //
-//          VocabularyFilterMap{ "key": VocabularyFilterArgs{...} }
+//	VocabularyFilterMap{ "key": VocabularyFilterArgs{...} }
 type VocabularyFilterMapInput interface {
 	pulumi.Input
 
@@ -276,7 +274,6 @@ func (o VocabularyFilterOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

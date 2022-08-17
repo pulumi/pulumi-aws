@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewRdsDbInstance(ctx, "myInstance", &opsworks.RdsDbInstanceArgs{
-// 			StackId:          pulumi.Any(aws_opsworks_stack.My_stack.Id),
-// 			RdsDbInstanceArn: pulumi.Any(aws_db_instance.My_instance.Arn),
-// 			DbUser:           pulumi.String("someUser"),
-// 			DbPassword:       pulumi.String("somePass"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewRdsDbInstance(ctx, "myInstance", &opsworks.RdsDbInstanceArgs{
+//				StackId:          pulumi.Any(aws_opsworks_stack.My_stack.Id),
+//				RdsDbInstanceArn: pulumi.Any(aws_db_instance.My_instance.Arn),
+//				DbUser:           pulumi.String("someUser"),
+//				DbPassword:       pulumi.String("somePass"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RdsDbInstance struct {
 	pulumi.CustomResourceState
@@ -166,7 +169,7 @@ func (i *RdsDbInstance) ToRdsDbInstanceOutputWithContext(ctx context.Context) Rd
 // RdsDbInstanceArrayInput is an input type that accepts RdsDbInstanceArray and RdsDbInstanceArrayOutput values.
 // You can construct a concrete instance of `RdsDbInstanceArrayInput` via:
 //
-//          RdsDbInstanceArray{ RdsDbInstanceArgs{...} }
+//	RdsDbInstanceArray{ RdsDbInstanceArgs{...} }
 type RdsDbInstanceArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +194,7 @@ func (i RdsDbInstanceArray) ToRdsDbInstanceArrayOutputWithContext(ctx context.Co
 // RdsDbInstanceMapInput is an input type that accepts RdsDbInstanceMap and RdsDbInstanceMapOutput values.
 // You can construct a concrete instance of `RdsDbInstanceMapInput` via:
 //
-//          RdsDbInstanceMap{ "key": RdsDbInstanceArgs{...} }
+//	RdsDbInstanceMap{ "key": RdsDbInstanceArgs{...} }
 type RdsDbInstanceMapInput interface {
 	pulumi.Input
 

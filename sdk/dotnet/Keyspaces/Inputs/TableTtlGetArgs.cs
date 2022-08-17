@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableTtlGetArgs : Pulumi.ResourceArgs
+    public sealed class TableTtlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid values: `ENABLED`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableTtlGetArgs()
         {
         }
+        public static new TableTtlGetArgs Empty => new TableTtlGetArgs();
     }
 }

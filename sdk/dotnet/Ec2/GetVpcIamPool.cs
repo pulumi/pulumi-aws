@@ -27,43 +27,42 @@ namespace Pulumi.Aws.Ec2
         /// AWS IPAM.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testVpcIamPool = Aws.Ec2.GetVpcIamPool.Invoke(new()
         ///     {
-        ///         var testVpcIamPool = Output.Create(Aws.Ec2.GetVpcIamPool.InvokeAsync(new Aws.Ec2.GetVpcIamPoolArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
+        ///                 Name = "description",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "description",
-        ///                     Values = 
-        ///                     {
-        ///                         "*test*",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
-        ///                 {
-        ///                     Name = "address-family",
-        ///                     Values = 
-        ///                     {
-        ///                         "ipv4",
-        ///                     },
+        ///                     "*test*",
         ///                 },
         ///             },
-        ///         }));
-        ///         var testVpc = new Aws.Ec2.Vpc("testVpc", new Aws.Ec2.VpcArgs
-        ///         {
-        ///             Ipv4IpamPoolId = testVpcIamPool.Apply(testVpcIamPool =&gt; testVpcIamPool.Id),
-        ///             Ipv4NetmaskLength = 28,
-        ///         });
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "address-family",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ipv4",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+        ///     {
+        ///         Ipv4IpamPoolId = testVpcIamPool.Apply(getVpcIamPoolResult =&gt; getVpcIamPoolResult.Id),
+        ///         Ipv4NetmaskLength = 28,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,43 +86,42 @@ namespace Pulumi.Aws.Ec2
         /// AWS IPAM.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testVpcIamPool = Aws.Ec2.GetVpcIamPool.Invoke(new()
         ///     {
-        ///         var testVpcIamPool = Output.Create(Aws.Ec2.GetVpcIamPool.InvokeAsync(new Aws.Ec2.GetVpcIamPoolArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
+        ///                 Name = "description",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "description",
-        ///                     Values = 
-        ///                     {
-        ///                         "*test*",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
-        ///                 {
-        ///                     Name = "address-family",
-        ///                     Values = 
-        ///                     {
-        ///                         "ipv4",
-        ///                     },
+        ///                     "*test*",
         ///                 },
         ///             },
-        ///         }));
-        ///         var testVpc = new Aws.Ec2.Vpc("testVpc", new Aws.Ec2.VpcArgs
-        ///         {
-        ///             Ipv4IpamPoolId = testVpcIamPool.Apply(testVpcIamPool =&gt; testVpcIamPool.Id),
-        ///             Ipv4NetmaskLength = 28,
-        ///         });
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "address-family",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ipv4",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+        ///     {
+        ///         Ipv4IpamPoolId = testVpcIamPool.Apply(getVpcIamPoolResult =&gt; getVpcIamPoolResult.Id),
+        ///         Ipv4NetmaskLength = 28,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +131,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcIamPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcIamPoolArgs : global::Pulumi.InvokeArgs
     {
         [Input("allocationResourceTags")]
         private Dictionary<string, string>? _allocationResourceTags;
@@ -186,9 +184,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcIamPoolArgs()
         {
         }
+        public static new GetVpcIamPoolArgs Empty => new GetVpcIamPoolArgs();
     }
 
-    public sealed class GetVpcIamPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcIamPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("allocationResourceTags")]
         private InputMap<string>? _allocationResourceTags;
@@ -241,6 +240,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcIamPoolInvokeArgs()
         {
         }
+        public static new GetVpcIamPoolInvokeArgs Empty => new GetVpcIamPoolInvokeArgs();
     }
 
 

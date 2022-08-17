@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LakeFormation.Inputs
 {
 
-    public sealed class GetPermissionsLfTagPolicyExpressionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetPermissionsLfTagPolicyExpressionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key-name of an LF-Tag.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public GetPermissionsLfTagPolicyExpressionInputArgs()
         {
         }
+        public static new GetPermissionsLfTagPolicyExpressionInputArgs Empty => new GetPermissionsLfTagPolicyExpressionInputArgs();
     }
 }

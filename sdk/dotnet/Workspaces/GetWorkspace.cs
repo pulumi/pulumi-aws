@@ -20,41 +20,37 @@ namespace Pulumi.Aws.Workspaces
         /// ### Filter By Workspace ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetWorkspace.InvokeAsync(new Aws.Workspaces.GetWorkspaceArgs
-        ///         {
-        ///             WorkspaceId = "ws-cj5xcxsz5",
-        ///         }));
-        ///     }
+        ///         WorkspaceId = "ws-cj5xcxsz5",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter By Directory ID &amp; User Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetWorkspace.InvokeAsync(new Aws.Workspaces.GetWorkspaceArgs
-        ///         {
-        ///             DirectoryId = "d-9967252f57",
-        ///             UserName = "Example",
-        ///         }));
-        ///     }
+        ///         DirectoryId = "d-9967252f57",
+        ///         UserName = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,41 +67,37 @@ namespace Pulumi.Aws.Workspaces
         /// ### Filter By Workspace ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetWorkspace.InvokeAsync(new Aws.Workspaces.GetWorkspaceArgs
-        ///         {
-        ///             WorkspaceId = "ws-cj5xcxsz5",
-        ///         }));
-        ///     }
+        ///         WorkspaceId = "ws-cj5xcxsz5",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter By Directory ID &amp; User Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetWorkspace.InvokeAsync(new Aws.Workspaces.GetWorkspaceArgs
-        ///         {
-        ///             DirectoryId = "d-9967252f57",
-        ///             UserName = "Example",
-        ///         }));
-        ///     }
+        ///         DirectoryId = "d-9967252f57",
+        ///         UserName = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -115,7 +107,7 @@ namespace Pulumi.Aws.Workspaces
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
@@ -150,9 +142,10 @@ namespace Pulumi.Aws.Workspaces
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
@@ -187,6 +180,7 @@ namespace Pulumi.Aws.Workspaces
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

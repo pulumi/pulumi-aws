@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationCodeRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationCodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationCodeRepositoryArgs()
         {
         }
+        public static new ServiceSourceConfigurationCodeRepositoryArgs Empty => new ServiceSourceConfigurationCodeRepositoryArgs();
     }
 }

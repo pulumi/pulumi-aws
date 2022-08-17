@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue
     }
 
 
-    public sealed class GetDataCatalogEncryptionSettingsArgs : Pulumi.InvokeArgs
+    public sealed class GetDataCatalogEncryptionSettingsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Data Catalog. This is typically the AWS account ID.
@@ -36,9 +36,10 @@ namespace Pulumi.Aws.Glue
         public GetDataCatalogEncryptionSettingsArgs()
         {
         }
+        public static new GetDataCatalogEncryptionSettingsArgs Empty => new GetDataCatalogEncryptionSettingsArgs();
     }
 
-    public sealed class GetDataCatalogEncryptionSettingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataCatalogEncryptionSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Data Catalog. This is typically the AWS account ID.
@@ -49,6 +50,7 @@ namespace Pulumi.Aws.Glue
         public GetDataCatalogEncryptionSettingsInvokeArgs()
         {
         }
+        public static new GetDataCatalogEncryptionSettingsInvokeArgs Empty => new GetDataCatalogEncryptionSettingsInvokeArgs();
     }
 
 

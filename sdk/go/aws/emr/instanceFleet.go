@@ -24,59 +24,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
-// 			ClusterId: pulumi.Any(aws_emr_cluster.Cluster.Id),
-// 			InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
-// 				&emr.InstanceFleetInstanceTypeConfigArgs{
-// 					BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-// 					EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-// 						&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-// 							Size:               pulumi.Int(100),
-// 							Type:               pulumi.String("gp2"),
-// 							VolumesPerInstance: pulumi.Int(1),
-// 						},
-// 					},
-// 					InstanceType:     pulumi.String("m4.xlarge"),
-// 					WeightedCapacity: pulumi.Int(1),
-// 				},
-// 				&emr.InstanceFleetInstanceTypeConfigArgs{
-// 					BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-// 					EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-// 						&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-// 							Size:               pulumi.Int(100),
-// 							Type:               pulumi.String("gp2"),
-// 							VolumesPerInstance: pulumi.Int(1),
-// 						},
-// 					},
-// 					InstanceType:     pulumi.String("m4.2xlarge"),
-// 					WeightedCapacity: pulumi.Int(2),
-// 				},
-// 			},
-// 			LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
-// 				SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
-// 					&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
-// 						AllocationStrategy:     pulumi.String("capacity-optimized"),
-// 						BlockDurationMinutes:   pulumi.Int(0),
-// 						TimeoutAction:          pulumi.String("TERMINATE_CLUSTER"),
-// 						TimeoutDurationMinutes: pulumi.Int(10),
-// 					},
-// 				},
-// 			},
-// 			TargetOnDemandCapacity: pulumi.Int(1),
-// 			TargetSpotCapacity:     pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
+//				ClusterId: pulumi.Any(aws_emr_cluster.Cluster.Id),
+//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						InstanceType:     pulumi.String("m4.xlarge"),
+//						WeightedCapacity: pulumi.Int(1),
+//					},
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						InstanceType:     pulumi.String("m4.2xlarge"),
+//						WeightedCapacity: pulumi.Int(2),
+//					},
+//				},
+//				LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
+//					SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
+//						&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
+//							AllocationStrategy:     pulumi.String("capacity-optimized"),
+//							BlockDurationMinutes:   pulumi.Int(0),
+//							TimeoutAction:          pulumi.String("TERMINATE_CLUSTER"),
+//							TimeoutDurationMinutes: pulumi.Int(10),
+//						},
+//					},
+//				},
+//				TargetOnDemandCapacity: pulumi.Int(1),
+//				TargetSpotCapacity:     pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g., console
 //
 // ```sh
-//  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+//
+//	$ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+//
 // ```
 type InstanceFleet struct {
 	pulumi.CustomResourceState
@@ -231,7 +236,7 @@ func (i *InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) In
 // InstanceFleetArrayInput is an input type that accepts InstanceFleetArray and InstanceFleetArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetArrayInput` via:
 //
-//          InstanceFleetArray{ InstanceFleetArgs{...} }
+//	InstanceFleetArray{ InstanceFleetArgs{...} }
 type InstanceFleetArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (i InstanceFleetArray) ToInstanceFleetArrayOutputWithContext(ctx context.Co
 // InstanceFleetMapInput is an input type that accepts InstanceFleetMap and InstanceFleetMapOutput values.
 // You can construct a concrete instance of `InstanceFleetMapInput` via:
 //
-//          InstanceFleetMap{ "key": InstanceFleetArgs{...} }
+//	InstanceFleetMap{ "key": InstanceFleetArgs{...} }
 type InstanceFleetMapInput interface {
 	pulumi.Input
 

@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
-// 			WorkspaceId: demoWorkspace.ID(),
-// 			Data:        pulumi.String(fmt.Sprintf("groups:\n  - name: test\n    rules:\n    - record: metric:recording_rule\n      expr: avg(rate(container_cpu_usage_seconds_total[5m]))\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
+//				WorkspaceId: demoWorkspace.ID(),
+//				Data:        pulumi.String(fmt.Sprintf("groups:\n  - name: test\n    rules:\n    - record: metric:recording_rule\n      expr: avg(rate(container_cpu_usage_seconds_total[5m]))\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // The prometheus rule group namespace can be imported using the arn, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+//
+//	$ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+//
 // ```
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState
@@ -162,7 +167,7 @@ func (i *RuleGroupNamespace) ToRuleGroupNamespaceOutputWithContext(ctx context.C
 // RuleGroupNamespaceArrayInput is an input type that accepts RuleGroupNamespaceArray and RuleGroupNamespaceArrayOutput values.
 // You can construct a concrete instance of `RuleGroupNamespaceArrayInput` via:
 //
-//          RuleGroupNamespaceArray{ RuleGroupNamespaceArgs{...} }
+//	RuleGroupNamespaceArray{ RuleGroupNamespaceArgs{...} }
 type RuleGroupNamespaceArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +192,7 @@ func (i RuleGroupNamespaceArray) ToRuleGroupNamespaceArrayOutputWithContext(ctx 
 // RuleGroupNamespaceMapInput is an input type that accepts RuleGroupNamespaceMap and RuleGroupNamespaceMapOutput values.
 // You can construct a concrete instance of `RuleGroupNamespaceMapInput` via:
 //
-//          RuleGroupNamespaceMap{ "key": RuleGroupNamespaceArgs{...} }
+//	RuleGroupNamespaceMap{ "key": RuleGroupNamespaceArgs{...} }
 type RuleGroupNamespaceMapInput interface {
 	pulumi.Input
 

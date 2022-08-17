@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class FrameworkControlScopeArgs : Pulumi.ResourceArgs
+    public sealed class FrameworkControlScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("complianceResourceIds")]
         private InputList<string>? _complianceResourceIds;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public FrameworkControlScopeArgs()
         {
         }
+        public static new FrameworkControlScopeArgs Empty => new FrameworkControlScopeArgs();
     }
 }

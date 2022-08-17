@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketObjectLockConfigurationV2RuleGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketObjectLockConfigurationV2RuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketObjectLockConfigurationV2RuleGetArgs()
         {
         }
+        public static new BucketObjectLockConfigurationV2RuleGetArgs Empty => new BucketObjectLockConfigurationV2RuleGetArgs();
     }
 }

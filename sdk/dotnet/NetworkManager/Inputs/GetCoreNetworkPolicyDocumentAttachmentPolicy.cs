@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The action to take for the chosen segment. Valid values `create-route` or `share`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public GetCoreNetworkPolicyDocumentAttachmentPolicyArgs()
         {
         }
+        public static new GetCoreNetworkPolicyDocumentAttachmentPolicyArgs Empty => new GetCoreNetworkPolicyDocumentAttachmentPolicyArgs();
     }
 }

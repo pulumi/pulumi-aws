@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.DataCatalogEncryptionSettings("example", new()
     ///     {
-    ///         var example = new Aws.Glue.DataCatalogEncryptionSettings("example", new Aws.Glue.DataCatalogEncryptionSettingsArgs
+    ///         DataCatalogEncryptionSettingsConfig = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
     ///         {
-    ///             DataCatalogEncryptionSettingsConfig = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
+    ///             ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
     ///             {
-    ///                 ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
-    ///                 {
-    ///                     AwsKmsKeyId = aws_kms_key.Test.Arn,
-    ///                     ReturnConnectionPasswordEncrypted = true,
-    ///                 },
-    ///                 EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
-    ///                 {
-    ///                     CatalogEncryptionMode = "SSE-KMS",
-    ///                     SseAwsKmsKeyId = aws_kms_key.Test.Arn,
-    ///                 },
+    ///                 AwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///                 ReturnConnectionPasswordEncrypted = true,
     ///             },
-    ///         });
-    ///     }
+    ///             EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
+    ///             {
+    ///                 CatalogEncryptionMode = "SSE-KMS",
+    ///                 SseAwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
-    public partial class DataCatalogEncryptionSettings : Pulumi.CustomResource
+    public partial class DataCatalogEncryptionSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class DataCatalogEncryptionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
@@ -127,9 +125,10 @@ namespace Pulumi.Aws.Glue
         public DataCatalogEncryptionSettingsArgs()
         {
         }
+        public static new DataCatalogEncryptionSettingsArgs Empty => new DataCatalogEncryptionSettingsArgs();
     }
 
-    public sealed class DataCatalogEncryptionSettingsState : Pulumi.ResourceArgs
+    public sealed class DataCatalogEncryptionSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
@@ -146,5 +145,6 @@ namespace Pulumi.Aws.Glue
         public DataCatalogEncryptionSettingsState()
         {
         }
+        public static new DataCatalogEncryptionSettingsState Empty => new DataCatalogEncryptionSettingsState();
     }
 }

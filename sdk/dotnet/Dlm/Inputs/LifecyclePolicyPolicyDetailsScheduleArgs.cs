@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsScheduleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsScheduleArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsScheduleArgs Empty => new LifecyclePolicyPolicyDetailsScheduleArgs();
     }
 }

@@ -16,63 +16,66 @@ import (
 //
 // ## Example Usage
 //
-// To create a basic traffic mirror session
+// # To create a basic traffic mirror session
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		filter, err := ec2.NewTrafficMirrorFilter(ctx, "filter", &ec2.TrafficMirrorFilterArgs{
-// 			Description: pulumi.String("traffic mirror filter - example"),
-// 			NetworkServices: pulumi.StringArray{
-// 				pulumi.String("amazon-dns"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewTrafficMirrorFilterRule(ctx, "ruleout", &ec2.TrafficMirrorFilterRuleArgs{
-// 			Description:           pulumi.String("test rule"),
-// 			TrafficMirrorFilterId: filter.ID(),
-// 			DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
-// 			SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
-// 			RuleNumber:            pulumi.Int(1),
-// 			RuleAction:            pulumi.String("accept"),
-// 			TrafficDirection:      pulumi.String("egress"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewTrafficMirrorFilterRule(ctx, "rulein", &ec2.TrafficMirrorFilterRuleArgs{
-// 			Description:           pulumi.String("test rule"),
-// 			TrafficMirrorFilterId: filter.ID(),
-// 			DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
-// 			SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
-// 			RuleNumber:            pulumi.Int(1),
-// 			RuleAction:            pulumi.String("accept"),
-// 			TrafficDirection:      pulumi.String("ingress"),
-// 			Protocol:              pulumi.Int(6),
-// 			DestinationPortRange: &ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs{
-// 				FromPort: pulumi.Int(22),
-// 				ToPort:   pulumi.Int(53),
-// 			},
-// 			SourcePortRange: &ec2.TrafficMirrorFilterRuleSourcePortRangeArgs{
-// 				FromPort: pulumi.Int(0),
-// 				ToPort:   pulumi.Int(10),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			filter, err := ec2.NewTrafficMirrorFilter(ctx, "filter", &ec2.TrafficMirrorFilterArgs{
+//				Description: pulumi.String("traffic mirror filter - example"),
+//				NetworkServices: pulumi.StringArray{
+//					pulumi.String("amazon-dns"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewTrafficMirrorFilterRule(ctx, "ruleout", &ec2.TrafficMirrorFilterRuleArgs{
+//				Description:           pulumi.String("test rule"),
+//				TrafficMirrorFilterId: filter.ID(),
+//				DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
+//				SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
+//				RuleNumber:            pulumi.Int(1),
+//				RuleAction:            pulumi.String("accept"),
+//				TrafficDirection:      pulumi.String("egress"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewTrafficMirrorFilterRule(ctx, "rulein", &ec2.TrafficMirrorFilterRuleArgs{
+//				Description:           pulumi.String("test rule"),
+//				TrafficMirrorFilterId: filter.ID(),
+//				DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
+//				SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
+//				RuleNumber:            pulumi.Int(1),
+//				RuleAction:            pulumi.String("accept"),
+//				TrafficDirection:      pulumi.String("ingress"),
+//				Protocol:              pulumi.Int(6),
+//				DestinationPortRange: &ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs{
+//					FromPort: pulumi.Int(22),
+//					ToPort:   pulumi.Int(53),
+//				},
+//				SourcePortRange: &ec2.TrafficMirrorFilterRuleSourcePortRangeArgs{
+//					FromPort: pulumi.Int(0),
+//					ToPort:   pulumi.Int(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
+//
+//	$ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
+//
 // ```
 type TrafficMirrorFilterRule struct {
 	pulumi.CustomResourceState
@@ -282,7 +287,7 @@ func (i *TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutputWithContext(ctx
 // TrafficMirrorFilterRuleArrayInput is an input type that accepts TrafficMirrorFilterRuleArray and TrafficMirrorFilterRuleArrayOutput values.
 // You can construct a concrete instance of `TrafficMirrorFilterRuleArrayInput` via:
 //
-//          TrafficMirrorFilterRuleArray{ TrafficMirrorFilterRuleArgs{...} }
+//	TrafficMirrorFilterRuleArray{ TrafficMirrorFilterRuleArgs{...} }
 type TrafficMirrorFilterRuleArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +312,7 @@ func (i TrafficMirrorFilterRuleArray) ToTrafficMirrorFilterRuleArrayOutputWithCo
 // TrafficMirrorFilterRuleMapInput is an input type that accepts TrafficMirrorFilterRuleMap and TrafficMirrorFilterRuleMapOutput values.
 // You can construct a concrete instance of `TrafficMirrorFilterRuleMapInput` via:
 //
-//          TrafficMirrorFilterRuleMap{ "key": TrafficMirrorFilterRuleArgs{...} }
+//	TrafficMirrorFilterRuleMap{ "key": TrafficMirrorFilterRuleArgs{...} }
 type TrafficMirrorFilterRuleMapInput interface {
 	pulumi.Input
 

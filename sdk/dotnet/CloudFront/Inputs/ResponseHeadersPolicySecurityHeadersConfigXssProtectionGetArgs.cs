@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs()
         {
         }
+        public static new ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs Empty => new ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs();
     }
 }

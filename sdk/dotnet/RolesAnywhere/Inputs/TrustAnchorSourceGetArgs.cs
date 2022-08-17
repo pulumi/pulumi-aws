@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RolesAnywhere.Inputs
 {
 
-    public sealed class TrustAnchorSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class TrustAnchorSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data denoting the source of trust, documented below
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.RolesAnywhere.Inputs
         public TrustAnchorSourceGetArgs()
         {
         }
+        public static new TrustAnchorSourceGetArgs Empty => new TrustAnchorSourceGetArgs();
     }
 }

@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
-// 			GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-// 			SiteId:          pulumi.Any(aws_networkmanager_global_site.Example.Id),
-// 			Bandwidth: &networkmanager.LinkBandwidthArgs{
-// 				UploadSpeed:   pulumi.Int(10),
-// 				DownloadSpeed: pulumi.Int(50),
-// 			},
-// 			ProviderName: pulumi.String("MegaCorp"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
+//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
+//				SiteId:          pulumi.Any(aws_networkmanager_global_site.Example.Id),
+//				Bandwidth: &networkmanager.LinkBandwidthArgs{
+//					UploadSpeed:   pulumi.Int(10),
+//					DownloadSpeed: pulumi.Int(50),
+//				},
+//				ProviderName: pulumi.String("MegaCorp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // `aws_networkmanager_link` can be imported using the link ARN, e.g.
 //
 // ```sh
-//  $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+//
+//	$ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+//
 // ```
 type Link struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 // LinkArrayInput is an input type that accepts LinkArray and LinkArrayOutput values.
 // You can construct a concrete instance of `LinkArrayInput` via:
 //
-//          LinkArray{ LinkArgs{...} }
+//	LinkArray{ LinkArgs{...} }
 type LinkArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i LinkArray) ToLinkArrayOutputWithContext(ctx context.Context) LinkArrayOu
 // LinkMapInput is an input type that accepts LinkMap and LinkMapOutput values.
 // You can construct a concrete instance of `LinkMapInput` via:
 //
-//          LinkMap{ "key": LinkArgs{...} }
+//	LinkMap{ "key": LinkArgs{...} }
 type LinkMapInput interface {
 	pulumi.Input
 

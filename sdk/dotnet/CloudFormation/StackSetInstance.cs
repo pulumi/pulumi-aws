@@ -19,116 +19,113 @@ namespace Pulumi.Aws.CloudFormation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFormation.StackSetInstance("example", new()
     ///     {
-    ///         var example = new Aws.CloudFormation.StackSetInstance("example", new Aws.CloudFormation.StackSetInstanceArgs
-    ///         {
-    ///             AccountId = "123456789012",
-    ///             Region = "us-east-1",
-    ///             StackSetName = aws_cloudformation_stack_set.Example.Name,
-    ///         });
-    ///     }
+    ///         AccountId = "123456789012",
+    ///         Region = "us-east-1",
+    ///         StackSetName = aws_cloudformation_stack_set.Example.Name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example IAM Setup in Target Account
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
-    ///                             },
-    ///                             Type = "AWS",
+    ///                             aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
     ///                         },
+    ///                         Type = "AWS",
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var aWSCloudFormationStackSetExecutionRole = new Aws.Iam.Role("aWSCloudFormationStackSetExecutionRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Apply(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy =&gt; aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
-    ///         });
-    ///         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
-    ///         {
-    ///             Statements = 
-    ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "cloudformation:*",
-    ///                         "s3:*",
-    ///                         "sns:*",
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Resources = 
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }));
-    ///         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Policy = aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Apply(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument =&gt; aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Json),
-    ///             Role = aWSCloudFormationStackSetExecutionRole.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var aWSCloudFormationStackSetExecutionRole = new Aws.Iam.Role("aWSCloudFormationStackSetExecutionRole", new()
+    ///     {
+    ///         AssumeRolePolicy = aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "cloudformation:*",
+    ///                     "s3:*",
+    ///                     "sns:*",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", new()
+    ///     {
+    ///         Policy = aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Role = aWSCloudFormationStackSetExecutionRole.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Example Deployment across Organizations account
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFormation.StackSetInstance("example", new()
     ///     {
-    ///         var example = new Aws.CloudFormation.StackSetInstance("example", new Aws.CloudFormation.StackSetInstanceArgs
+    ///         DeploymentTargets = new Aws.CloudFormation.Inputs.StackSetInstanceDeploymentTargetsArgs
     ///         {
-    ///             DeploymentTargets = new Aws.CloudFormation.Inputs.StackSetInstanceDeploymentTargetsArgs
+    ///             OrganizationalUnitIds = new[]
     ///             {
-    ///                 OrganizationalUnitIds = 
-    ///                 {
-    ///                     aws_organizations_organization.Example.Roots[0].Id,
-    ///                 },
+    ///                 aws_organizations_organization.Example.Roots[0].Id,
     ///             },
-    ///             Region = "us-east-1",
-    ///             StackSetName = aws_cloudformation_stack_set.Example.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///         Region = "us-east-1",
+    ///         StackSetName = aws_cloudformation_stack_set.Example.Name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -146,7 +143,7 @@ namespace Pulumi.Aws.CloudFormation
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
-    public partial class StackSetInstance : Pulumi.CustomResource
+    public partial class StackSetInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -252,7 +249,7 @@ namespace Pulumi.Aws.CloudFormation
         }
     }
 
-    public sealed class StackSetInstanceArgs : Pulumi.ResourceArgs
+    public sealed class StackSetInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -311,9 +308,10 @@ namespace Pulumi.Aws.CloudFormation
         public StackSetInstanceArgs()
         {
         }
+        public static new StackSetInstanceArgs Empty => new StackSetInstanceArgs();
     }
 
-    public sealed class StackSetInstanceState : Pulumi.ResourceArgs
+    public sealed class StackSetInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -384,5 +382,6 @@ namespace Pulumi.Aws.CloudFormation
         public StackSetInstanceState()
         {
         }
+        public static new StackSetInstanceState Empty => new StackSetInstanceState();
     }
 }

@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty.Inputs
 {
 
-    public sealed class OrganizationConfigurationDatasourcesGetArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationDatasourcesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
         /// </summary>
         [Input("kubernetes")]
         public Input<Inputs.OrganizationConfigurationDatasourcesKubernetesGetArgs>? Kubernetes { get; set; }
+
+        /// <summary>
+        /// Enable Malware Protection automatically for new member accounts.
+        /// </summary>
+        [Input("malwareProtection")]
+        public Input<Inputs.OrganizationConfigurationDatasourcesMalwareProtectionGetArgs>? MalwareProtection { get; set; }
 
         /// <summary>
         /// Enable S3 Protection automatically for new member accounts.
@@ -27,5 +33,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public OrganizationConfigurationDatasourcesGetArgs()
         {
         }
+        public static new OrganizationConfigurationDatasourcesGetArgs Empty => new OrganizationConfigurationDatasourcesGetArgs();
     }
 }

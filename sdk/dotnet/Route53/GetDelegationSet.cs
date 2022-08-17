@@ -23,20 +23,18 @@ namespace Pulumi.Aws.Route53
         /// The following example shows how to get a delegation set from its id.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dset = Aws.Route53.GetDelegationSet.Invoke(new()
         ///     {
-        ///         var dset = Output.Create(Aws.Route53.GetDelegationSet.InvokeAsync(new Aws.Route53.GetDelegationSetArgs
-        ///         {
-        ///             Id = "MQWGHCBFAKEID",
-        ///         }));
-        ///     }
+        ///         Id = "MQWGHCBFAKEID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -56,20 +54,18 @@ namespace Pulumi.Aws.Route53
         /// The following example shows how to get a delegation set from its id.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dset = Aws.Route53.GetDelegationSet.Invoke(new()
         ///     {
-        ///         var dset = Output.Create(Aws.Route53.GetDelegationSet.InvokeAsync(new Aws.Route53.GetDelegationSetArgs
-        ///         {
-        ///             Id = "MQWGHCBFAKEID",
-        ///         }));
-        ///     }
+        ///         Id = "MQWGHCBFAKEID",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.Route53
     }
 
 
-    public sealed class GetDelegationSetArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegationSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Hosted Zone id of the desired delegation set.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Route53
         public GetDelegationSetArgs()
         {
         }
+        public static new GetDelegationSetArgs Empty => new GetDelegationSetArgs();
     }
 
-    public sealed class GetDelegationSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegationSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Hosted Zone id of the desired delegation set.
@@ -103,6 +100,7 @@ namespace Pulumi.Aws.Route53
         public GetDelegationSetInvokeArgs()
         {
         }
+        public static new GetDelegationSetInvokeArgs Empty => new GetDelegationSetInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PipelineThumbnailConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class PipelineThumbnailConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PipelineThumbnailConfigGetArgs()
         {
         }
+        public static new PipelineThumbnailConfigGetArgs Empty => new PipelineThumbnailConfigGetArgs();
     }
 }

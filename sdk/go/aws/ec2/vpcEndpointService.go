@@ -27,24 +27,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-// 			AcceptanceRequired: pulumi.Bool(false),
-// 			NetworkLoadBalancerArns: pulumi.StringArray{
-// 				pulumi.Any(aws_lb.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+//				AcceptanceRequired: pulumi.Bool(false),
+//				NetworkLoadBalancerArns: pulumi.StringArray{
+//					pulumi.Any(aws_lb.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Gateway Load Balancers
 //
@@ -52,24 +55,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-// 			AcceptanceRequired: pulumi.Bool(false),
-// 			GatewayLoadBalancerArns: pulumi.StringArray{
-// 				pulumi.Any(aws_lb.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+//				AcceptanceRequired: pulumi.Bool(false),
+//				GatewayLoadBalancerArns: pulumi.StringArray{
+//					pulumi.Any(aws_lb.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +83,9 @@ import (
 // VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+//
+//	$ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+//
 // ```
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
@@ -112,7 +120,7 @@ type VpcEndpointService struct {
 	SupportedIpAddressTypes pulumi.StringArrayOutput `pulumi:"supportedIpAddressTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -178,7 +186,7 @@ type vpcEndpointServiceState struct {
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -213,7 +221,7 @@ type VpcEndpointServiceState struct {
 	SupportedIpAddressTypes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -282,7 +290,7 @@ func (i *VpcEndpointService) ToVpcEndpointServiceOutputWithContext(ctx context.C
 // VpcEndpointServiceArrayInput is an input type that accepts VpcEndpointServiceArray and VpcEndpointServiceArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointServiceArrayInput` via:
 //
-//          VpcEndpointServiceArray{ VpcEndpointServiceArgs{...} }
+//	VpcEndpointServiceArray{ VpcEndpointServiceArgs{...} }
 type VpcEndpointServiceArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +315,7 @@ func (i VpcEndpointServiceArray) ToVpcEndpointServiceArrayOutputWithContext(ctx 
 // VpcEndpointServiceMapInput is an input type that accepts VpcEndpointServiceMap and VpcEndpointServiceMapOutput values.
 // You can construct a concrete instance of `VpcEndpointServiceMapInput` via:
 //
-//          VpcEndpointServiceMap{ "key": VpcEndpointServiceArgs{...} }
+//	VpcEndpointServiceMap{ "key": VpcEndpointServiceArgs{...} }
 type VpcEndpointServiceMapInput interface {
 	pulumi.Input
 
@@ -420,7 +428,7 @@ func (o VpcEndpointServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcEndpointServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

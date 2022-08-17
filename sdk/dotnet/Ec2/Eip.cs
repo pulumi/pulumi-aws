@@ -20,129 +20,127 @@ namespace Pulumi.Aws.Ec2
     /// ### Single EIP associated with an instance
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.Ec2.Eip("lb", new()
     ///     {
-    ///         var lb = new Aws.Ec2.Eip("lb", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Instance = aws_instance.Web.Id,
-    ///             Vpc = true,
-    ///         });
-    ///     }
+    ///         Instance = aws_instance.Web.Id,
+    ///         Vpc = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Multiple EIPs associated with a single network interface
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new()
     ///     {
-    ///         var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new Aws.Ec2.NetworkInterfaceArgs
+    ///         SubnetId = aws_subnet.Main.Id,
+    ///         PrivateIps = new[]
     ///         {
-    ///             SubnetId = aws_subnet.Main.Id,
-    ///             PrivateIps = 
-    ///             {
-    ///                 "10.0.0.10",
-    ///                 "10.0.0.11",
-    ///             },
-    ///         });
-    ///         var one = new Aws.Ec2.Eip("one", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Vpc = true,
-    ///             NetworkInterface = multi_ip.Id,
-    ///             AssociateWithPrivateIp = "10.0.0.10",
-    ///         });
-    ///         var two = new Aws.Ec2.Eip("two", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Vpc = true,
-    ///             NetworkInterface = multi_ip.Id,
-    ///             AssociateWithPrivateIp = "10.0.0.11",
-    ///         });
-    ///     }
+    ///             "10.0.0.10",
+    ///             "10.0.0.11",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var one = new Aws.Ec2.Eip("one", new()
+    ///     {
+    ///         Vpc = true,
+    ///         NetworkInterface = multi_ip.Id,
+    ///         AssociateWithPrivateIp = "10.0.0.10",
+    ///     });
+    /// 
+    ///     var two = new Aws.Ec2.Eip("two", new()
+    ///     {
+    ///         Vpc = true,
+    ///         NetworkInterface = multi_ip.Id,
+    ///         AssociateWithPrivateIp = "10.0.0.11",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Ec2.Vpc("default", new()
     ///     {
-    ///         var @default = new Aws.Ec2.Vpc("default", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///             EnableDnsHostnames = true,
-    ///         });
-    ///         var gw = new Aws.Ec2.InternetGateway("gw", new Aws.Ec2.InternetGatewayArgs
-    ///         {
-    ///             VpcId = @default.Id,
-    ///         });
-    ///         var tfTestSubnet = new Aws.Ec2.Subnet("tfTestSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = @default.Id,
-    ///             CidrBlock = "10.0.0.0/24",
-    ///             MapPublicIpOnLaunch = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 gw,
-    ///             },
-    ///         });
-    ///         var foo = new Aws.Ec2.Instance("foo", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///             Ami = "ami-5189a661",
-    ///             InstanceType = "t2.micro",
-    ///             PrivateIp = "10.0.0.12",
-    ///             SubnetId = tfTestSubnet.Id,
-    ///         });
-    ///         var bar = new Aws.Ec2.Eip("bar", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Vpc = true,
-    ///             Instance = foo.Id,
-    ///             AssociateWithPrivateIp = "10.0.0.12",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 gw,
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         EnableDnsHostnames = true,
+    ///     });
     /// 
-    /// }
+    ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+    ///     {
+    ///         VpcId = @default.Id,
+    ///     });
+    /// 
+    ///     var tfTestSubnet = new Aws.Ec2.Subnet("tfTestSubnet", new()
+    ///     {
+    ///         VpcId = @default.Id,
+    ///         CidrBlock = "10.0.0.0/24",
+    ///         MapPublicIpOnLaunch = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             gw,
+    ///         },
+    ///     });
+    /// 
+    ///     var foo = new Aws.Ec2.Instance("foo", new()
+    ///     {
+    ///         Ami = "ami-5189a661",
+    ///         InstanceType = "t2.micro",
+    ///         PrivateIp = "10.0.0.12",
+    ///         SubnetId = tfTestSubnet.Id,
+    ///     });
+    /// 
+    ///     var bar = new Aws.Ec2.Eip("bar", new()
+    ///     {
+    ///         Vpc = true,
+    ///         Instance = foo.Id,
+    ///         AssociateWithPrivateIp = "10.0.0.12",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             gw,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Allocating EIP from the BYOIP pool
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var byoip_ip = new Aws.Ec2.Eip("byoip-ip", new()
     ///     {
-    ///         var byoip_ip = new Aws.Ec2.Eip("byoip-ip", new Aws.Ec2.EipArgs
-    ///         {
-    ///             PublicIpv4Pool = "ipv4pool-ec2-012345",
-    ///             Vpc = true,
-    ///         });
-    ///     }
+    ///         PublicIpv4Pool = "ipv4pool-ec2-012345",
+    ///         Vpc = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -162,7 +160,7 @@ namespace Pulumi.Aws.Ec2
     ///  [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
     /// </summary>
     [AwsResourceType("aws:ec2/eip:Eip")]
-    public partial class Eip : Pulumi.CustomResource
+    public partial class Eip : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -322,7 +320,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class EipArgs : Pulumi.ResourceArgs
+    public sealed class EipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -387,9 +385,10 @@ namespace Pulumi.Aws.Ec2
         public EipArgs()
         {
         }
+        public static new EipArgs Empty => new EipArgs();
     }
 
-    public sealed class EipState : Pulumi.ResourceArgs
+    public sealed class EipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -520,5 +519,6 @@ namespace Pulumi.Aws.Ec2
         public EipState()
         {
         }
+        public static new EipState Empty => new EipState();
     }
 }

@@ -20,20 +20,18 @@ namespace Pulumi.Aws.Ecr
     /// ### Policy on untagged image
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ecr.Repository("foo");
+    /// 
+    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new()
     ///     {
-    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
-    ///         {
-    ///             Repository = foo.Name,
-    ///             Policy = @"{
+    ///         Repository = foo.Name,
+    ///         Policy = @"{
     ///     ""rules"": [
     ///         {
     ///             ""rulePriority"": 1,
@@ -51,28 +49,25 @@ namespace Pulumi.Aws.Ecr
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Policy on tagged image
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ecr.Repository("foo");
+    /// 
+    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new()
     ///     {
-    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
-    ///         {
-    ///         });
-    ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
-    ///         {
-    ///             Repository = foo.Name,
-    ///             Policy = @"{
+    ///         Repository = foo.Name,
+    ///         Policy = @"{
     ///     ""rules"": [
     ///         {
     ///             ""rulePriority"": 1,
@@ -90,10 +85,9 @@ namespace Pulumi.Aws.Ecr
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -105,7 +99,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]
-    public partial class LifecyclePolicy : Pulumi.CustomResource
+    public partial class LifecyclePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
@@ -169,7 +163,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class LifecyclePolicyArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
@@ -186,9 +180,10 @@ namespace Pulumi.Aws.Ecr
         public LifecyclePolicyArgs()
         {
         }
+        public static new LifecyclePolicyArgs Empty => new LifecyclePolicyArgs();
     }
 
-    public sealed class LifecyclePolicyState : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
@@ -211,5 +206,6 @@ namespace Pulumi.Aws.Ecr
         public LifecyclePolicyState()
         {
         }
+        public static new LifecyclePolicyState Empty => new LifecyclePolicyState();
     }
 }

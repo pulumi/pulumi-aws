@@ -14,48 +14,48 @@ namespace Pulumi.Aws.Transcribe
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
     ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///             ForceDestroy = true,
-    ///         });
-    ///         var @object = new Aws.S3.BucketObjectv2("object", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Key = "transcribe/test1.txt",
-    ///             Source = new FileAsset("test.txt"),
-    ///         });
-    ///         var exampleMedicalVocabulary = new Aws.Transcribe.MedicalVocabulary("exampleMedicalVocabulary", new Aws.Transcribe.MedicalVocabularyArgs
-    ///         {
-    ///             VocabularyName = "example",
-    ///             LanguageCode = "en-US",
-    ///             VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
-    ///             {
-    ///                 var id = values.Item1;
-    ///                 var key = values.Item2;
-    ///                 return $"s3://{id}/{key}";
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value3" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 @object,
-    ///             },
-    ///         });
-    ///     }
+    ///         ForceDestroy = true,
+    ///     });
     /// 
-    /// }
+    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "transcribe/test1.txt",
+    ///         Source = new FileAsset("test.txt"),
+    ///     });
+    /// 
+    ///     var exampleMedicalVocabulary = new Aws.Transcribe.MedicalVocabulary("exampleMedicalVocabulary", new()
+    ///     {
+    ///         VocabularyName = "example",
+    ///         LanguageCode = "en-US",
+    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"s3://{id}/{key}";
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value3" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             @object,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Transcribe
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/medicalVocabulary:MedicalVocabulary")]
-    public partial class MedicalVocabulary : Pulumi.CustomResource
+    public partial class MedicalVocabulary : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the MedicalVocabulary.
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Transcribe
         }
     }
 
-    public sealed class MedicalVocabularyArgs : Pulumi.ResourceArgs
+    public sealed class MedicalVocabularyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
@@ -172,14 +172,6 @@ namespace Pulumi.Aws.Transcribe
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
@@ -195,9 +187,10 @@ namespace Pulumi.Aws.Transcribe
         public MedicalVocabularyArgs()
         {
         }
+        public static new MedicalVocabularyArgs Empty => new MedicalVocabularyArgs();
     }
 
-    public sealed class MedicalVocabularyState : Pulumi.ResourceArgs
+    public sealed class MedicalVocabularyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the MedicalVocabulary.
@@ -252,5 +245,6 @@ namespace Pulumi.Aws.Transcribe
         public MedicalVocabularyState()
         {
         }
+        public static new MedicalVocabularyState Empty => new MedicalVocabularyState();
     }
 }

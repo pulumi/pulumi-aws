@@ -15,30 +15,28 @@ namespace Pulumi.Aws.Dms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new replication subnet group
+    ///     var test = new Aws.Dms.ReplicationSubnetGroup("test", new()
     ///     {
-    ///         // Create a new replication subnet group
-    ///         var test = new Aws.Dms.ReplicationSubnetGroup("test", new Aws.Dms.ReplicationSubnetGroupArgs
+    ///         ReplicationSubnetGroupDescription = "Test replication subnet group",
+    ///         ReplicationSubnetGroupId = "test-dms-replication-subnet-group-tf",
+    ///         SubnetIds = new[]
     ///         {
-    ///             ReplicationSubnetGroupDescription = "Test replication subnet group",
-    ///             ReplicationSubnetGroupId = "test-dms-replication-subnet-group-tf",
-    ///             SubnetIds = 
-    ///             {
-    ///                 "subnet-12345678",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "subnet-12345678",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Dms
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
-    public partial class ReplicationSubnetGroup : Pulumi.CustomResource
+    public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("replicationSubnetGroupArn")]
         public Output<string> ReplicationSubnetGroupArn { get; private set; } = null!;
@@ -80,7 +78,7 @@ namespace Pulumi.Aws.Dms
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -135,7 +133,7 @@ namespace Pulumi.Aws.Dms
         }
     }
 
-    public sealed class ReplicationSubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for the subnet group.
@@ -176,9 +174,10 @@ namespace Pulumi.Aws.Dms
         public ReplicationSubnetGroupArgs()
         {
         }
+        public static new ReplicationSubnetGroupArgs Empty => new ReplicationSubnetGroupArgs();
     }
 
-    public sealed class ReplicationSubnetGroupState : Pulumi.ResourceArgs
+    public sealed class ReplicationSubnetGroupState : global::Pulumi.ResourceArgs
     {
         [Input("replicationSubnetGroupArn")]
         public Input<string>? ReplicationSubnetGroupArn { get; set; }
@@ -223,7 +222,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -240,5 +239,6 @@ namespace Pulumi.Aws.Dms
         public ReplicationSubnetGroupState()
         {
         }
+        public static new ReplicationSubnetGroupState Empty => new ReplicationSubnetGroupState();
     }
 }

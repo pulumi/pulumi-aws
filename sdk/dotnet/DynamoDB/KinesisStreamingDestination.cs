@@ -15,37 +15,37 @@ namespace Pulumi.Aws.DynamoDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
     ///     {
-    ///         var exampleTable = new Aws.DynamoDB.Table("exampleTable", new Aws.DynamoDB.TableArgs
+    ///         HashKey = "id",
+    ///         Attributes = new[]
     ///         {
-    ///             HashKey = "id",
-    ///             Attributes = 
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "id",
-    ///                     Type = "S",
-    ///                 },
+    ///                 Name = "id",
+    ///                 Type = "S",
     ///             },
-    ///         });
-    ///         var exampleStream = new Aws.Kinesis.Stream("exampleStream", new Aws.Kinesis.StreamArgs
-    ///         {
-    ///             ShardCount = 1,
-    ///         });
-    ///         var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("exampleKinesisStreamingDestination", new Aws.DynamoDB.KinesisStreamingDestinationArgs
-    ///         {
-    ///             StreamArn = exampleStream.Arn,
-    ///             TableName = exampleTable.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     {
+    ///         ShardCount = 1,
+    ///     });
+    /// 
+    ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("exampleKinesisStreamingDestination", new()
+    ///     {
+    ///         StreamArn = exampleStream.Arn,
+    ///         TableName = exampleTable.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.DynamoDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]
-    public partial class KinesisStreamingDestination : Pulumi.CustomResource
+    public partial class KinesisStreamingDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.DynamoDB
         }
     }
 
-    public sealed class KinesisStreamingDestinationArgs : Pulumi.ResourceArgs
+    public sealed class KinesisStreamingDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
@@ -134,9 +134,10 @@ namespace Pulumi.Aws.DynamoDB
         public KinesisStreamingDestinationArgs()
         {
         }
+        public static new KinesisStreamingDestinationArgs Empty => new KinesisStreamingDestinationArgs();
     }
 
-    public sealed class KinesisStreamingDestinationState : Pulumi.ResourceArgs
+    public sealed class KinesisStreamingDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
@@ -154,5 +155,6 @@ namespace Pulumi.Aws.DynamoDB
         public KinesisStreamingDestinationState()
         {
         }
+        public static new KinesisStreamingDestinationState Empty => new KinesisStreamingDestinationState();
     }
 }

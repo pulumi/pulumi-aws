@@ -20,33 +20,34 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
         ///     {
-        ///         var main = Output.Create(Aws.RedShift.GetServiceAccount.InvokeAsync());
-        ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = Output.Tuple(main.Apply(getServiceAccountResult =&gt; getServiceAccountResult), main.Apply(getServiceAccountResult =&gt; getServiceAccountResult)).Apply(values =&gt;
         ///         {
-        ///             ForceDestroy = true,
-        ///         });
-        ///         var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new Aws.S3.BucketPolicyArgs
-        ///         {
-        ///             Bucket = bucket.Id,
-        ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///             {
-        ///                 var main = values.Item1;
-        ///                 var main1 = values.Item2;
-        ///                 return @$"{{
+        ///             var main = values.Item1;
+        ///             var main1 = values.Item2;
+        ///             return @$"{{
         /// 	""Version"": ""2008-10-17"",
         /// 	""Statement"": [
         /// 		{{
         ///             ""Sid"": ""Put bucket policy needed for audit logging"",
         ///             ""Effect"": ""Allow"",
         ///             ""Principal"": {{
-        /// 		        ""AWS"": ""{main.Arn}""
+        /// 		        ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
         ///             }},
         ///             ""Action"": ""s3:PutObject"",
         ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket/*""
@@ -63,11 +64,10 @@ namespace Pulumi.Aws.RedShift
         /// 	]
         /// }}
         /// ";
-        ///             }),
-        ///         });
-        ///     }
+        ///         }),
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -84,33 +84,34 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
         ///     {
-        ///         var main = Output.Create(Aws.RedShift.GetServiceAccount.InvokeAsync());
-        ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = Output.Tuple(main.Apply(getServiceAccountResult =&gt; getServiceAccountResult), main.Apply(getServiceAccountResult =&gt; getServiceAccountResult)).Apply(values =&gt;
         ///         {
-        ///             ForceDestroy = true,
-        ///         });
-        ///         var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new Aws.S3.BucketPolicyArgs
-        ///         {
-        ///             Bucket = bucket.Id,
-        ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///             {
-        ///                 var main = values.Item1;
-        ///                 var main1 = values.Item2;
-        ///                 return @$"{{
+        ///             var main = values.Item1;
+        ///             var main1 = values.Item2;
+        ///             return @$"{{
         /// 	""Version"": ""2008-10-17"",
         /// 	""Statement"": [
         /// 		{{
         ///             ""Sid"": ""Put bucket policy needed for audit logging"",
         ///             ""Effect"": ""Allow"",
         ///             ""Principal"": {{
-        /// 		        ""AWS"": ""{main.Arn}""
+        /// 		        ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
         ///             }},
         ///             ""Action"": ""s3:PutObject"",
         ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket/*""
@@ -127,11 +128,10 @@ namespace Pulumi.Aws.RedShift
         /// 	]
         /// }}
         /// ";
-        ///             }),
-        ///         });
-        ///     }
+        ///         }),
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.RedShift
     }
 
 
-    public sealed class GetServiceAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the region whose AWS Redshift account ID is desired.
@@ -153,9 +153,10 @@ namespace Pulumi.Aws.RedShift
         public GetServiceAccountArgs()
         {
         }
+        public static new GetServiceAccountArgs Empty => new GetServiceAccountArgs();
     }
 
-    public sealed class GetServiceAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the region whose AWS Redshift account ID is desired.
@@ -167,6 +168,7 @@ namespace Pulumi.Aws.RedShift
         public GetServiceAccountInvokeArgs()
         {
         }
+        public static new GetServiceAccountInvokeArgs Empty => new GetServiceAccountInvokeArgs();
     }
 
 

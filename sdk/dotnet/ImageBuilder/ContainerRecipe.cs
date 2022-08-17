@@ -15,51 +15,49 @@ namespace Pulumi.Aws.ImageBuilder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
     ///     {
-    ///         var example = new Aws.ImageBuilder.ContainerRecipe("example", new Aws.ImageBuilder.ContainerRecipeArgs
+    ///         Version = "1.0.0",
+    ///         ContainerType = "DOCKER",
+    ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
+    ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
     ///         {
-    ///             Version = "1.0.0",
-    ///             ContainerType = "DOCKER",
-    ///             ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-    ///             TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
+    ///             RepositoryName = aws_ecr_repository.Example.Name,
+    ///             Service = "ECR",
+    ///         },
+    ///         Components = new[]
+    ///         {
+    ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
     ///             {
-    ///                 RepositoryName = aws_ecr_repository.Example.Name,
-    ///                 Service = "ECR",
-    ///             },
-    ///             Components = 
-    ///             {
-    ///                 new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
+    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                 Parameters = new[]
     ///                 {
-    ///                     ComponentArn = aws_imagebuilder_component.Example.Arn,
-    ///                     Parameters = 
+    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
     ///                     {
-    ///                         new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
-    ///                         {
-    ///                             Name = "Parameter1",
-    ///                             Value = "Value1",
-    ///                         },
-    ///                         new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
-    ///                         {
-    ///                             Name = "Parameter2",
-    ///                             Value = "Value2",
-    ///                         },
+    ///                         Name = "Parameter1",
+    ///                         Value = "Value1",
+    ///                     },
+    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
+    ///                     {
+    ///                         Name = "Parameter2",
+    ///                         Value = "Value2",
     ///                     },
     ///                 },
     ///             },
-    ///             DockerfileTemplateData = @"FROM {{{ imagebuilder:parentImage }}}
+    ///         },
+    ///         DockerfileTemplateData = @"FROM {{{ imagebuilder:parentImage }}}
     /// {{{ imagebuilder:environments }}}
     /// {{{ imagebuilder:components }}}
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +69,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
-    public partial class ContainerRecipe : Pulumi.CustomResource
+    public partial class ContainerRecipe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the container recipe.
@@ -163,9 +161,6 @@ namespace Pulumi.Aws.ImageBuilder
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -231,7 +226,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
     }
 
-    public sealed class ContainerRecipeArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeArgs : global::Pulumi.ResourceArgs
     {
         [Input("components", required: true)]
         private InputList<Inputs.ContainerRecipeComponentArgs>? _components;
@@ -326,9 +321,10 @@ namespace Pulumi.Aws.ImageBuilder
         public ContainerRecipeArgs()
         {
         }
+        public static new ContainerRecipeArgs Empty => new ContainerRecipeArgs();
     }
 
-    public sealed class ContainerRecipeState : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the container recipe.
@@ -434,10 +430,6 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -465,5 +457,6 @@ namespace Pulumi.Aws.ImageBuilder
         public ContainerRecipeState()
         {
         }
+        public static new ContainerRecipeState Empty => new ContainerRecipeState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2LifecycleRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2LifecycleRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -99,5 +99,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2LifecycleRuleGetArgs()
         {
         }
+        public static new BucketV2LifecycleRuleGetArgs Empty => new BucketV2LifecycleRuleGetArgs();
     }
 }

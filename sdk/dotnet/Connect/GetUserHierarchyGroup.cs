@@ -21,41 +21,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetUserHierarchyGroup.InvokeAsync(new Aws.Connect.GetUserHierarchyGroupArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `hierarchy_group_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetUserHierarchyGroup.InvokeAsync(new Aws.Connect.GetUserHierarchyGroupArgs
-        ///         {
-        ///             HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +69,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetUserHierarchyGroup.InvokeAsync(new Aws.Connect.GetUserHierarchyGroupArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `hierarchy_group_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetUserHierarchyGroup.InvokeAsync(new Aws.Connect.GetUserHierarchyGroupArgs
-        ///         {
-        ///             HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +109,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetUserHierarchyGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetUserHierarchyGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific hierarchy group by hierarchy group id
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Connect
         public GetUserHierarchyGroupArgs()
         {
         }
+        public static new GetUserHierarchyGroupArgs Empty => new GetUserHierarchyGroupArgs();
     }
 
-    public sealed class GetUserHierarchyGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserHierarchyGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific hierarchy group by hierarchy group id
@@ -189,6 +182,7 @@ namespace Pulumi.Aws.Connect
         public GetUserHierarchyGroupInvokeArgs()
         {
         }
+        public static new GetUserHierarchyGroupInvokeArgs Empty => new GetUserHierarchyGroupInvokeArgs();
     }
 
 

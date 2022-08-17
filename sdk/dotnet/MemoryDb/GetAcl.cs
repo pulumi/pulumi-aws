@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetAcl.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetAcl.InvokeAsync(new Aws.MemoryDb.GetAclArgs
-        ///         {
-        ///             Name = "my-acl",
-        ///         }));
-        ///     }
+        ///         Name = "my-acl",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetAcl.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetAcl.InvokeAsync(new Aws.MemoryDb.GetAclArgs
-        ///         {
-        ///             Name = "my-acl",
-        ///         }));
-        ///     }
+        ///         Name = "my-acl",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
     }
 
 
-    public sealed class GetAclArgs : Pulumi.InvokeArgs
+    public sealed class GetAclArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ACL.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.MemoryDb
         public GetAclArgs()
         {
         }
+        public static new GetAclArgs Empty => new GetAclArgs();
     }
 
-    public sealed class GetAclInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAclInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ACL.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.MemoryDb
         public GetAclInvokeArgs()
         {
         }
+        public static new GetAclInvokeArgs Empty => new GetAclInvokeArgs();
     }
 
 

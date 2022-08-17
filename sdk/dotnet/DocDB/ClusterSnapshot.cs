@@ -15,21 +15,19 @@ namespace Pulumi.Aws.DocDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DocDB.ClusterSnapshot("example", new()
     ///     {
-    ///         var example = new Aws.DocDB.ClusterSnapshot("example", new Aws.DocDB.ClusterSnapshotArgs
-    ///         {
-    ///             DbClusterIdentifier = aws_docdb_cluster.Example.Id,
-    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///         });
-    ///     }
+    ///         DbClusterIdentifier = aws_docdb_cluster.Example.Id,
+    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.DocDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterSnapshot:ClusterSnapshot")]
-    public partial class ClusterSnapshot : Pulumi.CustomResource
+    public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
@@ -159,7 +157,7 @@ namespace Pulumi.Aws.DocDB
         }
     }
 
-    public sealed class ClusterSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DocDB Cluster Identifier from which to take the snapshot.
@@ -176,9 +174,10 @@ namespace Pulumi.Aws.DocDB
         public ClusterSnapshotArgs()
         {
         }
+        public static new ClusterSnapshotArgs Empty => new ClusterSnapshotArgs();
     }
 
-    public sealed class ClusterSnapshotState : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -261,5 +260,6 @@ namespace Pulumi.Aws.DocDB
         public ClusterSnapshotState()
         {
         }
+        public static new ClusterSnapshotState Empty => new ClusterSnapshotState();
     }
 }

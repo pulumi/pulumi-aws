@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultVpc(ctx, "default", &ec2.DefaultVpcArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Default VPC"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewDefaultVpc(ctx, "default", &ec2.DefaultVpcArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Default VPC"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Default VPCs can be imported using the `vpc id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+//
+//	$ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+//
 // ```
 type DefaultVpc struct {
 	pulumi.CustomResourceState
@@ -222,7 +227,7 @@ func (i *DefaultVpc) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultV
 // DefaultVpcArrayInput is an input type that accepts DefaultVpcArray and DefaultVpcArrayOutput values.
 // You can construct a concrete instance of `DefaultVpcArrayInput` via:
 //
-//          DefaultVpcArray{ DefaultVpcArgs{...} }
+//	DefaultVpcArray{ DefaultVpcArgs{...} }
 type DefaultVpcArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +252,7 @@ func (i DefaultVpcArray) ToDefaultVpcArrayOutputWithContext(ctx context.Context)
 // DefaultVpcMapInput is an input type that accepts DefaultVpcMap and DefaultVpcMapOutput values.
 // You can construct a concrete instance of `DefaultVpcMapInput` via:
 //
-//          DefaultVpcMap{ "key": DefaultVpcArgs{...} }
+//	DefaultVpcMap{ "key": DefaultVpcArgs{...} }
 type DefaultVpcMapInput interface {
 	pulumi.Input
 

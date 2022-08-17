@@ -15,41 +15,40 @@ namespace Pulumi.Aws.AppConfig
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApplication = new Aws.AppConfig.Application("exampleApplication", new()
     ///     {
-    ///         var exampleApplication = new Aws.AppConfig.Application("exampleApplication", new Aws.AppConfig.ApplicationArgs
+    ///         Description = "Example AppConfig Application",
+    ///         Tags = 
     ///         {
-    ///             Description = "Example AppConfig Application",
-    ///             Tags = 
-    ///             {
-    ///                 { "Type", "AppConfig Application" },
-    ///             },
-    ///         });
-    ///         var exampleEnvironment = new Aws.AppConfig.Environment("exampleEnvironment", new Aws.AppConfig.EnvironmentArgs
-    ///         {
-    ///             Description = "Example AppConfig Environment",
-    ///             ApplicationId = exampleApplication.Id,
-    ///             Monitors = 
-    ///             {
-    ///                 new Aws.AppConfig.Inputs.EnvironmentMonitorArgs
-    ///                 {
-    ///                     AlarmArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///                     AlarmRoleArn = aws_iam_role.Example.Arn,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Type", "AppConfig Environment" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Type", "AppConfig Application" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleEnvironment = new Aws.AppConfig.Environment("exampleEnvironment", new()
+    ///     {
+    ///         Description = "Example AppConfig Environment",
+    ///         ApplicationId = exampleApplication.Id,
+    ///         Monitors = new[]
+    ///         {
+    ///             new Aws.AppConfig.Inputs.EnvironmentMonitorArgs
+    ///             {
+    ///                 AlarmArn = aws_cloudwatch_metric_alarm.Example.Arn,
+    ///                 AlarmRoleArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Type", "AppConfig Environment" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +60,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/environment:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AppConfig application ID. Must be between 4 and 7 characters in length.
@@ -158,7 +157,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AppConfig application ID. Must be between 4 and 7 characters in length.
@@ -205,9 +204,10 @@ namespace Pulumi.Aws.AppConfig
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 
-    public sealed class EnvironmentState : Pulumi.ResourceArgs
+    public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AppConfig application ID. Must be between 4 and 7 characters in length.
@@ -281,5 +281,6 @@ namespace Pulumi.Aws.AppConfig
         public EnvironmentState()
         {
         }
+        public static new EnvironmentState Empty => new EnvironmentState();
     }
 }

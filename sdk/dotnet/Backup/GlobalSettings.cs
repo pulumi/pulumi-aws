@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Backup.GlobalSettings("test", new()
     ///     {
-    ///         var test = new Aws.Backup.GlobalSettings("test", new Aws.Backup.GlobalSettingsArgs
+    ///         GlobalSettingsList = 
     ///         {
-    ///             GlobalSettingsList = 
-    ///             {
-    ///                 { "isCrossAccountBackupEnabled", "true" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "isCrossAccountBackupEnabled", "true" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/globalSettings:GlobalSettings")]
-    public partial class GlobalSettings : Pulumi.CustomResource
+    public partial class GlobalSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of resources along with the opt-in preferences for the account.
@@ -95,7 +93,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class GlobalSettingsArgs : Pulumi.ResourceArgs
+    public sealed class GlobalSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("globalSettings", required: true)]
         private InputMap<string>? _globalSettings;
@@ -112,9 +110,10 @@ namespace Pulumi.Aws.Backup
         public GlobalSettingsArgs()
         {
         }
+        public static new GlobalSettingsArgs Empty => new GlobalSettingsArgs();
     }
 
-    public sealed class GlobalSettingsState : Pulumi.ResourceArgs
+    public sealed class GlobalSettingsState : global::Pulumi.ResourceArgs
     {
         [Input("globalSettings")]
         private InputMap<string>? _globalSettings;
@@ -131,5 +130,6 @@ namespace Pulumi.Aws.Backup
         public GlobalSettingsState()
         {
         }
+        public static new GlobalSettingsState Empty => new GlobalSettingsState();
     }
 }

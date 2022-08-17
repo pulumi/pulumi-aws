@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolClientAnalyticsConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolClientAnalyticsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolClientAnalyticsConfigurationGetArgs()
         {
         }
+        public static new UserPoolClientAnalyticsConfigurationGetArgs Empty => new UserPoolClientAnalyticsConfigurationGetArgs();
     }
 }

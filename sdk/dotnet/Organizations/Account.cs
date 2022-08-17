@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Organizations
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var account = new Aws.Organizations.Account("account", new()
     ///     {
-    ///         var account = new Aws.Organizations.Account("account", new Aws.Organizations.AccountArgs
-    ///         {
-    ///             Email = "john@doe.org",
-    ///         });
-    ///     }
+    ///         Email = "john@doe.org",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +62,7 @@ namespace Pulumi.Aws.Organizations
     ///  } }
     /// </summary>
     [AwsResourceType("aws:organizations/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN for this account.
@@ -133,7 +131,7 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -182,7 +180,7 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
@@ -238,9 +236,10 @@ namespace Pulumi.Aws.Organizations
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for this account.
@@ -318,7 +317,7 @@ namespace Pulumi.Aws.Organizations
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -329,5 +328,6 @@ namespace Pulumi.Aws.Organizations
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

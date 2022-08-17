@@ -20,30 +20,29 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var network = Aws.CloudFormation.GetStack.Invoke(new()
         ///     {
-        ///         var network = Output.Create(Aws.CloudFormation.GetStack.InvokeAsync(new Aws.CloudFormation.GetStackArgs
-        ///         {
-        ///             Name = "my-network-stack",
-        ///         }));
-        ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
-        ///         {
-        ///             Ami = "ami-abb07bcb",
-        ///             InstanceType = "t2.micro",
-        ///             SubnetId = network.Apply(network =&gt; network.Outputs?.SubnetId),
-        ///             Tags = 
-        ///             {
-        ///                 { "Name", "HelloWorld" },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "my-network-stack",
+        ///     });
         /// 
-        /// }
+        ///     var web = new Aws.Ec2.Instance("web", new()
+        ///     {
+        ///         Ami = "ami-abb07bcb",
+        ///         InstanceType = "t2.micro",
+        ///         SubnetId = network.Apply(getStackResult =&gt; getStackResult.Outputs?.SubnetId),
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "HelloWorld" },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,30 +59,29 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var network = Aws.CloudFormation.GetStack.Invoke(new()
         ///     {
-        ///         var network = Output.Create(Aws.CloudFormation.GetStack.InvokeAsync(new Aws.CloudFormation.GetStackArgs
-        ///         {
-        ///             Name = "my-network-stack",
-        ///         }));
-        ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
-        ///         {
-        ///             Ami = "ami-abb07bcb",
-        ///             InstanceType = "t2.micro",
-        ///             SubnetId = network.Apply(network =&gt; network.Outputs?.SubnetId),
-        ///             Tags = 
-        ///             {
-        ///                 { "Name", "HelloWorld" },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "my-network-stack",
+        ///     });
         /// 
-        /// }
+        ///     var web = new Aws.Ec2.Instance("web", new()
+        ///     {
+        ///         Ami = "ami-abb07bcb",
+        ///         InstanceType = "t2.micro",
+        ///         SubnetId = network.Apply(getStackResult =&gt; getStackResult.Outputs?.SubnetId),
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "HelloWorld" },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +91,7 @@ namespace Pulumi.Aws.CloudFormation
     }
 
 
-    public sealed class GetStackArgs : Pulumi.InvokeArgs
+    public sealed class GetStackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the stack
@@ -116,9 +114,10 @@ namespace Pulumi.Aws.CloudFormation
         public GetStackArgs()
         {
         }
+        public static new GetStackArgs Empty => new GetStackArgs();
     }
 
-    public sealed class GetStackInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the stack
@@ -141,6 +140,7 @@ namespace Pulumi.Aws.CloudFormation
         public GetStackInvokeArgs()
         {
         }
+        public static new GetStackInvokeArgs Empty => new GetStackInvokeArgs();
     }
 
 

@@ -16,49 +16,48 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
-    ///         {
-    ///         });
-    ///         // Accepter's credentials.
-    ///         var accepterCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Creator's side of the VIF
-    ///         var creator = new Aws.DirectConnect.HostedPublicVirtualInterface("creator", new Aws.DirectConnect.HostedPublicVirtualInterfaceArgs
-    ///         {
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
-    ///             Vlan = 4094,
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///             CustomerAddress = "175.45.176.1/30",
-    ///             AmazonAddress = "175.45.176.2/30",
-    ///             RouteFilterPrefixes = 
-    ///             {
-    ///                 "210.52.109.0/24",
-    ///                 "175.45.176.0/22",
-    ///             },
-    ///         });
-    ///         // Accepter's side of the VIF.
-    ///         var accepterHostedPublicVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", new Aws.DirectConnect.HostedPublicVirtualInterfaceAccepterArgs
-    ///         {
-    ///             VirtualInterfaceId = creator.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Side", "Accepter" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Accepter,
-    ///         });
-    ///     }
+    ///     var accepter = new Aws.Provider("accepter");
     /// 
-    /// }
+    ///     // Accepter's credentials.
+    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     // Creator's side of the VIF
+    ///     var creator = new Aws.DirectConnect.HostedPublicVirtualInterface("creator", new()
+    ///     {
+    ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         Vlan = 4094,
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
+    ///         CustomerAddress = "175.45.176.1/30",
+    ///         AmazonAddress = "175.45.176.2/30",
+    ///         RouteFilterPrefixes = new[]
+    ///         {
+    ///             "210.52.109.0/24",
+    ///             "175.45.176.0/22",
+    ///         },
+    ///     });
+    /// 
+    ///     // Accepter's side of the VIF.
+    ///     var accepterHostedPublicVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", new()
+    ///     {
+    ///         VirtualInterfaceId = creator.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Accepter" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Accepter,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter")]
-    public partial class HostedPublicVirtualInterfaceAccepter : Pulumi.CustomResource
+    public partial class HostedPublicVirtualInterfaceAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the virtual interface.
@@ -85,7 +84,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -140,7 +139,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class HostedPublicVirtualInterfaceAccepterArgs : Pulumi.ResourceArgs
+    public sealed class HostedPublicVirtualInterfaceAccepterArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -163,9 +162,10 @@ namespace Pulumi.Aws.DirectConnect
         public HostedPublicVirtualInterfaceAccepterArgs()
         {
         }
+        public static new HostedPublicVirtualInterfaceAccepterArgs Empty => new HostedPublicVirtualInterfaceAccepterArgs();
     }
 
-    public sealed class HostedPublicVirtualInterfaceAccepterState : Pulumi.ResourceArgs
+    public sealed class HostedPublicVirtualInterfaceAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the virtual interface.
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -206,5 +206,6 @@ namespace Pulumi.Aws.DirectConnect
         public HostedPublicVirtualInterfaceAccepterState()
         {
         }
+        public static new HostedPublicVirtualInterfaceAccepterState Empty => new HostedPublicVirtualInterfaceAccepterState();
     }
 }

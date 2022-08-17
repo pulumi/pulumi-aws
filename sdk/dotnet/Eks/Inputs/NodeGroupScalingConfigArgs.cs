@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupScalingConfigArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupScalingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Desired number of worker nodes.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupScalingConfigArgs()
         {
         }
+        public static new NodeGroupScalingConfigArgs Empty => new NodeGroupScalingConfigArgs();
     }
 }

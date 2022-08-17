@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class GetTagsFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetTagsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("ands")]
         private InputList<Inputs.GetTagsFilterAndInputArgs>? _ands;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public GetTagsFilterInputArgs()
         {
         }
+        public static new GetTagsFilterInputArgs Empty => new GetTagsFilterInputArgs();
     }
 }

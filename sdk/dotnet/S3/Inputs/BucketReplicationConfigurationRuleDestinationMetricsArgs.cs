@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigurationRuleDestinationMetricsArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationRuleDestinationMetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Threshold within which objects are to be replicated. The only valid value is `15`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigurationRuleDestinationMetricsArgs()
         {
         }
+        public static new BucketReplicationConfigurationRuleDestinationMetricsArgs Empty => new BucketReplicationConfigurationRuleDestinationMetricsArgs();
     }
 }

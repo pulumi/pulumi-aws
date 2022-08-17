@@ -20,108 +20,105 @@ namespace Pulumi.Aws.Route53
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             CustomerMasterKeySpec = "ECC_NIST_P256",
-    ///             DeletionWindowInDays = 7,
-    ///             KeyUsage = "SIGN_VERIFY",
-    ///             Policy = Output.Tuple(current, current).Apply(values =&gt;
-    ///             {
-    ///                 var current = values.Item1;
-    ///                 var current1 = values.Item2;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "Statement", new[]
-    ///                         {
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Action", new[]
-    ///                                     {
-    ///                                         "kms:DescribeKey",
-    ///                                         "kms:GetPublicKey",
-    ///                                         "kms:Sign",
-    ///                                     }
-    ///                                  },
-    ///                                 { "Effect", "Allow" },
-    ///                                 { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "Service", "dnssec-route53.amazonaws.com" },
-    ///                                 } },
-    ///                                 { "Sid", "Allow Route 53 DNSSEC Service" },
-    ///                                 { "Resource", "*" },
-    ///                                 { "Condition", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "StringEquals", new Dictionary&lt;string, object?&gt;
-    ///                                     {
-    ///                                         { "aws:SourceAccount", current.AccountId },
-    ///                                     } },
-    ///                                     { "ArnLike", new Dictionary&lt;string, object?&gt;
-    ///                                     {
-    ///                                         { "aws:SourceArn", "arn:aws:route53:::hostedzone/*" },
-    ///                                     } },
-    ///                                 } },
-    ///                             },
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Action", "kms:CreateGrant" },
-    ///                                 { "Effect", "Allow" },
-    ///                                 { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "Service", "dnssec-route53.amazonaws.com" },
-    ///                                 } },
-    ///                                 { "Sid", "Allow Route 53 DNSSEC Service to CreateGrant" },
-    ///                                 { "Resource", "*" },
-    ///                                 { "Condition", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "Bool", new Dictionary&lt;string, object?&gt;
-    ///                                     {
-    ///                                         { "kms:GrantIsForAWSResource", "true" },
-    ///                                     } },
-    ///                                 } },
-    ///                             },
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Action", "kms:*" },
-    ///                                 { "Effect", "Allow" },
-    ///                                 { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "AWS", $"arn:aws:iam::{current1.AccountId}:root" },
-    ///                                 } },
-    ///                                 { "Resource", "*" },
-    ///                                 { "Sid", "Enable IAM User Permissions" },
-    ///                             },
-    ///                         }
-    ///                      },
-    ///                     { "Version", "2012-10-17" },
-    ///                 });
-    ///             }),
-    ///         });
-    ///         var exampleZone = new Aws.Route53.Zone("exampleZone", new Aws.Route53.ZoneArgs
-    ///         {
-    ///         });
-    ///         var exampleKeySigningKey = new Aws.Route53.KeySigningKey("exampleKeySigningKey", new Aws.Route53.KeySigningKeyArgs
-    ///         {
-    ///             HostedZoneId = aws_route53_zone.Test.Id,
-    ///             KeyManagementServiceArn = aws_kms_key.Test.Arn,
-    ///         });
-    ///         var exampleHostedZoneDnsSec = new Aws.Route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", new Aws.Route53.HostedZoneDnsSecArgs
-    ///         {
-    ///             HostedZoneId = exampleKeySigningKey.HostedZoneId,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleKeySigningKey,
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    /// }
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         CustomerMasterKeySpec = "ECC_NIST_P256",
+    ///         DeletionWindowInDays = 7,
+    ///         KeyUsage = "SIGN_VERIFY",
+    ///         Policy = Output.Tuple(current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         {
+    ///             var current = values.Item1;
+    ///             var current1 = values.Item2;
+    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Statement"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Action"] = new[]
+    ///                         {
+    ///                             "kms:DescribeKey",
+    ///                             "kms:GetPublicKey",
+    ///                             "kms:Sign",
+    ///                         },
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                         },
+    ///                         ["Sid"] = "Allow Route 53 DNSSEC Service",
+    ///                         ["Resource"] = "*",
+    ///                         ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["StringEquals"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                             },
+    ///                             ["ArnLike"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["aws:SourceArn"] = "arn:aws:route53:::hostedzone/*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Action"] = "kms:CreateGrant",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                         },
+    ///                         ["Sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
+    ///                         ["Resource"] = "*",
+    ///                         ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Bool"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["kms:GrantIsForAWSResource"] = "true",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Action"] = "kms:*",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["AWS"] = $"arn:aws:iam::{current1.AccountId}:root",
+    ///                         },
+    ///                         ["Resource"] = "*",
+    ///                         ["Sid"] = "Enable IAM User Permissions",
+    ///                     },
+    ///                 },
+    ///                 ["Version"] = "2012-10-17",
+    ///             });
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleZone = new Aws.Route53.Zone("exampleZone");
+    /// 
+    ///     var exampleKeySigningKey = new Aws.Route53.KeySigningKey("exampleKeySigningKey", new()
+    ///     {
+    ///         HostedZoneId = aws_route53_zone.Test.Id,
+    ///         KeyManagementServiceArn = aws_kms_key.Test.Arn,
+    ///     });
+    /// 
+    ///     var exampleHostedZoneDnsSec = new Aws.Route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", new()
+    ///     {
+    ///         HostedZoneId = exampleKeySigningKey.HostedZoneId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleKeySigningKey,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -133,7 +130,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/keySigningKey:KeySigningKey")]
-    public partial class KeySigningKey : Pulumi.CustomResource
+    public partial class KeySigningKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
@@ -263,7 +260,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class KeySigningKeyArgs : Pulumi.ResourceArgs
+    public sealed class KeySigningKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
@@ -292,9 +289,10 @@ namespace Pulumi.Aws.Route53
         public KeySigningKeyArgs()
         {
         }
+        public static new KeySigningKeyArgs Empty => new KeySigningKeyArgs();
     }
 
-    public sealed class KeySigningKeyState : Pulumi.ResourceArgs
+    public sealed class KeySigningKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
@@ -383,5 +381,6 @@ namespace Pulumi.Aws.Route53
         public KeySigningKeyState()
         {
         }
+        public static new KeySigningKeyState Empty => new KeySigningKeyState();
     }
 }

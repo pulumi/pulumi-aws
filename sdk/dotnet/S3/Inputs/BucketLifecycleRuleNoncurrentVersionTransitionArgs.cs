@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleRuleNoncurrentVersionTransitionArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleRuleNoncurrentVersionTransitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days noncurrent object versions transition.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleRuleNoncurrentVersionTransitionArgs()
         {
         }
+        public static new BucketLifecycleRuleNoncurrentVersionTransitionArgs Empty => new BucketLifecycleRuleNoncurrentVersionTransitionArgs();
     }
 }

@@ -18,91 +18,97 @@ namespace Pulumi.Aws.WafRegional
     /// ### Application Load Balancer Association
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.WafRegional.IpSet("ipset", new Aws.WafRegional.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///         var fooRule = new Aws.WafRegional.Rule("fooRule", new Aws.WafRegional.RuleArgs
-    ///         {
-    ///             MetricName = "tfWAFRule",
-    ///             Predicates = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.RulePredicateArgs
-    ///                 {
-    ///                     DataId = ipset.Id,
-    ///                     Negated = false,
-    ///                     Type = "IPMatch",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new Aws.WafRegional.WebAclArgs
-    ///         {
-    ///             MetricName = "foo",
-    ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
-    ///             {
-    ///                 Type = "ALLOW",
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
-    ///                 {
-    ///                     Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
-    ///                     {
-    ///                         Type = "BLOCK",
-    ///                     },
-    ///                     Priority = 1,
-    ///                     RuleId = fooRule.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync());
-    ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = fooVpc.Id,
-    ///             CidrBlock = "10.1.1.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
-    ///         });
-    ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = fooVpc.Id,
-    ///             CidrBlock = "10.1.2.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[1]),
-    ///         });
-    ///         var fooLoadBalancer = new Aws.Alb.LoadBalancer("fooLoadBalancer", new Aws.Alb.LoadBalancerArgs
-    ///         {
-    ///             Internal = true,
-    ///             Subnets = 
-    ///             {
-    ///                 fooSubnet.Id,
-    ///                 bar.Id,
-    ///             },
-    ///         });
-    ///         var fooWebAclAssociation = new Aws.WafRegional.WebAclAssociation("fooWebAclAssociation", new Aws.WafRegional.WebAclAssociationArgs
-    ///         {
-    ///             ResourceArn = fooLoadBalancer.Arn,
-    ///             WebAclId = fooWebAcl.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var fooRule = new Aws.WafRegional.Rule("fooRule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new()
+    ///     {
+    ///         MetricName = "foo",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Type = "BLOCK",
+    ///                 },
+    ///                 Priority = 1,
+    ///                 RuleId = fooRule.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
+    /// 
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     {
+    ///         VpcId = fooVpc.Id,
+    ///         CidrBlock = "10.1.1.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///     });
+    /// 
+    ///     var bar = new Aws.Ec2.Subnet("bar", new()
+    ///     {
+    ///         VpcId = fooVpc.Id,
+    ///         CidrBlock = "10.1.2.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
+    ///     });
+    /// 
+    ///     var fooLoadBalancer = new Aws.Alb.LoadBalancer("fooLoadBalancer", new()
+    ///     {
+    ///         Internal = true,
+    ///         Subnets = new[]
+    ///         {
+    ///             fooSubnet.Id,
+    ///             bar.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var fooWebAclAssociation = new Aws.WafRegional.WebAclAssociation("fooWebAclAssociation", new()
+    ///     {
+    ///         ResourceArn = fooLoadBalancer.Arn,
+    ///         WebAclId = fooWebAcl.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### API Gateway Association
     /// 
@@ -114,110 +120,113 @@ namespace Pulumi.Aws.WafRegional
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.WafRegional.IpSet("ipset", new Aws.WafRegional.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///         var fooRule = new Aws.WafRegional.Rule("fooRule", new Aws.WafRegional.RuleArgs
-    ///         {
-    ///             MetricName = "tfWAFRule",
-    ///             Predicates = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.RulePredicateArgs
-    ///                 {
-    ///                     DataId = ipset.Id,
-    ///                     Negated = false,
-    ///                     Type = "IPMatch",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new Aws.WafRegional.WebAclArgs
-    ///         {
-    ///             MetricName = "foo",
-    ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
-    ///             {
-    ///                 Type = "ALLOW",
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
-    ///                 {
-    ///                     Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
-    ///                     {
-    ///                         Type = "BLOCK",
-    ///                     },
-    ///                     Priority = 1,
-    ///                     RuleId = fooRule.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "openapi", "3.0.1" },
-    ///                 { "info", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "title", "example" },
-    ///                     { "version", "1.0" },
-    ///                 } },
-    ///                 { "paths", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "get", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "httpMethod", "GET" },
-    ///                                 { "payloadFormatVersion", "1.0" },
-    ///                                 { "type", "HTTP_PROXY" },
-    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///             }),
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
-    ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///         var association = new Aws.WafRegional.WebAclAssociation("association", new Aws.WafRegional.WebAclAssociationArgs
-    ///         {
-    ///             ResourceArn = exampleStage.Arn,
-    ///             WebAclId = fooWebAcl.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var fooRule = new Aws.WafRegional.Rule("fooRule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new()
+    ///     {
+    ///         MetricName = "foo",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Type = "BLOCK",
+    ///                 },
+    ///                 Priority = 1,
+    ///                 RuleId = fooRule.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    ///     var association = new Aws.WafRegional.WebAclAssociation("association", new()
+    ///     {
+    ///         ResourceArn = exampleStage.Arn,
+    ///         WebAclId = fooWebAcl.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -229,7 +238,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
-    public partial class WebAclAssociation : Pulumi.CustomResource
+    public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
@@ -287,7 +296,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class WebAclAssociationArgs : Pulumi.ResourceArgs
+    public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
@@ -304,9 +313,10 @@ namespace Pulumi.Aws.WafRegional
         public WebAclAssociationArgs()
         {
         }
+        public static new WebAclAssociationArgs Empty => new WebAclAssociationArgs();
     }
 
-    public sealed class WebAclAssociationState : Pulumi.ResourceArgs
+    public sealed class WebAclAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
@@ -323,5 +333,6 @@ namespace Pulumi.Aws.WafRegional
         public WebAclAssociationState()
         {
         }
+        public static new WebAclAssociationState Empty => new WebAclAssociationState();
     }
 }

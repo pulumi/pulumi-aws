@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceMarketOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceMarketOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The market type. Can be `spot`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateInstanceMarketOptionsArgs()
         {
         }
+        public static new LaunchTemplateInstanceMarketOptionsArgs Empty => new LaunchTemplateInstanceMarketOptionsArgs();
     }
 }

@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleOverrideActionCountArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleOverrideActionCountArgs : global::Pulumi.ResourceArgs
     {
         public WebAclRuleOverrideActionCountArgs()
         {
         }
+        public static new WebAclRuleOverrideActionCountArgs Empty => new WebAclRuleOverrideActionCountArgs();
     }
 }

@@ -21,7 +21,7 @@ type DataSourceCredentials struct {
 // DataSourceCredentialsInput is an input type that accepts DataSourceCredentialsArgs and DataSourceCredentialsOutput values.
 // You can construct a concrete instance of `DataSourceCredentialsInput` via:
 //
-//          DataSourceCredentialsArgs{...}
+//	DataSourceCredentialsArgs{...}
 type DataSourceCredentialsInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i DataSourceCredentialsArgs) ToDataSourceCredentialsPtrOutputWithContext(c
 // DataSourceCredentialsPtrInput is an input type that accepts DataSourceCredentialsArgs, DataSourceCredentialsPtr and DataSourceCredentialsPtrOutput values.
 // You can construct a concrete instance of `DataSourceCredentialsPtrInput` via:
 //
-//          DataSourceCredentialsArgs{...}
+//	        DataSourceCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -114,8 +114,8 @@ func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext
 	}).(DataSourceCredentialsPtrOutput)
 }
 
-// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-//   When the value is not null, the `credentialPair` from the data source in the ARN is used.
+//   - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+//     When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
@@ -149,8 +149,8 @@ func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
 	}).(DataSourceCredentialsOutput)
 }
 
-// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-//   When the value is not null, the `credentialPair` from the data source in the ARN is used.
+//   - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+//     When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -180,7 +180,7 @@ type DataSourceCredentialsCredentialPair struct {
 // DataSourceCredentialsCredentialPairInput is an input type that accepts DataSourceCredentialsCredentialPairArgs and DataSourceCredentialsCredentialPairOutput values.
 // You can construct a concrete instance of `DataSourceCredentialsCredentialPairInput` via:
 //
-//          DataSourceCredentialsCredentialPairArgs{...}
+//	DataSourceCredentialsCredentialPairArgs{...}
 type DataSourceCredentialsCredentialPairInput interface {
 	pulumi.Input
 
@@ -218,11 +218,11 @@ func (i DataSourceCredentialsCredentialPairArgs) ToDataSourceCredentialsCredenti
 // DataSourceCredentialsCredentialPairPtrInput is an input type that accepts DataSourceCredentialsCredentialPairArgs, DataSourceCredentialsCredentialPairPtr and DataSourceCredentialsCredentialPairPtrOutput values.
 // You can construct a concrete instance of `DataSourceCredentialsCredentialPairPtrInput` via:
 //
-//          DataSourceCredentialsCredentialPairArgs{...}
+//	        DataSourceCredentialsCredentialPairArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceCredentialsCredentialPairPtrInput interface {
 	pulumi.Input
 
@@ -372,7 +372,7 @@ type DataSourceParameters struct {
 // DataSourceParametersInput is an input type that accepts DataSourceParametersArgs and DataSourceParametersOutput values.
 // You can construct a concrete instance of `DataSourceParametersInput` via:
 //
-//          DataSourceParametersArgs{...}
+//	DataSourceParametersArgs{...}
 type DataSourceParametersInput interface {
 	pulumi.Input
 
@@ -446,11 +446,11 @@ func (i DataSourceParametersArgs) ToDataSourceParametersPtrOutputWithContext(ctx
 // DataSourceParametersPtrInput is an input type that accepts DataSourceParametersArgs, DataSourceParametersPtr and DataSourceParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersPtrInput` via:
 //
-//          DataSourceParametersArgs{...}
+//	        DataSourceParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersPtrInput interface {
 	pulumi.Input
 
@@ -832,7 +832,7 @@ type DataSourceParametersAmazonElasticsearch struct {
 // DataSourceParametersAmazonElasticsearchInput is an input type that accepts DataSourceParametersAmazonElasticsearchArgs and DataSourceParametersAmazonElasticsearchOutput values.
 // You can construct a concrete instance of `DataSourceParametersAmazonElasticsearchInput` via:
 //
-//          DataSourceParametersAmazonElasticsearchArgs{...}
+//	DataSourceParametersAmazonElasticsearchArgs{...}
 type DataSourceParametersAmazonElasticsearchInput interface {
 	pulumi.Input
 
@@ -868,11 +868,11 @@ func (i DataSourceParametersAmazonElasticsearchArgs) ToDataSourceParametersAmazo
 // DataSourceParametersAmazonElasticsearchPtrInput is an input type that accepts DataSourceParametersAmazonElasticsearchArgs, DataSourceParametersAmazonElasticsearchPtr and DataSourceParametersAmazonElasticsearchPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersAmazonElasticsearchPtrInput` via:
 //
-//          DataSourceParametersAmazonElasticsearchArgs{...}
+//	        DataSourceParametersAmazonElasticsearchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersAmazonElasticsearchPtrInput interface {
 	pulumi.Input
 
@@ -969,7 +969,7 @@ type DataSourceParametersAthena struct {
 // DataSourceParametersAthenaInput is an input type that accepts DataSourceParametersAthenaArgs and DataSourceParametersAthenaOutput values.
 // You can construct a concrete instance of `DataSourceParametersAthenaInput` via:
 //
-//          DataSourceParametersAthenaArgs{...}
+//	DataSourceParametersAthenaArgs{...}
 type DataSourceParametersAthenaInput interface {
 	pulumi.Input
 
@@ -1005,11 +1005,11 @@ func (i DataSourceParametersAthenaArgs) ToDataSourceParametersAthenaPtrOutputWit
 // DataSourceParametersAthenaPtrInput is an input type that accepts DataSourceParametersAthenaArgs, DataSourceParametersAthenaPtr and DataSourceParametersAthenaPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersAthenaPtrInput` via:
 //
-//          DataSourceParametersAthenaArgs{...}
+//	        DataSourceParametersAthenaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersAthenaPtrInput interface {
 	pulumi.Input
 
@@ -1110,7 +1110,7 @@ type DataSourceParametersAurora struct {
 // DataSourceParametersAuroraInput is an input type that accepts DataSourceParametersAuroraArgs and DataSourceParametersAuroraOutput values.
 // You can construct a concrete instance of `DataSourceParametersAuroraInput` via:
 //
-//          DataSourceParametersAuroraArgs{...}
+//	DataSourceParametersAuroraArgs{...}
 type DataSourceParametersAuroraInput interface {
 	pulumi.Input
 
@@ -1150,11 +1150,11 @@ func (i DataSourceParametersAuroraArgs) ToDataSourceParametersAuroraPtrOutputWit
 // DataSourceParametersAuroraPtrInput is an input type that accepts DataSourceParametersAuroraArgs, DataSourceParametersAuroraPtr and DataSourceParametersAuroraPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersAuroraPtrInput` via:
 //
-//          DataSourceParametersAuroraArgs{...}
+//	        DataSourceParametersAuroraArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersAuroraPtrInput interface {
 	pulumi.Input
 
@@ -1285,7 +1285,7 @@ type DataSourceParametersAuroraPostgresql struct {
 // DataSourceParametersAuroraPostgresqlInput is an input type that accepts DataSourceParametersAuroraPostgresqlArgs and DataSourceParametersAuroraPostgresqlOutput values.
 // You can construct a concrete instance of `DataSourceParametersAuroraPostgresqlInput` via:
 //
-//          DataSourceParametersAuroraPostgresqlArgs{...}
+//	DataSourceParametersAuroraPostgresqlArgs{...}
 type DataSourceParametersAuroraPostgresqlInput interface {
 	pulumi.Input
 
@@ -1325,11 +1325,11 @@ func (i DataSourceParametersAuroraPostgresqlArgs) ToDataSourceParametersAuroraPo
 // DataSourceParametersAuroraPostgresqlPtrInput is an input type that accepts DataSourceParametersAuroraPostgresqlArgs, DataSourceParametersAuroraPostgresqlPtr and DataSourceParametersAuroraPostgresqlPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersAuroraPostgresqlPtrInput` via:
 //
-//          DataSourceParametersAuroraPostgresqlArgs{...}
+//	        DataSourceParametersAuroraPostgresqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersAuroraPostgresqlPtrInput interface {
 	pulumi.Input
 
@@ -1456,7 +1456,7 @@ type DataSourceParametersAwsIotAnalytics struct {
 // DataSourceParametersAwsIotAnalyticsInput is an input type that accepts DataSourceParametersAwsIotAnalyticsArgs and DataSourceParametersAwsIotAnalyticsOutput values.
 // You can construct a concrete instance of `DataSourceParametersAwsIotAnalyticsInput` via:
 //
-//          DataSourceParametersAwsIotAnalyticsArgs{...}
+//	DataSourceParametersAwsIotAnalyticsArgs{...}
 type DataSourceParametersAwsIotAnalyticsInput interface {
 	pulumi.Input
 
@@ -1492,11 +1492,11 @@ func (i DataSourceParametersAwsIotAnalyticsArgs) ToDataSourceParametersAwsIotAna
 // DataSourceParametersAwsIotAnalyticsPtrInput is an input type that accepts DataSourceParametersAwsIotAnalyticsArgs, DataSourceParametersAwsIotAnalyticsPtr and DataSourceParametersAwsIotAnalyticsPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersAwsIotAnalyticsPtrInput` via:
 //
-//          DataSourceParametersAwsIotAnalyticsArgs{...}
+//	        DataSourceParametersAwsIotAnalyticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersAwsIotAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -1593,7 +1593,7 @@ type DataSourceParametersJira struct {
 // DataSourceParametersJiraInput is an input type that accepts DataSourceParametersJiraArgs and DataSourceParametersJiraOutput values.
 // You can construct a concrete instance of `DataSourceParametersJiraInput` via:
 //
-//          DataSourceParametersJiraArgs{...}
+//	DataSourceParametersJiraArgs{...}
 type DataSourceParametersJiraInput interface {
 	pulumi.Input
 
@@ -1629,11 +1629,11 @@ func (i DataSourceParametersJiraArgs) ToDataSourceParametersJiraPtrOutputWithCon
 // DataSourceParametersJiraPtrInput is an input type that accepts DataSourceParametersJiraArgs, DataSourceParametersJiraPtr and DataSourceParametersJiraPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersJiraPtrInput` via:
 //
-//          DataSourceParametersJiraArgs{...}
+//	        DataSourceParametersJiraArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersJiraPtrInput interface {
 	pulumi.Input
 
@@ -1734,7 +1734,7 @@ type DataSourceParametersMariaDb struct {
 // DataSourceParametersMariaDbInput is an input type that accepts DataSourceParametersMariaDbArgs and DataSourceParametersMariaDbOutput values.
 // You can construct a concrete instance of `DataSourceParametersMariaDbInput` via:
 //
-//          DataSourceParametersMariaDbArgs{...}
+//	DataSourceParametersMariaDbArgs{...}
 type DataSourceParametersMariaDbInput interface {
 	pulumi.Input
 
@@ -1774,11 +1774,11 @@ func (i DataSourceParametersMariaDbArgs) ToDataSourceParametersMariaDbPtrOutputW
 // DataSourceParametersMariaDbPtrInput is an input type that accepts DataSourceParametersMariaDbArgs, DataSourceParametersMariaDbPtr and DataSourceParametersMariaDbPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersMariaDbPtrInput` via:
 //
-//          DataSourceParametersMariaDbArgs{...}
+//	        DataSourceParametersMariaDbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersMariaDbPtrInput interface {
 	pulumi.Input
 
@@ -1909,7 +1909,7 @@ type DataSourceParametersMysql struct {
 // DataSourceParametersMysqlInput is an input type that accepts DataSourceParametersMysqlArgs and DataSourceParametersMysqlOutput values.
 // You can construct a concrete instance of `DataSourceParametersMysqlInput` via:
 //
-//          DataSourceParametersMysqlArgs{...}
+//	DataSourceParametersMysqlArgs{...}
 type DataSourceParametersMysqlInput interface {
 	pulumi.Input
 
@@ -1949,11 +1949,11 @@ func (i DataSourceParametersMysqlArgs) ToDataSourceParametersMysqlPtrOutputWithC
 // DataSourceParametersMysqlPtrInput is an input type that accepts DataSourceParametersMysqlArgs, DataSourceParametersMysqlPtr and DataSourceParametersMysqlPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersMysqlPtrInput` via:
 //
-//          DataSourceParametersMysqlArgs{...}
+//	        DataSourceParametersMysqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersMysqlPtrInput interface {
 	pulumi.Input
 
@@ -2084,7 +2084,7 @@ type DataSourceParametersOracle struct {
 // DataSourceParametersOracleInput is an input type that accepts DataSourceParametersOracleArgs and DataSourceParametersOracleOutput values.
 // You can construct a concrete instance of `DataSourceParametersOracleInput` via:
 //
-//          DataSourceParametersOracleArgs{...}
+//	DataSourceParametersOracleArgs{...}
 type DataSourceParametersOracleInput interface {
 	pulumi.Input
 
@@ -2124,11 +2124,11 @@ func (i DataSourceParametersOracleArgs) ToDataSourceParametersOraclePtrOutputWit
 // DataSourceParametersOraclePtrInput is an input type that accepts DataSourceParametersOracleArgs, DataSourceParametersOraclePtr and DataSourceParametersOraclePtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersOraclePtrInput` via:
 //
-//          DataSourceParametersOracleArgs{...}
+//	        DataSourceParametersOracleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersOraclePtrInput interface {
 	pulumi.Input
 
@@ -2259,7 +2259,7 @@ type DataSourceParametersPostgresql struct {
 // DataSourceParametersPostgresqlInput is an input type that accepts DataSourceParametersPostgresqlArgs and DataSourceParametersPostgresqlOutput values.
 // You can construct a concrete instance of `DataSourceParametersPostgresqlInput` via:
 //
-//          DataSourceParametersPostgresqlArgs{...}
+//	DataSourceParametersPostgresqlArgs{...}
 type DataSourceParametersPostgresqlInput interface {
 	pulumi.Input
 
@@ -2299,11 +2299,11 @@ func (i DataSourceParametersPostgresqlArgs) ToDataSourceParametersPostgresqlPtrO
 // DataSourceParametersPostgresqlPtrInput is an input type that accepts DataSourceParametersPostgresqlArgs, DataSourceParametersPostgresqlPtr and DataSourceParametersPostgresqlPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersPostgresqlPtrInput` via:
 //
-//          DataSourceParametersPostgresqlArgs{...}
+//	        DataSourceParametersPostgresqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersPostgresqlPtrInput interface {
 	pulumi.Input
 
@@ -2434,7 +2434,7 @@ type DataSourceParametersPresto struct {
 // DataSourceParametersPrestoInput is an input type that accepts DataSourceParametersPrestoArgs and DataSourceParametersPrestoOutput values.
 // You can construct a concrete instance of `DataSourceParametersPrestoInput` via:
 //
-//          DataSourceParametersPrestoArgs{...}
+//	DataSourceParametersPrestoArgs{...}
 type DataSourceParametersPrestoInput interface {
 	pulumi.Input
 
@@ -2474,11 +2474,11 @@ func (i DataSourceParametersPrestoArgs) ToDataSourceParametersPrestoPtrOutputWit
 // DataSourceParametersPrestoPtrInput is an input type that accepts DataSourceParametersPrestoArgs, DataSourceParametersPrestoPtr and DataSourceParametersPrestoPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersPrestoPtrInput` via:
 //
-//          DataSourceParametersPrestoArgs{...}
+//	        DataSourceParametersPrestoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersPrestoPtrInput interface {
 	pulumi.Input
 
@@ -2607,7 +2607,7 @@ type DataSourceParametersRds struct {
 // DataSourceParametersRdsInput is an input type that accepts DataSourceParametersRdsArgs and DataSourceParametersRdsOutput values.
 // You can construct a concrete instance of `DataSourceParametersRdsInput` via:
 //
-//          DataSourceParametersRdsArgs{...}
+//	DataSourceParametersRdsArgs{...}
 type DataSourceParametersRdsInput interface {
 	pulumi.Input
 
@@ -2645,11 +2645,11 @@ func (i DataSourceParametersRdsArgs) ToDataSourceParametersRdsPtrOutputWithConte
 // DataSourceParametersRdsPtrInput is an input type that accepts DataSourceParametersRdsArgs, DataSourceParametersRdsPtr and DataSourceParametersRdsPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersRdsPtrInput` via:
 //
-//          DataSourceParametersRdsArgs{...}
+//	        DataSourceParametersRdsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersRdsPtrInput interface {
 	pulumi.Input
 
@@ -2767,7 +2767,7 @@ type DataSourceParametersRedshift struct {
 // DataSourceParametersRedshiftInput is an input type that accepts DataSourceParametersRedshiftArgs and DataSourceParametersRedshiftOutput values.
 // You can construct a concrete instance of `DataSourceParametersRedshiftInput` via:
 //
-//          DataSourceParametersRedshiftArgs{...}
+//	DataSourceParametersRedshiftArgs{...}
 type DataSourceParametersRedshiftInput interface {
 	pulumi.Input
 
@@ -2809,11 +2809,11 @@ func (i DataSourceParametersRedshiftArgs) ToDataSourceParametersRedshiftPtrOutpu
 // DataSourceParametersRedshiftPtrInput is an input type that accepts DataSourceParametersRedshiftArgs, DataSourceParametersRedshiftPtr and DataSourceParametersRedshiftPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersRedshiftPtrInput` via:
 //
-//          DataSourceParametersRedshiftArgs{...}
+//	        DataSourceParametersRedshiftArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersRedshiftPtrInput interface {
 	pulumi.Input
 
@@ -2955,7 +2955,7 @@ type DataSourceParametersS3 struct {
 // DataSourceParametersS3Input is an input type that accepts DataSourceParametersS3Args and DataSourceParametersS3Output values.
 // You can construct a concrete instance of `DataSourceParametersS3Input` via:
 //
-//          DataSourceParametersS3Args{...}
+//	DataSourceParametersS3Args{...}
 type DataSourceParametersS3Input interface {
 	pulumi.Input
 
@@ -2991,11 +2991,11 @@ func (i DataSourceParametersS3Args) ToDataSourceParametersS3PtrOutputWithContext
 // DataSourceParametersS3PtrInput is an input type that accepts DataSourceParametersS3Args, DataSourceParametersS3Ptr and DataSourceParametersS3PtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersS3PtrInput` via:
 //
-//          DataSourceParametersS3Args{...}
+//	        DataSourceParametersS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersS3PtrInput interface {
 	pulumi.Input
 
@@ -3096,7 +3096,7 @@ type DataSourceParametersS3ManifestFileLocation struct {
 // DataSourceParametersS3ManifestFileLocationInput is an input type that accepts DataSourceParametersS3ManifestFileLocationArgs and DataSourceParametersS3ManifestFileLocationOutput values.
 // You can construct a concrete instance of `DataSourceParametersS3ManifestFileLocationInput` via:
 //
-//          DataSourceParametersS3ManifestFileLocationArgs{...}
+//	DataSourceParametersS3ManifestFileLocationArgs{...}
 type DataSourceParametersS3ManifestFileLocationInput interface {
 	pulumi.Input
 
@@ -3134,11 +3134,11 @@ func (i DataSourceParametersS3ManifestFileLocationArgs) ToDataSourceParametersS3
 // DataSourceParametersS3ManifestFileLocationPtrInput is an input type that accepts DataSourceParametersS3ManifestFileLocationArgs, DataSourceParametersS3ManifestFileLocationPtr and DataSourceParametersS3ManifestFileLocationPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersS3ManifestFileLocationPtrInput` via:
 //
-//          DataSourceParametersS3ManifestFileLocationArgs{...}
+//	        DataSourceParametersS3ManifestFileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersS3ManifestFileLocationPtrInput interface {
 	pulumi.Input
 
@@ -3250,7 +3250,7 @@ type DataSourceParametersServiceNow struct {
 // DataSourceParametersServiceNowInput is an input type that accepts DataSourceParametersServiceNowArgs and DataSourceParametersServiceNowOutput values.
 // You can construct a concrete instance of `DataSourceParametersServiceNowInput` via:
 //
-//          DataSourceParametersServiceNowArgs{...}
+//	DataSourceParametersServiceNowArgs{...}
 type DataSourceParametersServiceNowInput interface {
 	pulumi.Input
 
@@ -3286,11 +3286,11 @@ func (i DataSourceParametersServiceNowArgs) ToDataSourceParametersServiceNowPtrO
 // DataSourceParametersServiceNowPtrInput is an input type that accepts DataSourceParametersServiceNowArgs, DataSourceParametersServiceNowPtr and DataSourceParametersServiceNowPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersServiceNowPtrInput` via:
 //
-//          DataSourceParametersServiceNowArgs{...}
+//	        DataSourceParametersServiceNowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersServiceNowPtrInput interface {
 	pulumi.Input
 
@@ -3391,7 +3391,7 @@ type DataSourceParametersSnowflake struct {
 // DataSourceParametersSnowflakeInput is an input type that accepts DataSourceParametersSnowflakeArgs and DataSourceParametersSnowflakeOutput values.
 // You can construct a concrete instance of `DataSourceParametersSnowflakeInput` via:
 //
-//          DataSourceParametersSnowflakeArgs{...}
+//	DataSourceParametersSnowflakeArgs{...}
 type DataSourceParametersSnowflakeInput interface {
 	pulumi.Input
 
@@ -3431,11 +3431,11 @@ func (i DataSourceParametersSnowflakeArgs) ToDataSourceParametersSnowflakePtrOut
 // DataSourceParametersSnowflakePtrInput is an input type that accepts DataSourceParametersSnowflakeArgs, DataSourceParametersSnowflakePtr and DataSourceParametersSnowflakePtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersSnowflakePtrInput` via:
 //
-//          DataSourceParametersSnowflakeArgs{...}
+//	        DataSourceParametersSnowflakeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersSnowflakePtrInput interface {
 	pulumi.Input
 
@@ -3564,7 +3564,7 @@ type DataSourceParametersSpark struct {
 // DataSourceParametersSparkInput is an input type that accepts DataSourceParametersSparkArgs and DataSourceParametersSparkOutput values.
 // You can construct a concrete instance of `DataSourceParametersSparkInput` via:
 //
-//          DataSourceParametersSparkArgs{...}
+//	DataSourceParametersSparkArgs{...}
 type DataSourceParametersSparkInput interface {
 	pulumi.Input
 
@@ -3602,11 +3602,11 @@ func (i DataSourceParametersSparkArgs) ToDataSourceParametersSparkPtrOutputWithC
 // DataSourceParametersSparkPtrInput is an input type that accepts DataSourceParametersSparkArgs, DataSourceParametersSparkPtr and DataSourceParametersSparkPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersSparkPtrInput` via:
 //
-//          DataSourceParametersSparkArgs{...}
+//	        DataSourceParametersSparkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersSparkPtrInput interface {
 	pulumi.Input
 
@@ -3722,7 +3722,7 @@ type DataSourceParametersSqlServer struct {
 // DataSourceParametersSqlServerInput is an input type that accepts DataSourceParametersSqlServerArgs and DataSourceParametersSqlServerOutput values.
 // You can construct a concrete instance of `DataSourceParametersSqlServerInput` via:
 //
-//          DataSourceParametersSqlServerArgs{...}
+//	DataSourceParametersSqlServerArgs{...}
 type DataSourceParametersSqlServerInput interface {
 	pulumi.Input
 
@@ -3762,11 +3762,11 @@ func (i DataSourceParametersSqlServerArgs) ToDataSourceParametersSqlServerPtrOut
 // DataSourceParametersSqlServerPtrInput is an input type that accepts DataSourceParametersSqlServerArgs, DataSourceParametersSqlServerPtr and DataSourceParametersSqlServerPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersSqlServerPtrInput` via:
 //
-//          DataSourceParametersSqlServerArgs{...}
+//	        DataSourceParametersSqlServerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersSqlServerPtrInput interface {
 	pulumi.Input
 
@@ -3897,7 +3897,7 @@ type DataSourceParametersTeradata struct {
 // DataSourceParametersTeradataInput is an input type that accepts DataSourceParametersTeradataArgs and DataSourceParametersTeradataOutput values.
 // You can construct a concrete instance of `DataSourceParametersTeradataInput` via:
 //
-//          DataSourceParametersTeradataArgs{...}
+//	DataSourceParametersTeradataArgs{...}
 type DataSourceParametersTeradataInput interface {
 	pulumi.Input
 
@@ -3937,11 +3937,11 @@ func (i DataSourceParametersTeradataArgs) ToDataSourceParametersTeradataPtrOutpu
 // DataSourceParametersTeradataPtrInput is an input type that accepts DataSourceParametersTeradataArgs, DataSourceParametersTeradataPtr and DataSourceParametersTeradataPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersTeradataPtrInput` via:
 //
-//          DataSourceParametersTeradataArgs{...}
+//	        DataSourceParametersTeradataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersTeradataPtrInput interface {
 	pulumi.Input
 
@@ -4070,7 +4070,7 @@ type DataSourceParametersTwitter struct {
 // DataSourceParametersTwitterInput is an input type that accepts DataSourceParametersTwitterArgs and DataSourceParametersTwitterOutput values.
 // You can construct a concrete instance of `DataSourceParametersTwitterInput` via:
 //
-//          DataSourceParametersTwitterArgs{...}
+//	DataSourceParametersTwitterArgs{...}
 type DataSourceParametersTwitterInput interface {
 	pulumi.Input
 
@@ -4108,11 +4108,11 @@ func (i DataSourceParametersTwitterArgs) ToDataSourceParametersTwitterPtrOutputW
 // DataSourceParametersTwitterPtrInput is an input type that accepts DataSourceParametersTwitterArgs, DataSourceParametersTwitterPtr and DataSourceParametersTwitterPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersTwitterPtrInput` via:
 //
-//          DataSourceParametersTwitterArgs{...}
+//	        DataSourceParametersTwitterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersTwitterPtrInput interface {
 	pulumi.Input
 
@@ -4226,7 +4226,7 @@ type DataSourcePermission struct {
 // DataSourcePermissionInput is an input type that accepts DataSourcePermissionArgs and DataSourcePermissionOutput values.
 // You can construct a concrete instance of `DataSourcePermissionInput` via:
 //
-//          DataSourcePermissionArgs{...}
+//	DataSourcePermissionArgs{...}
 type DataSourcePermissionInput interface {
 	pulumi.Input
 
@@ -4256,7 +4256,7 @@ func (i DataSourcePermissionArgs) ToDataSourcePermissionOutputWithContext(ctx co
 // DataSourcePermissionArrayInput is an input type that accepts DataSourcePermissionArray and DataSourcePermissionArrayOutput values.
 // You can construct a concrete instance of `DataSourcePermissionArrayInput` via:
 //
-//          DataSourcePermissionArray{ DataSourcePermissionArgs{...} }
+//	DataSourcePermissionArray{ DataSourcePermissionArgs{...} }
 type DataSourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -4330,7 +4330,7 @@ type DataSourceSslProperties struct {
 // DataSourceSslPropertiesInput is an input type that accepts DataSourceSslPropertiesArgs and DataSourceSslPropertiesOutput values.
 // You can construct a concrete instance of `DataSourceSslPropertiesInput` via:
 //
-//          DataSourceSslPropertiesArgs{...}
+//	DataSourceSslPropertiesArgs{...}
 type DataSourceSslPropertiesInput interface {
 	pulumi.Input
 
@@ -4366,11 +4366,11 @@ func (i DataSourceSslPropertiesArgs) ToDataSourceSslPropertiesPtrOutputWithConte
 // DataSourceSslPropertiesPtrInput is an input type that accepts DataSourceSslPropertiesArgs, DataSourceSslPropertiesPtr and DataSourceSslPropertiesPtrOutput values.
 // You can construct a concrete instance of `DataSourceSslPropertiesPtrInput` via:
 //
-//          DataSourceSslPropertiesArgs{...}
+//	        DataSourceSslPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceSslPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -4467,7 +4467,7 @@ type DataSourceVpcConnectionProperties struct {
 // DataSourceVpcConnectionPropertiesInput is an input type that accepts DataSourceVpcConnectionPropertiesArgs and DataSourceVpcConnectionPropertiesOutput values.
 // You can construct a concrete instance of `DataSourceVpcConnectionPropertiesInput` via:
 //
-//          DataSourceVpcConnectionPropertiesArgs{...}
+//	DataSourceVpcConnectionPropertiesArgs{...}
 type DataSourceVpcConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -4503,11 +4503,11 @@ func (i DataSourceVpcConnectionPropertiesArgs) ToDataSourceVpcConnectionProperti
 // DataSourceVpcConnectionPropertiesPtrInput is an input type that accepts DataSourceVpcConnectionPropertiesArgs, DataSourceVpcConnectionPropertiesPtr and DataSourceVpcConnectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `DataSourceVpcConnectionPropertiesPtrInput` via:
 //
-//          DataSourceVpcConnectionPropertiesArgs{...}
+//	        DataSourceVpcConnectionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceVpcConnectionPropertiesPtrInput interface {
 	pulumi.Input
 

@@ -15,23 +15,20 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new Aws.NetworkManager.GlobalNetworkArgs
-    ///         {
-    ///         });
-    ///         var exampleSite = new Aws.NetworkManager.Site("exampleSite", new Aws.NetworkManager.SiteArgs
-    ///         {
-    ///             GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///         });
-    ///     }
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
     /// 
-    /// }
+    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +40,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/site:Site")]
-    public partial class Site : Pulumi.CustomResource
+    public partial class Site : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Site Amazon Resource Name (ARN)
@@ -119,7 +116,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class SiteArgs : Pulumi.ResourceArgs
+    public sealed class SiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the Site.
@@ -150,9 +147,10 @@ namespace Pulumi.Aws.NetworkManager
         public SiteArgs()
         {
         }
+        public static new SiteArgs Empty => new SiteArgs();
     }
 
-    public sealed class SiteState : Pulumi.ResourceArgs
+    public sealed class SiteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Site Amazon Resource Name (ARN)
@@ -197,5 +195,6 @@ namespace Pulumi.Aws.NetworkManager
         public SiteState()
         {
         }
+        public static new SiteState Empty => new SiteState();
     }
 }

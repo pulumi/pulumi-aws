@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.TimestreamWrite.Inputs
 {
 
-    public sealed class TableMagneticStoreWritePropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class TableMagneticStoreWritePropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to enable magnetic store writes.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
         public TableMagneticStoreWritePropertiesGetArgs()
         {
         }
+        public static new TableMagneticStoreWritePropertiesGetArgs Empty => new TableMagneticStoreWritePropertiesGetArgs();
     }
 }

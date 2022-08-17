@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceCredentialsCredentialPairGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceCredentialsCredentialPairGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password, maximum length of 1024 characters.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceCredentialsCredentialPairGetArgs()
         {
         }
+        public static new DataSourceCredentialsCredentialPairGetArgs Empty => new DataSourceCredentialsCredentialPairGetArgs();
     }
 }

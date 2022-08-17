@@ -17,35 +17,33 @@ namespace Pulumi.Aws.Sagemaker
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.FeatureGroup("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.FeatureGroup("example", new Aws.Sagemaker.FeatureGroupArgs
+    ///         FeatureGroupName = "example",
+    ///         RecordIdentifierFeatureName = "example",
+    ///         EventTimeFeatureName = "example",
+    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         FeatureDefinitions = new[]
     ///         {
-    ///             FeatureGroupName = "example",
-    ///             RecordIdentifierFeatureName = "example",
-    ///             EventTimeFeatureName = "example",
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///             FeatureDefinitions = 
+    ///             new Aws.Sagemaker.Inputs.FeatureGroupFeatureDefinitionArgs
     ///             {
-    ///                 new Aws.Sagemaker.Inputs.FeatureGroupFeatureDefinitionArgs
-    ///                 {
-    ///                     FeatureName = "example",
-    ///                     FeatureType = "String",
-    ///                 },
+    ///                 FeatureName = "example",
+    ///                 FeatureType = "String",
     ///             },
-    ///             OnlineStoreConfig = new Aws.Sagemaker.Inputs.FeatureGroupOnlineStoreConfigArgs
-    ///             {
-    ///                 EnableOnlineStore = true,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         OnlineStoreConfig = new Aws.Sagemaker.Inputs.FeatureGroupOnlineStoreConfigArgs
+    ///         {
+    ///             EnableOnlineStore = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/featureGroup:FeatureGroup")]
-    public partial class FeatureGroup : Pulumi.CustomResource
+    public partial class FeatureGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -169,7 +167,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class FeatureGroupArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A free-form description of a Feature Group.
@@ -240,9 +238,10 @@ namespace Pulumi.Aws.Sagemaker
         public FeatureGroupArgs()
         {
         }
+        public static new FeatureGroupArgs Empty => new FeatureGroupArgs();
     }
 
-    public sealed class FeatureGroupState : Pulumi.ResourceArgs
+    public sealed class FeatureGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
@@ -320,7 +319,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -331,5 +330,6 @@ namespace Pulumi.Aws.Sagemaker
         public FeatureGroupState()
         {
         }
+        public static new FeatureGroupState Empty => new FeatureGroupState();
     }
 }

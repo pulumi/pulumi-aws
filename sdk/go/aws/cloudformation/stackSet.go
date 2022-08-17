@@ -22,99 +22,104 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"sts:AssumeRole",
-// 					},
-// 					Effect: pulumi.StringRef("Allow"),
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Identifiers: []string{
-// 								"cloudformation.amazonaws.com",
-// 							},
-// 							Type: "Service",
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		aWSCloudFormationStackSetAdministrationRole, err := iam.NewRole(ctx, "aWSCloudFormationStackSetAdministrationRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := cloudformation.NewStackSet(ctx, "example", &cloudformation.StackSetArgs{
-// 			AdministrationRoleArn: aWSCloudFormationStackSetAdministrationRole.Arn,
-// 			Parameters: pulumi.StringMap{
-// 				"VPCCidr": pulumi.String("10.0.0.0/16"),
-// 			},
-// 			TemplateBody: pulumi.String(fmt.Sprintf(`{
-//   "Parameters" : {
-//     "VPCCidr" : {
-//       "Type" : "String",
-//       "Default" : "10.0.0.0/16",
-//       "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
-//     }
-//   },
-//   "Resources" : {
-//     "myVpc": {
-//       "Type" : "AWS::EC2::VPC",
-//       "Properties" : {
-//         "CidrBlock" : { "Ref" : "VPCCidr" },
-//         "Tags" : [
-//           {"Key": "Name", "Value": "Primary_CF_VPC"}
-//         ]
-//       }
-//     }
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Identifiers: []string{
+//									"cloudformation.amazonaws.com",
+//								},
+//								Type: "Service",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			aWSCloudFormationStackSetAdministrationRole, err := iam.NewRole(ctx, "aWSCloudFormationStackSetAdministrationRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := cloudformation.NewStackSet(ctx, "example", &cloudformation.StackSetArgs{
+//				AdministrationRoleArn: aWSCloudFormationStackSetAdministrationRole.Arn,
+//				Parameters: pulumi.StringMap{
+//					"VPCCidr": pulumi.String("10.0.0.0/16"),
+//				},
+//				TemplateBody: pulumi.String(fmt.Sprintf(`{
+//	  "Parameters" : {
+//	    "VPCCidr" : {
+//	      "Type" : "String",
+//	      "Default" : "10.0.0.0/16",
+//	      "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
+//	    }
+//	  },
+//	  "Resources" : {
+//	    "myVpc": {
+//	      "Type" : "AWS::EC2::VPC",
+//	      "Properties" : {
+//	        "CidrBlock" : { "Ref" : "VPCCidr" },
+//	        "Tags" : [
+//	          {"Key": "Name", "Value": "Primary_CF_VPC"}
+//	        ]
+//	      }
+//	    }
+//	  }
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// 			Statements: iam.GetPolicyDocumentStatementArray{
-// 				&iam.GetPolicyDocumentStatementArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("sts:AssumeRole"),
-// 					},
-// 					Effect: pulumi.String("Allow"),
-// 					Resources: pulumi.StringArray{
-// 						example.ExecutionRoleName.ApplyT(func(executionRoleName string) (string, error) {
-// 							return fmt.Sprintf("arn:aws:iam::*:role/%v", executionRoleName), nil
-// 						}).(pulumi.StringOutput),
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		_, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
-// 			Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-// 				return aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json, nil
-// 			}).(pulumi.StringOutput),
-// 			Role: aWSCloudFormationStackSetAdministrationRole.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRole"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Resources: pulumi.StringArray{
+//							example.ExecutionRoleName.ApplyT(func(executionRoleName string) (string, error) {
+//								return fmt.Sprintf("arn:aws:iam::*:role/%v", executionRoleName), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
+//				Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+//					return aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json, nil
+//				}).(pulumi.StringOutput),
+//				Role: aWSCloudFormationStackSetAdministrationRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -122,7 +127,9 @@ import (
 // CloudFormation StackSets can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+//
+//	$ pulumi import aws:cloudformation/stackSet:StackSet example example
+//
 // ```
 type StackSet struct {
 	pulumi.CustomResourceState
@@ -153,7 +160,7 @@ type StackSet struct {
 	StackSetId pulumi.StringOutput `pulumi:"stackSetId"`
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
@@ -216,7 +223,7 @@ type stackSetState struct {
 	StackSetId *string `pulumi:"stackSetId"`
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -251,7 +258,7 @@ type StackSetState struct {
 	StackSetId pulumi.StringPtrInput
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
 	TemplateBody pulumi.StringPtrInput
@@ -348,7 +355,7 @@ func (i *StackSet) ToStackSetOutputWithContext(ctx context.Context) StackSetOutp
 // StackSetArrayInput is an input type that accepts StackSetArray and StackSetArrayOutput values.
 // You can construct a concrete instance of `StackSetArrayInput` via:
 //
-//          StackSetArray{ StackSetArgs{...} }
+//	StackSetArray{ StackSetArgs{...} }
 type StackSetArrayInput interface {
 	pulumi.Input
 
@@ -373,7 +380,7 @@ func (i StackSetArray) ToStackSetArrayOutputWithContext(ctx context.Context) Sta
 // StackSetMapInput is an input type that accepts StackSetMap and StackSetMapOutput values.
 // You can construct a concrete instance of `StackSetMapInput` via:
 //
-//          StackSetMap{ "key": StackSetArgs{...} }
+//	StackSetMap{ "key": StackSetArgs{...} }
 type StackSetMapInput interface {
 	pulumi.Input
 
@@ -474,7 +481,7 @@ func (o StackSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StackSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

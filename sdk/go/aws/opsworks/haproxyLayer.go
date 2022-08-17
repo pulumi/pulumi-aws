@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewHaproxyLayer(ctx, "lb", &opsworks.HaproxyLayerArgs{
-// 			StackId:       pulumi.Any(aws_opsworks_stack.Main.Id),
-// 			StatsPassword: pulumi.String("foobarbaz"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewHaproxyLayer(ctx, "lb", &opsworks.HaproxyLayerArgs{
+//				StackId:       pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StatsPassword: pulumi.String("foobarbaz"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type HaproxyLayer struct {
 	pulumi.CustomResourceState
@@ -89,7 +92,7 @@ type HaproxyLayer struct {
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -180,7 +183,7 @@ type haproxyLayerState struct {
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -237,7 +240,7 @@ type HaproxyLayerState struct {
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -380,7 +383,7 @@ func (i *HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) Hapr
 // HaproxyLayerArrayInput is an input type that accepts HaproxyLayerArray and HaproxyLayerArrayOutput values.
 // You can construct a concrete instance of `HaproxyLayerArrayInput` via:
 //
-//          HaproxyLayerArray{ HaproxyLayerArgs{...} }
+//	HaproxyLayerArray{ HaproxyLayerArgs{...} }
 type HaproxyLayerArrayInput interface {
 	pulumi.Input
 
@@ -405,7 +408,7 @@ func (i HaproxyLayerArray) ToHaproxyLayerArrayOutputWithContext(ctx context.Cont
 // HaproxyLayerMapInput is an input type that accepts HaproxyLayerMap and HaproxyLayerMapOutput values.
 // You can construct a concrete instance of `HaproxyLayerMapInput` via:
 //
-//          HaproxyLayerMap{ "key": HaproxyLayerArgs{...} }
+//	HaproxyLayerMap{ "key": HaproxyLayerArgs{...} }
 type HaproxyLayerMapInput interface {
 	pulumi.Input
 
@@ -575,7 +578,7 @@ func (o HaproxyLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HaproxyLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleExistingObjectReplicationArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleExistingObjectReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleExistingObjectReplicationArgs()
         {
         }
+        public static new BucketReplicationConfigRuleExistingObjectReplicationArgs Empty => new BucketReplicationConfigRuleExistingObjectReplicationArgs();
     }
 }

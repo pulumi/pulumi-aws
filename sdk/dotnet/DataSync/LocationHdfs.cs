@@ -17,33 +17,31 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.LocationHdfs("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.LocationHdfs("example", new Aws.DataSync.LocationHdfsArgs
+    ///         AgentArns = new[]
     ///         {
-    ///             AgentArns = 
+    ///             aws_datasync_agent.Example.Arn,
+    ///         },
+    ///         AuthenticationType = "SIMPLE",
+    ///         SimpleUser = "example",
+    ///         NameNodes = new[]
+    ///         {
+    ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
     ///             {
-    ///                 aws_datasync_agent.Example.Arn,
+    ///                 Hostname = aws_instance.Example.Private_dns,
+    ///                 Port = 80,
     ///             },
-    ///             AuthenticationType = "SIMPLE",
-    ///             SimpleUser = "example",
-    ///             NameNodes = 
-    ///             {
-    ///                 new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
-    ///                 {
-    ///                     Hostname = aws_instance.Example.Private_dns,
-    ///                     Port = 80,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationHdfs:LocationHdfs")]
-    public partial class LocationHdfs : Pulumi.CustomResource
+    public partial class LocationHdfs : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
@@ -141,9 +139,6 @@ namespace Pulumi.Aws.DataSync
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -194,7 +189,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class LocationHdfsArgs : Pulumi.ResourceArgs
+    public sealed class LocationHdfsArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
@@ -295,9 +290,10 @@ namespace Pulumi.Aws.DataSync
         public LocationHdfsArgs()
         {
         }
+        public static new LocationHdfsArgs Empty => new LocationHdfsArgs();
     }
 
-    public sealed class LocationHdfsState : Pulumi.ResourceArgs
+    public sealed class LocationHdfsState : global::Pulumi.ResourceArgs
     {
         [Input("agentArns")]
         private InputList<string>? _agentArns;
@@ -403,10 +399,6 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -419,5 +411,6 @@ namespace Pulumi.Aws.DataSync
         public LocationHdfsState()
         {
         }
+        public static new LocationHdfsState Empty => new LocationHdfsState();
     }
 }

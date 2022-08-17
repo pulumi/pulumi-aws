@@ -17,37 +17,36 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///         });
-    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
-    ///         {
-    ///             BgpAsn = "65000",
-    ///             IpAddress = "172.0.0.1",
-    ///             Type = "ipsec.1",
-    ///         });
-    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
-    ///         {
-    ///             CustomerGatewayId = exampleCustomerGateway.Id,
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             Type = exampleCustomerGateway.Type,
-    ///         });
-    ///         var exampleTag = new Aws.Ec2.Tag("exampleTag", new Aws.Ec2.TagArgs
-    ///         {
-    ///             ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
-    ///             Key = "Name",
-    ///             Value = "Hello World",
-    ///         });
-    ///     }
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
     /// 
-    /// }
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     {
+    ///         CustomerGatewayId = exampleCustomerGateway.Id,
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         Type = exampleCustomerGateway.Type,
+    ///     });
+    /// 
+    ///     var exampleTag = new Aws.Ec2.Tag("exampleTag", new()
+    ///     {
+    ///         ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
+    ///         Key = "Name",
+    ///         Value = "Hello World",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +58,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/tag:Tag")]
-    public partial class Tag : Pulumi.CustomResource
+    public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The tag name.
@@ -123,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class TagArgs : Pulumi.ResourceArgs
+    public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag name.
@@ -146,9 +145,10 @@ namespace Pulumi.Aws.Ec2
         public TagArgs()
         {
         }
+        public static new TagArgs Empty => new TagArgs();
     }
 
-    public sealed class TagState : Pulumi.ResourceArgs
+    public sealed class TagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag name.
@@ -171,5 +171,6 @@ namespace Pulumi.Aws.Ec2
         public TagState()
         {
         }
+        public static new TagState Empty => new TagState();
     }
 }

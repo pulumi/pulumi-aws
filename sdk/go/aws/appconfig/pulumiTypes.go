@@ -20,7 +20,7 @@ type ConfigurationProfileValidator struct {
 // ConfigurationProfileValidatorInput is an input type that accepts ConfigurationProfileValidatorArgs and ConfigurationProfileValidatorOutput values.
 // You can construct a concrete instance of `ConfigurationProfileValidatorInput` via:
 //
-//          ConfigurationProfileValidatorArgs{...}
+//	ConfigurationProfileValidatorArgs{...}
 type ConfigurationProfileValidatorInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ConfigurationProfileValidatorArgs) ToConfigurationProfileValidatorOutput
 // ConfigurationProfileValidatorArrayInput is an input type that accepts ConfigurationProfileValidatorArray and ConfigurationProfileValidatorArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileValidatorArrayInput` via:
 //
-//          ConfigurationProfileValidatorArray{ ConfigurationProfileValidatorArgs{...} }
+//	ConfigurationProfileValidatorArray{ ConfigurationProfileValidatorArgs{...} }
 type ConfigurationProfileValidatorArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type EnvironmentMonitor struct {
 // EnvironmentMonitorInput is an input type that accepts EnvironmentMonitorArgs and EnvironmentMonitorOutput values.
 // You can construct a concrete instance of `EnvironmentMonitorInput` via:
 //
-//          EnvironmentMonitorArgs{...}
+//	EnvironmentMonitorArgs{...}
 type EnvironmentMonitorInput interface {
 	pulumi.Input
 
@@ -156,7 +156,7 @@ func (i EnvironmentMonitorArgs) ToEnvironmentMonitorOutputWithContext(ctx contex
 // EnvironmentMonitorArrayInput is an input type that accepts EnvironmentMonitorArray and EnvironmentMonitorArrayOutput values.
 // You can construct a concrete instance of `EnvironmentMonitorArrayInput` via:
 //
-//          EnvironmentMonitorArray{ EnvironmentMonitorArgs{...} }
+//	EnvironmentMonitorArray{ EnvironmentMonitorArgs{...} }
 type EnvironmentMonitorArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type EventIntegrationEventFilter struct {
 // EventIntegrationEventFilterInput is an input type that accepts EventIntegrationEventFilterArgs and EventIntegrationEventFilterOutput values.
 // You can construct a concrete instance of `EventIntegrationEventFilterInput` via:
 //
-//          EventIntegrationEventFilterArgs{...}
+//	EventIntegrationEventFilterArgs{...}
 type EventIntegrationEventFilterInput interface {
 	pulumi.Input
 
@@ -266,11 +266,11 @@ func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterPtrOutputW
 // EventIntegrationEventFilterPtrInput is an input type that accepts EventIntegrationEventFilterArgs, EventIntegrationEventFilterPtr and EventIntegrationEventFilterPtrOutput values.
 // You can construct a concrete instance of `EventIntegrationEventFilterPtrInput` via:
 //
-//          EventIntegrationEventFilterArgs{...}
+//	        EventIntegrationEventFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventIntegrationEventFilterPtrInput interface {
 	pulumi.Input
 

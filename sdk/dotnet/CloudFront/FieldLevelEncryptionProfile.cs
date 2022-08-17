@@ -15,44 +15,43 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.PublicKey("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.PublicKey("example", new Aws.CloudFront.PublicKeyArgs
+    ///         Comment = "test public key",
+    ///         EncodedKey = File.ReadAllText("public_key.pem"),
+    ///     });
+    /// 
+    ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()
+    ///     {
+    ///         Comment = "test comment",
+    ///         EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
     ///         {
-    ///             Comment = "test public key",
-    ///             EncodedKey = File.ReadAllText("public_key.pem"),
-    ///         });
-    ///         var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new Aws.CloudFront.FieldLevelEncryptionProfileArgs
-    ///         {
-    ///             Comment = "test comment",
-    ///             EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
+    ///             Items = new[]
     ///             {
-    ///                 Items = 
+    ///                 new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs
     ///                 {
-    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs
+    ///                     PublicKeyId = example.Id,
+    ///                     ProviderId = "test provider",
+    ///                     FieldPatterns = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs
     ///                     {
-    ///                         PublicKeyId = example.Id,
-    ///                         ProviderId = "test provider",
-    ///                         FieldPatterns = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs
+    ///                         Items = new[]
     ///                         {
-    ///                             Items = 
-    ///                             {
-    ///                                 "DateOfBirth",
-    ///                             },
+    ///                             "DateOfBirth",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +63,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")]
-    public partial class FieldLevelEncryptionProfile : Pulumi.CustomResource
+    public partial class FieldLevelEncryptionProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
@@ -140,7 +139,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class FieldLevelEncryptionProfileArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional comment about the Field Level Encryption Profile.
@@ -163,9 +162,10 @@ namespace Pulumi.Aws.CloudFront
         public FieldLevelEncryptionProfileArgs()
         {
         }
+        public static new FieldLevelEncryptionProfileArgs Empty => new FieldLevelEncryptionProfileArgs();
     }
 
-    public sealed class FieldLevelEncryptionProfileState : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
@@ -200,5 +200,6 @@ namespace Pulumi.Aws.CloudFront
         public FieldLevelEncryptionProfileState()
         {
         }
+        public static new FieldLevelEncryptionProfileState Empty => new FieldLevelEncryptionProfileState();
     }
 }

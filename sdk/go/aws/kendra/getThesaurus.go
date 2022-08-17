@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kendra.LookupThesaurus(ctx, &kendra.LookupThesaurusArgs{
-// 			IndexId:     "12345678-1234-1234-1234-123456789123",
-// 			ThesaurusId: "87654321-1234-4321-4321-321987654321",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.LookupThesaurus(ctx, &kendra.LookupThesaurusArgs{
+//				IndexId:     "12345678-1234-1234-1234-123456789123",
+//				ThesaurusId: "87654321-1234-4321-4321-321987654321",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pulumi.InvokeOption) (*LookupThesaurusResult, error) {
 	var rv LookupThesaurusResult

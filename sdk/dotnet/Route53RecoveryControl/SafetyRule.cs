@@ -15,63 +15,59 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryControl.SafetyRule("example", new Aws.Route53RecoveryControl.SafetyRuleArgs
+    ///         AssertedControls = new[]
     ///         {
-    ///             AssertedControls = 
-    ///             {
-    ///                 aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///             },
-    ///             ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///             WaitPeriodMs = 5000,
-    ///             RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///             {
-    ///                 Inverted = false,
-    ///                 Threshold = 1,
-    ///                 Type = "ATLEAST",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///         },
+    ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+    ///         WaitPeriodMs = 5000,
+    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
+    ///         {
+    ///             Inverted = false,
+    ///             Threshold = 1,
+    ///             Type = "ATLEAST",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryControl.SafetyRule("example", new Aws.Route53RecoveryControl.SafetyRuleArgs
+    ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+    ///         WaitPeriodMs = 5000,
+    ///         GatingControls = new[]
     ///         {
-    ///             ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///             WaitPeriodMs = 5000,
-    ///             GatingControls = 
-    ///             {
-    ///                 aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///             },
-    ///             TargetControls = 
-    ///             {
-    ///                 aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///             },
-    ///             RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///             {
-    ///                 Inverted = false,
-    ///                 Threshold = 1,
-    ///                 Type = "ATLEAST",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///         },
+    ///         TargetControls = new[]
+    ///         {
+    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///         },
+    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
+    ///         {
+    ///             Inverted = false,
+    ///             Threshold = 1,
+    ///             Type = "ATLEAST",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +79,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/safetyRule:SafetyRule")]
-    public partial class SafetyRule : Pulumi.CustomResource
+    public partial class SafetyRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the safety rule.
@@ -183,7 +179,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         }
     }
 
-    public sealed class SafetyRuleArgs : Pulumi.ResourceArgs
+    public sealed class SafetyRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("assertedControls")]
         private InputList<string>? _assertedControls;
@@ -248,9 +244,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public SafetyRuleArgs()
         {
         }
+        public static new SafetyRuleArgs Empty => new SafetyRuleArgs();
     }
 
-    public sealed class SafetyRuleState : Pulumi.ResourceArgs
+    public sealed class SafetyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the safety rule.
@@ -327,5 +324,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public SafetyRuleState()
         {
         }
+        public static new SafetyRuleState Empty => new SafetyRuleState();
     }
 }

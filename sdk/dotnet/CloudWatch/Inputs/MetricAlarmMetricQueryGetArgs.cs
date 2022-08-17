@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class MetricAlarmMetricQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlarmMetricQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the account where the metrics are located, if this is a cross-account alarm.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public MetricAlarmMetricQueryGetArgs()
         {
         }
+        public static new MetricAlarmMetricQueryGetArgs Empty => new MetricAlarmMetricQueryGetArgs();
     }
 }

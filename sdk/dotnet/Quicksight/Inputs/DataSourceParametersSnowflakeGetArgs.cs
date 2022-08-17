@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersSnowflakeGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersSnowflakeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The database to which to connect.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersSnowflakeGetArgs()
         {
         }
+        public static new DataSourceParametersSnowflakeGetArgs Empty => new DataSourceParametersSnowflakeGetArgs();
     }
 }

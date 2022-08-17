@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synthetics.NewCanary(ctx, "some", &synthetics.CanaryArgs{
-// 			ArtifactS3Location: pulumi.String("s3://some-bucket/"),
-// 			ExecutionRoleArn:   pulumi.String("some-role"),
-// 			Handler:            pulumi.String("exports.handler"),
-// 			RuntimeVersion:     pulumi.String("syn-1.0"),
-// 			Schedule: &synthetics.CanaryScheduleArgs{
-// 				Expression: pulumi.String("rate(0 minute)"),
-// 			},
-// 			ZipFile: pulumi.String("test-fixtures/lambdatest.zip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewCanary(ctx, "some", &synthetics.CanaryArgs{
+//				ArtifactS3Location: pulumi.String("s3://some-bucket/"),
+//				ExecutionRoleArn:   pulumi.String("some-role"),
+//				Handler:            pulumi.String("exports.handler"),
+//				RuntimeVersion:     pulumi.String("syn-1.0"),
+//				Schedule: &synthetics.CanaryScheduleArgs{
+//					Expression: pulumi.String("rate(0 minute)"),
+//				},
+//				ZipFile: pulumi.String("test-fixtures/lambdatest.zip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Synthetics Canaries can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:synthetics/canary:Canary some some-canary
+//
+//	$ pulumi import aws:synthetics/canary:Canary some some-canary
+//
 // ```
 type Canary struct {
 	pulumi.CustomResourceState
@@ -95,7 +100,7 @@ type Canary struct {
 	SuccessRetentionPeriod pulumi.IntPtrOutput `pulumi:"successRetentionPeriod"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines CanaryTimelineArrayOutput `pulumi:"timelines"`
@@ -189,7 +194,7 @@ type canaryState struct {
 	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines []CanaryTimeline `pulumi:"timelines"`
@@ -240,7 +245,7 @@ type CanaryState struct {
 	SuccessRetentionPeriod pulumi.IntPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines CanaryTimelineArrayInput
@@ -359,7 +364,7 @@ func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 // CanaryArrayInput is an input type that accepts CanaryArray and CanaryArrayOutput values.
 // You can construct a concrete instance of `CanaryArrayInput` via:
 //
-//          CanaryArray{ CanaryArgs{...} }
+//	CanaryArray{ CanaryArgs{...} }
 type CanaryArrayInput interface {
 	pulumi.Input
 
@@ -384,7 +389,7 @@ func (i CanaryArray) ToCanaryArrayOutputWithContext(ctx context.Context) CanaryA
 // CanaryMapInput is an input type that accepts CanaryMap and CanaryMapOutput values.
 // You can construct a concrete instance of `CanaryMapInput` via:
 //
-//          CanaryMap{ "key": CanaryArgs{...} }
+//	CanaryMap{ "key": CanaryArgs{...} }
 type CanaryMapInput interface {
 	pulumi.Input
 
@@ -520,7 +525,7 @@ func (o CanaryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CanaryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

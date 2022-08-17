@@ -10,11 +10,14 @@ import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
 import com.pulumi.aws.wafregional.inputs.GetRateBasedModPlainArgs;
 import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
 import com.pulumi.aws.wafregional.inputs.GetRulePlainArgs;
+import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
+import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupPlainArgs;
 import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
 import com.pulumi.aws.wafregional.inputs.GetWebAclPlainArgs;
 import com.pulumi.aws.wafregional.outputs.GetIpsetResult;
 import com.pulumi.aws.wafregional.outputs.GetRateBasedModResult;
 import com.pulumi.aws.wafregional.outputs.GetRuleResult;
+import com.pulumi.aws.wafregional.outputs.GetSubscribedRuleGroupResult;
 import com.pulumi.aws.wafregional.outputs.GetWebAclResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -466,6 +469,354 @@ public final class WafregionalFunctions {
      */
     public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:wafregional/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.WebAcl;
+     * import com.pulumi.aws.wafregional.WebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .build());
+     * 
+     *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .build());
+     * 
+     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *             .rules(            
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(1)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build(),
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(2)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSubscribedRuleGroupResult> getSubscribedRuleGroup() {
+        return getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.WebAcl;
+     * import com.pulumi.aws.wafregional.WebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .build());
+     * 
+     *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .build());
+     * 
+     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *             .rules(            
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(1)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build(),
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(2)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSubscribedRuleGroupResult> getSubscribedRuleGroupPlain() {
+        return getSubscribedRuleGroupPlain(GetSubscribedRuleGroupPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.WebAcl;
+     * import com.pulumi.aws.wafregional.WebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .build());
+     * 
+     *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .build());
+     * 
+     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *             .rules(            
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(1)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build(),
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(2)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSubscribedRuleGroupResult> getSubscribedRuleGroup(GetSubscribedRuleGroupArgs args) {
+        return getSubscribedRuleGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.WebAcl;
+     * import com.pulumi.aws.wafregional.WebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .build());
+     * 
+     *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .build());
+     * 
+     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *             .rules(            
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(1)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build(),
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(2)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSubscribedRuleGroupResult> getSubscribedRuleGroupPlain(GetSubscribedRuleGroupPlainArgs args) {
+        return getSubscribedRuleGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.WebAcl;
+     * import com.pulumi.aws.wafregional.WebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .build());
+     * 
+     *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .build());
+     * 
+     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *             .rules(            
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(1)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build(),
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(2)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSubscribedRuleGroupResult> getSubscribedRuleGroup(GetSubscribedRuleGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", TypeShape.of(GetSubscribedRuleGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.WebAcl;
+     * import com.pulumi.aws.wafregional.WebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .build());
+     * 
+     *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
+     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .build());
+     * 
+     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *             .rules(            
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(1)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build(),
+     *                 WebAclRuleArgs.builder()
+     *                     .priority(2)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
+     *                     .type(&#34;GROUP&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSubscribedRuleGroupResult> getSubscribedRuleGroupPlain(GetSubscribedRuleGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", TypeShape.of(GetSubscribedRuleGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleRuleLabelGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleRuleLabelGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Label string.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleRuleLabelGetArgs()
         {
         }
+        public static new WebAclRuleRuleLabelGetArgs Empty => new WebAclRuleRuleLabelGetArgs();
     }
 }

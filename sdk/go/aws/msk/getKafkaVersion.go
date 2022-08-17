@@ -18,31 +18,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
-// 			PreferredVersions: []string{
-// 				"2.4.1.1",
-// 				"2.4.1",
-// 				"2.2.1",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
-// 			Version: pulumi.StringRef("2.8.0"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
+//				PreferredVersions: []string{
+//					"2.4.1.1",
+//					"2.4.1",
+//					"2.2.1",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
+//				Version: pulumi.StringRef("2.8.0"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetKafkaVersion(ctx *pulumi.Context, args *GetKafkaVersionArgs, opts ...pulumi.InvokeOption) (*GetKafkaVersionResult, error) {
 	var rv GetKafkaVersionResult

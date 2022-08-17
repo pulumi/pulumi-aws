@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/taskSet:TaskSet")]
-    public partial class TaskSet : Pulumi.CustomResource
+    public partial class TaskSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the task set.
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class TaskSetArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.TaskSetCapacityProviderStrategyArgs>? _capacityProviderStrategies;
@@ -286,9 +286,10 @@ namespace Pulumi.Aws.Ecs
         public TaskSetArgs()
         {
         }
+        public static new TaskSetArgs Empty => new TaskSetArgs();
     }
 
-    public sealed class TaskSetState : Pulumi.ResourceArgs
+    public sealed class TaskSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the task set.
@@ -431,5 +432,6 @@ namespace Pulumi.Aws.Ecs
         public TaskSetState()
         {
         }
+        public static new TaskSetState Empty => new TaskSetState();
     }
 }

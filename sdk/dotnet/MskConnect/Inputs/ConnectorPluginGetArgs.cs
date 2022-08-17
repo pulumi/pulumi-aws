@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorPluginGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorPluginGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details about a custom plugin. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorPluginGetArgs()
         {
         }
+        public static new ConnectorPluginGetArgs Empty => new ConnectorPluginGetArgs();
     }
 }

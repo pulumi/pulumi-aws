@@ -18,34 +18,33 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var oauthConfig = new Aws.Kms.Key("oauthConfig", new()
     ///     {
-    ///         var oauthConfig = new Aws.Kms.Key("oauthConfig", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "oauth config",
-    ///             IsEnabled = true,
-    ///         });
-    ///         var oauth = new Aws.Kms.Ciphertext("oauth", new Aws.Kms.CiphertextArgs
-    ///         {
-    ///             KeyId = oauthConfig.KeyId,
-    ///             Plaintext = @"{
+    ///         Description = "oauth config",
+    ///         IsEnabled = true,
+    ///     });
+    /// 
+    ///     var oauth = new Aws.Kms.Ciphertext("oauth", new()
+    ///     {
+    ///         KeyId = oauthConfig.KeyId,
+    ///         Plaintext = @"{
     ///   ""client_id"": ""e587dbae22222f55da22"",
     ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/ciphertext:Ciphertext")]
-    public partial class Ciphertext : Pulumi.CustomResource
+    public partial class Ciphertext : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Base64 encoded ciphertext
@@ -115,7 +114,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class CiphertextArgs : Pulumi.ResourceArgs
+    public sealed class CiphertextArgs : global::Pulumi.ResourceArgs
     {
         [Input("context")]
         private InputMap<string>? _context;
@@ -144,9 +143,10 @@ namespace Pulumi.Aws.Kms
         public CiphertextArgs()
         {
         }
+        public static new CiphertextArgs Empty => new CiphertextArgs();
     }
 
-    public sealed class CiphertextState : Pulumi.ResourceArgs
+    public sealed class CiphertextState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64 encoded ciphertext
@@ -181,5 +181,6 @@ namespace Pulumi.Aws.Kms
         public CiphertextState()
         {
         }
+        public static new CiphertextState Empty => new CiphertextState();
     }
 }

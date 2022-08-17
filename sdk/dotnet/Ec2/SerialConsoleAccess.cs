@@ -13,20 +13,18 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.SerialConsoleAccess("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.SerialConsoleAccess("example", new Aws.Ec2.SerialConsoleAccessArgs
-    ///         {
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         Enabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/serialConsoleAccess:SerialConsoleAccess")]
-    public partial class SerialConsoleAccess : Pulumi.CustomResource
+    public partial class SerialConsoleAccess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -90,7 +88,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SerialConsoleAccessArgs : Pulumi.ResourceArgs
+    public sealed class SerialConsoleAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -101,9 +99,10 @@ namespace Pulumi.Aws.Ec2
         public SerialConsoleAccessArgs()
         {
         }
+        public static new SerialConsoleAccessArgs Empty => new SerialConsoleAccessArgs();
     }
 
-    public sealed class SerialConsoleAccessState : Pulumi.ResourceArgs
+    public sealed class SerialConsoleAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -114,5 +113,6 @@ namespace Pulumi.Aws.Ec2
         public SerialConsoleAccessState()
         {
         }
+        public static new SerialConsoleAccessState Empty => new SerialConsoleAccessState();
     }
 }

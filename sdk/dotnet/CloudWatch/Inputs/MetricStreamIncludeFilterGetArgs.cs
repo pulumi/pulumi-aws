@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class MetricStreamIncludeFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamIncludeFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The namespace of the metric.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public MetricStreamIncludeFilterGetArgs()
         {
         }
+        public static new MetricStreamIncludeFilterGetArgs Empty => new MetricStreamIncludeFilterGetArgs();
     }
 }

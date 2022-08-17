@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint.Inputs
 {
 
-    public sealed class AppLimitsGetArgs : Pulumi.ResourceArgs
+    public sealed class AppLimitsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of messages that the campaign can send daily.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         public AppLimitsGetArgs()
         {
         }
+        public static new AppLimitsGetArgs Empty => new AppLimitsGetArgs();
     }
 }

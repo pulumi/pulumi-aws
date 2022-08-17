@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
-// 			JunctionPath:             pulumi.String("/test"),
-// 			SizeInMegabytes:          pulumi.Int(1024),
-// 			StorageEfficiencyEnabled: pulumi.Bool(true),
-// 			StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				JunctionPath:             pulumi.String("/test"),
+//				SizeInMegabytes:          pulumi.Int(1024),
+//				StorageEfficiencyEnabled: pulumi.Bool(true),
+//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using Tiering Policy
 //
@@ -48,28 +51,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
-// 			JunctionPath:             pulumi.String("/test"),
-// 			SizeInMegabytes:          pulumi.Int(1024),
-// 			StorageEfficiencyEnabled: pulumi.Bool(true),
-// 			StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
-// 			TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
-// 				Name:          pulumi.String("AUTO"),
-// 				CoolingPeriod: pulumi.Int(31),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				JunctionPath:             pulumi.String("/test"),
+//				SizeInMegabytes:          pulumi.Int(1024),
+//				StorageEfficiencyEnabled: pulumi.Bool(true),
+//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
+//					Name:          pulumi.String("AUTO"),
+//					CoolingPeriod: pulumi.Int(31),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +83,9 @@ import (
 // FSx ONTAP volume can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+//
+//	$ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+//
 // ```
 type OntapVolume struct {
 	pulumi.CustomResourceState
@@ -288,7 +296,7 @@ func (i *OntapVolume) ToOntapVolumeOutputWithContext(ctx context.Context) OntapV
 // OntapVolumeArrayInput is an input type that accepts OntapVolumeArray and OntapVolumeArrayOutput values.
 // You can construct a concrete instance of `OntapVolumeArrayInput` via:
 //
-//          OntapVolumeArray{ OntapVolumeArgs{...} }
+//	OntapVolumeArray{ OntapVolumeArgs{...} }
 type OntapVolumeArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +321,7 @@ func (i OntapVolumeArray) ToOntapVolumeArrayOutputWithContext(ctx context.Contex
 // OntapVolumeMapInput is an input type that accepts OntapVolumeMap and OntapVolumeMapOutput values.
 // You can construct a concrete instance of `OntapVolumeMapInput` via:
 //
-//          OntapVolumeMap{ "key": OntapVolumeArgs{...} }
+//	OntapVolumeMap{ "key": OntapVolumeArgs{...} }
 type OntapVolumeMapInput interface {
 	pulumi.Input
 

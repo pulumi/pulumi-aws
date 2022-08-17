@@ -19,20 +19,18 @@ namespace Pulumi.Aws.WafRegional
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafRegional.GetRateBasedMod.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafRegional.GetRateBasedMod.InvokeAsync(new Aws.WafRegional.GetRateBasedModArgs
-        ///         {
-        ///             Name = "tfWAFRegionalRateBasedRule",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRegionalRateBasedRule",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.WafRegional
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafRegional.GetRateBasedMod.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafRegional.GetRateBasedMod.InvokeAsync(new Aws.WafRegional.GetRateBasedModArgs
-        ///         {
-        ///             Name = "tfWAFRegionalRateBasedRule",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRegionalRateBasedRule",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.WafRegional
     }
 
 
-    public sealed class GetRateBasedModArgs : Pulumi.InvokeArgs
+    public sealed class GetRateBasedModArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF Regional rate based rule.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.WafRegional
         public GetRateBasedModArgs()
         {
         }
+        public static new GetRateBasedModArgs Empty => new GetRateBasedModArgs();
     }
 
-    public sealed class GetRateBasedModInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRateBasedModInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF Regional rate based rule.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.WafRegional
         public GetRateBasedModInvokeArgs()
         {
         }
+        public static new GetRateBasedModInvokeArgs Empty => new GetRateBasedModInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email template used when a detected risk event is blocked. See notify email type below.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs()
         {
         }
+        public static new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs Empty => new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dms.Inputs
 {
 
-    public sealed class EndpointS3SettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointS3SettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to add column name information to the .csv output file. Default is `false`.
@@ -231,5 +231,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public EndpointS3SettingsGetArgs()
         {
         }
+        public static new EndpointS3SettingsGetArgs Empty => new EndpointS3SettingsGetArgs();
     }
 }

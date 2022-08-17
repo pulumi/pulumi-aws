@@ -17,25 +17,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-// 			RouteTableId:           pulumi.String("rtb-4fbb3ac4"),
-// 			DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
-// 			VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_route_table.Testing,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
+//				RouteTableId:           pulumi.String("rtb-4fbb3ac4"),
+//				DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
+//				VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_route_table.Testing,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Example IPv6 Usage
 //
@@ -43,36 +46,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-// 			CidrBlock:                    pulumi.String("10.1.0.0/16"),
-// 			AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		egress, err := ec2.NewEgressOnlyInternetGateway(ctx, "egress", &ec2.EgressOnlyInternetGatewayArgs{
-// 			VpcId: vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-// 			RouteTableId:             pulumi.String("rtb-4fbb3ac4"),
-// 			DestinationIpv6CidrBlock: pulumi.String("::/0"),
-// 			EgressOnlyGatewayId:      egress.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+//				CidrBlock:                    pulumi.String("10.1.0.0/16"),
+//				AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			egress, err := ec2.NewEgressOnlyInternetGateway(ctx, "egress", &ec2.EgressOnlyInternetGatewayArgs{
+//				VpcId: vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
+//				RouteTableId:             pulumi.String("rtb-4fbb3ac4"),
+//				DestinationIpv6CidrBlock: pulumi.String("::/0"),
+//				EgressOnlyGatewayId:      egress.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,19 +86,25 @@ import (
 // Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
 //
 // ```sh
-//  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+//
+//	$ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+//
 // ```
 //
-//  Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125` similarlyconsole
+//	Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125` similarlyconsole
 //
 // ```sh
-//  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+//
+//	$ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+//
 // ```
 //
-//  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
+//	Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
 //
 // ```sh
-//  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+//
+//	$ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+//
 // ```
 type Route struct {
 	pulumi.CustomResourceState
@@ -351,7 +363,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
 // You can construct a concrete instance of `RouteArrayInput` via:
 //
-//          RouteArray{ RouteArgs{...} }
+//	RouteArray{ RouteArgs{...} }
 type RouteArrayInput interface {
 	pulumi.Input
 
@@ -376,7 +388,7 @@ func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArra
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
 // You can construct a concrete instance of `RouteMapInput` via:
 //
-//          RouteMap{ "key": RouteArgs{...} }
+//	RouteMap{ "key": RouteArgs{...} }
 type RouteMapInput interface {
 	pulumi.Input
 

@@ -16,178 +16,172 @@ namespace Pulumi.Aws.AppAutoScaling
     /// ### DynamoDB Table Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new()
     ///     {
-    ///         var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 100,
-    ///             MinCapacity = 5,
-    ///             ResourceId = "table/tableName",
-    ///             ScalableDimension = "dynamodb:table:ReadCapacityUnits",
-    ///             ServiceNamespace = "dynamodb",
-    ///         });
-    ///         var dynamodbTableReadPolicy = new Aws.AppAutoScaling.Policy("dynamodbTableReadPolicy", new Aws.AppAutoScaling.PolicyArgs
-    ///         {
-    ///             PolicyType = "TargetTrackingScaling",
-    ///             ResourceId = dynamodbTableReadTarget.ResourceId,
-    ///             ScalableDimension = dynamodbTableReadTarget.ScalableDimension,
-    ///             ServiceNamespace = dynamodbTableReadTarget.ServiceNamespace,
-    ///             TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
-    ///             {
-    ///                 PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
-    ///                 {
-    ///                     PredefinedMetricType = "DynamoDBReadCapacityUtilization",
-    ///                 },
-    ///                 TargetValue = 70,
-    ///             },
-    ///         });
-    ///     }
+    ///         MaxCapacity = 100,
+    ///         MinCapacity = 5,
+    ///         ResourceId = "table/tableName",
+    ///         ScalableDimension = "dynamodb:table:ReadCapacityUnits",
+    ///         ServiceNamespace = "dynamodb",
+    ///     });
     /// 
-    /// }
+    ///     var dynamodbTableReadPolicy = new Aws.AppAutoScaling.Policy("dynamodbTableReadPolicy", new()
+    ///     {
+    ///         PolicyType = "TargetTrackingScaling",
+    ///         ResourceId = dynamodbTableReadTarget.ResourceId,
+    ///         ScalableDimension = dynamodbTableReadTarget.ScalableDimension,
+    ///         ServiceNamespace = dynamodbTableReadTarget.ServiceNamespace,
+    ///         TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
+    ///         {
+    ///             PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
+    ///             {
+    ///                 PredefinedMetricType = "DynamoDBReadCapacityUtilization",
+    ///             },
+    ///             TargetValue = 70,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### ECS Service Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
     ///     {
-    ///         var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new Aws.AppAutoScaling.TargetArgs
+    ///         MaxCapacity = 4,
+    ///         MinCapacity = 1,
+    ///         ResourceId = "service/clusterName/serviceName",
+    ///         ScalableDimension = "ecs:service:DesiredCount",
+    ///         ServiceNamespace = "ecs",
+    ///     });
+    /// 
+    ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
+    ///     {
+    ///         PolicyType = "StepScaling",
+    ///         ResourceId = ecsTarget.ResourceId,
+    ///         ScalableDimension = ecsTarget.ScalableDimension,
+    ///         ServiceNamespace = ecsTarget.ServiceNamespace,
+    ///         StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
     ///         {
-    ///             MaxCapacity = 4,
-    ///             MinCapacity = 1,
-    ///             ResourceId = "service/clusterName/serviceName",
-    ///             ScalableDimension = "ecs:service:DesiredCount",
-    ///             ServiceNamespace = "ecs",
-    ///         });
-    ///         var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new Aws.AppAutoScaling.PolicyArgs
-    ///         {
-    ///             PolicyType = "StepScaling",
-    ///             ResourceId = ecsTarget.ResourceId,
-    ///             ScalableDimension = ecsTarget.ScalableDimension,
-    ///             ServiceNamespace = ecsTarget.ServiceNamespace,
-    ///             StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
+    ///             AdjustmentType = "ChangeInCapacity",
+    ///             Cooldown = 60,
+    ///             MetricAggregationType = "Maximum",
+    ///             StepAdjustments = new[]
     ///             {
-    ///                 AdjustmentType = "ChangeInCapacity",
-    ///                 Cooldown = 60,
-    ///                 MetricAggregationType = "Maximum",
-    ///                 StepAdjustments = 
+    ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
     ///                 {
-    ///                     new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-    ///                     {
-    ///                         MetricIntervalUpperBound = "0",
-    ///                         ScalingAdjustment = -1,
-    ///                     },
+    ///                     MetricIntervalUpperBound = "0",
+    ///                     ScalingAdjustment = -1,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Preserve desired count when updating an autoscaled ECS Service
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ecsService = new Aws.Ecs.Service("ecsService", new()
     ///     {
-    ///         var ecsService = new Aws.Ecs.Service("ecsService", new Aws.Ecs.ServiceArgs
-    ///         {
-    ///             Cluster = "clusterName",
-    ///             TaskDefinition = "taskDefinitionFamily:1",
-    ///             DesiredCount = 2,
-    ///         });
-    ///     }
+    ///         Cluster = "clusterName",
+    ///         TaskDefinition = "taskDefinitionFamily:1",
+    ///         DesiredCount = 2,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Aurora Read Replica Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var replicasTarget = new Aws.AppAutoScaling.Target("replicasTarget", new()
     ///     {
-    ///         var replicasTarget = new Aws.AppAutoScaling.Target("replicasTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             ServiceNamespace = "rds",
-    ///             ScalableDimension = "rds:cluster:ReadReplicaCount",
-    ///             ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
-    ///             MinCapacity = 1,
-    ///             MaxCapacity = 15,
-    ///         });
-    ///         var replicasPolicy = new Aws.AppAutoScaling.Policy("replicasPolicy", new Aws.AppAutoScaling.PolicyArgs
-    ///         {
-    ///             ServiceNamespace = replicasTarget.ServiceNamespace,
-    ///             ScalableDimension = replicasTarget.ScalableDimension,
-    ///             ResourceId = replicasTarget.ResourceId,
-    ///             PolicyType = "TargetTrackingScaling",
-    ///             TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
-    ///             {
-    ///                 PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
-    ///                 {
-    ///                     PredefinedMetricType = "RDSReaderAverageCPUUtilization",
-    ///                 },
-    ///                 TargetValue = 75,
-    ///                 ScaleInCooldown = 300,
-    ///                 ScaleOutCooldown = 300,
-    ///             },
-    ///         });
-    ///     }
+    ///         ServiceNamespace = "rds",
+    ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
+    ///         ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
+    ///         MinCapacity = 1,
+    ///         MaxCapacity = 15,
+    ///     });
     /// 
-    /// }
+    ///     var replicasPolicy = new Aws.AppAutoScaling.Policy("replicasPolicy", new()
+    ///     {
+    ///         ServiceNamespace = replicasTarget.ServiceNamespace,
+    ///         ScalableDimension = replicasTarget.ScalableDimension,
+    ///         ResourceId = replicasTarget.ResourceId,
+    ///         PolicyType = "TargetTrackingScaling",
+    ///         TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
+    ///         {
+    ///             PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
+    ///             {
+    ///                 PredefinedMetricType = "RDSReaderAverageCPUUtilization",
+    ///             },
+    ///             TargetValue = 75,
+    ///             ScaleInCooldown = 300,
+    ///             ScaleOutCooldown = 300,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### MSK / Kafka Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new()
     ///     {
-    ///         var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             ServiceNamespace = "kafka",
-    ///             ScalableDimension = "kafka:broker-storage:VolumeSize",
-    ///             ResourceId = aws_msk_cluster.Example.Arn,
-    ///             MinCapacity = 1,
-    ///             MaxCapacity = 8,
-    ///         });
-    ///         var targets = new Aws.AppAutoScaling.Policy("targets", new Aws.AppAutoScaling.PolicyArgs
-    ///         {
-    ///             ServiceNamespace = mskTarget.ServiceNamespace,
-    ///             ScalableDimension = mskTarget.ScalableDimension,
-    ///             ResourceId = mskTarget.ResourceId,
-    ///             PolicyType = "TargetTrackingScaling",
-    ///             TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
-    ///             {
-    ///                 PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
-    ///                 {
-    ///                     PredefinedMetricType = "KafkaBrokerStorageUtilization",
-    ///                 },
-    ///                 TargetValue = 55,
-    ///             },
-    ///         });
-    ///     }
+    ///         ServiceNamespace = "kafka",
+    ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
+    ///         ResourceId = aws_msk_cluster.Example.Arn,
+    ///         MinCapacity = 1,
+    ///         MaxCapacity = 8,
+    ///     });
     /// 
-    /// }
+    ///     var targets = new Aws.AppAutoScaling.Policy("targets", new()
+    ///     {
+    ///         ServiceNamespace = mskTarget.ServiceNamespace,
+    ///         ScalableDimension = mskTarget.ScalableDimension,
+    ///         ResourceId = mskTarget.ResourceId,
+    ///         PolicyType = "TargetTrackingScaling",
+    ///         TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
+    ///         {
+    ///             PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
+    ///             {
+    ///                 PredefinedMetricType = "KafkaBrokerStorageUtilization",
+    ///             },
+    ///             TargetValue = 55,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -199,7 +193,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// ```
     /// </summary>
     [AwsResourceType("aws:appautoscaling/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS to the scaling policy.
@@ -293,7 +287,7 @@ namespace Pulumi.Aws.AppAutoScaling
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy. Must be between 1 and 255 characters in length.
@@ -340,9 +334,10 @@ namespace Pulumi.Aws.AppAutoScaling
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS to the scaling policy.
@@ -395,5 +390,6 @@ namespace Pulumi.Aws.AppAutoScaling
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

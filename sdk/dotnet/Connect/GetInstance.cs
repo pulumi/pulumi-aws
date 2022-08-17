@@ -21,39 +21,35 @@ namespace Pulumi.Aws.Connect
         /// By instance_alias
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Connect.GetInstance.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Connect.GetInstance.InvokeAsync(new Aws.Connect.GetInstanceArgs
-        ///         {
-        ///             InstanceAlias = "foo",
-        ///         }));
-        ///     }
+        ///         InstanceAlias = "foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By instance_id
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Connect.GetInstance.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Connect.GetInstance.InvokeAsync(new Aws.Connect.GetInstanceArgs
-        ///         {
-        ///             InstanceId = "97afc98d-101a-ba98-ab97-ae114fc115ec",
-        ///         }));
-        ///     }
+        ///         InstanceId = "97afc98d-101a-ba98-ab97-ae114fc115ec",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,39 +67,35 @@ namespace Pulumi.Aws.Connect
         /// By instance_alias
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Connect.GetInstance.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Connect.GetInstance.InvokeAsync(new Aws.Connect.GetInstanceArgs
-        ///         {
-        ///             InstanceAlias = "foo",
-        ///         }));
-        ///     }
+        ///         InstanceAlias = "foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By instance_id
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Connect.GetInstance.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Connect.GetInstance.InvokeAsync(new Aws.Connect.GetInstanceArgs
-        ///         {
-        ///             InstanceId = "97afc98d-101a-ba98-ab97-ae114fc115ec",
-        ///         }));
-        ///     }
+        ///         InstanceId = "97afc98d-101a-ba98-ab97-ae114fc115ec",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -113,7 +105,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific connect instance by alias
@@ -130,9 +122,10 @@ namespace Pulumi.Aws.Connect
         public GetInstanceArgs()
         {
         }
+        public static new GetInstanceArgs Empty => new GetInstanceArgs();
     }
 
-    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific connect instance by alias
@@ -149,6 +142,7 @@ namespace Pulumi.Aws.Connect
         public GetInstanceInvokeArgs()
         {
         }
+        public static new GetInstanceInvokeArgs Empty => new GetInstanceInvokeArgs();
     }
 
 

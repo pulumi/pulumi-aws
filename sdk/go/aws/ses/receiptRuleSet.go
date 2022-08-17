@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewReceiptRuleSet(ctx, "main", &ses.ReceiptRuleSetArgs{
-// 			RuleSetName: pulumi.String("primary-rules"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewReceiptRuleSet(ctx, "main", &ses.ReceiptRuleSetArgs{
+//				RuleSetName: pulumi.String("primary-rules"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // SES receipt rule sets can be imported using the rule set name.
 //
 // ```sh
-//  $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+//
+//	$ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+//
 // ```
 type ReceiptRuleSet struct {
 	pulumi.CustomResourceState
@@ -138,7 +143,7 @@ func (i *ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) 
 // ReceiptRuleSetArrayInput is an input type that accepts ReceiptRuleSetArray and ReceiptRuleSetArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleSetArrayInput` via:
 //
-//          ReceiptRuleSetArray{ ReceiptRuleSetArgs{...} }
+//	ReceiptRuleSetArray{ ReceiptRuleSetArgs{...} }
 type ReceiptRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -163,7 +168,7 @@ func (i ReceiptRuleSetArray) ToReceiptRuleSetArrayOutputWithContext(ctx context.
 // ReceiptRuleSetMapInput is an input type that accepts ReceiptRuleSetMap and ReceiptRuleSetMapOutput values.
 // You can construct a concrete instance of `ReceiptRuleSetMapInput` via:
 //
-//          ReceiptRuleSetMap{ "key": ReceiptRuleSetArgs{...} }
+//	ReceiptRuleSetMap{ "key": ReceiptRuleSetArgs{...} }
 type ReceiptRuleSetMapInput interface {
 	pulumi.Input
 

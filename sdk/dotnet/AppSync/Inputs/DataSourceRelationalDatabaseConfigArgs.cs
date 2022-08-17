@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceRelationalDatabaseConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceRelationalDatabaseConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceRelationalDatabaseConfigArgs()
         {
         }
+        public static new DataSourceRelationalDatabaseConfigArgs Empty => new DataSourceRelationalDatabaseConfigArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = Aws.Ec2.GetNetworkInterface.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
-        ///         {
-        ///             Id = "eni-01234567",
-        ///         }));
-        ///     }
+        ///         Id = "eni-01234567",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = Aws.Ec2.GetNetworkInterface.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
-        ///         {
-        ///             Id = "eni-01234567",
-        ///         }));
-        ///     }
+        ///         Id = "eni-01234567",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetNetworkInterfaceFilterArgs>? _filters;
@@ -106,9 +102,10 @@ namespace Pulumi.Aws.Ec2
         public GetNetworkInterfaceArgs()
         {
         }
+        public static new GetNetworkInterfaceArgs Empty => new GetNetworkInterfaceArgs();
     }
 
-    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetNetworkInterfaceFilterInputArgs>? _filters;
@@ -143,6 +140,7 @@ namespace Pulumi.Aws.Ec2
         public GetNetworkInterfaceInvokeArgs()
         {
         }
+        public static new GetNetworkInterfaceInvokeArgs Empty => new GetNetworkInterfaceInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("exacts", required: true)]
         private InputList<string>? _exacts;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchGetArgs()
         {
         }
+        public static new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchGetArgs Empty => new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchGetArgs();
     }
 }

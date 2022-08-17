@@ -21,63 +21,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
-// 			IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
-// 				&waf.IpSetIpSetDescriptorArgs{
-// 					Type:  pulumi.String("IPV4"),
-// 					Value: pulumi.String("192.0.7.0/24"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
-// 			MetricName: pulumi.String("tfWAFRule"),
-// 			Predicates: waf.RulePredicateArray{
-// 				&waf.RulePredicateArgs{
-// 					DataId:  ipset.ID(),
-// 					Negated: pulumi.Bool(false),
-// 					Type:    pulumi.String("IPMatch"),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			ipset,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
-// 			MetricName: pulumi.String("tfWebACL"),
-// 			DefaultAction: &waf.WebAclDefaultActionArgs{
-// 				Type: pulumi.String("ALLOW"),
-// 			},
-// 			Rules: waf.WebAclRuleArray{
-// 				&waf.WebAclRuleArgs{
-// 					Action: &waf.WebAclRuleActionArgs{
-// 						Type: pulumi.String("BLOCK"),
-// 					},
-// 					Priority: pulumi.Int(1),
-// 					RuleId:   wafrule.ID(),
-// 					Type:     pulumi.String("REGULAR"),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			ipset,
-// 			wafrule,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+//					&waf.IpSetIpSetDescriptorArgs{
+//						Type:  pulumi.String("IPV4"),
+//						Value: pulumi.String("192.0.7.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+//				MetricName: pulumi.String("tfWAFRule"),
+//				Predicates: waf.RulePredicateArray{
+//					&waf.RulePredicateArgs{
+//						DataId:  ipset.ID(),
+//						Negated: pulumi.Bool(false),
+//						Type:    pulumi.String("IPMatch"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				ipset,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+//				MetricName: pulumi.String("tfWebACL"),
+//				DefaultAction: &waf.WebAclDefaultActionArgs{
+//					Type: pulumi.String("ALLOW"),
+//				},
+//				Rules: waf.WebAclRuleArray{
+//					&waf.WebAclRuleArgs{
+//						Action: &waf.WebAclRuleActionArgs{
+//							Type: pulumi.String("BLOCK"),
+//						},
+//						Priority: pulumi.Int(1),
+//						RuleId:   wafrule.ID(),
+//						Type:     pulumi.String("REGULAR"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				ipset,
+//				wafrule,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Logging
 //
@@ -87,34 +90,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
-// 			LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
-// 				LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-// 				RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
-// 					FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
-// 						&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
-// 							Type: pulumi.String("URI"),
-// 						},
-// 						&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
-// 							Data: pulumi.String("referer"),
-// 							Type: pulumi.String("HEADER"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
+//				LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
+//					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
+//						FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
+//							&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+//								Type: pulumi.String("URI"),
+//							},
+//							&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+//								Data: pulumi.String("referer"),
+//								Type: pulumi.String("HEADER"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -122,7 +128,9 @@ import (
 // WAF Web ACL can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+//
+//	$ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+//
 // ```
 type WebAcl struct {
 	pulumi.CustomResourceState
@@ -141,7 +149,7 @@ type WebAcl struct {
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -194,7 +202,7 @@ type webAclState struct {
 	Rules []WebAclRule `pulumi:"rules"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -213,7 +221,7 @@ type WebAclState struct {
 	Rules WebAclRuleArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -278,7 +286,7 @@ func (i *WebAcl) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 // WebAclArrayInput is an input type that accepts WebAclArray and WebAclArrayOutput values.
 // You can construct a concrete instance of `WebAclArrayInput` via:
 //
-//          WebAclArray{ WebAclArgs{...} }
+//	WebAclArray{ WebAclArgs{...} }
 type WebAclArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +311,7 @@ func (i WebAclArray) ToWebAclArrayOutputWithContext(ctx context.Context) WebAclA
 // WebAclMapInput is an input type that accepts WebAclMap and WebAclMapOutput values.
 // You can construct a concrete instance of `WebAclMapInput` via:
 //
-//          WebAclMap{ "key": WebAclArgs{...} }
+//	WebAclMap{ "key": WebAclArgs{...} }
 type WebAclMapInput interface {
 	pulumi.Input
 
@@ -374,7 +382,7 @@ func (o WebAclOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WebAclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

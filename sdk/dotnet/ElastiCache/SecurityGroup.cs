@@ -20,26 +20,23 @@ namespace Pulumi.Aws.ElastiCache
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var barSecurityGroup = new Aws.Ec2.SecurityGroup("barSecurityGroup", new Aws.Ec2.SecurityGroupArgs
-    ///         {
-    ///         });
-    ///         var barElasticache_securityGroupSecurityGroup = new Aws.ElastiCache.SecurityGroup("barElasticache/securityGroupSecurityGroup", new Aws.ElastiCache.SecurityGroupArgs
-    ///         {
-    ///             SecurityGroupNames = 
-    ///             {
-    ///                 barSecurityGroup.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///     var barSecurityGroup = new Aws.Ec2.SecurityGroup("barSecurityGroup");
     /// 
-    /// }
+    ///     var barElasticache_securityGroupSecurityGroup = new Aws.ElastiCache.SecurityGroup("barElasticache/securityGroupSecurityGroup", new()
+    ///     {
+    ///         SecurityGroupNames = new[]
+    ///         {
+    ///             barSecurityGroup.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +48,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/securityGroup:SecurityGroup")]
-    public partial class SecurityGroup : Pulumi.CustomResource
+    public partial class SecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// description for the cache security group. Defaults to "Managed by Pulumi".
@@ -116,7 +113,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class SecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// description for the cache security group. Defaults to "Managed by Pulumi".
@@ -147,9 +144,10 @@ namespace Pulumi.Aws.ElastiCache
         {
             Description = "Managed by Pulumi";
         }
+        public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }
 
-    public sealed class SecurityGroupState : Pulumi.ResourceArgs
+    public sealed class SecurityGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// description for the cache security group. Defaults to "Managed by Pulumi".
@@ -180,5 +178,6 @@ namespace Pulumi.Aws.ElastiCache
         {
             Description = "Managed by Pulumi";
         }
+        public static new SecurityGroupState Empty => new SecurityGroupState();
     }
 }

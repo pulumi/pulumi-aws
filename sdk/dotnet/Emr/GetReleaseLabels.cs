@@ -19,24 +19,22 @@ namespace Pulumi.Aws.Emr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Emr.GetReleaseLabels.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Emr.GetReleaseLabels.InvokeAsync(new Aws.Emr.GetReleaseLabelsArgs
+        ///         Filters = new Aws.Emr.Inputs.GetReleaseLabelsFiltersInputArgs
         ///         {
-        ///             Filters = new Aws.Emr.Inputs.GetReleaseLabelsFiltersArgs
-        ///             {
-        ///                 Application = "spark@2.1.0",
-        ///                 Prefix = "emr-5",
-        ///             },
-        ///         }));
-        ///     }
+        ///             Application = "spark@2.1.0",
+        ///             Prefix = "emr-5",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +50,22 @@ namespace Pulumi.Aws.Emr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Emr.GetReleaseLabels.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Emr.GetReleaseLabels.InvokeAsync(new Aws.Emr.GetReleaseLabelsArgs
+        ///         Filters = new Aws.Emr.Inputs.GetReleaseLabelsFiltersInputArgs
         ///         {
-        ///             Filters = new Aws.Emr.Inputs.GetReleaseLabelsFiltersArgs
-        ///             {
-        ///                 Application = "spark@2.1.0",
-        ///                 Prefix = "emr-5",
-        ///             },
-        ///         }));
-        ///     }
+        ///             Application = "spark@2.1.0",
+        ///             Prefix = "emr-5",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.Emr
     }
 
 
-    public sealed class GetReleaseLabelsArgs : Pulumi.InvokeArgs
+    public sealed class GetReleaseLabelsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Emr
         public GetReleaseLabelsArgs()
         {
         }
+        public static new GetReleaseLabelsArgs Empty => new GetReleaseLabelsArgs();
     }
 
-    public sealed class GetReleaseLabelsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReleaseLabelsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
@@ -103,6 +100,7 @@ namespace Pulumi.Aws.Emr
         public GetReleaseLabelsInvokeArgs()
         {
         }
+        public static new GetReleaseLabelsInvokeArgs Empty => new GetReleaseLabelsInvokeArgs();
     }
 
 

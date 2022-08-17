@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the S3 bucket for the customer input file.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs()
         {
         }
+        public static new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs Empty => new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs();
     }
 }

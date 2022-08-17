@@ -15,20 +15,18 @@ namespace Pulumi.Aws.CodeArtifact
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeArtifact.Domain("example", new()
     ///     {
-    ///         var example = new Aws.CodeArtifact.Domain("example", new Aws.CodeArtifact.DomainArgs
-    ///         {
-    ///             DomainName = "example",
-    ///         });
-    ///     }
+    ///         DomainName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Domain.
@@ -91,7 +89,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -140,7 +138,7 @@ namespace Pulumi.Aws.CodeArtifact
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -169,9 +167,10 @@ namespace Pulumi.Aws.CodeArtifact
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Domain.
@@ -231,7 +230,7 @@ namespace Pulumi.Aws.CodeArtifact
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -242,5 +241,6 @@ namespace Pulumi.Aws.CodeArtifact
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

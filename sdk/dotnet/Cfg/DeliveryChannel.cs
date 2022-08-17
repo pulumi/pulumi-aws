@@ -17,20 +17,20 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
     ///     {
-    ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///             ForceDestroy = true,
-    ///         });
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -44,29 +44,32 @@ namespace Pulumi.Aws.Cfg
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new Aws.Cfg.RecorderArgs
+    ///     });
+    /// 
+    ///     var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new()
+    ///     {
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new()
+    ///     {
+    ///         S3BucketName = bucketV2.Bucket,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             RoleArn = role.Arn,
-    ///         });
-    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
+    ///             fooRecorder,
+    ///         },
+    ///     });
+    /// 
+    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     {
+    ///         Role = role.Id,
+    ///         Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
     ///         {
-    ///             S3BucketName = bucketV2.Bucket,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 fooRecorder,
-    ///             },
-    ///         });
-    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = role.Id,
-    ///             Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
-    ///             {
-    ///                 var bucketV2Arn = values.Item1;
-    ///                 var bucketV2Arn1 = values.Item2;
-    ///                 return @$"{{
+    ///             var bucketV2Arn = values.Item1;
+    ///             var bucketV2Arn1 = values.Item2;
+    ///             return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -82,11 +85,10 @@ namespace Pulumi.Aws.Cfg
     ///   ]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -98,7 +100,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]
-    public partial class DeliveryChannel : Pulumi.CustomResource
+    public partial class DeliveryChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
@@ -180,7 +182,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class DeliveryChannelArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
@@ -221,9 +223,10 @@ namespace Pulumi.Aws.Cfg
         public DeliveryChannelArgs()
         {
         }
+        public static new DeliveryChannelArgs Empty => new DeliveryChannelArgs();
     }
 
-    public sealed class DeliveryChannelState : Pulumi.ResourceArgs
+    public sealed class DeliveryChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
@@ -264,5 +267,6 @@ namespace Pulumi.Aws.Cfg
         public DeliveryChannelState()
         {
         }
+        public static new DeliveryChannelState Empty => new DeliveryChannelState();
     }
 }

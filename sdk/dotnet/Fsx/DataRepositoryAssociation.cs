@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Fsx
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")]
-    public partial class DataRepositoryAssociation : Pulumi.CustomResource
+    public partial class DataRepositoryAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -83,9 +83,6 @@ namespace Pulumi.Aws.Fsx
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -133,7 +130,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class DataRepositoryAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DataRepositoryAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
@@ -193,9 +190,10 @@ namespace Pulumi.Aws.Fsx
         public DataRepositoryAssociationArgs()
         {
         }
+        public static new DataRepositoryAssociationArgs Empty => new DataRepositoryAssociationArgs();
     }
 
-    public sealed class DataRepositoryAssociationState : Pulumi.ResourceArgs
+    public sealed class DataRepositoryAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -263,10 +261,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -276,5 +270,6 @@ namespace Pulumi.Aws.Fsx
         public DataRepositoryAssociationState()
         {
         }
+        public static new DataRepositoryAssociationState Empty => new DataRepositoryAssociationState();
     }
 }

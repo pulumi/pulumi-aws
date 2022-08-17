@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterClientAuthenticationTlsGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClientAuthenticationTlsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateAuthorityArns")]
         private InputList<string>? _certificateAuthorityArns;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterClientAuthenticationTlsGetArgs()
         {
         }
+        public static new ClusterClientAuthenticationTlsGetArgs Empty => new ClusterClientAuthenticationTlsGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pricing.Inputs
 {
 
-    public sealed class GetProductFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetProductFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The product attribute name that you want to filter on.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Pricing.Inputs
         public GetProductFilterArgs()
         {
         }
+        public static new GetProductFilterArgs Empty => new GetProductFilterArgs();
     }
 }

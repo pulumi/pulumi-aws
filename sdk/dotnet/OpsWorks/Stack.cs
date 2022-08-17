@@ -15,32 +15,30 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.OpsWorks.Stack("main", new()
     ///     {
-    ///         var main = new Aws.OpsWorks.Stack("main", new Aws.OpsWorks.StackArgs
+    ///         Region = "us-west-1",
+    ///         ServiceRoleArn = aws_iam_role.Opsworks.Arn,
+    ///         DefaultInstanceProfileArn = aws_iam_instance_profile.Opsworks.Arn,
+    ///         Tags = 
     ///         {
-    ///             Region = "us-west-1",
-    ///             ServiceRoleArn = aws_iam_role.Opsworks.Arn,
-    ///             DefaultInstanceProfileArn = aws_iam_instance_profile.Opsworks.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foobar-stack" },
-    ///             },
-    ///             CustomJson = @"{
+    ///             { "Name", "foobar-stack" },
+    ///         },
+    ///         CustomJson = @"{
     ///  ""foobar"": {
     ///     ""version"": ""1.0.0""
     ///   }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.OpsWorks
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/stack:Stack")]
-    public partial class Stack : Pulumi.CustomResource
+    public partial class Stack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
@@ -180,7 +178,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -249,7 +247,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class StackArgs : Pulumi.ResourceArgs
+    public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
@@ -405,9 +403,10 @@ namespace Pulumi.Aws.OpsWorks
         public StackArgs()
         {
         }
+        public static new StackArgs Empty => new StackArgs();
     }
 
-    public sealed class StackState : Pulumi.ResourceArgs
+    public sealed class StackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
@@ -550,7 +549,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -581,5 +580,6 @@ namespace Pulumi.Aws.OpsWorks
         public StackState()
         {
         }
+        public static new StackState Empty => new StackState();
     }
 }

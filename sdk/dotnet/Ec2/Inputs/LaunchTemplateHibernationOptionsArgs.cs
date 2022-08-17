@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateHibernationOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateHibernationOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to `true`, the launched EC2 instance will hibernation enabled.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateHibernationOptionsArgs()
         {
         }
+        public static new LaunchTemplateHibernationOptionsArgs Empty => new LaunchTemplateHibernationOptionsArgs();
     }
 }

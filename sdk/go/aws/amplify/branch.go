@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := amplify.NewApp(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-// 			AppId:      example.ID(),
-// 			BranchName: pulumi.String("master"),
-// 			Framework:  pulumi.String("React"),
-// 			Stage:      pulumi.String("PRODUCTION"),
-// 			EnvironmentVariables: pulumi.StringMap{
-// 				"REACT_APP_API_SERVER": pulumi.String("https://api.example.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amplify.NewApp(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+//				AppId:      example.ID(),
+//				BranchName: pulumi.String("master"),
+//				Framework:  pulumi.String("React"),
+//				Stage:      pulumi.String("PRODUCTION"),
+//				EnvironmentVariables: pulumi.StringMap{
+//					"REACT_APP_API_SERVER": pulumi.String("https://api.example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Notifications
 //
@@ -53,102 +56,105 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := amplify.NewApp(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-// 			AppId:              example.ID(),
-// 			BranchName:         pulumi.String("master"),
-// 			EnableNotification: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplifyAppMasterEventRule", &cloudwatch.EventRuleArgs{
-// 			Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// 				return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", aws_amplify_app.App.Id, branchName), nil
-// 			}).(pulumi.StringOutput),
-// 			EventPattern: pulumi.All(example.ID(), master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
-// 				id := _args[0].(string)
-// 				branchName := _args[1].(string)
-// 				var _zero string
-// 				tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 					"detail": map[string]interface{}{
-// 						"appId": []string{
-// 							id,
-// 						},
-// 						"branchName": []string{
-// 							branchName,
-// 						},
-// 						"jobStatus": []string{
-// 							"SUCCEED",
-// 							"FAILED",
-// 							"STARTED",
-// 						},
-// 					},
-// 					"detail-type": []string{
-// 						"Amplify Deployment Status Change",
-// 					},
-// 					"source": []string{
-// 						"aws.amplify",
-// 					},
-// 				})
-// 				if err != nil {
-// 					return _zero, err
-// 				}
-// 				json0 := string(tmpJSON0)
-// 				return json0, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplifyAppMasterTopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewEventTarget(ctx, "amplifyAppMasterEventTarget", &cloudwatch.EventTargetArgs{
-// 			Rule: amplifyAppMasterEventRule.Name,
-// 			Arn:  amplifyAppMasterTopic.Arn,
-// 			InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
-// 				InputPaths: pulumi.StringMap{
-// 					"jobId":  pulumi.String(fmt.Sprintf("$.detail.jobId")),
-// 					"appId":  pulumi.String(fmt.Sprintf("$.detail.appId")),
-// 					"region": pulumi.String(fmt.Sprintf("$.region")),
-// 					"branch": pulumi.String(fmt.Sprintf("$.detail.branchName")),
-// 					"status": pulumi.String(fmt.Sprintf("$.detail.jobStatus")),
-// 				},
-// 				InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sns.NewTopicPolicy(ctx, "amplifyAppMasterTopicPolicy", &sns.TopicPolicyArgs{
-// 			Arn: amplifyAppMasterTopic.Arn,
-// 			Policy: amplifyAppMasterPolicyDocument.ApplyT(func(amplifyAppMasterPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-// 				return amplifyAppMasterPolicyDocument.Json, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amplify.NewApp(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+//				AppId:              example.ID(),
+//				BranchName:         pulumi.String("master"),
+//				EnableNotification: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplifyAppMasterEventRule", &cloudwatch.EventRuleArgs{
+//				Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", aws_amplify_app.App.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//				EventPattern: pulumi.All(example.ID(), master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					branchName := _args[1].(string)
+//					var _zero string
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"detail": map[string]interface{}{
+//							"appId": []string{
+//								id,
+//							},
+//							"branchName": []string{
+//								branchName,
+//							},
+//							"jobStatus": []string{
+//								"SUCCEED",
+//								"FAILED",
+//								"STARTED",
+//							},
+//						},
+//						"detail-type": []string{
+//							"Amplify Deployment Status Change",
+//						},
+//						"source": []string{
+//							"aws.amplify",
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplifyAppMasterTopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "amplifyAppMasterEventTarget", &cloudwatch.EventTargetArgs{
+//				Rule: amplifyAppMasterEventRule.Name,
+//				Arn:  amplifyAppMasterTopic.Arn,
+//				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+//					InputPaths: pulumi.StringMap{
+//						"jobId":  pulumi.String(fmt.Sprintf("$.detail.jobId")),
+//						"appId":  pulumi.String(fmt.Sprintf("$.detail.appId")),
+//						"region": pulumi.String(fmt.Sprintf("$.region")),
+//						"branch": pulumi.String(fmt.Sprintf("$.detail.branchName")),
+//						"status": pulumi.String(fmt.Sprintf("$.detail.jobStatus")),
+//					},
+//					InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicPolicy(ctx, "amplifyAppMasterTopicPolicy", &sns.TopicPolicyArgs{
+//				Arn: amplifyAppMasterTopic.Arn,
+//				Policy: amplifyAppMasterPolicyDocument.ApplyT(func(amplifyAppMasterPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+//					return amplifyAppMasterPolicyDocument.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -156,7 +162,9 @@ import (
 // Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+//
+//	$ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+//
 // ```
 type Branch struct {
 	pulumi.CustomResourceState
@@ -446,7 +454,7 @@ func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
 // You can construct a concrete instance of `BranchArrayInput` via:
 //
-//          BranchArray{ BranchArgs{...} }
+//	BranchArray{ BranchArgs{...} }
 type BranchArrayInput interface {
 	pulumi.Input
 
@@ -471,7 +479,7 @@ func (i BranchArray) ToBranchArrayOutputWithContext(ctx context.Context) BranchA
 // BranchMapInput is an input type that accepts BranchMap and BranchMapOutput values.
 // You can construct a concrete instance of `BranchMapInput` via:
 //
-//          BranchMap{ "key": BranchArgs{...} }
+//	BranchMap{ "key": BranchArgs{...} }
 type BranchMapInput interface {
 	pulumi.Input
 

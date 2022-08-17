@@ -15,32 +15,31 @@ namespace Pulumi.Aws.Ssm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
-    ///         var production = new Aws.Ssm.PatchBaseline("production", new Aws.Ssm.PatchBaselineArgs
+    ///         ApprovedPatches = new[]
     ///         {
-    ///             ApprovedPatches = 
-    ///             {
-    ///                 "KB123456",
-    ///             },
-    ///         });
-    ///         var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new Aws.Ssm.PatchGroupArgs
-    ///         {
-    ///             BaselineId = production.Id,
-    ///             PatchGroupName = "patch-group-name",
-    ///         });
-    ///     }
+    ///             "KB123456",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new()
+    ///     {
+    ///         BaselineId = production.Id,
+    ///         PatchGroupName = "patch-group-name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/patchGroup:PatchGroup")]
-    public partial class PatchGroup : Pulumi.CustomResource
+    public partial class PatchGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the patch baseline to register the patch group with.
@@ -98,7 +97,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class PatchGroupArgs : Pulumi.ResourceArgs
+    public sealed class PatchGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the patch baseline to register the patch group with.
@@ -115,9 +114,10 @@ namespace Pulumi.Aws.Ssm
         public PatchGroupArgs()
         {
         }
+        public static new PatchGroupArgs Empty => new PatchGroupArgs();
     }
 
-    public sealed class PatchGroupState : Pulumi.ResourceArgs
+    public sealed class PatchGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the patch baseline to register the patch group with.
@@ -134,5 +134,6 @@ namespace Pulumi.Aws.Ssm
         public PatchGroupState()
         {
         }
+        public static new PatchGroupState Empty => new PatchGroupState();
     }
 }

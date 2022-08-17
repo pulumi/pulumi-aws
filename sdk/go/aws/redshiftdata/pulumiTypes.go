@@ -18,7 +18,7 @@ type StatementParameter struct {
 // StatementParameterInput is an input type that accepts StatementParameterArgs and StatementParameterOutput values.
 // You can construct a concrete instance of `StatementParameterInput` via:
 //
-//          StatementParameterArgs{...}
+//	StatementParameterArgs{...}
 type StatementParameterInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i StatementParameterArgs) ToStatementParameterOutputWithContext(ctx contex
 // StatementParameterArrayInput is an input type that accepts StatementParameterArray and StatementParameterArrayOutput values.
 // You can construct a concrete instance of `StatementParameterArrayInput` via:
 //
-//          StatementParameterArray{ StatementParameterArgs{...} }
+//	StatementParameterArray{ StatementParameterArgs{...} }
 type StatementParameterArrayInput interface {
 	pulumi.Input
 

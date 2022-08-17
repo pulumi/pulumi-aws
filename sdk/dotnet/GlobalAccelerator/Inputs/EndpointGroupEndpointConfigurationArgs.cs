@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GlobalAccelerator.Inputs
 {
 
-    public sealed class EndpointGroupEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGroupEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public EndpointGroupEndpointConfigurationArgs()
         {
         }
+        public static new EndpointGroupEndpointConfigurationArgs Empty => new EndpointGroupEndpointConfigurationArgs();
     }
 }

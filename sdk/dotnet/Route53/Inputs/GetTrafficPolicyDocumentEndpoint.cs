@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class GetTrafficPolicyDocumentEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficPolicyDocumentEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of a rule you want to assign.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public GetTrafficPolicyDocumentEndpointArgs()
         {
         }
+        public static new GetTrafficPolicyDocumentEndpointArgs Empty => new GetTrafficPolicyDocumentEndpointArgs();
     }
 }

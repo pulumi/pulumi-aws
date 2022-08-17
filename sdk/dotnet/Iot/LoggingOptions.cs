@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iot.LoggingOptions("example", new()
     ///     {
-    ///         var example = new Aws.Iot.LoggingOptions("example", new Aws.Iot.LoggingOptionsArgs
-    ///         {
-    ///             DefaultLogLevel = "WARN",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         });
-    ///     }
+    ///         DefaultLogLevel = "WARN",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/loggingOptions:LoggingOptions")]
-    public partial class LoggingOptions : Pulumi.CustomResource
+    public partial class LoggingOptions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class LoggingOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LoggingOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
@@ -120,9 +118,10 @@ namespace Pulumi.Aws.Iot
         public LoggingOptionsArgs()
         {
         }
+        public static new LoggingOptionsArgs Empty => new LoggingOptionsArgs();
     }
 
-    public sealed class LoggingOptionsState : Pulumi.ResourceArgs
+    public sealed class LoggingOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
@@ -145,5 +144,6 @@ namespace Pulumi.Aws.Iot
         public LoggingOptionsState()
         {
         }
+        public static new LoggingOptionsState Empty => new LoggingOptionsState();
     }
 }

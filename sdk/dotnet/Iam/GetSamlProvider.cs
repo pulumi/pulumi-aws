@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetSamlProvider.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetSamlProvider.InvokeAsync(new Aws.Iam.GetSamlProviderArgs
-        ///         {
-        ///             Arn = "arn:aws:iam::123456789:saml-provider/myprovider",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:iam::123456789:saml-provider/myprovider",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetSamlProvider.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetSamlProvider.InvokeAsync(new Aws.Iam.GetSamlProviderArgs
-        ///         {
-        ///             Arn = "arn:aws:iam::123456789:saml-provider/myprovider",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:iam::123456789:saml-provider/myprovider",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetSamlProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetSamlProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for the provider.
@@ -98,9 +94,10 @@ namespace Pulumi.Aws.Iam
         public GetSamlProviderArgs()
         {
         }
+        public static new GetSamlProviderArgs Empty => new GetSamlProviderArgs();
     }
 
-    public sealed class GetSamlProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSamlProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for the provider.
@@ -123,6 +120,7 @@ namespace Pulumi.Aws.Iam
         public GetSamlProviderInvokeArgs()
         {
         }
+        public static new GetSamlProviderInvokeArgs Empty => new GetSamlProviderInvokeArgs();
     }
 
 

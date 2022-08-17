@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionTrustedKeyGroupItemGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionTrustedKeyGroupItemGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the key group that contains the public keys
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionTrustedKeyGroupItemGetArgs()
         {
         }
+        public static new DistributionTrustedKeyGroupItemGetArgs Empty => new DistributionTrustedKeyGroupItemGetArgs();
     }
 }

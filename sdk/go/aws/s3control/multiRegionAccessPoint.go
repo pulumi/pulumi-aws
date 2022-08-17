@@ -20,53 +20,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "primaryRegion", &providers.awsArgs{
-// 			Region: "us-east-1",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = providers.Newaws(ctx, "secondaryRegion", &providers.awsArgs{
-// 			Region: "us-west-2",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", nil, pulumi.Provider(aws.Primary_region))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		barBucket, err := s3.NewBucketV2(ctx, "barBucket", nil, pulumi.Provider(aws.Secondary_region))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3control.NewMultiRegionAccessPoint(ctx, "example", &s3control.MultiRegionAccessPointArgs{
-// 			Details: &s3control.MultiRegionAccessPointDetailsArgs{
-// 				Name: pulumi.String("example"),
-// 				Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
-// 					&s3control.MultiRegionAccessPointDetailsRegionArgs{
-// 						Bucket: fooBucket.ID(),
-// 					},
-// 					&s3control.MultiRegionAccessPointDetailsRegionArgs{
-// 						Bucket: barBucket.ID(),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "primaryRegion", &aws.ProviderArgs{
+//				Region: pulumi.String("us-east-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewProvider(ctx, "secondaryRegion", &aws.ProviderArgs{
+//				Region: pulumi.String("us-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", nil, pulumi.Provider(aws.Primary_region))
+//			if err != nil {
+//				return err
+//			}
+//			barBucket, err := s3.NewBucketV2(ctx, "barBucket", nil, pulumi.Provider(aws.Secondary_region))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3control.NewMultiRegionAccessPoint(ctx, "example", &s3control.MultiRegionAccessPointArgs{
+//				Details: &s3control.MultiRegionAccessPointDetailsArgs{
+//					Name: pulumi.String("example"),
+//					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
+//						&s3control.MultiRegionAccessPointDetailsRegionArgs{
+//							Bucket: fooBucket.ID(),
+//						},
+//						&s3control.MultiRegionAccessPointDetailsRegionArgs{
+//							Bucket: barBucket.ID(),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
 //
 // ```sh
-//  $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
+//
+//	$ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
+//
 // ```
 type MultiRegionAccessPoint struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutputWithContext(ctx c
 // MultiRegionAccessPointArrayInput is an input type that accepts MultiRegionAccessPointArray and MultiRegionAccessPointArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointArrayInput` via:
 //
-//          MultiRegionAccessPointArray{ MultiRegionAccessPointArgs{...} }
+//	MultiRegionAccessPointArray{ MultiRegionAccessPointArgs{...} }
 type MultiRegionAccessPointArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i MultiRegionAccessPointArray) ToMultiRegionAccessPointArrayOutputWithCont
 // MultiRegionAccessPointMapInput is an input type that accepts MultiRegionAccessPointMap and MultiRegionAccessPointMapOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointMapInput` via:
 //
-//          MultiRegionAccessPointMap{ "key": MultiRegionAccessPointArgs{...} }
+//	MultiRegionAccessPointMap{ "key": MultiRegionAccessPointArgs{...} }
 type MultiRegionAccessPointMapInput interface {
 	pulumi.Input
 

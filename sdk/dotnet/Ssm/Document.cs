@@ -19,16 +19,15 @@ namespace Pulumi.Aws.Ssm
     /// ### Create an ssm document in JSON format
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ssm.Document("foo", new()
     ///     {
-    ///         var foo = new Aws.Ssm.Document("foo", new Aws.Ssm.DocumentArgs
-    ///         {
-    ///             Content = @"  {
+    ///         Content = @"  {
     ///     ""schemaVersion"": ""1.2"",
     ///     ""description"": ""Check ip configuration of a Linux instance."",
     ///     ""parameters"": {
@@ -47,25 +46,23 @@ namespace Pulumi.Aws.Ssm
     ///   }
     /// 
     /// ",
-    ///             DocumentType = "Command",
-    ///         });
-    ///     }
+    ///         DocumentType = "Command",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create an ssm document in YAML format
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ssm.Document("foo", new()
     ///     {
-    ///         var foo = new Aws.Ssm.Document("foo", new Aws.Ssm.DocumentArgs
-    ///         {
-    ///             Content = @"schemaVersion: '1.2'
+    ///         Content = @"schemaVersion: '1.2'
     /// description: Check ip configuration of a Linux instance.
     /// parameters: {}
     /// runtimeConfig:
@@ -76,12 +73,11 @@ namespace Pulumi.Aws.Ssm
     ///           - ifconfig
     /// 
     /// ",
-    ///             DocumentFormat = "YAML",
-    ///             DocumentType = "Command",
-    ///         });
-    ///     }
+    ///         DocumentFormat = "YAML",
+    ///         DocumentType = "Command",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Permissions
     /// 
@@ -129,7 +125,7 @@ namespace Pulumi.Aws.Ssm
     ///  } }
     /// </summary>
     [AwsResourceType("aws:ssm/document:Document")]
-    public partial class Document : Pulumi.CustomResource
+    public partial class Document : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -249,7 +245,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -310,7 +306,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class DocumentArgs : Pulumi.ResourceArgs
+    public sealed class DocumentArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachmentsSources")]
         private InputList<Inputs.DocumentAttachmentsSourceArgs>? _attachmentsSources;
@@ -387,9 +383,10 @@ namespace Pulumi.Aws.Ssm
         public DocumentArgs()
         {
         }
+        public static new DocumentArgs Empty => new DocumentArgs();
     }
 
-    public sealed class DocumentState : Pulumi.ResourceArgs
+    public sealed class DocumentState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -542,7 +539,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -565,5 +562,6 @@ namespace Pulumi.Aws.Ssm
         public DocumentState()
         {
         }
+        public static new DocumentState Empty => new DocumentState();
     }
 }

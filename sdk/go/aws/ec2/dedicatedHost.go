@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDedicatedHost(ctx, "test", &ec2.DedicatedHostArgs{
-// 			AutoPlacement:    pulumi.String("on"),
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			HostRecovery:     pulumi.String("on"),
-// 			InstanceType:     pulumi.String("c5.18xlarge"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewDedicatedHost(ctx, "test", &ec2.DedicatedHostArgs{
+//				AutoPlacement:    pulumi.String("on"),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				HostRecovery:     pulumi.String("on"),
+//				InstanceType:     pulumi.String("c5.18xlarge"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Hosts can be imported using the host `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+//
+//	$ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+//
 // ```
 type DedicatedHost struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *DedicatedHost) ToDedicatedHostOutputWithContext(ctx context.Context) De
 // DedicatedHostArrayInput is an input type that accepts DedicatedHostArray and DedicatedHostArrayOutput values.
 // You can construct a concrete instance of `DedicatedHostArrayInput` via:
 //
-//          DedicatedHostArray{ DedicatedHostArgs{...} }
+//	DedicatedHostArray{ DedicatedHostArgs{...} }
 type DedicatedHostArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i DedicatedHostArray) ToDedicatedHostArrayOutputWithContext(ctx context.Co
 // DedicatedHostMapInput is an input type that accepts DedicatedHostMap and DedicatedHostMapOutput values.
 // You can construct a concrete instance of `DedicatedHostMapInput` via:
 //
-//          DedicatedHostMap{ "key": DedicatedHostArgs{...} }
+//	DedicatedHostMap{ "key": DedicatedHostArgs{...} }
 type DedicatedHostMapInput interface {
 	pulumi.Input
 

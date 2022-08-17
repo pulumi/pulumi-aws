@@ -21,38 +21,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testSnapshotCopyGrant, err := redshift.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift.SnapshotCopyGrantArgs{
-// 			SnapshotCopyGrantName: pulumi.String("my-grant"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
-// 			SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
-// 				DestinationRegion: pulumi.String("us-east-2"),
-// 				GrantName:         testSnapshotCopyGrant.SnapshotCopyGrantName,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSnapshotCopyGrant, err := redshift.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift.SnapshotCopyGrantArgs{
+//				SnapshotCopyGrantName: pulumi.String("my-grant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
+//				SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
+//					DestinationRegion: pulumi.String("us-east-2"),
+//					GrantName:         testSnapshotCopyGrant.SnapshotCopyGrantName,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// Redshift Snapshot Copy Grants support import by name, e.g., console
+// # Redshift Snapshot Copy Grants support import by name, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+//
+//	$ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+//
 // ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
@@ -65,7 +70,7 @@ type SnapshotCopyGrant struct {
 	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -109,7 +114,7 @@ type snapshotCopyGrantState struct {
 	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -122,7 +127,7 @@ type SnapshotCopyGrantState struct {
 	SnapshotCopyGrantName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -175,7 +180,7 @@ func (i *SnapshotCopyGrant) ToSnapshotCopyGrantOutputWithContext(ctx context.Con
 // SnapshotCopyGrantArrayInput is an input type that accepts SnapshotCopyGrantArray and SnapshotCopyGrantArrayOutput values.
 // You can construct a concrete instance of `SnapshotCopyGrantArrayInput` via:
 //
-//          SnapshotCopyGrantArray{ SnapshotCopyGrantArgs{...} }
+//	SnapshotCopyGrantArray{ SnapshotCopyGrantArgs{...} }
 type SnapshotCopyGrantArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i SnapshotCopyGrantArray) ToSnapshotCopyGrantArrayOutputWithContext(ctx co
 // SnapshotCopyGrantMapInput is an input type that accepts SnapshotCopyGrantMap and SnapshotCopyGrantMapOutput values.
 // You can construct a concrete instance of `SnapshotCopyGrantMapInput` via:
 //
-//          SnapshotCopyGrantMap{ "key": SnapshotCopyGrantArgs{...} }
+//	SnapshotCopyGrantMap{ "key": SnapshotCopyGrantArgs{...} }
 type SnapshotCopyGrantMapInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (o SnapshotCopyGrantOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotCopyGrantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

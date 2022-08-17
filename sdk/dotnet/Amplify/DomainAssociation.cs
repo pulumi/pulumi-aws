@@ -15,51 +15,51 @@ namespace Pulumi.Aws.Amplify
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApp = new Aws.Amplify.App("exampleApp", new()
     ///     {
-    ///         var exampleApp = new Aws.Amplify.App("exampleApp", new Aws.Amplify.AppArgs
+    ///         CustomRules = new[]
     ///         {
-    ///             CustomRules = 
+    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
     ///             {
-    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///                 {
-    ///                     Source = "https://example.com",
-    ///                     Status = "302",
-    ///                     Target = "https://www.example.com",
-    ///                 },
+    ///                 Source = "https://example.com",
+    ///                 Status = "302",
+    ///                 Target = "https://www.example.com",
     ///             },
-    ///         });
-    ///         var master = new Aws.Amplify.Branch("master", new Aws.Amplify.BranchArgs
-    ///         {
-    ///             AppId = exampleApp.Id,
-    ///             BranchName = "master",
-    ///         });
-    ///         var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new Aws.Amplify.DomainAssociationArgs
-    ///         {
-    ///             AppId = exampleApp.Id,
-    ///             DomainName = "example.com",
-    ///             SubDomains = 
-    ///             {
-    ///                 new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
-    ///                 {
-    ///                     BranchName = master.BranchName,
-    ///                     Prefix = "",
-    ///                 },
-    ///                 new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
-    ///                 {
-    ///                     BranchName = master.BranchName,
-    ///                     Prefix = "www",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     {
+    ///         AppId = exampleApp.Id,
+    ///         BranchName = "master",
+    ///     });
+    /// 
+    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new()
+    ///     {
+    ///         AppId = exampleApp.Id,
+    ///         DomainName = "example.com",
+    ///         SubDomains = new[]
+    ///         {
+    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
+    ///             {
+    ///                 BranchName = master.BranchName,
+    ///                 Prefix = "",
+    ///             },
+    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
+    ///             {
+    ///                 BranchName = master.BranchName,
+    ///                 Prefix = "www",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Amplify
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/domainAssociation:DomainAssociation")]
-    public partial class DomainAssociation : Pulumi.CustomResource
+    public partial class DomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Amplify
         }
     }
 
-    public sealed class DomainAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -188,9 +188,10 @@ namespace Pulumi.Aws.Amplify
         public DomainAssociationArgs()
         {
         }
+        public static new DomainAssociationArgs Empty => new DomainAssociationArgs();
     }
 
-    public sealed class DomainAssociationState : Pulumi.ResourceArgs
+    public sealed class DomainAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -237,5 +238,6 @@ namespace Pulumi.Aws.Amplify
         public DomainAssociationState()
         {
         }
+        public static new DomainAssociationState Empty => new DomainAssociationState();
     }
 }

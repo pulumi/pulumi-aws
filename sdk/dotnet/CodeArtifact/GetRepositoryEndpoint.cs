@@ -19,22 +19,20 @@ namespace Pulumi.Aws.CodeArtifact
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CodeArtifact.GetRepositoryEndpoint.InvokeAsync(new Aws.CodeArtifact.GetRepositoryEndpointArgs
-        ///         {
-        ///             Domain = aws_codeartifact_domain.Test.Domain,
-        ///             Repository = aws_codeartifact_repository.Test.Repository,
-        ///             Format = "npm",
-        ///         }));
-        ///     }
+        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///         Repository = aws_codeartifact_repository.Test.Repository,
+        ///         Format = "npm",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.CodeArtifact
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CodeArtifact.GetRepositoryEndpoint.InvokeAsync(new Aws.CodeArtifact.GetRepositoryEndpointArgs
-        ///         {
-        ///             Domain = aws_codeartifact_domain.Test.Domain,
-        ///             Repository = aws_codeartifact_repository.Test.Repository,
-        ///             Format = "npm",
-        ///         }));
-        ///     }
+        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///         Repository = aws_codeartifact_repository.Test.Repository,
+        ///         Format = "npm",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.CodeArtifact
     }
 
 
-    public sealed class GetRepositoryEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain that contains the repository.
@@ -104,9 +100,10 @@ namespace Pulumi.Aws.CodeArtifact
         public GetRepositoryEndpointArgs()
         {
         }
+        public static new GetRepositoryEndpointArgs Empty => new GetRepositoryEndpointArgs();
     }
 
-    public sealed class GetRepositoryEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain that contains the repository.
@@ -135,6 +132,7 @@ namespace Pulumi.Aws.CodeArtifact
         public GetRepositoryEndpointInvokeArgs()
         {
         }
+        public static new GetRepositoryEndpointInvokeArgs Empty => new GetRepositoryEndpointInvokeArgs();
     }
 
 

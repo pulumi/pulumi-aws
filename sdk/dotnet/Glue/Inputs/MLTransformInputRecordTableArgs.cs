@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class MLTransformInputRecordTableArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformInputRecordTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for the AWS Glue Data Catalog.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public MLTransformInputRecordTableArgs()
         {
         }
+        public static new MLTransformInputRecordTableArgs Empty => new MLTransformInputRecordTableArgs();
     }
 }

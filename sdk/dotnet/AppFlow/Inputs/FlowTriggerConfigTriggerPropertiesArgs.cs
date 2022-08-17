@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowTriggerConfigTriggerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowTriggerConfigTriggerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("scheduled")]
         public Input<Inputs.FlowTriggerConfigTriggerPropertiesScheduledArgs>? Scheduled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowTriggerConfigTriggerPropertiesArgs()
         {
         }
+        public static new FlowTriggerConfigTriggerPropertiesArgs Empty => new FlowTriggerConfigTriggerPropertiesArgs();
     }
 }

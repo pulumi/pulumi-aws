@@ -17,39 +17,48 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new()
     ///     {
-    ///         var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new Aws.GuardDuty.DetectorArgs
+    ///         Enable = true,
+    ///     });
+    /// 
+    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     {
+    ///         AutoEnable = true,
+    ///         DetectorId = exampleDetector.Id,
+    ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
     ///         {
-    ///             Enable = true,
-    ///         });
-    ///         var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new Aws.GuardDuty.OrganizationConfigurationArgs
-    ///         {
-    ///             AutoEnable = true,
-    ///             DetectorId = exampleDetector.Id,
-    ///             Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
+    ///             S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
     ///             {
-    ///                 S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
+    ///                 AutoEnable = true,
+    ///             },
+    ///             Kubernetes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesArgs
+    ///             {
+    ///                 AuditLogs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs
     ///                 {
-    ///                     AutoEnable = true,
+    ///                     Enable = true,
     ///                 },
-    ///                 Kubernetes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesArgs
+    ///             },
+    ///             MalwareProtection = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs
+    ///             {
+    ///                 ScanEc2InstanceWithFindings = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
     ///                 {
-    ///                     AuditLogs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs
+    ///                     EbsVolumes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
     ///                     {
-    ///                         Enable = true,
+    ///                         AutoEnable = true,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +70,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationConfiguration:OrganizationConfiguration")]
-    public partial class OrganizationConfiguration : Pulumi.CustomResource
+    public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
@@ -125,7 +134,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class OrganizationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
@@ -148,9 +157,10 @@ namespace Pulumi.Aws.GuardDuty
         public OrganizationConfigurationArgs()
         {
         }
+        public static new OrganizationConfigurationArgs Empty => new OrganizationConfigurationArgs();
     }
 
-    public sealed class OrganizationConfigurationState : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
@@ -173,5 +183,6 @@ namespace Pulumi.Aws.GuardDuty
         public OrganizationConfigurationState()
         {
         }
+        public static new OrganizationConfigurationState Empty => new OrganizationConfigurationState();
     }
 }

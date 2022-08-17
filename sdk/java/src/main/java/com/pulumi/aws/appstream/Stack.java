@@ -95,9 +95,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:appstream/stack:Stack")
 public class Stack extends com.pulumi.resources.CustomResource {
+    /**
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * 
+     */
     @Export(name="accessEndpoints", type=List.class, parameters={StackAccessEndpoint.class})
     private Output<List<StackAccessEndpoint>> accessEndpoints;
 
+    /**
+     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * 
+     */
     public Output<List<StackAccessEndpoint>> accessEndpoints() {
         return this.accessEndpoints;
     }

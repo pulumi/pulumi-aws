@@ -21,32 +21,28 @@ namespace Pulumi.Aws.AppConfig
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.HostedConfigurationVersion("example", new Aws.AppConfig.HostedConfigurationVersionArgs
+    ///         ApplicationId = aws_appconfig_application.Example.Id,
+    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         Description = "Example Freeform Hosted Configuration Version",
+    ///         ContentType = "application/json",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ApplicationId = aws_appconfig_application.Example.Id,
-    ///             ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///             Description = "Example Freeform Hosted Configuration Version",
-    ///             ContentType = "application/json",
-    ///             Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["foo"] = "bar",
+    ///             ["fruit"] = new[]
     ///             {
-    ///                 { "foo", "bar" },
-    ///                 { "fruit", new[]
-    ///                     {
-    ///                         "apple",
-    ///                         "pear",
-    ///                         "orange",
-    ///                     }
-    ///                  },
-    ///                 { "isThingEnabled", true },
-    ///             }),
-    ///         });
-    ///     }
+    ///                 "apple",
+    ///                 "pear",
+    ///                 "orange",
+    ///             },
+    ///             ["isThingEnabled"] = true,
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Feature Flags
     /// 
@@ -56,71 +52,68 @@ namespace Pulumi.Aws.AppConfig
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.HostedConfigurationVersion("example", new Aws.AppConfig.HostedConfigurationVersionArgs
+    ///         ApplicationId = aws_appconfig_application.Example.Id,
+    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         Description = "Example Feature Flag Configuration Version",
+    ///         ContentType = "application/json",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ApplicationId = aws_appconfig_application.Example.Id,
-    ///             ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///             Description = "Example Feature Flag Configuration Version",
-    ///             ContentType = "application/json",
-    ///             Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["flags"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "flags", new Dictionary&lt;string, object?&gt;
+    ///                 ["foo"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "foo", new Dictionary&lt;string, object?&gt;
+    ///                     ["name"] = "foo",
+    ///                     ["_deprecation"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "name", "foo" },
-    ///                         { "_deprecation", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "status", "planned" },
-    ///                         } },
-    ///                     } },
-    ///                     { "bar", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "name", "bar" },
-    ///                         { "attributes", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "someAttribute", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "constraints", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "type", "string" },
-    ///                                     { "required", true },
-    ///                                 } },
-    ///                             } },
-    ///                             { "someOtherAttribute", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "constraints", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "type", "number" },
-    ///                                     { "required", true },
-    ///                                 } },
-    ///                             } },
-    ///                         } },
-    ///                     } },
-    ///                 } },
-    ///                 { "values", new Dictionary&lt;string, object?&gt;
+    ///                         ["status"] = "planned",
+    ///                     },
+    ///                 },
+    ///                 ["bar"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "foo", new Dictionary&lt;string, object?&gt;
+    ///                     ["name"] = "bar",
+    ///                     ["attributes"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "enabled", "true" },
-    ///                     } },
-    ///                     { "bar", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "enabled", "true" },
-    ///                         { "someAttribute", "Hello World" },
-    ///                         { "someOtherAttribute", 123 },
-    ///                     } },
-    ///                 } },
-    ///                 { "version", "1" },
-    ///             }),
-    ///         });
-    ///     }
+    ///                         ["someAttribute"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["constraints"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["type"] = "string",
+    ///                                 ["required"] = true,
+    ///                             },
+    ///                         },
+    ///                         ["someOtherAttribute"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["constraints"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["type"] = "number",
+    ///                                 ["required"] = true,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["values"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["foo"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["enabled"] = "true",
+    ///                 },
+    ///                 ["bar"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["enabled"] = "true",
+    ///                     ["someAttribute"] = "Hello World",
+    ///                     ["someOtherAttribute"] = 123,
+    ///                 },
+    ///             },
+    ///             ["version"] = "1",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -132,7 +125,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")]
-    public partial class HostedConfigurationVersion : Pulumi.CustomResource
+    public partial class HostedConfigurationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -220,7 +213,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class HostedConfigurationVersionArgs : Pulumi.ResourceArgs
+    public sealed class HostedConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -255,9 +248,10 @@ namespace Pulumi.Aws.AppConfig
         public HostedConfigurationVersionArgs()
         {
         }
+        public static new HostedConfigurationVersionArgs Empty => new HostedConfigurationVersionArgs();
     }
 
-    public sealed class HostedConfigurationVersionState : Pulumi.ResourceArgs
+    public sealed class HostedConfigurationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -304,5 +298,6 @@ namespace Pulumi.Aws.AppConfig
         public HostedConfigurationVersionState()
         {
         }
+        public static new HostedConfigurationVersionState Empty => new HostedConfigurationVersionState();
     }
 }

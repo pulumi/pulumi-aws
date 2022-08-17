@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PatchGroup{}
 	case "aws:ssm/resourceDataSync:ResourceDataSync":
 		r = &ResourceDataSync{}
+	case "aws:ssm/serviceSetting:ServiceSetting":
+		r = &ServiceSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -102,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssm/resourceDataSync",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssm/serviceSetting",
 		&module{version},
 	)
 }

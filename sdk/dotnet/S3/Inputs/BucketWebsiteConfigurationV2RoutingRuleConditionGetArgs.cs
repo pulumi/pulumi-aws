@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteConfigurationV2RoutingRuleConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2RoutingRuleConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteConfigurationV2RoutingRuleConditionGetArgs()
         {
         }
+        public static new BucketWebsiteConfigurationV2RoutingRuleConditionGetArgs Empty => new BucketWebsiteConfigurationV2RoutingRuleConditionGetArgs();
     }
 }

@@ -15,124 +15,124 @@ namespace Pulumi.Aws.Ecr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    /// 
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
-    ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
+    ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///         {
-    ///             ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             Rules = new[]
     ///             {
-    ///                 Rules = 
+    ///                 new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
     ///                 {
-    ///                     new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                     Destinations = new[]
     ///                     {
-    ///                         Destinations = 
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
-    ///                             {
-    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
-    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
-    ///                             },
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Multiple Region Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    /// 
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
-    ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
+    ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///         {
-    ///             ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             Rules = new[]
     ///             {
-    ///                 Rules = 
+    ///                 new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
     ///                 {
-    ///                     new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                     Destinations = new[]
     ///                     {
-    ///                         Destinations = 
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
-    ///                             {
-    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
-    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
-    ///                             },
-    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
-    ///                             {
-    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[1]),
-    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
-    ///                             },
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[1]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Repository Filter Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    /// 
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
-    ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
+    ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///         {
-    ///             ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             Rules = new[]
     ///             {
-    ///                 Rules = 
+    ///                 new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
     ///                 {
-    ///                     new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                     Destinations = new[]
     ///                     {
-    ///                         Destinations = 
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
-    ///                             {
-    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
-    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
-    ///                             },
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
-    ///                         RepositoryFilters = 
+    ///                     },
+    ///                     RepositoryFilters = new[]
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
     ///                         {
-    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
-    ///                             {
-    ///                                 Filter = "prod-microservice",
-    ///                                 FilterType = "PREFIX_MATCH",
-    ///                             },
+    ///                             Filter = "prod-microservice",
+    ///                             FilterType = "PREFIX_MATCH",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/replicationConfiguration:ReplicationConfiguration")]
-    public partial class ReplicationConfiguration : Pulumi.CustomResource
+    public partial class ReplicationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account ID of the destination registry to replicate to.
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class ReplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Replication configuration for a registry. See Replication Configuration.
@@ -213,9 +213,10 @@ namespace Pulumi.Aws.Ecr
         public ReplicationConfigurationArgs()
         {
         }
+        public static new ReplicationConfigurationArgs Empty => new ReplicationConfigurationArgs();
     }
 
-    public sealed class ReplicationConfigurationState : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID of the destination registry to replicate to.
@@ -232,5 +233,6 @@ namespace Pulumi.Aws.Ecr
         public ReplicationConfigurationState()
         {
         }
+        public static new ReplicationConfigurationState Empty => new ReplicationConfigurationState();
     }
 }

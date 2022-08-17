@@ -18,33 +18,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := route53.NewDelegationSet(ctx, "main", &route53.DelegationSetArgs{
-// 			ReferenceName: pulumi.String("DynDNS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewZone(ctx, "primary", &route53.ZoneArgs{
-// 			DelegationSetId: main.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewZone(ctx, "secondary", &route53.ZoneArgs{
-// 			DelegationSetId: main.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := route53.NewDelegationSet(ctx, "main", &route53.DelegationSetArgs{
+//				ReferenceName: pulumi.String("DynDNS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewZone(ctx, "primary", &route53.ZoneArgs{
+//				DelegationSetId: main.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewZone(ctx, "secondary", &route53.ZoneArgs{
+//				DelegationSetId: main.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+//
+//	$ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+//
 // ```
 type DelegationSet struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) De
 // DelegationSetArrayInput is an input type that accepts DelegationSetArray and DelegationSetArrayOutput values.
 // You can construct a concrete instance of `DelegationSetArrayInput` via:
 //
-//          DelegationSetArray{ DelegationSetArgs{...} }
+//	DelegationSetArray{ DelegationSetArgs{...} }
 type DelegationSetArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i DelegationSetArray) ToDelegationSetArrayOutputWithContext(ctx context.Co
 // DelegationSetMapInput is an input type that accepts DelegationSetMap and DelegationSetMapOutput values.
 // You can construct a concrete instance of `DelegationSetMapInput` via:
 //
-//          DelegationSetMap{ "key": DelegationSetArgs{...} }
+//	DelegationSetMap{ "key": DelegationSetArgs{...} }
 type DelegationSetMapInput interface {
 	pulumi.Input
 

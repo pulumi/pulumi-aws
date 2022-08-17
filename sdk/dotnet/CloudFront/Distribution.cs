@@ -27,251 +27,250 @@ namespace Pulumi.Aws.CloudFront
     /// The following example below creates a CloudFront distribution with an S3 origin.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
     ///     {
-    ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
+    ///         Tags = 
     ///         {
-    ///             Tags = 
+    ///             { "Name", "My bucket" },
+    ///         },
+    ///     });
+    /// 
+    ///     var bAcl = new Aws.S3.BucketAclV2("bAcl", new()
+    ///     {
+    ///         Bucket = bucketV2.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var s3OriginId = "myS3Origin";
+    /// 
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     {
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 { "Name", "My bucket" },
-    ///             },
-    ///         });
-    ///         var bAcl = new Aws.S3.BucketAclV2("bAcl", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = bucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var s3OriginId = "myS3Origin";
-    ///         var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new Aws.CloudFront.DistributionArgs
-    ///         {
-    ///             Origins = 
-    ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///                 DomainName = bucketV2.BucketRegionalDomainName,
+    ///                 OriginId = s3OriginId,
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     DomainName = bucketV2.BucketRegionalDomainName,
-    ///                     OriginId = s3OriginId,
-    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
-    ///                     {
-    ///                         OriginAccessIdentity = "origin-access-identity/cloudfront/ABCDEFG1234567",
-    ///                     },
+    ///                     OriginAccessIdentity = "origin-access-identity/cloudfront/ABCDEFG1234567",
     ///                 },
     ///             },
-    ///             Enabled = true,
-    ///             IsIpv6Enabled = true,
-    ///             Comment = "Some comment",
-    ///             DefaultRootObject = "index.html",
-    ///             LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
+    ///         },
+    ///         Enabled = true,
+    ///         IsIpv6Enabled = true,
+    ///         Comment = "Some comment",
+    ///         DefaultRootObject = "index.html",
+    ///         LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
+    ///         {
+    ///             IncludeCookies = false,
+    ///             Bucket = "mylogs.s3.amazonaws.com",
+    ///             Prefix = "myprefix",
+    ///         },
+    ///         Aliases = new[]
+    ///         {
+    ///             "mysite.example.com",
+    ///             "yoursite.example.com",
+    ///         },
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             AllowedMethods = new[]
     ///             {
-    ///                 IncludeCookies = false,
-    ///                 Bucket = "mylogs.s3.amazonaws.com",
-    ///                 Prefix = "myprefix",
+    ///                 "DELETE",
+    ///                 "GET",
+    ///                 "HEAD",
+    ///                 "OPTIONS",
+    ///                 "PATCH",
+    ///                 "POST",
+    ///                 "PUT",
     ///             },
-    ///             Aliases = 
+    ///             CachedMethods = new[]
     ///             {
-    ///                 "mysite.example.com",
-    ///                 "yoursite.example.com",
+    ///                 "GET",
+    ///                 "HEAD",
     ///             },
-    ///             DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///             TargetOriginId = s3OriginId,
+    ///             ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
     ///             {
-    ///                 AllowedMethods = 
+    ///                 QueryString = false,
+    ///                 Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
     ///                 {
-    ///                     "DELETE",
+    ///                     Forward = "none",
+    ///                 },
+    ///             },
+    ///             ViewerProtocolPolicy = "allow-all",
+    ///             MinTtl = 0,
+    ///             DefaultTtl = 3600,
+    ///             MaxTtl = 86400,
+    ///         },
+    ///         OrderedCacheBehaviors = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             {
+    ///                 PathPattern = "/content/immutable/*",
+    ///                 AllowedMethods = new[]
+    ///                 {
     ///                     "GET",
     ///                     "HEAD",
     ///                     "OPTIONS",
-    ///                     "PATCH",
-    ///                     "POST",
-    ///                     "PUT",
     ///                 },
-    ///                 CachedMethods = 
+    ///                 CachedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 TargetOriginId = s3OriginId,
+    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 {
+    ///                     QueryString = false,
+    ///                     Headers = new[]
+    ///                     {
+    ///                         "Origin",
+    ///                     },
+    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     {
+    ///                         Forward = "none",
+    ///                     },
+    ///                 },
+    ///                 MinTtl = 0,
+    ///                 DefaultTtl = 86400,
+    ///                 MaxTtl = 31536000,
+    ///                 Compress = true,
+    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///             },
+    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             {
+    ///                 PathPattern = "/content/*",
+    ///                 AllowedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 CachedMethods = new[]
     ///                 {
     ///                     "GET",
     ///                     "HEAD",
     ///                 },
     ///                 TargetOriginId = s3OriginId,
-    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
+    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
     ///                 {
     ///                     QueryString = false,
-    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
+    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
     ///                     {
     ///                         Forward = "none",
     ///                     },
     ///                 },
-    ///                 ViewerProtocolPolicy = "allow-all",
     ///                 MinTtl = 0,
     ///                 DefaultTtl = 3600,
     ///                 MaxTtl = 86400,
+    ///                 Compress = true,
+    ///                 ViewerProtocolPolicy = "redirect-to-https",
     ///             },
-    ///             OrderedCacheBehaviors = 
+    ///         },
+    ///         PriceClass = "PriceClass_200",
+    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
+    ///         {
+    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
     ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///                 RestrictionType = "whitelist",
+    ///                 Locations = new[]
     ///                 {
-    ///                     PathPattern = "/content/immutable/*",
-    ///                     AllowedMethods = 
-    ///                     {
-    ///                         "GET",
-    ///                         "HEAD",
-    ///                         "OPTIONS",
-    ///                     },
-    ///                     CachedMethods = 
-    ///                     {
-    ///                         "GET",
-    ///                         "HEAD",
-    ///                         "OPTIONS",
-    ///                     },
-    ///                     TargetOriginId = s3OriginId,
-    ///                     ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
-    ///                     {
-    ///                         QueryString = false,
-    ///                         Headers = 
-    ///                         {
-    ///                             "Origin",
-    ///                         },
-    ///                         Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
-    ///                         {
-    ///                             Forward = "none",
-    ///                         },
-    ///                     },
-    ///                     MinTtl = 0,
-    ///                     DefaultTtl = 86400,
-    ///                     MaxTtl = 31536000,
-    ///                     Compress = true,
-    ///                     ViewerProtocolPolicy = "redirect-to-https",
-    ///                 },
-    ///                 new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
-    ///                 {
-    ///                     PathPattern = "/content/*",
-    ///                     AllowedMethods = 
-    ///                     {
-    ///                         "GET",
-    ///                         "HEAD",
-    ///                         "OPTIONS",
-    ///                     },
-    ///                     CachedMethods = 
-    ///                     {
-    ///                         "GET",
-    ///                         "HEAD",
-    ///                     },
-    ///                     TargetOriginId = s3OriginId,
-    ///                     ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
-    ///                     {
-    ///                         QueryString = false,
-    ///                         Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
-    ///                         {
-    ///                             Forward = "none",
-    ///                         },
-    ///                     },
-    ///                     MinTtl = 0,
-    ///                     DefaultTtl = 3600,
-    ///                     MaxTtl = 86400,
-    ///                     Compress = true,
-    ///                     ViewerProtocolPolicy = "redirect-to-https",
+    ///                     "US",
+    ///                     "CA",
+    ///                     "GB",
+    ///                     "DE",
     ///                 },
     ///             },
-    ///             PriceClass = "PriceClass_200",
-    ///             Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
-    ///             {
-    ///                 GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
-    ///                 {
-    ///                     RestrictionType = "whitelist",
-    ///                     Locations = 
-    ///                     {
-    ///                         "US",
-    ///                         "CA",
-    ///                         "GB",
-    ///                         "DE",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "production" },
-    ///             },
-    ///             ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
-    ///             {
-    ///                 CloudfrontDefaultCertificate = true,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
+    ///         {
+    ///             CloudfrontDefaultCertificate = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// The following example below creates a Cloudfront distribution with an origin group for failover routing:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
     ///     {
-    ///         var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new Aws.CloudFront.DistributionArgs
+    ///         OriginGroups = new[]
     ///         {
-    ///             OriginGroups = 
+    ///             new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
     ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
+    ///                 OriginId = "groupS3",
+    ///                 FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
     ///                 {
-    ///                     OriginId = "groupS3",
-    ///                     FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
+    ///                     StatusCodes = new[]
     ///                     {
-    ///                         StatusCodes = 
-    ///                         {
-    ///                             403,
-    ///                             404,
-    ///                             500,
-    ///                             502,
-    ///                         },
+    ///                         403,
+    ///                         404,
+    ///                         500,
+    ///                         502,
     ///                     },
-    ///                     Members = 
+    ///                 },
+    ///                 Members = new[]
+    ///                 {
+    ///                     new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
     ///                     {
-    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
-    ///                         {
-    ///                             OriginId = "primaryS3",
-    ///                         },
-    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
-    ///                         {
-    ///                             OriginId = "failoverS3",
-    ///                         },
+    ///                         OriginId = "primaryS3",
+    ///                     },
+    ///                     new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                     {
+    ///                         OriginId = "failoverS3",
     ///                     },
     ///                 },
     ///             },
-    ///             Origins = 
+    ///         },
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
+    ///                 OriginId = "primaryS3",
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
-    ///                     OriginId = "primaryS3",
-    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
-    ///                     {
-    ///                         OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
-    ///                     },
-    ///                 },
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
-    ///                 {
-    ///                     DomainName = aws_s3_bucket.Failover.Bucket_regional_domain_name,
-    ///                     OriginId = "failoverS3",
-    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
-    ///                     {
-    ///                         OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
-    ///                     },
+    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
     ///                 },
     ///             },
-    ///             DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 TargetOriginId = "groupS3",
+    ///                 DomainName = aws_s3_bucket.Failover.Bucket_regional_domain_name,
+    ///                 OriginId = "failoverS3",
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 {
+    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                 },
     ///             },
-    ///         });
-    ///         // ... other configuration ...
-    ///     }
+    ///         },
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             TargetOriginId = "groupS3",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     // ... other configuration ...
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -283,7 +282,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/distribution:Distribution")]
-    public partial class Distribution : Pulumi.CustomResource
+    public partial class Distribution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Extra CNAMEs (alternate domain names), if any, for
@@ -454,7 +453,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -545,7 +544,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class DistributionArgs : Pulumi.ResourceArgs
+    public sealed class DistributionArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
@@ -726,9 +725,10 @@ namespace Pulumi.Aws.CloudFront
         public DistributionArgs()
         {
         }
+        public static new DistributionArgs Empty => new DistributionArgs();
     }
 
-    public sealed class DistributionState : Pulumi.ResourceArgs
+    public sealed class DistributionState : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
@@ -938,7 +938,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1003,5 +1003,6 @@ namespace Pulumi.Aws.CloudFront
         public DistributionState()
         {
         }
+        public static new DistributionState Empty => new DistributionState();
     }
 }

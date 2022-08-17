@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
-// 			Action:        pulumi.String("lambda:GetLayerVersion"),
-// 			LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
-// 			Principal:     pulumi.String("111111111111"),
-// 			StatementId:   pulumi.String("dev-account"),
-// 			VersionNumber: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
+//				Action:        pulumi.String("lambda:GetLayerVersion"),
+//				LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
+//				Principal:     pulumi.String("111111111111"),
+//				StatementId:   pulumi.String("dev-account"),
+//				VersionNumber: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,10 +50,12 @@ import (
 // Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
 //
 // ```sh
-//  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+//
+//	$ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+//
 // ```
 //
-//  [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+//	[1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState
 
@@ -214,7 +219,7 @@ func (i *LayerVersionPermission) ToLayerVersionPermissionOutputWithContext(ctx c
 // LayerVersionPermissionArrayInput is an input type that accepts LayerVersionPermissionArray and LayerVersionPermissionArrayOutput values.
 // You can construct a concrete instance of `LayerVersionPermissionArrayInput` via:
 //
-//          LayerVersionPermissionArray{ LayerVersionPermissionArgs{...} }
+//	LayerVersionPermissionArray{ LayerVersionPermissionArgs{...} }
 type LayerVersionPermissionArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i LayerVersionPermissionArray) ToLayerVersionPermissionArrayOutputWithCont
 // LayerVersionPermissionMapInput is an input type that accepts LayerVersionPermissionMap and LayerVersionPermissionMapOutput values.
 // You can construct a concrete instance of `LayerVersionPermissionMapInput` via:
 //
-//          LayerVersionPermissionMap{ "key": LayerVersionPermissionArgs{...} }
+//	LayerVersionPermissionMap{ "key": LayerVersionPermissionArgs{...} }
 type LayerVersionPermissionMapInput interface {
 	pulumi.Input
 

@@ -20,53 +20,51 @@ namespace Pulumi.Aws.Ec2
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpcEndpointService = Aws.Ec2.GetVpcEndpointService.Invoke(new()
     ///     {
-    ///         var exampleVpcEndpointService = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
-    ///         {
-    ///             Service = "dynamodb",
-    ///         }));
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new Aws.Ec2.VpcEndpointArgs
-    ///         {
-    ///             ServiceName = exampleVpcEndpointService.Apply(exampleVpcEndpointService =&gt; exampleVpcEndpointService.ServiceName),
-    ///             VpcId = exampleVpc.Id,
-    ///         });
-    ///         var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", new Aws.Ec2.VpcEndpointPolicyArgs
-    ///         {
-    ///             VpcEndpointId = exampleVpcEndpoint.Id,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Sid", "AllowAll" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "AWS", "*" },
-    ///                             } },
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "dynamodb:*",
-    ///                                 }
-    ///                              },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///         Service = "dynamodb",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     {
+    ///         ServiceName = exampleVpcEndpointService.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
+    ///         VpcId = exampleVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", new()
+    ///     {
+    ///         VpcEndpointId = exampleVpcEndpoint.Id,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "AllowAll",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = "*",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "dynamodb:*",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +76,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")]
-    public partial class VpcEndpointPolicy : Pulumi.CustomResource
+    public partial class VpcEndpointPolicy : global::Pulumi.CustomResource
     {
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -133,7 +131,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -147,9 +145,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointPolicyArgs()
         {
         }
+        public static new VpcEndpointPolicyArgs Empty => new VpcEndpointPolicyArgs();
     }
 
-    public sealed class VpcEndpointPolicyState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -163,5 +162,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointPolicyState()
         {
         }
+        public static new VpcEndpointPolicyState Empty => new VpcEndpointPolicyState();
     }
 }

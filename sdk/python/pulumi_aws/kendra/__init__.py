@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .data_source import *
 from .experience import *
 from .faq import *
 from .get_experience import *

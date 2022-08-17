@@ -29,23 +29,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultVpcDhcpOptions(ctx, "default", &ec2.DefaultVpcDhcpOptionsArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Default DHCP Option Set"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewDefaultVpcDhcpOptions(ctx, "default", &ec2.DefaultVpcDhcpOptionsArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Default DHCP Option Set"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+//
+//	$ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+//
 // ```
 type DefaultVpcDhcpOptions struct {
 	pulumi.CustomResourceState
@@ -144,8 +149,7 @@ type defaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultVpcDhcpOptions resource.
@@ -153,8 +157,7 @@ type DefaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DefaultVpcDhcpOptionsArgs) ElementType() reflect.Type {
@@ -183,7 +186,7 @@ func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutputWithContext(ctx con
 // DefaultVpcDhcpOptionsArrayInput is an input type that accepts DefaultVpcDhcpOptionsArray and DefaultVpcDhcpOptionsArrayOutput values.
 // You can construct a concrete instance of `DefaultVpcDhcpOptionsArrayInput` via:
 //
-//          DefaultVpcDhcpOptionsArray{ DefaultVpcDhcpOptionsArgs{...} }
+//	DefaultVpcDhcpOptionsArray{ DefaultVpcDhcpOptionsArgs{...} }
 type DefaultVpcDhcpOptionsArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +211,7 @@ func (i DefaultVpcDhcpOptionsArray) ToDefaultVpcDhcpOptionsArrayOutputWithContex
 // DefaultVpcDhcpOptionsMapInput is an input type that accepts DefaultVpcDhcpOptionsMap and DefaultVpcDhcpOptionsMapOutput values.
 // You can construct a concrete instance of `DefaultVpcDhcpOptionsMapInput` via:
 //
-//          DefaultVpcDhcpOptionsMap{ "key": DefaultVpcDhcpOptionsArgs{...} }
+//	DefaultVpcDhcpOptionsMap{ "key": DefaultVpcDhcpOptionsArgs{...} }
 type DefaultVpcDhcpOptionsMapInput interface {
 	pulumi.Input
 

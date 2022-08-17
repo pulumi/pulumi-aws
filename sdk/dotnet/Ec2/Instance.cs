@@ -16,113 +16,113 @@ namespace Pulumi.Aws.Ec2
     /// ### Basic Example Using AMI Lookup
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var ubuntu = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Filters = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "virtualization-type",
-    ///                     Values = 
-    ///                     {
-    ///                         "hvm",
-    ///                     },
+    ///                     "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
     ///                 },
     ///             },
-    ///             Owners = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 "099720109477",
+    ///                 Name = "virtualization-type",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "hvm",
+    ///                 },
     ///             },
-    ///         }));
-    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         },
+    ///         Owners = new[]
     ///         {
-    ///             Ami = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
-    ///             InstanceType = "t3.micro",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "099720109477",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var web = new Aws.Ec2.Instance("web", new()
+    ///     {
+    ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t3.micro",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Network and Credit Specification Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myVpc = new Aws.Ec2.Vpc("myVpc", new()
     ///     {
-    ///         var myVpc = new Aws.Ec2.Vpc("myVpc", new Aws.Ec2.VpcArgs
+    ///         CidrBlock = "172.16.0.0/16",
+    ///         Tags = 
     ///         {
-    ///             CidrBlock = "172.16.0.0/16",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-example" },
-    ///             },
-    ///         });
-    ///         var mySubnet = new Aws.Ec2.Subnet("mySubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = myVpc.Id,
-    ///             CidrBlock = "172.16.10.0/24",
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-example" },
-    ///             },
-    ///         });
-    ///         var fooNetworkInterface = new Aws.Ec2.NetworkInterface("fooNetworkInterface", new Aws.Ec2.NetworkInterfaceArgs
-    ///         {
-    ///             SubnetId = mySubnet.Id,
-    ///             PrivateIps = 
-    ///             {
-    ///                 "172.16.10.100",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "primary_network_interface" },
-    ///             },
-    ///         });
-    ///         var fooInstance = new Aws.Ec2.Instance("fooInstance", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///             Ami = "ami-005e54dee72cc1d00",
-    ///             InstanceType = "t2.micro",
-    ///             NetworkInterfaces = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
-    ///                 {
-    ///                     NetworkInterfaceId = fooNetworkInterface.Id,
-    ///                     DeviceIndex = 0,
-    ///                 },
-    ///             },
-    ///             CreditSpecification = new Aws.Ec2.Inputs.InstanceCreditSpecificationArgs
-    ///             {
-    ///                 CpuCredits = "unlimited",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "tf-example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var mySubnet = new Aws.Ec2.Subnet("mySubnet", new()
+    ///     {
+    ///         VpcId = myVpc.Id,
+    ///         CidrBlock = "172.16.10.0/24",
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooNetworkInterface = new Aws.Ec2.NetworkInterface("fooNetworkInterface", new()
+    ///     {
+    ///         SubnetId = mySubnet.Id,
+    ///         PrivateIps = new[]
+    ///         {
+    ///             "172.16.10.100",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "primary_network_interface" },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooInstance = new Aws.Ec2.Instance("fooInstance", new()
+    ///     {
+    ///         Ami = "ami-005e54dee72cc1d00",
+    ///         InstanceType = "t2.micro",
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
+    ///             {
+    ///                 NetworkInterfaceId = fooNetworkInterface.Id,
+    ///                 DeviceIndex = 0,
+    ///             },
+    ///         },
+    ///         CreditSpecification = new Aws.Ec2.Inputs.InstanceCreditSpecificationArgs
+    ///         {
+    ///             CpuCredits = "unlimited",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -402,13 +402,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -493,7 +493,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -753,7 +753,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -812,9 +812,10 @@ namespace Pulumi.Aws.Ec2
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -1122,7 +1123,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1134,7 +1135,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1193,5 +1194,6 @@ namespace Pulumi.Aws.Ec2
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ClusterConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The details of the execute command configuration. Detailed below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ClusterConfigurationArgs()
         {
         }
+        public static new ClusterConfigurationArgs Empty => new ClusterConfigurationArgs();
     }
 }

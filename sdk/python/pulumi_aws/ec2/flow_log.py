@@ -42,7 +42,7 @@ class FlowLogArgs:
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`.
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -173,7 +173,7 @@ class FlowLogArgs:
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
         log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        minutes). Default: `600`.
+        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -286,10 +286,10 @@ class _FlowLogState:
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`.
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to
         :param pulumi.Input[str] transit_gateway_id: Transit Gateway ID to attach to
@@ -434,7 +434,7 @@ class _FlowLogState:
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
         log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        minutes). Default: `600`.
+        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -470,7 +470,7 @@ class _FlowLogState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -649,7 +649,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`.
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -854,10 +854,10 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`.
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to
         :param pulumi.Input[str] transit_gateway_id: Transit Gateway ID to attach to
@@ -956,7 +956,7 @@ class FlowLog(pulumi.CustomResource):
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
         log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        minutes). Default: `600`.
+        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -980,7 +980,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -9,6 +9,8 @@ from .conditional_forwader import *
 from .directory import *
 from .get_directory import *
 from .log_service import *
+from .radius_settings import *
+from .service_region import *
 from .shared_directory import *
 from .shared_directory_accepter import *
 from ._inputs import *

@@ -22,25 +22,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
-// 			GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
-// 			TargetName:           pulumi.String("example"),
-// 			PreserveExistingData: pulumi.Bool(false),
-// 			DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
+//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
+//				TargetName:           pulumi.String("example"),
+//				PreserveExistingData: pulumi.Bool(false),
+//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create Stored iSCSI Volume From Snapshot
 //
@@ -48,26 +51,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
-// 			GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
-// 			SnapshotId:           pulumi.Any(aws_ebs_snapshot.Example.Id),
-// 			TargetName:           pulumi.String("example"),
-// 			PreserveExistingData: pulumi.Bool(false),
-// 			DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
+//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
+//				SnapshotId:           pulumi.Any(aws_ebs_snapshot.Example.Id),
+//				TargetName:           pulumi.String("example"),
+//				PreserveExistingData: pulumi.Bool(false),
+//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +81,9 @@ import (
 // `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+//
+//	$ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+//
 // ```
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
@@ -324,7 +332,7 @@ func (i *StoredIscsiVolume) ToStoredIscsiVolumeOutputWithContext(ctx context.Con
 // StoredIscsiVolumeArrayInput is an input type that accepts StoredIscsiVolumeArray and StoredIscsiVolumeArrayOutput values.
 // You can construct a concrete instance of `StoredIscsiVolumeArrayInput` via:
 //
-//          StoredIscsiVolumeArray{ StoredIscsiVolumeArgs{...} }
+//	StoredIscsiVolumeArray{ StoredIscsiVolumeArgs{...} }
 type StoredIscsiVolumeArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +357,7 @@ func (i StoredIscsiVolumeArray) ToStoredIscsiVolumeArrayOutputWithContext(ctx co
 // StoredIscsiVolumeMapInput is an input type that accepts StoredIscsiVolumeMap and StoredIscsiVolumeMapOutput values.
 // You can construct a concrete instance of `StoredIscsiVolumeMapInput` via:
 //
-//          StoredIscsiVolumeMap{ "key": StoredIscsiVolumeArgs{...} }
+//	StoredIscsiVolumeMap{ "key": StoredIscsiVolumeArgs{...} }
 type StoredIscsiVolumeMapInput interface {
 	pulumi.Input
 

@@ -21,64 +21,59 @@ namespace Pulumi.Aws.Route53
         /// ### Basic Example
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///         var exampleTrafficPolicyDocument = Output.Tuple(current, current).Apply(values =&gt;
-        ///         {
-        ///             var current = values.Item1;
-        ///             var current1 = values.Item2;
-        ///             return Output.Create(Aws.Route53.GetTrafficPolicyDocument.InvokeAsync(new Aws.Route53.GetTrafficPolicyDocumentArgs
-        ///             {
-        ///                 RecordType = "A",
-        ///                 StartRule = "site_switch",
-        ///                 Endpoints = 
-        ///                 {
-        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointArgs
-        ///                     {
-        ///                         Id = "my_elb",
-        ///                         Type = "elastic-load-balancer",
-        ///                         Value = $"elb-111111.{current.Name}.elb.amazonaws.com",
-        ///                     },
-        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointArgs
-        ///                     {
-        ///                         Id = "site_down_banner",
-        ///                         Type = "s3-website",
-        ///                         Region = current1.Name,
-        ///                         Value = "www.example.com",
-        ///                     },
-        ///                 },
-        ///                 Rules = 
-        ///                 {
-        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleArgs
-        ///                     {
-        ///                         Id = "site_switch",
-        ///                         Type = "failover",
-        ///                         Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryArgs
-        ///                         {
-        ///                             EndpointReference = "my_elb",
-        ///                         },
-        ///                         Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryArgs
-        ///                         {
-        ///                             EndpointReference = "site_down_banner",
-        ///                         },
-        ///                     },
-        ///                 },
-        ///             }));
-        ///         });
-        ///         var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new Aws.Route53.TrafficPolicyArgs
-        ///         {
-        ///             Comment = "example comment",
-        ///             Document = exampleTrafficPolicyDocument.Apply(exampleTrafficPolicyDocument =&gt; exampleTrafficPolicyDocument.Json),
-        ///         });
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "site_switch",
+        ///         Endpoints = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "my_elb",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "site_down_banner",
+        ///                 Type = "s3-website",
+        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///                 Value = "www.example.com",
+        ///             },
+        ///         },
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Id = "site_switch",
+        ///                 Type = "failover",
+        ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "my_elb",
+        ///                 },
+        ///                 Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "site_down_banner",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     {
+        ///         Comment = "example comment",
+        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -96,64 +91,59 @@ namespace Pulumi.Aws.Route53
         /// ### Basic Example
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///         var exampleTrafficPolicyDocument = Output.Tuple(current, current).Apply(values =&gt;
-        ///         {
-        ///             var current = values.Item1;
-        ///             var current1 = values.Item2;
-        ///             return Output.Create(Aws.Route53.GetTrafficPolicyDocument.InvokeAsync(new Aws.Route53.GetTrafficPolicyDocumentArgs
-        ///             {
-        ///                 RecordType = "A",
-        ///                 StartRule = "site_switch",
-        ///                 Endpoints = 
-        ///                 {
-        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointArgs
-        ///                     {
-        ///                         Id = "my_elb",
-        ///                         Type = "elastic-load-balancer",
-        ///                         Value = $"elb-111111.{current.Name}.elb.amazonaws.com",
-        ///                     },
-        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointArgs
-        ///                     {
-        ///                         Id = "site_down_banner",
-        ///                         Type = "s3-website",
-        ///                         Region = current1.Name,
-        ///                         Value = "www.example.com",
-        ///                     },
-        ///                 },
-        ///                 Rules = 
-        ///                 {
-        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleArgs
-        ///                     {
-        ///                         Id = "site_switch",
-        ///                         Type = "failover",
-        ///                         Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryArgs
-        ///                         {
-        ///                             EndpointReference = "my_elb",
-        ///                         },
-        ///                         Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryArgs
-        ///                         {
-        ///                             EndpointReference = "site_down_banner",
-        ///                         },
-        ///                     },
-        ///                 },
-        ///             }));
-        ///         });
-        ///         var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new Aws.Route53.TrafficPolicyArgs
-        ///         {
-        ///             Comment = "example comment",
-        ///             Document = exampleTrafficPolicyDocument.Apply(exampleTrafficPolicyDocument =&gt; exampleTrafficPolicyDocument.Json),
-        ///         });
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "site_switch",
+        ///         Endpoints = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "my_elb",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "site_down_banner",
+        ///                 Type = "s3-website",
+        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///                 Value = "www.example.com",
+        ///             },
+        ///         },
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Id = "site_switch",
+        ///                 Type = "failover",
+        ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "my_elb",
+        ///                 },
+        ///                 Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "site_down_banner",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     {
+        ///         Comment = "example comment",
+        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -163,7 +153,7 @@ namespace Pulumi.Aws.Route53
     }
 
 
-    public sealed class GetTrafficPolicyDocumentArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficPolicyDocumentArgs : global::Pulumi.InvokeArgs
     {
         [Input("endpoints")]
         private List<Inputs.GetTrafficPolicyDocumentEndpointArgs>? _endpoints;
@@ -216,9 +206,10 @@ namespace Pulumi.Aws.Route53
         public GetTrafficPolicyDocumentArgs()
         {
         }
+        public static new GetTrafficPolicyDocumentArgs Empty => new GetTrafficPolicyDocumentArgs();
     }
 
-    public sealed class GetTrafficPolicyDocumentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficPolicyDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("endpoints")]
         private InputList<Inputs.GetTrafficPolicyDocumentEndpointInputArgs>? _endpoints;
@@ -271,6 +262,7 @@ namespace Pulumi.Aws.Route53
         public GetTrafficPolicyDocumentInvokeArgs()
         {
         }
+        public static new GetTrafficPolicyDocumentInvokeArgs Empty => new GetTrafficPolicyDocumentInvokeArgs();
     }
 
 

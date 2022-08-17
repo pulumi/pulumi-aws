@@ -22,38 +22,33 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @group = new Aws.Iam.Group("group", new Aws.Iam.GroupArgs
-    ///         {
-    ///         });
-    ///         var userOne = new Aws.Iam.User("userOne", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var userTwo = new Aws.Iam.User("userTwo", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var team = new Aws.Iam.GroupMembership("team", new Aws.Iam.GroupMembershipArgs
-    ///         {
-    ///             Users = 
-    ///             {
-    ///                 userOne.Name,
-    ///                 userTwo.Name,
-    ///             },
-    ///             Group = @group.Name,
-    ///         });
-    ///     }
+    ///     var @group = new Aws.Iam.Group("group");
     /// 
-    /// }
+    ///     var userOne = new Aws.Iam.User("userOne");
+    /// 
+    ///     var userTwo = new Aws.Iam.User("userTwo");
+    /// 
+    ///     var team = new Aws.Iam.GroupMembership("team", new()
+    ///     {
+    ///         Users = new[]
+    ///         {
+    ///             userOne.Name,
+    ///             userTwo.Name,
+    ///         },
+    ///         Group = @group.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/groupMembership:GroupMembership")]
-    public partial class GroupMembership : Pulumi.CustomResource
+    public partial class GroupMembership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IAM Group name to attach the list of `users` to
@@ -117,7 +112,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class GroupMembershipArgs : Pulumi.ResourceArgs
+    public sealed class GroupMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IAM Group name to attach the list of `users` to
@@ -146,9 +141,10 @@ namespace Pulumi.Aws.Iam
         public GroupMembershipArgs()
         {
         }
+        public static new GroupMembershipArgs Empty => new GroupMembershipArgs();
     }
 
-    public sealed class GroupMembershipState : Pulumi.ResourceArgs
+    public sealed class GroupMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IAM Group name to attach the list of `users` to
@@ -177,5 +173,6 @@ namespace Pulumi.Aws.Iam
         public GroupMembershipState()
         {
         }
+        public static new GroupMembershipState Empty => new GroupMembershipState();
     }
 }

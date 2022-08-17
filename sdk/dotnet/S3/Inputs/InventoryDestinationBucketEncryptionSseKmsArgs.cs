@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryDestinationBucketEncryptionSseKmsArgs : Pulumi.ResourceArgs
+    public sealed class InventoryDestinationBucketEncryptionSseKmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public InventoryDestinationBucketEncryptionSseKmsArgs()
         {
         }
+        public static new InventoryDestinationBucketEncryptionSseKmsArgs Empty => new InventoryDestinationBucketEncryptionSseKmsArgs();
     }
 }

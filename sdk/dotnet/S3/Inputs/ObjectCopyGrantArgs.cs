@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class ObjectCopyGrantArgs : Pulumi.ResourceArgs
+    public sealed class ObjectCopyGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.S3.Inputs
         public ObjectCopyGrantArgs()
         {
         }
+        public static new ObjectCopyGrantArgs Empty => new ObjectCopyGrantArgs();
     }
 }

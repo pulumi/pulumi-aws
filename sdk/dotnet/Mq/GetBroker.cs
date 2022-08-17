@@ -19,27 +19,26 @@ namespace Pulumi.Aws.Mq
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var brokerId = config.Get("brokerId") ?? "";
+        ///     var brokerName = config.Get("brokerName") ?? "";
+        ///     var byId = Aws.Mq.GetBroker.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var brokerId = config.Get("brokerId") ?? "";
-        ///         var brokerName = config.Get("brokerName") ?? "";
-        ///         var byId = Output.Create(Aws.Mq.GetBroker.InvokeAsync(new Aws.Mq.GetBrokerArgs
-        ///         {
-        ///             BrokerId = brokerId,
-        ///         }));
-        ///         var byName = Output.Create(Aws.Mq.GetBroker.InvokeAsync(new Aws.Mq.GetBrokerArgs
-        ///         {
-        ///             BrokerName = brokerName,
-        ///         }));
-        ///     }
+        ///         BrokerId = brokerId,
+        ///     });
         /// 
-        /// }
+        ///     var byName = Aws.Mq.GetBroker.Invoke(new()
+        ///     {
+        ///         BrokerName = brokerName,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +54,26 @@ namespace Pulumi.Aws.Mq
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var brokerId = config.Get("brokerId") ?? "";
+        ///     var brokerName = config.Get("brokerName") ?? "";
+        ///     var byId = Aws.Mq.GetBroker.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var brokerId = config.Get("brokerId") ?? "";
-        ///         var brokerName = config.Get("brokerName") ?? "";
-        ///         var byId = Output.Create(Aws.Mq.GetBroker.InvokeAsync(new Aws.Mq.GetBrokerArgs
-        ///         {
-        ///             BrokerId = brokerId,
-        ///         }));
-        ///         var byName = Output.Create(Aws.Mq.GetBroker.InvokeAsync(new Aws.Mq.GetBrokerArgs
-        ///         {
-        ///             BrokerName = brokerName,
-        ///         }));
-        ///     }
+        ///         BrokerId = brokerId,
+        ///     });
         /// 
-        /// }
+        ///     var byName = Aws.Mq.GetBroker.Invoke(new()
+        ///     {
+        ///         BrokerName = brokerName,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +83,7 @@ namespace Pulumi.Aws.Mq
     }
 
 
-    public sealed class GetBrokerArgs : Pulumi.InvokeArgs
+    public sealed class GetBrokerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique id of the mq broker.
@@ -110,9 +108,10 @@ namespace Pulumi.Aws.Mq
         public GetBrokerArgs()
         {
         }
+        public static new GetBrokerArgs Empty => new GetBrokerArgs();
     }
 
-    public sealed class GetBrokerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBrokerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique id of the mq broker.
@@ -137,6 +136,7 @@ namespace Pulumi.Aws.Mq
         public GetBrokerInvokeArgs()
         {
         }
+        public static new GetBrokerInvokeArgs Empty => new GetBrokerInvokeArgs();
     }
 
 

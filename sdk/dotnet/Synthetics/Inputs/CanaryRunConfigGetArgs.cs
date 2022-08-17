@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Synthetics.Inputs
 {
 
-    public sealed class CanaryRunConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class CanaryRunConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Synthetics.Inputs
         public CanaryRunConfigGetArgs()
         {
         }
+        public static new CanaryRunConfigGetArgs Empty => new CanaryRunConfigGetArgs();
     }
 }

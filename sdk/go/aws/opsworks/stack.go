@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewStack(ctx, "main", &opsworks.StackArgs{
-// 			Region:                    pulumi.String("us-west-1"),
-// 			ServiceRoleArn:            pulumi.Any(aws_iam_role.Opsworks.Arn),
-// 			DefaultInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Opsworks.Arn),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("foobar-stack"),
-// 			},
-// 			CustomJson: pulumi.String(fmt.Sprintf("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewStack(ctx, "main", &opsworks.StackArgs{
+//				Region:                    pulumi.String("us-west-1"),
+//				ServiceRoleArn:            pulumi.Any(aws_iam_role.Opsworks.Arn),
+//				DefaultInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Opsworks.Arn),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("foobar-stack"),
+//				},
+//				CustomJson: pulumi.String(fmt.Sprintf("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // OpsWorks stacks can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+//
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
@@ -99,7 +104,7 @@ type Stack struct {
 	StackEndpoint  pulumi.StringOutput `pulumi:"stackEndpoint"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -194,7 +199,7 @@ type stackState struct {
 	StackEndpoint  *string `pulumi:"stackEndpoint"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -252,7 +257,7 @@ type StackState struct {
 	StackEndpoint  pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -403,7 +408,7 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 // StackArrayInput is an input type that accepts StackArray and StackArrayOutput values.
 // You can construct a concrete instance of `StackArrayInput` via:
 //
-//          StackArray{ StackArgs{...} }
+//	StackArray{ StackArgs{...} }
 type StackArrayInput interface {
 	pulumi.Input
 
@@ -428,7 +433,7 @@ func (i StackArray) ToStackArrayOutputWithContext(ctx context.Context) StackArra
 // StackMapInput is an input type that accepts StackMap and StackMapOutput values.
 // You can construct a concrete instance of `StackMapInput` via:
 //
-//          StackMap{ "key": StackArgs{...} }
+//	StackMap{ "key": StackArgs{...} }
 type StackMapInput interface {
 	pulumi.Input
 
@@ -572,7 +577,7 @@ func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

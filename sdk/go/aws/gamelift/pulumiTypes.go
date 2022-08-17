@@ -22,7 +22,7 @@ type AliasRoutingStrategy struct {
 // AliasRoutingStrategyInput is an input type that accepts AliasRoutingStrategyArgs and AliasRoutingStrategyOutput values.
 // You can construct a concrete instance of `AliasRoutingStrategyInput` via:
 //
-//          AliasRoutingStrategyArgs{...}
+//	AliasRoutingStrategyArgs{...}
 type AliasRoutingStrategyInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutputWithContext(ctx
 // AliasRoutingStrategyPtrInput is an input type that accepts AliasRoutingStrategyArgs, AliasRoutingStrategyPtr and AliasRoutingStrategyPtrOutput values.
 // You can construct a concrete instance of `AliasRoutingStrategyPtrInput` via:
 //
-//          AliasRoutingStrategyArgs{...}
+//	        AliasRoutingStrategyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AliasRoutingStrategyPtrInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type BuildStorageLocation struct {
 // BuildStorageLocationInput is an input type that accepts BuildStorageLocationArgs and BuildStorageLocationOutput values.
 // You can construct a concrete instance of `BuildStorageLocationInput` via:
 //
-//          BuildStorageLocationArgs{...}
+//	BuildStorageLocationArgs{...}
 type BuildStorageLocationInput interface {
 	pulumi.Input
 
@@ -241,11 +241,11 @@ func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutputWithContext(ctx
 // BuildStorageLocationPtrInput is an input type that accepts BuildStorageLocationArgs, BuildStorageLocationPtr and BuildStorageLocationPtrOutput values.
 // You can construct a concrete instance of `BuildStorageLocationPtrInput` via:
 //
-//          BuildStorageLocationArgs{...}
+//	        BuildStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BuildStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -387,7 +387,7 @@ type FleetCertificateConfiguration struct {
 // FleetCertificateConfigurationInput is an input type that accepts FleetCertificateConfigurationArgs and FleetCertificateConfigurationOutput values.
 // You can construct a concrete instance of `FleetCertificateConfigurationInput` via:
 //
-//          FleetCertificateConfigurationArgs{...}
+//	FleetCertificateConfigurationArgs{...}
 type FleetCertificateConfigurationInput interface {
 	pulumi.Input
 
@@ -423,11 +423,11 @@ func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationPtrOut
 // FleetCertificateConfigurationPtrInput is an input type that accepts FleetCertificateConfigurationArgs, FleetCertificateConfigurationPtr and FleetCertificateConfigurationPtrOutput values.
 // You can construct a concrete instance of `FleetCertificateConfigurationPtrInput` via:
 //
-//          FleetCertificateConfigurationArgs{...}
+//	        FleetCertificateConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetCertificateConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -530,7 +530,7 @@ type FleetEc2InboundPermission struct {
 // FleetEc2InboundPermissionInput is an input type that accepts FleetEc2InboundPermissionArgs and FleetEc2InboundPermissionOutput values.
 // You can construct a concrete instance of `FleetEc2InboundPermissionInput` via:
 //
-//          FleetEc2InboundPermissionArgs{...}
+//	FleetEc2InboundPermissionArgs{...}
 type FleetEc2InboundPermissionInput interface {
 	pulumi.Input
 
@@ -564,7 +564,7 @@ func (i FleetEc2InboundPermissionArgs) ToFleetEc2InboundPermissionOutputWithCont
 // FleetEc2InboundPermissionArrayInput is an input type that accepts FleetEc2InboundPermissionArray and FleetEc2InboundPermissionArrayOutput values.
 // You can construct a concrete instance of `FleetEc2InboundPermissionArrayInput` via:
 //
-//          FleetEc2InboundPermissionArray{ FleetEc2InboundPermissionArgs{...} }
+//	FleetEc2InboundPermissionArray{ FleetEc2InboundPermissionArgs{...} }
 type FleetEc2InboundPermissionArrayInput interface {
 	pulumi.Input
 
@@ -650,7 +650,7 @@ type FleetResourceCreationLimitPolicy struct {
 // FleetResourceCreationLimitPolicyInput is an input type that accepts FleetResourceCreationLimitPolicyArgs and FleetResourceCreationLimitPolicyOutput values.
 // You can construct a concrete instance of `FleetResourceCreationLimitPolicyInput` via:
 //
-//          FleetResourceCreationLimitPolicyArgs{...}
+//	FleetResourceCreationLimitPolicyArgs{...}
 type FleetResourceCreationLimitPolicyInput interface {
 	pulumi.Input
 
@@ -688,11 +688,11 @@ func (i FleetResourceCreationLimitPolicyArgs) ToFleetResourceCreationLimitPolicy
 // FleetResourceCreationLimitPolicyPtrInput is an input type that accepts FleetResourceCreationLimitPolicyArgs, FleetResourceCreationLimitPolicyPtr and FleetResourceCreationLimitPolicyPtrOutput values.
 // You can construct a concrete instance of `FleetResourceCreationLimitPolicyPtrInput` via:
 //
-//          FleetResourceCreationLimitPolicyArgs{...}
+//	        FleetResourceCreationLimitPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetResourceCreationLimitPolicyPtrInput interface {
 	pulumi.Input
 
@@ -808,7 +808,7 @@ type FleetRuntimeConfiguration struct {
 // FleetRuntimeConfigurationInput is an input type that accepts FleetRuntimeConfigurationArgs and FleetRuntimeConfigurationOutput values.
 // You can construct a concrete instance of `FleetRuntimeConfigurationInput` via:
 //
-//          FleetRuntimeConfigurationArgs{...}
+//	FleetRuntimeConfigurationArgs{...}
 type FleetRuntimeConfigurationInput interface {
 	pulumi.Input
 
@@ -848,11 +848,11 @@ func (i FleetRuntimeConfigurationArgs) ToFleetRuntimeConfigurationPtrOutputWithC
 // FleetRuntimeConfigurationPtrInput is an input type that accepts FleetRuntimeConfigurationArgs, FleetRuntimeConfigurationPtr and FleetRuntimeConfigurationPtrOutput values.
 // You can construct a concrete instance of `FleetRuntimeConfigurationPtrInput` via:
 //
-//          FleetRuntimeConfigurationArgs{...}
+//	        FleetRuntimeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetRuntimeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -983,7 +983,7 @@ type FleetRuntimeConfigurationServerProcess struct {
 // FleetRuntimeConfigurationServerProcessInput is an input type that accepts FleetRuntimeConfigurationServerProcessArgs and FleetRuntimeConfigurationServerProcessOutput values.
 // You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessInput` via:
 //
-//          FleetRuntimeConfigurationServerProcessArgs{...}
+//	FleetRuntimeConfigurationServerProcessArgs{...}
 type FleetRuntimeConfigurationServerProcessInput interface {
 	pulumi.Input
 
@@ -1015,7 +1015,7 @@ func (i FleetRuntimeConfigurationServerProcessArgs) ToFleetRuntimeConfigurationS
 // FleetRuntimeConfigurationServerProcessArrayInput is an input type that accepts FleetRuntimeConfigurationServerProcessArray and FleetRuntimeConfigurationServerProcessArrayOutput values.
 // You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessArrayInput` via:
 //
-//          FleetRuntimeConfigurationServerProcessArray{ FleetRuntimeConfigurationServerProcessArgs{...} }
+//	FleetRuntimeConfigurationServerProcessArray{ FleetRuntimeConfigurationServerProcessArgs{...} }
 type FleetRuntimeConfigurationServerProcessArrayInput interface {
 	pulumi.Input
 
@@ -1098,7 +1098,7 @@ type GameServerGroupAutoScalingPolicy struct {
 // GameServerGroupAutoScalingPolicyInput is an input type that accepts GameServerGroupAutoScalingPolicyArgs and GameServerGroupAutoScalingPolicyOutput values.
 // You can construct a concrete instance of `GameServerGroupAutoScalingPolicyInput` via:
 //
-//          GameServerGroupAutoScalingPolicyArgs{...}
+//	GameServerGroupAutoScalingPolicyArgs{...}
 type GameServerGroupAutoScalingPolicyInput interface {
 	pulumi.Input
 
@@ -1138,11 +1138,11 @@ func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicy
 // GameServerGroupAutoScalingPolicyPtrInput is an input type that accepts GameServerGroupAutoScalingPolicyArgs, GameServerGroupAutoScalingPolicyPtr and GameServerGroupAutoScalingPolicyPtrOutput values.
 // You can construct a concrete instance of `GameServerGroupAutoScalingPolicyPtrInput` via:
 //
-//          GameServerGroupAutoScalingPolicyArgs{...}
+//	        GameServerGroupAutoScalingPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GameServerGroupAutoScalingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1260,7 +1260,7 @@ type GameServerGroupAutoScalingPolicyTargetTrackingConfiguration struct {
 // GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput is an input type that accepts GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs and GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput values.
 // You can construct a concrete instance of `GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput` via:
 //
-//          GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{...}
+//	GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{...}
 type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput interface {
 	pulumi.Input
 
@@ -1296,11 +1296,11 @@ func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameS
 // GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput is an input type that accepts GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs, GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtr and GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput values.
 // You can construct a concrete instance of `GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput` via:
 //
-//          GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{...}
+//	        GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1402,7 +1402,7 @@ type GameServerGroupInstanceDefinition struct {
 // GameServerGroupInstanceDefinitionInput is an input type that accepts GameServerGroupInstanceDefinitionArgs and GameServerGroupInstanceDefinitionOutput values.
 // You can construct a concrete instance of `GameServerGroupInstanceDefinitionInput` via:
 //
-//          GameServerGroupInstanceDefinitionArgs{...}
+//	GameServerGroupInstanceDefinitionArgs{...}
 type GameServerGroupInstanceDefinitionInput interface {
 	pulumi.Input
 
@@ -1435,7 +1435,7 @@ func (i GameServerGroupInstanceDefinitionArgs) ToGameServerGroupInstanceDefiniti
 // GameServerGroupInstanceDefinitionArrayInput is an input type that accepts GameServerGroupInstanceDefinitionArray and GameServerGroupInstanceDefinitionArrayOutput values.
 // You can construct a concrete instance of `GameServerGroupInstanceDefinitionArrayInput` via:
 //
-//          GameServerGroupInstanceDefinitionArray{ GameServerGroupInstanceDefinitionArgs{...} }
+//	GameServerGroupInstanceDefinitionArray{ GameServerGroupInstanceDefinitionArgs{...} }
 type GameServerGroupInstanceDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -1516,7 +1516,7 @@ type GameServerGroupLaunchTemplate struct {
 // GameServerGroupLaunchTemplateInput is an input type that accepts GameServerGroupLaunchTemplateArgs and GameServerGroupLaunchTemplateOutput values.
 // You can construct a concrete instance of `GameServerGroupLaunchTemplateInput` via:
 //
-//          GameServerGroupLaunchTemplateArgs{...}
+//	GameServerGroupLaunchTemplateArgs{...}
 type GameServerGroupLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -1556,11 +1556,11 @@ func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOut
 // GameServerGroupLaunchTemplatePtrInput is an input type that accepts GameServerGroupLaunchTemplateArgs, GameServerGroupLaunchTemplatePtr and GameServerGroupLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `GameServerGroupLaunchTemplatePtrInput` via:
 //
-//          GameServerGroupLaunchTemplateArgs{...}
+//	        GameServerGroupLaunchTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GameServerGroupLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -1689,7 +1689,7 @@ type GameSessionQueuePlayerLatencyPolicy struct {
 // GameSessionQueuePlayerLatencyPolicyInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArgs and GameSessionQueuePlayerLatencyPolicyOutput values.
 // You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyInput` via:
 //
-//          GameSessionQueuePlayerLatencyPolicyArgs{...}
+//	GameSessionQueuePlayerLatencyPolicyArgs{...}
 type GameSessionQueuePlayerLatencyPolicyInput interface {
 	pulumi.Input
 
@@ -1719,7 +1719,7 @@ func (i GameSessionQueuePlayerLatencyPolicyArgs) ToGameSessionQueuePlayerLatency
 // GameSessionQueuePlayerLatencyPolicyArrayInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArray and GameSessionQueuePlayerLatencyPolicyArrayOutput values.
 // You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyArrayInput` via:
 //
-//          GameSessionQueuePlayerLatencyPolicyArray{ GameSessionQueuePlayerLatencyPolicyArgs{...} }
+//	GameSessionQueuePlayerLatencyPolicyArray{ GameSessionQueuePlayerLatencyPolicyArgs{...} }
 type GameSessionQueuePlayerLatencyPolicyArrayInput interface {
 	pulumi.Input
 
@@ -1799,7 +1799,7 @@ type ScriptStorageLocation struct {
 // ScriptStorageLocationInput is an input type that accepts ScriptStorageLocationArgs and ScriptStorageLocationOutput values.
 // You can construct a concrete instance of `ScriptStorageLocationInput` via:
 //
-//          ScriptStorageLocationArgs{...}
+//	ScriptStorageLocationArgs{...}
 type ScriptStorageLocationInput interface {
 	pulumi.Input
 
@@ -1841,11 +1841,11 @@ func (i ScriptStorageLocationArgs) ToScriptStorageLocationPtrOutputWithContext(c
 // ScriptStorageLocationPtrInput is an input type that accepts ScriptStorageLocationArgs, ScriptStorageLocationPtr and ScriptStorageLocationPtrOutput values.
 // You can construct a concrete instance of `ScriptStorageLocationPtrInput` via:
 //
-//          ScriptStorageLocationArgs{...}
+//	        ScriptStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScriptStorageLocationPtrInput interface {
 	pulumi.Input
 

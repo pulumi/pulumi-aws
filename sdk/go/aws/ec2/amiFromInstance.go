@@ -35,21 +35,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewAmiFromInstance(ctx, "example", &ec2.AmiFromInstanceArgs{
-// 			SourceInstanceId: pulumi.String("i-xxxxxxxx"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewAmiFromInstance(ctx, "example", &ec2.AmiFromInstanceArgs{
+//				SourceInstanceId: pulumi.String("i-xxxxxxxx"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type AmiFromInstance struct {
 	pulumi.CustomResourceState
@@ -352,7 +355,7 @@ func (i *AmiFromInstance) ToAmiFromInstanceOutputWithContext(ctx context.Context
 // AmiFromInstanceArrayInput is an input type that accepts AmiFromInstanceArray and AmiFromInstanceArrayOutput values.
 // You can construct a concrete instance of `AmiFromInstanceArrayInput` via:
 //
-//          AmiFromInstanceArray{ AmiFromInstanceArgs{...} }
+//	AmiFromInstanceArray{ AmiFromInstanceArgs{...} }
 type AmiFromInstanceArrayInput interface {
 	pulumi.Input
 
@@ -377,7 +380,7 @@ func (i AmiFromInstanceArray) ToAmiFromInstanceArrayOutputWithContext(ctx contex
 // AmiFromInstanceMapInput is an input type that accepts AmiFromInstanceMap and AmiFromInstanceMapOutput values.
 // You can construct a concrete instance of `AmiFromInstanceMapInput` via:
 //
-//          AmiFromInstanceMap{ "key": AmiFromInstanceArgs{...} }
+//	AmiFromInstanceMap{ "key": AmiFromInstanceArgs{...} }
 type AmiFromInstanceMapInput interface {
 	pulumi.Input
 

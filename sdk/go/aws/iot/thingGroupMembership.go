@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iot.NewThingGroupMembership(ctx, "example", &iot.ThingGroupMembershipArgs{
-// 			OverrideDynamicGroup: pulumi.Bool(true),
-// 			ThingGroupName:       pulumi.String("example-group"),
-// 			ThingName:            pulumi.String("example-thing"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewThingGroupMembership(ctx, "example", &iot.ThingGroupMembershipArgs{
+//				OverrideDynamicGroup: pulumi.Bool(true),
+//				ThingGroupName:       pulumi.String("example-group"),
+//				ThingName:            pulumi.String("example-thing"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // IoT Thing Group Membership can be imported using the thing group name and thing name.
 //
 // ```sh
-//  $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
+//
+//	$ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
+//
 // ```
 type ThingGroupMembership struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *ThingGroupMembership) ToThingGroupMembershipOutputWithContext(ctx conte
 // ThingGroupMembershipArrayInput is an input type that accepts ThingGroupMembershipArray and ThingGroupMembershipArrayOutput values.
 // You can construct a concrete instance of `ThingGroupMembershipArrayInput` via:
 //
-//          ThingGroupMembershipArray{ ThingGroupMembershipArgs{...} }
+//	ThingGroupMembershipArray{ ThingGroupMembershipArgs{...} }
 type ThingGroupMembershipArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i ThingGroupMembershipArray) ToThingGroupMembershipArrayOutputWithContext(
 // ThingGroupMembershipMapInput is an input type that accepts ThingGroupMembershipMap and ThingGroupMembershipMapOutput values.
 // You can construct a concrete instance of `ThingGroupMembershipMapInput` via:
 //
-//          ThingGroupMembershipMap{ "key": ThingGroupMembershipArgs{...} }
+//	ThingGroupMembershipMap{ "key": ThingGroupMembershipArgs{...} }
 type ThingGroupMembershipMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetNotificationGetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetNotificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetNotificationGetArgs()
         {
         }
+        public static new BudgetNotificationGetArgs Empty => new BudgetNotificationGetArgs();
     }
 }

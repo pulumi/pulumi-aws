@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class EventSourceMappingDestinationConfigOnFailureArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingDestinationConfigOnFailureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the destination resource.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public EventSourceMappingDestinationConfigOnFailureArgs()
         {
         }
+        public static new EventSourceMappingDestinationConfigOnFailureArgs Empty => new EventSourceMappingDestinationConfigOnFailureArgs();
     }
 }

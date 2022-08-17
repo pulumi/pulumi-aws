@@ -16,7 +16,9 @@ import (
 // ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
 //
 // ```sh
-//  $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
+//
+//	$ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
+//
 // ```
 type TaskSet struct {
 	pulumi.CustomResourceState
@@ -273,7 +275,7 @@ func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput 
 // TaskSetArrayInput is an input type that accepts TaskSetArray and TaskSetArrayOutput values.
 // You can construct a concrete instance of `TaskSetArrayInput` via:
 //
-//          TaskSetArray{ TaskSetArgs{...} }
+//	TaskSetArray{ TaskSetArgs{...} }
 type TaskSetArrayInput interface {
 	pulumi.Input
 
@@ -298,7 +300,7 @@ func (i TaskSetArray) ToTaskSetArrayOutputWithContext(ctx context.Context) TaskS
 // TaskSetMapInput is an input type that accepts TaskSetMap and TaskSetMapOutput values.
 // You can construct a concrete instance of `TaskSetMapInput` via:
 //
-//          TaskSetMap{ "key": TaskSetArgs{...} }
+//	TaskSetMap{ "key": TaskSetArgs{...} }
 type TaskSetMapInput interface {
 	pulumi.Input
 

@@ -12,10 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue {
     /**
-     * @return The object property to use in the condition.
+     * @return The tag key.
      * 
      */
     private final @Nullable String key;
+    /**
+     * @return The tag value.
+     * 
+     */
     private final @Nullable String value;
 
     @CustomType.Constructor
@@ -27,12 +31,16 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
     }
 
     /**
-     * @return The object property to use in the condition.
+     * @return The tag key.
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return The tag value.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -15,20 +15,18 @@ namespace Pulumi.Aws.AppFlow
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("exampleSourceBucketV2");
+    /// 
+    ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("exampleSourceBucketPolicy", new()
     ///     {
-    ///         var exampleSourceBucketV2 = new Aws.S3.BucketV2("exampleSourceBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("exampleSourceBucketPolicy", new Aws.S3.BucketPolicyArgs
-    ///         {
-    ///             Bucket = exampleSourceBucketV2.Id,
-    ///             Policy = @"{
+    ///         Bucket = exampleSourceBucketV2.Id,
+    ///         Policy = @"{
     ///     ""Statement"": [
     ///         {
     ///             ""Effect"": ""Allow"",
@@ -49,20 +47,21 @@ namespace Pulumi.Aws.AppFlow
     /// 	""Version"": ""2012-10-17""
     /// }
     /// ",
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleSourceBucketV2.Id,
-    ///             Key = "example_source.csv",
-    ///             Source = new FileAsset("example_source.csv"),
-    ///         });
-    ///         var exampleDestinationBucketV2 = new Aws.S3.BucketV2("exampleDestinationBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("exampleDestinationBucketPolicy", new Aws.S3.BucketPolicyArgs
-    ///         {
-    ///             Bucket = exampleDestinationBucketV2.Id,
-    ///             Policy = @"
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Bucket = exampleSourceBucketV2.Id,
+    ///         Key = "example_source.csv",
+    ///         Source = new FileAsset("example_source.csv"),
+    ///     });
+    /// 
+    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("exampleDestinationBucketV2");
+    /// 
+    ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("exampleDestinationBucketPolicy", new()
+    ///     {
+    ///         Bucket = exampleDestinationBucketV2.Id,
+    ///         Policy = @"
     /// {
     ///     ""Statement"": [
     ///         {
@@ -88,69 +87,69 @@ namespace Pulumi.Aws.AppFlow
     /// 	""Version"": ""2012-10-17""
     /// }
     /// ",
-    ///         });
-    ///         var exampleFlow = new Aws.AppFlow.Flow("exampleFlow", new Aws.AppFlow.FlowArgs
+    ///     });
+    /// 
+    ///     var exampleFlow = new Aws.AppFlow.Flow("exampleFlow", new()
+    ///     {
+    ///         SourceFlowConfig = new Aws.AppFlow.Inputs.FlowSourceFlowConfigArgs
     ///         {
-    ///             SourceFlowConfig = new Aws.AppFlow.Inputs.FlowSourceFlowConfigArgs
+    ///             ConnectorType = "S3",
+    ///             SourceConnectorProperties = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesArgs
     ///             {
-    ///                 ConnectorType = "S3",
-    ///                 SourceConnectorProperties = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesArgs
+    ///                 S3 = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args
     ///                 {
-    ///                     S3 = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args
-    ///                     {
-    ///                         BucketName = exampleSourceBucketPolicy.Bucket,
-    ///                         BucketPrefix = "example",
-    ///                     },
+    ///                     BucketName = exampleSourceBucketPolicy.Bucket,
+    ///                     BucketPrefix = "example",
     ///                 },
     ///             },
-    ///             DestinationFlowConfigs = 
+    ///         },
+    ///         DestinationFlowConfigs = new[]
+    ///         {
+    ///             new Aws.AppFlow.Inputs.FlowDestinationFlowConfigArgs
     ///             {
-    ///                 new Aws.AppFlow.Inputs.FlowDestinationFlowConfigArgs
+    ///                 ConnectorType = "S3",
+    ///                 DestinationConnectorProperties = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs
     ///                 {
-    ///                     ConnectorType = "S3",
-    ///                     DestinationConnectorProperties = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs
+    ///                     S3 = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
     ///                     {
-    ///                         S3 = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
+    ///                         BucketName = exampleDestinationBucketPolicy.Bucket,
+    ///                         S3OutputFormatConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs
     ///                         {
-    ///                             BucketName = exampleDestinationBucketPolicy.Bucket,
-    ///                             S3OutputFormatConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs
+    ///                             PrefixConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs
     ///                             {
-    ///                                 PrefixConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs
-    ///                                 {
-    ///                                     PrefixType = "PATH",
-    ///                                 },
+    ///                                 PrefixType = "PATH",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             Tasks = 
+    ///         },
+    ///         Tasks = new[]
+    ///         {
+    ///             new Aws.AppFlow.Inputs.FlowTaskArgs
     ///             {
-    ///                 new Aws.AppFlow.Inputs.FlowTaskArgs
+    ///                 SourceFields = new[]
     ///                 {
-    ///                     SourceFields = 
+    ///                     "exampleField",
+    ///                 },
+    ///                 DestinationField = "exampleField",
+    ///                 TaskType = "Map",
+    ///                 ConnectorOperators = new[]
+    ///                 {
+    ///                     new Aws.AppFlow.Inputs.FlowTaskConnectorOperatorArgs
     ///                     {
-    ///                         "exampleField",
-    ///                     },
-    ///                     DestinationField = "exampleField",
-    ///                     TaskType = "Map",
-    ///                     ConnectorOperators = 
-    ///                     {
-    ///                         new Aws.AppFlow.Inputs.FlowTaskConnectorOperatorArgs
-    ///                         {
-    ///                             S3 = "NO_OP",
-    ///                         },
+    ///                         S3 = "NO_OP",
     ///                     },
     ///                 },
     ///             },
-    ///             TriggerConfig = new Aws.AppFlow.Inputs.FlowTriggerConfigArgs
-    ///             {
-    ///                 TriggerType = "OnDemand",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         TriggerConfig = new Aws.AppFlow.Inputs.FlowTriggerConfigArgs
+    ///         {
+    ///             TriggerType = "OnDemand",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -162,7 +161,7 @@ namespace Pulumi.Aws.AppFlow
     /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/flow:Flow")]
-    public partial class Flow : Pulumi.CustomResource
+    public partial class Flow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The flow's Amazon Resource Name (ARN).
@@ -207,7 +206,7 @@ namespace Pulumi.Aws.AppFlow
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -268,7 +267,7 @@ namespace Pulumi.Aws.AppFlow
         }
     }
 
-    public sealed class FlowArgs : Pulumi.ResourceArgs
+    public sealed class FlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the flow you want to create.
@@ -339,9 +338,10 @@ namespace Pulumi.Aws.AppFlow
         public FlowArgs()
         {
         }
+        public static new FlowArgs Empty => new FlowArgs();
     }
 
-    public sealed class FlowState : Pulumi.ResourceArgs
+    public sealed class FlowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flow's Amazon Resource Name (ARN).
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.AppFlow
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -430,5 +430,6 @@ namespace Pulumi.Aws.AppFlow
         public FlowState()
         {
         }
+        public static new FlowState Empty => new FlowState();
     }
 }

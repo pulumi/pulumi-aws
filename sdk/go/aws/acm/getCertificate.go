@@ -20,43 +20,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-// 			Domain: "tf.example.com",
-// 			Statuses: []string{
-// 				"ISSUED",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-// 			Domain:     "tf.example.com",
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Types: []string{
-// 				"AMAZON_ISSUED",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-// 			Domain: "tf.example.com",
-// 			KeyTypes: []string{
-// 				"RSA_4096",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+//				Domain: "tf.example.com",
+//				Statuses: []string{
+//					"ISSUED",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+//				Domain:     "tf.example.com",
+//				MostRecent: pulumi.BoolRef(true),
+//				Types: []string{
+//					"AMAZON_ISSUED",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+//				Domain: "tf.example.com",
+//				KeyTypes: []string{
+//					"RSA_4096",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult

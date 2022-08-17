@@ -19,25 +19,23 @@ namespace Pulumi.Aws.Neptune
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Neptune.GetEngineVersion.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Neptune.GetEngineVersion.InvokeAsync(new Aws.Neptune.GetEngineVersionArgs
+        ///         PreferredVersions = new[]
         ///         {
-        ///             PreferredVersions = 
-        ///             {
-        ///                 "1.0.3.0",
-        ///                 "1.0.2.2",
-        ///                 "1.0.2.1",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "1.0.3.0",
+        ///             "1.0.2.2",
+        ///             "1.0.2.1",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +51,23 @@ namespace Pulumi.Aws.Neptune
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Neptune.GetEngineVersion.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Neptune.GetEngineVersion.InvokeAsync(new Aws.Neptune.GetEngineVersionArgs
+        ///         PreferredVersions = new[]
         ///         {
-        ///             PreferredVersions = 
-        ///             {
-        ///                 "1.0.3.0",
-        ///                 "1.0.2.2",
-        ///                 "1.0.2.1",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "1.0.3.0",
+        ///             "1.0.2.2",
+        ///             "1.0.2.1",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.Neptune
     }
 
 
-    public sealed class GetEngineVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. (Default: `neptune`)
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.Neptune
         public GetEngineVersionArgs()
         {
         }
+        public static new GetEngineVersionArgs Empty => new GetEngineVersionArgs();
     }
 
-    public sealed class GetEngineVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. (Default: `neptune`)
@@ -153,6 +150,7 @@ namespace Pulumi.Aws.Neptune
         public GetEngineVersionInvokeArgs()
         {
         }
+        public static new GetEngineVersionInvokeArgs Empty => new GetEngineVersionInvokeArgs();
     }
 
 

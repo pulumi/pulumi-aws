@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class UsagePlanQuotaSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanQuotaSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of requests that can be made in a given time period.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public UsagePlanQuotaSettingsGetArgs()
         {
         }
+        public static new UsagePlanQuotaSettingsGetArgs Empty => new UsagePlanQuotaSettingsGetArgs();
     }
 }

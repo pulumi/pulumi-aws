@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleFirehoseGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleFirehoseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The delivery stream name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleFirehoseGetArgs()
         {
         }
+        public static new TopicRuleFirehoseGetArgs Empty => new TopicRuleFirehoseGetArgs();
     }
 }

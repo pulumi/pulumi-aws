@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block containing settings for abort incomplete multipart upload.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public BucketLifecycleConfigurationRuleArgs()
         {
         }
+        public static new BucketLifecycleConfigurationRuleArgs Empty => new BucketLifecycleConfigurationRuleArgs();
     }
 }

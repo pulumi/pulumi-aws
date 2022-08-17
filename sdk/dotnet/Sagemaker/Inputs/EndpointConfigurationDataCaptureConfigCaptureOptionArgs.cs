@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationDataCaptureConfigCaptureOptionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationDataCaptureConfigCaptureOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the data to be captured. Should be one of `Input` or `Output`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationDataCaptureConfigCaptureOptionArgs()
         {
         }
+        public static new EndpointConfigurationDataCaptureConfigCaptureOptionArgs Empty => new EndpointConfigurationDataCaptureConfigCaptureOptionArgs();
     }
 }

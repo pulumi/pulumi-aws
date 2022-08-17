@@ -22,52 +22,55 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
-// 			Domain:     pulumi.String("example"),
-// 			UserPoolId: exampleUserPool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
-// 			UserPoolId: exampleUserPool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
-// 			ClientId:   exampleUserPoolClient.ID(),
-// 			Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
-// 			ImageFile:  filebase64OrPanic("logo.png"),
-// 			UserPoolId: exampleUserPoolDomain.UserPoolId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//				Domain:     pulumi.String("example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
+//				ClientId:   exampleUserPoolClient.ID(),
+//				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
+//				ImageFile:  filebase64OrPanic("logo.png"),
+//				UserPoolId: exampleUserPoolDomain.UserPoolId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### UI customization settings for all clients
 //
@@ -75,45 +78,48 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
-// 			Domain:     pulumi.String("example"),
-// 			UserPoolId: exampleUserPool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
-// 			Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
-// 			ImageFile:  filebase64OrPanic("logo.png"),
-// 			UserPoolId: exampleUserPoolDomain.UserPoolId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//				Domain:     pulumi.String("example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
+//				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
+//				ImageFile:  filebase64OrPanic("logo.png"),
+//				UserPoolId: exampleUserPoolDomain.UserPoolId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -121,7 +127,9 @@ import (
 // Cognito User Pool UI Customizations can be imported using the `user_pool_id` and `client_id` separated by `,`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+//
+//	$ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+//
 // ```
 type UserPoolUICustomization struct {
 	pulumi.CustomResourceState
@@ -266,7 +274,7 @@ func (i *UserPoolUICustomization) ToUserPoolUICustomizationOutputWithContext(ctx
 // UserPoolUICustomizationArrayInput is an input type that accepts UserPoolUICustomizationArray and UserPoolUICustomizationArrayOutput values.
 // You can construct a concrete instance of `UserPoolUICustomizationArrayInput` via:
 //
-//          UserPoolUICustomizationArray{ UserPoolUICustomizationArgs{...} }
+//	UserPoolUICustomizationArray{ UserPoolUICustomizationArgs{...} }
 type UserPoolUICustomizationArrayInput interface {
 	pulumi.Input
 
@@ -291,7 +299,7 @@ func (i UserPoolUICustomizationArray) ToUserPoolUICustomizationArrayOutputWithCo
 // UserPoolUICustomizationMapInput is an input type that accepts UserPoolUICustomizationMap and UserPoolUICustomizationMapOutput values.
 // You can construct a concrete instance of `UserPoolUICustomizationMapInput` via:
 //
-//          UserPoolUICustomizationMap{ "key": UserPoolUICustomizationArgs{...} }
+//	UserPoolUICustomizationMap{ "key": UserPoolUICustomizationArgs{...} }
 type UserPoolUICustomizationMapInput interface {
 	pulumi.Input
 

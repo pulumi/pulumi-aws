@@ -15,19 +15,17 @@ namespace Pulumi.Aws.Cognito
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mainUserPool = new Aws.Cognito.UserPool("mainUserPool");
+    /// 
+    ///     var groupRole = new Aws.Iam.Role("groupRole", new()
     ///     {
-    ///         var mainUserPool = new Aws.Cognito.UserPool("mainUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var groupRole = new Aws.Iam.Role("groupRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -49,17 +47,17 @@ namespace Pulumi.Aws.Cognito
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new Aws.Cognito.UserGroupArgs
-    ///         {
-    ///             UserPoolId = mainUserPool.Id,
-    ///             Description = "Managed by Pulumi",
-    ///             Precedence = 42,
-    ///             RoleArn = groupRole.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new()
+    ///     {
+    ///         UserPoolId = mainUserPool.Id,
+    ///         Description = "Managed by Pulumi",
+    ///         Precedence = 42,
+    ///         RoleArn = groupRole.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +69,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userGroup:UserGroup")]
-    public partial class UserGroup : Pulumi.CustomResource
+    public partial class UserGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the user group.
@@ -147,7 +145,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the user group.
@@ -182,9 +180,10 @@ namespace Pulumi.Aws.Cognito
         public UserGroupArgs()
         {
         }
+        public static new UserGroupArgs Empty => new UserGroupArgs();
     }
 
-    public sealed class UserGroupState : Pulumi.ResourceArgs
+    public sealed class UserGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the user group.
@@ -219,5 +218,6 @@ namespace Pulumi.Aws.Cognito
         public UserGroupState()
         {
         }
+        public static new UserGroupState Empty => new UserGroupState();
     }
 }

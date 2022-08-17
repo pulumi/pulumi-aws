@@ -17,21 +17,19 @@ namespace Pulumi.Aws.AppRunner
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppRunner.CustomDomainAssociation("example", new()
     ///     {
-    ///         var example = new Aws.AppRunner.CustomDomainAssociation("example", new Aws.AppRunner.CustomDomainAssociationArgs
-    ///         {
-    ///             DomainName = "example.com",
-    ///             ServiceArn = aws_apprunner_service.Example.Arn,
-    ///         });
-    ///     }
+    ///         DomainName = "example.com",
+    ///         ServiceArn = aws_apprunner_service.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.AppRunner
     ///  app/8fe1e10304f84fd2b0df550fe98a71fa
     /// </summary>
     [AwsResourceType("aws:apprunner/customDomainAssociation:CustomDomainAssociation")]
-    public partial class CustomDomainAssociation : Pulumi.CustomResource
+    public partial class CustomDomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.AppRunner
         }
     }
 
-    public sealed class CustomDomainAssociationArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
@@ -150,9 +148,10 @@ namespace Pulumi.Aws.AppRunner
         public CustomDomainAssociationArgs()
         {
         }
+        public static new CustomDomainAssociationArgs Empty => new CustomDomainAssociationArgs();
     }
 
-    public sealed class CustomDomainAssociationState : Pulumi.ResourceArgs
+    public sealed class CustomDomainAssociationState : global::Pulumi.ResourceArgs
     {
         [Input("certificateValidationRecords")]
         private InputList<Inputs.CustomDomainAssociationCertificateValidationRecordGetArgs>? _certificateValidationRecords;
@@ -199,5 +198,6 @@ namespace Pulumi.Aws.AppRunner
         public CustomDomainAssociationState()
         {
         }
+        public static new CustomDomainAssociationState Empty => new CustomDomainAssociationState();
     }
 }

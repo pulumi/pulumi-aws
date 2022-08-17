@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class ClassifierGrokClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierGrokClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier of the data format that the classifier matches.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public ClassifierGrokClassifierArgs()
         {
         }
+        public static new ClassifierGrokClassifierArgs Empty => new ClassifierGrokClassifierArgs();
     }
 }

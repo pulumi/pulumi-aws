@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class StackCustomCookbooksSourceArgs : Pulumi.ResourceArgs
+    public sealed class StackCustomCookbooksSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public StackCustomCookbooksSourceArgs()
         {
         }
+        public static new StackCustomCookbooksSourceArgs Empty => new StackCustomCookbooksSourceArgs();
     }
 }

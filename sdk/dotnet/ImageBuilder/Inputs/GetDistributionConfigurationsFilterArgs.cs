@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class GetDistributionConfigurationsFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetDistributionConfigurationsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public GetDistributionConfigurationsFilterInputArgs()
         {
         }
+        public static new GetDistributionConfigurationsFilterInputArgs Empty => new GetDistributionConfigurationsFilterInputArgs();
     }
 }

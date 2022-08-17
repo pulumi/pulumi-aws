@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RuleScopeGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleScopeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RuleScopeGetArgs()
         {
         }
+        public static new RuleScopeGetArgs Empty => new RuleScopeGetArgs();
     }
 }

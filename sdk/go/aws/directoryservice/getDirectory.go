@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directoryservice.LookupDirectory(ctx, &directoryservice.LookupDirectoryArgs{
-// 			DirectoryId: aws_directory_service_directory.Main.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directoryservice.LookupDirectory(ctx, &directoryservice.LookupDirectoryArgs{
+//				DirectoryId: aws_directory_service_directory.Main.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
 	var rv LookupDirectoryResult
@@ -70,7 +73,8 @@ type LookupDirectoryResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The fully qualified name for the directory/connector.
-	Name string `pulumi:"name"`
+	Name           string                      `pulumi:"name"`
+	RadiusSettings []GetDirectoryRadiusSetting `pulumi:"radiusSettings"`
 	// The ID of the security group created by the directory/connector.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// The short name of the directory/connector, such as `CORP`.
@@ -170,6 +174,10 @@ func (o LookupDirectoryResultOutput) Id() pulumi.StringOutput {
 // The fully qualified name for the directory/connector.
 func (o LookupDirectoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) RadiusSettings() GetDirectoryRadiusSettingArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryRadiusSetting { return v.RadiusSettings }).(GetDirectoryRadiusSettingArrayOutput)
 }
 
 // The ID of the security group created by the directory/connector.

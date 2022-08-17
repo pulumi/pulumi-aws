@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Signer.Inputs
 {
 
-    public sealed class SigningJobSignedObjectArgs : Pulumi.ResourceArgs
+    public sealed class SigningJobSignedObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3s")]
         private InputList<Inputs.SigningJobSignedObjectS3Args>? _s3s;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Signer.Inputs
         public SigningJobSignedObjectArgs()
         {
         }
+        public static new SigningJobSignedObjectArgs Empty => new SigningJobSignedObjectArgs();
     }
 }

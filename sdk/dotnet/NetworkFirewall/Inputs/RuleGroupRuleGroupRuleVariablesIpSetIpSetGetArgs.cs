@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRuleVariablesIpSetIpSetGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRuleVariablesIpSetIpSetGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("definitions", required: true)]
         private InputList<string>? _definitions;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRuleVariablesIpSetIpSetGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupRuleVariablesIpSetIpSetGetArgs Empty => new RuleGroupRuleGroupRuleVariablesIpSetIpSetGetArgs();
     }
 }
