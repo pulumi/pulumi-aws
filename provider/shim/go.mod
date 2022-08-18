@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20211105002759-77bad27d9f23
 )
 
-replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20220817150246-226fb5bc42d1
+replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20220818211745-8629c8d16db5
 
 require (
 	github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7 // indirect

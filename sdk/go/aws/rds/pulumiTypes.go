@@ -2285,6 +2285,106 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 	}).(SecurityGroupIngressOutput)
 }
 
+type GetEngineVersionFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetEngineVersionFilterInput is an input type that accepts GetEngineVersionFilterArgs and GetEngineVersionFilterOutput values.
+// You can construct a concrete instance of `GetEngineVersionFilterInput` via:
+//
+//	GetEngineVersionFilterArgs{...}
+type GetEngineVersionFilterInput interface {
+	pulumi.Input
+
+	ToGetEngineVersionFilterOutput() GetEngineVersionFilterOutput
+	ToGetEngineVersionFilterOutputWithContext(context.Context) GetEngineVersionFilterOutput
+}
+
+type GetEngineVersionFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetEngineVersionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEngineVersionFilter)(nil)).Elem()
+}
+
+func (i GetEngineVersionFilterArgs) ToGetEngineVersionFilterOutput() GetEngineVersionFilterOutput {
+	return i.ToGetEngineVersionFilterOutputWithContext(context.Background())
+}
+
+func (i GetEngineVersionFilterArgs) ToGetEngineVersionFilterOutputWithContext(ctx context.Context) GetEngineVersionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEngineVersionFilterOutput)
+}
+
+// GetEngineVersionFilterArrayInput is an input type that accepts GetEngineVersionFilterArray and GetEngineVersionFilterArrayOutput values.
+// You can construct a concrete instance of `GetEngineVersionFilterArrayInput` via:
+//
+//	GetEngineVersionFilterArray{ GetEngineVersionFilterArgs{...} }
+type GetEngineVersionFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetEngineVersionFilterArrayOutput() GetEngineVersionFilterArrayOutput
+	ToGetEngineVersionFilterArrayOutputWithContext(context.Context) GetEngineVersionFilterArrayOutput
+}
+
+type GetEngineVersionFilterArray []GetEngineVersionFilterInput
+
+func (GetEngineVersionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEngineVersionFilter)(nil)).Elem()
+}
+
+func (i GetEngineVersionFilterArray) ToGetEngineVersionFilterArrayOutput() GetEngineVersionFilterArrayOutput {
+	return i.ToGetEngineVersionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEngineVersionFilterArray) ToGetEngineVersionFilterArrayOutputWithContext(ctx context.Context) GetEngineVersionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEngineVersionFilterArrayOutput)
+}
+
+type GetEngineVersionFilterOutput struct{ *pulumi.OutputState }
+
+func (GetEngineVersionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEngineVersionFilter)(nil)).Elem()
+}
+
+func (o GetEngineVersionFilterOutput) ToGetEngineVersionFilterOutput() GetEngineVersionFilterOutput {
+	return o
+}
+
+func (o GetEngineVersionFilterOutput) ToGetEngineVersionFilterOutputWithContext(ctx context.Context) GetEngineVersionFilterOutput {
+	return o
+}
+
+func (o GetEngineVersionFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEngineVersionFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEngineVersionFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetEngineVersionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEngineVersionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEngineVersionFilter)(nil)).Elem()
+}
+
+func (o GetEngineVersionFilterArrayOutput) ToGetEngineVersionFilterArrayOutput() GetEngineVersionFilterArrayOutput {
+	return o
+}
+
+func (o GetEngineVersionFilterArrayOutput) ToGetEngineVersionFilterArrayOutputWithContext(ctx context.Context) GetEngineVersionFilterArrayOutput {
+	return o
+}
+
+func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVersionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEngineVersionFilter {
+		return vs[0].([]GetEngineVersionFilter)[vs[1].(int)]
+	}).(GetEngineVersionFilterOutput)
+}
+
 type GetProxyAuth struct {
 	AuthScheme  string `pulumi:"authScheme"`
 	Description string `pulumi:"description"`
@@ -2432,6 +2532,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigPtrInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterArrayInput)(nil)).Elem(), GetEngineVersionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthInput)(nil)).Elem(), GetProxyAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthArrayInput)(nil)).Elem(), GetProxyAuthArray{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
@@ -2462,6 +2564,8 @@ func init() {
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})
+	pulumi.RegisterOutputType(GetEngineVersionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetProxyAuthOutput{})
 	pulumi.RegisterOutputType(GetProxyAuthArrayOutput{})
 }

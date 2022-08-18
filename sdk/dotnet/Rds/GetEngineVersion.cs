@@ -28,6 +28,17 @@ namespace Pulumi.Aws.Rds
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
         ///         Engine = "mysql",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
+        ///             {
+        ///                 Name = "engine-mode",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "provisioned",
+        ///                 },
+        ///             },
+        ///         },
         ///         PreferredVersions = new[]
         ///         {
         ///             "5.7.42",
@@ -61,6 +72,17 @@ namespace Pulumi.Aws.Rds
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
         ///         Engine = "mysql",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
+        ///             {
+        ///                 Name = "engine-mode",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "provisioned",
+        ///                 },
+        ///             },
+        ///         },
         ///         PreferredVersions = new[]
         ///         {
         ///             "5.7.42",
@@ -83,9 +105,18 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
         /// </summary>
         [Input("engine", required: true)]
         public string Engine { get; set; } = null!;
+
+        [Input("filters")]
+        private List<Inputs.GetEngineVersionFilterArgs>? _filters;
+        public List<Inputs.GetEngineVersionFilterArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetEngineVersionFilterArgs>());
+            set => _filters = value;
+        }
 
         /// <summary>
         /// The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
@@ -121,9 +152,18 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
+
+        [Input("filters")]
+        private InputList<Inputs.GetEngineVersionFilterInputArgs>? _filters;
+        public InputList<Inputs.GetEngineVersionFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetEngineVersionFilterInputArgs>());
+            set => _filters = value;
+        }
 
         /// <summary>
         /// The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
@@ -172,6 +212,7 @@ namespace Pulumi.Aws.Rds
         /// Set of log types that the database engine has available for export to CloudWatch Logs.
         /// </summary>
         public readonly ImmutableArray<string> ExportableLogTypes;
+        public readonly ImmutableArray<Outputs.GetEngineVersionFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -234,6 +275,8 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> exportableLogTypes,
 
+            ImmutableArray<Outputs.GetEngineVersionFilterResult> filters,
+
             string id,
 
             string parameterGroupFamily,
@@ -268,6 +311,7 @@ namespace Pulumi.Aws.Rds
             Engine = engine;
             EngineDescription = engineDescription;
             ExportableLogTypes = exportableLogTypes;
+            Filters = filters;
             Id = id;
             ParameterGroupFamily = parameterGroupFamily;
             PreferredVersions = preferredVersions;

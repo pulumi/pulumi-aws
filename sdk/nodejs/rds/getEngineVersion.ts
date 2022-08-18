@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -15,6 +16,10 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.rds.getEngineVersion({
  *     engine: "mysql",
+ *     filters: [{
+ *         name: "engine-mode",
+ *         values: ["provisioned"],
+ *     }],
  *     preferredVersions: [
  *         "5.7.42",
  *         "5.7.19",
@@ -31,6 +36,7 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getEngineVersion:getEngineVersion", {
         "engine": args.engine,
+        "filters": args.filters,
         "parameterGroupFamily": args.parameterGroupFamily,
         "preferredVersions": args.preferredVersions,
         "version": args.version,
@@ -43,8 +49,10 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
 export interface GetEngineVersionArgs {
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
      */
     engine: string;
+    filters?: inputs.rds.GetEngineVersionFilter[];
     /**
      * The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
@@ -76,6 +84,7 @@ export interface GetEngineVersionResult {
      * Set of log types that the database engine has available for export to CloudWatch Logs.
      */
     readonly exportableLogTypes: string[];
+    readonly filters?: outputs.rds.GetEngineVersionFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -139,8 +148,10 @@ export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: 
 export interface GetEngineVersionOutputArgs {
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
      */
     engine: pulumi.Input<string>;
+    filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[]>;
     /**
      * The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
