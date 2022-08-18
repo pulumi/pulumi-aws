@@ -26,6 +26,7 @@ __all__ = [
     'ProxyAuth',
     'ProxyDefaultTargetGroupConnectionPoolConfig',
     'SecurityGroupIngress',
+    'GetEngineVersionFilterResult',
     'GetProxyAuthResult',
 ]
 
@@ -1076,6 +1077,25 @@ class SecurityGroupIngress(dict):
         by `security_group_name`.
         """
         return pulumi.get(self, "security_group_owner_id")
+
+
+@pulumi.output_type
+class GetEngineVersionFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

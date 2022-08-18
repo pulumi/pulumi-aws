@@ -780,6 +780,7 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
@@ -821,6 +822,7 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
@@ -862,6 +864,7 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
@@ -903,6 +906,7 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,

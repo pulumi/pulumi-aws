@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rds.inputs;
 
+import com.pulumi.aws.rds.inputs.GetEngineVersionFilter;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
@@ -17,6 +18,7 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
 
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
      * 
      */
     @Import(name="engine", required=true)
@@ -24,10 +26,18 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
 
     /**
      * @return DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
      * 
      */
     public String engine() {
         return this.engine;
+    }
+
+    @Import(name="filters")
+    private @Nullable List<GetEngineVersionFilter> filters;
+
+    public Optional<List<GetEngineVersionFilter>> filters() {
+        return Optional.ofNullable(this.filters);
     }
 
     /**
@@ -79,6 +89,7 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
 
     private GetEngineVersionPlainArgs(GetEngineVersionPlainArgs $) {
         this.engine = $.engine;
+        this.filters = $.filters;
         this.parameterGroupFamily = $.parameterGroupFamily;
         this.preferredVersions = $.preferredVersions;
         this.version = $.version;
@@ -104,6 +115,7 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -111,6 +123,15 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         public Builder engine(String engine) {
             $.engine = engine;
             return this;
+        }
+
+        public Builder filters(@Nullable List<GetEngineVersionFilter> filters) {
+            $.filters = filters;
+            return this;
+        }
+
+        public Builder filters(GetEngineVersionFilter... filters) {
+            return filters(List.of(filters));
         }
 
         /**

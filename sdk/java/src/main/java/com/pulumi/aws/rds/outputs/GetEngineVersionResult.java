@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rds.outputs;
 
+import com.pulumi.aws.rds.outputs.GetEngineVersionFilter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -28,6 +29,7 @@ public final class GetEngineVersionResult {
      * 
      */
     private final List<String> exportableLogTypes;
+    private final @Nullable List<GetEngineVersionFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -98,6 +100,7 @@ public final class GetEngineVersionResult {
         @CustomType.Parameter("engine") String engine,
         @CustomType.Parameter("engineDescription") String engineDescription,
         @CustomType.Parameter("exportableLogTypes") List<String> exportableLogTypes,
+        @CustomType.Parameter("filters") @Nullable List<GetEngineVersionFilter> filters,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("parameterGroupFamily") String parameterGroupFamily,
         @CustomType.Parameter("preferredVersions") @Nullable List<String> preferredVersions,
@@ -117,6 +120,7 @@ public final class GetEngineVersionResult {
         this.engine = engine;
         this.engineDescription = engineDescription;
         this.exportableLogTypes = exportableLogTypes;
+        this.filters = filters;
         this.id = id;
         this.parameterGroupFamily = parameterGroupFamily;
         this.preferredVersions = preferredVersions;
@@ -157,6 +161,9 @@ public final class GetEngineVersionResult {
      */
     public List<String> exportableLogTypes() {
         return this.exportableLogTypes;
+    }
+    public List<GetEngineVersionFilter> filters() {
+        return this.filters == null ? List.of() : this.filters;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -265,6 +272,7 @@ public final class GetEngineVersionResult {
         private String engine;
         private String engineDescription;
         private List<String> exportableLogTypes;
+        private @Nullable List<GetEngineVersionFilter> filters;
         private String id;
         private String parameterGroupFamily;
         private @Nullable List<String> preferredVersions;
@@ -291,6 +299,7 @@ public final class GetEngineVersionResult {
     	      this.engine = defaults.engine;
     	      this.engineDescription = defaults.engineDescription;
     	      this.exportableLogTypes = defaults.exportableLogTypes;
+    	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.parameterGroupFamily = defaults.parameterGroupFamily;
     	      this.preferredVersions = defaults.preferredVersions;
@@ -326,6 +335,13 @@ public final class GetEngineVersionResult {
         }
         public Builder exportableLogTypes(String... exportableLogTypes) {
             return exportableLogTypes(List.of(exportableLogTypes));
+        }
+        public Builder filters(@Nullable List<GetEngineVersionFilter> filters) {
+            this.filters = filters;
+            return this;
+        }
+        public Builder filters(GetEngineVersionFilter... filters) {
+            return filters(List.of(filters));
         }
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -405,7 +421,7 @@ public final class GetEngineVersionResult {
             this.versionDescription = Objects.requireNonNull(versionDescription);
             return this;
         }        public GetEngineVersionResult build() {
-            return new GetEngineVersionResult(defaultCharacterSet, engine, engineDescription, exportableLogTypes, id, parameterGroupFamily, preferredVersions, status, supportedCharacterSets, supportedFeatureNames, supportedModes, supportedTimezones, supportsGlobalDatabases, supportsLogExportsToCloudwatch, supportsParallelQuery, supportsReadReplica, validUpgradeTargets, version, versionDescription);
+            return new GetEngineVersionResult(defaultCharacterSet, engine, engineDescription, exportableLogTypes, filters, id, parameterGroupFamily, preferredVersions, status, supportedCharacterSets, supportedFeatureNames, supportedModes, supportedTimezones, supportsGlobalDatabases, supportsLogExportsToCloudwatch, supportsParallelQuery, supportsReadReplica, validUpgradeTargets, version, versionDescription);
         }
     }
 }
