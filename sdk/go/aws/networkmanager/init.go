@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:networkmanager/attachmentAccepter:AttachmentAccepter":
+		r = &AttachmentAccepter{}
 	case "aws:networkmanager/connection:Connection":
 		r = &Connection{}
 	case "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation":
@@ -39,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayConnectPeerAssociation{}
 	case "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration":
 		r = &TransitGatewayRegistration{}
+	case "aws:networkmanager/vpcAttachment:VpcAttachment":
+		r = &VpcAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -52,6 +56,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkmanager/attachmentAccepter",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkmanager/connection",
@@ -95,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkmanager/transitGatewayRegistration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkmanager/vpcAttachment",
 		&module{version},
 	)
 }

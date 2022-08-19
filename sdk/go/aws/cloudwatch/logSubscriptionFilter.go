@@ -59,7 +59,7 @@ type LogSubscriptionFilter struct {
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution pulumi.StringPtrOutput `pulumi:"distribution"`
-	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringOutput `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
 	LogGroup pulumi.StringOutput `pulumi:"logGroup"`
@@ -111,7 +111,7 @@ type logSubscriptionFilterState struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution *string `pulumi:"distribution"`
-	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
 	LogGroup interface{} `pulumi:"logGroup"`
@@ -126,7 +126,7 @@ type LogSubscriptionFilterState struct {
 	DestinationArn pulumi.StringPtrInput
 	// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution pulumi.StringPtrInput
-	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringPtrInput
 	// The name of the log group to associate the subscription filter with
 	LogGroup pulumi.Input
@@ -145,7 +145,7 @@ type logSubscriptionFilterArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution *string `pulumi:"distribution"`
-	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern string `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
 	LogGroup interface{} `pulumi:"logGroup"`
@@ -161,7 +161,7 @@ type LogSubscriptionFilterArgs struct {
 	DestinationArn pulumi.StringInput
 	// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution pulumi.StringPtrInput
-	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringInput
 	// The name of the log group to associate the subscription filter with
 	LogGroup pulumi.Input
@@ -268,7 +268,7 @@ func (o LogSubscriptionFilterOutput) Distribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringPtrOutput { return v.Distribution }).(pulumi.StringPtrOutput)
 }
 
-// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 func (o LogSubscriptionFilterOutput) FilterPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringOutput { return v.FilterPattern }).(pulumi.StringOutput)
 }

@@ -89,7 +89,7 @@ export class EcsClusterLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.EcsClusterLayerEbsVolume[] | undefined>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.EcsClusterLayerEbsVolume[]>;
     /**
      * The ECS Cluster ARN of the layer.
      */

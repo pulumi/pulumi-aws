@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPolicyResult {
+    /**
+     * @return The ARN of the policy.
+     * 
+     */
     private final String arn;
     /**
      * @return The description of the policy.
@@ -68,6 +72,10 @@ public final class GetPolicyResult {
         this.tags = tags;
     }
 
+    /**
+     * @return The ARN of the policy.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

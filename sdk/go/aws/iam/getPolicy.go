@@ -91,6 +91,7 @@ type LookupPolicyArgs struct {
 
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
+	// The ARN of the policy.
 	Arn string `pulumi:"arn"`
 	// The description of the policy.
 	Description string `pulumi:"description"`
@@ -156,6 +157,7 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
+// The ARN of the policy.
 func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }

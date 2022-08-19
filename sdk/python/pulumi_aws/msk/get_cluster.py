@@ -215,6 +215,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     Get information on an Amazon MSK Cluster.
 
+    > **Note:** This data sources returns information on _provisioned_ clusters.
+
     ## Example Usage
 
     ```python
@@ -258,6 +260,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get information on an Amazon MSK Cluster.
+
+    > **Note:** This data sources returns information on _provisioned_ clusters.
 
     ## Example Usage
 

@@ -458,7 +458,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     }
     /**
      * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      * 
      */
@@ -467,7 +467,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      * 
      */

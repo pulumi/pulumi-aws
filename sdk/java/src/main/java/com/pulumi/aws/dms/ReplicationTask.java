@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
  * 
+ * &gt; **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -226,14 +226,14 @@ public class CustomLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", type=List.class, parameters={CustomLayerEbsVolume.class})
-    private Output</* @Nullable */ List<CustomLayerEbsVolume>> ebsVolumes;
+    private Output<List<CustomLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return Will create an EBS volume and connect it to the layer&#39;s instances. See EBS Volume.
      * 
      */
-    public Output<Optional<List<CustomLayerEbsVolume>>> ebsVolumes() {
-        return Codegen.optional(this.ebsVolumes);
+    public Output<List<CustomLayerEbsVolume>> ebsVolumes() {
+        return this.ebsVolumes;
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer

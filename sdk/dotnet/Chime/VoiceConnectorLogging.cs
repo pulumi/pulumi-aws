@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Chime
     ///     var defaultVoiceConnectorLogging = new Aws.Chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", new()
     ///     {
     ///         EnableSipLogs = true,
+    ///         EnableMediaMetricLogs = true,
     ///         VoiceConnectorId = defaultVoiceConnector.Id,
     ///     });
     /// 
@@ -46,6 +47,12 @@ namespace Pulumi.Aws.Chime
     [AwsResourceType("aws:chime/voiceConnectorLogging:VoiceConnectorLogging")]
     public partial class VoiceConnectorLogging : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+        /// </summary>
+        [Output("enableMediaMetricLogs")]
+        public Output<bool?> EnableMediaMetricLogs { get; private set; } = null!;
+
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         /// </summary>
@@ -105,6 +112,12 @@ namespace Pulumi.Aws.Chime
     public sealed class VoiceConnectorLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+        /// </summary>
+        [Input("enableMediaMetricLogs")]
+        public Input<bool>? EnableMediaMetricLogs { get; set; }
+
+        /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         /// </summary>
         [Input("enableSipLogs")]
@@ -124,6 +137,12 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorLoggingState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+        /// </summary>
+        [Input("enableMediaMetricLogs")]
+        public Input<bool>? EnableMediaMetricLogs { get; set; }
+
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         /// </summary>

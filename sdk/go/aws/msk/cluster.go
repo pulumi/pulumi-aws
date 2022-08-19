@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages AWS Managed Streaming for Kafka cluster
+// Manages an Amazon MSK cluster.
+//
+// > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the [`msk.ServerlessCluster`](https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster.html) resource.
 //
 // ## Example Usage
 // ### Basic

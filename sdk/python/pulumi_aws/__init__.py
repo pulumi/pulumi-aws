@@ -6250,6 +6250,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "msk/serverlessCluster",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/serverlessCluster:ServerlessCluster": "ServerlessCluster"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mskconnect/connector",
   "fqn": "pulumi_aws.mskconnect",
   "classes": {
@@ -6386,6 +6394,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/attachmentAccepter",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/attachmentAccepter:AttachmentAccepter": "AttachmentAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/connection",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -6454,6 +6470,14 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration": "TransitGatewayRegistration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/vpcAttachment",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/vpcAttachment:VpcAttachment": "VpcAttachment"
   }
  },
  {

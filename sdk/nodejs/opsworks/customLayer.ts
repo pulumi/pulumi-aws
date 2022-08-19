@@ -100,7 +100,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.CustomLayerEbsVolume[] | undefined>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.CustomLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */

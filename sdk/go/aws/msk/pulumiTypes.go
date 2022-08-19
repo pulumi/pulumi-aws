@@ -3300,6 +3300,525 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ServerlessClusterClientAuthentication struct {
+	// Details for client authentication using SASL. See below.
+	Sasl ServerlessClusterClientAuthenticationSasl `pulumi:"sasl"`
+}
+
+// ServerlessClusterClientAuthenticationInput is an input type that accepts ServerlessClusterClientAuthenticationArgs and ServerlessClusterClientAuthenticationOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationInput` via:
+//
+//	ServerlessClusterClientAuthenticationArgs{...}
+type ServerlessClusterClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationOutput() ServerlessClusterClientAuthenticationOutput
+	ToServerlessClusterClientAuthenticationOutputWithContext(context.Context) ServerlessClusterClientAuthenticationOutput
+}
+
+type ServerlessClusterClientAuthenticationArgs struct {
+	// Details for client authentication using SASL. See below.
+	Sasl ServerlessClusterClientAuthenticationSaslInput `pulumi:"sasl"`
+}
+
+func (ServerlessClusterClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationOutput() ServerlessClusterClientAuthenticationOutput {
+	return i.ToServerlessClusterClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationOutput)
+}
+
+func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationPtrOutput() ServerlessClusterClientAuthenticationPtrOutput {
+	return i.ToServerlessClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationOutput).ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ServerlessClusterClientAuthenticationPtrInput is an input type that accepts ServerlessClusterClientAuthenticationArgs, ServerlessClusterClientAuthenticationPtr and ServerlessClusterClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationPtrInput` via:
+//
+//	        ServerlessClusterClientAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessClusterClientAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationPtrOutput() ServerlessClusterClientAuthenticationPtrOutput
+	ToServerlessClusterClientAuthenticationPtrOutputWithContext(context.Context) ServerlessClusterClientAuthenticationPtrOutput
+}
+
+type serverlessClusterClientAuthenticationPtrType ServerlessClusterClientAuthenticationArgs
+
+func ServerlessClusterClientAuthenticationPtr(v *ServerlessClusterClientAuthenticationArgs) ServerlessClusterClientAuthenticationPtrInput {
+	return (*serverlessClusterClientAuthenticationPtrType)(v)
+}
+
+func (*serverlessClusterClientAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i *serverlessClusterClientAuthenticationPtrType) ToServerlessClusterClientAuthenticationPtrOutput() ServerlessClusterClientAuthenticationPtrOutput {
+	return i.ToServerlessClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessClusterClientAuthenticationPtrType) ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationPtrOutput)
+}
+
+type ServerlessClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAuthenticationOutput() ServerlessClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAuthenticationOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAuthenticationPtrOutput() ServerlessClusterClientAuthenticationPtrOutput {
+	return o.ToServerlessClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessClusterClientAuthentication) *ServerlessClusterClientAuthentication {
+		return &v
+	}).(ServerlessClusterClientAuthenticationPtrOutput)
+}
+
+// Details for client authentication using SASL. See below.
+func (o ServerlessClusterClientAuthenticationOutput) Sasl() ServerlessClusterClientAuthenticationSaslOutput {
+	return o.ApplyT(func(v ServerlessClusterClientAuthentication) ServerlessClusterClientAuthenticationSasl { return v.Sasl }).(ServerlessClusterClientAuthenticationSaslOutput)
+}
+
+type ServerlessClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationPtrOutput) ToServerlessClusterClientAuthenticationPtrOutput() ServerlessClusterClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationPtrOutput) ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationPtrOutput) Elem() ServerlessClusterClientAuthenticationOutput {
+	return o.ApplyT(func(v *ServerlessClusterClientAuthentication) ServerlessClusterClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessClusterClientAuthentication
+		return ret
+	}).(ServerlessClusterClientAuthenticationOutput)
+}
+
+// Details for client authentication using SASL. See below.
+func (o ServerlessClusterClientAuthenticationPtrOutput) Sasl() ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return o.ApplyT(func(v *ServerlessClusterClientAuthentication) *ServerlessClusterClientAuthenticationSasl {
+		if v == nil {
+			return nil
+		}
+		return &v.Sasl
+	}).(ServerlessClusterClientAuthenticationSaslPtrOutput)
+}
+
+type ServerlessClusterClientAuthenticationSasl struct {
+	// Details for client authentication using IAM. See below.
+	Iam ServerlessClusterClientAuthenticationSaslIam `pulumi:"iam"`
+}
+
+// ServerlessClusterClientAuthenticationSaslInput is an input type that accepts ServerlessClusterClientAuthenticationSaslArgs and ServerlessClusterClientAuthenticationSaslOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationSaslInput` via:
+//
+//	ServerlessClusterClientAuthenticationSaslArgs{...}
+type ServerlessClusterClientAuthenticationSaslInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationSaslOutput() ServerlessClusterClientAuthenticationSaslOutput
+	ToServerlessClusterClientAuthenticationSaslOutputWithContext(context.Context) ServerlessClusterClientAuthenticationSaslOutput
+}
+
+type ServerlessClusterClientAuthenticationSaslArgs struct {
+	// Details for client authentication using IAM. See below.
+	Iam ServerlessClusterClientAuthenticationSaslIamInput `pulumi:"iam"`
+}
+
+func (ServerlessClusterClientAuthenticationSaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i ServerlessClusterClientAuthenticationSaslArgs) ToServerlessClusterClientAuthenticationSaslOutput() ServerlessClusterClientAuthenticationSaslOutput {
+	return i.ToServerlessClusterClientAuthenticationSaslOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationSaslArgs) ToServerlessClusterClientAuthenticationSaslOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslOutput)
+}
+
+func (i ServerlessClusterClientAuthenticationSaslArgs) ToServerlessClusterClientAuthenticationSaslPtrOutput() ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return i.ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationSaslArgs) ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslOutput).ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx)
+}
+
+// ServerlessClusterClientAuthenticationSaslPtrInput is an input type that accepts ServerlessClusterClientAuthenticationSaslArgs, ServerlessClusterClientAuthenticationSaslPtr and ServerlessClusterClientAuthenticationSaslPtrOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationSaslPtrInput` via:
+//
+//	        ServerlessClusterClientAuthenticationSaslArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessClusterClientAuthenticationSaslPtrInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationSaslPtrOutput() ServerlessClusterClientAuthenticationSaslPtrOutput
+	ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(context.Context) ServerlessClusterClientAuthenticationSaslPtrOutput
+}
+
+type serverlessClusterClientAuthenticationSaslPtrType ServerlessClusterClientAuthenticationSaslArgs
+
+func ServerlessClusterClientAuthenticationSaslPtr(v *ServerlessClusterClientAuthenticationSaslArgs) ServerlessClusterClientAuthenticationSaslPtrInput {
+	return (*serverlessClusterClientAuthenticationSaslPtrType)(v)
+}
+
+func (*serverlessClusterClientAuthenticationSaslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i *serverlessClusterClientAuthenticationSaslPtrType) ToServerlessClusterClientAuthenticationSaslPtrOutput() ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return i.ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessClusterClientAuthenticationSaslPtrType) ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslPtrOutput)
+}
+
+type ServerlessClusterClientAuthenticationSaslOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationSaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationSaslOutput) ToServerlessClusterClientAuthenticationSaslOutput() ServerlessClusterClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslOutput) ToServerlessClusterClientAuthenticationSaslOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslOutput) ToServerlessClusterClientAuthenticationSaslPtrOutput() ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return o.ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessClusterClientAuthenticationSaslOutput) ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessClusterClientAuthenticationSasl) *ServerlessClusterClientAuthenticationSasl {
+		return &v
+	}).(ServerlessClusterClientAuthenticationSaslPtrOutput)
+}
+
+// Details for client authentication using IAM. See below.
+func (o ServerlessClusterClientAuthenticationSaslOutput) Iam() ServerlessClusterClientAuthenticationSaslIamOutput {
+	return o.ApplyT(func(v ServerlessClusterClientAuthenticationSasl) ServerlessClusterClientAuthenticationSaslIam {
+		return v.Iam
+	}).(ServerlessClusterClientAuthenticationSaslIamOutput)
+}
+
+type ServerlessClusterClientAuthenticationSaslPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationSaslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessClusterClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationSaslPtrOutput) ToServerlessClusterClientAuthenticationSaslPtrOutput() ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslPtrOutput) ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslPtrOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslPtrOutput) Elem() ServerlessClusterClientAuthenticationSaslOutput {
+	return o.ApplyT(func(v *ServerlessClusterClientAuthenticationSasl) ServerlessClusterClientAuthenticationSasl {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessClusterClientAuthenticationSasl
+		return ret
+	}).(ServerlessClusterClientAuthenticationSaslOutput)
+}
+
+// Details for client authentication using IAM. See below.
+func (o ServerlessClusterClientAuthenticationSaslPtrOutput) Iam() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return o.ApplyT(func(v *ServerlessClusterClientAuthenticationSasl) *ServerlessClusterClientAuthenticationSaslIam {
+		if v == nil {
+			return nil
+		}
+		return &v.Iam
+	}).(ServerlessClusterClientAuthenticationSaslIamPtrOutput)
+}
+
+type ServerlessClusterClientAuthenticationSaslIam struct {
+	// Whether SASL/IAM authentication is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ServerlessClusterClientAuthenticationSaslIamInput is an input type that accepts ServerlessClusterClientAuthenticationSaslIamArgs and ServerlessClusterClientAuthenticationSaslIamOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationSaslIamInput` via:
+//
+//	ServerlessClusterClientAuthenticationSaslIamArgs{...}
+type ServerlessClusterClientAuthenticationSaslIamInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationSaslIamOutput() ServerlessClusterClientAuthenticationSaslIamOutput
+	ToServerlessClusterClientAuthenticationSaslIamOutputWithContext(context.Context) ServerlessClusterClientAuthenticationSaslIamOutput
+}
+
+type ServerlessClusterClientAuthenticationSaslIamArgs struct {
+	// Whether SASL/IAM authentication is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ServerlessClusterClientAuthenticationSaslIamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslIam)(nil)).Elem()
+}
+
+func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToServerlessClusterClientAuthenticationSaslIamOutput() ServerlessClusterClientAuthenticationSaslIamOutput {
+	return i.ToServerlessClusterClientAuthenticationSaslIamOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToServerlessClusterClientAuthenticationSaslIamOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslIamOutput)
+}
+
+func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToServerlessClusterClientAuthenticationSaslIamPtrOutput() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return i.ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslIamOutput).ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx)
+}
+
+// ServerlessClusterClientAuthenticationSaslIamPtrInput is an input type that accepts ServerlessClusterClientAuthenticationSaslIamArgs, ServerlessClusterClientAuthenticationSaslIamPtr and ServerlessClusterClientAuthenticationSaslIamPtrOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationSaslIamPtrInput` via:
+//
+//	        ServerlessClusterClientAuthenticationSaslIamArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessClusterClientAuthenticationSaslIamPtrInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationSaslIamPtrOutput() ServerlessClusterClientAuthenticationSaslIamPtrOutput
+	ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(context.Context) ServerlessClusterClientAuthenticationSaslIamPtrOutput
+}
+
+type serverlessClusterClientAuthenticationSaslIamPtrType ServerlessClusterClientAuthenticationSaslIamArgs
+
+func ServerlessClusterClientAuthenticationSaslIamPtr(v *ServerlessClusterClientAuthenticationSaslIamArgs) ServerlessClusterClientAuthenticationSaslIamPtrInput {
+	return (*serverlessClusterClientAuthenticationSaslIamPtrType)(v)
+}
+
+func (*serverlessClusterClientAuthenticationSaslIamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessClusterClientAuthenticationSaslIam)(nil)).Elem()
+}
+
+func (i *serverlessClusterClientAuthenticationSaslIamPtrType) ToServerlessClusterClientAuthenticationSaslIamPtrOutput() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return i.ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessClusterClientAuthenticationSaslIamPtrType) ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslIamPtrOutput)
+}
+
+type ServerlessClusterClientAuthenticationSaslIamOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationSaslIamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslIam)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamOutput) ToServerlessClusterClientAuthenticationSaslIamOutput() ServerlessClusterClientAuthenticationSaslIamOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamOutput) ToServerlessClusterClientAuthenticationSaslIamOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamOutput) ToServerlessClusterClientAuthenticationSaslIamPtrOutput() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return o.ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamOutput) ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessClusterClientAuthenticationSaslIam) *ServerlessClusterClientAuthenticationSaslIam {
+		return &v
+	}).(ServerlessClusterClientAuthenticationSaslIamPtrOutput)
+}
+
+// Whether SASL/IAM authentication is enabled or not.
+func (o ServerlessClusterClientAuthenticationSaslIamOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServerlessClusterClientAuthenticationSaslIam) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ServerlessClusterClientAuthenticationSaslIamPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationSaslIamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessClusterClientAuthenticationSaslIam)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) ToServerlessClusterClientAuthenticationSaslIamPtrOutput() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamPtrOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) Elem() ServerlessClusterClientAuthenticationSaslIamOutput {
+	return o.ApplyT(func(v *ServerlessClusterClientAuthenticationSaslIam) ServerlessClusterClientAuthenticationSaslIam {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessClusterClientAuthenticationSaslIam
+		return ret
+	}).(ServerlessClusterClientAuthenticationSaslIamOutput)
+}
+
+// Whether SASL/IAM authentication is enabled or not.
+func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerlessClusterClientAuthenticationSaslIam) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ServerlessClusterVpcConfig struct {
+	// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnets in at least two different Availability Zones that host your client applications.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ServerlessClusterVpcConfigInput is an input type that accepts ServerlessClusterVpcConfigArgs and ServerlessClusterVpcConfigOutput values.
+// You can construct a concrete instance of `ServerlessClusterVpcConfigInput` via:
+//
+//	ServerlessClusterVpcConfigArgs{...}
+type ServerlessClusterVpcConfigInput interface {
+	pulumi.Input
+
+	ToServerlessClusterVpcConfigOutput() ServerlessClusterVpcConfigOutput
+	ToServerlessClusterVpcConfigOutputWithContext(context.Context) ServerlessClusterVpcConfigOutput
+}
+
+type ServerlessClusterVpcConfigArgs struct {
+	// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnets in at least two different Availability Zones that host your client applications.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ServerlessClusterVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (i ServerlessClusterVpcConfigArgs) ToServerlessClusterVpcConfigOutput() ServerlessClusterVpcConfigOutput {
+	return i.ToServerlessClusterVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterVpcConfigArgs) ToServerlessClusterVpcConfigOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterVpcConfigOutput)
+}
+
+// ServerlessClusterVpcConfigArrayInput is an input type that accepts ServerlessClusterVpcConfigArray and ServerlessClusterVpcConfigArrayOutput values.
+// You can construct a concrete instance of `ServerlessClusterVpcConfigArrayInput` via:
+//
+//	ServerlessClusterVpcConfigArray{ ServerlessClusterVpcConfigArgs{...} }
+type ServerlessClusterVpcConfigArrayInput interface {
+	pulumi.Input
+
+	ToServerlessClusterVpcConfigArrayOutput() ServerlessClusterVpcConfigArrayOutput
+	ToServerlessClusterVpcConfigArrayOutputWithContext(context.Context) ServerlessClusterVpcConfigArrayOutput
+}
+
+type ServerlessClusterVpcConfigArray []ServerlessClusterVpcConfigInput
+
+func (ServerlessClusterVpcConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (i ServerlessClusterVpcConfigArray) ToServerlessClusterVpcConfigArrayOutput() ServerlessClusterVpcConfigArrayOutput {
+	return i.ToServerlessClusterVpcConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterVpcConfigArray) ToServerlessClusterVpcConfigArrayOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterVpcConfigArrayOutput)
+}
+
+type ServerlessClusterVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutput() ServerlessClusterVpcConfigOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigOutput {
+	return o
+}
+
+// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+func (o ServerlessClusterVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerlessClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnets in at least two different Availability Zones that host your client applications.
+func (o ServerlessClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerlessClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ServerlessClusterVpcConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterVpcConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) ToServerlessClusterVpcConfigArrayOutput() ServerlessClusterVpcConfigArrayOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) ToServerlessClusterVpcConfigArrayOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigArrayOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) Index(i pulumi.IntInput) ServerlessClusterVpcConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessClusterVpcConfig {
+		return vs[0].([]ServerlessClusterVpcConfig)[vs[1].(int)]
+	}).(ServerlessClusterVpcConfigOutput)
+}
+
 type GetBrokerNodesNodeInfoList struct {
 	// The attached elastic network interface of the broker
 	AttachedEniId string `pulumi:"attachedEniId"`
@@ -3485,6 +4004,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusJmxExporterPtrInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusJmxExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporterInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusNodeExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporterPtrInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusNodeExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationPtrInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslPtrInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslIamInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslIamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslIamPtrInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslIamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigInput)(nil)).Elem(), ServerlessClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigArrayInput)(nil)).Elem(), ServerlessClusterVpcConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListArrayInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArray{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
@@ -3529,6 +4056,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslIamOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslIamPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterVpcConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListOutput{})
 	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListArrayOutput{})
 }

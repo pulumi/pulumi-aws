@@ -217,14 +217,14 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", type=List.class, parameters={PhpAppLayerEbsVolume.class})
-    private Output</* @Nullable */ List<PhpAppLayerEbsVolume>> ebsVolumes;
+    private Output<List<PhpAppLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public Output<Optional<List<PhpAppLayerEbsVolume>>> ebsVolumes() {
-        return Codegen.optional(this.ebsVolumes);
+    public Output<List<PhpAppLayerEbsVolume>> ebsVolumes() {
+        return this.ebsVolumes;
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer

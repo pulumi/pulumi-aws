@@ -294,7 +294,7 @@ export class Distribution extends pulumi.CustomResource {
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      */
     public readonly httpVersion!: pulumi.Output<string | undefined>;
@@ -551,7 +551,7 @@ export interface DistributionState {
     hostedZoneId?: pulumi.Input<string>;
     /**
      * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      */
     httpVersion?: pulumi.Input<string>;
@@ -688,7 +688,7 @@ export interface DistributionArgs {
     enabled: pulumi.Input<boolean>;
     /**
      * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      */
     httpVersion?: pulumi.Input<string>;

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.inspector.inputs;
 
+import com.pulumi.aws.inspector.inputs.AssessmentTemplateEventSubscriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -46,6 +47,21 @@ public final class AssessmentTemplateState extends com.pulumi.resources.Resource
      */
     public Optional<Output<Integer>> duration() {
         return Optional.ofNullable(this.duration);
+    }
+
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     * 
+     */
+    @Import(name="eventSubscriptions")
+    private @Nullable Output<List<AssessmentTemplateEventSubscriptionArgs>> eventSubscriptions;
+
+    /**
+     * @return A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     * 
+     */
+    public Optional<Output<List<AssessmentTemplateEventSubscriptionArgs>>> eventSubscriptions() {
+        return Optional.ofNullable(this.eventSubscriptions);
     }
 
     /**
@@ -128,6 +144,7 @@ public final class AssessmentTemplateState extends com.pulumi.resources.Resource
     private AssessmentTemplateState(AssessmentTemplateState $) {
         this.arn = $.arn;
         this.duration = $.duration;
+        this.eventSubscriptions = $.eventSubscriptions;
         this.name = $.name;
         this.rulesPackageArns = $.rulesPackageArns;
         this.tags = $.tags;
@@ -193,6 +210,37 @@ public final class AssessmentTemplateState extends com.pulumi.resources.Resource
          */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
+        }
+
+        /**
+         * @param eventSubscriptions A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventSubscriptions(@Nullable Output<List<AssessmentTemplateEventSubscriptionArgs>> eventSubscriptions) {
+            $.eventSubscriptions = eventSubscriptions;
+            return this;
+        }
+
+        /**
+         * @param eventSubscriptions A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventSubscriptions(List<AssessmentTemplateEventSubscriptionArgs> eventSubscriptions) {
+            return eventSubscriptions(Output.of(eventSubscriptions));
+        }
+
+        /**
+         * @param eventSubscriptions A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventSubscriptions(AssessmentTemplateEventSubscriptionArgs... eventSubscriptions) {
+            return eventSubscriptions(List.of(eventSubscriptions));
         }
 
         /**

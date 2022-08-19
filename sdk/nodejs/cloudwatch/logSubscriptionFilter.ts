@@ -69,7 +69,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      */
     public readonly distribution!: pulumi.Output<string | undefined>;
     /**
-     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
     public readonly filterPattern!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface LogSubscriptionFilterState {
      */
     distribution?: pulumi.Input<string>;
     /**
-     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
     filterPattern?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface LogSubscriptionFilterArgs {
      */
     distribution?: pulumi.Input<string>;
     /**
-     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
     filterPattern: pulumi.Input<string>;
     /**

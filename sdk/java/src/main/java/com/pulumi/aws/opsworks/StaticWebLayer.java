@@ -209,14 +209,14 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", type=List.class, parameters={StaticWebLayerEbsVolume.class})
-    private Output</* @Nullable */ List<StaticWebLayerEbsVolume>> ebsVolumes;
+    private Output<List<StaticWebLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public Output<Optional<List<StaticWebLayerEbsVolume>>> ebsVolumes() {
-        return Codegen.optional(this.ebsVolumes);
+    public Output<List<StaticWebLayerEbsVolume>> ebsVolumes() {
+        return this.ebsVolumes;
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer

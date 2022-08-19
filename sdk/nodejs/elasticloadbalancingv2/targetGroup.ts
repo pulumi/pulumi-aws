@@ -122,6 +122,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly healthCheck!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupHealthCheck>;
     /**
+     * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     */
+    public readonly ipAddressType!: pulumi.Output<string>;
+    /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
@@ -203,6 +207,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["connectionTermination"] = state ? state.connectionTermination : undefined;
             resourceInputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
             resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -223,6 +228,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["connectionTermination"] = args ? args.connectionTermination : undefined;
             resourceInputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
             resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -270,6 +276,10 @@ export interface TargetGroupState {
      * Health Check configuration block. Detailed below.
      */
     healthCheck?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupHealthCheck>;
+    /**
+     * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */
@@ -348,6 +358,10 @@ export interface TargetGroupArgs {
      * Health Check configuration block. Detailed below.
      */
     healthCheck?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupHealthCheck>;
+    /**
+     * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */

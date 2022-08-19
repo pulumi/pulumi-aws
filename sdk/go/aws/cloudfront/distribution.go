@@ -296,7 +296,7 @@ type Distribution struct {
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// The maximum HTTP version to support on the
-	// distribution. Allowed values are `http1.1` and `http2`. The default is
+	// distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
 	// `http2`.
 	HttpVersion pulumi.StringPtrOutput `pulumi:"httpVersion"`
 	// The number of invalidation batches
@@ -438,7 +438,7 @@ type distributionState struct {
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The maximum HTTP version to support on the
-	// distribution. Allowed values are `http1.1` and `http2`. The default is
+	// distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
 	// `http2`.
 	HttpVersion *string `pulumi:"httpVersion"`
 	// The number of invalidation batches
@@ -537,7 +537,7 @@ type DistributionState struct {
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringPtrInput
 	// The maximum HTTP version to support on the
-	// distribution. Allowed values are `http1.1` and `http2`. The default is
+	// distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
 	// `http2`.
 	HttpVersion pulumi.StringPtrInput
 	// The number of invalidation batches
@@ -625,7 +625,7 @@ type distributionArgs struct {
 	// A flag that specifies whether Origin Shield is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The maximum HTTP version to support on the
-	// distribution. Allowed values are `http1.1` and `http2`. The default is
+	// distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
 	// `http2`.
 	HttpVersion *string `pulumi:"httpVersion"`
 	// Whether the IPv6 is enabled for the distribution.
@@ -693,7 +693,7 @@ type DistributionArgs struct {
 	// A flag that specifies whether Origin Shield is enabled.
 	Enabled pulumi.BoolInput
 	// The maximum HTTP version to support on the
-	// distribution. Allowed values are `http1.1` and `http2`. The default is
+	// distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
 	// `http2`.
 	HttpVersion pulumi.StringPtrInput
 	// Whether the IPv6 is enabled for the distribution.
@@ -894,7 +894,7 @@ func (o DistributionOutput) HostedZoneId() pulumi.StringOutput {
 }
 
 // The maximum HTTP version to support on the
-// distribution. Allowed values are `http1.1` and `http2`. The default is
+// distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
 // `http2`.
 func (o DistributionOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.HttpVersion }).(pulumi.StringPtrOutput)

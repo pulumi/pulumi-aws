@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AssessmentTemplateArgs', 'AssessmentTemplate']
 
@@ -17,6 +19,7 @@ class AssessmentTemplateArgs:
                  duration: pulumi.Input[int],
                  rules_package_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  target_arn: pulumi.Input[str],
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -24,12 +27,15 @@ class AssessmentTemplateArgs:
         :param pulumi.Input[int] duration: The duration of the inspector run.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "rules_package_arns", rules_package_arns)
         pulumi.set(__self__, "target_arn", target_arn)
+        if event_subscriptions is not None:
+            pulumi.set(__self__, "event_subscriptions", event_subscriptions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -72,6 +78,18 @@ class AssessmentTemplateArgs:
         pulumi.set(self, "target_arn", value)
 
     @property
+    @pulumi.getter(name="eventSubscriptions")
+    def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
+        """
+        A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        """
+        return pulumi.get(self, "event_subscriptions")
+
+    @event_subscriptions.setter
+    def event_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]):
+        pulumi.set(self, "event_subscriptions", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -101,6 +119,7 @@ class _AssessmentTemplateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  duration: Optional[pulumi.Input[int]] = None,
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -110,6 +129,7 @@ class _AssessmentTemplateState:
         Input properties used for looking up and filtering AssessmentTemplate resources.
         :param pulumi.Input[str] arn: The template assessment ARN.
         :param pulumi.Input[int] duration: The duration of the inspector run.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -120,6 +140,8 @@ class _AssessmentTemplateState:
             pulumi.set(__self__, "arn", arn)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
+        if event_subscriptions is not None:
+            pulumi.set(__self__, "event_subscriptions", event_subscriptions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rules_package_arns is not None:
@@ -154,6 +176,18 @@ class _AssessmentTemplateState:
     @duration.setter
     def duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="eventSubscriptions")
+    def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
+        """
+        A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        """
+        return pulumi.get(self, "event_subscriptions")
+
+    @event_subscriptions.setter
+    def event_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]):
+        pulumi.set(self, "event_subscriptions", value)
 
     @property
     @pulumi.getter
@@ -222,6 +256,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  duration: Optional[pulumi.Input[int]] = None,
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTemplateEventSubscriptionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -244,7 +279,11 @@ class AssessmentTemplate(pulumi.CustomResource):
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ])
+            ],
+            event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
+                event="ASSESSMENT_RUN_COMPLETED",
+                topic_arn=aws_sns_topic["example"]["arn"],
+            )])
         ```
 
         ## Import
@@ -258,6 +297,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] duration: The duration of the inspector run.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTemplateEventSubscriptionArgs']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -286,7 +326,11 @@ class AssessmentTemplate(pulumi.CustomResource):
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ])
+            ],
+            event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
+                event="ASSESSMENT_RUN_COMPLETED",
+                topic_arn=aws_sns_topic["example"]["arn"],
+            )])
         ```
 
         ## Import
@@ -313,6 +357,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  duration: Optional[pulumi.Input[int]] = None,
+                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTemplateEventSubscriptionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -329,6 +374,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             if duration is None and not opts.urn:
                 raise TypeError("Missing required property 'duration'")
             __props__.__dict__["duration"] = duration
+            __props__.__dict__["event_subscriptions"] = event_subscriptions
             __props__.__dict__["name"] = name
             if rules_package_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'rules_package_arns'")
@@ -351,6 +397,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             duration: Optional[pulumi.Input[int]] = None,
+            event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTemplateEventSubscriptionArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -365,6 +412,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The template assessment ARN.
         :param pulumi.Input[int] duration: The duration of the inspector run.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTemplateEventSubscriptionArgs']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -377,6 +425,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["duration"] = duration
+        __props__.__dict__["event_subscriptions"] = event_subscriptions
         __props__.__dict__["name"] = name
         __props__.__dict__["rules_package_arns"] = rules_package_arns
         __props__.__dict__["tags"] = tags
@@ -399,6 +448,14 @@ class AssessmentTemplate(pulumi.CustomResource):
         The duration of the inspector run.
         """
         return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="eventSubscriptions")
+    def event_subscriptions(self) -> pulumi.Output[Optional[Sequence['outputs.AssessmentTemplateEventSubscription']]]:
+        """
+        A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        """
+        return pulumi.get(self, "event_subscriptions")
 
     @property
     @pulumi.getter

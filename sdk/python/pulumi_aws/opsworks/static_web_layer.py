@@ -1054,7 +1054,7 @@ class StaticWebLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.StaticWebLayerEbsVolume']]]:
+    def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.StaticWebLayerEbsVolume']]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """

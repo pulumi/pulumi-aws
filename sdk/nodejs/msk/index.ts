@@ -12,11 +12,13 @@ export * from "./getCluster";
 export * from "./getConfiguration";
 export * from "./getKafkaVersion";
 export * from "./scramSecretAssociation";
+export * from "./serverlessCluster";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
 import { Configuration } from "./configuration";
 import { ScramSecretAssociation } from "./scramSecretAssociation";
+import { ServerlessCluster } from "./serverlessCluster";
 
 const _module = {
     version: utilities.getVersion(),
@@ -28,6 +30,8 @@ const _module = {
                 return new Configuration(name, <any>undefined, { urn })
             case "aws:msk/scramSecretAssociation:ScramSecretAssociation":
                 return new ScramSecretAssociation(name, <any>undefined, { urn })
+            case "aws:msk/serverlessCluster:ServerlessCluster":
+                return new ServerlessCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -36,3 +40,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "msk/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/configuration", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/scramSecretAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "msk/serverlessCluster", _module)

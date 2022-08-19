@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +23,10 @@ import * as utilities from "../utilities";
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
  *     ],
+ *     eventSubscriptions: [{
+ *         event: "ASSESSMENT_RUN_COMPLETED",
+ *         topicArn: aws_sns_topic.example.arn,
+ *     }],
  * });
  * ```
  *
@@ -70,6 +75,10 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     public readonly duration!: pulumi.Output<number>;
     /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     */
+    public readonly eventSubscriptions!: pulumi.Output<outputs.inspector.AssessmentTemplateEventSubscription[] | undefined>;
+    /**
      * The name of the assessment template.
      */
     public readonly name!: pulumi.Output<string>;
@@ -105,6 +114,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             const state = argsOrState as AssessmentTemplateState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["duration"] = state ? state.duration : undefined;
+            resourceInputs["eventSubscriptions"] = state ? state.eventSubscriptions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -122,6 +132,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetArn'");
             }
             resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -146,6 +157,10 @@ export interface AssessmentTemplateState {
      * The duration of the inspector run.
      */
     duration?: pulumi.Input<number>;
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     */
+    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[]>;
     /**
      * The name of the assessment template.
      */
@@ -176,6 +191,10 @@ export interface AssessmentTemplateArgs {
      * The duration of the inspector run.
      */
     duration: pulumi.Input<number>;
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     */
+    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[]>;
     /**
      * The name of the assessment template.
      */

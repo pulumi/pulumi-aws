@@ -66,6 +66,21 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
      * 
      */
@@ -281,6 +296,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.connectionTermination = $.connectionTermination;
         this.deregistrationDelay = $.deregistrationDelay;
         this.healthCheck = $.healthCheck;
+        this.ipAddressType = $.ipAddressType;
         this.lambdaMultiValueHeadersEnabled = $.lambdaMultiValueHeadersEnabled;
         this.loadBalancingAlgorithmType = $.loadBalancingAlgorithmType;
         this.name = $.name;
@@ -376,6 +392,27 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder healthCheck(TargetGroupHealthCheckArgs healthCheck) {
             return healthCheck(Output.of(healthCheck));
+        }
+
+        /**
+         * @param ipAddressType The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

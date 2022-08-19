@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
  * const defaultVoiceConnectorLogging = new aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", {
  *     enableSipLogs: true,
+ *     enableMediaMetricLogs: true,
  *     voiceConnectorId: defaultVoiceConnector.id,
  * });
  * ```
@@ -57,6 +58,10 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
     }
 
     /**
+     * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     */
+    public readonly enableMediaMetricLogs!: pulumi.Output<boolean | undefined>;
+    /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */
     public readonly enableSipLogs!: pulumi.Output<boolean | undefined>;
@@ -78,6 +83,7 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorLoggingState | undefined;
+            resourceInputs["enableMediaMetricLogs"] = state ? state.enableMediaMetricLogs : undefined;
             resourceInputs["enableSipLogs"] = state ? state.enableSipLogs : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
@@ -85,6 +91,7 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
             if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
+            resourceInputs["enableMediaMetricLogs"] = args ? args.enableMediaMetricLogs : undefined;
             resourceInputs["enableSipLogs"] = args ? args.enableSipLogs : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
@@ -97,6 +104,10 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VoiceConnectorLogging resources.
  */
 export interface VoiceConnectorLoggingState {
+    /**
+     * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     */
+    enableMediaMetricLogs?: pulumi.Input<boolean>;
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */
@@ -111,6 +122,10 @@ export interface VoiceConnectorLoggingState {
  * The set of arguments for constructing a VoiceConnectorLogging resource.
  */
 export interface VoiceConnectorLoggingArgs {
+    /**
+     * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     */
+    enableMediaMetricLogs?: pulumi.Input<boolean>;
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */

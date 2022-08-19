@@ -113,6 +113,36 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The expiration date and time of the certificate.
+     * 
+     */
+    @Import(name="notAfter")
+    private @Nullable Output<String> notAfter;
+
+    /**
+     * @return The expiration date and time of the certificate.
+     * 
+     */
+    public Optional<Output<String>> notAfter() {
+        return Optional.ofNullable(this.notAfter);
+    }
+
+    /**
+     * The start of the validity period of the certificate.
+     * 
+     */
+    @Import(name="notBefore")
+    private @Nullable Output<String> notBefore;
+
+    /**
+     * @return The start of the validity period of the certificate.
+     * 
+     */
+    public Optional<Output<String>> notBefore() {
+        return Optional.ofNullable(this.notBefore);
+    }
+
+    /**
      * Configuration block used to set certificate options. Detailed below.
      * 
      */
@@ -258,6 +288,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.certificateChain = $.certificateChain;
         this.domainName = $.domainName;
         this.domainValidationOptions = $.domainValidationOptions;
+        this.notAfter = $.notAfter;
+        this.notBefore = $.notBefore;
         this.options = $.options;
         this.privateKey = $.privateKey;
         this.status = $.status;
@@ -423,6 +455,48 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainValidationOptions(CertificateDomainValidationOptionArgs... domainValidationOptions) {
             return domainValidationOptions(List.of(domainValidationOptions));
+        }
+
+        /**
+         * @param notAfter The expiration date and time of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notAfter(@Nullable Output<String> notAfter) {
+            $.notAfter = notAfter;
+            return this;
+        }
+
+        /**
+         * @param notAfter The expiration date and time of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notAfter(String notAfter) {
+            return notAfter(Output.of(notAfter));
+        }
+
+        /**
+         * @param notBefore The start of the validity period of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notBefore(@Nullable Output<String> notBefore) {
+            $.notBefore = notBefore;
+            return this;
+        }
+
+        /**
+         * @param notBefore The start of the validity period of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notBefore(String notBefore) {
+            return notBefore(Output.of(notBefore));
         }
 
         /**

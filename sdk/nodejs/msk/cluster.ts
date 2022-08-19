@@ -6,7 +6,9 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages AWS Managed Streaming for Kafka cluster
+ * Manages an Amazon MSK cluster.
+ *
+ * > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the [`aws.msk.ServerlessCluster`](https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster.html) resource.
  *
  * ## Example Usage
  * ### Basic

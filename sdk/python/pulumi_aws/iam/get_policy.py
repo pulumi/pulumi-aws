@@ -53,6 +53,9 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The ARN of the policy.
+        """
         return pulumi.get(self, "arn")
 
     @property

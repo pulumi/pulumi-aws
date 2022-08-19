@@ -3,13 +3,26 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusCapacityUsageSummary;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusSyncState;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatus {
+    /**
+     * @return Aggregated count of all resources used by reference sets in a firewall.
+     * 
+     */
+    private final List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
+    /**
+     * @return Summary of sync states for all availability zones in which the firewall is configured.
+     * 
+     */
+    private final String configurationSyncStateSummary;
+    private final String status;
     /**
      * @return Set of subnets configured for use by the firewall.
      * 
@@ -17,10 +30,34 @@ public final class GetFirewallFirewallStatus {
     private final List<GetFirewallFirewallStatusSyncState> syncStates;
 
     @CustomType.Constructor
-    private GetFirewallFirewallStatus(@CustomType.Parameter("syncStates") List<GetFirewallFirewallStatusSyncState> syncStates) {
+    private GetFirewallFirewallStatus(
+        @CustomType.Parameter("capacityUsageSummaries") List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries,
+        @CustomType.Parameter("configurationSyncStateSummary") String configurationSyncStateSummary,
+        @CustomType.Parameter("status") String status,
+        @CustomType.Parameter("syncStates") List<GetFirewallFirewallStatusSyncState> syncStates) {
+        this.capacityUsageSummaries = capacityUsageSummaries;
+        this.configurationSyncStateSummary = configurationSyncStateSummary;
+        this.status = status;
         this.syncStates = syncStates;
     }
 
+    /**
+     * @return Aggregated count of all resources used by reference sets in a firewall.
+     * 
+     */
+    public List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries() {
+        return this.capacityUsageSummaries;
+    }
+    /**
+     * @return Summary of sync states for all availability zones in which the firewall is configured.
+     * 
+     */
+    public String configurationSyncStateSummary() {
+        return this.configurationSyncStateSummary;
+    }
+    public String status() {
+        return this.status;
+    }
     /**
      * @return Set of subnets configured for use by the firewall.
      * 
@@ -38,6 +75,9 @@ public final class GetFirewallFirewallStatus {
     }
 
     public static final class Builder {
+        private List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
+        private String configurationSyncStateSummary;
+        private String status;
         private List<GetFirewallFirewallStatusSyncState> syncStates;
 
         public Builder() {
@@ -46,9 +86,27 @@ public final class GetFirewallFirewallStatus {
 
         public Builder(GetFirewallFirewallStatus defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.capacityUsageSummaries = defaults.capacityUsageSummaries;
+    	      this.configurationSyncStateSummary = defaults.configurationSyncStateSummary;
+    	      this.status = defaults.status;
     	      this.syncStates = defaults.syncStates;
         }
 
+        public Builder capacityUsageSummaries(List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries) {
+            this.capacityUsageSummaries = Objects.requireNonNull(capacityUsageSummaries);
+            return this;
+        }
+        public Builder capacityUsageSummaries(GetFirewallFirewallStatusCapacityUsageSummary... capacityUsageSummaries) {
+            return capacityUsageSummaries(List.of(capacityUsageSummaries));
+        }
+        public Builder configurationSyncStateSummary(String configurationSyncStateSummary) {
+            this.configurationSyncStateSummary = Objects.requireNonNull(configurationSyncStateSummary);
+            return this;
+        }
+        public Builder status(String status) {
+            this.status = Objects.requireNonNull(status);
+            return this;
+        }
         public Builder syncStates(List<GetFirewallFirewallStatusSyncState> syncStates) {
             this.syncStates = Objects.requireNonNull(syncStates);
             return this;
@@ -56,7 +114,7 @@ public final class GetFirewallFirewallStatus {
         public Builder syncStates(GetFirewallFirewallStatusSyncState... syncStates) {
             return syncStates(List.of(syncStates));
         }        public GetFirewallFirewallStatus build() {
-            return new GetFirewallFirewallStatus(syncStates);
+            return new GetFirewallFirewallStatus(capacityUsageSummaries, configurationSyncStateSummary, status, syncStates);
         }
     }
 }

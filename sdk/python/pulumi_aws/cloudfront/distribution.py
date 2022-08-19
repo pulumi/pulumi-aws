@@ -55,7 +55,7 @@ class DistributionArgs:
         :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
                return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1` and `http2`. The default is
+               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
                `http2`.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input['DistributionLoggingConfigArgs'] logging_config: The logging
@@ -238,7 +238,7 @@ class DistributionArgs:
     def http_version(self) -> Optional[pulumi.Input[str]]:
         """
         The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1` and `http2`. The default is
+        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
         `http2`.
         """
         return pulumi.get(self, "http_version")
@@ -428,7 +428,7 @@ class _DistributionState:
                route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
                alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1` and `http2`. The default is
+               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
                `http2`.
         :param pulumi.Input[int] in_progress_validation_batches: The number of invalidation batches
                currently in progress.
@@ -681,7 +681,7 @@ class _DistributionState:
     def http_version(self) -> Optional[pulumi.Input[str]]:
         """
         The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1` and `http2`. The default is
+        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
         `http2`.
         """
         return pulumi.get(self, "http_version")
@@ -1173,7 +1173,7 @@ class Distribution(pulumi.CustomResource):
                return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[bool] enabled: A flag that specifies whether Origin Shield is enabled.
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1` and `http2`. The default is
+               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
                `http2`.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging
@@ -1568,7 +1568,7 @@ class Distribution(pulumi.CustomResource):
                route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
                alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1` and `http2`. The default is
+               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
                `http2`.
         :param pulumi.Input[int] in_progress_validation_batches: The number of invalidation batches
                currently in progress.
@@ -1752,7 +1752,7 @@ class Distribution(pulumi.CustomResource):
     def http_version(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1` and `http2`. The default is
+        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
         `http2`.
         """
         return pulumi.get(self, "http_version")

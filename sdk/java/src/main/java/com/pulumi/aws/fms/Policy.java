@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
  *             .excludeResourceTags(false)
  *             .remediationEnabled(false)
- *             .resourceTypeLists(&#34;AWS::ElasticLoadBalancingV2::LoadBalancer&#34;)
+ *             .resourceType(&#34;AWS::ElasticLoadBalancingV2::LoadBalancer&#34;)
  *             .securityServicePolicyData(PolicySecurityServicePolicyDataArgs.builder()
  *                 .type(&#34;WAF&#34;)
  *                 .managedServiceData(exampleRuleGroup.id().applyValue(id -&gt; serializeJson(
@@ -239,14 +239,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.resourceType;
     }
     /**
-     * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
     @Export(name="resourceTypeLists", type=List.class, parameters={String.class})
     private Output<List<String>> resourceTypeLists;
 
     /**
-     * @return A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * @return A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
     public Output<List<String>> resourceTypeLists() {

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Distribution { get; private set; } = null!;
 
         /// <summary>
-        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Output("filterPattern")]
         public Output<string> FilterPattern { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Distribution { get; set; }
 
         /// <summary>
-        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Input("filterPattern", required: true)]
         public Input<string> FilterPattern { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Distribution { get; set; }
 
         /// <summary>
-        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Input("filterPattern")]
         public Input<string>? FilterPattern { get; set; }

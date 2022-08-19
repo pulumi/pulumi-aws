@@ -14,6 +14,7 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
      * 
      */
     private final String endpointId;
+    private final String status;
     /**
      * @return The unique identifier for the subnet.
      * 
@@ -23,8 +24,10 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
     @CustomType.Constructor
     private GetFirewallFirewallStatusSyncStateAttachment(
         @CustomType.Parameter("endpointId") String endpointId,
+        @CustomType.Parameter("status") String status,
         @CustomType.Parameter("subnetId") String subnetId) {
         this.endpointId = endpointId;
+        this.status = status;
         this.subnetId = subnetId;
     }
 
@@ -34,6 +37,9 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
      */
     public String endpointId() {
         return this.endpointId;
+    }
+    public String status() {
+        return this.status;
     }
     /**
      * @return The unique identifier for the subnet.
@@ -53,6 +59,7 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
 
     public static final class Builder {
         private String endpointId;
+        private String status;
         private String subnetId;
 
         public Builder() {
@@ -62,6 +69,7 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
         public Builder(GetFirewallFirewallStatusSyncStateAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointId = defaults.endpointId;
+    	      this.status = defaults.status;
     	      this.subnetId = defaults.subnetId;
         }
 
@@ -69,11 +77,15 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
             this.endpointId = Objects.requireNonNull(endpointId);
             return this;
         }
+        public Builder status(String status) {
+            this.status = Objects.requireNonNull(status);
+            return this;
+        }
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }        public GetFirewallFirewallStatusSyncStateAttachment build() {
-            return new GetFirewallFirewallStatusSyncStateAttachment(endpointId, subnetId);
+            return new GetFirewallFirewallStatusSyncStateAttachment(endpointId, status, subnetId);
         }
     }
 }

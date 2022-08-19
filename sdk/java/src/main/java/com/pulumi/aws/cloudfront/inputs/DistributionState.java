@@ -214,7 +214,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      * 
      */
@@ -223,7 +223,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
      * `http2`.
      * 
      */
@@ -876,7 +876,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param httpVersion The maximum HTTP version to support on the
-         * distribution. Allowed values are `http1.1` and `http2`. The default is
+         * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
          * `http2`.
          * 
          * @return builder
@@ -889,7 +889,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param httpVersion The maximum HTTP version to support on the
-         * distribution. Allowed values are `http1.1` and `http2`. The default is
+         * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
          * `http2`.
          * 
          * @return builder

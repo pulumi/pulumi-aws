@@ -672,6 +672,143 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpcAttachmentOptions struct {
+	// Indicates whether IPv6 is supported.
+	Ipv6Support bool `pulumi:"ipv6Support"`
+}
+
+// VpcAttachmentOptionsInput is an input type that accepts VpcAttachmentOptionsArgs and VpcAttachmentOptionsOutput values.
+// You can construct a concrete instance of `VpcAttachmentOptionsInput` via:
+//
+//	VpcAttachmentOptionsArgs{...}
+type VpcAttachmentOptionsInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentOptionsOutput() VpcAttachmentOptionsOutput
+	ToVpcAttachmentOptionsOutputWithContext(context.Context) VpcAttachmentOptionsOutput
+}
+
+type VpcAttachmentOptionsArgs struct {
+	// Indicates whether IPv6 is supported.
+	Ipv6Support pulumi.BoolInput `pulumi:"ipv6Support"`
+}
+
+func (VpcAttachmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentOptions)(nil)).Elem()
+}
+
+func (i VpcAttachmentOptionsArgs) ToVpcAttachmentOptionsOutput() VpcAttachmentOptionsOutput {
+	return i.ToVpcAttachmentOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentOptionsArgs) ToVpcAttachmentOptionsOutputWithContext(ctx context.Context) VpcAttachmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOptionsOutput)
+}
+
+func (i VpcAttachmentOptionsArgs) ToVpcAttachmentOptionsPtrOutput() VpcAttachmentOptionsPtrOutput {
+	return i.ToVpcAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentOptionsArgs) ToVpcAttachmentOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOptionsOutput).ToVpcAttachmentOptionsPtrOutputWithContext(ctx)
+}
+
+// VpcAttachmentOptionsPtrInput is an input type that accepts VpcAttachmentOptionsArgs, VpcAttachmentOptionsPtr and VpcAttachmentOptionsPtrOutput values.
+// You can construct a concrete instance of `VpcAttachmentOptionsPtrInput` via:
+//
+//	        VpcAttachmentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcAttachmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentOptionsPtrOutput() VpcAttachmentOptionsPtrOutput
+	ToVpcAttachmentOptionsPtrOutputWithContext(context.Context) VpcAttachmentOptionsPtrOutput
+}
+
+type vpcAttachmentOptionsPtrType VpcAttachmentOptionsArgs
+
+func VpcAttachmentOptionsPtr(v *VpcAttachmentOptionsArgs) VpcAttachmentOptionsPtrInput {
+	return (*vpcAttachmentOptionsPtrType)(v)
+}
+
+func (*vpcAttachmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentOptions)(nil)).Elem()
+}
+
+func (i *vpcAttachmentOptionsPtrType) ToVpcAttachmentOptionsPtrOutput() VpcAttachmentOptionsPtrOutput {
+	return i.ToVpcAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcAttachmentOptionsPtrType) ToVpcAttachmentOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOptionsPtrOutput)
+}
+
+type VpcAttachmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentOptions)(nil)).Elem()
+}
+
+func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsOutput() VpcAttachmentOptionsOutput {
+	return o
+}
+
+func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsOutputWithContext(ctx context.Context) VpcAttachmentOptionsOutput {
+	return o
+}
+
+func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsPtrOutput() VpcAttachmentOptionsPtrOutput {
+	return o.ToVpcAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentOptions) *VpcAttachmentOptions {
+		return &v
+	}).(VpcAttachmentOptionsPtrOutput)
+}
+
+// Indicates whether IPv6 is supported.
+func (o VpcAttachmentOptionsOutput) Ipv6Support() pulumi.BoolOutput {
+	return o.ApplyT(func(v VpcAttachmentOptions) bool { return v.Ipv6Support }).(pulumi.BoolOutput)
+}
+
+type VpcAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentOptions)(nil)).Elem()
+}
+
+func (o VpcAttachmentOptionsPtrOutput) ToVpcAttachmentOptionsPtrOutput() VpcAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentOptionsPtrOutput) ToVpcAttachmentOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentOptionsPtrOutput) Elem() VpcAttachmentOptionsOutput {
+	return o.ApplyT(func(v *VpcAttachmentOptions) VpcAttachmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcAttachmentOptions
+		return ret
+	}).(VpcAttachmentOptionsOutput)
+}
+
+// Indicates whether IPv6 is supported.
+func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Ipv6Support
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetCoreNetworkPolicyDocumentAttachmentPolicy struct {
 	// The action to take for the chosen segment. Valid values `create-route` or `share`.
 	Action GetCoreNetworkPolicyDocumentAttachmentPolicyAction `pulumi:"action"`
@@ -2014,6 +2151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthPtrInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentOptionsInput)(nil)).Elem(), VpcAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentOptionsPtrInput)(nil)).Elem(), VpcAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{})
@@ -2043,6 +2182,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentOptionsOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput{})

@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging(&#34;defaultVoiceConnectorLogging&#34;, VoiceConnectorLoggingArgs.builder()        
  *             .enableSipLogs(true)
+ *             .enableMediaMetricLogs(true)
  *             .voiceConnectorId(defaultVoiceConnector.id())
  *             .build());
  * 
@@ -66,6 +67,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:chime/voiceConnectorLogging:VoiceConnectorLogging")
 public class VoiceConnectorLogging extends com.pulumi.resources.CustomResource {
+    /**
+     * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     * 
+     */
+    @Export(name="enableMediaMetricLogs", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> enableMediaMetricLogs;
+
+    /**
+     * @return When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     * 
+     */
+    public Output<Optional<Boolean>> enableMediaMetricLogs() {
+        return Codegen.optional(this.enableMediaMetricLogs);
+    }
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      * 
