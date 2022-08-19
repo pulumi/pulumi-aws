@@ -141,6 +141,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<Outputs.TargetGroupHealthCheck> HealthCheck { get; private set; } = null!;
 
         /// <summary>
+        /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
         [Output("lambdaMultiValueHeadersEnabled")]
@@ -295,6 +301,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<Inputs.TargetGroupHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
+        /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
@@ -421,6 +433,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TargetGroupHealthCheckGetArgs>? HealthCheck { get; set; }
+
+        /// <summary>
+        /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.

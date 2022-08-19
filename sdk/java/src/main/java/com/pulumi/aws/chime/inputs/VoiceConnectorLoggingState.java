@@ -17,6 +17,21 @@ public final class VoiceConnectorLoggingState extends com.pulumi.resources.Resou
     public static final VoiceConnectorLoggingState Empty = new VoiceConnectorLoggingState();
 
     /**
+     * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     * 
+     */
+    @Import(name="enableMediaMetricLogs")
+    private @Nullable Output<Boolean> enableMediaMetricLogs;
+
+    /**
+     * @return When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+     * 
+     */
+    public Optional<Output<Boolean>> enableMediaMetricLogs() {
+        return Optional.ofNullable(this.enableMediaMetricLogs);
+    }
+
+    /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      * 
      */
@@ -49,6 +64,7 @@ public final class VoiceConnectorLoggingState extends com.pulumi.resources.Resou
     private VoiceConnectorLoggingState() {}
 
     private VoiceConnectorLoggingState(VoiceConnectorLoggingState $) {
+        this.enableMediaMetricLogs = $.enableMediaMetricLogs;
         this.enableSipLogs = $.enableSipLogs;
         this.voiceConnectorId = $.voiceConnectorId;
     }
@@ -69,6 +85,27 @@ public final class VoiceConnectorLoggingState extends com.pulumi.resources.Resou
 
         public Builder(VoiceConnectorLoggingState defaults) {
             $ = new VoiceConnectorLoggingState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enableMediaMetricLogs When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMediaMetricLogs(@Nullable Output<Boolean> enableMediaMetricLogs) {
+            $.enableMediaMetricLogs = enableMediaMetricLogs;
+            return this;
+        }
+
+        /**
+         * @param enableMediaMetricLogs When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMediaMetricLogs(Boolean enableMediaMetricLogs) {
+            return enableMediaMetricLogs(Output.of(enableMediaMetricLogs));
         }
 
         /**

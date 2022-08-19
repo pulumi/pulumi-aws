@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const examplePolicy = new aws.fms.Policy("examplePolicy", {
  *     excludeResourceTags: false,
  *     remediationEnabled: false,
- *     resourceTypeLists: ["AWS::ElasticLoadBalancingV2::LoadBalancer"],
+ *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
  *     securityServicePolicyData: {
  *         type: "WAF",
  *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
@@ -119,7 +119,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly resourceType!: pulumi.Output<string>;
     /**
-     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      */
     public readonly resourceTypeLists!: pulumi.Output<string[]>;
     /**
@@ -235,7 +235,7 @@ export interface PolicyState {
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      */
     resourceTypeLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -290,7 +290,7 @@ export interface PolicyArgs {
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      */
     resourceTypeLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

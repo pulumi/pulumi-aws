@@ -32,6 +32,14 @@ namespace Pulumi.Aws.Inspector
     ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
     ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
     ///         },
+    ///         EventSubscriptions = new[]
+    ///         {
+    ///             new Aws.Inspector.Inputs.AssessmentTemplateEventSubscriptionArgs
+    ///             {
+    ///                 Event = "ASSESSMENT_RUN_COMPLETED",
+    ///                 TopicArn = aws_sns_topic.Example.Arn,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -59,6 +67,12 @@ namespace Pulumi.Aws.Inspector
         /// </summary>
         [Output("duration")]
         public Output<int> Duration { get; private set; } = null!;
+
+        /// <summary>
+        /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        /// </summary>
+        [Output("eventSubscriptions")]
+        public Output<ImmutableArray<Outputs.AssessmentTemplateEventSubscription>> EventSubscriptions { get; private set; } = null!;
 
         /// <summary>
         /// The name of the assessment template.
@@ -142,6 +156,18 @@ namespace Pulumi.Aws.Inspector
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
 
+        [Input("eventSubscriptions")]
+        private InputList<Inputs.AssessmentTemplateEventSubscriptionArgs>? _eventSubscriptions;
+
+        /// <summary>
+        /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        /// </summary>
+        public InputList<Inputs.AssessmentTemplateEventSubscriptionArgs> EventSubscriptions
+        {
+            get => _eventSubscriptions ?? (_eventSubscriptions = new InputList<Inputs.AssessmentTemplateEventSubscriptionArgs>());
+            set => _eventSubscriptions = value;
+        }
+
         /// <summary>
         /// The name of the assessment template.
         /// </summary>
@@ -197,6 +223,18 @@ namespace Pulumi.Aws.Inspector
         /// </summary>
         [Input("duration")]
         public Input<int>? Duration { get; set; }
+
+        [Input("eventSubscriptions")]
+        private InputList<Inputs.AssessmentTemplateEventSubscriptionGetArgs>? _eventSubscriptions;
+
+        /// <summary>
+        /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        /// </summary>
+        public InputList<Inputs.AssessmentTemplateEventSubscriptionGetArgs> EventSubscriptions
+        {
+            get => _eventSubscriptions ?? (_eventSubscriptions = new InputList<Inputs.AssessmentTemplateEventSubscriptionGetArgs>());
+            set => _eventSubscriptions = value;
+        }
 
         /// <summary>
         /// The name of the assessment template.

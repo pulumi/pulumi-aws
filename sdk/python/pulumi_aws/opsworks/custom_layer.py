@@ -1124,7 +1124,7 @@ class CustomLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.CustomLayerEbsVolume']]]:
+    def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.CustomLayerEbsVolume']]:
         """
         Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         """

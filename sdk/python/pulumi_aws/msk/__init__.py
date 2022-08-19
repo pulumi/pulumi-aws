@@ -12,5 +12,6 @@ from .get_cluster import *
 from .get_configuration import *
 from .get_kafka_version import *
 from .scram_secret_association import *
+from .serverless_cluster import *
 from ._inputs import *
 from . import outputs

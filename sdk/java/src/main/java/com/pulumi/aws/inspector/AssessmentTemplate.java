@@ -6,6 +6,7 @@ package com.pulumi.aws.inspector;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.inspector.AssessmentTemplateArgs;
 import com.pulumi.aws.inspector.inputs.AssessmentTemplateState;
+import com.pulumi.aws.inspector.outputs.AssessmentTemplateEventSubscription;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -29,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.inspector.AssessmentTemplate;
  * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+ * import com.pulumi.aws.inspector.inputs.AssessmentTemplateEventSubscriptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,6 +52,10 @@ import javax.annotation.Nullable;
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc&#34;,
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ&#34;,
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD&#34;)
+ *             .eventSubscriptions(AssessmentTemplateEventSubscriptionArgs.builder()
+ *                 .event(&#34;ASSESSMENT_RUN_COMPLETED&#34;)
+ *                 .topicArn(aws_sns_topic.example().arn())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -94,6 +100,20 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> duration() {
         return this.duration;
+    }
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     * 
+     */
+    @Export(name="eventSubscriptions", type=List.class, parameters={AssessmentTemplateEventSubscription.class})
+    private Output</* @Nullable */ List<AssessmentTemplateEventSubscription>> eventSubscriptions;
+
+    /**
+     * @return A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     * 
+     */
+    public Output<Optional<List<AssessmentTemplateEventSubscription>>> eventSubscriptions() {
+        return Codegen.optional(this.eventSubscriptions);
     }
     /**
      * The name of the assessment template.

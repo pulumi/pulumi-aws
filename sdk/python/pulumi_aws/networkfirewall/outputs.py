@@ -52,6 +52,9 @@ __all__ = [
     'RuleGroupRuleGroupStatefulRuleOptions',
     'GetFirewallEncryptionConfigurationResult',
     'GetFirewallFirewallStatusResult',
+    'GetFirewallFirewallStatusCapacityUsageSummaryResult',
+    'GetFirewallFirewallStatusCapacityUsageSummaryCidrResult',
+    'GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult',
     'GetFirewallFirewallStatusSyncStateResult',
     'GetFirewallFirewallStatusSyncStateAttachmentResult',
     'GetFirewallPolicyFirewallPolicyResult',
@@ -1893,11 +1896,40 @@ class GetFirewallEncryptionConfigurationResult(dict):
 @pulumi.output_type
 class GetFirewallFirewallStatusResult(dict):
     def __init__(__self__, *,
+                 capacity_usage_summaries: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult'],
+                 configuration_sync_state_summary: str,
+                 status: str,
                  sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']):
         """
+        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryArgs'] capacity_usage_summaries: Aggregated count of all resources used by reference sets in a firewall.
+        :param str configuration_sync_state_summary: Summary of sync states for all availability zones in which the firewall is configured.
         :param Sequence['GetFirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
         """
+        pulumi.set(__self__, "capacity_usage_summaries", capacity_usage_summaries)
+        pulumi.set(__self__, "configuration_sync_state_summary", configuration_sync_state_summary)
+        pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "sync_states", sync_states)
+
+    @property
+    @pulumi.getter(name="capacityUsageSummaries")
+    def capacity_usage_summaries(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult']:
+        """
+        Aggregated count of all resources used by reference sets in a firewall.
+        """
+        return pulumi.get(self, "capacity_usage_summaries")
+
+    @property
+    @pulumi.getter(name="configurationSyncStateSummary")
+    def configuration_sync_state_summary(self) -> str:
+        """
+        Summary of sync states for all availability zones in which the firewall is configured.
+        """
+        return pulumi.get(self, "configuration_sync_state_summary")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="syncStates")
@@ -1906,6 +1938,82 @@ class GetFirewallFirewallStatusResult(dict):
         Set of subnets configured for use by the firewall.
         """
         return pulumi.get(self, "sync_states")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusCapacityUsageSummaryResult(dict):
+    def __init__(__self__, *,
+                 cidrs: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']):
+        """
+        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs'] cidrs: Capacity usage of CIDR blocks used by IP set references in a firewall.
+        """
+        pulumi.set(__self__, "cidrs", cidrs)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']:
+        """
+        Capacity usage of CIDR blocks used by IP set references in a firewall.
+        """
+        return pulumi.get(self, "cidrs")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
+    def __init__(__self__, *,
+                 available_cidr_count: int,
+                 ip_set_references: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult'],
+                 utilized_cidr_count: int):
+        """
+        :param int available_cidr_count: Available number of CIDR blocks available for use by the IP set references in a firewall.
+        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs'] ip_set_references: The list of IP set references used by a firewall.
+        :param int utilized_cidr_count: Number of CIDR blocks used by the IP set references in a firewall.
+        """
+        pulumi.set(__self__, "available_cidr_count", available_cidr_count)
+        pulumi.set(__self__, "ip_set_references", ip_set_references)
+        pulumi.set(__self__, "utilized_cidr_count", utilized_cidr_count)
+
+    @property
+    @pulumi.getter(name="availableCidrCount")
+    def available_cidr_count(self) -> int:
+        """
+        Available number of CIDR blocks available for use by the IP set references in a firewall.
+        """
+        return pulumi.get(self, "available_cidr_count")
+
+    @property
+    @pulumi.getter(name="ipSetReferences")
+    def ip_set_references(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult']:
+        """
+        The list of IP set references used by a firewall.
+        """
+        return pulumi.get(self, "ip_set_references")
+
+    @property
+    @pulumi.getter(name="utilizedCidrCount")
+    def utilized_cidr_count(self) -> int:
+        """
+        Number of CIDR blocks used by the IP set references in a firewall.
+        """
+        return pulumi.get(self, "utilized_cidr_count")
+
+
+@pulumi.output_type
+class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult(dict):
+    def __init__(__self__, *,
+                 resolved_cidr_count: int):
+        """
+        :param int resolved_cidr_count: Total number of CIDR blocks used by the IP set references in a firewall.
+        """
+        pulumi.set(__self__, "resolved_cidr_count", resolved_cidr_count)
+
+    @property
+    @pulumi.getter(name="resolvedCidrCount")
+    def resolved_cidr_count(self) -> int:
+        """
+        Total number of CIDR blocks used by the IP set references in a firewall.
+        """
+        return pulumi.get(self, "resolved_cidr_count")
 
 
 @pulumi.output_type
@@ -1941,12 +2049,14 @@ class GetFirewallFirewallStatusSyncStateResult(dict):
 class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     def __init__(__self__, *,
                  endpoint_id: str,
+                 status: str,
                  subnet_id: str):
         """
         :param str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
         :param str subnet_id: The unique identifier for the subnet.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
+        pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
@@ -1956,6 +2066,11 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
         The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
         """
         return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetId")

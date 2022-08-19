@@ -31,10 +31,7 @@ namespace Pulumi.Aws.Fms
     ///     {
     ///         ExcludeResourceTags = false,
     ///         RemediationEnabled = false,
-    ///         ResourceTypeLists = new[]
-    ///         {
-    ///             "AWS::ElasticLoadBalancingV2::LoadBalancer",
-    ///         },
+    ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
     ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
     ///         {
     ///             Type = "WAF",
@@ -143,7 +140,7 @@ namespace Pulumi.Aws.Fms
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         /// </summary>
         [Output("resourceTypeLists")]
         public Output<ImmutableArray<string>> ResourceTypeLists { get; private set; } = null!;
@@ -273,7 +270,7 @@ namespace Pulumi.Aws.Fms
         private InputList<string>? _resourceTypeLists;
 
         /// <summary>
-        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         /// </summary>
         public InputList<string> ResourceTypeLists
         {
@@ -380,7 +377,7 @@ namespace Pulumi.Aws.Fms
         private InputList<string>? _resourceTypeLists;
 
         /// <summary>
-        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         /// </summary>
         public InputList<string> ResourceTypeLists
         {

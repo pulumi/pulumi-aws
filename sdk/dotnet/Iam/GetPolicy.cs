@@ -195,6 +195,9 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetPolicyResult
     {
+        /// <summary>
+        /// The ARN of the policy.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The description of the policy.

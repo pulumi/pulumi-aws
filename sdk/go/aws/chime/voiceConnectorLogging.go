@@ -34,8 +34,9 @@ import (
 //				return err
 //			}
 //			_, err = chime.NewVoiceConnectorLogging(ctx, "defaultVoiceConnectorLogging", &chime.VoiceConnectorLoggingArgs{
-//				EnableSipLogs:    pulumi.Bool(true),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				EnableSipLogs:         pulumi.Bool(true),
+//				EnableMediaMetricLogs: pulumi.Bool(true),
+//				VoiceConnectorId:      defaultVoiceConnector.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -58,6 +59,8 @@ import (
 type VoiceConnectorLogging struct {
 	pulumi.CustomResourceState
 
+	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+	EnableMediaMetricLogs pulumi.BoolPtrOutput `pulumi:"enableMediaMetricLogs"`
 	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
 	EnableSipLogs pulumi.BoolPtrOutput `pulumi:"enableSipLogs"`
 	// The Amazon Chime Voice Connector ID.
@@ -96,6 +99,8 @@ func GetVoiceConnectorLogging(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorLogging resources.
 type voiceConnectorLoggingState struct {
+	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+	EnableMediaMetricLogs *bool `pulumi:"enableMediaMetricLogs"`
 	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
 	EnableSipLogs *bool `pulumi:"enableSipLogs"`
 	// The Amazon Chime Voice Connector ID.
@@ -103,6 +108,8 @@ type voiceConnectorLoggingState struct {
 }
 
 type VoiceConnectorLoggingState struct {
+	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+	EnableMediaMetricLogs pulumi.BoolPtrInput
 	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
 	EnableSipLogs pulumi.BoolPtrInput
 	// The Amazon Chime Voice Connector ID.
@@ -114,6 +121,8 @@ func (VoiceConnectorLoggingState) ElementType() reflect.Type {
 }
 
 type voiceConnectorLoggingArgs struct {
+	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+	EnableMediaMetricLogs *bool `pulumi:"enableMediaMetricLogs"`
 	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
 	EnableSipLogs *bool `pulumi:"enableSipLogs"`
 	// The Amazon Chime Voice Connector ID.
@@ -122,6 +131,8 @@ type voiceConnectorLoggingArgs struct {
 
 // The set of arguments for constructing a VoiceConnectorLogging resource.
 type VoiceConnectorLoggingArgs struct {
+	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+	EnableMediaMetricLogs pulumi.BoolPtrInput
 	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
 	EnableSipLogs pulumi.BoolPtrInput
 	// The Amazon Chime Voice Connector ID.
@@ -213,6 +224,11 @@ func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutput() VoiceConnec
 
 func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutputWithContext(ctx context.Context) VoiceConnectorLoggingOutput {
 	return o
+}
+
+// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+func (o VoiceConnectorLoggingOutput) EnableMediaMetricLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VoiceConnectorLogging) pulumi.BoolPtrOutput { return v.EnableMediaMetricLogs }).(pulumi.BoolPtrOutput)
 }
 
 // When true, enables SIP message logs for sending to Amazon CloudWatch Logs.

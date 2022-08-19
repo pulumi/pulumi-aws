@@ -32,6 +32,10 @@ __all__ = [
     'ClusterOpenMonitoringPrometheus',
     'ClusterOpenMonitoringPrometheusJmxExporter',
     'ClusterOpenMonitoringPrometheusNodeExporter',
+    'ServerlessClusterClientAuthentication',
+    'ServerlessClusterClientAuthenticationSasl',
+    'ServerlessClusterClientAuthenticationSaslIam',
+    'ServerlessClusterVpcConfig',
     'GetBrokerNodesNodeInfoListResult',
 ]
 
@@ -933,6 +937,109 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
         Indicates whether you want to enable or disable the JMX Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
+
+
+@pulumi.output_type
+class ServerlessClusterClientAuthentication(dict):
+    def __init__(__self__, *,
+                 sasl: 'outputs.ServerlessClusterClientAuthenticationSasl'):
+        """
+        :param 'ServerlessClusterClientAuthenticationSaslArgs' sasl: Details for client authentication using SASL. See below.
+        """
+        pulumi.set(__self__, "sasl", sasl)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> 'outputs.ServerlessClusterClientAuthenticationSasl':
+        """
+        Details for client authentication using SASL. See below.
+        """
+        return pulumi.get(self, "sasl")
+
+
+@pulumi.output_type
+class ServerlessClusterClientAuthenticationSasl(dict):
+    def __init__(__self__, *,
+                 iam: 'outputs.ServerlessClusterClientAuthenticationSaslIam'):
+        """
+        :param 'ServerlessClusterClientAuthenticationSaslIamArgs' iam: Details for client authentication using IAM. See below.
+        """
+        pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> 'outputs.ServerlessClusterClientAuthenticationSaslIam':
+        """
+        Details for client authentication using IAM. See below.
+        """
+        return pulumi.get(self, "iam")
+
+
+@pulumi.output_type
+class ServerlessClusterClientAuthenticationSaslIam(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Whether SASL/IAM authentication is enabled or not.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether SASL/IAM authentication is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ServerlessClusterVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessClusterVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessClusterVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessClusterVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_ids: Sequence[str],
+                 security_group_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] subnet_ids: A list of subnets in at least two different Availability Zones that host your client applications.
+        :param Sequence[str] security_group_ids: Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        A list of subnets in at least two different Availability Zones that host your client applications.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+        """
+        return pulumi.get(self, "security_group_ids")
 
 
 @pulumi.output_type

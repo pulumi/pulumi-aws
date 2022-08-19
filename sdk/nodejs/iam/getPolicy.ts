@@ -75,6 +75,9 @@ export interface GetPolicyArgs {
  * A collection of values returned by getPolicy.
  */
 export interface GetPolicyResult {
+    /**
+     * The ARN of the policy.
+     */
     readonly arn: string;
     /**
      * The description of the policy.

@@ -165,6 +165,10 @@ type Certificate struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
+	// The expiration date and time of the certificate.
+	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
+	// The start of the validity period of the certificate.
+	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrOutput `pulumi:"options"`
 	// The certificate's PEM-formatted private key
@@ -228,6 +232,10 @@ type certificateState struct {
 	DomainName *string `pulumi:"domainName"`
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
+	// The expiration date and time of the certificate.
+	NotAfter *string `pulumi:"notAfter"`
+	// The start of the validity period of the certificate.
+	NotBefore *string `pulumi:"notBefore"`
 	// Configuration block used to set certificate options. Detailed below.
 	Options *CertificateOptions `pulumi:"options"`
 	// The certificate's PEM-formatted private key
@@ -263,6 +271,10 @@ type CertificateState struct {
 	DomainName pulumi.StringPtrInput
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
+	// The expiration date and time of the certificate.
+	NotAfter pulumi.StringPtrInput
+	// The start of the validity period of the certificate.
+	NotBefore pulumi.StringPtrInput
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
@@ -455,6 +467,16 @@ func (o CertificateOutput) DomainName() pulumi.StringOutput {
 // Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidationOptionArrayOutput {
 	return o.ApplyT(func(v *Certificate) CertificateDomainValidationOptionArrayOutput { return v.DomainValidationOptions }).(CertificateDomainValidationOptionArrayOutput)
+}
+
+// The expiration date and time of the certificate.
+func (o CertificateOutput) NotAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotAfter }).(pulumi.StringOutput)
+}
+
+// The start of the validity period of the certificate.
+func (o CertificateOutput) NotBefore() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
 }
 
 // Configuration block used to set certificate options. Detailed below.

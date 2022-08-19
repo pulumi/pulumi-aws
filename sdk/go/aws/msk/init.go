@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Configuration{}
 	case "aws:msk/scramSecretAssociation:ScramSecretAssociation":
 		r = &ScramSecretAssociation{}
+	case "aws:msk/serverlessCluster:ServerlessCluster":
+		r = &ServerlessCluster{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"msk/scramSecretAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"msk/serverlessCluster",
 		&module{version},
 	)
 }

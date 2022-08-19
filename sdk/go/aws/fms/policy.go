@@ -39,9 +39,7 @@ import (
 //			_, err = fms.NewPolicy(ctx, "examplePolicy", &fms.PolicyArgs{
 //				ExcludeResourceTags: pulumi.Bool(false),
 //				RemediationEnabled:  pulumi.Bool(false),
-//				ResourceTypeLists: pulumi.StringArray{
-//					pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
-//				},
+//				ResourceType:        pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
 //				SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
 //					Type: pulumi.String("WAF"),
 //					ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id string) (pulumi.String, error) {
@@ -114,7 +112,7 @@ type Policy struct {
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayOutput `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataOutput `pulumi:"securityServicePolicyData"`
@@ -179,7 +177,7 @@ type policyState struct {
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType *string `pulumi:"resourceType"`
-	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
@@ -210,7 +208,7 @@ type PolicyState struct {
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType pulumi.StringPtrInput
-	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataPtrInput
@@ -242,7 +240,7 @@ type policyArgs struct {
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType *string `pulumi:"resourceType"`
-	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
@@ -270,7 +268,7 @@ type PolicyArgs struct {
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType pulumi.StringPtrInput
-	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataInput
@@ -419,7 +417,7 @@ func (o PolicyOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 func (o PolicyOutput) ResourceTypeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceTypeLists }).(pulumi.StringArrayOutput)
 }

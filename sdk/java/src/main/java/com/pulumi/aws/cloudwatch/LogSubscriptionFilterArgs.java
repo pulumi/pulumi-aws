@@ -46,14 +46,14 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
     @Import(name="filterPattern", required=true)
     private Output<String> filterPattern;
 
     /**
-     * @return A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     * @return A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
     public Output<String> filterPattern() {
@@ -177,7 +177,7 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param filterPattern A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+         * @param filterPattern A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param filterPattern A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+         * @param filterPattern A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
          * 
          * @return builder
          * 

@@ -210,14 +210,14 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", type=List.class, parameters={EcsClusterLayerEbsVolume.class})
-    private Output</* @Nullable */ List<EcsClusterLayerEbsVolume>> ebsVolumes;
+    private Output<List<EcsClusterLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public Output<Optional<List<EcsClusterLayerEbsVolume>>> ebsVolumes() {
-        return Codegen.optional(this.ebsVolumes);
+    public Output<List<EcsClusterLayerEbsVolume>> ebsVolumes() {
+        return this.ebsVolumes;
     }
     /**
      * The ECS Cluster ARN of the layer.

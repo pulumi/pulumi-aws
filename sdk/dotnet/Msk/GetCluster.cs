@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Get information on an Amazon MSK Cluster.
         /// 
+        /// &gt; **Note:** This data sources returns information on _provisioned_ clusters.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -40,6 +42,8 @@ namespace Pulumi.Aws.Msk
 
         /// <summary>
         /// Get information on an Amazon MSK Cluster.
+        /// 
+        /// &gt; **Note:** This data sources returns information on _provisioned_ clusters.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

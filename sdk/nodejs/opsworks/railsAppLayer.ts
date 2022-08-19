@@ -94,7 +94,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.RailsAppLayerEbsVolume[] | undefined>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.RailsAppLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */

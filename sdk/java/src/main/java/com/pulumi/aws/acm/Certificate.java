@@ -254,6 +254,34 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.domainValidationOptions;
     }
     /**
+     * The expiration date and time of the certificate.
+     * 
+     */
+    @Export(name="notAfter", type=String.class, parameters={})
+    private Output<String> notAfter;
+
+    /**
+     * @return The expiration date and time of the certificate.
+     * 
+     */
+    public Output<String> notAfter() {
+        return this.notAfter;
+    }
+    /**
+     * The start of the validity period of the certificate.
+     * 
+     */
+    @Export(name="notBefore", type=String.class, parameters={})
+    private Output<String> notBefore;
+
+    /**
+     * @return The start of the validity period of the certificate.
+     * 
+     */
+    public Output<String> notBefore() {
+        return this.notBefore;
+    }
+    /**
      * Configuration block used to set certificate options. Detailed below.
      * 
      */

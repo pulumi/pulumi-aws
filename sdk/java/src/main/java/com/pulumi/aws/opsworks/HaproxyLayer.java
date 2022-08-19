@@ -210,14 +210,14 @@ public class HaproxyLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", type=List.class, parameters={HaproxyLayerEbsVolume.class})
-    private Output</* @Nullable */ List<HaproxyLayerEbsVolume>> ebsVolumes;
+    private Output<List<HaproxyLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public Output<Optional<List<HaproxyLayerEbsVolume>>> ebsVolumes() {
-        return Codegen.optional(this.ebsVolumes);
+    public Output<List<HaproxyLayerEbsVolume>> ebsVolumes() {
+        return this.ebsVolumes;
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer

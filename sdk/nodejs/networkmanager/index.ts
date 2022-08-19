@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./attachmentAccepter";
 export * from "./connection";
 export * from "./customerGatewayAssociation";
 export * from "./device";
@@ -25,8 +26,10 @@ export * from "./linkAssociation";
 export * from "./site";
 export * from "./transitGatewayConnectPeerAssociation";
 export * from "./transitGatewayRegistration";
+export * from "./vpcAttachment";
 
 // Import resources to register:
+import { AttachmentAccepter } from "./attachmentAccepter";
 import { Connection } from "./connection";
 import { CustomerGatewayAssociation } from "./customerGatewayAssociation";
 import { Device } from "./device";
@@ -36,11 +39,14 @@ import { LinkAssociation } from "./linkAssociation";
 import { Site } from "./site";
 import { TransitGatewayConnectPeerAssociation } from "./transitGatewayConnectPeerAssociation";
 import { TransitGatewayRegistration } from "./transitGatewayRegistration";
+import { VpcAttachment } from "./vpcAttachment";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:networkmanager/attachmentAccepter:AttachmentAccepter":
+                return new AttachmentAccepter(name, <any>undefined, { urn })
             case "aws:networkmanager/connection:Connection":
                 return new Connection(name, <any>undefined, { urn })
             case "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation":
@@ -59,11 +65,14 @@ const _module = {
                 return new TransitGatewayConnectPeerAssociation(name, <any>undefined, { urn })
             case "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration":
                 return new TransitGatewayRegistration(name, <any>undefined, { urn })
+            case "aws:networkmanager/vpcAttachment:VpcAttachment":
+                return new VpcAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "networkmanager/attachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/customerGatewayAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/device", _module)
@@ -73,3 +82,4 @@ pulumi.runtime.registerResourceModule("aws", "networkmanager/linkAssociation", _
 pulumi.runtime.registerResourceModule("aws", "networkmanager/site", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayConnectPeerAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayRegistration", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/vpcAttachment", _module)

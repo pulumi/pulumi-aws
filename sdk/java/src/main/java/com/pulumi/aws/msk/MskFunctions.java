@@ -174,6 +174,8 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK Cluster.
      * 
+     * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -210,6 +212,8 @@ public final class MskFunctions {
     }
     /**
      * Get information on an Amazon MSK Cluster.
+     * 
+     * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
      * ```java
@@ -248,6 +252,8 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK Cluster.
      * 
+     * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -284,6 +290,8 @@ public final class MskFunctions {
     }
     /**
      * Get information on an Amazon MSK Cluster.
+     * 
+     * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
      * ```java

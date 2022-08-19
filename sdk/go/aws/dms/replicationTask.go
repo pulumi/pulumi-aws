@@ -13,6 +13,8 @@ import (
 
 // Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
 //
+// > **NOTE:** Changing most arguments will stop the task if it is running. You can set `startReplicationTask` to resume the task afterwards.
+//
 // ## Example Usage
 //
 // ```go

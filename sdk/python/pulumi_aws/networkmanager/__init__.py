@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .attachment_accepter import *
 from .connection import *
 from .customer_gateway_association import *
 from .device import *
@@ -25,5 +26,6 @@ from .link_association import *
 from .site import *
 from .transit_gateway_connect_peer_association import *
 from .transit_gateway_registration import *
+from .vpc_attachment import *
 from ._inputs import *
 from . import outputs

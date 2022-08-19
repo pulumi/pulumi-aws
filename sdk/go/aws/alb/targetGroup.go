@@ -160,6 +160,8 @@ type TargetGroup struct {
 	DeregistrationDelay pulumi.IntPtrOutput `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
 	HealthCheck TargetGroupHealthCheckOutput `pulumi:"healthCheck"`
+	// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrOutput `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
@@ -237,6 +239,8 @@ type targetGroupState struct {
 	DeregistrationDelay *int `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
 	HealthCheck *TargetGroupHealthCheck `pulumi:"healthCheck"`
+	// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
 	LambdaMultiValueHeadersEnabled *bool `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
@@ -280,6 +284,8 @@ type TargetGroupState struct {
 	DeregistrationDelay pulumi.IntPtrInput
 	// Health Check configuration block. Detailed below.
 	HealthCheck TargetGroupHealthCheckPtrInput
+	// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+	IpAddressType pulumi.StringPtrInput
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrInput
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
@@ -323,6 +329,8 @@ type targetGroupArgs struct {
 	DeregistrationDelay *int `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
 	HealthCheck *TargetGroupHealthCheck `pulumi:"healthCheck"`
+	// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
 	LambdaMultiValueHeadersEnabled *bool `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
@@ -361,6 +369,8 @@ type TargetGroupArgs struct {
 	DeregistrationDelay pulumi.IntPtrInput
 	// Health Check configuration block. Detailed below.
 	HealthCheck TargetGroupHealthCheckPtrInput
+	// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+	IpAddressType pulumi.StringPtrInput
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrInput
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
@@ -501,6 +511,11 @@ func (o TargetGroupOutput) DeregistrationDelay() pulumi.IntPtrOutput {
 // Health Check configuration block. Detailed below.
 func (o TargetGroupOutput) HealthCheck() TargetGroupHealthCheckOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupHealthCheckOutput { return v.HealthCheck }).(TargetGroupHealthCheckOutput)
+}
+
+// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+func (o TargetGroupOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.

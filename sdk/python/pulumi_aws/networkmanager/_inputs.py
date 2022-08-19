@@ -14,6 +14,7 @@ __all__ = [
     'DeviceLocationArgs',
     'LinkBandwidthArgs',
     'SiteLocationArgs',
+    'VpcAttachmentOptionsArgs',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyArgs',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs',
@@ -209,6 +210,28 @@ class SiteLocationArgs:
     @longitude.setter
     def longitude(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "longitude", value)
+
+
+@pulumi.input_type
+class VpcAttachmentOptionsArgs:
+    def __init__(__self__, *,
+                 ipv6_support: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] ipv6_support: Indicates whether IPv6 is supported.
+        """
+        pulumi.set(__self__, "ipv6_support", ipv6_support)
+
+    @property
+    @pulumi.getter(name="ipv6Support")
+    def ipv6_support(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether IPv6 is supported.
+        """
+        return pulumi.get(self, "ipv6_support")
+
+    @ipv6_support.setter
+    def ipv6_support(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "ipv6_support", value)
 
 
 @pulumi.input_type

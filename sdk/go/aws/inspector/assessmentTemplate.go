@@ -36,6 +36,12 @@ import (
 //					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"),
 //					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"),
 //				},
+//				EventSubscriptions: inspector.AssessmentTemplateEventSubscriptionArray{
+//					&inspector.AssessmentTemplateEventSubscriptionArgs{
+//						Event:    pulumi.String("ASSESSMENT_RUN_COMPLETED"),
+//						TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -62,6 +68,8 @@ type AssessmentTemplate struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The duration of the inspector run.
 	Duration pulumi.IntOutput `pulumi:"duration"`
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+	EventSubscriptions AssessmentTemplateEventSubscriptionArrayOutput `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rules to be used during the run.
@@ -116,6 +124,8 @@ type assessmentTemplateState struct {
 	Arn *string `pulumi:"arn"`
 	// The duration of the inspector run.
 	Duration *int `pulumi:"duration"`
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
@@ -133,6 +143,8 @@ type AssessmentTemplateState struct {
 	Arn pulumi.StringPtrInput
 	// The duration of the inspector run.
 	Duration pulumi.IntPtrInput
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
 	// The name of the assessment template.
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
@@ -152,6 +164,8 @@ func (AssessmentTemplateState) ElementType() reflect.Type {
 type assessmentTemplateArgs struct {
 	// The duration of the inspector run.
 	Duration int `pulumi:"duration"`
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
@@ -166,6 +180,8 @@ type assessmentTemplateArgs struct {
 type AssessmentTemplateArgs struct {
 	// The duration of the inspector run.
 	Duration pulumi.IntInput
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
 	// The name of the assessment template.
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
@@ -271,6 +287,13 @@ func (o AssessmentTemplateOutput) Arn() pulumi.StringOutput {
 // The duration of the inspector run.
 func (o AssessmentTemplateOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.IntOutput { return v.Duration }).(pulumi.IntOutput)
+}
+
+// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+func (o AssessmentTemplateOutput) EventSubscriptions() AssessmentTemplateEventSubscriptionArrayOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) AssessmentTemplateEventSubscriptionArrayOutput {
+		return v.EventSubscriptions
+	}).(AssessmentTemplateEventSubscriptionArrayOutput)
 }
 
 // The name of the assessment template.

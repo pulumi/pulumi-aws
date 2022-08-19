@@ -2305,6 +2305,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_site":                                     {Tok: awsResource(networkManagerMod, "Site")},
 			"aws_networkmanager_transit_gateway_connect_peer_association": {Tok: awsResource(networkManagerMod, "TransitGatewayConnectPeerAssociation")},
 			"aws_networkmanager_transit_gateway_registration":             {Tok: awsResource(networkManagerMod, "TransitGatewayRegistration")},
+			"aws_networkmanager_attachment_accepter":                      {Tok: awsResource(networkManagerMod, "AttachmentAccepter")},
+			"aws_networkmanager_vpc_attachment":                           {Tok: awsResource(networkManagerMod, "VpcAttachment")},
 			// OpenSearch
 			"aws_opensearch_domain": {
 				Tok: awsResource(opensearchMod, "Domain"),
@@ -2315,8 +2317,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_opensearch_domain_policy":       {Tok: awsResource(opensearchMod, "DomainPolicy")},
 			"aws_opensearch_domain_saml_options": {Tok: awsResource(opensearchMod, "DomainSamlOptions")},
 			// OpsWorks
-			"aws_opsworks_application":       {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack":             {Tok: awsResource(opsworksMod, "Stack")},
+			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
+			"aws_opsworks_stack": {
+				Tok: awsResource(opsworksMod, "Stack"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"custom_cookbooks_source": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "customCookbooksSources",
+					},
+				},
+			},
 			"aws_opsworks_java_app_layer":    {Tok: awsResource(opsworksMod, "JavaAppLayer")},
 			"aws_opsworks_haproxy_layer":     {Tok: awsResource(opsworksMod, "HaproxyLayer")},
 			"aws_opsworks_static_web_layer":  {Tok: awsResource(opsworksMod, "StaticWebLayer")},
@@ -3156,6 +3166,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_msk_configuration":            {Tok: awsResource(mskMod, "Configuration")},
 			"aws_msk_scram_secret_association": {Tok: awsResource(mskMod, "ScramSecretAssociation")},
+			"aws_msk_serverless_cluster": {
+				Tok: awsResource(mskMod, "ServerlessCluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_name": tfbridge.AutoName("clusterName", 255, "-"),
+				},
+			},
 			// MSKConnect
 			"aws_mskconnect_custom_plugin":        {Tok: awsResource(mskConnectMod, "CustomPlugin")},
 			"aws_mskconnect_worker_configuration": {Tok: awsResource(mskConnectMod, "WorkerConfiguration")},

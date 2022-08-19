@@ -4504,6 +4504,11 @@ func (o GetFirewallEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFirewallFirewallStatus struct {
+	// Aggregated count of all resources used by reference sets in a firewall.
+	CapacityUsageSummaries []GetFirewallFirewallStatusCapacityUsageSummary `pulumi:"capacityUsageSummaries"`
+	// Summary of sync states for all availability zones in which the firewall is configured.
+	ConfigurationSyncStateSummary string `pulumi:"configurationSyncStateSummary"`
+	Status                        string `pulumi:"status"`
 	// Set of subnets configured for use by the firewall.
 	SyncStates []GetFirewallFirewallStatusSyncState `pulumi:"syncStates"`
 }
@@ -4520,6 +4525,11 @@ type GetFirewallFirewallStatusInput interface {
 }
 
 type GetFirewallFirewallStatusArgs struct {
+	// Aggregated count of all resources used by reference sets in a firewall.
+	CapacityUsageSummaries GetFirewallFirewallStatusCapacityUsageSummaryArrayInput `pulumi:"capacityUsageSummaries"`
+	// Summary of sync states for all availability zones in which the firewall is configured.
+	ConfigurationSyncStateSummary pulumi.StringInput `pulumi:"configurationSyncStateSummary"`
+	Status                        pulumi.StringInput `pulumi:"status"`
 	// Set of subnets configured for use by the firewall.
 	SyncStates GetFirewallFirewallStatusSyncStateArrayInput `pulumi:"syncStates"`
 }
@@ -4575,6 +4585,22 @@ func (o GetFirewallFirewallStatusOutput) ToGetFirewallFirewallStatusOutputWithCo
 	return o
 }
 
+// Aggregated count of all resources used by reference sets in a firewall.
+func (o GetFirewallFirewallStatusOutput) CapacityUsageSummaries() GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatus) []GetFirewallFirewallStatusCapacityUsageSummary {
+		return v.CapacityUsageSummaries
+	}).(GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput)
+}
+
+// Summary of sync states for all availability zones in which the firewall is configured.
+func (o GetFirewallFirewallStatusOutput) ConfigurationSyncStateSummary() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatus) string { return v.ConfigurationSyncStateSummary }).(pulumi.StringOutput)
+}
+
+func (o GetFirewallFirewallStatusOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatus) string { return v.Status }).(pulumi.StringOutput)
+}
+
 // Set of subnets configured for use by the firewall.
 func (o GetFirewallFirewallStatusOutput) SyncStates() GetFirewallFirewallStatusSyncStateArrayOutput {
 	return o.ApplyT(func(v GetFirewallFirewallStatus) []GetFirewallFirewallStatusSyncState { return v.SyncStates }).(GetFirewallFirewallStatusSyncStateArrayOutput)
@@ -4598,6 +4624,321 @@ func (o GetFirewallFirewallStatusArrayOutput) Index(i pulumi.IntInput) GetFirewa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallFirewallStatus {
 		return vs[0].([]GetFirewallFirewallStatus)[vs[1].(int)]
 	}).(GetFirewallFirewallStatusOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummary struct {
+	// Capacity usage of CIDR blocks used by IP set references in a firewall.
+	Cidrs []GetFirewallFirewallStatusCapacityUsageSummaryCidr `pulumi:"cidrs"`
+}
+
+// GetFirewallFirewallStatusCapacityUsageSummaryInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryArgs and GetFirewallFirewallStatusCapacityUsageSummaryOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryInput` via:
+//
+//	GetFirewallFirewallStatusCapacityUsageSummaryArgs{...}
+type GetFirewallFirewallStatusCapacityUsageSummaryInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusCapacityUsageSummaryOutput() GetFirewallFirewallStatusCapacityUsageSummaryOutput
+	ToGetFirewallFirewallStatusCapacityUsageSummaryOutputWithContext(context.Context) GetFirewallFirewallStatusCapacityUsageSummaryOutput
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryArgs struct {
+	// Capacity usage of CIDR blocks used by IP set references in a firewall.
+	Cidrs GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput `pulumi:"cidrs"`
+}
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummary)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryArgs) ToGetFirewallFirewallStatusCapacityUsageSummaryOutput() GetFirewallFirewallStatusCapacityUsageSummaryOutput {
+	return i.ToGetFirewallFirewallStatusCapacityUsageSummaryOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryArgs) ToGetFirewallFirewallStatusCapacityUsageSummaryOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryOutput)
+}
+
+// GetFirewallFirewallStatusCapacityUsageSummaryArrayInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryArray and GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryArrayInput` via:
+//
+//	GetFirewallFirewallStatusCapacityUsageSummaryArray{ GetFirewallFirewallStatusCapacityUsageSummaryArgs{...} }
+type GetFirewallFirewallStatusCapacityUsageSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput
+	ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutputWithContext(context.Context) GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryArray []GetFirewallFirewallStatusCapacityUsageSummaryInput
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusCapacityUsageSummary)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryArray) ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput {
+	return i.ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryArray) ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummary)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryOutput() GetFirewallFirewallStatusCapacityUsageSummaryOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryOutput {
+	return o
+}
+
+// Capacity usage of CIDR blocks used by IP set references in a firewall.
+func (o GetFirewallFirewallStatusCapacityUsageSummaryOutput) Cidrs() GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummary) []GetFirewallFirewallStatusCapacityUsageSummaryCidr {
+		return v.Cidrs
+	}).(GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusCapacityUsageSummary)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusCapacityUsageSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallFirewallStatusCapacityUsageSummary {
+		return vs[0].([]GetFirewallFirewallStatusCapacityUsageSummary)[vs[1].(int)]
+	}).(GetFirewallFirewallStatusCapacityUsageSummaryOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidr struct {
+	// Available number of CIDR blocks available for use by the IP set references in a firewall.
+	AvailableCidrCount int `pulumi:"availableCidrCount"`
+	// The list of IP set references used by a firewall.
+	IpSetReferences []GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference `pulumi:"ipSetReferences"`
+	// Number of CIDR blocks used by the IP set references in a firewall.
+	UtilizedCidrCount int `pulumi:"utilizedCidrCount"`
+}
+
+// GetFirewallFirewallStatusCapacityUsageSummaryCidrInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs and GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryCidrInput` via:
+//
+//	GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs{...}
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutputWithContext(context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs struct {
+	// Available number of CIDR blocks available for use by the IP set references in a firewall.
+	AvailableCidrCount pulumi.IntInput `pulumi:"availableCidrCount"`
+	// The list of IP set references used by a firewall.
+	IpSetReferences GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput `pulumi:"ipSetReferences"`
+	// Number of CIDR blocks used by the IP set references in a firewall.
+	UtilizedCidrCount pulumi.IntInput `pulumi:"utilizedCidrCount"`
+}
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidr)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
+	return i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput)
+}
+
+// GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrArray and GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput` via:
+//
+//	GetFirewallFirewallStatusCapacityUsageSummaryCidrArray{ GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs{...} }
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutputWithContext(context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrArray []GetFirewallFirewallStatusCapacityUsageSummaryCidrInput
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusCapacityUsageSummaryCidr)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArray) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput {
+	return i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArray) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidr)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
+	return o
+}
+
+// Available number of CIDR blocks available for use by the IP set references in a firewall.
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) AvailableCidrCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) int { return v.AvailableCidrCount }).(pulumi.IntOutput)
+}
+
+// The list of IP set references used by a firewall.
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) IpSetReferences() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) []GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference {
+		return v.IpSetReferences
+	}).(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput)
+}
+
+// Number of CIDR blocks used by the IP set references in a firewall.
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) UtilizedCidrCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidr) int { return v.UtilizedCidrCount }).(pulumi.IntOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusCapacityUsageSummaryCidr)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallFirewallStatusCapacityUsageSummaryCidr {
+		return vs[0].([]GetFirewallFirewallStatusCapacityUsageSummaryCidr)[vs[1].(int)]
+	}).(GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference struct {
+	// Total number of CIDR blocks used by the IP set references in a firewall.
+	ResolvedCidrCount int `pulumi:"resolvedCidrCount"`
+}
+
+// GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs and GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput` via:
+//
+//	GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs{...}
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutputWithContext(context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs struct {
+	// Total number of CIDR blocks used by the IP set references in a firewall.
+	ResolvedCidrCount pulumi.IntInput `pulumi:"resolvedCidrCount"`
+}
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
+	return i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput)
+}
+
+// GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray and GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput values.
+// You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput` via:
+//
+//	GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray{ GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs{...} }
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput
+	ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutputWithContext(context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray []GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference)(nil)).Elem()
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput {
+	return i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
+	return o
+}
+
+// Total number of CIDR blocks used by the IP set references in a firewall.
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ResolvedCidrCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference) int {
+		return v.ResolvedCidrCount
+	}).(pulumi.IntOutput)
+}
+
+type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference)(nil)).Elem()
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput() GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput {
+	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference {
+		return vs[0].([]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference)[vs[1].(int)]
+	}).(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput)
 }
 
 type GetFirewallFirewallStatusSyncState struct {
@@ -4711,6 +5052,7 @@ func (o GetFirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) 
 type GetFirewallFirewallStatusSyncStateAttachment struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 	EndpointId string `pulumi:"endpointId"`
+	Status     string `pulumi:"status"`
 	// The unique identifier for the subnet.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -4729,6 +5071,7 @@ type GetFirewallFirewallStatusSyncStateAttachmentInput interface {
 type GetFirewallFirewallStatusSyncStateAttachmentArgs struct {
 	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
+	Status     pulumi.StringInput `pulumi:"status"`
 	// The unique identifier for the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -4787,6 +5130,10 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) ToGetFirewallFirewal
 // The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
 func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.EndpointId }).(pulumi.StringOutput)
+}
+
+func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallFirewallStatusSyncStateAttachment) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // The unique identifier for the subnet.
@@ -5807,6 +6154,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallEncryptionConfigurationArrayInput)(nil)).Elem(), GetFirewallEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusInput)(nil)).Elem(), GetFirewallFirewallStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusArrayInput)(nil)).Elem(), GetFirewallFirewallStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryInput)(nil)).Elem(), GetFirewallFirewallStatusCapacityUsageSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryArrayInput)(nil)).Elem(), GetFirewallFirewallStatusCapacityUsageSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidrInput)(nil)).Elem(), GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput)(nil)).Elem(), GetFirewallFirewallStatusCapacityUsageSummaryCidrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceInput)(nil)).Elem(), GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput)(nil)).Elem(), GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateArrayInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateAttachmentInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateAttachmentArgs{})
@@ -5902,6 +6255,12 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusCapacityUsageSummaryOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput{})
+	pulumi.RegisterOutputType(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateAttachmentOutput{})

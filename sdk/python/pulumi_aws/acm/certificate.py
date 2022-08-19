@@ -194,6 +194,8 @@ class _CertificateState:
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
+                 not_after: Optional[pulumi.Input[str]] = None,
+                 not_before: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -212,6 +214,8 @@ class _CertificateState:
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[str] not_after: The expiration date and time of the certificate.
+        :param pulumi.Input[str] not_before: The start of the validity period of the certificate.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
@@ -235,6 +239,10 @@ class _CertificateState:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_validation_options is not None:
             pulumi.set(__self__, "domain_validation_options", domain_validation_options)
+        if not_after is not None:
+            pulumi.set(__self__, "not_after", not_after)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if private_key is not None:
@@ -326,6 +334,30 @@ class _CertificateState:
     @domain_validation_options.setter
     def domain_validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]):
         pulumi.set(self, "domain_validation_options", value)
+
+    @property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date and time of the certificate.
+        """
+        return pulumi.get(self, "not_after")
+
+    @not_after.setter
+    def not_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_after", value)
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start of the validity period of the certificate.
+        """
+        return pulumi.get(self, "not_before")
+
+    @not_before.setter
+    def not_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_before", value)
 
     @property
     @pulumi.getter
@@ -720,6 +752,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["validation_options"] = validation_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_validation_options"] = None
+            __props__.__dict__["not_after"] = None
+            __props__.__dict__["not_before"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["validation_emails"] = None
@@ -739,6 +773,8 @@ class Certificate(pulumi.CustomResource):
             certificate_chain: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
+            not_after: Optional[pulumi.Input[str]] = None,
+            not_before: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
             private_key: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -762,6 +798,8 @@ class Certificate(pulumi.CustomResource):
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[str] not_after: The expiration date and time of the certificate.
+        :param pulumi.Input[str] not_before: The start of the validity period of the certificate.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
@@ -783,6 +821,8 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_chain"] = certificate_chain
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_validation_options"] = domain_validation_options
+        __props__.__dict__["not_after"] = not_after
+        __props__.__dict__["not_before"] = not_before
         __props__.__dict__["options"] = options
         __props__.__dict__["private_key"] = private_key
         __props__.__dict__["status"] = status
@@ -842,6 +882,22 @@ class Certificate(pulumi.CustomResource):
         Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         """
         return pulumi.get(self, "domain_validation_options")
+
+    @property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> pulumi.Output[str]:
+        """
+        The expiration date and time of the certificate.
+        """
+        return pulumi.get(self, "not_after")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> pulumi.Output[str]:
+        """
+        The start of the validity period of the certificate.
+        """
+        return pulumi.get(self, "not_before")
 
     @property
     @pulumi.getter

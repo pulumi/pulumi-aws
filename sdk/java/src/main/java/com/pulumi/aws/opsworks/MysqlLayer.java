@@ -209,14 +209,14 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsVolumes", type=List.class, parameters={MysqlLayerEbsVolume.class})
-    private Output</* @Nullable */ List<MysqlLayerEbsVolume>> ebsVolumes;
+    private Output<List<MysqlLayerEbsVolume>> ebsVolumes;
 
     /**
      * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public Output<Optional<List<MysqlLayerEbsVolume>>> ebsVolumes() {
-        return Codegen.optional(this.ebsVolumes);
+    public Output<List<MysqlLayerEbsVolume>> ebsVolumes() {
+        return this.ebsVolumes;
     }
     /**
      * Name of an Elastic Load Balancer to attach to this layer

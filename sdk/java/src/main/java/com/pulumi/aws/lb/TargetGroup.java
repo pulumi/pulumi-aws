@@ -246,6 +246,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.healthCheck;
     }
     /**
+     * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     * 
+     */
+    @Export(name="ipAddressType", type=String.class, parameters={})
+    private Output<String> ipAddressType;
+
+    /**
+     * @return The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
      * 
      */

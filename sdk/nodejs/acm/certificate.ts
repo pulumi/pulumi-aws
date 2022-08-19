@@ -165,6 +165,14 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
     /**
+     * The expiration date and time of the certificate.
+     */
+    public /*out*/ readonly notAfter!: pulumi.Output<string>;
+    /**
+     * The start of the validity period of the certificate.
+     */
+    public /*out*/ readonly notBefore!: pulumi.Output<string>;
+    /**
      * Configuration block used to set certificate options. Detailed below.
      */
     public readonly options!: pulumi.Output<outputs.acm.CertificateOptions | undefined>;
@@ -221,6 +229,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
+            resourceInputs["notAfter"] = state ? state.notAfter : undefined;
+            resourceInputs["notBefore"] = state ? state.notBefore : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -244,6 +254,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationOptions"] = args ? args.validationOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainValidationOptions"] = undefined /*out*/;
+            resourceInputs["notAfter"] = undefined /*out*/;
+            resourceInputs["notBefore"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["validationEmails"] = undefined /*out*/;
@@ -282,6 +294,14 @@ export interface CertificateState {
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
      */
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
+    /**
+     * The expiration date and time of the certificate.
+     */
+    notAfter?: pulumi.Input<string>;
+    /**
+     * The start of the validity period of the certificate.
+     */
+    notBefore?: pulumi.Input<string>;
     /**
      * Configuration block used to set certificate options. Detailed below.
      */

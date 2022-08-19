@@ -166,6 +166,18 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The expiration date and time of the certificate.
+        /// </summary>
+        [Output("notAfter")]
+        public Output<string> NotAfter { get; private set; } = null!;
+
+        /// <summary>
+        /// The start of the validity period of the certificate.
+        /// </summary>
+        [Output("notBefore")]
+        public Output<string> NotBefore { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
         [Output("options")]
@@ -396,6 +408,18 @@ namespace Pulumi.Aws.Acm
             get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionGetArgs>());
             set => _domainValidationOptions = value;
         }
+
+        /// <summary>
+        /// The expiration date and time of the certificate.
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// The start of the validity period of the certificate.
+        /// </summary>
+        [Input("notBefore")]
+        public Input<string>? NotBefore { get; set; }
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.

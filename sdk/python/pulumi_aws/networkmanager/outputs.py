@@ -15,6 +15,7 @@ __all__ = [
     'DeviceLocation',
     'LinkBandwidth',
     'SiteLocation',
+    'VpcAttachmentOptions',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult',
@@ -210,6 +211,41 @@ class SiteLocation(dict):
         Longitude of the location.
         """
         return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
+class VpcAttachmentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Support":
+            suggest = "ipv6_support"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcAttachmentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcAttachmentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcAttachmentOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_support: bool):
+        """
+        :param bool ipv6_support: Indicates whether IPv6 is supported.
+        """
+        pulumi.set(__self__, "ipv6_support", ipv6_support)
+
+    @property
+    @pulumi.getter(name="ipv6Support")
+    def ipv6_support(self) -> bool:
+        """
+        Indicates whether IPv6 is supported.
+        """
+        return pulumi.get(self, "ipv6_support")
 
 
 @pulumi.output_type

@@ -89,7 +89,7 @@ export class GangliaLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.GangliaLayerEbsVolume[] | undefined>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.GangliaLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
